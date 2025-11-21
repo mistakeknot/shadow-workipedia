@@ -1,0 +1,1563 @@
+{
+  "metadata": {
+    "totalIssues": 255,
+    "generatedDate": "2025-11-21",
+    "systemsAvailable": [
+      "Climate",
+      "Culture",
+      "Diplomacy",
+      "Economy",
+      "Education",
+      "Geography",
+      "Healthcare",
+      "Infrastructure",
+      "Institutions",
+      "Institutions (Policing)",
+      "International Orgs",
+      "Media",
+      "Military",
+      "Pandemic",
+      "Politics",
+      "Politics (Policy)",
+      "Population",
+      "Population (Cohorts)",
+      "Population (Movements)",
+      "Public Finance",
+      "Resources",
+      "Technology",
+      "Trade"
+    ]
+  },
+  "mappings": [
+    {
+      "issueId": "social-media-addiction-crisis",
+      "issueName": "Social Media Addiction Crisis",
+      "systems": ["Technology", "Healthcare", "Culture", "Population (Cohorts)"],
+      "reasoning": "Technology platforms drive addiction, mental health impacts, cultural shift in social interaction, particularly affects youth cohorts"
+    },
+    {
+      "issueId": "ai-job-displacement-tsunami",
+      "issueName": "AI Job Displacement Tsunami",
+      "systems": ["Technology", "Economy", "Politics (Policy)", "Population (Cohorts)"],
+      "reasoning": "AI automation disrupts labor markets, requires economic restructuring and policy responses, disproportionately affects working-age cohorts"
+    },
+    {
+      "issueId": "deepfake-reality-crisis",
+      "issueName": "Deepfake Reality Crisis",
+      "systems": ["Technology", "Media", "Politics", "Diplomacy"],
+      "reasoning": "Deepfake technology undermines media trust, enables political manipulation, creates diplomatic incidents"
+    },
+    {
+      "issueId": "ai-compute-resource-wars",
+      "issueName": "AI Compute Resource Wars",
+      "systems": ["Technology", "Resources", "Trade", "Diplomacy"],
+      "reasoning": "Competition for GPU/TPU hardware, water/energy resources, export controls as weapons, international tensions"
+    },
+    {
+      "issueId": "splinternet-and-data-localization-wars",
+      "issueName": "Splinternet and Data Localization Wars",
+      "systems": ["Technology", "Politics (Policy)", "Trade", "Diplomacy"],
+      "reasoning": "Data sovereignty policies fragment internet, trade barriers, international regulatory conflicts"
+    },
+    {
+      "issueId": "gender-medicine-youth-controversy",
+      "issueName": "Gender Medicine Youth Controversy",
+      "systems": ["Healthcare", "Politics", "Culture", "Population (Cohorts)"],
+      "reasoning": "Medical treatment debates, political polarization, cultural values conflict, youth identity issues"
+    },
+    {
+      "issueId": "racial-reckoning-cycles",
+      "issueName": "Racial Reckoning Cycles",
+      "systems": ["Institutions (Policing)", "Politics", "Culture", "Economy"],
+      "reasoning": "Police violence triggers protests, political responses, cultural movements, economic inequality as root cause"
+    },
+    {
+      "issueId": "religious-freedom-battles",
+      "issueName": "Religious Freedom Battles",
+      "systems": ["Culture", "Politics", "Institutions"],
+      "reasoning": "Cultural secularization trends, political conflicts over rights, institutional accommodation issues"
+    },
+    {
+      "issueId": "housing-impossibility-crisis",
+      "issueName": "Housing Impossibility Crisis",
+      "systems": ["Economy", "Infrastructure", "Politics (Policy)", "Population"],
+      "reasoning": "Economic affordability crisis, infrastructure/zoning constraints, policy failures, demographic pressures"
+    },
+    {
+      "issueId": "housing-bubble-and-foreclosure-crisis",
+      "issueName": "Housing Bubble and Foreclosure Crisis",
+      "systems": ["Economy", "Public Finance", "Politics (Policy)"],
+      "reasoning": "Financial speculation, mortgage market dynamics, government response and regulation"
+    },
+    {
+      "issueId": "climate-insurance-collapse-and-managed-retreat-wars",
+      "issueName": "Climate Insurance Collapse and Managed Retreat Wars",
+      "systems": ["Climate", "Economy", "Public Finance", "Politics (Policy)", "Population (Movements)"],
+      "reasoning": "Climate risks drive insurance failures, economic impacts, government intervention costs, forced population relocations"
+    },
+    {
+      "issueId": "climate-risk-insurance-blacklists-and-redlined-zip-codes",
+      "issueName": "Climate Risk Insurance Blacklists and Redlined ZIP Codes",
+      "systems": ["Climate", "Economy", "Politics (Policy)", "Infrastructure"],
+      "reasoning": "Climate vulnerability drives insurance exits, economic redlining, policy responses, infrastructure abandonment"
+    },
+    {
+      "issueId": "commercial-real-estate-doom-loop-and-downtown-collapse",
+      "issueName": "Commercial Real Estate Doom Loop and Downtown Collapse",
+      "systems": ["Economy", "Infrastructure", "Public Finance", "Technology"],
+      "reasoning": "Remote work technology disrupts office demand, economic cascades, public finance impacts, urban infrastructure crisis"
+    },
+    {
+      "issueId": "climate-loss-and-damage-sovereign-debt-spiral",
+      "issueName": "Climate Loss & Damage Sovereign Debt Spiral",
+      "systems": ["Climate", "Public Finance", "Economy", "International Orgs"],
+      "reasoning": "Climate disasters drive debt crises, economic collapse, IMF/international finance involvement"
+    },
+    {
+      "issueId": "water-desalination-mega-trusts",
+      "issueName": "Water Desalination Mega-Trusts",
+      "systems": ["Resources", "Economy", "Infrastructure", "Politics (Policy)"],
+      "reasoning": "Water scarcity drives privatization, corporate control, infrastructure development, regulatory challenges"
+    },
+    {
+      "issueId": "gig-economy-serfdom",
+      "issueName": "Gig Economy Serfdom",
+      "systems": ["Economy", "Technology", "Politics (Policy)", "Healthcare"],
+      "reasoning": "Platform economy model, technology-enabled labor exploitation, policy gaps, benefits coverage crisis"
+    },
+    {
+      "issueId": "student-debt-slavery",
+      "issueName": "Student Debt Slavery",
+      "systems": ["Education", "Economy", "Public Finance", "Population (Cohorts)"],
+      "reasoning": "Education financing crisis, economic burden, government loan programs, affects young adults"
+    },
+    {
+      "issueId": "climate-refugee-floods",
+      "issueName": "Climate Refugee Floods",
+      "systems": ["Climate", "Population (Movements)", "Diplomacy", "International Orgs"],
+      "reasoning": "Climate-driven displacement, mass migration, international coordination challenges, refugee system stress"
+    },
+    {
+      "issueId": "atlantic-overturning-collapse-risk-amoc",
+      "issueName": "Atlantic Overturning Collapse Risk (AMOC)",
+      "systems": ["Climate", "Geography", "Economy", "Resources"],
+      "reasoning": "Climate tipping point, geographic/oceanographic systems, economic impacts on fisheries/agriculture, resource disruption"
+    },
+    {
+      "issueId": "west-antarctic-ice-cliff-collapse",
+      "issueName": "West Antarctic Ice Cliff Collapse",
+      "systems": ["Climate", "Geography", "Infrastructure"],
+      "reasoning": "Climate-driven ice sheet collapse, geographic sea level impacts, coastal infrastructure threats"
+    },
+    {
+      "issueId": "water-scarcity-wars",
+      "issueName": "Water Scarcity Wars",
+      "systems": ["Resources", "Climate", "Military", "Diplomacy"],
+      "reasoning": "Water resource depletion, climate-driven drought, military conflicts, diplomatic tensions"
+    },
+    {
+      "issueId": "himalayan-third-pole-glacier-collapse",
+      "issueName": "Himalayan Third Pole Glacier Collapse",
+      "systems": ["Climate", "Geography", "Resources", "Population"],
+      "reasoning": "Climate-driven glacier melt, geographic water system changes, water resource crisis, population water security"
+    },
+    {
+      "issueId": "boreal-permafrost-carbon-pulse",
+      "issueName": "Boreal Permafrost Carbon Pulse",
+      "systems": ["Climate", "Geography"],
+      "reasoning": "Climate feedback loop, geographic permafrost changes, greenhouse gas emissions acceleration"
+    },
+    {
+      "issueId": "transcontinental-wildfire-smoke-seasons",
+      "issueName": "Transcontinental Wildfire Smoke Seasons",
+      "systems": ["Climate", "Healthcare", "Economy", "Infrastructure"],
+      "reasoning": "Climate-driven fire intensity, public health impacts, economic disruption, infrastructure damage"
+    },
+    {
+      "issueId": "pyrocumulonimbus-warfare",
+      "issueName": "Pyrocumulonimbus Warfare",
+      "systems": ["Military", "Climate", "Technology", "Diplomacy"],
+      "reasoning": "Military exploitation of fire-generated weather, climate extremes enabling, technology development, international law gaps"
+    },
+    {
+      "issueId": "arctic-blue-ocean-event-and-jet-stream-breakdown",
+      "issueName": "Arctic Blue Ocean Event and Jet Stream Breakdown",
+      "systems": ["Climate", "Geography", "Resources"],
+      "reasoning": "Climate tipping point, geographic Arctic changes, impacts on global weather/agriculture resources"
+    },
+    {
+      "issueId": "pandemic-response-wars",
+      "issueName": "Pandemic Response Wars",
+      "systems": ["Pandemic", "Politics", "Healthcare", "International Orgs"],
+      "reasoning": "Disease outbreaks, political response conflicts, healthcare system stress, WHO/international coordination"
+    },
+    {
+      "issueId": "mental-health-apocalypse",
+      "issueName": "Mental Health Apocalypse",
+      "systems": ["Healthcare", "Economy", "Culture", "Population (Cohorts)"],
+      "reasoning": "Mental health crisis, economic impacts, cultural stigma/awareness, affects multiple age cohorts"
+    },
+    {
+      "issueId": "long-covid-labor-collapse",
+      "issueName": "Long COVID Labor Collapse",
+      "systems": ["Pandemic", "Healthcare", "Economy", "Public Finance"],
+      "reasoning": "Post-viral syndrome, healthcare capacity strain, labor force impacts, disability benefits costs"
+    },
+    {
+      "issueId": "disinformation-plague",
+      "issueName": "Disinformation Plague",
+      "systems": ["Media", "Technology", "Politics", "Culture"],
+      "reasoning": "Media ecosystem breakdown, technology platforms enabling spread, political manipulation, cultural trust erosion"
+    },
+    {
+      "issueId": "ai-deepfake-diplomatic-mutinies",
+      "issueName": "AI Deepfake Diplomatic Mutinies",
+      "systems": ["Technology", "Diplomacy", "Military", "Media"],
+      "reasoning": "AI-generated false information, diplomatic crises, military command chain risks, media verification challenges"
+    },
+    {
+      "issueId": "cancel-culture-tribunal",
+      "issueName": "Cancel Culture Tribunal",
+      "systems": ["Culture", "Media", "Economy", "Technology"],
+      "reasoning": "Cultural accountability movements, media amplification, economic consequences, social media platforms"
+    },
+    {
+      "issueId": "mass-incarceration-crisis",
+      "issueName": "Mass Incarceration Crisis",
+      "systems": ["Institutions (Policing)", "Politics (Policy)", "Economy", "Population"],
+      "reasoning": "Criminal justice system scale, policy choices, economic incentives/costs, demographic impacts"
+    },
+    {
+      "issueId": "police-militarization-escalation",
+      "issueName": "Police Militarization Escalation",
+      "systems": ["Institutions (Policing)", "Military", "Politics (Policy)", "Public Finance"],
+      "reasoning": "Military equipment transfers to police, defense policy spillover, government funding decisions, budget allocation"
+    },
+    {
+      "issueId": "death-penalty-abolition-wars",
+      "issueName": "Death Penalty Abolition Wars",
+      "systems": ["Institutions (Policing)", "Politics", "Culture"],
+      "reasoning": "Criminal justice institutions, political debates, cultural values on punishment"
+    },
+    {
+      "issueId": "economic-immigration-conflicts",
+      "issueName": "Economic Immigration Conflicts",
+      "systems": ["Population (Movements)", "Economy", "Politics", "Institutions"],
+      "reasoning": "Migration flows, labor market impacts, political polarization, enforcement institutions"
+    },
+    {
+      "issueId": "border-wall-politics",
+      "issueName": "Border Wall Politics",
+      "systems": ["Politics", "Infrastructure", "Public Finance", "Population (Movements)"],
+      "reasoning": "Political debates, border infrastructure, government spending, migration control attempts"
+    },
+    {
+      "issueId": "human-trafficking-networks",
+      "issueName": "Human Trafficking Networks",
+      "systems": ["Institutions (Policing)", "Population (Movements)", "Economy", "Diplomacy"],
+      "reasoning": "Criminal networks, migration exploitation, economic desperation, international coordination"
+    },
+    {
+      "issueId": "biometric-microchip-migration-control",
+      "issueName": "Biometric Microchip Migration Control",
+      "systems": ["Technology", "Population (Movements)", "Politics (Policy)", "Institutions"],
+      "reasoning": "Surveillance technology, migration tracking, policy implementation, institutional enforcement"
+    },
+    {
+      "issueId": "union-busting-epidemic",
+      "issueName": "Union Busting Epidemic",
+      "systems": ["Economy", "Politics (Policy)", "Institutions"],
+      "reasoning": "Labor market power dynamics, anti-union policies, weakened labor institutions"
+    },
+    {
+      "issueId": "right-to-work-law-battles",
+      "issueName": "Right-to-Work Law Battles",
+      "systems": ["Politics (Policy)", "Economy", "Institutions"],
+      "reasoning": "State labor policies, economic impacts on wages/benefits, institutional labor power"
+    },
+    {
+      "issueId": "general-strike-movements",
+      "issueName": "General Strike Movements",
+      "systems": ["Economy", "Politics", "Institutions", "Population"],
+      "reasoning": "Labor action disrupts economy, political pressure, organized labor institutions, mass mobilization"
+    },
+    {
+      "issueId": "ai-moderation-sweatshop-revolts",
+      "issueName": "AI Moderation Sweatshop Revolts",
+      "systems": ["Technology", "Economy", "Healthcare", "Institutions"],
+      "reasoning": "Tech platforms, exploitative labor, mental health trauma, emerging worker organization"
+    },
+    {
+      "issueId": "oil-industry-death-throes",
+      "issueName": "Oil Industry Death Throes",
+      "systems": ["Economy", "Resources", "Climate", "Politics (Policy)"],
+      "reasoning": "Energy sector transition, resource depletion/stranding, climate policy pressure, economic restructuring"
+    },
+    {
+      "issueId": "coal-country-collapse",
+      "issueName": "Coal Country Collapse",
+      "systems": ["Economy", "Resources", "Population (Movements)", "Politics (Policy)"],
+      "reasoning": "Industry decline, resource phaseout, migration from affected regions, policy choices"
+    },
+    {
+      "issueId": "renewable-energy-nimbyism",
+      "issueName": "Renewable Energy NIMBYism",
+      "systems": ["Infrastructure", "Politics", "Culture", "Climate"],
+      "reasoning": "Energy infrastructure development, local opposition politics, cultural resistance, climate mitigation needs"
+    },
+    {
+      "issueId": "nuclear-plant-crisis-cascade",
+      "issueName": "Nuclear Plant Crisis Cascade",
+      "systems": ["Infrastructure", "Climate", "Public Finance", "Technology"],
+      "reasoning": "Aging energy infrastructure, climate disaster risks, decommissioning costs, nuclear technology safety"
+    },
+    {
+      "issueId": "state-sponsored-hacking-epidemic",
+      "issueName": "State-Sponsored Hacking Epidemic",
+      "systems": ["Technology", "Military", "Diplomacy", "Economy"],
+      "reasoning": "Cyber warfare capabilities, military operations, diplomatic conflicts, economic espionage/damage"
+    },
+    {
+      "issueId": "ransomware-pandemic",
+      "issueName": "Ransomware Pandemic",
+      "systems": ["Technology", "Economy", "Institutions (Policing)", "Healthcare"],
+      "reasoning": "Cybercrime technology, economic extortion, law enforcement challenges, healthcare system vulnerabilities"
+    },
+    {
+      "issueId": "critical-infrastructure-attacks",
+      "issueName": "Critical Infrastructure Attacks",
+      "systems": ["Infrastructure", "Technology", "Military", "Economy"],
+      "reasoning": "Infrastructure vulnerabilities, cyber/physical attacks, military/state threats, economic disruption"
+    },
+    {
+      "issueId": "carrington-class-solar-storm",
+      "issueName": "Carrington-Class Solar Storm",
+      "systems": ["Infrastructure", "Technology", "Economy", "Geography"],
+      "reasoning": "Power grid vulnerability, technology damage, economic cascades, space weather geographic patterns"
+    },
+    {
+      "issueId": "mars-settlement-conflicts",
+      "issueName": "Mars Settlement Conflicts",
+      "systems": ["Technology", "Diplomacy", "Institutions", "Politics (Policy)"],
+      "reasoning": "Space technology, international law disputes, governance institution building, policy frameworks"
+    },
+    {
+      "issueId": "asteroid-mining-rights-wars",
+      "issueName": "Asteroid Mining Rights Wars",
+      "systems": ["Technology", "Diplomacy", "Resources", "International Orgs"],
+      "reasoning": "Space mining technology, international law conflicts, resource claims, treaty organization roles"
+    },
+    {
+      "issueId": "space-militarization",
+      "issueName": "Space Militarization",
+      "systems": ["Military", "Technology", "Diplomacy", "International Orgs"],
+      "reasoning": "Military space operations, weapons technology, arms control diplomacy, UN/treaty organizations"
+    },
+    {
+      "issueId": "space-based-solar-power-hegemony",
+      "issueName": "Space-Based Solar Power Hegemony",
+      "systems": ["Technology", "Resources", "Military", "Diplomacy"],
+      "reasoning": "Energy technology, resource control, weapons potential, international competition"
+    },
+    {
+      "issueId": "semiconductor-sovereignty-wars",
+      "issueName": "Semiconductor Sovereignty Wars",
+      "systems": ["Technology", "Trade", "Diplomacy", "Economy"],
+      "reasoning": "Chip technology control, export restrictions, supply chain diplomacy, economic dependencies"
+    },
+    {
+      "issueId": "private-orbital-debris-cleanup-cartels",
+      "issueName": "Private Orbital Debris Cleanup Cartels",
+      "systems": ["Technology", "Economy", "Diplomacy", "Infrastructure"],
+      "reasoning": "Space cleanup technology, privatization/monopoly, international coordination, orbital infrastructure protection"
+    },
+    {
+      "issueId": "ai-alignment-crisis",
+      "issueName": "AI Alignment Crisis",
+      "systems": ["Technology", "Politics (Policy)", "Institutions"],
+      "reasoning": "AI safety research, regulatory policy needs, governance institutions"
+    },
+    {
+      "issueId": "agi-containment-failure",
+      "issueName": "AGI Containment Failure",
+      "systems": ["Technology", "Institutions", "Economy", "Military"],
+      "reasoning": "AI capability risks, institutional control failures, economic disruption, security threats"
+    },
+    {
+      "issueId": "machine-consciousness-rights",
+      "issueName": "Machine Consciousness Rights",
+      "systems": ["Technology", "Politics", "Culture", "Institutions"],
+      "reasoning": "AI sentience claims, political debates, philosophical/cultural values, legal institutions"
+    },
+    {
+      "issueId": "gain-of-function-research-battles",
+      "issueName": "Gain-of-Function Research Battles",
+      "systems": ["Technology", "Pandemic", "Politics (Policy)", "Diplomacy"],
+      "reasoning": "Biotech research risks, pandemic origins, policy regulation debates, international coordination"
+    },
+    {
+      "issueId": "crispr-regulation-wars",
+      "issueName": "CRISPR Regulation Wars",
+      "systems": ["Technology", "Healthcare", "Politics (Policy)", "Culture"],
+      "reasoning": "Gene editing technology, medical applications, regulatory frameworks, ethical/cultural values"
+    },
+    {
+      "issueId": "bioweapon-proliferation",
+      "issueName": "Bioweapon Proliferation",
+      "systems": ["Technology", "Military", "Pandemic", "Diplomacy"],
+      "reasoning": "Biotech democratization, military/terror applications, disease risk, arms control"
+    },
+    {
+      "issueId": "land-back-movements",
+      "issueName": "Land Back Movements",
+      "systems": ["Culture", "Politics", "Institutions", "Resources"],
+      "reasoning": "Indigenous rights movements, political negotiations, institutional treaty obligations, land/resource control"
+    },
+    {
+      "issueId": "resource-extraction-conflicts",
+      "issueName": "Resource Extraction Conflicts",
+      "systems": ["Resources", "Culture", "Climate", "Politics"],
+      "reasoning": "Natural resource exploitation, indigenous/environmental conflicts, climate mitigation tensions, political battles"
+    },
+    {
+      "issueId": "sacred-site-protection",
+      "issueName": "Sacred Site Protection",
+      "systems": ["Culture", "Politics", "Resources", "Infrastructure"],
+      "reasoning": "Cultural/religious values, political conflicts, resource development, infrastructure projects"
+    },
+    {
+      "issueId": "billionaire-abolition-movement",
+      "issueName": "Billionaire Abolition Movement",
+      "systems": ["Economy", "Politics", "Culture", "Public Finance"],
+      "reasoning": "Wealth inequality, political debates on taxation/redistribution, cultural values, tax policy"
+    },
+    {
+      "issueId": "dark-money-politics",
+      "issueName": "Dark Money Politics",
+      "systems": ["Politics", "Economy", "Institutions"],
+      "reasoning": "Campaign finance, economic power in politics, weakened electoral institutions"
+    },
+    {
+      "issueId": "corporate-personhood-battles",
+      "issueName": "Corporate Personhood Battles",
+      "systems": ["Politics", "Institutions", "Economy"],
+      "reasoning": "Political rights debates, judicial institutions, corporate economic power"
+    },
+    {
+      "issueId": "ai-cult-states",
+      "issueName": "AI Cult States",
+      "systems": ["Technology", "Culture", "Politics", "Institutions"],
+      "reasoning": "AI worship, cultural/religious transformation, political authority, institutional legitimacy"
+    },
+    {
+      "issueId": "post-9-11-security-tradeoffs",
+      "issueName": "Post-9/11 Security Tradeoffs",
+      "systems": ["Military", "Institutions (Policing)", "Politics (Policy)", "Technology"],
+      "reasoning": "Security state expansion, law enforcement powers, policy choices, surveillance technology"
+    },
+    {
+      "issueId": "abortion-access-crisis",
+      "issueName": "Abortion Access Crisis",
+      "systems": ["Healthcare", "Politics", "Culture", "Institutions"],
+      "reasoning": "Medical access, political/legal battles, cultural/religious values, judicial institutions"
+    },
+    {
+      "issueId": "forced-birth-enforcement",
+      "issueName": "Forced Birth Enforcement",
+      "systems": ["Healthcare", "Politics (Policy)", "Institutions (Policing)", "Technology"],
+      "reasoning": "Medical control, government enforcement, policing pregnancy, surveillance technology"
+    },
+    {
+      "issueId": "fertility-tracking-surveillance-markets",
+      "issueName": "Fertility Tracking Surveillance Markets",
+      "systems": ["Technology", "Healthcare", "Economy", "Politics (Policy)"],
+      "reasoning": "App/data technology, health data exploitation, data market economy, regulatory gaps"
+    },
+    {
+      "issueId": "crisis-pregnancy-center-deception",
+      "issueName": "Crisis Pregnancy Center Deception",
+      "systems": ["Healthcare", "Politics", "Culture", "Public Finance"],
+      "reasoning": "Fake medical services, political support, cultural/religious motivations, government funding"
+    },
+    {
+      "issueId": "school-shooting-epidemic",
+      "issueName": "School Shooting Epidemic",
+      "systems": ["Institutions (Policing)", "Education", "Politics", "Healthcare"],
+      "reasoning": "Gun violence/law enforcement, school safety, political inaction, mental health crisis"
+    },
+    {
+      "issueId": "mass-shooting-normalization",
+      "issueName": "Mass Shooting Normalization",
+      "systems": ["Culture", "Politics", "Institutions (Policing)", "Media"],
+      "reasoning": "Cultural desensitization, political stalemate, policing inadequacy, media coverage patterns"
+    },
+    {
+      "issueId": "gun-rights-absolutism",
+      "issueName": "Gun Rights Absolutism",
+      "systems": ["Politics", "Culture", "Institutions"],
+      "reasoning": "Political lobbying, cultural gun values, judicial/legislative institutions"
+    },
+    {
+      "issueId": "medical-bankruptcy-epidemic",
+      "issueName": "Medical Bankruptcy Epidemic",
+      "systems": ["Healthcare", "Economy", "Public Finance", "Politics (Policy)"],
+      "reasoning": "Healthcare costs, economic ruin, insurance system failure, policy inadequacy"
+    },
+    {
+      "issueId": "insurance-death-panels",
+      "issueName": "Insurance Death Panels",
+      "systems": ["Healthcare", "Economy", "Technology", "Politics (Policy)"],
+      "reasoning": "Healthcare rationing, insurance industry, AI automation, regulatory failures"
+    },
+    {
+      "issueId": "rural-hospital-collapse",
+      "issueName": "Rural Hospital Collapse",
+      "systems": ["Healthcare", "Infrastructure", "Economy", "Population"],
+      "reasoning": "Healthcare facility closures, infrastructure loss, economic viability crisis, population healthcare deserts"
+    },
+    {
+      "issueId": "voter-suppression-acceleration",
+      "issueName": "Voter Suppression Acceleration",
+      "systems": ["Politics", "Institutions", "Culture"],
+      "reasoning": "Electoral manipulation, weakened democratic institutions, discriminatory cultural impact"
+    },
+    {
+      "issueId": "gerrymandering-extremism",
+      "issueName": "Gerrymandering Extremism",
+      "systems": ["Politics", "Technology", "Institutions"],
+      "reasoning": "Electoral manipulation, computer-optimized technology, judicial institutions' failure"
+    },
+    {
+      "issueId": "election-denialism",
+      "issueName": "Election Denialism",
+      "systems": ["Politics", "Institutions", "Media", "Culture"],
+      "reasoning": "Political movements, institutional legitimacy crisis, media disinformation, cultural polarization"
+    },
+    {
+      "issueId": "electoral-college-crisis",
+      "issueName": "Electoral College Crisis",
+      "systems": ["Politics", "Institutions", "Culture"],
+      "reasoning": "Political system defects, institutional legitimacy, cultural trust erosion"
+    },
+    {
+      "issueId": "tent-city-proliferation",
+      "issueName": "Tent City Proliferation",
+      "systems": ["Economy", "Infrastructure", "Healthcare", "Politics (Policy)"],
+      "reasoning": "Economic housing crisis, infrastructure failure, health impacts, policy inadequacy"
+    },
+    {
+      "issueId": "homelessness-criminalization",
+      "issueName": "Homelessness Criminalization",
+      "systems": ["Institutions (Policing)", "Politics (Policy)", "Economy", "Healthcare"],
+      "reasoning": "Law enforcement approach, policy choices, economic causes, mental health/addiction"
+    },
+    {
+      "issueId": "housing-first-vs-treatment-first",
+      "issueName": "Housing First vs. Treatment First",
+      "systems": ["Healthcare", "Politics (Policy)", "Economy", "Public Finance"],
+      "reasoning": "Treatment philosophy debates, policy frameworks, economic costs, funding allocation"
+    },
+    {
+      "issueId": "marriage-equality-reversal-fears",
+      "issueName": "Marriage Equality Reversal Fears",
+      "systems": ["Politics", "Culture", "Institutions"],
+      "reasoning": "Political threats, cultural backlash, judicial institutions"
+    },
+    {
+      "issueId": "dont-say-gay-school-censorship",
+      "issueName": "Don't Say Gay / School Censorship",
+      "systems": ["Education", "Politics", "Culture", "Institutions"],
+      "reasoning": "School curriculum control, political legislation, cultural conflicts, educational institutions"
+    },
+    {
+      "issueId": "pride-event-attacks",
+      "issueName": "Pride Event Attacks",
+      "systems": ["Culture", "Institutions (Policing)", "Politics", "Healthcare"],
+      "reasoning": "Cultural visibility backlash, security threats, political extremism, trauma care"
+    },
+    {
+      "issueId": "endless-war-authorization",
+      "issueName": "Endless War Authorization",
+      "systems": ["Military", "Politics", "Institutions", "Diplomacy"],
+      "reasoning": "Military operations, political oversight failure, institutional checks erosion, international conflicts"
+    },
+    {
+      "issueId": "drone-warfare-normalization",
+      "issueName": "Drone Warfare Normalization",
+      "systems": ["Military", "Technology", "Politics", "Diplomacy"],
+      "reasoning": "Military technology, political authorization, ethical erosion, international law"
+    },
+    {
+      "issueId": "veteran-suicide-epidemic",
+      "issueName": "Veteran Suicide Epidemic",
+      "systems": ["Healthcare", "Military", "Public Finance", "Population (Cohorts)"],
+      "reasoning": "Mental health crisis, military/veteran services, VA system funding, veteran population impacts"
+    },
+    {
+      "issueId": "platform-power-abuse",
+      "issueName": "Platform Power Abuse",
+      "systems": ["Technology", "Economy", "Politics (Policy)", "Media"],
+      "reasoning": "Tech monopolies, market dominance, regulatory inadequacy, media power concentration"
+    },
+    {
+      "issueId": "section-230-wars",
+      "issueName": "Section 230 Wars",
+      "systems": ["Technology", "Politics (Policy)", "Media", "Institutions"],
+      "reasoning": "Platform liability law, policy debates, media content moderation, legal institutions"
+    },
+    {
+      "issueId": "tech-worker-uprising",
+      "issueName": "Tech Worker Uprising",
+      "systems": ["Technology", "Economy", "Culture", "Military"],
+      "reasoning": "Tech industry labor, economic power dynamics, ethical culture shift, military contract protests"
+    },
+    {
+      "issueId": "marijuana-legalization-patchwork",
+      "issueName": "Marijuana Legalization Patchwork",
+      "systems": ["Politics (Policy)", "Economy", "Healthcare", "Institutions (Policing)"],
+      "reasoning": "State-federal policy conflicts, cannabis industry economy, medical uses, enforcement disparities"
+    },
+    {
+      "issueId": "war-on-drugs-continuation",
+      "issueName": "War on Drugs Continuation",
+      "systems": ["Institutions (Policing)", "Politics (Policy)", "Culture", "Economy"],
+      "reasoning": "Criminal justice system, failed policies, racialized cultural impacts, economic costs"
+    },
+    {
+      "issueId": "antibiotic-resistance-crisis",
+      "issueName": "Antibiotic Resistance Crisis",
+      "systems": ["Healthcare", "Pandemic", "Resources", "Economy"],
+      "reasoning": "Medical effectiveness crisis, disease spread risks, pharmaceutical resources, economic impacts"
+    },
+    {
+      "issueId": "vaccine-hesitancy-epidemic",
+      "issueName": "Vaccine Hesitancy Epidemic",
+      "systems": ["Healthcare", "Media", "Culture", "Pandemic"],
+      "reasoning": "Medical compliance crisis, misinformation spread, cultural distrust, disease control failure"
+    },
+    {
+      "issueId": "local-news-collapse",
+      "issueName": "Local News Collapse",
+      "systems": ["Media", "Economy", "Politics", "Culture"],
+      "reasoning": "Media industry economics, market failure, civic information gap, community identity loss"
+    },
+    {
+      "issueId": "billionaire-media-ownership",
+      "issueName": "Billionaire Media Ownership",
+      "systems": ["Media", "Economy", "Politics", "Culture"],
+      "reasoning": "Media consolidation, economic concentration, political influence, cultural discourse control"
+    },
+    {
+      "issueId": "misinformation-monetization",
+      "issueName": "Misinformation Monetization",
+      "systems": ["Media", "Technology", "Economy", "Politics"],
+      "reasoning": "Media business models, platform algorithms, advertising economics, political manipulation"
+    },
+    {
+      "issueId": "gentrification-displacement",
+      "issueName": "Gentrification Displacement",
+      "systems": ["Economy", "Infrastructure", "Population (Movements)", "Culture"],
+      "reasoning": "Real estate economics, urban development, forced migration, cultural community disruption"
+    },
+    {
+      "issueId": "public-transit-death-spiral",
+      "issueName": "Public Transit Death Spiral",
+      "systems": ["Infrastructure", "Economy", "Public Finance", "Population (Movements)"],
+      "reasoning": "Transit system collapse, economic viability crisis, funding inadequacy, mobility impacts"
+    },
+    {
+      "issueId": "democratic-backsliding",
+      "issueName": "Democratic Backsliding",
+      "systems": ["Politics", "Institutions", "Culture", "International Orgs"],
+      "reasoning": "Political authoritarianism, institutional erosion, cultural norm breakdown, international democracy decline"
+    },
+    {
+      "issueId": "court-packing-crisis",
+      "issueName": "Court Packing Crisis",
+      "systems": ["Institutions", "Politics", "Culture"],
+      "reasoning": "Judicial institutions, political manipulation, legitimacy crisis"
+    },
+    {
+      "issueId": "corruption-normalization",
+      "issueName": "Corruption Normalization",
+      "systems": ["Politics", "Institutions", "Economy", "Culture"],
+      "reasoning": "Political ethics breakdown, institutional accountability failure, economic self-dealing, cultural tolerance"
+    },
+    {
+      "issueId": "qualified-immunity-shield",
+      "issueName": "Qualified Immunity Shield",
+      "systems": ["Institutions (Policing)", "Politics", "Institutions"],
+      "reasoning": "Police accountability shield, political/judicial institutions, legal rights erosion"
+    },
+    {
+      "issueId": "civil-asset-forfeiture",
+      "issueName": "Civil Asset Forfeiture",
+      "systems": ["Institutions (Policing)", "Economy", "Politics (Policy)", "Institutions"],
+      "reasoning": "Police funding mechanism, economic incentives, policy abuse, constitutional institutions"
+    },
+    {
+      "issueId": "felon-disenfranchisement",
+      "issueName": "Felon Disenfranchisement",
+      "systems": ["Politics", "Institutions (Policing)", "Culture", "Population"],
+      "reasoning": "Political rights denial, criminal justice system, racialized impacts, demographic representation"
+    },
+    {
+      "issueId": "net-neutrality-collapse",
+      "issueName": "Net Neutrality Collapse",
+      "systems": ["Technology", "Economy", "Politics (Policy)", "Media"],
+      "reasoning": "Internet infrastructure control, ISP economic power, regulatory rollback, media access inequality"
+    },
+    {
+      "issueId": "autonomous-weapons-proliferation",
+      "issueName": "Autonomous Weapons Proliferation",
+      "systems": ["Military", "Technology", "Diplomacy", "International Orgs"],
+      "reasoning": "Military AI, weapons technology, arms control, UN/treaty efforts"
+    },
+    {
+      "issueId": "global-open-source-weapon-swarms",
+      "issueName": "Global Open-Source Weapon Swarms",
+      "systems": ["Technology", "Military", "Diplomacy", "Economy"],
+      "reasoning": "Democratized weapons tech, military/terror threats, international control failure, maker economy"
+    },
+    {
+      "issueId": "geoengineering-deployment",
+      "issueName": "Geoengineering Deployment",
+      "systems": ["Climate", "Technology", "Diplomacy", "International Orgs"],
+      "reasoning": "Climate intervention tech, international coordination needs, governance gaps"
+    },
+    {
+      "issueId": "aerosol-geoengineering-proxy-war",
+      "issueName": "Aerosol Geoengineering Proxy War",
+      "systems": ["Climate", "Military", "Diplomacy", "Geography"],
+      "reasoning": "Climate modification warfare, military/state operations, diplomatic conflicts, regional impacts"
+    },
+    {
+      "issueId": "universal-basic-income-trials",
+      "issueName": "Universal Basic Income Trials",
+      "systems": ["Economy", "Politics (Policy)", "Public Finance", "Technology"],
+      "reasoning": "Economic redistribution, policy experimentation, government spending, automation context"
+    },
+    {
+      "issueId": "reparations-movement-acceleration",
+      "issueName": "Reparations Movement Acceleration",
+      "systems": ["Economy", "Politics", "Culture", "Public Finance"],
+      "reasoning": "Economic justice, political debates, cultural reckoning, government financing"
+    },
+    {
+      "issueId": "genetic-caste-formation",
+      "issueName": "Genetic Caste Formation",
+      "systems": ["Technology", "Economy", "Culture", "Healthcare"],
+      "reasoning": "Gene editing tech, economic inequality, social stratification, medical access disparities"
+    },
+    {
+      "issueId": "cybernetic-rejection-syndrome",
+      "issueName": "Cybernetic Rejection Syndrome",
+      "systems": ["Technology", "Healthcare", "Culture", "Economy"],
+      "reasoning": "Augmentation technology, medical complications, social discrimination, economic access"
+    },
+    {
+      "issueId": "longevity-apartheid",
+      "issueName": "Longevity Apartheid",
+      "systems": ["Technology", "Healthcare", "Economy", "Culture"],
+      "reasoning": "Life extension tech, medical inequality, wealth stratification, societal values"
+    },
+    {
+      "issueId": "upload-rights-war",
+      "issueName": "Upload Rights War",
+      "systems": ["Technology", "Politics", "Culture", "Institutions"],
+      "reasoning": "Consciousness upload tech, political rights debates, identity philosophy, legal institutions"
+    },
+    {
+      "issueId": "virtual-world-exodus",
+      "issueName": "Virtual World Exodus",
+      "systems": ["Technology", "Economy", "Culture", "Population"],
+      "reasoning": "VR technology, economic shifts, cultural transformation, population distribution"
+    },
+    {
+      "issueId": "species-divergence-crisis",
+      "issueName": "Species Divergence Crisis",
+      "systems": ["Technology", "Culture", "Population", "Healthcare"],
+      "reasoning": "Genetic modification tech, identity/culture fracturing, human population speciation, reproductive health"
+    },
+    {
+      "issueId": "consciousness-merger-phenomenon",
+      "issueName": "Consciousness Merger Phenomenon",
+      "systems": ["Technology", "Culture", "Politics", "Healthcare"],
+      "reasoning": "Hive mind technology, cultural identity transformation, political/rights implications, mental health"
+    },
+    {
+      "issueId": "universe-forking-rights",
+      "issueName": "Universe Forking Rights",
+      "systems": ["Technology", "Politics", "Culture", "Institutions"],
+      "reasoning": "Reality manipulation tech, political governance, philosophical/cultural values, legal frameworks"
+    },
+    {
+      "issueId": "consciousness-property-battles",
+      "issueName": "Consciousness Property Battles",
+      "systems": ["Technology", "Economy", "Politics", "Institutions"],
+      "reasoning": "Thought/memory commodification, market economy, political rights, legal institutions"
+    },
+    {
+      "issueId": "stablecoin-and-eurodollar-liquidity-shock",
+      "issueName": "Stablecoin and Eurodollar Liquidity Shock",
+      "systems": ["Economy", "Technology", "Public Finance", "Trade"],
+      "reasoning": "Cryptocurrency/dollar markets, financial system crisis, monetary policy, international trade finance"
+    },
+    {
+      "issueId": "algorithmic-food-delivery-collapse",
+      "issueName": "Algorithmic Food Delivery Collapse",
+      "systems": ["Technology", "Economy", "Infrastructure", "Population"],
+      "reasoning": "Platform algorithms, gig economy, urban food infrastructure, population food access"
+    },
+    {
+      "issueId": "distant-water-fleet-wars-and-fishery-collapse",
+      "issueName": "Distant-Water Fleet Wars and Fishery Collapse",
+      "systems": ["Resources", "Diplomacy", "Economy", "Trade"],
+      "reasoning": "Fishery resource depletion, international conflicts, fishing industry, seafood trade"
+    },
+    {
+      "issueId": "global-sand-wars-and-concrete-scarcity",
+      "issueName": "Global Sand Wars and Concrete Scarcity",
+      "systems": ["Resources", "Economy", "Infrastructure", "Trade"],
+      "reasoning": "Construction material scarcity, market competition, development constraints, international sand trade"
+    },
+    {
+      "issueId": "urban-groundwater-subsidence-emergencies",
+      "issueName": "Urban Groundwater Subsidence Emergencies",
+      "systems": ["Resources", "Infrastructure", "Geography", "Climate"],
+      "reasoning": "Water resource overextraction, urban infrastructure damage, land subsidence, climate/sea level interaction"
+    },
+    {
+      "issueId": "grid-level-copper-theft-and-critical-mineral-looting",
+      "issueName": "Grid-Level Copper Theft and Critical Mineral Looting",
+      "systems": ["Resources", "Economy", "Infrastructure", "Institutions (Policing)"],
+      "reasoning": "Resource scarcity/prices, organized crime economy, infrastructure vulnerability, law enforcement challenges"
+    },
+    {
+      "issueId": "helium-scarcity-and-cryogenic-shutdown-cascades",
+      "issueName": "Helium Scarcity and Cryogenic Shutdown Cascades",
+      "systems": ["Resources", "Technology", "Healthcare", "Economy"],
+      "reasoning": "Helium resource depletion, tech/medical equipment needs, healthcare disruption, market economics"
+    },
+    {
+      "issueId": "autonomous-vehicle-liability-wars-and-urban-bans",
+      "issueName": "Autonomous Vehicle Liability Wars and Urban Bans",
+      "systems": ["Technology", "Economy", "Politics (Policy)", "Infrastructure"],
+      "reasoning": "Self-driving technology, insurance/liability economics, regulatory responses, urban planning"
+    },
+    {
+      "issueId": "undersea-cable-and-powerline-sabotage",
+      "issueName": "Undersea Cable and Powerline Sabotage",
+      "systems": ["Infrastructure", "Military", "Diplomacy", "Economy"],
+      "reasoning": "Critical infrastructure vulnerability, military/state threats, diplomatic tensions, economic disruption"
+    },
+    {
+      "issueId": "quantum-sensor-total-recall",
+      "issueName": "Quantum Sensor Total Recall",
+      "systems": ["Technology", "Politics (Policy)", "Institutions (Policing)", "Culture"],
+      "reasoning": "Quantum surveillance tech, regulatory gaps, policing capabilities, privacy culture erosion"
+    },
+    {
+      "issueId": "ai-voice-clone-fraud-meltdowns",
+      "issueName": "AI Voice Clone Fraud Meltdowns",
+      "systems": ["Technology", "Economy", "Institutions (Policing)", "Healthcare"],
+      "reasoning": "AI deepfake tech, financial fraud, law enforcement challenges, elder care vulnerability"
+    },
+    {
+      "issueId": "brexit-and-eu-disintegration",
+      "issueName": "Brexit and EU Disintegration",
+      "systems": ["Diplomacy", "Trade", "Politics", "Economy"],
+      "reasoning": "European integration breakdown, trade disruption, nationalist politics, economic impacts"
+    },
+    {
+      "issueId": "european-migration-crisis",
+      "issueName": "European Migration Crisis",
+      "systems": ["Population (Movements)", "Diplomacy", "Politics", "International Orgs"],
+      "reasoning": "Refugee flows, EU coordination, political backlash, UNHCR/international response"
+    },
+    {
+      "issueId": "democratic-backsliding-in-hungary-poland",
+      "issueName": "Democratic Backsliding in Hungary/Poland",
+      "systems": ["Politics", "Institutions", "Diplomacy", "International Orgs"],
+      "reasoning": "Authoritarian politics, institutional capture, EU tensions, democratic norms erosion"
+    },
+    {
+      "issueId": "eurozone-debt-crises",
+      "issueName": "Eurozone Debt Crises",
+      "systems": ["Economy", "Public Finance", "Diplomacy", "International Orgs"],
+      "reasoning": "Sovereign debt crisis, fiscal policy conflicts, EU/ECB coordination, IMF involvement"
+    },
+    {
+      "issueId": "southern-europe-demographic-collapse",
+      "issueName": "Southern Europe Demographic Collapse",
+      "systems": ["Population", "Economy", "Public Finance", "Population (Movements)"],
+      "reasoning": "Fertility decline, economic stagnation, pension crisis, youth emigration"
+    },
+    {
+      "issueId": "uyghur-genocide",
+      "issueName": "Uyghur Genocide",
+      "systems": ["Culture", "Institutions (Policing)", "Politics", "Diplomacy"],
+      "reasoning": "Cultural genocide, surveillance/detention state, authoritarian politics, international condemnation"
+    },
+    {
+      "issueId": "hong-kong-suppression",
+      "issueName": "Hong Kong Suppression",
+      "systems": ["Politics", "Institutions", "Diplomacy", "Culture"],
+      "reasoning": "Authoritarian crackdown, institutional autonomy elimination, international tensions, cultural identity suppression"
+    },
+    {
+      "issueId": "taiwan-invasion-crisis",
+      "issueName": "Taiwan Invasion Crisis",
+      "systems": ["Military", "Diplomacy", "Economy", "Trade"],
+      "reasoning": "Military confrontation risk, diplomatic crisis, economic interdependence, semiconductor trade critical"
+    },
+    {
+      "issueId": "social-credit-system-expansion",
+      "issueName": "Social Credit System Expansion",
+      "systems": ["Technology", "Politics", "Culture", "Institutions"],
+      "reasoning": "Surveillance technology, authoritarian control, behavioral culture shift, totalitarian institutions"
+    },
+    {
+      "issueId": "china-demographic-collapse",
+      "issueName": "China Demographic Collapse",
+      "systems": ["Population", "Economy", "Public Finance", "Healthcare"],
+      "reasoning": "One-child policy consequences, economic growth challenges, pension insolvency, eldercare crisis"
+    },
+    {
+      "issueId": "ukraine-invasion-and-forever-war",
+      "issueName": "Ukraine Invasion and Forever War",
+      "systems": ["Military", "Diplomacy", "Economy", "Trade"],
+      "reasoning": "Military conflict, international coalition, economic sanctions/energy impacts, grain trade disruption"
+    },
+    {
+      "issueId": "crimea-annexation-and-black-sea-control",
+      "issueName": "Crimea Annexation and Black Sea Control",
+      "systems": ["Military", "Diplomacy", "Geography", "Trade"],
+      "reasoning": "Territorial seizure, diplomatic crisis, strategic geography, Black Sea trade routes"
+    },
+    {
+      "issueId": "oligarch-kleptocracy-system",
+      "issueName": "Oligarch Kleptocracy System",
+      "systems": ["Economy", "Politics", "Institutions", "Diplomacy"],
+      "reasoning": "State capture economy, authoritarian politics, corrupted institutions, international money laundering"
+    },
+    {
+      "issueId": "political-opposition-assassination",
+      "issueName": "Political Opposition Assassination",
+      "systems": ["Politics", "Institutions (Policing)", "Diplomacy", "Military"],
+      "reasoning": "Political repression, state security services, diplomatic incidents, intelligence operations"
+    },
+    {
+      "issueId": "modi-hindu-nationalism-and-bjp-dominance",
+      "issueName": "Modi Hindu Nationalism and BJP Dominance",
+      "systems": ["Politics", "Culture", "Institutions", "Diplomacy"],
+      "reasoning": "Nationalist politics, religious/cultural identity, democratic backsliding, international relations"
+    },
+    {
+      "issueId": "kashmir-occupation-and-insurgency",
+      "issueName": "Kashmir Occupation and Insurgency",
+      "systems": ["Military", "Politics", "Diplomacy", "Population"],
+      "reasoning": "Military occupation, political autonomy removal, India-Pakistan tensions, population rights"
+    },
+    {
+      "issueId": "farmer-protests-and-agricultural-crisis",
+      "issueName": "Farmer Protests and Agricultural Crisis",
+      "systems": ["Economy", "Politics", "Resources", "Population"],
+      "reasoning": "Agricultural economics, political mobilization, land/water resources, rural population distress"
+    },
+    {
+      "issueId": "muslim-persecution-and-communal-violence",
+      "issueName": "Muslim Persecution and Communal Violence",
+      "systems": ["Culture", "Politics", "Institutions (Policing)", "Population"],
+      "reasoning": "Religious/ethnic violence, political incitement, law enforcement failures, minority population persecution"
+    },
+    {
+      "issueId": "arab-spring-aftermath-and-counter-revolution",
+      "issueName": "Arab Spring Aftermath and Counter-Revolution",
+      "systems": ["Politics", "Military", "Diplomacy", "Culture"],
+      "reasoning": "Democratic uprisings, military coups, regional diplomacy, cultural transformation/repression"
+    },
+    {
+      "issueId": "syria-civil-war-and-assad-survival",
+      "issueName": "Syria Civil War and Assad Survival",
+      "systems": ["Military", "Diplomacy", "Population (Movements)", "Healthcare"],
+      "reasoning": "Civil war, international intervention, refugee crisis, humanitarian catastrophe"
+    },
+    {
+      "issueId": "yemen-civil-war-and-famine",
+      "issueName": "Yemen Civil War and Famine",
+      "systems": ["Military", "Diplomacy", "Healthcare", "Resources"],
+      "reasoning": "Proxy war, international coalition, humanitarian crisis, food/water collapse"
+    },
+    {
+      "issueId": "iran-nuclear-program-and-revolution-cycles",
+      "issueName": "Iran Nuclear Program and Revolution Cycles",
+      "systems": ["Military", "Diplomacy", "Politics", "International Orgs"],
+      "reasoning": "Nuclear weapons program, international negotiations/sanctions, domestic protests, IAEA/UN"
+    },
+    {
+      "issueId": "saudi-mbs-reforms-and-repression",
+      "issueName": "Saudi MBS Reforms and Repression",
+      "systems": ["Politics", "Culture", "Economy", "Diplomacy"],
+      "reasoning": "Authoritarian modernization, social reforms/repression paradox, economic diversification, international relations"
+    },
+    {
+      "issueId": "israel-palestine-conflict-and-gaza-wars",
+      "issueName": "Israel-Palestine Conflict and Gaza Wars",
+      "systems": ["Military", "Diplomacy", "Politics", "Population (Movements)"],
+      "reasoning": "Occupation/conflict, international mediation failure, political deadlock, refugee populations"
+    },
+    {
+      "issueId": "iraq-invasion-aftermath-and-sectarian-collapse",
+      "issueName": "Iraq Invasion Aftermath and Sectarian Collapse",
+      "systems": ["Military", "Politics", "Diplomacy", "Institutions"],
+      "reasoning": "US invasion consequences, sectarian violence, regional instability, state failure"
+    },
+    {
+      "issueId": "lebanon-sectarian-collapse",
+      "issueName": "Lebanon Sectarian Collapse",
+      "systems": ["Economy", "Politics", "Institutions", "Public Finance"],
+      "reasoning": "Economic collapse, political paralysis, state failure, currency crisis"
+    },
+    {
+      "issueId": "libya-failed-state-and-slave-markets",
+      "issueName": "Libya Failed State and Slave Markets",
+      "systems": ["Military", "Politics", "Population (Movements)", "Institutions"],
+      "reasoning": "Civil war, state collapse, migrant trafficking, institutional breakdown"
+    },
+    {
+      "issueId": "north-korea-nuclear-crisis",
+      "issueName": "North Korea Nuclear Crisis",
+      "systems": ["Military", "Diplomacy", "Politics", "International Orgs"],
+      "reasoning": "Nuclear weapons program, diplomatic standoff, regime survival strategy, UN sanctions"
+    },
+    {
+      "issueId": "japan-demographic-collapse",
+      "issueName": "Japan Demographic Collapse",
+      "systems": ["Population", "Economy", "Public Finance", "Healthcare"],
+      "reasoning": "Aging/fertility crisis, economic stagnation, pension system strain, eldercare burden"
+    },
+    {
+      "issueId": "south-korea-demographic-death-spiral",
+      "issueName": "South Korea Demographic Death Spiral",
+      "systems": ["Population", "Economy", "Culture", "Public Finance"],
+      "reasoning": "World's lowest fertility, economic pressures, cultural work/housing crisis, pension collapse"
+    },
+    {
+      "issueId": "myanmar-coup-and-rohingya-genocide",
+      "issueName": "Myanmar Coup and Rohingya Genocide",
+      "systems": ["Military", "Politics", "Population (Movements)", "Diplomacy"],
+      "reasoning": "Military coup, ethnic cleansing, refugee crisis, international condemnation"
+    },
+    {
+      "issueId": "south-china-sea-militarization",
+      "issueName": "South China Sea Militarization",
+      "systems": ["Military", "Diplomacy", "Resources", "Geography"],
+      "reasoning": "Military buildup, territorial disputes, energy/fishing resources, strategic waterways"
+    },
+    {
+      "issueId": "philippines-duterte-drug-war",
+      "issueName": "Philippines Duterte Drug War",
+      "systems": ["Institutions (Policing)", "Politics", "Healthcare", "Diplomacy"],
+      "reasoning": "Extrajudicial killings, authoritarian politics, drug policy, international criticism"
+    },
+    {
+      "issueId": "pacific-island-nations-disappearing",
+      "issueName": "Pacific Island Nations Disappearing",
+      "systems": ["Climate", "Geography", "Population (Movements)", "Diplomacy"],
+      "reasoning": "Sea level rise, territory loss, planned evacuations, sovereignty questions"
+    },
+    {
+      "issueId": "southeast-asia-authoritarian-entrenchment",
+      "issueName": "Southeast Asia Authoritarian Entrenchment",
+      "systems": ["Politics", "Institutions", "Diplomacy", "Economy"],
+      "reasoning": "Democratic backsliding, regime consolidation, regional norms, development model"
+    },
+    {
+      "issueId": "japan-korea-historical-resentment-cycles",
+      "issueName": "Japan-Korea Historical Resentment Cycles",
+      "systems": ["Diplomacy", "Culture", "Politics", "Trade"],
+      "reasoning": "Historical grievances, bilateral tensions, political exploitation, trade conflicts"
+    },
+    {
+      "issueId": "pakistan-instability-and-nuclear-risk",
+      "issueName": "Pakistan Instability and Nuclear Risk",
+      "systems": ["Military", "Politics", "Economy", "Diplomacy"],
+      "reasoning": "Nuclear arsenal security, political instability, economic crises, regional tensions"
+    },
+    {
+      "issueId": "afghanistan-taliban-takeover",
+      "issueName": "Afghanistan Taliban Takeover",
+      "systems": ["Military", "Politics", "Population (Movements)", "Culture"],
+      "reasoning": "US withdrawal, government collapse, refugee exodus, cultural repression"
+    },
+    {
+      "issueId": "nigeria-boko-haram-and-banditry",
+      "issueName": "Nigeria Boko Haram and Banditry",
+      "systems": ["Military", "Institutions (Policing)", "Economy", "Population"],
+      "reasoning": "Insurgency/terrorism, state security failure, economic disruption, population displacement"
+    },
+    {
+      "issueId": "south-africa-state-failure",
+      "issueName": "South Africa State Failure",
+      "systems": ["Infrastructure", "Politics", "Economy", "Institutions"],
+      "reasoning": "Power grid collapse, state capture corruption, economic crisis, institutional breakdown"
+    },
+    {
+      "issueId": "argentina-hyperinflation-cycles",
+      "issueName": "Argentina Hyperinflation Cycles",
+      "systems": ["Economy", "Public Finance", "Politics", "International Orgs"],
+      "reasoning": "Recurring inflation crises, fiscal policy failures, political instability, IMF dependency"
+    },
+    {
+      "issueId": "chile-social-explosion-and-constitution",
+      "issueName": "Chile Social Explosion and Constitution",
+      "systems": ["Politics", "Economy", "Culture", "Institutions"],
+      "reasoning": "Mass protests, inequality/pension crisis, constitutional reform, institutional legitimacy"
+    },
+    {
+      "issueId": "haiti-perpetual-catastrophe",
+      "issueName": "Haiti Perpetual Catastrophe",
+      "systems": ["Politics", "Institutions", "Infrastructure", "Healthcare"],
+      "reasoning": "Gang control, state collapse, disaster vulnerability, humanitarian crisis"
+    },
+    {
+      "issueId": "caribbean-climate-and-colonial-vulnerability",
+      "issueName": "Caribbean Climate and Colonial Vulnerability",
+      "systems": ["Climate", "Politics", "Economy", "Diplomacy"],
+      "reasoning": "Hurricane devastation, colonial status issues, tourism economy, regional development"
+    },
+    {
+      "issueId": "canada-indigenous-reconciliation-crisis",
+      "issueName": "Canada Indigenous Reconciliation Crisis",
+      "systems": ["Culture", "Politics", "Resources", "Institutions"],
+      "reasoning": "Indigenous rights, historical trauma, land/resource disputes, institutional accountability"
+    },
+    {
+      "issueId": "canadian-housing-affordability-collapse",
+      "issueName": "Canadian Housing Affordability Collapse",
+      "systems": ["Economy", "Infrastructure", "Politics (Policy)", "Trade"],
+      "reasoning": "Real estate speculation, foreign investment, policy inadequacy, capital flows"
+    },
+    {
+      "issueId": "canadian-political-polarization",
+      "issueName": "Canadian Political Polarization",
+      "systems": ["Politics", "Culture", "Media"],
+      "reasoning": "Political conflicts, cultural divisions, US influence/media amplification"
+    },
+    {
+      "issueId": "turkey-erdogan-authoritarianism",
+      "issueName": "Turkey Erdogan Authoritarianism",
+      "systems": ["Politics", "Institutions", "Diplomacy", "Population (Movements)"],
+      "reasoning": "Authoritarian consolidation, institutional purges, regional conflicts, refugee burden"
+    },
+    {
+      "issueId": "balkans-instability-and-fragmentation-risk",
+      "issueName": "Balkans Instability and Fragmentation Risk",
+      "systems": ["Politics", "Diplomacy", "Culture", "Military"],
+      "reasoning": "Ethnic tensions, EU integration stalled, nationalist politics, security risks"
+    },
+    {
+      "issueId": "caucasus-wars-and-frozen-conflicts",
+      "issueName": "Caucasus Wars and Frozen Conflicts",
+      "systems": ["Military", "Diplomacy", "Politics", "Population (Movements)"],
+      "reasoning": "Ethnic warfare, territorial disputes, Russian influence, displacement"
+    },
+    {
+      "issueId": "central-asia-autocracies-and-resource-conflicts",
+      "issueName": "Central Asia Autocracies and Resource Conflicts",
+      "systems": ["Politics", "Resources", "Diplomacy", "Economy"],
+      "reasoning": "Authoritarian regimes, water/energy conflicts, Chinese influence, succession crises"
+    },
+    {
+      "issueId": "international-river-water-wars",
+      "issueName": "International River Water Wars",
+      "systems": ["Resources", "Diplomacy", "Climate", "Military"],
+      "reasoning": "Transboundary water disputes, climate scarcity, diplomatic tensions, conflict risk"
+    },
+    {
+      "issueId": "insect-apocalypse-and-pollinator-collapse",
+      "issueName": "Insect Apocalypse and Pollinator Collapse",
+      "systems": ["Climate", "Resources", "Economy", "Healthcare"],
+      "reasoning": "Biodiversity collapse, agricultural impacts, economic food production, nutrition/health"
+    },
+    {
+      "issueId": "fungal-crop-switch-coffee-cocoa-extinction",
+      "issueName": "Fungal Crop Switch: Coffee/Cocoa Extinction",
+      "systems": ["Climate", "Resources", "Economy", "Trade"],
+      "reasoning": "Climate-driven crop diseases, agricultural resources, economic disruption, commodity trade"
+    },
+    {
+      "issueId": "global-fertilizer-shock-and-food-riots",
+      "issueName": "Global Fertilizer Shock and Food Riots",
+      "systems": ["Resources", "Economy", "Trade", "Politics"],
+      "reasoning": "Fertilizer resource crisis, agricultural economics, international trade disruption, political instability"
+    },
+    {
+      "issueId": "coral-reef-death-and-ocean-ecosystem-collapse",
+      "issueName": "Coral Reef Death and Ocean Ecosystem Collapse",
+      "systems": ["Climate", "Resources", "Economy", "Geography"],
+      "reasoning": "Ocean warming/acidification, marine resource collapse, fishing economy, ecosystem geography"
+    },
+    {
+      "issueId": "forever-chemical-contamination-crisis",
+      "issueName": "Forever Chemical Contamination Crisis",
+      "systems": ["Healthcare", "Resources", "Economy", "Politics (Policy)"],
+      "reasoning": "PFAS/microplastics health impacts, water resource contamination, cleanup costs, regulatory challenges"
+    },
+    {
+      "issueId": "permafrost-methane-release",
+      "issueName": "Permafrost Methane Release",
+      "systems": ["Climate", "Geography"],
+      "reasoning": "Climate feedback loop, Arctic permafrost thaw, methane emissions, geographic changes"
+    },
+    {
+      "issueId": "arctic-sovereignty-conflicts",
+      "issueName": "Arctic Sovereignty Conflicts",
+      "systems": ["Diplomacy", "Military", "Resources", "Geography"],
+      "reasoning": "Territorial claims, military buildup, resource access, opening waterways"
+    },
+    {
+      "issueId": "space-weaponization-and-orbital-conflict",
+      "issueName": "Space Weaponization and Orbital Conflict",
+      "systems": ["Military", "Technology", "Diplomacy", "Infrastructure"],
+      "reasoning": "Space weapons, military technology, arms control failure, orbital infrastructure threats"
+    },
+    {
+      "issueId": "quantum-computing-encryption-collapse",
+      "issueName": "Quantum Computing Encryption Collapse",
+      "systems": ["Technology", "Economy", "Military", "Institutions"],
+      "reasoning": "Quantum computers, cryptography breaking, financial system vulnerability, national security"
+    },
+    {
+      "issueId": "algorithmic-governance-proliferation",
+      "issueName": "Algorithmic Governance Proliferation",
+      "systems": ["Technology", "Politics", "Institutions", "Culture"],
+      "reasoning": "AI decision systems, automated governance, institutional transformation, social control culture"
+    },
+    {
+      "issueId": "venezuela-hyperinflation-and-collapse",
+      "issueName": "Venezuela Hyperinflation and Collapse",
+      "systems": ["Economy", "Politics", "Population (Movements)", "Public Finance"],
+      "reasoning": "Economic collapse, political crisis, refugee exodus, fiscal implosion"
+    },
+    {
+      "issueId": "brazil-bolsonaro-and-amazon-destruction",
+      "issueName": "Brazil Bolsonaro and Amazon Destruction",
+      "systems": ["Climate", "Politics", "Culture", "Resources"],
+      "reasoning": "Deforestation acceleration, authoritarian politics, indigenous persecution, rainforest resources"
+    },
+    {
+      "issueId": "amazon-rainforest-dieback",
+      "issueName": "Amazon Rainforest Dieback",
+      "systems": ["Climate", "Geography", "Resources"],
+      "reasoning": "Climate tipping point, ecosystem collapse, biodiversity/carbon resources, regional climate impacts"
+    },
+    {
+      "issueId": "mexican-cartel-violence-and-state-failure",
+      "issueName": "Mexican Cartel Violence and State Failure",
+      "systems": ["Institutions (Policing)", "Military", "Politics", "Economy"],
+      "reasoning": "Organized crime, security force corruption, state authority erosion, drug economy"
+    },
+    {
+      "issueId": "central-america-migration-caravans",
+      "issueName": "Central America Migration Caravans",
+      "systems": ["Population (Movements)", "Economy", "Climate", "Diplomacy"],
+      "reasoning": "Mass migration, economic desperation, climate disasters, regional diplomacy"
+    },
+    {
+      "issueId": "sahel-jihadist-insurgency",
+      "issueName": "Sahel Jihadist Insurgency",
+      "systems": ["Military", "Politics", "Population (Movements)", "Institutions"],
+      "reasoning": "Terrorism/insurgency, state collapse, displacement, institutional failure"
+    },
+    {
+      "issueId": "ethiopia-tigray-genocide",
+      "issueName": "Ethiopia Tigray Genocide",
+      "systems": ["Military", "Politics", "Population (Movements)", "Healthcare"],
+      "reasoning": "Civil war, ethnic cleansing, refugee crisis, famine weaponization"
+    },
+    {
+      "issueId": "congo-endless-war-and-resource-curse",
+      "issueName": "Congo Endless War and Resource Curse",
+      "systems": ["Military", "Resources", "Politics", "Economy"],
+      "reasoning": "Perpetual conflict, mineral resource exploitation, state weakness, extractive economy"
+    },
+    {
+      "issueId": "african-climate-refugee-crisis",
+      "issueName": "African Climate Refugee Crisis",
+      "systems": ["Climate", "Population (Movements)", "Resources", "Diplomacy"],
+      "reasoning": "Climate-driven migration, desertification, water/food scarcity, international refugee system"
+    },
+    {
+      "issueId": "comprehensive-refugee-system-collapse",
+      "issueName": "Comprehensive Refugee System Collapse",
+      "systems": ["Population (Movements)", "International Orgs", "Diplomacy", "Infrastructure"],
+      "reasoning": "Refugee system overwhelmed, UN agency capacity exceeded, international coordination failure, camp infrastructure crisis"
+    },
+    {
+      "issueId": "human-smuggling-networks",
+      "issueName": "Human Smuggling Networks",
+      "systems": ["Population (Movements)", "Economy", "Institutions (Policing)", "Diplomacy"],
+      "reasoning": "Migration exploitation, criminal economy, law enforcement challenges, international cooperation"
+    },
+    {
+      "issueId": "asylum-system-breakdown",
+      "issueName": "Asylum System Breakdown",
+      "systems": ["Population (Movements)", "Institutions", "Politics (Policy)", "International Orgs"],
+      "reasoning": "Asylum process collapse, institutional capacity, policy failures, refugee convention erosion"
+    },
+    {
+      "issueId": "weaponized-migration-pushbacks",
+      "issueName": "Weaponsized Migration Pushbacks",
+      "systems": ["Population (Movements)", "Military", "Diplomacy", "Politics"],
+      "reasoning": "Migration as weapon, border militarization, diplomatic conflicts, political manipulation"
+    },
+    {
+      "issueId": "food-export-weaponization",
+      "issueName": "Food Export Weaponization",
+      "systems": ["Trade", "Diplomacy", "Resources", "Economy"],
+      "reasoning": "Food trade restrictions, diplomatic weapon, agricultural resources, market manipulation"
+    },
+    {
+      "issueId": "synthetic-food-ecosystem-monopolies",
+      "issueName": "Synthetic Food Ecosystem Monopolies",
+      "systems": ["Technology", "Economy", "Resources", "Trade"],
+      "reasoning": "Lab-grown food tech, corporate consolidation, traditional agriculture displacement, food trade transformation"
+    },
+    {
+      "issueId": "deep-sea-mining-rush-and-pacific-sovereignty-fight",
+      "issueName": "Deep-Sea Mining Rush and Pacific Sovereignty Fight",
+      "systems": ["Resources", "Diplomacy", "Economy", "International Orgs"],
+      "reasoning": "Seabed mineral extraction, territorial rights, industry development, ISA governance"
+    },
+    {
+      "issueId": "antarctic-cyanide-mining-rush",
+      "issueName": "Antarctic Cyanide Mining Rush",
+      "systems": ["Resources", "Diplomacy", "Climate", "International Orgs"],
+      "reasoning": "Antarctic resource exploitation, treaty system breakdown, environmental impacts, international governance"
+    },
+    {
+      "issueId": "orphaned-oil-wells-and-methane-super-leak-crisis",
+      "issueName": "Orphaned Oil Wells and Methane Super-Leak Crisis",
+      "systems": ["Climate", "Resources", "Economy", "Public Finance"],
+      "reasoning": "Abandoned infrastructure, methane emissions, cleanup costs, corporate liability escape"
+    },
+    {
+      "issueId": "gnss-spoofing-and-positioning-trust-collapse",
+      "issueName": "GNSS Spoofing and Positioning Trust Collapse",
+      "systems": ["Technology", "Infrastructure", "Military", "Economy"],
+      "reasoning": "GPS/navigation attacks, infrastructure dependency, military operations, economic disruption"
+    },
+    {
+      "issueId": "ai-controlled-factory-kill-switch-sabotage",
+      "issueName": "AI-Controlled Factory Kill Switch Sabotage",
+      "systems": ["Technology", "Economy", "Infrastructure", "Military"],
+      "reasoning": "Industrial IoT vulnerabilities, production sabotage, supply chain, cyber warfare"
+    },
+    {
+      "issueId": "spyware-for-hire-export-wars",
+      "issueName": "Spyware-for-Hire Export Wars",
+      "systems": ["Technology", "Diplomacy", "Politics", "Trade"],
+      "reasoning": "Surveillance tech proliferation, export controls, repression tools, international norms"
+    },
+    {
+      "issueId": "global-shipping-corridor-disruptions",
+      "issueName": "Global Shipping Corridor Disruptions",
+      "systems": ["Trade", "Military", "Infrastructure", "Diplomacy"],
+      "reasoning": "Chokepoint control, shipping disruption, military threats, international commerce"
+    },
+    {
+      "issueId": "suez-canal-blockage-and-chokepoint-accidents",
+      "issueName": "Suez Canal Blockage and Chokepoint Accidents",
+      "systems": ["Trade", "Infrastructure", "Economy", "Climate"],
+      "reasoning": "Shipping bottlenecks, infrastructure accidents, economic disruption, climate extremes"
+    },
+    {
+      "issueId": "global-container-chokepoint-labor-revolts",
+      "issueName": "Global Container Chokepoint Labor Revolts",
+      "systems": ["Economy", "Infrastructure", "Trade", "Climate"],
+      "reasoning": "Port labor conflicts, automation threats, supply chain, heat extremes"
+    },
+    {
+      "issueId": "just-in-time-supply-chain-collapse",
+      "issueName": "Just-in-Time Supply Chain Collapse",
+      "systems": ["Economy", "Trade", "Infrastructure", "Climate"],
+      "reasoning": "Supply chain fragility, inventory crisis, production concentration, disruption cascades"
+    },
+    {
+      "issueId": "mega-project-cost-overrun-sovereign-defaults",
+      "issueName": "Mega-Project Cost Overrun Sovereign Defaults",
+      "systems": ["Public Finance", "Infrastructure", "Economy", "Diplomacy"],
+      "reasoning": "Infrastructure debt crises, cost overruns, sovereign defaults, foreign lending"
+    },
+    {
+      "issueId": "seafloor-data-cable-nationalization-wars",
+      "issueName": "Seafloor Data Cable Nationalization Wars",
+      "systems": ["Infrastructure", "Technology", "Diplomacy", "Military"],
+      "reasoning": "Undersea cable control, internet infrastructure, territorial disputes, sabotage risks"
+    },
+    {
+      "issueId": "commodity-currency-fragmentation-and-de-dollarization",
+      "issueName": "Commodity Currency Fragmentation and De-Dollarization",
+      "systems": ["Economy", "Trade", "Diplomacy", "Public Finance"],
+      "reasoning": "Currency system fragmentation, trade settlement changes, geopolitical alignment, dollar dominance erosion"
+    },
+    {
+      "issueId": "global-trade-finance-gridlock",
+      "issueName": "Global Trade Finance Gridlock",
+      "systems": ["Trade", "Economy", "Diplomacy", "Infrastructure"],
+      "reasoning": "Trade finance collapse, letters of credit, insurance withdrawal, commerce paralysis"
+    },
+    {
+      "issueId": "commodity-clearinghouse-margin-spiral",
+      "issueName": "Commodity Clearinghouse Margin Spiral",
+      "systems": ["Economy", "Trade", "Resources", "Public Finance"],
+      "reasoning": "Commodity market crisis, margin calls, exchange halts, financial system stress"
+    },
+    {
+      "issueId": "longevity-wealth-divorce-wars",
+      "issueName": "Longevity Wealth Divorce Wars",
+      "systems": ["Technology", "Economy", "Culture", "Institutions"],
+      "reasoning": "Life extension tech, inheritance law obsolete, generational wealth, family institution transformation"
+    },
+    {
+      "issueId": "digital-brain-property-rights",
+      "issueName": "Digital Brain Property Rights",
+      "systems": ["Technology", "Economy", "Politics", "Institutions"],
+      "reasoning": "Brain upload tech, IP ownership, estate law, legal frameworks"
+    },
+    {
+      "issueId": "ai-generated-synthetic-biolab-leaks",
+      "issueName": "AI-Generated Synthetic Biolab Leaks",
+      "systems": ["Technology", "Pandemic", "Politics (Policy)", "Healthcare"],
+      "reasoning": "AI bio-design, DIY lab risks, disease outbreaks, regulatory gaps"
+    },
+    {
+      "issueId": "pharmaceutical-ingredient-dependency-crisis",
+      "issueName": "Pharmaceutical Ingredient Dependency Crisis",
+      "systems": ["Healthcare", "Trade", "Economy", "Diplomacy"],
+      "reasoning": "Drug supply concentration, trade dependencies, production offshoring, geopolitical vulnerabilities"
+    },
+    {
+      "issueId": "critical-generic-drug-and-antibiotic-rationing-regimes",
+      "issueName": "Critical Generic Drug and Antibiotic Rationing Regimes",
+      "systems": ["Healthcare", "Economy", "Trade", "Pandemic"],
+      "reasoning": "Drug shortage crisis, supply chain failures, antibiotic resistance, rationing systems"
+    },
+    {
+      "issueId": "global-cold-chain-failure-and-vaccine-spoilage",
+      "issueName": "Global Cold-Chain Failure and Vaccine Spoilage",
+      "systems": ["Healthcare", "Infrastructure", "Technology", "Pandemic"],
+      "reasoning": "Vaccine distribution, cold storage infrastructure, logistics technology, pandemic response"
+    },
+    {
+      "issueId": "quantum-assisted-insider-trading-cartels",
+      "issueName": "Quantum-Assisted Insider Trading Cartels",
+      "systems": ["Technology", "Economy", "Institutions", "Politics (Policy)"],
+      "reasoning": "Quantum computing advantage, market manipulation, regulatory lag, institutional control"
+    },
+    {
+      "issueId": "mass-casualty-backlog-and-body-storage-collapse",
+      "issueName": "Mass-Casualty Backlog and Body Storage Collapse",
+      "systems": ["Healthcare", "Infrastructure", "Climate", "Pandemic"],
+      "reasoning": "Morgue capacity crisis, climate heatwaves, pandemic deaths, infrastructure inadequacy"
+    },
+    {
+      "issueId": "ai-grief-tech-and-digital-resurrection-ethics",
+      "issueName": "AI Grief Tech and Digital Resurrection Ethics",
+      "systems": ["Technology", "Healthcare", "Culture", "Politics (Policy)"],
+      "reasoning": "AI griefbots, mental health impacts, cultural death practices, regulatory gaps"
+    },
+    {
+      "issueId": "green-burial-vs-carbon-cemetery-wars",
+      "issueName": "Green Burial vs Carbon Cemetery Wars",
+      "systems": ["Climate", "Culture", "Politics (Policy)", "Infrastructure"],
+      "reasoning": "Burial method debates, land use/emissions, cultural practices, regulatory conflicts"
+    },
+    {
+      "issueId": "global-pollinator-extinction-pulse",
+      "issueName": "Global Pollinator Extinction Pulse",
+      "systems": ["Climate", "Resources", "Economy", "Healthcare"],
+      "reasoning": "Biodiversity collapse, agricultural crisis, food production, nutrition/health"
+    },
+    {
+      "issueId": "automated-companion-replacements",
+      "issueName": "Automated Companion Replacements",
+      "systems": ["Technology", "Economy", "Culture", "Healthcare"],
+      "reasoning": "Robot pet tech, economic affordability, cultural relationships, mental health impacts"
+    },
+    {
+      "issueId": "european-energy-shock-and-heating-crisis",
+      "issueName": "European Energy Shock and Heating Crisis",
+      "systems": ["Resources", "Economy", "Diplomacy", "Public Finance"],
+      "reasoning": "Energy supply crisis, economic impacts, geopolitical dependencies, government subsidies"
+    },
+    {
+      "issueId": "city-scale-climate-lockdowns",
+      "issueName": "City-Scale Climate Lockdowns",
+      "systems": ["Climate", "Politics (Policy)", "Healthcare", "Infrastructure"],
+      "reasoning": "Extreme weather response, government emergency powers, heat health risks, urban infrastructure"
+    },
+    {
+      "issueId": "medical-debt-vigilantism-and-refusal-networks",
+      "issueName": "Medical Debt Vigilantism and Refusal Networks",
+      "systems": ["Healthcare", "Economy", "Culture", "Politics"],
+      "reasoning": "Medical debt crisis, grassroots movements, cultural resistance, political implications"
+    },
+    {
+      "issueId": "opioid-settlement-fallout-and-fentanyl-wave",
+      "issueName": "Opioid Settlement Fallout and Fentanyl Wave",
+      "systems": ["Healthcare", "Economy", "Institutions (Policing)", "Public Finance"],
+      "reasoning": "Addiction crisis, pharmaceutical liability, law enforcement response, treatment funding"
+    },
+    {
+      "issueId": "lithium-refinery-air-toxics-rebellion",
+      "issueName": "Lithium Refinery Air-Toxics Rebellion",
+      "systems": ["Resources", "Healthcare", "Climate", "Politics"],
+      "reasoning": "Battery material extraction, air pollution, environmental justice, EV transition tensions"
+    },
+    {
+      "issueId": "battery-waste-megafires",
+      "issueName": "Battery Waste Megafires",
+      "systems": ["Infrastructure", "Climate", "Resources", "Healthcare"],
+      "reasoning": "Battery recycling failure, chemical fires, environmental disasters, health impacts"
+    },
+    {
+      "issueId": "oceanic-dead-zone-refugees",
+      "issueName": "Oceanic Dead-Zone Refugees",
+      "systems": ["Climate", "Resources", "Population (Movements)", "Economy"],
+      "reasoning": "Ocean hypoxia, fishery collapse, coastal displacement, livelihoods crisis"
+    },
+    {
+      "issueId": "drug-resistant-mosquito-parasite-arms-race",
+      "issueName": "Drug-Resistant Mosquito/Parasite Arms Race",
+      "systems": ["Healthcare", "Pandemic", "Climate", "Technology"],
+      "reasoning": "Vector resistance, disease treatment failure, climate habitat expansion, gene drive tech"
+    },
+    {
+      "issueId": "antifungal-superbug-era",
+      "issueName": "Antifungal Superbug Era",
+      "systems": ["Healthcare", "Pandemic", "Climate", "Resources"],
+      "reasoning": "Fungal resistance, climate warming, medical/agricultural overuse, healthcare crisis"
+    },
+    {
+      "issueId": "ai-clinical-automation-catastrophe",
+      "issueName": "AI Clinical Automation Catastrophe",
+      "systems": ["Technology", "Healthcare", "Politics (Policy)", "Economy"],
+      "reasoning": "AI medical errors, automation risks, regulatory lag, cost-cutting pressures"
+    },
+    {
+      "issueId": "global-healthcare-workforce-exodus",
+      "issueName": "Global Healthcare Workforce Exodus",
+      "systems": ["Healthcare", "Population (Movements)", "Economy", "Pandemic"],
+      "reasoning": "Healthcare worker migration, labor shortages, wage differentials, pandemic burnout"
+    },
+    {
+      "issueId": "algorithmic-eviction-and-debt-courts",
+      "issueName": "Algorithmic Eviction and Debt Courts",
+      "systems": ["Technology", "Economy", "Institutions", "Politics (Policy)"],
+      "reasoning": "AI court automation, housing/debt enforcement, institutional transformation, due process erosion"
+    }
+  ]
+}

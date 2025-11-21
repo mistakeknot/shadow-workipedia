@@ -310,6 +310,28 @@ function extractIssueEdges(issues: RawIssue[]): GraphEdge[] {
   return edges;
 }
 
+function loadCuratedMappings(): Map<string, string[]> {
+  const mappingsPath = join(process.cwd(), 'issue-system-mappings.json');
+
+  if (!existsSync(mappingsPath)) {
+    console.warn('⚠️  Curated mappings not found, returning empty map');
+    return new Map();
+  }
+
+  const content = readFileSync(mappingsPath, 'utf-8');
+  const data = JSON.parse(content);
+
+  const mappingMap = new Map<string, string[]>();
+
+  if (data.mappings && Array.isArray(data.mappings)) {
+    for (const mapping of data.mappings) {
+      mappingMap.set(mapping.issueId, mapping.systems);
+    }
+  }
+
+  return mappingMap;
+}
+
 function extractIssueSystemEdges(
   issues: RawIssue[],
   systems: ConnectivitySystem[]
@@ -317,40 +339,41 @@ function extractIssueSystemEdges(
   const edges: GraphEdge[] = [];
   const systemNames = new Set(systems.map(s => s.name.toLowerCase()));
 
-  // Keyword-based system inference
-  const systemKeywords: Record<string, string[]> = {
-    'economy': ['economic', 'economy', 'financial', 'trade', 'market', 'wealth', 'inequality', 'job', 'employment', 'income', 'debt', 'gdp'],
-    'climate': ['climate', 'environmental', 'carbon', 'emission', 'warming', 'weather', 'ecosystem', 'biodiversity', 'pollution'],
-    'politics': ['political', 'politics', 'democratic', 'governance', 'election', 'policy', 'regulation', 'government', 'institutional'],
-    'healthcare': ['health', 'healthcare', 'medical', 'medicine', 'disease', 'pandemic', 'mental', 'public health'],
-    'technology': ['tech', 'ai', 'artificial intelligence', 'cyber', 'digital', 'internet', 'social media', 'automation', 'deepfake', 'algorithm'],
-    'education': ['education', 'learning', 'school', 'university', 'literacy', 'knowledge'],
-    'military': ['military', 'defense', 'warfare', 'conflict', 'arms', 'security', 'geopolitical', 'war'],
-    'trade': ['trade', 'export', 'import', 'tariff', 'supply chain', 'globalization'],
-    'population': ['population', 'demographic', 'migration', 'aging', 'birth', 'refugee', 'urbanization', 'social'],
-    'culture': ['cultural', 'culture', 'identity', 'religious', 'values', 'tradition', 'polarization'],
-    'infrastructure': ['infrastructure', 'grid', 'energy', 'transportation', 'housing', 'urban', 'rural'],
-  };
+  // Load curated human-reviewed mappings
+  const curatedMappings = loadCuratedMappings();
+  console.log(`📋 Loaded ${curatedMappings.size} curated issue-system mappings`);
 
   for (const issue of issues) {
-    const issueText = `${issue.name} ${issue.description}`.toLowerCase();
-    const affectedSystems = new Set<string>();
+    // Use curated mappings if available
+    const curatedSystems = curatedMappings.get(issue.id);
 
-    // Match keywords to infer affected systems
-    for (const [systemKey, keywords] of Object.entries(systemKeywords)) {
-      // Check if system exists in actual data
-      if (!systemNames.has(systemKey)) continue;
+    if (curatedSystems && curatedSystems.length > 0) {
+      // Use human-reviewed mappings
+      for (const systemName of curatedSystems) {
+        const systemKey = systemName.toLowerCase();
 
-      for (const keyword of keywords) {
-        if (issueText.includes(keyword)) {
-          affectedSystems.add(systemKey);
-          break; // One match per system is enough
+        // Check if system exists in actual data
+        if (!systemNames.has(systemKey)) {
+          console.warn(`⚠️  System "${systemName}" from mapping not found in connectivity data`);
+          continue;
         }
-      }
-    }
 
-    // Fallback: use category mapping if no semantic matches
-    if (affectedSystems.size === 0) {
+        const systemId = `system-${systemKey}`;
+
+        // All curated mappings get same strength (manually reviewed)
+        edges.push({
+          source: issue.id,
+          target: systemId,
+          type: 'issue-system',
+          strength: 0.6,
+          label: `Affects ${systemName}`,
+          bidirectional: false,
+        });
+      }
+    } else {
+      // Fallback to category-based mapping if no curated data
+      console.warn(`⚠️  No curated mapping for "${issue.name}", using category fallback`);
+
       const categoryMap: Record<IssueCategory, string[]> = {
         Economic: ['economy', 'trade'],
         Social: ['population', 'culture'],
@@ -364,26 +387,16 @@ function extractIssueSystemEdges(
 
       const fallbackSystems = categoryMap[issue.category] || [];
       fallbackSystems.forEach(s => {
-        if (systemNames.has(s)) affectedSystems.add(s);
-      });
-    }
-
-    // Create edges with varying strength based on relevance
-    for (const systemKey of affectedSystems) {
-      const systemId = `system-${systemKey}`;
-
-      // Higher strength for primary category match
-      const isPrimaryCategory = issue.category.toLowerCase().includes(systemKey) ||
-                                systemKey.includes(issue.category.toLowerCase());
-      const strength = isPrimaryCategory ? 0.7 : 0.4;
-
-      edges.push({
-        source: issue.id,
-        target: systemId,
-        type: 'issue-system',
-        strength,
-        label: `Impacts ${systemKey}`,
-        bidirectional: false,
+        if (systemNames.has(s)) {
+          edges.push({
+            source: issue.id,
+            target: `system-${s}`,
+            type: 'issue-system',
+            strength: 0.4,
+            label: `Category: ${s}`,
+            bidirectional: false,
+          });
+        }
       });
     }
   }
