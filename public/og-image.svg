@@ -44,10 +44,6 @@
     Shadow Workipedia
   </text>
 
-  <!-- Subtitle -->
-  <text x="600" y="520" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="32" fill="#94a3b8" text-anchor="middle">
-    Explore 255 interconnected global issues
-  </text>
 
   <!-- Stats badge -->
   <rect x="450" y="560" width="300" height="50" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>

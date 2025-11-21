@@ -122,7 +122,13 @@ async function main() {
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('Could not get canvas context');
 
-  // Size canvas to window
+  // Transform state
+  let currentTransform = { x: 0, y: 0, k: 1 };
+
+  // Initialize simulation
+  const graph = new GraphSimulation(data, canvas.width, canvas.height);
+
+  // Size canvas to window (function defined early, called later after all dependencies are ready)
   function resizeCanvas() {
     canvas.width = window.innerWidth;
     // Calculate header + filter bar height dynamically
@@ -136,14 +142,6 @@ async function main() {
     graph.restart();
     render();
   }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-
-  // Transform state
-  let currentTransform = { x: 0, y: 0, k: 1 };
-
-  // Initialize simulation
-  const graph = new GraphSimulation(data, canvas.width, canvas.height);
 
   // Tooltip element
   const tooltip = document.getElementById('tooltip') as HTMLDivElement;
@@ -404,6 +402,12 @@ async function main() {
   }
 
   graph.onTick(render);
+
+  // Now that all dependencies (activeCategories, searchTerm, etc.) are initialized,
+  // we can safely call resizeCanvas which calls render
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
   render();
 
   // Set up reset button
