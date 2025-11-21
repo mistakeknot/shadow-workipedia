@@ -1,0 +1,33 @@
+{
+  "name": "shadow-workipedia",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Interactive visualization of Shadow Work's interconnected global issues and systems",
+  "scripts": {
+    "dev": "vite",
+    "build": "pnpm extract-data && tsc && vite build",
+    "preview": "vite preview",
+    "extract-data": "tsx scripts/extract-data.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.4.3",
+    "@types/d3-force": "^3.0.10",
+    "@types/d3-quadtree": "^3.0.6",
+    "@types/d3-scale": "^4.0.9",
+    "@types/d3-selection": "^3.0.11",
+    "@types/d3-zoom": "^3.0.8",
+    "@types/node": "^20.10.0",
+    "terser": "^5.44.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.4.20"
+  },
+  "dependencies": {
+    "d3-force": "^3.0.0",
+    "d3-quadtree": "^3.0.1",
+    "d3-scale": "^4.0.2",
+    "d3-selection": "^3.0.0",
+    "d3-zoom": "^3.0.0"
+  }
+}
