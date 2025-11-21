@@ -7,9 +7,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Social Media Addiction Crisis",
-      "publicConcern": 64,
-      "economicImpact": 80,
-      "socialImpact": 52,
+      "publicConcern": 85,
+      "economicImpact": 87,
+      "socialImpact": 59,
+      "affectedSystems": [
+        "Technology",
+        "Healthcare",
+        "Culture",
+        "Population (Cohorts)"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -20,9 +26,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "AI Job Displacement Tsunami",
-      "publicConcern": 89,
-      "economicImpact": 65,
-      "socialImpact": 79,
+      "publicConcern": 97,
+      "economicImpact": 75,
+      "socialImpact": 63,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Politics (Policy)",
+        "Population (Cohorts)"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -33,9 +45,15 @@
       "category": "Technological",
       "urgency": "Critical",
       "description": "Deepfake Reality Crisis",
-      "publicConcern": 91,
-      "economicImpact": 65,
-      "socialImpact": 55,
+      "publicConcern": 86,
+      "economicImpact": 82,
+      "socialImpact": 76,
+      "affectedSystems": [
+        "Technology",
+        "Media",
+        "Politics",
+        "Diplomacy"
+      ],
       "color": "#06b6d4",
       "size": 16
     },
@@ -46,9 +64,15 @@
       "category": "Technological",
       "urgency": "Critical",
       "description": "AI Compute Resource Wars",
-      "publicConcern": 93,
-      "economicImpact": 51,
-      "socialImpact": 77,
+      "publicConcern": 87,
+      "economicImpact": 85,
+      "socialImpact": 62,
+      "affectedSystems": [
+        "Technology",
+        "Resources",
+        "Trade",
+        "Diplomacy"
+      ],
       "color": "#06b6d4",
       "size": 16
     },
@@ -59,9 +83,15 @@
       "category": "Technological",
       "urgency": "High",
       "description": "Splinternet and Data Localization Wars",
-      "publicConcern": 89,
-      "economicImpact": 99,
-      "socialImpact": 78,
+      "publicConcern": 99,
+      "economicImpact": 56,
+      "socialImpact": 83,
+      "affectedSystems": [
+        "Technology",
+        "Politics (Policy)",
+        "Trade",
+        "Diplomacy"
+      ],
       "color": "#06b6d4",
       "size": 12
     },
@@ -72,9 +102,15 @@
       "category": "Social",
       "urgency": "High",
       "description": "Gender Medicine Youth Controversy",
-      "publicConcern": 88,
-      "economicImpact": 93,
-      "socialImpact": 88,
+      "publicConcern": 60,
+      "economicImpact": 76,
+      "socialImpact": 65,
+      "affectedSystems": [
+        "Healthcare",
+        "Politics",
+        "Culture",
+        "Population (Cohorts)"
+      ],
       "color": "#8b5cf6",
       "size": 12
     },
@@ -85,9 +121,15 @@
       "category": "Social",
       "urgency": "High",
       "description": "Racial Reckoning Cycles",
-      "publicConcern": 82,
-      "economicImpact": 73,
-      "socialImpact": 56,
+      "publicConcern": 78,
+      "economicImpact": 74,
+      "socialImpact": 50,
+      "affectedSystems": [
+        "Institutions (Policing)",
+        "Politics",
+        "Culture",
+        "Economy"
+      ],
       "color": "#8b5cf6",
       "size": 12
     },
@@ -98,9 +140,14 @@
       "category": "Social",
       "urgency": "Critical",
       "description": "Religious Freedom Battles",
-      "publicConcern": 64,
-      "economicImpact": 90,
+      "publicConcern": 79,
+      "economicImpact": 86,
       "socialImpact": 71,
+      "affectedSystems": [
+        "Culture",
+        "Politics",
+        "Institutions"
+      ],
       "color": "#8b5cf6",
       "size": 16
     },
@@ -111,9 +158,15 @@
       "category": "Economic",
       "urgency": "High",
       "description": "Housing Impossibility Crisis",
-      "publicConcern": 88,
-      "economicImpact": 64,
+      "publicConcern": 68,
+      "economicImpact": 93,
       "socialImpact": 53,
+      "affectedSystems": [
+        "Economy",
+        "Infrastructure",
+        "Politics (Policy)",
+        "Population"
+      ],
       "color": "#3b82f6",
       "size": 12
     },
@@ -124,9 +177,14 @@
       "category": "Economic",
       "urgency": "Medium",
       "description": "Housing Bubble and Foreclosure Crisis",
-      "publicConcern": 67,
-      "economicImpact": 83,
-      "socialImpact": 98,
+      "publicConcern": 65,
+      "economicImpact": 92,
+      "socialImpact": 65,
+      "affectedSystems": [
+        "Economy",
+        "Public Finance",
+        "Politics (Policy)"
+      ],
       "color": "#3b82f6",
       "size": 8
     },
@@ -137,9 +195,16 @@
       "category": "Economic",
       "urgency": "Critical",
       "description": "Climate Insurance Collapse and Managed Retreat Wars",
-      "publicConcern": 96,
-      "economicImpact": 82,
-      "socialImpact": 79,
+      "publicConcern": 73,
+      "economicImpact": 86,
+      "socialImpact": 84,
+      "affectedSystems": [
+        "Climate",
+        "Economy",
+        "Public Finance",
+        "Politics (Policy)",
+        "Population (Movements)"
+      ],
       "color": "#3b82f6",
       "size": 16
     },
@@ -150,9 +215,15 @@
       "category": "Economic",
       "urgency": "Critical",
       "description": "Climate Risk Insurance Blacklists and Redlined ZIP Codes",
-      "publicConcern": 94,
-      "economicImpact": 57,
-      "socialImpact": 70,
+      "publicConcern": 85,
+      "economicImpact": 90,
+      "socialImpact": 68,
+      "affectedSystems": [
+        "Climate",
+        "Economy",
+        "Politics (Policy)",
+        "Infrastructure"
+      ],
       "color": "#3b82f6",
       "size": 16
     },
@@ -163,9 +234,15 @@
       "category": "Economic",
       "urgency": "High",
       "description": "Commercial Real Estate Doom Loop and Downtown Collapse",
-      "publicConcern": 72,
-      "economicImpact": 76,
-      "socialImpact": 90,
+      "publicConcern": 65,
+      "economicImpact": 77,
+      "socialImpact": 53,
+      "affectedSystems": [
+        "Economy",
+        "Infrastructure",
+        "Public Finance",
+        "Technology"
+      ],
       "color": "#3b82f6",
       "size": 12
     },
@@ -176,9 +253,10 @@
       "category": "Economic",
       "urgency": "Critical",
       "description": "Climate Loss & Damage Sovereign Debt Spiral",
-      "publicConcern": 70,
-      "economicImpact": 73,
-      "socialImpact": 79,
+      "publicConcern": 86,
+      "economicImpact": 94,
+      "socialImpact": 72,
+      "affectedSystems": [],
       "color": "#3b82f6",
       "size": 16
     },
@@ -189,9 +267,15 @@
       "category": "Economic",
       "urgency": "Critical",
       "description": "Water Desalination Mega-Trusts",
-      "publicConcern": 76,
-      "economicImpact": 88,
-      "socialImpact": 99,
+      "publicConcern": 99,
+      "economicImpact": 58,
+      "socialImpact": 91,
+      "affectedSystems": [
+        "Resources",
+        "Economy",
+        "Infrastructure",
+        "Politics (Policy)"
+      ],
       "color": "#3b82f6",
       "size": 16
     },
@@ -202,9 +286,15 @@
       "category": "Economic",
       "urgency": "High",
       "description": "Gig Economy Serfdom",
-      "publicConcern": 90,
-      "economicImpact": 76,
-      "socialImpact": 91,
+      "publicConcern": 74,
+      "economicImpact": 98,
+      "socialImpact": 62,
+      "affectedSystems": [
+        "Economy",
+        "Technology",
+        "Politics (Policy)",
+        "Healthcare"
+      ],
       "color": "#3b82f6",
       "size": 12
     },
@@ -215,9 +305,15 @@
       "category": "Economic",
       "urgency": "High",
       "description": "Student Debt Slavery",
-      "publicConcern": 80,
-      "economicImpact": 65,
-      "socialImpact": 86,
+      "publicConcern": 71,
+      "economicImpact": 62,
+      "socialImpact": 61,
+      "affectedSystems": [
+        "Education",
+        "Economy",
+        "Public Finance",
+        "Population (Cohorts)"
+      ],
       "color": "#3b82f6",
       "size": 12
     },
@@ -228,9 +324,15 @@
       "category": "Environmental",
       "urgency": "Medium",
       "description": "Climate Refugee Floods",
-      "publicConcern": 67,
-      "economicImpact": 51,
-      "socialImpact": 58,
+      "publicConcern": 63,
+      "economicImpact": 85,
+      "socialImpact": 83,
+      "affectedSystems": [
+        "Climate",
+        "Population (Movements)",
+        "Diplomacy",
+        "International Orgs"
+      ],
       "color": "#10b981",
       "size": 8
     },
@@ -241,9 +343,15 @@
       "category": "Environmental",
       "urgency": "Latent",
       "description": "Atlantic Overturning Collapse Risk (AMOC)",
-      "publicConcern": 93,
-      "economicImpact": 68,
-      "socialImpact": 67,
+      "publicConcern": 94,
+      "economicImpact": 91,
+      "socialImpact": 50,
+      "affectedSystems": [
+        "Climate",
+        "Geography",
+        "Economy",
+        "Resources"
+      ],
       "color": "#10b981",
       "size": 4
     },
@@ -256,7 +364,12 @@
       "description": "West Antarctic Ice Cliff Collapse",
       "publicConcern": 73,
       "economicImpact": 70,
-      "socialImpact": 91,
+      "socialImpact": 93,
+      "affectedSystems": [
+        "Climate",
+        "Geography",
+        "Infrastructure"
+      ],
       "color": "#10b981",
       "size": 4
     },
@@ -267,9 +380,15 @@
       "category": "Environmental",
       "urgency": "Medium",
       "description": "Water Scarcity Wars",
-      "publicConcern": 82,
-      "economicImpact": 50,
-      "socialImpact": 57,
+      "publicConcern": 88,
+      "economicImpact": 65,
+      "socialImpact": 79,
+      "affectedSystems": [
+        "Resources",
+        "Climate",
+        "Military",
+        "Diplomacy"
+      ],
       "color": "#10b981",
       "size": 8
     },
@@ -280,9 +399,15 @@
       "category": "Environmental",
       "urgency": "Medium",
       "description": "Himalayan Third Pole Glacier Collapse",
-      "publicConcern": 98,
-      "economicImpact": 53,
-      "socialImpact": 64,
+      "publicConcern": 64,
+      "economicImpact": 91,
+      "socialImpact": 84,
+      "affectedSystems": [
+        "Climate",
+        "Geography",
+        "Resources",
+        "Population"
+      ],
       "color": "#10b981",
       "size": 8
     },
@@ -293,9 +418,13 @@
       "category": "Environmental",
       "urgency": "Critical",
       "description": "Boreal Permafrost Carbon Pulse",
-      "publicConcern": 80,
-      "economicImpact": 71,
-      "socialImpact": 99,
+      "publicConcern": 85,
+      "economicImpact": 51,
+      "socialImpact": 95,
+      "affectedSystems": [
+        "Climate",
+        "Geography"
+      ],
       "color": "#10b981",
       "size": 16
     },
@@ -306,9 +435,15 @@
       "category": "Environmental",
       "urgency": "Critical",
       "description": "Transcontinental Wildfire Smoke Seasons",
-      "publicConcern": 99,
-      "economicImpact": 80,
-      "socialImpact": 51,
+      "publicConcern": 85,
+      "economicImpact": 89,
+      "socialImpact": 61,
+      "affectedSystems": [
+        "Climate",
+        "Healthcare",
+        "Economy",
+        "Infrastructure"
+      ],
       "color": "#10b981",
       "size": 16
     },
@@ -319,9 +454,15 @@
       "category": "Environmental",
       "urgency": "Medium",
       "description": "Pyrocumulonimbus Warfare",
-      "publicConcern": 95,
-      "economicImpact": 84,
-      "socialImpact": 86,
+      "publicConcern": 89,
+      "economicImpact": 56,
+      "socialImpact": 65,
+      "affectedSystems": [
+        "Military",
+        "Climate",
+        "Technology",
+        "Diplomacy"
+      ],
       "color": "#10b981",
       "size": 8
     },
@@ -332,9 +473,14 @@
       "category": "Environmental",
       "urgency": "Critical",
       "description": "Arctic Blue Ocean Event and Jet Stream Breakdown",
-      "publicConcern": 78,
-      "economicImpact": 99,
-      "socialImpact": 80,
+      "publicConcern": 88,
+      "economicImpact": 86,
+      "socialImpact": 75,
+      "affectedSystems": [
+        "Climate",
+        "Geography",
+        "Resources"
+      ],
       "color": "#10b981",
       "size": 16
     },
@@ -345,9 +491,15 @@
       "category": "Environmental",
       "urgency": "High",
       "description": "Pandemic Response Wars",
-      "publicConcern": 93,
-      "economicImpact": 98,
-      "socialImpact": 50,
+      "publicConcern": 71,
+      "economicImpact": 61,
+      "socialImpact": 79,
+      "affectedSystems": [
+        "Pandemic",
+        "Politics",
+        "Healthcare",
+        "International Orgs"
+      ],
       "color": "#10b981",
       "size": 12
     },
@@ -358,9 +510,15 @@
       "category": "Environmental",
       "urgency": "Critical",
       "description": "Mental Health Apocalypse",
-      "publicConcern": 89,
-      "economicImpact": 59,
-      "socialImpact": 61,
+      "publicConcern": 80,
+      "economicImpact": 56,
+      "socialImpact": 87,
+      "affectedSystems": [
+        "Healthcare",
+        "Economy",
+        "Culture",
+        "Population (Cohorts)"
+      ],
       "color": "#10b981",
       "size": 16
     },
@@ -371,9 +529,15 @@
       "category": "Environmental",
       "urgency": "High",
       "description": "Long COVID Labor Collapse",
-      "publicConcern": 81,
-      "economicImpact": 54,
-      "socialImpact": 77,
+      "publicConcern": 88,
+      "economicImpact": 89,
+      "socialImpact": 51,
+      "affectedSystems": [
+        "Pandemic",
+        "Healthcare",
+        "Economy",
+        "Public Finance"
+      ],
       "color": "#10b981",
       "size": 12
     },
@@ -384,9 +548,15 @@
       "category": "Environmental",
       "urgency": "Medium",
       "description": "Disinformation Plague",
-      "publicConcern": 60,
-      "economicImpact": 55,
-      "socialImpact": 89,
+      "publicConcern": 85,
+      "economicImpact": 92,
+      "socialImpact": 78,
+      "affectedSystems": [
+        "Media",
+        "Technology",
+        "Politics",
+        "Culture"
+      ],
       "color": "#10b981",
       "size": 8
     },
@@ -397,9 +567,15 @@
       "category": "Environmental",
       "urgency": "Critical",
       "description": "AI Deepfake Diplomatic Mutinies",
-      "publicConcern": 77,
-      "economicImpact": 51,
-      "socialImpact": 95,
+      "publicConcern": 87,
+      "economicImpact": 91,
+      "socialImpact": 85,
+      "affectedSystems": [
+        "Technology",
+        "Diplomacy",
+        "Military",
+        "Media"
+      ],
       "color": "#10b981",
       "size": 16
     },
@@ -410,9 +586,15 @@
       "category": "Environmental",
       "urgency": "Medium",
       "description": "Cancel Culture Tribunal",
-      "publicConcern": 92,
-      "economicImpact": 64,
-      "socialImpact": 83,
+      "publicConcern": 89,
+      "economicImpact": 77,
+      "socialImpact": 80,
+      "affectedSystems": [
+        "Culture",
+        "Media",
+        "Economy",
+        "Technology"
+      ],
       "color": "#10b981",
       "size": 8
     },
@@ -423,9 +605,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Mass Incarceration Crisis",
-      "publicConcern": 63,
-      "economicImpact": 73,
-      "socialImpact": 66,
+      "publicConcern": 68,
+      "economicImpact": 85,
+      "socialImpact": 96,
+      "affectedSystems": [
+        "Institutions (Policing)",
+        "Politics (Policy)",
+        "Economy",
+        "Population"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -436,9 +624,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Police Militarization Escalation",
-      "publicConcern": 67,
-      "economicImpact": 62,
-      "socialImpact": 70,
+      "publicConcern": 81,
+      "economicImpact": 76,
+      "socialImpact": 90,
+      "affectedSystems": [
+        "Institutions (Policing)",
+        "Military",
+        "Politics (Policy)",
+        "Public Finance"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -449,9 +643,14 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Death Penalty Abolition Wars",
-      "publicConcern": 87,
-      "economicImpact": 61,
-      "socialImpact": 76,
+      "publicConcern": 69,
+      "economicImpact": 70,
+      "socialImpact": 79,
+      "affectedSystems": [
+        "Institutions (Policing)",
+        "Politics",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -462,9 +661,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Economic Immigration Conflicts",
-      "publicConcern": 66,
-      "economicImpact": 70,
-      "socialImpact": 57,
+      "publicConcern": 88,
+      "economicImpact": 67,
+      "socialImpact": 67,
+      "affectedSystems": [
+        "Population (Movements)",
+        "Economy",
+        "Politics",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -475,9 +680,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Border Wall Politics",
-      "publicConcern": 71,
-      "economicImpact": 96,
-      "socialImpact": 66,
+      "publicConcern": 92,
+      "economicImpact": 78,
+      "socialImpact": 58,
+      "affectedSystems": [
+        "Politics",
+        "Infrastructure",
+        "Public Finance",
+        "Population (Movements)"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -488,9 +699,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Human Trafficking Networks",
-      "publicConcern": 65,
-      "economicImpact": 95,
-      "socialImpact": 67,
+      "publicConcern": 86,
+      "economicImpact": 64,
+      "socialImpact": 81,
+      "affectedSystems": [
+        "Institutions (Policing)",
+        "Population (Movements)",
+        "Economy",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -501,9 +718,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Biometric Microchip Migration Control",
-      "publicConcern": 77,
-      "economicImpact": 75,
-      "socialImpact": 75,
+      "publicConcern": 90,
+      "economicImpact": 55,
+      "socialImpact": 57,
+      "affectedSystems": [
+        "Technology",
+        "Population (Movements)",
+        "Politics (Policy)",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -514,9 +737,14 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Union Busting Epidemic",
-      "publicConcern": 77,
-      "economicImpact": 58,
-      "socialImpact": 53,
+      "publicConcern": 82,
+      "economicImpact": 66,
+      "socialImpact": 88,
+      "affectedSystems": [
+        "Economy",
+        "Politics (Policy)",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -527,9 +755,14 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Right-to-Work Law Battles",
-      "publicConcern": 76,
-      "economicImpact": 71,
-      "socialImpact": 78,
+      "publicConcern": 91,
+      "economicImpact": 64,
+      "socialImpact": 74,
+      "affectedSystems": [
+        "Politics (Policy)",
+        "Economy",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -540,9 +773,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "General Strike Movements",
-      "publicConcern": 68,
-      "economicImpact": 74,
-      "socialImpact": 77,
+      "publicConcern": 91,
+      "economicImpact": 93,
+      "socialImpact": 71,
+      "affectedSystems": [
+        "Economy",
+        "Politics",
+        "Institutions",
+        "Population"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -553,9 +792,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "AI Moderation Sweatshop Revolts",
-      "publicConcern": 68,
-      "economicImpact": 75,
-      "socialImpact": 52,
+      "publicConcern": 80,
+      "economicImpact": 76,
+      "socialImpact": 69,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Healthcare",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -566,9 +811,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Oil Industry Death Throes",
-      "publicConcern": 69,
-      "economicImpact": 63,
-      "socialImpact": 88,
+      "publicConcern": 68,
+      "economicImpact": 96,
+      "socialImpact": 95,
+      "affectedSystems": [
+        "Economy",
+        "Resources",
+        "Climate",
+        "Politics (Policy)"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -579,9 +830,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Coal Country Collapse",
-      "publicConcern": 65,
+      "publicConcern": 84,
       "economicImpact": 66,
-      "socialImpact": 86,
+      "socialImpact": 56,
+      "affectedSystems": [
+        "Economy",
+        "Resources",
+        "Population (Movements)",
+        "Politics (Policy)"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -592,9 +849,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Renewable Energy NIMBYism",
-      "publicConcern": 89,
-      "economicImpact": 73,
-      "socialImpact": 91,
+      "publicConcern": 72,
+      "economicImpact": 76,
+      "socialImpact": 69,
+      "affectedSystems": [
+        "Infrastructure",
+        "Politics",
+        "Culture",
+        "Climate"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -605,9 +868,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Nuclear Plant Crisis Cascade",
-      "publicConcern": 78,
-      "economicImpact": 92,
-      "socialImpact": 99,
+      "publicConcern": 82,
+      "economicImpact": 64,
+      "socialImpact": 82,
+      "affectedSystems": [
+        "Infrastructure",
+        "Climate",
+        "Public Finance",
+        "Technology"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -618,9 +887,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "State-Sponsored Hacking Epidemic",
-      "publicConcern": 99,
-      "economicImpact": 81,
-      "socialImpact": 70,
+      "publicConcern": 73,
+      "economicImpact": 77,
+      "socialImpact": 89,
+      "affectedSystems": [
+        "Technology",
+        "Military",
+        "Diplomacy",
+        "Economy"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -631,9 +906,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Ransomware Pandemic",
-      "publicConcern": 65,
-      "economicImpact": 53,
-      "socialImpact": 64,
+      "publicConcern": 74,
+      "economicImpact": 74,
+      "socialImpact": 56,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Institutions (Policing)",
+        "Healthcare"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -644,9 +925,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Critical Infrastructure Attacks",
-      "publicConcern": 84,
-      "economicImpact": 92,
-      "socialImpact": 99,
+      "publicConcern": 81,
+      "economicImpact": 96,
+      "socialImpact": 66,
+      "affectedSystems": [
+        "Infrastructure",
+        "Technology",
+        "Military",
+        "Economy"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -657,9 +944,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Carrington-Class Solar Storm",
-      "publicConcern": 68,
-      "economicImpact": 70,
-      "socialImpact": 76,
+      "publicConcern": 73,
+      "economicImpact": 92,
+      "socialImpact": 77,
+      "affectedSystems": [
+        "Infrastructure",
+        "Technology",
+        "Economy",
+        "Geography"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -670,9 +963,15 @@
       "category": "Infrastructure",
       "urgency": "Latent",
       "description": "Mars Settlement Conflicts",
-      "publicConcern": 85,
-      "economicImpact": 60,
-      "socialImpact": 61,
+      "publicConcern": 99,
+      "economicImpact": 71,
+      "socialImpact": 98,
+      "affectedSystems": [
+        "Technology",
+        "Diplomacy",
+        "Institutions",
+        "Politics (Policy)"
+      ],
       "color": "#6366f1",
       "size": 4
     },
@@ -683,9 +982,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Asteroid Mining Rights Wars",
-      "publicConcern": 91,
-      "economicImpact": 66,
-      "socialImpact": 56,
+      "publicConcern": 80,
+      "economicImpact": 93,
+      "socialImpact": 83,
+      "affectedSystems": [
+        "Technology",
+        "Diplomacy",
+        "Resources",
+        "International Orgs"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -696,9 +1001,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Space Militarization",
-      "publicConcern": 86,
-      "economicImpact": 53,
-      "socialImpact": 90,
+      "publicConcern": 92,
+      "economicImpact": 87,
+      "socialImpact": 54,
+      "affectedSystems": [
+        "Military",
+        "Technology",
+        "Diplomacy",
+        "International Orgs"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -709,9 +1020,15 @@
       "category": "Infrastructure",
       "urgency": "Latent",
       "description": "Space-Based Solar Power Hegemony",
-      "publicConcern": 67,
-      "economicImpact": 62,
-      "socialImpact": 63,
+      "publicConcern": 64,
+      "economicImpact": 60,
+      "socialImpact": 51,
+      "affectedSystems": [
+        "Technology",
+        "Resources",
+        "Military",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 4
     },
@@ -722,9 +1039,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Semiconductor Sovereignty Wars",
-      "publicConcern": 62,
-      "economicImpact": 53,
-      "socialImpact": 66,
+      "publicConcern": 91,
+      "economicImpact": 78,
+      "socialImpact": 59,
+      "affectedSystems": [
+        "Technology",
+        "Trade",
+        "Diplomacy",
+        "Economy"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -735,9 +1058,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Private Orbital Debris Cleanup Cartels",
-      "publicConcern": 69,
-      "economicImpact": 89,
-      "socialImpact": 86,
+      "publicConcern": 79,
+      "economicImpact": 86,
+      "socialImpact": 56,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Diplomacy",
+        "Infrastructure"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -748,9 +1077,14 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "AI Alignment Crisis",
-      "publicConcern": 66,
-      "economicImpact": 82,
-      "socialImpact": 53,
+      "publicConcern": 87,
+      "economicImpact": 53,
+      "socialImpact": 76,
+      "affectedSystems": [
+        "Technology",
+        "Politics (Policy)",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -761,9 +1095,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "AGI Containment Failure",
-      "publicConcern": 64,
-      "economicImpact": 56,
-      "socialImpact": 70,
+      "publicConcern": 62,
+      "economicImpact": 54,
+      "socialImpact": 87,
+      "affectedSystems": [
+        "Technology",
+        "Institutions",
+        "Economy",
+        "Military"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -774,9 +1114,15 @@
       "category": "Infrastructure",
       "urgency": "Latent",
       "description": "Machine Consciousness Rights",
-      "publicConcern": 97,
-      "economicImpact": 53,
-      "socialImpact": 66,
+      "publicConcern": 87,
+      "economicImpact": 79,
+      "socialImpact": 75,
+      "affectedSystems": [
+        "Technology",
+        "Politics",
+        "Culture",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 4
     },
@@ -787,9 +1133,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Gain-of-Function Research Battles",
-      "publicConcern": 82,
-      "economicImpact": 63,
-      "socialImpact": 67,
+      "publicConcern": 67,
+      "economicImpact": 79,
+      "socialImpact": 69,
+      "affectedSystems": [
+        "Technology",
+        "Pandemic",
+        "Politics (Policy)",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -800,9 +1152,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "CRISPR Regulation Wars",
-      "publicConcern": 69,
-      "economicImpact": 99,
-      "socialImpact": 88,
+      "publicConcern": 94,
+      "economicImpact": 77,
+      "socialImpact": 95,
+      "affectedSystems": [
+        "Technology",
+        "Healthcare",
+        "Politics (Policy)",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -813,9 +1171,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Bioweapon Proliferation",
-      "publicConcern": 77,
-      "economicImpact": 67,
-      "socialImpact": 61,
+      "publicConcern": 86,
+      "economicImpact": 75,
+      "socialImpact": 97,
+      "affectedSystems": [
+        "Technology",
+        "Military",
+        "Pandemic",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -826,9 +1190,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Land Back Movements",
-      "publicConcern": 70,
-      "economicImpact": 89,
-      "socialImpact": 84,
+      "publicConcern": 64,
+      "economicImpact": 69,
+      "socialImpact": 65,
+      "affectedSystems": [
+        "Culture",
+        "Politics",
+        "Institutions",
+        "Resources"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -839,9 +1209,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Resource Extraction Conflicts",
-      "publicConcern": 65,
-      "economicImpact": 72,
-      "socialImpact": 71,
+      "publicConcern": 70,
+      "economicImpact": 95,
+      "socialImpact": 73,
+      "affectedSystems": [
+        "Resources",
+        "Culture",
+        "Climate",
+        "Politics"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -852,9 +1228,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Sacred Site Protection",
-      "publicConcern": 80,
-      "economicImpact": 63,
-      "socialImpact": 98,
+      "publicConcern": 83,
+      "economicImpact": 68,
+      "socialImpact": 75,
+      "affectedSystems": [
+        "Culture",
+        "Politics",
+        "Resources",
+        "Infrastructure"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -865,9 +1247,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Billionaire Abolition Movement",
-      "publicConcern": 91,
-      "economicImpact": 94,
-      "socialImpact": 96,
+      "publicConcern": 69,
+      "economicImpact": 93,
+      "socialImpact": 66,
+      "affectedSystems": [
+        "Economy",
+        "Politics",
+        "Culture",
+        "Public Finance"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -878,9 +1266,14 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Dark Money Politics",
-      "publicConcern": 99,
-      "economicImpact": 51,
-      "socialImpact": 96,
+      "publicConcern": 67,
+      "economicImpact": 83,
+      "socialImpact": 76,
+      "affectedSystems": [
+        "Politics",
+        "Economy",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -891,9 +1284,14 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Corporate Personhood Battles",
-      "publicConcern": 85,
+      "publicConcern": 63,
       "economicImpact": 86,
-      "socialImpact": 87,
+      "socialImpact": 63,
+      "affectedSystems": [
+        "Politics",
+        "Institutions",
+        "Economy"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -904,9 +1302,15 @@
       "category": "Infrastructure",
       "urgency": "Latent",
       "description": "AI Cult States",
-      "publicConcern": 86,
-      "economicImpact": 75,
-      "socialImpact": 81,
+      "publicConcern": 92,
+      "economicImpact": 57,
+      "socialImpact": 80,
+      "affectedSystems": [
+        "Technology",
+        "Culture",
+        "Politics",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 4
     },
@@ -917,9 +1321,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Post-9/11 Security Tradeoffs",
-      "publicConcern": 88,
-      "economicImpact": 69,
-      "socialImpact": 85,
+      "publicConcern": 69,
+      "economicImpact": 71,
+      "socialImpact": 67,
+      "affectedSystems": [
+        "Military",
+        "Institutions (Policing)",
+        "Politics (Policy)",
+        "Technology"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -930,9 +1340,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Abortion Access Crisis",
-      "publicConcern": 89,
-      "economicImpact": 75,
-      "socialImpact": 69,
+      "publicConcern": 71,
+      "economicImpact": 57,
+      "socialImpact": 90,
+      "affectedSystems": [
+        "Healthcare",
+        "Politics",
+        "Culture",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -943,9 +1359,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Forced Birth Enforcement",
-      "publicConcern": 88,
-      "economicImpact": 83,
-      "socialImpact": 65,
+      "publicConcern": 90,
+      "economicImpact": 91,
+      "socialImpact": 90,
+      "affectedSystems": [
+        "Healthcare",
+        "Politics (Policy)",
+        "Institutions (Policing)",
+        "Technology"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -956,9 +1378,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Fertility Tracking Surveillance Markets",
-      "publicConcern": 78,
-      "economicImpact": 90,
-      "socialImpact": 88,
+      "publicConcern": 62,
+      "economicImpact": 97,
+      "socialImpact": 83,
+      "affectedSystems": [
+        "Technology",
+        "Healthcare",
+        "Economy",
+        "Politics (Policy)"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -969,9 +1397,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Crisis Pregnancy Center Deception",
-      "publicConcern": 76,
-      "economicImpact": 50,
-      "socialImpact": 76,
+      "publicConcern": 78,
+      "economicImpact": 60,
+      "socialImpact": 90,
+      "affectedSystems": [
+        "Healthcare",
+        "Politics",
+        "Culture",
+        "Public Finance"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -982,9 +1416,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "School Shooting Epidemic",
-      "publicConcern": 61,
-      "economicImpact": 80,
-      "socialImpact": 85,
+      "publicConcern": 66,
+      "economicImpact": 97,
+      "socialImpact": 89,
+      "affectedSystems": [
+        "Institutions (Policing)",
+        "Education",
+        "Politics",
+        "Healthcare"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -995,9 +1435,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Mass Shooting Normalization",
-      "publicConcern": 82,
-      "economicImpact": 80,
-      "socialImpact": 51,
+      "publicConcern": 68,
+      "economicImpact": 52,
+      "socialImpact": 53,
+      "affectedSystems": [
+        "Culture",
+        "Politics",
+        "Institutions (Policing)",
+        "Media"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1008,9 +1454,14 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Gun Rights Absolutism",
-      "publicConcern": 78,
-      "economicImpact": 61,
-      "socialImpact": 86,
+      "publicConcern": 83,
+      "economicImpact": 65,
+      "socialImpact": 95,
+      "affectedSystems": [
+        "Politics",
+        "Culture",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1021,9 +1472,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Medical Bankruptcy Epidemic",
-      "publicConcern": 72,
-      "economicImpact": 64,
-      "socialImpact": 87,
+      "publicConcern": 88,
+      "economicImpact": 60,
+      "socialImpact": 85,
+      "affectedSystems": [
+        "Healthcare",
+        "Economy",
+        "Public Finance",
+        "Politics (Policy)"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1034,9 +1491,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Insurance Death Panels",
-      "publicConcern": 81,
-      "economicImpact": 96,
-      "socialImpact": 63,
+      "publicConcern": 84,
+      "economicImpact": 74,
+      "socialImpact": 57,
+      "affectedSystems": [
+        "Healthcare",
+        "Economy",
+        "Technology",
+        "Politics (Policy)"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -1047,9 +1510,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Rural Hospital Collapse",
-      "publicConcern": 87,
-      "economicImpact": 51,
-      "socialImpact": 75,
+      "publicConcern": 62,
+      "economicImpact": 71,
+      "socialImpact": 91,
+      "affectedSystems": [
+        "Healthcare",
+        "Infrastructure",
+        "Economy",
+        "Population"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1060,9 +1529,14 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Voter Suppression Acceleration",
-      "publicConcern": 72,
-      "economicImpact": 63,
-      "socialImpact": 75,
+      "publicConcern": 70,
+      "economicImpact": 60,
+      "socialImpact": 93,
+      "affectedSystems": [
+        "Politics",
+        "Institutions",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1073,9 +1547,14 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Gerrymandering Extremism",
-      "publicConcern": 78,
-      "economicImpact": 66,
-      "socialImpact": 63,
+      "publicConcern": 84,
+      "economicImpact": 63,
+      "socialImpact": 95,
+      "affectedSystems": [
+        "Politics",
+        "Technology",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1086,9 +1565,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Election Denialism",
-      "publicConcern": 65,
-      "economicImpact": 91,
-      "socialImpact": 83,
+      "publicConcern": 82,
+      "economicImpact": 55,
+      "socialImpact": 50,
+      "affectedSystems": [
+        "Politics",
+        "Institutions",
+        "Media",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -1099,9 +1584,14 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Electoral College Crisis",
-      "publicConcern": 98,
-      "economicImpact": 97,
-      "socialImpact": 95,
+      "publicConcern": 67,
+      "economicImpact": 93,
+      "socialImpact": 63,
+      "affectedSystems": [
+        "Politics",
+        "Institutions",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1112,9 +1602,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Tent City Proliferation",
-      "publicConcern": 67,
-      "economicImpact": 87,
-      "socialImpact": 94,
+      "publicConcern": 83,
+      "economicImpact": 82,
+      "socialImpact": 88,
+      "affectedSystems": [
+        "Economy",
+        "Infrastructure",
+        "Healthcare",
+        "Politics (Policy)"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -1125,9 +1621,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Homelessness Criminalization",
-      "publicConcern": 99,
-      "economicImpact": 54,
-      "socialImpact": 63,
+      "publicConcern": 84,
+      "economicImpact": 85,
+      "socialImpact": 73,
+      "affectedSystems": [
+        "Institutions (Policing)",
+        "Politics (Policy)",
+        "Economy",
+        "Healthcare"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -1138,9 +1640,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Housing First vs. Treatment First",
-      "publicConcern": 84,
-      "economicImpact": 90,
-      "socialImpact": 82,
+      "publicConcern": 90,
+      "economicImpact": 93,
+      "socialImpact": 89,
+      "affectedSystems": [
+        "Healthcare",
+        "Politics (Policy)",
+        "Economy",
+        "Public Finance"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1151,9 +1659,14 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Marriage Equality Reversal Fears",
-      "publicConcern": 65,
-      "economicImpact": 90,
-      "socialImpact": 87,
+      "publicConcern": 90,
+      "economicImpact": 81,
+      "socialImpact": 89,
+      "affectedSystems": [
+        "Politics",
+        "Culture",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -1164,9 +1677,10 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Don't Say Gay / School Censorship",
-      "publicConcern": 96,
-      "economicImpact": 75,
-      "socialImpact": 87,
+      "publicConcern": 85,
+      "economicImpact": 53,
+      "socialImpact": 67,
+      "affectedSystems": [],
       "color": "#6366f1",
       "size": 12
     },
@@ -1177,9 +1691,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Pride Event Attacks",
-      "publicConcern": 71,
-      "economicImpact": 77,
-      "socialImpact": 70,
+      "publicConcern": 68,
+      "economicImpact": 90,
+      "socialImpact": 90,
+      "affectedSystems": [
+        "Culture",
+        "Institutions (Policing)",
+        "Politics",
+        "Healthcare"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -1190,9 +1710,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Endless War Authorization",
-      "publicConcern": 77,
-      "economicImpact": 64,
-      "socialImpact": 78,
+      "publicConcern": 78,
+      "economicImpact": 74,
+      "socialImpact": 57,
+      "affectedSystems": [
+        "Military",
+        "Politics",
+        "Institutions",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1204,8 +1730,14 @@
       "urgency": "Medium",
       "description": "Drone Warfare Normalization",
       "publicConcern": 81,
-      "economicImpact": 93,
-      "socialImpact": 81,
+      "economicImpact": 56,
+      "socialImpact": 53,
+      "affectedSystems": [
+        "Military",
+        "Technology",
+        "Politics",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1216,9 +1748,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Veteran Suicide Epidemic",
-      "publicConcern": 89,
-      "economicImpact": 83,
-      "socialImpact": 70,
+      "publicConcern": 76,
+      "economicImpact": 88,
+      "socialImpact": 81,
+      "affectedSystems": [
+        "Healthcare",
+        "Military",
+        "Public Finance",
+        "Population (Cohorts)"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1229,9 +1767,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Platform Power Abuse",
-      "publicConcern": 94,
-      "economicImpact": 85,
-      "socialImpact": 91,
+      "publicConcern": 98,
+      "economicImpact": 88,
+      "socialImpact": 97,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Politics (Policy)",
+        "Media"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1242,9 +1786,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Section 230 Wars",
-      "publicConcern": 99,
-      "economicImpact": 83,
-      "socialImpact": 95,
+      "publicConcern": 76,
+      "economicImpact": 64,
+      "socialImpact": 63,
+      "affectedSystems": [
+        "Technology",
+        "Politics (Policy)",
+        "Media",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -1255,9 +1805,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Tech Worker Uprising",
-      "publicConcern": 64,
-      "economicImpact": 50,
-      "socialImpact": 88,
+      "publicConcern": 85,
+      "economicImpact": 78,
+      "socialImpact": 87,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Culture",
+        "Military"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1268,9 +1824,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Marijuana Legalization Patchwork",
-      "publicConcern": 78,
-      "economicImpact": 75,
-      "socialImpact": 71,
+      "publicConcern": 89,
+      "economicImpact": 56,
+      "socialImpact": 75,
+      "affectedSystems": [
+        "Politics (Policy)",
+        "Economy",
+        "Healthcare",
+        "Institutions (Policing)"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1281,9 +1843,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "War on Drugs Continuation",
-      "publicConcern": 82,
-      "economicImpact": 58,
-      "socialImpact": 91,
+      "publicConcern": 84,
+      "economicImpact": 72,
+      "socialImpact": 66,
+      "affectedSystems": [
+        "Institutions (Policing)",
+        "Politics (Policy)",
+        "Culture",
+        "Economy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1294,9 +1862,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Antibiotic Resistance Crisis",
-      "publicConcern": 85,
-      "economicImpact": 63,
-      "socialImpact": 77,
+      "publicConcern": 79,
+      "economicImpact": 78,
+      "socialImpact": 92,
+      "affectedSystems": [
+        "Healthcare",
+        "Pandemic",
+        "Resources",
+        "Economy"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -1307,9 +1881,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Vaccine Hesitancy Epidemic",
-      "publicConcern": 66,
-      "economicImpact": 94,
-      "socialImpact": 71,
+      "publicConcern": 96,
+      "economicImpact": 73,
+      "socialImpact": 73,
+      "affectedSystems": [
+        "Healthcare",
+        "Media",
+        "Culture",
+        "Pandemic"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1320,9 +1900,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Local News Collapse",
-      "publicConcern": 64,
-      "economicImpact": 73,
-      "socialImpact": 55,
+      "publicConcern": 65,
+      "economicImpact": 99,
+      "socialImpact": 71,
+      "affectedSystems": [
+        "Media",
+        "Economy",
+        "Politics",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1333,9 +1919,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Billionaire Media Ownership",
-      "publicConcern": 92,
-      "economicImpact": 73,
-      "socialImpact": 89,
+      "publicConcern": 87,
+      "economicImpact": 79,
+      "socialImpact": 86,
+      "affectedSystems": [
+        "Media",
+        "Economy",
+        "Politics",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1346,9 +1938,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Misinformation Monetization",
-      "publicConcern": 78,
-      "economicImpact": 54,
-      "socialImpact": 89,
+      "publicConcern": 96,
+      "economicImpact": 72,
+      "socialImpact": 86,
+      "affectedSystems": [
+        "Media",
+        "Technology",
+        "Economy",
+        "Politics"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1359,9 +1957,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Gentrification Displacement",
-      "publicConcern": 77,
-      "economicImpact": 96,
-      "socialImpact": 76,
+      "publicConcern": 91,
+      "economicImpact": 52,
+      "socialImpact": 89,
+      "affectedSystems": [
+        "Economy",
+        "Infrastructure",
+        "Population (Movements)",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1372,9 +1976,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Public Transit Death Spiral",
-      "publicConcern": 75,
-      "economicImpact": 64,
-      "socialImpact": 89,
+      "publicConcern": 96,
+      "economicImpact": 71,
+      "socialImpact": 69,
+      "affectedSystems": [
+        "Infrastructure",
+        "Economy",
+        "Public Finance",
+        "Population (Movements)"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -1385,9 +1995,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Democratic Backsliding",
-      "publicConcern": 73,
-      "economicImpact": 63,
-      "socialImpact": 51,
+      "publicConcern": 84,
+      "economicImpact": 55,
+      "socialImpact": 74,
+      "affectedSystems": [
+        "Politics",
+        "Institutions",
+        "Culture",
+        "International Orgs"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1398,9 +2014,14 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Court Packing Crisis",
-      "publicConcern": 64,
-      "economicImpact": 75,
-      "socialImpact": 75,
+      "publicConcern": 88,
+      "economicImpact": 96,
+      "socialImpact": 84,
+      "affectedSystems": [
+        "Institutions",
+        "Politics",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -1411,9 +2032,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Corruption Normalization",
-      "publicConcern": 90,
-      "economicImpact": 89,
-      "socialImpact": 55,
+      "publicConcern": 94,
+      "economicImpact": 57,
+      "socialImpact": 85,
+      "affectedSystems": [
+        "Politics",
+        "Institutions",
+        "Economy",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1424,9 +2051,14 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Qualified Immunity Shield",
-      "publicConcern": 94,
-      "economicImpact": 88,
-      "socialImpact": 84,
+      "publicConcern": 73,
+      "economicImpact": 72,
+      "socialImpact": 81,
+      "affectedSystems": [
+        "Institutions (Policing)",
+        "Politics",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1437,9 +2069,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Civil Asset Forfeiture",
-      "publicConcern": 60,
-      "economicImpact": 90,
-      "socialImpact": 97,
+      "publicConcern": 84,
+      "economicImpact": 75,
+      "socialImpact": 96,
+      "affectedSystems": [
+        "Institutions (Policing)",
+        "Economy",
+        "Politics (Policy)",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1450,9 +2088,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Felon Disenfranchisement",
-      "publicConcern": 76,
-      "economicImpact": 80,
-      "socialImpact": 57,
+      "publicConcern": 79,
+      "economicImpact": 76,
+      "socialImpact": 77,
+      "affectedSystems": [
+        "Politics",
+        "Institutions (Policing)",
+        "Culture",
+        "Population"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1463,9 +2107,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Net Neutrality Collapse",
-      "publicConcern": 61,
-      "economicImpact": 69,
-      "socialImpact": 82,
+      "publicConcern": 88,
+      "economicImpact": 60,
+      "socialImpact": 60,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Politics (Policy)",
+        "Media"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -1476,9 +2126,15 @@
       "category": "Technological",
       "urgency": "Critical",
       "description": "Autonomous Weapons Proliferation",
-      "publicConcern": 90,
-      "economicImpact": 80,
-      "socialImpact": 59,
+      "publicConcern": 99,
+      "economicImpact": 65,
+      "socialImpact": 57,
+      "affectedSystems": [
+        "Military",
+        "Technology",
+        "Diplomacy",
+        "International Orgs"
+      ],
       "color": "#06b6d4",
       "size": 16
     },
@@ -1489,9 +2145,15 @@
       "category": "Technological",
       "urgency": "Critical",
       "description": "Global Open-Source Weapon Swarms",
-      "publicConcern": 67,
-      "economicImpact": 83,
-      "socialImpact": 78,
+      "publicConcern": 60,
+      "economicImpact": 59,
+      "socialImpact": 75,
+      "affectedSystems": [
+        "Technology",
+        "Military",
+        "Diplomacy",
+        "Economy"
+      ],
       "color": "#06b6d4",
       "size": 16
     },
@@ -1502,9 +2164,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Geoengineering Deployment",
-      "publicConcern": 91,
-      "economicImpact": 82,
-      "socialImpact": 66,
+      "publicConcern": 62,
+      "economicImpact": 64,
+      "socialImpact": 63,
+      "affectedSystems": [
+        "Climate",
+        "Technology",
+        "Diplomacy",
+        "International Orgs"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -1515,9 +2183,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Aerosol Geoengineering Proxy War",
-      "publicConcern": 80,
-      "economicImpact": 83,
-      "socialImpact": 51,
+      "publicConcern": 85,
+      "economicImpact": 51,
+      "socialImpact": 54,
+      "affectedSystems": [
+        "Climate",
+        "Military",
+        "Diplomacy",
+        "Geography"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -1528,9 +2202,15 @@
       "category": "Economic",
       "urgency": "High",
       "description": "Universal Basic Income Trials",
-      "publicConcern": 73,
-      "economicImpact": 60,
-      "socialImpact": 62,
+      "publicConcern": 88,
+      "economicImpact": 88,
+      "socialImpact": 79,
+      "affectedSystems": [
+        "Economy",
+        "Politics (Policy)",
+        "Public Finance",
+        "Technology"
+      ],
       "color": "#3b82f6",
       "size": 12
     },
@@ -1541,9 +2221,15 @@
       "category": "Economic",
       "urgency": "High",
       "description": "Reparations Movement Acceleration",
-      "publicConcern": 80,
-      "economicImpact": 97,
-      "socialImpact": 70,
+      "publicConcern": 85,
+      "economicImpact": 83,
+      "socialImpact": 64,
+      "affectedSystems": [
+        "Economy",
+        "Politics",
+        "Culture",
+        "Public Finance"
+      ],
       "color": "#3b82f6",
       "size": 12
     },
@@ -1554,9 +2240,15 @@
       "category": "Economic",
       "urgency": "Latent",
       "description": "Genetic Caste Formation",
-      "publicConcern": 69,
-      "economicImpact": 85,
-      "socialImpact": 86,
+      "publicConcern": 60,
+      "economicImpact": 69,
+      "socialImpact": 55,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Culture",
+        "Healthcare"
+      ],
       "color": "#3b82f6",
       "size": 4
     },
@@ -1567,9 +2259,15 @@
       "category": "Economic",
       "urgency": "Latent",
       "description": "Cybernetic Rejection Syndrome",
-      "publicConcern": 67,
-      "economicImpact": 92,
-      "socialImpact": 85,
+      "publicConcern": 63,
+      "economicImpact": 69,
+      "socialImpact": 94,
+      "affectedSystems": [
+        "Technology",
+        "Healthcare",
+        "Culture",
+        "Economy"
+      ],
       "color": "#3b82f6",
       "size": 4
     },
@@ -1580,9 +2278,15 @@
       "category": "Economic",
       "urgency": "Latent",
       "description": "Longevity Apartheid",
-      "publicConcern": 69,
-      "economicImpact": 59,
-      "socialImpact": 60,
+      "publicConcern": 63,
+      "economicImpact": 87,
+      "socialImpact": 92,
+      "affectedSystems": [
+        "Technology",
+        "Healthcare",
+        "Economy",
+        "Culture"
+      ],
       "color": "#3b82f6",
       "size": 4
     },
@@ -1593,9 +2297,15 @@
       "category": "Economic",
       "urgency": "Latent",
       "description": "Upload Rights War",
-      "publicConcern": 81,
-      "economicImpact": 96,
-      "socialImpact": 60,
+      "publicConcern": 98,
+      "economicImpact": 78,
+      "socialImpact": 67,
+      "affectedSystems": [
+        "Technology",
+        "Politics",
+        "Culture",
+        "Institutions"
+      ],
       "color": "#3b82f6",
       "size": 4
     },
@@ -1606,9 +2316,15 @@
       "category": "Economic",
       "urgency": "Latent",
       "description": "Virtual World Exodus",
-      "publicConcern": 82,
-      "economicImpact": 95,
-      "socialImpact": 76,
+      "publicConcern": 71,
+      "economicImpact": 68,
+      "socialImpact": 92,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Culture",
+        "Population"
+      ],
       "color": "#3b82f6",
       "size": 4
     },
@@ -1619,9 +2335,15 @@
       "category": "Economic",
       "urgency": "Latent",
       "description": "Species Divergence Crisis",
-      "publicConcern": 60,
-      "economicImpact": 66,
-      "socialImpact": 97,
+      "publicConcern": 92,
+      "economicImpact": 70,
+      "socialImpact": 94,
+      "affectedSystems": [
+        "Technology",
+        "Culture",
+        "Population",
+        "Healthcare"
+      ],
       "color": "#3b82f6",
       "size": 4
     },
@@ -1632,9 +2354,15 @@
       "category": "Economic",
       "urgency": "Latent",
       "description": "Consciousness Merger Phenomenon",
-      "publicConcern": 99,
-      "economicImpact": 96,
-      "socialImpact": 88,
+      "publicConcern": 63,
+      "economicImpact": 82,
+      "socialImpact": 99,
+      "affectedSystems": [
+        "Technology",
+        "Culture",
+        "Politics",
+        "Healthcare"
+      ],
       "color": "#3b82f6",
       "size": 4
     },
@@ -1645,9 +2373,15 @@
       "category": "Economic",
       "urgency": "Latent",
       "description": "Universe Forking Rights",
-      "publicConcern": 69,
-      "economicImpact": 61,
-      "socialImpact": 52,
+      "publicConcern": 78,
+      "economicImpact": 97,
+      "socialImpact": 61,
+      "affectedSystems": [
+        "Technology",
+        "Politics",
+        "Culture",
+        "Institutions"
+      ],
       "color": "#3b82f6",
       "size": 4
     },
@@ -1658,9 +2392,15 @@
       "category": "Economic",
       "urgency": "Latent",
       "description": "Consciousness Property Battles",
-      "publicConcern": 92,
-      "economicImpact": 78,
-      "socialImpact": 54,
+      "publicConcern": 72,
+      "economicImpact": 70,
+      "socialImpact": 63,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Politics",
+        "Institutions"
+      ],
       "color": "#3b82f6",
       "size": 4
     },
@@ -1671,9 +2411,15 @@
       "category": "Economic",
       "urgency": "Critical",
       "description": "Stablecoin and Eurodollar Liquidity Shock",
-      "publicConcern": 77,
-      "economicImpact": 93,
-      "socialImpact": 86,
+      "publicConcern": 81,
+      "economicImpact": 65,
+      "socialImpact": 93,
+      "affectedSystems": [
+        "Economy",
+        "Technology",
+        "Public Finance",
+        "Trade"
+      ],
       "color": "#3b82f6",
       "size": 16
     },
@@ -1684,9 +2430,15 @@
       "category": "Security",
       "urgency": "Critical",
       "description": "Algorithmic Food Delivery Collapse",
-      "publicConcern": 67,
-      "economicImpact": 64,
+      "publicConcern": 88,
+      "economicImpact": 98,
       "socialImpact": 90,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Infrastructure",
+        "Population"
+      ],
       "color": "#f59e0b",
       "size": 16
     },
@@ -1697,9 +2449,15 @@
       "category": "Security",
       "urgency": "Medium",
       "description": "Distant-Water Fleet Wars and Fishery Collapse",
-      "publicConcern": 85,
-      "economicImpact": 94,
-      "socialImpact": 53,
+      "publicConcern": 80,
+      "economicImpact": 52,
+      "socialImpact": 98,
+      "affectedSystems": [
+        "Resources",
+        "Diplomacy",
+        "Economy",
+        "Trade"
+      ],
       "color": "#f59e0b",
       "size": 8
     },
@@ -1710,9 +2468,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Global Sand Wars and Concrete Scarcity",
-      "publicConcern": 64,
-      "economicImpact": 55,
-      "socialImpact": 73,
+      "publicConcern": 95,
+      "economicImpact": 53,
+      "socialImpact": 66,
+      "affectedSystems": [
+        "Resources",
+        "Economy",
+        "Infrastructure",
+        "Trade"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1723,9 +2487,15 @@
       "category": "Infrastructure",
       "urgency": "Latent",
       "description": "Urban Groundwater Subsidence Emergencies",
-      "publicConcern": 64,
-      "economicImpact": 86,
-      "socialImpact": 97,
+      "publicConcern": 67,
+      "economicImpact": 67,
+      "socialImpact": 79,
+      "affectedSystems": [
+        "Resources",
+        "Infrastructure",
+        "Geography",
+        "Climate"
+      ],
       "color": "#6366f1",
       "size": 4
     },
@@ -1736,9 +2506,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Grid-Level Copper Theft and Critical Mineral Looting",
-      "publicConcern": 80,
-      "economicImpact": 76,
-      "socialImpact": 59,
+      "publicConcern": 92,
+      "economicImpact": 78,
+      "socialImpact": 51,
+      "affectedSystems": [
+        "Resources",
+        "Economy",
+        "Infrastructure",
+        "Institutions (Policing)"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1751,7 +2527,13 @@
       "description": "Helium Scarcity and Cryogenic Shutdown Cascades",
       "publicConcern": 86,
       "economicImpact": 59,
-      "socialImpact": 89,
+      "socialImpact": 59,
+      "affectedSystems": [
+        "Resources",
+        "Technology",
+        "Healthcare",
+        "Economy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1762,9 +2544,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Autonomous Vehicle Liability Wars and Urban Bans",
-      "publicConcern": 88,
+      "publicConcern": 91,
       "economicImpact": 93,
-      "socialImpact": 99,
+      "socialImpact": 52,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Politics (Policy)",
+        "Infrastructure"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -1775,9 +2563,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Undersea Cable and Powerline Sabotage",
-      "publicConcern": 96,
-      "economicImpact": 63,
-      "socialImpact": 99,
+      "publicConcern": 78,
+      "economicImpact": 64,
+      "socialImpact": 98,
+      "affectedSystems": [
+        "Infrastructure",
+        "Military",
+        "Diplomacy",
+        "Economy"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -1788,9 +2582,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Quantum Sensor Total Recall",
-      "publicConcern": 62,
-      "economicImpact": 87,
-      "socialImpact": 99,
+      "publicConcern": 90,
+      "economicImpact": 96,
+      "socialImpact": 68,
+      "affectedSystems": [
+        "Technology",
+        "Politics (Policy)",
+        "Institutions (Policing)",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1801,9 +2601,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "AI Voice Clone Fraud Meltdowns",
-      "publicConcern": 76,
-      "economicImpact": 90,
-      "socialImpact": 92,
+      "publicConcern": 78,
+      "economicImpact": 96,
+      "socialImpact": 80,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Institutions (Policing)",
+        "Healthcare"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -1814,9 +2620,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Brexit and EU Disintegration",
-      "publicConcern": 99,
-      "economicImpact": 58,
-      "socialImpact": 80,
+      "publicConcern": 72,
+      "economicImpact": 92,
+      "socialImpact": 63,
+      "affectedSystems": [
+        "Diplomacy",
+        "Trade",
+        "Politics",
+        "Economy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1827,9 +2639,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "European Migration Crisis",
-      "publicConcern": 95,
-      "economicImpact": 52,
-      "socialImpact": 89,
+      "publicConcern": 96,
+      "economicImpact": 96,
+      "socialImpact": 67,
+      "affectedSystems": [
+        "Population (Movements)",
+        "Diplomacy",
+        "Politics",
+        "International Orgs"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1840,9 +2658,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Democratic Backsliding in Hungary/Poland",
-      "publicConcern": 74,
-      "economicImpact": 78,
-      "socialImpact": 53,
+      "publicConcern": 69,
+      "economicImpact": 62,
+      "socialImpact": 93,
+      "affectedSystems": [
+        "Politics",
+        "Institutions",
+        "Diplomacy",
+        "International Orgs"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1853,9 +2677,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Eurozone Debt Crises",
-      "publicConcern": 69,
-      "economicImpact": 71,
-      "socialImpact": 60,
+      "publicConcern": 77,
+      "economicImpact": 74,
+      "socialImpact": 71,
+      "affectedSystems": [
+        "Economy",
+        "Public Finance",
+        "Diplomacy",
+        "International Orgs"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1866,9 +2696,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Southern Europe Demographic Collapse",
-      "publicConcern": 66,
-      "economicImpact": 59,
-      "socialImpact": 51,
+      "publicConcern": 91,
+      "economicImpact": 53,
+      "socialImpact": 54,
+      "affectedSystems": [
+        "Population",
+        "Economy",
+        "Public Finance",
+        "Population (Movements)"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -1879,9 +2715,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Uyghur Genocide",
-      "publicConcern": 78,
-      "economicImpact": 78,
-      "socialImpact": 66,
+      "publicConcern": 86,
+      "economicImpact": 94,
+      "socialImpact": 81,
+      "affectedSystems": [
+        "Culture",
+        "Institutions (Policing)",
+        "Politics",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1892,9 +2734,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Hong Kong Suppression",
-      "publicConcern": 72,
-      "economicImpact": 66,
-      "socialImpact": 96,
+      "publicConcern": 75,
+      "economicImpact": 76,
+      "socialImpact": 76,
+      "affectedSystems": [
+        "Politics",
+        "Institutions",
+        "Diplomacy",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -1905,9 +2753,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Taiwan Invasion Crisis",
-      "publicConcern": 78,
-      "economicImpact": 92,
-      "socialImpact": 83,
+      "publicConcern": 92,
+      "economicImpact": 99,
+      "socialImpact": 75,
+      "affectedSystems": [
+        "Military",
+        "Diplomacy",
+        "Economy",
+        "Trade"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -1918,9 +2772,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Social Credit System Expansion",
-      "publicConcern": 75,
-      "economicImpact": 63,
-      "socialImpact": 50,
+      "publicConcern": 91,
+      "economicImpact": 74,
+      "socialImpact": 56,
+      "affectedSystems": [
+        "Technology",
+        "Politics",
+        "Culture",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -1931,9 +2791,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "China Demographic Collapse",
-      "publicConcern": 69,
-      "economicImpact": 63,
-      "socialImpact": 89,
+      "publicConcern": 87,
+      "economicImpact": 91,
+      "socialImpact": 92,
+      "affectedSystems": [
+        "Population",
+        "Economy",
+        "Public Finance",
+        "Healthcare"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -1944,9 +2810,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Ukraine Invasion and Forever War",
-      "publicConcern": 84,
-      "economicImpact": 79,
-      "socialImpact": 60,
+      "publicConcern": 66,
+      "economicImpact": 61,
+      "socialImpact": 88,
+      "affectedSystems": [
+        "Military",
+        "Diplomacy",
+        "Economy",
+        "Trade"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -1957,9 +2829,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Crimea Annexation and Black Sea Control",
-      "publicConcern": 85,
-      "economicImpact": 72,
-      "socialImpact": 99,
+      "publicConcern": 63,
+      "economicImpact": 52,
+      "socialImpact": 91,
+      "affectedSystems": [
+        "Military",
+        "Diplomacy",
+        "Geography",
+        "Trade"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1970,9 +2848,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Oligarch Kleptocracy System",
-      "publicConcern": 91,
-      "economicImpact": 65,
-      "socialImpact": 68,
+      "publicConcern": 66,
+      "economicImpact": 59,
+      "socialImpact": 65,
+      "affectedSystems": [
+        "Economy",
+        "Politics",
+        "Institutions",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -1983,9 +2867,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Political Opposition Assassination",
-      "publicConcern": 76,
-      "economicImpact": 77,
-      "socialImpact": 71,
+      "publicConcern": 83,
+      "economicImpact": 79,
+      "socialImpact": 94,
+      "affectedSystems": [
+        "Politics",
+        "Institutions (Policing)",
+        "Diplomacy",
+        "Military"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -1996,9 +2886,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Modi Hindu Nationalism and BJP Dominance",
-      "publicConcern": 73,
-      "economicImpact": 58,
-      "socialImpact": 65,
+      "publicConcern": 66,
+      "economicImpact": 88,
+      "socialImpact": 99,
+      "affectedSystems": [
+        "Politics",
+        "Culture",
+        "Institutions",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2009,9 +2905,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Kashmir Occupation and Insurgency",
-      "publicConcern": 91,
-      "economicImpact": 55,
-      "socialImpact": 62,
+      "publicConcern": 61,
+      "economicImpact": 63,
+      "socialImpact": 71,
+      "affectedSystems": [
+        "Military",
+        "Politics",
+        "Diplomacy",
+        "Population"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2022,9 +2924,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Farmer Protests and Agricultural Crisis",
-      "publicConcern": 88,
-      "economicImpact": 57,
-      "socialImpact": 79,
+      "publicConcern": 93,
+      "economicImpact": 56,
+      "socialImpact": 66,
+      "affectedSystems": [
+        "Economy",
+        "Politics",
+        "Resources",
+        "Population"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2035,9 +2943,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Muslim Persecution and Communal Violence",
-      "publicConcern": 69,
-      "economicImpact": 97,
-      "socialImpact": 84,
+      "publicConcern": 66,
+      "economicImpact": 57,
+      "socialImpact": 70,
+      "affectedSystems": [
+        "Culture",
+        "Politics",
+        "Institutions (Policing)",
+        "Population"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2048,9 +2962,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Arab Spring Aftermath and Counter-Revolution",
-      "publicConcern": 75,
-      "economicImpact": 69,
-      "socialImpact": 56,
+      "publicConcern": 74,
+      "economicImpact": 76,
+      "socialImpact": 75,
+      "affectedSystems": [
+        "Politics",
+        "Military",
+        "Diplomacy",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -2061,9 +2981,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Syria Civil War and Assad Survival",
-      "publicConcern": 61,
-      "economicImpact": 80,
-      "socialImpact": 75,
+      "publicConcern": 60,
+      "economicImpact": 55,
+      "socialImpact": 59,
+      "affectedSystems": [
+        "Military",
+        "Diplomacy",
+        "Population (Movements)",
+        "Healthcare"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2074,9 +3000,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Yemen Civil War and Famine",
-      "publicConcern": 78,
-      "economicImpact": 53,
-      "socialImpact": 52,
+      "publicConcern": 81,
+      "economicImpact": 51,
+      "socialImpact": 95,
+      "affectedSystems": [
+        "Military",
+        "Diplomacy",
+        "Healthcare",
+        "Resources"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2087,9 +3019,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Iran Nuclear Program and Revolution Cycles",
-      "publicConcern": 92,
-      "economicImpact": 52,
-      "socialImpact": 94,
+      "publicConcern": 78,
+      "economicImpact": 74,
+      "socialImpact": 55,
+      "affectedSystems": [
+        "Military",
+        "Diplomacy",
+        "Politics",
+        "International Orgs"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2100,9 +3038,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Saudi MBS Reforms and Repression",
-      "publicConcern": 67,
-      "economicImpact": 74,
-      "socialImpact": 62,
+      "publicConcern": 68,
+      "economicImpact": 54,
+      "socialImpact": 91,
+      "affectedSystems": [
+        "Politics",
+        "Culture",
+        "Economy",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2113,9 +3057,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Israel-Palestine Conflict and Gaza Wars",
-      "publicConcern": 69,
-      "economicImpact": 98,
-      "socialImpact": 66,
+      "publicConcern": 75,
+      "economicImpact": 77,
+      "socialImpact": 50,
+      "affectedSystems": [
+        "Military",
+        "Diplomacy",
+        "Politics",
+        "Population (Movements)"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2126,9 +3076,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Iraq Invasion Aftermath and Sectarian Collapse",
-      "publicConcern": 87,
-      "economicImpact": 51,
-      "socialImpact": 87,
+      "publicConcern": 71,
+      "economicImpact": 84,
+      "socialImpact": 92,
+      "affectedSystems": [
+        "Military",
+        "Politics",
+        "Diplomacy",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2139,9 +3095,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Lebanon Sectarian Collapse",
-      "publicConcern": 99,
+      "publicConcern": 60,
       "economicImpact": 80,
-      "socialImpact": 73,
+      "socialImpact": 58,
+      "affectedSystems": [
+        "Economy",
+        "Politics",
+        "Institutions",
+        "Public Finance"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2152,9 +3114,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Libya Failed State and Slave Markets",
-      "publicConcern": 85,
-      "economicImpact": 61,
-      "socialImpact": 71,
+      "publicConcern": 63,
+      "economicImpact": 52,
+      "socialImpact": 97,
+      "affectedSystems": [
+        "Military",
+        "Politics",
+        "Population (Movements)",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2165,9 +3133,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "North Korea Nuclear Crisis",
-      "publicConcern": 86,
-      "economicImpact": 93,
-      "socialImpact": 53,
+      "publicConcern": 67,
+      "economicImpact": 67,
+      "socialImpact": 65,
+      "affectedSystems": [
+        "Military",
+        "Diplomacy",
+        "Politics",
+        "International Orgs"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2178,9 +3152,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Japan Demographic Collapse",
-      "publicConcern": 66,
-      "economicImpact": 73,
-      "socialImpact": 88,
+      "publicConcern": 67,
+      "economicImpact": 65,
+      "socialImpact": 97,
+      "affectedSystems": [
+        "Population",
+        "Economy",
+        "Public Finance",
+        "Healthcare"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2191,9 +3171,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "South Korea Demographic Death Spiral",
-      "publicConcern": 62,
-      "economicImpact": 89,
-      "socialImpact": 54,
+      "publicConcern": 64,
+      "economicImpact": 78,
+      "socialImpact": 61,
+      "affectedSystems": [
+        "Population",
+        "Economy",
+        "Culture",
+        "Public Finance"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2204,9 +3190,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Myanmar Coup and Rohingya Genocide",
-      "publicConcern": 95,
-      "economicImpact": 96,
-      "socialImpact": 64,
+      "publicConcern": 84,
+      "economicImpact": 72,
+      "socialImpact": 72,
+      "affectedSystems": [
+        "Military",
+        "Politics",
+        "Population (Movements)",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2217,9 +3209,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "South China Sea Militarization",
-      "publicConcern": 95,
-      "economicImpact": 82,
-      "socialImpact": 96,
+      "publicConcern": 84,
+      "economicImpact": 98,
+      "socialImpact": 76,
+      "affectedSystems": [
+        "Military",
+        "Diplomacy",
+        "Resources",
+        "Geography"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2230,9 +3228,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Philippines Duterte Drug War",
-      "publicConcern": 95,
-      "economicImpact": 62,
-      "socialImpact": 60,
+      "publicConcern": 76,
+      "economicImpact": 57,
+      "socialImpact": 96,
+      "affectedSystems": [
+        "Institutions (Policing)",
+        "Politics",
+        "Healthcare",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -2243,9 +3247,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Pacific Island Nations Disappearing",
-      "publicConcern": 85,
-      "economicImpact": 98,
-      "socialImpact": 76,
+      "publicConcern": 66,
+      "economicImpact": 95,
+      "socialImpact": 99,
+      "affectedSystems": [
+        "Climate",
+        "Geography",
+        "Population (Movements)",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2256,9 +3266,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Southeast Asia Authoritarian Entrenchment",
-      "publicConcern": 61,
-      "economicImpact": 89,
-      "socialImpact": 50,
+      "publicConcern": 90,
+      "economicImpact": 56,
+      "socialImpact": 64,
+      "affectedSystems": [
+        "Politics",
+        "Institutions",
+        "Diplomacy",
+        "Economy"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2269,9 +3285,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Japan-Korea Historical Resentment Cycles",
-      "publicConcern": 74,
-      "economicImpact": 60,
-      "socialImpact": 95,
+      "publicConcern": 68,
+      "economicImpact": 90,
+      "socialImpact": 57,
+      "affectedSystems": [
+        "Diplomacy",
+        "Culture",
+        "Politics",
+        "Trade"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2282,9 +3304,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Pakistan Instability and Nuclear Risk",
-      "publicConcern": 88,
-      "economicImpact": 85,
-      "socialImpact": 84,
+      "publicConcern": 62,
+      "economicImpact": 55,
+      "socialImpact": 77,
+      "affectedSystems": [
+        "Military",
+        "Politics",
+        "Economy",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2295,9 +3323,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Afghanistan Taliban Takeover",
-      "publicConcern": 61,
-      "economicImpact": 86,
-      "socialImpact": 91,
+      "publicConcern": 78,
+      "economicImpact": 98,
+      "socialImpact": 53,
+      "affectedSystems": [
+        "Military",
+        "Politics",
+        "Population (Movements)",
+        "Culture"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2308,9 +3342,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Nigeria Boko Haram and Banditry",
-      "publicConcern": 73,
-      "economicImpact": 75,
-      "socialImpact": 50,
+      "publicConcern": 64,
+      "economicImpact": 54,
+      "socialImpact": 92,
+      "affectedSystems": [
+        "Military",
+        "Institutions (Policing)",
+        "Economy",
+        "Population"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2321,9 +3361,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "South Africa State Failure",
-      "publicConcern": 63,
-      "economicImpact": 99,
-      "socialImpact": 50,
+      "publicConcern": 92,
+      "economicImpact": 76,
+      "socialImpact": 55,
+      "affectedSystems": [
+        "Infrastructure",
+        "Politics",
+        "Economy",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2334,9 +3380,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Argentina Hyperinflation Cycles",
-      "publicConcern": 94,
-      "economicImpact": 76,
-      "socialImpact": 88,
+      "publicConcern": 72,
+      "economicImpact": 89,
+      "socialImpact": 78,
+      "affectedSystems": [
+        "Economy",
+        "Public Finance",
+        "Politics",
+        "International Orgs"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2348,8 +3400,14 @@
       "urgency": "Critical",
       "description": "Chile Social Explosion and Constitution",
       "publicConcern": 84,
-      "economicImpact": 50,
-      "socialImpact": 74,
+      "economicImpact": 67,
+      "socialImpact": 99,
+      "affectedSystems": [
+        "Politics",
+        "Economy",
+        "Culture",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -2360,9 +3418,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Haiti Perpetual Catastrophe",
-      "publicConcern": 85,
-      "economicImpact": 70,
-      "socialImpact": 58,
+      "publicConcern": 72,
+      "economicImpact": 54,
+      "socialImpact": 74,
+      "affectedSystems": [
+        "Politics",
+        "Institutions",
+        "Infrastructure",
+        "Healthcare"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2373,9 +3437,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Caribbean Climate and Colonial Vulnerability",
-      "publicConcern": 88,
-      "economicImpact": 65,
-      "socialImpact": 91,
+      "publicConcern": 62,
+      "economicImpact": 62,
+      "socialImpact": 53,
+      "affectedSystems": [
+        "Climate",
+        "Politics",
+        "Economy",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2387,8 +3457,14 @@
       "urgency": "Medium",
       "description": "Canada Indigenous Reconciliation Crisis",
       "publicConcern": 89,
-      "economicImpact": 64,
-      "socialImpact": 92,
+      "economicImpact": 91,
+      "socialImpact": 68,
+      "affectedSystems": [
+        "Culture",
+        "Politics",
+        "Resources",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2399,9 +3475,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Canadian Housing Affordability Collapse",
-      "publicConcern": 77,
-      "economicImpact": 62,
-      "socialImpact": 67,
+      "publicConcern": 86,
+      "economicImpact": 73,
+      "socialImpact": 56,
+      "affectedSystems": [
+        "Economy",
+        "Infrastructure",
+        "Politics (Policy)",
+        "Trade"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2412,9 +3494,14 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Canadian Political Polarization",
-      "publicConcern": 68,
-      "economicImpact": 71,
-      "socialImpact": 86,
+      "publicConcern": 92,
+      "economicImpact": 58,
+      "socialImpact": 81,
+      "affectedSystems": [
+        "Politics",
+        "Culture",
+        "Media"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2425,9 +3512,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Turkey Erdogan Authoritarianism",
-      "publicConcern": 78,
-      "economicImpact": 50,
-      "socialImpact": 73,
+      "publicConcern": 95,
+      "economicImpact": 76,
+      "socialImpact": 85,
+      "affectedSystems": [
+        "Politics",
+        "Institutions",
+        "Diplomacy",
+        "Population (Movements)"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2438,9 +3531,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Balkans Instability and Fragmentation Risk",
-      "publicConcern": 67,
-      "economicImpact": 96,
-      "socialImpact": 96,
+      "publicConcern": 95,
+      "economicImpact": 66,
+      "socialImpact": 84,
+      "affectedSystems": [
+        "Politics",
+        "Diplomacy",
+        "Culture",
+        "Military"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2451,9 +3550,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Caucasus Wars and Frozen Conflicts",
-      "publicConcern": 75,
-      "economicImpact": 86,
-      "socialImpact": 99,
+      "publicConcern": 81,
+      "economicImpact": 72,
+      "socialImpact": 97,
+      "affectedSystems": [
+        "Military",
+        "Diplomacy",
+        "Politics",
+        "Population (Movements)"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2464,9 +3569,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Central Asia Autocracies and Resource Conflicts",
-      "publicConcern": 73,
-      "economicImpact": 86,
-      "socialImpact": 52,
+      "publicConcern": 86,
+      "economicImpact": 55,
+      "socialImpact": 59,
+      "affectedSystems": [
+        "Politics",
+        "Resources",
+        "Diplomacy",
+        "Economy"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2477,9 +3588,15 @@
       "category": "Environmental",
       "urgency": "Critical",
       "description": "International River Water Wars",
-      "publicConcern": 64,
-      "economicImpact": 67,
-      "socialImpact": 84,
+      "publicConcern": 77,
+      "economicImpact": 71,
+      "socialImpact": 71,
+      "affectedSystems": [
+        "Resources",
+        "Diplomacy",
+        "Climate",
+        "Military"
+      ],
       "color": "#10b981",
       "size": 16
     },
@@ -2490,9 +3607,15 @@
       "category": "Environmental",
       "urgency": "Critical",
       "description": "Insect Apocalypse and Pollinator Collapse",
-      "publicConcern": 60,
-      "economicImpact": 96,
-      "socialImpact": 95,
+      "publicConcern": 69,
+      "economicImpact": 94,
+      "socialImpact": 59,
+      "affectedSystems": [
+        "Climate",
+        "Resources",
+        "Economy",
+        "Healthcare"
+      ],
       "color": "#10b981",
       "size": 16
     },
@@ -2503,9 +3626,15 @@
       "category": "Environmental",
       "urgency": "Medium",
       "description": "Fungal Crop Switch: Coffee/Cocoa Extinction",
-      "publicConcern": 98,
-      "economicImpact": 65,
-      "socialImpact": 92,
+      "publicConcern": 69,
+      "economicImpact": 90,
+      "socialImpact": 85,
+      "affectedSystems": [
+        "Climate",
+        "Resources",
+        "Economy",
+        "Trade"
+      ],
       "color": "#10b981",
       "size": 8
     },
@@ -2516,9 +3645,15 @@
       "category": "Environmental",
       "urgency": "High",
       "description": "Global Fertilizer Shock and Food Riots",
-      "publicConcern": 66,
-      "economicImpact": 52,
-      "socialImpact": 58,
+      "publicConcern": 99,
+      "economicImpact": 69,
+      "socialImpact": 95,
+      "affectedSystems": [
+        "Resources",
+        "Economy",
+        "Trade",
+        "Politics"
+      ],
       "color": "#10b981",
       "size": 12
     },
@@ -2529,9 +3664,15 @@
       "category": "Environmental",
       "urgency": "High",
       "description": "Coral Reef Death and Ocean Ecosystem Collapse",
-      "publicConcern": 80,
-      "economicImpact": 59,
-      "socialImpact": 52,
+      "publicConcern": 90,
+      "economicImpact": 71,
+      "socialImpact": 88,
+      "affectedSystems": [
+        "Climate",
+        "Resources",
+        "Economy",
+        "Geography"
+      ],
       "color": "#10b981",
       "size": 12
     },
@@ -2543,8 +3684,14 @@
       "urgency": "High",
       "description": "Forever Chemical Contamination Crisis",
       "publicConcern": 84,
-      "economicImpact": 69,
-      "socialImpact": 84,
+      "economicImpact": 60,
+      "socialImpact": 65,
+      "affectedSystems": [
+        "Healthcare",
+        "Resources",
+        "Economy",
+        "Politics (Policy)"
+      ],
       "color": "#10b981",
       "size": 12
     },
@@ -2555,9 +3702,13 @@
       "category": "Environmental",
       "urgency": "Latent",
       "description": "Permafrost Methane Release",
-      "publicConcern": 82,
-      "economicImpact": 74,
-      "socialImpact": 65,
+      "publicConcern": 67,
+      "economicImpact": 97,
+      "socialImpact": 56,
+      "affectedSystems": [
+        "Climate",
+        "Geography"
+      ],
       "color": "#10b981",
       "size": 4
     },
@@ -2568,9 +3719,15 @@
       "category": "Environmental",
       "urgency": "Medium",
       "description": "Arctic Sovereignty Conflicts",
-      "publicConcern": 92,
-      "economicImpact": 83,
-      "socialImpact": 90,
+      "publicConcern": 91,
+      "economicImpact": 59,
+      "socialImpact": 54,
+      "affectedSystems": [
+        "Diplomacy",
+        "Military",
+        "Resources",
+        "Geography"
+      ],
       "color": "#10b981",
       "size": 8
     },
@@ -2581,9 +3738,15 @@
       "category": "Technological",
       "urgency": "Critical",
       "description": "Space Weaponization and Orbital Conflict",
-      "publicConcern": 61,
-      "economicImpact": 85,
-      "socialImpact": 54,
+      "publicConcern": 87,
+      "economicImpact": 62,
+      "socialImpact": 94,
+      "affectedSystems": [
+        "Military",
+        "Technology",
+        "Diplomacy",
+        "Infrastructure"
+      ],
       "color": "#06b6d4",
       "size": 16
     },
@@ -2594,9 +3757,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Quantum Computing Encryption Collapse",
-      "publicConcern": 89,
-      "economicImpact": 77,
-      "socialImpact": 98,
+      "publicConcern": 87,
+      "economicImpact": 59,
+      "socialImpact": 81,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Military",
+        "Institutions"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -2607,9 +3776,15 @@
       "category": "Technological",
       "urgency": "Critical",
       "description": "Algorithmic Governance Proliferation",
-      "publicConcern": 77,
-      "economicImpact": 73,
-      "socialImpact": 67,
+      "publicConcern": 98,
+      "economicImpact": 64,
+      "socialImpact": 58,
+      "affectedSystems": [
+        "Technology",
+        "Politics",
+        "Institutions",
+        "Culture"
+      ],
       "color": "#06b6d4",
       "size": 16
     },
@@ -2620,9 +3795,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Venezuela Hyperinflation and Collapse",
-      "publicConcern": 83,
-      "economicImpact": 98,
-      "socialImpact": 79,
+      "publicConcern": 81,
+      "economicImpact": 92,
+      "socialImpact": 70,
+      "affectedSystems": [
+        "Economy",
+        "Politics",
+        "Population (Movements)",
+        "Public Finance"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -2633,9 +3814,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Brazil Bolsonaro and Amazon Destruction",
-      "publicConcern": 76,
-      "economicImpact": 72,
-      "socialImpact": 77,
+      "publicConcern": 67,
+      "economicImpact": 84,
+      "socialImpact": 84,
+      "affectedSystems": [
+        "Climate",
+        "Politics",
+        "Culture",
+        "Resources"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -2646,9 +3833,14 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Amazon Rainforest Dieback",
-      "publicConcern": 63,
-      "economicImpact": 67,
-      "socialImpact": 67,
+      "publicConcern": 92,
+      "economicImpact": 66,
+      "socialImpact": 60,
+      "affectedSystems": [
+        "Climate",
+        "Geography",
+        "Resources"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -2659,9 +3851,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Mexican Cartel Violence and State Failure",
-      "publicConcern": 78,
-      "economicImpact": 56,
-      "socialImpact": 62,
+      "publicConcern": 66,
+      "economicImpact": 91,
+      "socialImpact": 88,
+      "affectedSystems": [
+        "Institutions (Policing)",
+        "Military",
+        "Politics",
+        "Economy"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -2672,9 +3870,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Central America Migration Caravans",
-      "publicConcern": 69,
-      "economicImpact": 59,
-      "socialImpact": 69,
+      "publicConcern": 87,
+      "economicImpact": 77,
+      "socialImpact": 77,
+      "affectedSystems": [
+        "Population (Movements)",
+        "Economy",
+        "Climate",
+        "Diplomacy"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -2685,9 +3889,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Sahel Jihadist Insurgency",
-      "publicConcern": 88,
-      "economicImpact": 92,
-      "socialImpact": 53,
+      "publicConcern": 76,
+      "economicImpact": 91,
+      "socialImpact": 81,
+      "affectedSystems": [
+        "Military",
+        "Politics",
+        "Population (Movements)",
+        "Institutions"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -2698,9 +3908,15 @@
       "category": "Technological",
       "urgency": "Critical",
       "description": "Ethiopia Tigray Genocide",
-      "publicConcern": 94,
-      "economicImpact": 93,
-      "socialImpact": 52,
+      "publicConcern": 70,
+      "economicImpact": 85,
+      "socialImpact": 50,
+      "affectedSystems": [
+        "Military",
+        "Politics",
+        "Population (Movements)",
+        "Healthcare"
+      ],
       "color": "#06b6d4",
       "size": 16
     },
@@ -2711,9 +3927,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Congo Endless War and Resource Curse",
-      "publicConcern": 67,
-      "economicImpact": 86,
-      "socialImpact": 65,
+      "publicConcern": 93,
+      "economicImpact": 52,
+      "socialImpact": 90,
+      "affectedSystems": [
+        "Military",
+        "Resources",
+        "Politics",
+        "Economy"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -2724,9 +3946,15 @@
       "category": "Technological",
       "urgency": "Critical",
       "description": "African Climate Refugee Crisis",
-      "publicConcern": 77,
-      "economicImpact": 82,
-      "socialImpact": 57,
+      "publicConcern": 98,
+      "economicImpact": 96,
+      "socialImpact": 99,
+      "affectedSystems": [
+        "Climate",
+        "Population (Movements)",
+        "Resources",
+        "Diplomacy"
+      ],
       "color": "#06b6d4",
       "size": 16
     },
@@ -2737,9 +3965,15 @@
       "category": "Technological",
       "urgency": "Critical",
       "description": "Comprehensive Refugee System Collapse",
-      "publicConcern": 62,
-      "economicImpact": 66,
-      "socialImpact": 79,
+      "publicConcern": 66,
+      "economicImpact": 77,
+      "socialImpact": 85,
+      "affectedSystems": [
+        "Population (Movements)",
+        "International Orgs",
+        "Diplomacy",
+        "Infrastructure"
+      ],
       "color": "#06b6d4",
       "size": 16
     },
@@ -2750,9 +3984,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Human Smuggling Networks",
-      "publicConcern": 80,
-      "economicImpact": 89,
-      "socialImpact": 60,
+      "publicConcern": 86,
+      "economicImpact": 66,
+      "socialImpact": 54,
+      "affectedSystems": [
+        "Population (Movements)",
+        "Economy",
+        "Institutions (Policing)",
+        "Diplomacy"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -2763,9 +4003,15 @@
       "category": "Technological",
       "urgency": "High",
       "description": "Asylum System Breakdown",
-      "publicConcern": 79,
-      "economicImpact": 58,
-      "socialImpact": 85,
+      "publicConcern": 62,
+      "economicImpact": 98,
+      "socialImpact": 67,
+      "affectedSystems": [
+        "Population (Movements)",
+        "Institutions",
+        "Politics (Policy)",
+        "International Orgs"
+      ],
       "color": "#06b6d4",
       "size": 12
     },
@@ -2776,9 +4022,10 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Weaponsized Migration Pushbacks",
-      "publicConcern": 87,
-      "economicImpact": 70,
-      "socialImpact": 82,
+      "publicConcern": 90,
+      "economicImpact": 81,
+      "socialImpact": 80,
+      "affectedSystems": [],
       "color": "#06b6d4",
       "size": 8
     },
@@ -2789,9 +4036,15 @@
       "category": "Technological",
       "urgency": "High",
       "description": "Food Export Weaponization",
-      "publicConcern": 85,
-      "economicImpact": 51,
-      "socialImpact": 66,
+      "publicConcern": 83,
+      "economicImpact": 54,
+      "socialImpact": 84,
+      "affectedSystems": [
+        "Trade",
+        "Diplomacy",
+        "Resources",
+        "Economy"
+      ],
       "color": "#06b6d4",
       "size": 12
     },
@@ -2802,9 +4055,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Synthetic Food Ecosystem Monopolies",
-      "publicConcern": 81,
-      "economicImpact": 62,
-      "socialImpact": 60,
+      "publicConcern": 75,
+      "economicImpact": 97,
+      "socialImpact": 76,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Resources",
+        "Trade"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -2815,9 +4074,15 @@
       "category": "Technological",
       "urgency": "Critical",
       "description": "Deep-Sea Mining Rush and Pacific Sovereignty Fight",
-      "publicConcern": 64,
-      "economicImpact": 82,
-      "socialImpact": 61,
+      "publicConcern": 88,
+      "economicImpact": 72,
+      "socialImpact": 83,
+      "affectedSystems": [
+        "Resources",
+        "Diplomacy",
+        "Economy",
+        "International Orgs"
+      ],
       "color": "#06b6d4",
       "size": 16
     },
@@ -2828,9 +4093,15 @@
       "category": "Technological",
       "urgency": "Medium",
       "description": "Antarctic Cyanide Mining Rush",
-      "publicConcern": 65,
-      "economicImpact": 95,
-      "socialImpact": 77,
+      "publicConcern": 86,
+      "economicImpact": 63,
+      "socialImpact": 71,
+      "affectedSystems": [
+        "Resources",
+        "Diplomacy",
+        "Climate",
+        "International Orgs"
+      ],
       "color": "#06b6d4",
       "size": 8
     },
@@ -2841,9 +4112,15 @@
       "category": "Technological",
       "urgency": "High",
       "description": "Orphaned Oil Wells and Methane Super-Leak Crisis",
-      "publicConcern": 94,
-      "economicImpact": 89,
-      "socialImpact": 69,
+      "publicConcern": 75,
+      "economicImpact": 69,
+      "socialImpact": 65,
+      "affectedSystems": [
+        "Climate",
+        "Resources",
+        "Economy",
+        "Public Finance"
+      ],
       "color": "#06b6d4",
       "size": 12
     },
@@ -2855,8 +4132,14 @@
       "urgency": "High",
       "description": "GNSS Spoofing and Positioning Trust Collapse",
       "publicConcern": 74,
-      "economicImpact": 83,
-      "socialImpact": 72,
+      "economicImpact": 99,
+      "socialImpact": 85,
+      "affectedSystems": [
+        "Technology",
+        "Infrastructure",
+        "Military",
+        "Economy"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2867,9 +4150,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "AI-Controlled Factory Kill Switch Sabotage",
-      "publicConcern": 74,
-      "economicImpact": 73,
-      "socialImpact": 99,
+      "publicConcern": 77,
+      "economicImpact": 95,
+      "socialImpact": 81,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Infrastructure",
+        "Military"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -2880,9 +4169,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Spyware-for-Hire Export Wars",
-      "publicConcern": 76,
-      "economicImpact": 56,
-      "socialImpact": 66,
+      "publicConcern": 78,
+      "economicImpact": 98,
+      "socialImpact": 72,
+      "affectedSystems": [
+        "Technology",
+        "Diplomacy",
+        "Politics",
+        "Trade"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2893,9 +4188,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Global Shipping Corridor Disruptions",
-      "publicConcern": 61,
-      "economicImpact": 58,
-      "socialImpact": 50,
+      "publicConcern": 72,
+      "economicImpact": 99,
+      "socialImpact": 83,
+      "affectedSystems": [
+        "Trade",
+        "Military",
+        "Infrastructure",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2906,9 +4207,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Suez Canal Blockage and Chokepoint Accidents",
-      "publicConcern": 75,
-      "economicImpact": 61,
-      "socialImpact": 61,
+      "publicConcern": 68,
+      "economicImpact": 95,
+      "socialImpact": 76,
+      "affectedSystems": [
+        "Trade",
+        "Infrastructure",
+        "Economy",
+        "Climate"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -2920,8 +4227,14 @@
       "urgency": "Critical",
       "description": "Global Container Chokepoint Labor Revolts",
       "publicConcern": 73,
-      "economicImpact": 62,
-      "socialImpact": 74,
+      "economicImpact": 79,
+      "socialImpact": 91,
+      "affectedSystems": [
+        "Economy",
+        "Infrastructure",
+        "Trade",
+        "Climate"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -2932,9 +4245,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Just-in-Time Supply Chain Collapse",
-      "publicConcern": 99,
-      "economicImpact": 87,
-      "socialImpact": 77,
+      "publicConcern": 98,
+      "economicImpact": 67,
+      "socialImpact": 58,
+      "affectedSystems": [
+        "Economy",
+        "Trade",
+        "Infrastructure",
+        "Climate"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2945,9 +4264,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Mega-Project Cost Overrun Sovereign Defaults",
-      "publicConcern": 75,
-      "economicImpact": 86,
-      "socialImpact": 99,
+      "publicConcern": 64,
+      "economicImpact": 77,
+      "socialImpact": 56,
+      "affectedSystems": [
+        "Public Finance",
+        "Infrastructure",
+        "Economy",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -2958,9 +4283,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Seafloor Data Cable Nationalization Wars",
-      "publicConcern": 86,
-      "economicImpact": 50,
-      "socialImpact": 61,
+      "publicConcern": 78,
+      "economicImpact": 70,
+      "socialImpact": 63,
+      "affectedSystems": [
+        "Infrastructure",
+        "Technology",
+        "Diplomacy",
+        "Military"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -2971,9 +4302,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Commodity Currency Fragmentation and De-Dollarization",
-      "publicConcern": 61,
-      "economicImpact": 81,
-      "socialImpact": 61,
+      "publicConcern": 80,
+      "economicImpact": 74,
+      "socialImpact": 60,
+      "affectedSystems": [
+        "Economy",
+        "Trade",
+        "Diplomacy",
+        "Public Finance"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -2984,9 +4321,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Global Trade Finance Gridlock",
-      "publicConcern": 65,
-      "economicImpact": 79,
-      "socialImpact": 58,
+      "publicConcern": 97,
+      "economicImpact": 82,
+      "socialImpact": 81,
+      "affectedSystems": [
+        "Trade",
+        "Economy",
+        "Diplomacy",
+        "Infrastructure"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -2997,9 +4340,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Commodity Clearinghouse Margin Spiral",
-      "publicConcern": 91,
-      "economicImpact": 94,
-      "socialImpact": 68,
+      "publicConcern": 69,
+      "economicImpact": 85,
+      "socialImpact": 74,
+      "affectedSystems": [
+        "Economy",
+        "Trade",
+        "Resources",
+        "Public Finance"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -3010,9 +4359,15 @@
       "category": "Infrastructure",
       "urgency": "Latent",
       "description": "Longevity Wealth Divorce Wars",
-      "publicConcern": 62,
-      "economicImpact": 93,
-      "socialImpact": 98,
+      "publicConcern": 60,
+      "economicImpact": 58,
+      "socialImpact": 96,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Culture",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 4
     },
@@ -3023,9 +4378,15 @@
       "category": "Infrastructure",
       "urgency": "Latent",
       "description": "Digital Brain Property Rights",
-      "publicConcern": 67,
-      "economicImpact": 87,
-      "socialImpact": 87,
+      "publicConcern": 75,
+      "economicImpact": 76,
+      "socialImpact": 72,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Politics",
+        "Institutions"
+      ],
       "color": "#6366f1",
       "size": 4
     },
@@ -3036,9 +4397,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "AI-Generated Synthetic Biolab Leaks",
-      "publicConcern": 65,
-      "economicImpact": 57,
-      "socialImpact": 83,
+      "publicConcern": 91,
+      "economicImpact": 88,
+      "socialImpact": 87,
+      "affectedSystems": [
+        "Technology",
+        "Pandemic",
+        "Politics (Policy)",
+        "Healthcare"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -3049,9 +4416,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Pharmaceutical Ingredient Dependency Crisis",
-      "publicConcern": 73,
-      "economicImpact": 82,
-      "socialImpact": 57,
+      "publicConcern": 66,
+      "economicImpact": 92,
+      "socialImpact": 80,
+      "affectedSystems": [
+        "Healthcare",
+        "Trade",
+        "Economy",
+        "Diplomacy"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -3062,9 +4435,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Critical Generic Drug and Antibiotic Rationing Regimes",
-      "publicConcern": 98,
-      "economicImpact": 94,
-      "socialImpact": 76,
+      "publicConcern": 89,
+      "economicImpact": 81,
+      "socialImpact": 65,
+      "affectedSystems": [
+        "Healthcare",
+        "Economy",
+        "Trade",
+        "Pandemic"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -3075,9 +4454,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Global Cold-Chain Failure and Vaccine Spoilage",
-      "publicConcern": 90,
-      "economicImpact": 68,
-      "socialImpact": 77,
+      "publicConcern": 78,
+      "economicImpact": 57,
+      "socialImpact": 73,
+      "affectedSystems": [
+        "Healthcare",
+        "Infrastructure",
+        "Technology",
+        "Pandemic"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -3088,9 +4473,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Quantum-Assisted Insider Trading Cartels",
-      "publicConcern": 72,
-      "economicImpact": 68,
-      "socialImpact": 65,
+      "publicConcern": 71,
+      "economicImpact": 61,
+      "socialImpact": 74,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Institutions",
+        "Politics (Policy)"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -3101,9 +4492,15 @@
       "category": "Infrastructure",
       "urgency": "High",
       "description": "Mass-Casualty Backlog and Body Storage Collapse",
-      "publicConcern": 91,
-      "economicImpact": 60,
-      "socialImpact": 99,
+      "publicConcern": 75,
+      "economicImpact": 61,
+      "socialImpact": 90,
+      "affectedSystems": [
+        "Healthcare",
+        "Infrastructure",
+        "Climate",
+        "Pandemic"
+      ],
       "color": "#6366f1",
       "size": 12
     },
@@ -3114,9 +4511,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "AI Grief Tech and Digital Resurrection Ethics",
-      "publicConcern": 91,
-      "economicImpact": 78,
-      "socialImpact": 86,
+      "publicConcern": 61,
+      "economicImpact": 98,
+      "socialImpact": 93,
+      "affectedSystems": [
+        "Technology",
+        "Healthcare",
+        "Culture",
+        "Politics (Policy)"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -3128,8 +4531,14 @@
       "urgency": "Critical",
       "description": "Green Burial vs Carbon Cemetery Wars",
       "publicConcern": 81,
-      "economicImpact": 66,
-      "socialImpact": 71,
+      "economicImpact": 52,
+      "socialImpact": 62,
+      "affectedSystems": [
+        "Climate",
+        "Culture",
+        "Politics (Policy)",
+        "Infrastructure"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -3140,9 +4549,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Global Pollinator Extinction Pulse",
-      "publicConcern": 71,
-      "economicImpact": 77,
-      "socialImpact": 95,
+      "publicConcern": 87,
+      "economicImpact": 55,
+      "socialImpact": 91,
+      "affectedSystems": [
+        "Climate",
+        "Resources",
+        "Economy",
+        "Healthcare"
+      ],
       "color": "#6366f1",
       "size": 16
     },
@@ -3153,9 +4568,15 @@
       "category": "Infrastructure",
       "urgency": "Medium",
       "description": "Automated Companion Replacements",
-      "publicConcern": 65,
-      "economicImpact": 91,
-      "socialImpact": 60,
+      "publicConcern": 90,
+      "economicImpact": 96,
+      "socialImpact": 51,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Culture",
+        "Healthcare"
+      ],
       "color": "#6366f1",
       "size": 8
     },
@@ -3166,9 +4587,15 @@
       "category": "Environmental",
       "urgency": "High",
       "description": "European Energy Shock and Heating Crisis",
-      "publicConcern": 85,
-      "economicImpact": 53,
-      "socialImpact": 50,
+      "publicConcern": 89,
+      "economicImpact": 77,
+      "socialImpact": 77,
+      "affectedSystems": [
+        "Resources",
+        "Economy",
+        "Diplomacy",
+        "Public Finance"
+      ],
       "color": "#10b981",
       "size": 12
     },
@@ -3179,9 +4606,15 @@
       "category": "Environmental",
       "urgency": "Critical",
       "description": "City-Scale Climate Lockdowns",
-      "publicConcern": 73,
-      "economicImpact": 99,
-      "socialImpact": 55,
+      "publicConcern": 72,
+      "economicImpact": 90,
+      "socialImpact": 88,
+      "affectedSystems": [
+        "Climate",
+        "Politics (Policy)",
+        "Healthcare",
+        "Infrastructure"
+      ],
       "color": "#10b981",
       "size": 16
     },
@@ -3192,9 +4625,15 @@
       "category": "Social",
       "urgency": "Critical",
       "description": "Medical Debt Vigilantism and Refusal Networks",
-      "publicConcern": 82,
-      "economicImpact": 54,
-      "socialImpact": 82,
+      "publicConcern": 76,
+      "economicImpact": 64,
+      "socialImpact": 67,
+      "affectedSystems": [
+        "Healthcare",
+        "Economy",
+        "Culture",
+        "Politics"
+      ],
       "color": "#8b5cf6",
       "size": 16
     },
@@ -3205,9 +4644,15 @@
       "category": "Social",
       "urgency": "Medium",
       "description": "Opioid Settlement Fallout and Fentanyl Wave",
-      "publicConcern": 80,
-      "economicImpact": 50,
-      "socialImpact": 86,
+      "publicConcern": 93,
+      "economicImpact": 53,
+      "socialImpact": 89,
+      "affectedSystems": [
+        "Healthcare",
+        "Economy",
+        "Institutions (Policing)",
+        "Public Finance"
+      ],
       "color": "#8b5cf6",
       "size": 8
     },
@@ -3218,9 +4663,15 @@
       "category": "Social",
       "urgency": "High",
       "description": "Lithium Refinery Air-Toxics Rebellion",
-      "publicConcern": 97,
-      "economicImpact": 97,
-      "socialImpact": 93,
+      "publicConcern": 87,
+      "economicImpact": 65,
+      "socialImpact": 53,
+      "affectedSystems": [
+        "Resources",
+        "Healthcare",
+        "Climate",
+        "Politics"
+      ],
       "color": "#8b5cf6",
       "size": 12
     },
@@ -3231,9 +4682,15 @@
       "category": "Social",
       "urgency": "Medium",
       "description": "Battery Waste Megafires",
-      "publicConcern": 93,
-      "economicImpact": 51,
-      "socialImpact": 51,
+      "publicConcern": 79,
+      "economicImpact": 65,
+      "socialImpact": 89,
+      "affectedSystems": [
+        "Infrastructure",
+        "Climate",
+        "Resources",
+        "Healthcare"
+      ],
       "color": "#8b5cf6",
       "size": 8
     },
@@ -3244,9 +4701,15 @@
       "category": "Social",
       "urgency": "Latent",
       "description": "Oceanic Dead-Zone Refugees",
-      "publicConcern": 99,
-      "economicImpact": 79,
-      "socialImpact": 52,
+      "publicConcern": 83,
+      "economicImpact": 50,
+      "socialImpact": 87,
+      "affectedSystems": [
+        "Climate",
+        "Resources",
+        "Population (Movements)",
+        "Economy"
+      ],
       "color": "#8b5cf6",
       "size": 4
     },
@@ -3257,9 +4720,15 @@
       "category": "Social",
       "urgency": "Critical",
       "description": "Drug-Resistant Mosquito/Parasite Arms Race",
-      "publicConcern": 80,
-      "economicImpact": 51,
-      "socialImpact": 91,
+      "publicConcern": 90,
+      "economicImpact": 60,
+      "socialImpact": 83,
+      "affectedSystems": [
+        "Healthcare",
+        "Pandemic",
+        "Climate",
+        "Technology"
+      ],
       "color": "#8b5cf6",
       "size": 16
     },
@@ -3270,9 +4739,15 @@
       "category": "Social",
       "urgency": "Critical",
       "description": "Antifungal Superbug Era",
-      "publicConcern": 68,
+      "publicConcern": 62,
       "economicImpact": 91,
-      "socialImpact": 97,
+      "socialImpact": 59,
+      "affectedSystems": [
+        "Healthcare",
+        "Pandemic",
+        "Climate",
+        "Resources"
+      ],
       "color": "#8b5cf6",
       "size": 16
     },
@@ -3283,9 +4758,15 @@
       "category": "Social",
       "urgency": "Medium",
       "description": "AI Clinical Automation Catastrophe",
-      "publicConcern": 60,
-      "economicImpact": 55,
-      "socialImpact": 78,
+      "publicConcern": 72,
+      "economicImpact": 98,
+      "socialImpact": 68,
+      "affectedSystems": [
+        "Technology",
+        "Healthcare",
+        "Politics (Policy)",
+        "Economy"
+      ],
       "color": "#8b5cf6",
       "size": 8
     },
@@ -3296,9 +4777,15 @@
       "category": "Social",
       "urgency": "Critical",
       "description": "Global Healthcare Workforce Exodus",
-      "publicConcern": 71,
-      "economicImpact": 51,
-      "socialImpact": 66,
+      "publicConcern": 93,
+      "economicImpact": 87,
+      "socialImpact": 55,
+      "affectedSystems": [
+        "Healthcare",
+        "Population (Movements)",
+        "Economy",
+        "Pandemic"
+      ],
       "color": "#8b5cf6",
       "size": 16
     },
@@ -3309,9 +4796,15 @@
       "category": "Infrastructure",
       "urgency": "Critical",
       "description": "Algorithmic Eviction and Debt Courts",
-      "publicConcern": 94,
-      "economicImpact": 69,
-      "socialImpact": 72,
+      "publicConcern": 66,
+      "economicImpact": 86,
+      "socialImpact": 64,
+      "affectedSystems": [
+        "Technology",
+        "Economy",
+        "Institutions",
+        "Politics (Policy)"
+      ],
       "color": "#6366f1",
       "size": 16
     }
@@ -120367,7 +121860,7 @@
     }
   ],
   "metadata": {
-    "generatedAt": "2025-11-21T22:22:37.710Z",
+    "generatedAt": "2025-11-21T23:32:56.865Z",
     "issueCount": 255,
     "systemCount": 0,
     "edgeCount": 14631

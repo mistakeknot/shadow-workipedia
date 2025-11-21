@@ -24,6 +24,7 @@ export interface GraphNode {
   publicConcern?: number;
   economicImpact?: number;
   socialImpact?: number;
+  affectedSystems?: string[]; // System tags from curated mappings
 
   // System-specific
   domain?: string;

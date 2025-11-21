@@ -175,7 +175,7 @@ function getMockIssues(): RawIssue[] {
   ];
 }
 
-function issueToNode(issue: RawIssue): GraphNode {
+function issueToNode(issue: RawIssue, curatedMappings: Map<string, string[]>): GraphNode {
   const urgencySizes = {
     Critical: 16,
     High: 12,
@@ -194,6 +194,7 @@ function issueToNode(issue: RawIssue): GraphNode {
     publicConcern: Math.floor(Math.random() * 40) + 60, // Mock: 60-100
     economicImpact: Math.floor(Math.random() * 50) + 50, // Mock: 50-100
     socialImpact: Math.floor(Math.random() * 50) + 50,   // Mock: 50-100
+    affectedSystems: curatedMappings.get(issue.id) || [],
     color: CATEGORY_COLORS[issue.category],
     size: urgencySizes[issue.urgency],
   };
@@ -448,11 +449,15 @@ async function main() {
   const nodes: GraphNode[] = [];
   const edges: GraphEdge[] = [];
 
+  // Load curated mappings
+  const curatedMappings = loadCuratedMappings();
+  console.log(`📋 Loaded ${curatedMappings.size} curated issue-system mappings`);
+
   // Extract issues
   const rawIssues = parseIssueCatalog();
   console.log(`📋 Found ${rawIssues.length} issues in catalog`);
 
-  const issueNodes = rawIssues.map(issueToNode);
+  const issueNodes = rawIssues.map(issue => issueToNode(issue, curatedMappings));
   nodes.push(...issueNodes);
 
   // Extract systems (for metadata only, not as nodes)
