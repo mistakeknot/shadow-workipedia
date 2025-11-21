@@ -25,6 +25,10 @@ export interface GraphNode {
   economicImpact?: number;
   socialImpact?: number;
   affectedSystems?: string[]; // System tags from curated mappings
+  triggerConditions?: string;
+  peakYears?: string;
+  crisisExamples?: string[];
+  evolutionPaths?: string[];
 
   // System-specific
   domain?: string;

@@ -26,6 +26,10 @@ interface RawIssue {
   urgency: IssueUrgency;
   description: string;
   tags: string[];
+  triggerConditions?: string;
+  peakYears?: string;
+  crisisExamples?: string[];
+  evolutionPaths?: string[];
 }
 
 function parseIssueCatalog(): RawIssue[] {
@@ -77,16 +81,32 @@ function parseIssueCatalog(): RawIssue[] {
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-|-$/g, '');
 
-      // Look ahead for description (first line after header that's not empty or metadata)
+      // Look ahead for metadata and description
       let description = '';
       let urgency: IssueUrgency = 'Medium'; // Default
+      let triggerConditions: string | undefined;
+      let peakYears: string | undefined;
+      const crisisExamples: string[] = [];
+      const evolutionPaths: string[] = [];
+      let inCrisisExamples = false;
+      let inEvolutionPaths = false;
 
-      for (let j = i + 1; j < Math.min(i + 10, lines.length); j++) {
+      for (let j = i + 1; j < Math.min(i + 100, lines.length); j++) {
         const nextLine = lines[j].trim();
 
-        // Extract peak years to determine urgency
+        // Stop at next issue
+        if (nextLine.startsWith('##### ') || nextLine.startsWith('#### ')) {
+          break;
+        }
+
+        // Extract trigger conditions
+        if (nextLine.startsWith('**Trigger Conditions**:')) {
+          triggerConditions = nextLine.substring(23).trim();
+        }
+
+        // Extract peak years
         if (nextLine.startsWith('**Peak Years**:')) {
-          const peakYears = nextLine.substring(15).trim();
+          peakYears = nextLine.substring(15).trim();
           // Issues peaking soon are more urgent
           if (peakYears.includes('2024') || peakYears.includes('2025')) {
             urgency = 'Critical';
@@ -97,13 +117,40 @@ function parseIssueCatalog(): RawIssue[] {
           }
         }
 
-        // Skip metadata lines
-        if (nextLine.startsWith('**') || nextLine.startsWith('-') || !nextLine) {
+        // Extract crisis examples
+        if (nextLine.startsWith('**Crisis Examples**:')) {
+          inCrisisExamples = true;
+          inEvolutionPaths = false;
           continue;
         }
 
-        // First non-metadata text is description
-        if (!description && nextLine.length > 10) {
+        // Extract evolution paths
+        if (nextLine.startsWith('**Evolution Paths**:')) {
+          inEvolutionPaths = true;
+          inCrisisExamples = false;
+          continue;
+        }
+
+        // Stop collecting examples/paths at next section
+        if (nextLine.startsWith('**') && !nextLine.startsWith('- **')) {
+          inCrisisExamples = false;
+          inEvolutionPaths = false;
+        }
+
+        // Collect crisis examples (lines starting with - **)
+        if (inCrisisExamples && nextLine.startsWith('- **')) {
+          const example = nextLine.substring(4).replace(/\*\*/g, '').trim();
+          if (example) crisisExamples.push(example);
+        }
+
+        // Collect evolution paths (lines starting with -)
+        if (inEvolutionPaths && nextLine.startsWith('- ') && !nextLine.startsWith('- **')) {
+          const path = nextLine.substring(2).trim();
+          if (path) evolutionPaths.push(path);
+        }
+
+        // First non-metadata paragraph is description (simplified)
+        if (!description && nextLine.length > 20 && !nextLine.startsWith('**') && !nextLine.startsWith('-')) {
           description = nextLine;
         }
       }
@@ -122,6 +169,10 @@ function parseIssueCatalog(): RawIssue[] {
         urgency,
         description: description || name,
         tags,
+        triggerConditions,
+        peakYears,
+        crisisExamples: crisisExamples.length > 0 ? crisisExamples : undefined,
+        evolutionPaths: evolutionPaths.length > 0 ? evolutionPaths : undefined,
       });
     }
   }
@@ -195,6 +246,10 @@ function issueToNode(issue: RawIssue, curatedMappings: Map<string, string[]>): G
     economicImpact: Math.floor(Math.random() * 50) + 50, // Mock: 50-100
     socialImpact: Math.floor(Math.random() * 50) + 50,   // Mock: 50-100
     affectedSystems: curatedMappings.get(issue.id) || [],
+    triggerConditions: issue.triggerConditions,
+    peakYears: issue.peakYears,
+    crisisExamples: issue.crisisExamples,
+    evolutionPaths: issue.evolutionPaths,
     color: CATEGORY_COLORS[issue.category],
     size: urgencySizes[issue.urgency],
   };

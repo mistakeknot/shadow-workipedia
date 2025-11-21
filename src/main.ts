@@ -23,6 +23,34 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
         </div>
       ` : ''}
 
+      ${node.triggerConditions ? `
+        <h3>Trigger Conditions</h3>
+        <p class="metadata-text">${node.triggerConditions}</p>
+      ` : ''}
+
+      ${node.peakYears ? `
+        <h3>Peak Years</h3>
+        <p class="metadata-text">${node.peakYears}</p>
+      ` : ''}
+
+      ${node.crisisExamples && node.crisisExamples.length > 0 ? `
+        <h3>Crisis Examples</h3>
+        <ul class="crisis-list">
+          ${node.crisisExamples.map(example => `
+            <li>${example}</li>
+          `).join('')}
+        </ul>
+      ` : ''}
+
+      ${node.evolutionPaths && node.evolutionPaths.length > 0 ? `
+        <h3>Evolution Paths</h3>
+        <ul class="evolution-list">
+          ${node.evolutionPaths.map(path => `
+            <li>${path}</li>
+          `).join('')}
+        </ul>
+      ` : ''}
+
       <h3>Impact Metrics</h3>
       <div class="metric">
         <span>Public Concern:</span>

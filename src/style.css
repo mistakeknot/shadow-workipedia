@@ -290,6 +290,37 @@ body {
   font-weight: 500;
 }
 
+.metadata-text {
+  line-height: 1.6;
+  color: #cbd5e1;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.crisis-list,
+.evolution-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.crisis-list li,
+.evolution-list li {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 3px solid #ef4444;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+.evolution-list li {
+  background: rgba(59, 130, 246, 0.1);
+  border-left-color: #3b82f6;
+}
+
 /* ========== Mobile Responsiveness ========== */
 
 @media (max-width: 768px) {
