@@ -30,15 +30,6 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
       </div>
       <p class="description">${node.description || 'No description available.'}</p>
 
-      ${node.affectedSystems && node.affectedSystems.length > 0 ? `
-        <h3>Affected Systems</h3>
-        <div class="system-tags">
-          ${node.affectedSystems.map(system => `
-            <span class="system-tag">${system}</span>
-          `).join('')}
-        </div>
-      ` : ''}
-
       ${node.triggerConditions ? `
         <h3>Trigger Conditions</h3>
         <p class="metadata-text">${node.triggerConditions}</p>
