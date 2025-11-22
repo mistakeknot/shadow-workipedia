@@ -281,6 +281,9 @@ async function main() {
 
           if (progress < 1) {
             requestAnimationFrame(animate);
+          } else {
+            // Sync d3-zoom's internal transform to prevent jump on next pan
+            zoomHandler.setTransform(currentTransform);
           }
         };
 
@@ -326,6 +329,9 @@ async function main() {
 
                   if (progress < 1) {
                     requestAnimationFrame(animate);
+                  } else {
+                    // Sync d3-zoom's internal transform to prevent jump on next pan
+                    zoomHandler.setTransform(currentTransform);
                   }
                 };
 

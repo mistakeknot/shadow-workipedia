@@ -1,4 +1,4 @@
-import { zoom as d3Zoom } from 'd3-zoom';
+import { zoom as d3Zoom, zoomIdentity as d3ZoomIdentity } from 'd3-zoom';
 import { select } from 'd3-selection';
 import type { ZoomBehavior, D3ZoomEvent } from 'd3-zoom';
 import { quadtree } from 'd3-quadtree';
@@ -11,12 +11,14 @@ export interface Transform {
 }
 
 export class ZoomPanHandler {
+  private canvas: HTMLCanvasElement;
   private zoomBehavior: ZoomBehavior<HTMLCanvasElement, unknown>;
   private transform: Transform = { x: 0, y: 0, k: 1 };
   private onTransform: (transform: Transform) => void;
   private isDraggingNode = false;
 
   constructor(canvas: HTMLCanvasElement, onTransform: (t: Transform) => void) {
+    this.canvas = canvas;
     this.onTransform = onTransform;
 
     this.zoomBehavior = d3Zoom<HTMLCanvasElement, unknown>()
@@ -45,6 +47,13 @@ export class ZoomPanHandler {
 
   getTransform(): Transform {
     return this.transform;
+  }
+
+  setTransform(transform: Transform): void {
+    // Programmatically update d3-zoom's internal transform state
+    // This prevents jumps when panning after animated pan-to-center
+    select(this.canvas)
+      .call(this.zoomBehavior.transform, d3ZoomIdentity.translate(transform.x, transform.y).scale(transform.k));
   }
 
   reset(): void {
