@@ -364,9 +364,14 @@ async function main() {
   ];
 
   for (const cat of categories) {
+    // Count issues with this category
+    const count = graph.getNodes().filter(node =>
+      node.type === 'issue' && node.categories?.includes(cat.name as IssueCategory)
+    ).length;
+
     const btn = document.createElement('button');
     btn.className = 'category-filter-btn active';
-    btn.textContent = cat.name;
+    btn.textContent = `${cat.name} (${count})`;
     btn.style.setProperty('--category-color', cat.color);
     btn.style.borderColor = cat.color;
 
