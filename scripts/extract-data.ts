@@ -305,43 +305,68 @@ function getMockSystems(): ConnectivitySystem[] {
   ];
 }
 
+function loadCuratedConnections(): Map<string, Array<{targetId: string, relationshipType: string, reasoning: string}>> {
+  const connectionsPath = join(process.cwd(), 'issue-issue-connections.json');
+
+  if (!existsSync(connectionsPath)) {
+    console.warn('⚠️  Curated connections not found, returning empty map');
+    return new Map();
+  }
+
+  const content = readFileSync(connectionsPath, 'utf-8');
+  const data = JSON.parse(content);
+
+  const connectionMap = new Map();
+
+  if (data.connections && Array.isArray(data.connections)) {
+    for (const conn of data.connections) {
+      connectionMap.set(conn.issueId, conn.connectedTo);
+    }
+  }
+
+  return connectionMap;
+}
+
 function extractIssueEdges(issues: RawIssue[]): GraphEdge[] {
   const edges: GraphEdge[] = [];
 
-  // Strategy: Connect issues with shared tags (simple heuristic)
-  for (let i = 0; i < issues.length; i++) {
-    for (let j = i + 1; j < issues.length; j++) {
-      const issueA = issues[i];
-      const issueB = issues[j];
+  // Load curated human-reviewed connections
+  const curatedConnections = loadCuratedConnections();
+  console.log(`📋 Loaded ${curatedConnections.size} issues with curated connections`);
 
-      // Calculate shared tags
-      const sharedTags = issueA.tags.filter(tag => issueB.tags.includes(tag));
+  const issueIds = new Set(issues.map(i => i.id));
 
-      if (sharedTags.length > 0) {
-        // Strength based on shared tag count
-        const strength = Math.min(1.0, sharedTags.length * 0.3);
+  // Create edges from curated connections
+  for (const issue of issues) {
+    const connections = curatedConnections.get(issue.id);
 
-        edges.push({
-          source: issueA.id,
-          target: issueB.id,
-          type: 'issue-issue',
-          strength,
-          label: `Shared: ${sharedTags.slice(0, 2).join(', ')}`,
-          bidirectional: true,
-        });
+    if (!connections || connections.length === 0) {
+      continue;
+    }
+
+    for (const conn of connections) {
+      // Verify target exists
+      if (!issueIds.has(conn.targetId)) {
+        console.warn(`⚠️  Target issue "${conn.targetId}" not found for "${issue.id}"`);
+        continue;
       }
 
-      // Also connect same-category issues (but lower strength)
-      if (issueA.category === issueB.category && sharedTags.length === 0) {
-        edges.push({
-          source: issueA.id,
-          target: issueB.id,
-          type: 'issue-issue',
-          strength: 0.2,
-          label: `Same category: ${issueA.category}`,
-          bidirectional: true,
-        });
-      }
+      // Map relationship type to edge strength
+      const strengthMap: Record<string, number> = {
+        'causal': 0.8,
+        'reinforcing': 0.7,
+        'sequential': 0.6,
+        'thematic': 0.5,
+      };
+
+      edges.push({
+        source: issue.id,
+        target: conn.targetId,
+        type: 'issue-issue',
+        strength: strengthMap[conn.relationshipType] || 0.5,
+        label: `${conn.relationshipType}: ${conn.reasoning.substring(0, 60)}...`,
+        bidirectional: false,
+      });
     }
   }
 
