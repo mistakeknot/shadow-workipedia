@@ -1,12 +1,12 @@
 {
   "metadata": {
     "totalIssues": 255,
-    "curatedIssues": 296,
+    "curatedIssues": 297,
     "coveragePercentage": "100.4",
     "generatedAt": "2025-11-22T02:36:21.490Z",
-    "totalConnections": 1217,
+    "totalConnections": 1228,
     "averageConnectionsPerIssue": "4.1",
-    "lastUpdated": "2025-11-22T05:40:36.257Z"
+    "lastUpdated": "2025-11-22T07:11:29.549Z"
   },
   "connections": [
     {
@@ -112,8 +112,38 @@
         {
           "targetId": "pakistan-instability-and-nuclear-risk",
           "targetName": "Pakistan Instability and Nuclear Risk",
-          "relationshipType": "reinforcing",
+          "relationshipType": "causal",
           "reasoning": "Taliban Afghanistan provides sanctuary for Pakistani Taliban (TTP), destabilizing nuclear-armed Pakistan's border regions."
+        },
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "causal",
+          "reasoning": "Taliban takeover triggered mass exodus of Afghan refugees (2021: 2.6M+ fled); combined with drought and economic collapse creating multi-layered humanitarian displacement crisis toward Pakistan/Iran/Europe."
+        },
+        {
+          "targetId": "human-smuggling-networks",
+          "targetName": "Human Smuggling Networks",
+          "relationshipType": "reinforcing",
+          "reasoning": "Taliban border control collapse enables smuggling networks to operate freely; Afghan refugees use same routes as drug/human traffickers, with Taliban profiting from both humanitarian desperation and criminal transit fees."
+        },
+        {
+          "targetId": "muslim-persecution-and-communal-violence",
+          "targetName": "Muslim Persecution and Communal Violence",
+          "relationshipType": "thematic",
+          "reasoning": "Taliban's fundamentalist Sharia enforcement creates systematic persecution of Hazara Shia Muslims, women, and religious minorities; mirrors other South Asian Muslim persecution patterns with gender/sectarian dimensions."
+        },
+        {
+          "targetId": "border-wall-politics",
+          "targetName": "Border Wall Politics",
+          "relationshipType": "sequential",
+          "reasoning": "Taliban takeover prompted Pakistan to build border fencing and Iran to militarize borders; refugee flows drive regional border securitization despite creating humanitarian catastrophe for displaced Afghans."
+        },
+        {
+          "targetId": "central-asia-autocracies-and-resource-conflicts",
+          "targetName": "Central Asia Autocracies and Resource Conflicts",
+          "relationshipType": "thematic",
+          "reasoning": "Taliban Afghanistan operates as de facto autocracy competing with Central Asian neighbors over water (Amu Darya), trade routes, and Chinese/Russian/US influence in regional great game dynamics."
         }
       ]
     },
@@ -6690,6 +6720,48 @@
           "targetName": "Economic Immigration Conflicts",
           "relationshipType": "causal",
           "reasoning": "Climate migration creates political conflicts in receiving nations"
+        }
+      ]
+    },
+    {
+      "issueId": "pakistan-instability-and-nuclear-risk",
+      "issueName": "Pakistan Instability and Nuclear Risk",
+      "connectedTo": [
+        {
+          "targetId": "kashmir-occupation-and-insurgency",
+          "targetName": "Kashmir Occupation and Insurgency",
+          "relationshipType": "causal",
+          "reasoning": "Kashmir dispute is the primary flashpoint for India-Pakistan nuclear war risk, with repeated border clashes and military standoffs threatening nuclear escalation in densely populated South Asia."
+        },
+        {
+          "targetId": "iran-nuclear-program-and-revolution-cycles",
+          "targetName": "Iran Nuclear Program and Revolution Cycles",
+          "relationshipType": "thematic",
+          "reasoning": "Both represent nuclear proliferation risks in unstable regional contexts; Pakistani nuclear technology sharing (A.Q. Khan network) historically enabled Iranian nuclear development, creating parallel proliferation pathways."
+        },
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "reinforcing",
+          "reasoning": "Pakistan faces catastrophic flooding (2022: 33M displaced, 1/3 country underwater) that destabilizes nuclear-armed state; climate displacement strains institutions protecting nuclear arsenal during humanitarian crises."
+        },
+        {
+          "targetId": "human-smuggling-networks",
+          "targetName": "Human Smuggling Networks",
+          "relationshipType": "sequential",
+          "reasoning": "Pakistani instability drives refugee flows through smuggling networks to Europe and beyond; porous borders used by smugglers also enable militant movement and nuclear security risks."
+        },
+        {
+          "targetId": "border-wall-politics",
+          "targetName": "Border Wall Politics",
+          "relationshipType": "thematic",
+          "reasoning": "Pakistan-Afghanistan border (Durand Line) militarization attempts to control Taliban/TTP movement; border security failures threaten nuclear-armed state while displacing Pashtun populations across artificial colonial boundary."
+        },
+        {
+          "targetId": "central-asia-autocracies-and-resource-conflicts",
+          "targetName": "Central Asia Autocracies and Resource Conflicts",
+          "relationshipType": "sequential",
+          "reasoning": "Pakistani instability creates vacuum filled by Chinese Belt and Road influence and regional autocratic power competition; nuclear-armed state failure would destabilize entire Central/South Asian region."
         }
       ]
     },
