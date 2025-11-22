@@ -1,12 +1,12 @@
 {
   "metadata": {
     "totalIssues": 255,
-    "curatedIssues": 256,
+    "curatedIssues": 295,
     "coveragePercentage": "100.4",
     "generatedAt": "2025-11-22T02:36:21.490Z",
-    "totalConnections": 983,
-    "averageConnectionsPerIssue": "3.8",
-    "lastUpdated": "2025-11-22T04:56:06.411Z"
+    "totalConnections": 1182,
+    "averageConnectionsPerIssue": "4.0",
+    "lastUpdated": "2025-11-22T05:22:45.680Z"
   },
   "connections": [
     {
@@ -1396,6 +1396,42 @@
       ]
     },
     {
+      "issueId": "canadian-housing-affordability-collapse",
+      "issueName": "Canadian Housing Affordability Collapse",
+      "connectedTo": [
+        {
+          "targetId": "housing-impossibility-crisis",
+          "targetName": "Housing Impossibility Crisis",
+          "relationshipType": "thematic",
+          "reasoning": "Canada experiences extreme version of global housing affordability crisis"
+        },
+        {
+          "targetId": "economic-immigration-conflicts",
+          "targetName": "Economic Immigration Conflicts",
+          "relationshipType": "reinforcing",
+          "reasoning": "High immigration blamed for housing crisis creates political backlash"
+        },
+        {
+          "targetId": "mexican-cartel-violence-and-state-failure",
+          "targetName": "Organized Crime Sovereignty",
+          "relationshipType": "causal",
+          "reasoning": "Foreign money laundering drove Vancouver and Toronto price explosion"
+        },
+        {
+          "targetId": "student-debt-slavery",
+          "targetName": "Student Debt Slavery",
+          "relationshipType": "sequential",
+          "reasoning": "Combined debt and housing costs create permanent economic insecurity"
+        },
+        {
+          "targetId": "gig-economy-serfdom",
+          "targetName": "Gig Economy Serfdom",
+          "relationshipType": "thematic",
+          "reasoning": "Homeowner-renter divide creates permanent class barrier"
+        }
+      ]
+    },
+    {
       "issueId": "cancel-culture-tribunal",
       "issueName": "Cancel Culture Tribunal",
       "connectedTo": [
@@ -1410,6 +1446,42 @@
           "targetName": "Mental Health Apocalypse",
           "relationshipType": "causal",
           "reasoning": "Fear of cancellation creates constant anxiety; victims suffer depression and suicide"
+        }
+      ]
+    },
+    {
+      "issueId": "caribbean-climate-and-colonial-vulnerability",
+      "issueName": "Caribbean Climate and Colonial Vulnerability",
+      "connectedTo": [
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "causal",
+          "reasoning": "Repeated climate disasters force migration from Caribbean"
+        },
+        {
+          "targetId": "water-scarcity-wars",
+          "targetName": "Water Scarcity Wars",
+          "relationshipType": "thematic",
+          "reasoning": "Hurricanes and climate change destroy water infrastructure"
+        },
+        {
+          "targetId": "housing-impossibility-crisis",
+          "targetName": "Housing Impossibility Crisis",
+          "relationshipType": "reinforcing",
+          "reasoning": "Climate disasters destroy housing stock"
+        },
+        {
+          "targetId": "dark-money-politics",
+          "targetName": "Dark Money Politics",
+          "relationshipType": "sequential",
+          "reasoning": "Colonial legacy created tax haven economies vulnerable to climate change"
+        },
+        {
+          "targetId": "medical-bankruptcy-epidemic",
+          "targetName": "Medical Bankruptcy Epidemic",
+          "relationshipType": "causal",
+          "reasoning": "Climate disasters overwhelm healthcare systems"
         }
       ]
     },
@@ -1486,6 +1558,42 @@
       ]
     },
     {
+      "issueId": "caucasus-wars-and-frozen-conflicts",
+      "issueName": "Caucasus Wars and Frozen Conflicts",
+      "connectedTo": [
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "causal",
+          "reasoning": "Conflicts periodically erupt creating refugee crises"
+        },
+        {
+          "targetId": "autonomous-weapons-proliferation",
+          "targetName": "Autonomous Weapons Proliferation",
+          "relationshipType": "thematic",
+          "reasoning": "Nagorno-Karabakh war showcased drone warfare revolution"
+        },
+        {
+          "targetId": "disinformation-plague",
+          "targetName": "Disinformation Plague",
+          "relationshipType": "reinforcing",
+          "reasoning": "All sides use massive disinformation in regional conflicts"
+        },
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "sequential",
+          "reasoning": "Conflicts involve targeting energy and civilian infrastructure"
+        },
+        {
+          "targetId": "oil-industry-death-throes",
+          "targetName": "Oil Industry Death Throes",
+          "relationshipType": "causal",
+          "reasoning": "Control of Caspian energy corridors motivates regional conflicts"
+        }
+      ]
+    },
+    {
       "issueId": "censorship-industrial-complex",
       "issueName": "Censorship Industrial Complex",
       "connectedTo": [
@@ -1500,6 +1608,150 @@
           "targetName": "Splinternet and Data Localization Wars",
           "relationshipType": "sequential",
           "reasoning": "Splinternet enables nations to enforce local content controls via commercial censorship"
+        }
+      ]
+    },
+    {
+      "issueId": "central-america-migration-caravans",
+      "issueName": "Central America Migration Caravans",
+      "connectedTo": [
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "causal",
+          "reasoning": "Drought and hurricanes drive Central American climate migration"
+        },
+        {
+          "targetId": "border-wall-politics",
+          "targetName": "Border Wall Politics",
+          "relationshipType": "sequential",
+          "reasoning": "Migrant caravans trigger border militarization and wall construction"
+        },
+        {
+          "targetId": "economic-immigration-conflicts",
+          "targetName": "Economic Immigration Conflicts",
+          "relationshipType": "reinforcing",
+          "reasoning": "Economic collapse drives sustained migration pressure"
+        },
+        {
+          "targetId": "human-trafficking-networks",
+          "targetName": "Human Trafficking Networks",
+          "relationshipType": "thematic",
+          "reasoning": "Migrants vulnerable to trafficking networks"
+        },
+        {
+          "targetId": "mexican-cartel-violence-and-state-failure",
+          "targetName": "Organized Crime Sovereignty",
+          "relationshipType": "causal",
+          "reasoning": "Cartel violence forces displacement"
+        }
+      ]
+    },
+    {
+      "issueId": "central-asia-autocracies-and-resource-conflicts",
+      "issueName": "Central Asia Autocracies and Resource Conflicts",
+      "connectedTo": [
+        {
+          "targetId": "water-scarcity-wars",
+          "targetName": "Water Scarcity Wars",
+          "relationshipType": "causal",
+          "reasoning": "Aral Sea collapse and river disputes create regional water conflicts"
+        },
+        {
+          "targetId": "disinformation-plague",
+          "targetName": "Disinformation Plague",
+          "relationshipType": "thematic",
+          "reasoning": "Authoritarian regimes control media and spread disinformation"
+        },
+        {
+          "targetId": "semiconductor-sovereignty-wars",
+          "targetName": "Semiconductor Sovereignty Wars",
+          "relationshipType": "reinforcing",
+          "reasoning": "Region is battleground for China-Russia-US influence and resources"
+        },
+        {
+          "targetId": "mexican-cartel-violence-and-state-failure",
+          "targetName": "Organized Crime Sovereignty",
+          "relationshipType": "sequential",
+          "reasoning": "Autocracies blend state power with organized crime"
+        },
+        {
+          "targetId": "border-wall-politics",
+          "targetName": "Border Wall Politics",
+          "relationshipType": "causal",
+          "reasoning": "Resource conflicts drive migration and border militarization"
+        }
+      ]
+    },
+    {
+      "issueId": "chile-social-explosion-and-constitution",
+      "issueName": "Chile Social Explosion and Constitution",
+      "connectedTo": [
+        {
+          "targetId": "housing-impossibility-crisis",
+          "targetName": "Housing Impossibility Crisis",
+          "relationshipType": "causal",
+          "reasoning": "Extreme inequality and housing costs triggered mass protests"
+        },
+        {
+          "targetId": "student-debt-slavery",
+          "targetName": "Student Debt Slavery",
+          "relationshipType": "thematic",
+          "reasoning": "Privatized education system was key grievance in uprising"
+        },
+        {
+          "targetId": "police-militarization-escalation",
+          "targetName": "Police Militarization Escalation",
+          "relationshipType": "sequential",
+          "reasoning": "Military police brutality against protesters radicalized movement"
+        },
+        {
+          "targetId": "gig-economy-serfdom",
+          "targetName": "Gig Economy Serfdom",
+          "relationshipType": "reinforcing",
+          "reasoning": "Neoliberal labor policies created precarious employment"
+        },
+        {
+          "targetId": "election-denialism",
+          "targetName": "Election Denialism",
+          "relationshipType": "causal",
+          "reasoning": "Constitutional crisis created legitimacy conflicts"
+        }
+      ]
+    },
+    {
+      "issueId": "china-demographic-collapse",
+      "issueName": "China Demographic Collapse",
+      "connectedTo": [
+        {
+          "targetId": "ai-job-displacement-tsunami",
+          "targetName": "AI Job Displacement Tsunami",
+          "relationshipType": "thematic",
+          "reasoning": "China uses automation to compensate for worker shortages from aging"
+        },
+        {
+          "targetId": "housing-bubble-and-foreclosure-crisis",
+          "targetName": "Housing Bubble and Foreclosure Crisis",
+          "relationshipType": "sequential",
+          "reasoning": "Shrinking population deflates property market central to Chinese economy"
+        },
+        {
+          "targetId": "semiconductor-sovereignty-wars",
+          "targetName": "Semiconductor Sovereignty Wars",
+          "relationshipType": "reinforcing",
+          "reasoning": "Demographic decline weakens China's long-term economic and military power"
+        },
+        {
+          "targetId": "gig-economy-serfdom",
+          "targetName": "Gig Economy Serfdom",
+          "relationshipType": "causal",
+          "reasoning": "Demographic pressures intensify exploitation of shrinking workforce"
+        },
+        {
+          "targetId": "medical-bankruptcy-epidemic",
+          "targetName": "Medical Bankruptcy Epidemic",
+          "relationshipType": "thematic",
+          "reasoning": "Aging population creates massive healthcare and elder care burdens"
         }
       ]
     },
@@ -1544,10 +1796,34 @@
       "issueName": "City-Scale Climate Lockdowns",
       "connectedTo": [
         {
-          "targetId": "heat-dome-mass-fatality-events",
-          "targetName": "Heat Dome Mass Fatality Events",
+          "targetId": "transcontinental-wildfire-smoke-seasons",
+          "targetName": "Transcontinental Wildfire Smoke Seasons",
+          "relationshipType": "causal",
+          "reasoning": "Wildfire smoke forces cities into lockdown for air quality"
+        },
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "reinforcing",
+          "reasoning": "Repeated climate lockdowns make cities uninhabitable, forcing migration"
+        },
+        {
+          "targetId": "pandemic-response-wars",
+          "targetName": "Pandemic Response Wars",
           "relationshipType": "sequential",
-          "reasoning": "Extreme heat kills thousands; governments impose lockdowns to prevent outdoor exposure during deadly temperatures"
+          "reasoning": "COVID lockdown infrastructure repurposed for climate emergencies"
+        },
+        {
+          "targetId": "housing-impossibility-crisis",
+          "targetName": "Housing Impossibility Crisis",
+          "relationshipType": "thematic",
+          "reasoning": "Climate lockdowns make affected cities less desirable, affecting property values"
+        },
+        {
+          "targetId": "medical-bankruptcy-epidemic",
+          "targetName": "Medical Bankruptcy Epidemic",
+          "relationshipType": "causal",
+          "reasoning": "Pollution and heat create chronic public health emergencies"
         }
       ]
     },
@@ -1780,6 +2056,78 @@
       ]
     },
     {
+      "issueId": "commodity-clearinghouse-margin-spiral",
+      "issueName": "Commodity Clearinghouse Margin Spiral",
+      "connectedTo": [
+        {
+          "targetId": "oil-industry-death-throes",
+          "targetName": "Oil Industry Death Throes",
+          "relationshipType": "causal",
+          "reasoning": "Price volatility triggers margin calls creating doom loops"
+        },
+        {
+          "targetId": "housing-bubble-and-foreclosure-crisis",
+          "targetName": "Housing Bubble and Foreclosure Crisis",
+          "relationshipType": "thematic",
+          "reasoning": "Margin spirals spread panic across interconnected markets"
+        },
+        {
+          "targetId": "semiconductor-sovereignty-wars",
+          "targetName": "Semiconductor Sovereignty Wars",
+          "relationshipType": "reinforcing",
+          "reasoning": "Clearinghouse freezes disrupt critical commodity supply chains"
+        },
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "sequential",
+          "reasoning": "Financial infrastructure failures cascade into real economy"
+        },
+        {
+          "targetId": "dark-money-politics",
+          "targetName": "Dark Money Politics",
+          "relationshipType": "causal",
+          "reasoning": "Major financial institutions control clearing, creating systemic risk"
+        }
+      ]
+    },
+    {
+      "issueId": "commodity-currency-fragmentation-and-de-dollarization",
+      "issueName": "Commodity Currency Fragmentation and De-Dollarization",
+      "connectedTo": [
+        {
+          "targetId": "oil-industry-death-throes",
+          "targetName": "Oil Industry Death Throes",
+          "relationshipType": "causal",
+          "reasoning": "Oil trade diversifying away from dollar reduces US monetary hegemony"
+        },
+        {
+          "targetId": "semiconductor-sovereignty-wars",
+          "targetName": "Semiconductor Sovereignty Wars",
+          "relationshipType": "reinforcing",
+          "reasoning": "Currency fragmentation reflects and accelerates geopolitical decoupling"
+        },
+        {
+          "targetId": "dark-money-politics",
+          "targetName": "Dark Money Politics",
+          "relationshipType": "thematic",
+          "reasoning": "Currency fragmentation affects global financial power structures"
+        },
+        {
+          "targetId": "housing-bubble-and-foreclosure-crisis",
+          "targetName": "Housing Bubble and Foreclosure Crisis",
+          "relationshipType": "sequential",
+          "reasoning": "Currency instability affects global real estate markets"
+        },
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "reinforcing",
+          "reasoning": "Financial infrastructure becomes target in currency wars"
+        }
+      ]
+    },
+    {
       "issueId": "consciousness-merger-phenomenon",
       "issueName": "Consciousness Merger Phenomenon",
       "connectedTo": [
@@ -1926,6 +2274,42 @@
           "targetName": "Canadian Political Polarization",
           "relationshipType": "reinforcing",
           "reasoning": "Partisan court packing accelerates polarization, while extreme polarization makes courts political battlegrounds rather than neutral arbiters."
+        }
+      ]
+    },
+    {
+      "issueId": "crimea-annexation-and-black-sea-control",
+      "issueName": "Crimea Annexation and Black Sea Control",
+      "connectedTo": [
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "causal",
+          "reasoning": "War and annexation create massive refugee flows"
+        },
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "thematic",
+          "reasoning": "War involves systematic attacks on energy and civilian infrastructure"
+        },
+        {
+          "targetId": "disinformation-plague",
+          "targetName": "Disinformation Plague",
+          "relationshipType": "reinforcing",
+          "reasoning": "Russia uses massive disinformation campaigns to justify annexation"
+        },
+        {
+          "targetId": "nuclear-plant-crisis-cascade",
+          "targetName": "Nuclear Plant Crisis Cascade",
+          "relationshipType": "sequential",
+          "reasoning": "War creates nuclear plant safety crisis at Zaporizhzhia"
+        },
+        {
+          "targetId": "ransomware-pandemic",
+          "targetName": "Ransomware Pandemic",
+          "relationshipType": "causal",
+          "reasoning": "Cyberwarfare escalates with Russia's invasion"
         }
       ]
     },
@@ -2284,6 +2668,42 @@
       ]
     },
     {
+      "issueId": "democratic-backsliding-in-hungary-poland",
+      "issueName": "Democratic Backsliding in Hungary/Poland",
+      "connectedTo": [
+        {
+          "targetId": "disinformation-plague",
+          "targetName": "Disinformation Plague",
+          "relationshipType": "causal",
+          "reasoning": "Illiberal governments weaponize disinformation to consolidate power"
+        },
+        {
+          "targetId": "election-denialism",
+          "targetName": "Election Denialism",
+          "relationshipType": "thematic",
+          "reasoning": "Democratic backsliding often involves undermining election legitimacy"
+        },
+        {
+          "targetId": "gerrymandering-extremism",
+          "targetName": "Gerrymandering Extremism",
+          "relationshipType": "reinforcing",
+          "reasoning": "Both use institutional manipulation to entrench minority rule"
+        },
+        {
+          "targetId": "voter-suppression-acceleration",
+          "targetName": "Voter Suppression Acceleration",
+          "relationshipType": "sequential",
+          "reasoning": "Backsliding regimes systematically restrict voting rights"
+        },
+        {
+          "targetId": "dark-money-politics",
+          "targetName": "Dark Money Politics",
+          "relationshipType": "causal",
+          "reasoning": "Illiberal regimes use opaque funding to corrupt democratic institutions"
+        }
+      ]
+    },
+    {
       "issueId": "democratic-backsliding-in-hungarypoland",
       "issueName": "Democratic Backsliding in Hungary/Poland",
       "connectedTo": [
@@ -2454,6 +2874,42 @@
           "targetName": "Foreign Interference Wars",
           "relationshipType": "causal",
           "reasoning": "State actors weaponize disinformation as low-cost asymmetric warfare against democracies"
+        }
+      ]
+    },
+    {
+      "issueId": "distant-water-fleet-wars-and-fishery-collapse",
+      "issueName": "Distant-Water Fleet Wars and Fishery Collapse",
+      "connectedTo": [
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "sequential",
+          "reasoning": "Fishery collapse destroys coastal livelihoods, triggering mass migration"
+        },
+        {
+          "targetId": "water-scarcity-wars",
+          "targetName": "Water Scarcity Wars",
+          "relationshipType": "thematic",
+          "reasoning": "Both involve competition over increasingly scarce natural resources"
+        },
+        {
+          "targetId": "border-wall-politics",
+          "targetName": "Border Wall Politics",
+          "relationshipType": "reinforcing",
+          "reasoning": "Climate migration from fishery collapse drives border militarization"
+        },
+        {
+          "targetId": "economic-immigration-conflicts",
+          "targetName": "Economic Immigration Conflicts",
+          "relationshipType": "causal",
+          "reasoning": "Fishery workers displaced by industrial fleets seek economic migration"
+        },
+        {
+          "targetId": "human-trafficking-networks",
+          "targetName": "Human Trafficking Networks",
+          "relationshipType": "sequential",
+          "reasoning": "Desperate fishing communities vulnerable to trafficking"
         }
       ]
     },
@@ -2646,6 +3102,42 @@
           "targetName": "Congo Endless War and Resource Curse",
           "relationshipType": "reinforcing",
           "reasoning": "Drone operations increasingly outsourced to private contractors who operate in legal gray zones, with mercenary companies flying signature strikes without military command accountability"
+        }
+      ]
+    },
+    {
+      "issueId": "drug-resistant-mosquito-parasite-arms-race",
+      "issueName": "Drug-Resistant Mosquito-Parasite Arms Race",
+      "connectedTo": [
+        {
+          "targetId": "antibiotic-resistance-crisis",
+          "targetName": "Antibiotic Resistance Crisis",
+          "relationshipType": "thematic",
+          "reasoning": "Both involve evolution outpacing medical countermeasures"
+        },
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "reinforcing",
+          "reasoning": "Warming expands mosquito habitats while resistance spreads"
+        },
+        {
+          "targetId": "crispr-regulation-wars",
+          "targetName": "CRISPR Regulation Wars",
+          "relationshipType": "sequential",
+          "reasoning": "Gene drive technology proposed to combat resistant mosquitoes"
+        },
+        {
+          "targetId": "medical-bankruptcy-epidemic",
+          "targetName": "Medical Bankruptcy Epidemic",
+          "relationshipType": "causal",
+          "reasoning": "Malaria resurgence creates healthcare system stress"
+        },
+        {
+          "targetId": "pandemic-response-wars",
+          "targetName": "Pandemic Response Wars",
+          "relationshipType": "thematic",
+          "reasoning": "Both involve global coordination failures on infectious disease"
         }
       ]
     },
@@ -3790,6 +4282,42 @@
       ]
     },
     {
+      "issueId": "global-cold-chain-failure-and-vaccine-spoilage",
+      "issueName": "Global Cold Chain Failure and Vaccine Spoilage",
+      "connectedTo": [
+        {
+          "targetId": "pandemic-response-wars",
+          "targetName": "Pandemic Response Wars",
+          "relationshipType": "causal",
+          "reasoning": "COVID vaccine distribution exposed critical cold chain gaps"
+        },
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "thematic",
+          "reasoning": "Power outages destroy refrigerated medicine and vaccine stocks"
+        },
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "sequential",
+          "reasoning": "Heatwaves and infrastructure failure create vaccine storage crises"
+        },
+        {
+          "targetId": "medical-bankruptcy-epidemic",
+          "targetName": "Medical Bankruptcy Epidemic",
+          "relationshipType": "reinforcing",
+          "reasoning": "Vaccine failures compound healthcare system stress"
+        },
+        {
+          "targetId": "semiconductor-sovereignty-wars",
+          "targetName": "Semiconductor Sovereignty Wars",
+          "relationshipType": "causal",
+          "reasoning": "Fragile global logistics cannot maintain cold chain integrity"
+        }
+      ]
+    },
+    {
       "issueId": "global-coldchain-failure-and-vaccine-spoilage",
       "issueName": "Global Cold-Chain Failure and Vaccine Spoilage",
       "connectedTo": [
@@ -3988,6 +4516,42 @@
       ]
     },
     {
+      "issueId": "global-sand-wars-and-concrete-scarcity",
+      "issueName": "Global Sand Wars and Concrete Scarcity",
+      "connectedTo": [
+        {
+          "targetId": "housing-impossibility-crisis",
+          "targetName": "Housing Impossibility Crisis",
+          "relationshipType": "reinforcing",
+          "reasoning": "Sand scarcity drives up construction costs, making housing less affordable"
+        },
+        {
+          "targetId": "housing-bubble-and-foreclosure-crisis",
+          "targetName": "Housing Bubble and Foreclosure Crisis",
+          "relationshipType": "thematic",
+          "reasoning": "Construction costs and housing market dynamics interconnected"
+        },
+        {
+          "targetId": "water-scarcity-wars",
+          "targetName": "Water Scarcity Wars",
+          "relationshipType": "causal",
+          "reasoning": "Sand extraction often damages water resources and ecosystems"
+        },
+        {
+          "targetId": "mexican-cartel-violence-and-state-failure",
+          "targetName": "Organized Crime Sovereignty",
+          "relationshipType": "sequential",
+          "reasoning": "Sand scarcity creates black markets controlled by criminal networks"
+        },
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "reinforcing",
+          "reasoning": "Infrastructure construction depends on secure sand supply chains"
+        }
+      ]
+    },
+    {
       "issueId": "gnss-spoofing-and-positioning-trust-collapse",
       "issueName": "GNSS Spoofing and Positioning Trust Collapse",
       "connectedTo": [
@@ -4056,6 +4620,42 @@
           "targetName": "VPN Crackdown Wars",
           "relationshipType": "sequential",
           "reasoning": "Firewall expansion drives VPN adoption; government crackdowns intensify; cat-and-mouse"
+        }
+      ]
+    },
+    {
+      "issueId": "green-burial-vs-carbon-cemetery-wars",
+      "issueName": "Green Burial vs Carbon Cemetery Wars",
+      "connectedTo": [
+        {
+          "targetId": "religious-freedom-battles",
+          "targetName": "Religious Freedom Battles",
+          "relationshipType": "reinforcing",
+          "reasoning": "Green burial conflicts with traditional religious burial practices"
+        },
+        {
+          "targetId": "housing-impossibility-crisis",
+          "targetName": "Housing Impossibility Crisis",
+          "relationshipType": "thematic",
+          "reasoning": "Cemetery land use competes with housing in dense urban areas"
+        },
+        {
+          "targetId": "water-scarcity-wars",
+          "targetName": "Water Scarcity Wars",
+          "relationshipType": "causal",
+          "reasoning": "Cemetery pollution including embalming chemicals affects groundwater"
+        },
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "sequential",
+          "reasoning": "Climate migration creates demand for new burial spaces"
+        },
+        {
+          "targetId": "dark-money-politics",
+          "targetName": "Dark Money Politics",
+          "relationshipType": "reinforcing",
+          "reasoning": "Corporate funeral industry lobbies against green burial regulations"
         }
       ]
     },
@@ -5716,6 +6316,42 @@
       ]
     },
     {
+      "issueId": "nigeria-boko-haram-and-banditry",
+      "issueName": "Nigeria Boko Haram and Banditry",
+      "connectedTo": [
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "reinforcing",
+          "reasoning": "Sahel desertification drives farmer-herder conflicts feeding insurgency"
+        },
+        {
+          "targetId": "mexican-cartel-violence-and-state-failure",
+          "targetName": "Organized Crime Sovereignty",
+          "relationshipType": "sequential",
+          "reasoning": "Banditry networks blend criminality with insurgency"
+        },
+        {
+          "targetId": "oil-industry-death-throes",
+          "targetName": "Oil Industry Death Throes",
+          "relationshipType": "causal",
+          "reasoning": "Oil wealth corruption hollows out state capacity to fight insurgency"
+        },
+        {
+          "targetId": "human-trafficking-networks",
+          "targetName": "Human Trafficking Networks",
+          "relationshipType": "thematic",
+          "reasoning": "Boko Haram engages in mass kidnapping and trafficking"
+        },
+        {
+          "targetId": "religious-freedom-battles",
+          "targetName": "Religious Freedom Battles",
+          "relationshipType": "reinforcing",
+          "reasoning": "Insurgency driven by religious extremism creates sectarian violence"
+        }
+      ]
+    },
+    {
       "issueId": "nuclear-plant-crisis-cascade",
       "issueName": "Nuclear Plant Crisis Cascade",
       "connectedTo": [
@@ -5764,6 +6400,42 @@
       ]
     },
     {
+      "issueId": "oceanic-dead-zone-refugees",
+      "issueName": "Oceanic Dead-Zone Refugees",
+      "connectedTo": [
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "thematic",
+          "reasoning": "Coastal communities displaced by ecosystem collapse"
+        },
+        {
+          "targetId": "distant-water-fleet-wars-and-fishery-collapse",
+          "targetName": "Distant-Water Fleet Wars and Fishery Collapse",
+          "relationshipType": "reinforcing",
+          "reasoning": "Overfishing and pollution combine to destroy fishing livelihoods"
+        },
+        {
+          "targetId": "water-scarcity-wars",
+          "targetName": "Water Scarcity Wars",
+          "relationshipType": "causal",
+          "reasoning": "Nutrient pollution from agriculture drives toxic blooms creating dead zones"
+        },
+        {
+          "targetId": "border-wall-politics",
+          "targetName": "Border Wall Politics",
+          "relationshipType": "sequential",
+          "reasoning": "Displaced fishing communities face militarized borders"
+        },
+        {
+          "targetId": "economic-immigration-conflicts",
+          "targetName": "Economic Immigration Conflicts",
+          "relationshipType": "reinforcing",
+          "reasoning": "Fishery collapse eliminates livelihoods forcing economic migration"
+        }
+      ]
+    },
+    {
       "issueId": "oil-industry-death-throes",
       "issueName": "Oil Industry Death Throes",
       "connectedTo": [
@@ -5800,6 +6472,42 @@
       ]
     },
     {
+      "issueId": "oligarch-kleptocracy-system",
+      "issueName": "Oligarch Kleptocracy System",
+      "connectedTo": [
+        {
+          "targetId": "dark-money-politics",
+          "targetName": "Dark Money Politics",
+          "relationshipType": "reinforcing",
+          "reasoning": "Kleptocratic wealth corrupts democratic institutions through political spending"
+        },
+        {
+          "targetId": "political-opposition-assassination",
+          "targetName": "Political Opposition Assassination",
+          "relationshipType": "thematic",
+          "reasoning": "Kleptocracies eliminate threats through political murder"
+        },
+        {
+          "targetId": "housing-bubble-and-foreclosure-crisis",
+          "targetName": "Housing Bubble and Foreclosure Crisis",
+          "relationshipType": "sequential",
+          "reasoning": "Oligarchs launder stolen funds through global property markets"
+        },
+        {
+          "targetId": "mexican-cartel-violence-and-state-failure",
+          "targetName": "Organized Crime Sovereignty",
+          "relationshipType": "causal",
+          "reasoning": "Oligarchy represents state capture by organized crime"
+        },
+        {
+          "targetId": "disinformation-plague",
+          "targetName": "Disinformation Plague",
+          "relationshipType": "reinforcing",
+          "reasoning": "Kleptocrats use disinformation to maintain power and hide corruption"
+        }
+      ]
+    },
+    {
       "issueId": "opioid-settlement-fallout-and-fentanyl-wave",
       "issueName": "Opioid Settlement Fallout and Fentanyl Wave",
       "connectedTo": [
@@ -5826,6 +6534,42 @@
           "targetName": "Mass Incarceration Crisis",
           "relationshipType": "causal",
           "reasoning": "Drug war response to opioid crisis fills prisons without addressing addiction"
+        }
+      ]
+    },
+    {
+      "issueId": "pacific-island-nations-disappearing",
+      "issueName": "Pacific Island Nations Disappearing",
+      "connectedTo": [
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "causal",
+          "reasoning": "Sinking islands create climate refugees with nowhere to go"
+        },
+        {
+          "targetId": "water-scarcity-wars",
+          "targetName": "Water Scarcity Wars",
+          "relationshipType": "thematic",
+          "reasoning": "Both involve existential threats from environmental destruction"
+        },
+        {
+          "targetId": "border-wall-politics",
+          "targetName": "Border Wall Politics",
+          "relationshipType": "sequential",
+          "reasoning": "Climate refugees face militarized borders"
+        },
+        {
+          "targetId": "housing-impossibility-crisis",
+          "targetName": "Housing Impossibility Crisis",
+          "relationshipType": "reinforcing",
+          "reasoning": "Displaced islanders need housing creating pressure on receiving nations"
+        },
+        {
+          "targetId": "economic-immigration-conflicts",
+          "targetName": "Economic Immigration Conflicts",
+          "relationshipType": "causal",
+          "reasoning": "Climate migration creates political conflicts in receiving nations"
         }
       ]
     },
@@ -5938,6 +6682,42 @@
       ]
     },
     {
+      "issueId": "philippines-duterte-drug-war",
+      "issueName": "Philippines Duterte Drug War",
+      "connectedTo": [
+        {
+          "targetId": "war-on-drugs-continuation",
+          "targetName": "War on Drugs Continuation",
+          "relationshipType": "causal",
+          "reasoning": "Extreme escalation of failed war on drugs policy"
+        },
+        {
+          "targetId": "political-opposition-assassination",
+          "targetName": "Political Opposition Assassination",
+          "relationshipType": "thematic",
+          "reasoning": "Duterte's drug war involved thousands of extrajudicial executions"
+        },
+        {
+          "targetId": "disinformation-plague",
+          "targetName": "Disinformation Plague",
+          "relationshipType": "reinforcing",
+          "reasoning": "Duterte used social media disinformation to justify killings"
+        },
+        {
+          "targetId": "mexican-cartel-violence-and-state-failure",
+          "targetName": "Organized Crime Sovereignty",
+          "relationshipType": "sequential",
+          "reasoning": "Drug war created power vacuum filled by new criminal networks"
+        },
+        {
+          "targetId": "police-militarization-escalation",
+          "targetName": "Police Militarization Escalation",
+          "relationshipType": "causal",
+          "reasoning": "Police given unchecked power to kill suspected drug users"
+        }
+      ]
+    },
+    {
       "issueId": "platform-power-abuse",
       "issueName": "Platform Power Abuse",
       "connectedTo": [
@@ -5988,6 +6768,78 @@
           "targetName": "Mass Incarceration Crisis",
           "relationshipType": "reinforcing",
           "reasoning": "Military tactics enable mass arrests; prison populations justify acquiring more military equipment"
+        }
+      ]
+    },
+    {
+      "issueId": "political-opposition-assassination",
+      "issueName": "Political Opposition Assassination",
+      "connectedTo": [
+        {
+          "targetId": "oligarch-kleptocracy-system",
+          "targetName": "Oligarch Kleptocracy System",
+          "relationshipType": "thematic",
+          "reasoning": "Kleptocratic regimes use assassination to eliminate political threats"
+        },
+        {
+          "targetId": "disinformation-plague",
+          "targetName": "Disinformation Plague",
+          "relationshipType": "sequential",
+          "reasoning": "Regimes use disinfo to justify and cover up political killings"
+        },
+        {
+          "targetId": "state-sponsored-hacking-epidemic",
+          "targetName": "State-Sponsored Hacking Epidemic",
+          "relationshipType": "reinforcing",
+          "reasoning": "Intelligence services weaponized for both cyberattacks and assassinations"
+        },
+        {
+          "targetId": "mass-incarceration-crisis",
+          "targetName": "Mass Incarceration Crisis",
+          "relationshipType": "causal",
+          "reasoning": "Authoritarian regimes use both prison and assassination to silence opposition"
+        },
+        {
+          "targetId": "cancel-culture-tribunal",
+          "targetName": "Cancel Culture Tribunal",
+          "relationshipType": "thematic",
+          "reasoning": "Both involve silencing political opposition through extreme means"
+        }
+      ]
+    },
+    {
+      "issueId": "post-9-11-security-tradeoffs",
+      "issueName": "Post-9/11 Security Tradeoffs",
+      "connectedTo": [
+        {
+          "targetId": "state-sponsored-hacking-epidemic",
+          "targetName": "State-Sponsored Hacking Epidemic",
+          "relationshipType": "causal",
+          "reasoning": "9/11 security measures created permanent surveillance infrastructure"
+        },
+        {
+          "targetId": "biometric-microchip-migration-control",
+          "targetName": "Biometric Microchip Migration Control",
+          "relationshipType": "sequential",
+          "reasoning": "Post-9/11 security infrastructure evolved into comprehensive biometric tracking systems"
+        },
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "reinforcing",
+          "reasoning": "Security state expansion focused on protecting critical infrastructure"
+        },
+        {
+          "targetId": "drone-warfare-normalization",
+          "targetName": "Drone Warfare Normalization",
+          "relationshipType": "thematic",
+          "reasoning": "Both represent post-9/11 expansion of executive power and military technology"
+        },
+        {
+          "targetId": "endless-war-authorization",
+          "targetName": "Endless War Authorization",
+          "relationshipType": "causal",
+          "reasoning": "9/11 emergency measures became permanent legal basis for perpetual conflict"
         }
       ]
     },
@@ -6172,6 +7024,42 @@
       ]
     },
     {
+      "issueId": "quantum-assisted-insider-trading-cartels",
+      "issueName": "Quantum Assisted Insider Trading Cartels",
+      "connectedTo": [
+        {
+          "targetId": "dark-money-politics",
+          "targetName": "Dark Money Politics",
+          "relationshipType": "causal",
+          "reasoning": "Quantum trading profits fund political corruption"
+        },
+        {
+          "targetId": "ai-alignment-crisis",
+          "targetName": "AI Alignment Crisis",
+          "relationshipType": "thematic",
+          "reasoning": "Both involve powerful new technologies outpacing regulation"
+        },
+        {
+          "targetId": "semiconductor-sovereignty-wars",
+          "targetName": "Semiconductor Sovereignty Wars",
+          "relationshipType": "reinforcing",
+          "reasoning": "Only largest institutions can afford quantum trading infrastructure"
+        },
+        {
+          "targetId": "housing-bubble-and-foreclosure-crisis",
+          "targetName": "Housing Bubble and Foreclosure Crisis",
+          "relationshipType": "sequential",
+          "reasoning": "Market manipulation affects all asset classes including real estate"
+        },
+        {
+          "targetId": "mexican-cartel-violence-and-state-failure",
+          "targetName": "Organized Crime Sovereignty",
+          "relationshipType": "thematic",
+          "reasoning": "Insider trading cartels operate like organized crime networks"
+        }
+      ]
+    },
+    {
       "issueId": "quantum-computing-encryption-collapse",
       "issueName": "Quantum Computing Encryption Collapse",
       "connectedTo": [
@@ -6192,6 +7080,42 @@
           "targetName": "Digital Chain of Custody Wars",
           "relationshipType": "causal",
           "reasoning": "Quantum breaks cryptographic evidence verification; trust systems collapse"
+        }
+      ]
+    },
+    {
+      "issueId": "quantum-sensor-total-recall",
+      "issueName": "Quantum Sensor Total Recall",
+      "connectedTo": [
+        {
+          "targetId": "state-sponsored-hacking-epidemic",
+          "targetName": "State-Sponsored Hacking Epidemic",
+          "relationshipType": "sequential",
+          "reasoning": "Quantum sensors enable unprecedented precision in surveillance capabilities"
+        },
+        {
+          "targetId": "deepfake-reality-crisis",
+          "targetName": "Deepfake Reality Crisis",
+          "relationshipType": "thematic",
+          "reasoning": "Both involve powerful new technologies threatening privacy and truth"
+        },
+        {
+          "targetId": "ai-alignment-crisis",
+          "targetName": "AI Alignment Crisis",
+          "relationshipType": "reinforcing",
+          "reasoning": "Both involve powerful new technologies with existential implications"
+        },
+        {
+          "targetId": "semiconductor-sovereignty-wars",
+          "targetName": "Semiconductor Sovereignty Wars",
+          "relationshipType": "causal",
+          "reasoning": "Quantum sensor technology requires advanced semiconductors, intensifying chip wars"
+        },
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "sequential",
+          "reasoning": "Quantum sensors both enable and defend against infrastructure attacks"
         }
       ]
     },
@@ -6376,6 +7300,42 @@
       ]
     },
     {
+      "issueId": "resource-extraction-conflicts",
+      "issueName": "Resource Extraction Conflicts",
+      "connectedTo": [
+        {
+          "targetId": "land-back-movements",
+          "targetName": "Land Back Movements",
+          "relationshipType": "causal",
+          "reasoning": "Extraction on indigenous lands directly triggers land sovereignty movements"
+        },
+        {
+          "targetId": "sacred-site-protection",
+          "targetName": "Sacred Site Protection",
+          "relationshipType": "thematic",
+          "reasoning": "Both involve indigenous resistance to resource extraction threatening cultural sites"
+        },
+        {
+          "targetId": "water-scarcity-wars",
+          "targetName": "Water Scarcity Wars",
+          "relationshipType": "reinforcing",
+          "reasoning": "Mining and extraction operations contaminate and deplete water resources, intensifying conflicts"
+        },
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "causal",
+          "reasoning": "Extraction-driven environmental destruction displaces communities"
+        },
+        {
+          "targetId": "border-wall-politics",
+          "targetName": "Border Wall Politics",
+          "relationshipType": "sequential",
+          "reasoning": "Resource extraction displacement leads to migration pressures and border conflicts"
+        }
+      ]
+    },
+    {
       "issueId": "revenge-porn-epidemic",
       "issueName": "Revenge Porn Epidemic",
       "connectedTo": [
@@ -6396,6 +7356,78 @@
           "targetName": "Social Media Addiction Crisis",
           "relationshipType": "causal",
           "reasoning": "Platforms amplify revenge porn for engagement; victims re-traumatized by virality"
+        }
+      ]
+    },
+    {
+      "issueId": "right-to-work-law-battles",
+      "issueName": "Right-to-Work Law Battles",
+      "connectedTo": [
+        {
+          "targetId": "union-busting-epidemic",
+          "targetName": "Union Busting Epidemic",
+          "relationshipType": "causal",
+          "reasoning": "Right-to-work laws are a primary tool used in union busting campaigns to weaken labor power"
+        },
+        {
+          "targetId": "gig-economy-serfdom",
+          "targetName": "Gig Economy Serfdom",
+          "relationshipType": "reinforcing",
+          "reasoning": "Both erode worker protections and collective bargaining power, creating precarious employment"
+        },
+        {
+          "targetId": "general-strike-movements",
+          "targetName": "General Strike Movements",
+          "relationshipType": "sequential",
+          "reasoning": "Right-to-work defeats often trigger broader labor mobilization and strike actions"
+        },
+        {
+          "targetId": "dark-money-politics",
+          "targetName": "Dark Money Politics",
+          "relationshipType": "causal",
+          "reasoning": "Corporate dark money funds right-to-work campaigns to weaken political opposition from unions"
+        },
+        {
+          "targetId": "corporate-personhood-battles",
+          "targetName": "Corporate Personhood Battles",
+          "relationshipType": "thematic",
+          "reasoning": "Both involve corporate rights expansion at expense of worker power"
+        }
+      ]
+    },
+    {
+      "issueId": "saudi-mbs-reforms-and-repression",
+      "issueName": "Saudi MBS Reforms and Repression",
+      "connectedTo": [
+        {
+          "targetId": "political-opposition-assassination",
+          "targetName": "Political Opposition Assassination",
+          "relationshipType": "thematic",
+          "reasoning": "MBS ordered Khashoggi assassination, normalizing journalist murder"
+        },
+        {
+          "targetId": "oil-industry-death-throes",
+          "targetName": "Oil Industry Death Throes",
+          "relationshipType": "causal",
+          "reasoning": "Vision 2030 reforms attempt to diversify away from declining oil dependence"
+        },
+        {
+          "targetId": "yemen-civil-war-and-famine",
+          "targetName": "Yemen Civil War and Famine",
+          "relationshipType": "sequential",
+          "reasoning": "MBS launched disastrous Yemen intervention"
+        },
+        {
+          "targetId": "disinformation-plague",
+          "targetName": "Disinformation Plague",
+          "relationshipType": "reinforcing",
+          "reasoning": "Saudi regime uses disinformation to cover repression"
+        },
+        {
+          "targetId": "mexican-cartel-violence-and-state-failure",
+          "targetName": "Organized Crime Sovereignty",
+          "relationshipType": "thematic",
+          "reasoning": "MBS consolidated power through purge resembling organized crime tactics"
         }
       ]
     },
@@ -6426,6 +7458,42 @@
           "targetName": "Social Media Addiction Crisis",
           "relationshipType": "causal",
           "reasoning": "Social media amplifies bullying and isolation; shooter manifestos spread via platforms"
+        }
+      ]
+    },
+    {
+      "issueId": "seafloor-data-cable-nationalization-wars",
+      "issueName": "Seafloor Data Cable Nationalization Wars",
+      "connectedTo": [
+        {
+          "targetId": "splinternet-and-data-localization-wars",
+          "targetName": "Splinternet and Data Localization Wars",
+          "relationshipType": "causal",
+          "reasoning": "Cable control enables data sovereignty and internet balkanization"
+        },
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "sequential",
+          "reasoning": "Cable attacks can isolate countries from global internet"
+        },
+        {
+          "targetId": "semiconductor-sovereignty-wars",
+          "targetName": "Semiconductor Sovereignty Wars",
+          "relationshipType": "thematic",
+          "reasoning": "Both involve securing critical technology infrastructure"
+        },
+        {
+          "targetId": "state-sponsored-hacking-epidemic",
+          "targetName": "State-Sponsored Hacking Epidemic",
+          "relationshipType": "reinforcing",
+          "reasoning": "Cable networks become frontline in cyberwarfare"
+        },
+        {
+          "targetId": "ransomware-pandemic",
+          "targetName": "Ransomware Pandemic",
+          "relationshipType": "causal",
+          "reasoning": "Cable infrastructure vulnerable to both physical and cyber attacks"
         }
       ]
     },
@@ -6564,6 +7632,114 @@
           "targetName": "Pension Fund Collapse",
           "relationshipType": "thematic",
           "reasoning": "Both retirement systems fail; pensions go first, Social Security follows; retiree poverty explodes"
+        }
+      ]
+    },
+    {
+      "issueId": "south-africa-state-failure",
+      "issueName": "South Africa State Failure",
+      "connectedTo": [
+        {
+          "targetId": "mexican-cartel-violence-and-state-failure",
+          "targetName": "Organized Crime Sovereignty",
+          "relationshipType": "thematic",
+          "reasoning": "State capture by organized crime networks"
+        },
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "causal",
+          "reasoning": "Corruption destroyed infrastructure creating power and water crises"
+        },
+        {
+          "targetId": "water-scarcity-wars",
+          "targetName": "Water Scarcity Wars",
+          "relationshipType": "sequential",
+          "reasoning": "Infrastructure collapse threatens water security in major cities"
+        },
+        {
+          "targetId": "economic-immigration-conflicts",
+          "targetName": "Economic Immigration Conflicts",
+          "relationshipType": "reinforcing",
+          "reasoning": "Economic crisis fuels attacks on foreign workers"
+        },
+        {
+          "targetId": "gig-economy-serfdom",
+          "targetName": "Gig Economy Serfdom",
+          "relationshipType": "thematic",
+          "reasoning": "State failure drives extreme unemployment and precarious work"
+        }
+      ]
+    },
+    {
+      "issueId": "south-korea-demographic-death-spiral",
+      "issueName": "South Korea Demographic Death Spiral",
+      "connectedTo": [
+        {
+          "targetId": "housing-impossibility-crisis",
+          "targetName": "Housing Impossibility Crisis",
+          "relationshipType": "reinforcing",
+          "reasoning": "Extreme housing costs in Seoul deter family formation"
+        },
+        {
+          "targetId": "student-debt-slavery",
+          "targetName": "Student Debt Slavery",
+          "relationshipType": "causal",
+          "reasoning": "Educational debt burden prevents young people from having children"
+        },
+        {
+          "targetId": "ai-job-displacement-tsunami",
+          "targetName": "AI Job Displacement Tsunami",
+          "relationshipType": "sequential",
+          "reasoning": "Korea invests heavily in automation to compensate for worker shortage"
+        },
+        {
+          "targetId": "gig-economy-serfdom",
+          "targetName": "Gig Economy Serfdom",
+          "relationshipType": "thematic",
+          "reasoning": "Brutal work culture leaves no time for relationships or children"
+        },
+        {
+          "targetId": "medical-bankruptcy-epidemic",
+          "targetName": "Medical Bankruptcy Epidemic",
+          "relationshipType": "reinforcing",
+          "reasoning": "Extreme aging creates unsustainable healthcare burdens"
+        }
+      ]
+    },
+    {
+      "issueId": "southern-europe-demographic-collapse",
+      "issueName": "Southern Europe Demographic Collapse",
+      "connectedTo": [
+        {
+          "targetId": "housing-impossibility-crisis",
+          "targetName": "Housing Impossibility Crisis",
+          "relationshipType": "reinforcing",
+          "reasoning": "High housing costs deter family formation in Southern Europe"
+        },
+        {
+          "targetId": "student-debt-slavery",
+          "targetName": "Student Debt Slavery",
+          "relationshipType": "causal",
+          "reasoning": "Economic precarity prevents young people from having children"
+        },
+        {
+          "targetId": "gig-economy-serfdom",
+          "targetName": "Gig Economy Serfdom",
+          "relationshipType": "thematic",
+          "reasoning": "Precarious employment deters family formation"
+        },
+        {
+          "targetId": "economic-immigration-conflicts",
+          "targetName": "Economic Immigration Conflicts",
+          "relationshipType": "sequential",
+          "reasoning": "Demographic decline creates need for immigration sparking conflicts"
+        },
+        {
+          "targetId": "medical-bankruptcy-epidemic",
+          "targetName": "Medical Bankruptcy Epidemic",
+          "relationshipType": "reinforcing",
+          "reasoning": "Aging populations create unsustainable healthcare and pension burdens"
         }
       ]
     },
@@ -6784,6 +7960,42 @@
       ]
     },
     {
+      "issueId": "suez-canal-blockage-and-chokepoint-accidents",
+      "issueName": "Suez Canal Blockage and Chokepoint Accidents",
+      "connectedTo": [
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "thematic",
+          "reasoning": "Chokepoints are critical infrastructure vulnerable to disruption"
+        },
+        {
+          "targetId": "oil-industry-death-throes",
+          "targetName": "Oil Industry Death Throes",
+          "relationshipType": "causal",
+          "reasoning": "Chokepoint disruptions create oil price volatility"
+        },
+        {
+          "targetId": "semiconductor-sovereignty-wars",
+          "targetName": "Semiconductor Sovereignty Wars",
+          "relationshipType": "reinforcing",
+          "reasoning": "Blockages disrupt critical supply chains including chips"
+        },
+        {
+          "targetId": "housing-bubble-and-foreclosure-crisis",
+          "targetName": "Housing Bubble and Foreclosure Crisis",
+          "relationshipType": "sequential",
+          "reasoning": "Supply chain disruptions drive construction cost inflation"
+        },
+        {
+          "targetId": "ransomware-pandemic",
+          "targetName": "Ransomware Pandemic",
+          "relationshipType": "thematic",
+          "reasoning": "Both physical and cyber disruptions to critical infrastructure"
+        }
+      ]
+    },
+    {
       "issueId": "supply-chain-cyber-attacks",
       "issueName": "Supply Chain Cyber Attacks",
       "connectedTo": [
@@ -6816,6 +8028,42 @@
           "targetName": "Cyber Cold War",
           "relationshipType": "thematic",
           "reasoning": "Supply chain attacks are primary weapon of cyber warfare; interdependence weaponized"
+        }
+      ]
+    },
+    {
+      "issueId": "syria-civil-war-and-assad-survival",
+      "issueName": "Syria Civil War and Assad Survival",
+      "connectedTo": [
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "causal",
+          "reasoning": "Syrian war displaced millions, creating Europe's migration crisis"
+        },
+        {
+          "targetId": "border-wall-politics",
+          "targetName": "Border Wall Politics",
+          "relationshipType": "sequential",
+          "reasoning": "Syrian refugees trigger border militarization across Europe"
+        },
+        {
+          "targetId": "bioweapon-proliferation",
+          "targetName": "Bioweapon Proliferation",
+          "relationshipType": "thematic",
+          "reasoning": "Assad regime used chemical weapons, breaking weapons taboos"
+        },
+        {
+          "targetId": "disinformation-plague",
+          "targetName": "Disinformation Plague",
+          "relationshipType": "reinforcing",
+          "reasoning": "All sides use massive disinformation in Syrian conflict"
+        },
+        {
+          "targetId": "state-sponsored-hacking-epidemic",
+          "targetName": "State-Sponsored Hacking Epidemic",
+          "relationshipType": "causal",
+          "reasoning": "Syria is battleground for cyber and information warfare"
         }
       ]
     },
@@ -7024,6 +8272,42 @@
       ]
     },
     {
+      "issueId": "turkey-erdogan-authoritarianism",
+      "issueName": "Turkey Erdogan Authoritarianism",
+      "connectedTo": [
+        {
+          "targetId": "political-opposition-assassination",
+          "targetName": "Political Opposition Assassination",
+          "relationshipType": "thematic",
+          "reasoning": "Turkey jails and persecutes journalists and opposition"
+        },
+        {
+          "targetId": "disinformation-plague",
+          "targetName": "Disinformation Plague",
+          "relationshipType": "causal",
+          "reasoning": "Erdogan uses state media and disinformation to maintain power"
+        },
+        {
+          "targetId": "election-denialism",
+          "targetName": "Election Denialism",
+          "relationshipType": "reinforcing",
+          "reasoning": "Erdogan manipulates elections and denies opposition victories"
+        },
+        {
+          "targetId": "dark-money-politics",
+          "targetName": "Dark Money Politics",
+          "relationshipType": "sequential",
+          "reasoning": "Corruption and opaque funding sustain authoritarian regime"
+        },
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "thematic",
+          "reasoning": "Erdogan weaponizes Syrian refugees to pressure Europe"
+        }
+      ]
+    },
+    {
       "issueId": "undersea-cable-and-powerline-sabotage",
       "issueName": "Undersea Cable and Powerline Sabotage",
       "connectedTo": [
@@ -7134,6 +8418,78 @@
           "targetName": "Longevity Apartheid",
           "relationshipType": "sequential",
           "reasoning": "Uploading is ultimate life extension; converts biological longevity gap into digital immortality divide"
+        }
+      ]
+    },
+    {
+      "issueId": "urban-groundwater-subsidence-emergencies",
+      "issueName": "Urban Groundwater Subsidence Emergencies",
+      "connectedTo": [
+        {
+          "targetId": "water-scarcity-wars",
+          "targetName": "Water Scarcity Wars",
+          "relationshipType": "causal",
+          "reasoning": "Over-extraction of groundwater causes subsidence while depleting water resources"
+        },
+        {
+          "targetId": "climate-insurance-collapse-and-managed-retreat-wars",
+          "targetName": "Climate Insurance Collapse and Managed Retreat Wars",
+          "relationshipType": "sequential",
+          "reasoning": "Subsidence makes cities uninsurable, forcing managed retreat decisions"
+        },
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "reinforcing",
+          "reasoning": "Subsiding infrastructure becomes vulnerable and costly to repair"
+        },
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "thematic",
+          "reasoning": "Subsidence forces urban migration as cities become uninhabitable"
+        },
+        {
+          "targetId": "housing-impossibility-crisis",
+          "targetName": "Housing Impossibility Crisis",
+          "relationshipType": "reinforcing",
+          "reasoning": "Subsidence destroys housing stock and drives up costs"
+        }
+      ]
+    },
+    {
+      "issueId": "uyghur-genocide",
+      "issueName": "Uyghur Genocide",
+      "connectedTo": [
+        {
+          "targetId": "state-sponsored-hacking-epidemic",
+          "targetName": "State-Sponsored Hacking Epidemic",
+          "relationshipType": "causal",
+          "reasoning": "Mass surveillance technology enables ethnic targeting and control"
+        },
+        {
+          "targetId": "biometric-microchip-migration-control",
+          "targetName": "Biometric Microchip Migration Control",
+          "relationshipType": "thematic",
+          "reasoning": "Genocide implemented through total biometric surveillance system"
+        },
+        {
+          "targetId": "disinformation-plague",
+          "targetName": "Disinformation Plague",
+          "relationshipType": "sequential",
+          "reasoning": "Chinese state uses disinformation to deny and cover up genocide"
+        },
+        {
+          "targetId": "human-trafficking-networks",
+          "targetName": "Human Trafficking Networks",
+          "relationshipType": "reinforcing",
+          "reasoning": "Forced labor system integrated into global supply chains"
+        },
+        {
+          "targetId": "semiconductor-sovereignty-wars",
+          "targetName": "Semiconductor Sovereignty Wars",
+          "relationshipType": "causal",
+          "reasoning": "Human rights crisis deepens US-China tech decoupling"
         }
       ]
     },
@@ -7408,6 +8764,42 @@
       ]
     },
     {
+      "issueId": "weaponsized-migration-pushbacks",
+      "issueName": "Weaponsized Migration Pushbacks",
+      "connectedTo": [
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "thematic",
+          "reasoning": "States weaponize refugee flows for geopolitical leverage"
+        },
+        {
+          "targetId": "border-wall-politics",
+          "targetName": "Border Wall Politics",
+          "relationshipType": "sequential",
+          "reasoning": "Weaponized migration drives border militarization"
+        },
+        {
+          "targetId": "human-trafficking-networks",
+          "targetName": "Human Trafficking Networks",
+          "relationshipType": "causal",
+          "reasoning": "Border closure forces migrants into trafficking networks"
+        },
+        {
+          "targetId": "disinformation-plague",
+          "targetName": "Disinformation Plague",
+          "relationshipType": "reinforcing",
+          "reasoning": "States use disinformation about migrants as political weapon"
+        },
+        {
+          "targetId": "economic-immigration-conflicts",
+          "targetName": "Economic Immigration Conflicts",
+          "relationshipType": "thematic",
+          "reasoning": "Migration weaponization creates political conflicts"
+        }
+      ]
+    },
+    {
       "issueId": "west-antarctic-ice-cliff-collapse",
       "issueName": "West Antarctic Ice Cliff Collapse",
       "connectedTo": [
@@ -7440,6 +8832,42 @@
           "targetName": "Infrastructure Underwater Trillions",
           "relationshipType": "causal",
           "reasoning": "Trillions in coastal infrastructure becomes worthless; economic collapse of maritime nations"
+        }
+      ]
+    },
+    {
+      "issueId": "yemen-civil-war-and-famine",
+      "issueName": "Yemen Civil War and Famine",
+      "connectedTo": [
+        {
+          "targetId": "climate-refugee-floods",
+          "targetName": "Climate Refugee Floods",
+          "relationshipType": "causal",
+          "reasoning": "War and famine create massive displacement"
+        },
+        {
+          "targetId": "water-scarcity-wars",
+          "targetName": "Water Scarcity Wars",
+          "relationshipType": "thematic",
+          "reasoning": "Yemen faces extreme water scarcity exacerbated by conflict"
+        },
+        {
+          "targetId": "critical-infrastructure-attacks",
+          "targetName": "Critical Infrastructure Attacks",
+          "relationshipType": "reinforcing",
+          "reasoning": "War destroys water, food, and health infrastructure"
+        },
+        {
+          "targetId": "border-wall-politics",
+          "targetName": "Border Wall Politics",
+          "relationshipType": "sequential",
+          "reasoning": "Yemeni refugees face militarized borders"
+        },
+        {
+          "targetId": "medical-bankruptcy-epidemic",
+          "targetName": "Medical Bankruptcy Epidemic",
+          "relationshipType": "causal",
+          "reasoning": "War destroys healthcare system creating health crisis"
         }
       ]
     }
