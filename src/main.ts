@@ -3,6 +3,7 @@ import type { GraphData, IssueCategory } from './types';
 import { GraphSimulation } from './graph';
 import type { SimNode } from './graph';
 import { ZoomPanHandler, HoverHandler, ClickHandler, DragHandler } from './interactions';
+import { ArticleRouter, renderArticleView, renderArticleNotFound } from './article';
 
 // Category color mapping (must match extract-data.ts)
 const CATEGORY_COLORS: Record<IssueCategory, string> = {
@@ -29,6 +30,12 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
         <span class="badge urgency-${node.urgency?.toLowerCase()}">${node.urgency}</span>
       </div>
       <p class="description">${node.description || 'No description available.'}</p>
+
+      ${node.hasArticle ? `
+        <button class="read-article-btn" onclick="window.location.hash='#/${node.type}/${node.id}'">
+          📄 Read Full Article (${node.wordCount?.toLocaleString()} words)
+        </button>
+      ` : ''}
 
       ${node.affectedSystems && node.affectedSystems.length > 0 ? `
         <h3>Affected Systems</h3>
@@ -95,6 +102,12 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
       </div>
       <p class="description">${node.description || 'Simulation system'}</p>
 
+      ${node.hasArticle ? `
+        <button class="read-article-btn" onclick="window.location.hash='#/${node.type}/${node.id}'">
+          📄 Read Full Article (${node.wordCount?.toLocaleString()} words)
+        </button>
+      ` : ''}
+
       <h3>Stats</h3>
       <div class="stat-item">
         <span>Connections:</span>
@@ -150,10 +163,66 @@ async function main() {
   const data: GraphData = await response.json();
 
   console.log(`📊 Loaded ${data.metadata.issueCount} issues, ${data.metadata.systemCount} systems`);
+  if (data.metadata.articleCount) {
+    console.log(`📚 ${data.metadata.articleCount} wiki articles available`);
+  }
 
   // Hide loading indicator
   const loading = document.getElementById('loading');
   if (loading) loading.classList.add('hidden');
+
+  // Get view elements
+  const graphView = document.getElementById('graph-view');
+  const tableView = document.getElementById('table-view');
+  const articleView = document.getElementById('article-view');
+  const articleContainer = document.getElementById('article-container');
+  const header = document.getElementById('header');
+  const tabNav = document.getElementById('tab-nav');
+  const filterBar = document.getElementById('filter-bar');
+
+  if (!graphView || !tableView || !articleView || !articleContainer) {
+    throw new Error('Required view elements not found');
+  }
+
+  // Initialize article router
+  const router = new ArticleRouter((route) => {
+    if (route) {
+      // Article view - hide graph/table, show article
+      graphView.classList.add('hidden');
+      tableView.classList.add('hidden');
+      articleView.classList.remove('hidden');
+      if (header) header.classList.add('hidden');
+      if (tabNav) tabNav.classList.add('hidden');
+      if (filterBar) filterBar.classList.add('hidden');
+
+      // Get route info and render article
+      const routeInfo = router.getCurrentRoute();
+      if (routeInfo && data.articles) {
+        const article = data.articles[routeInfo.slug];
+        if (article) {
+          articleContainer.innerHTML = renderArticleView(article, data);
+        } else {
+          articleContainer.innerHTML = renderArticleNotFound(routeInfo.type, routeInfo.slug);
+        }
+      }
+    } else {
+      // Graph/table view - show navigation, hide article
+      articleView.classList.add('hidden');
+      if (header) header.classList.remove('hidden');
+      if (tabNav) tabNav.classList.remove('hidden');
+      if (filterBar) filterBar.classList.remove('hidden');
+
+      // Show active tab view (graph or table)
+      const activeTab = document.querySelector('.tab-btn.active');
+      if (activeTab?.id === 'tab-table') {
+        graphView.classList.add('hidden');
+        tableView.classList.remove('hidden');
+      } else {
+        graphView.classList.remove('hidden');
+        tableView.classList.add('hidden');
+      }
+    }
+  });
 
   // Get canvas
   const canvas = document.getElementById('graph-canvas') as HTMLCanvasElement;
@@ -766,8 +835,6 @@ async function main() {
   // Set up tab navigation
   const tabGraph = document.getElementById('tab-graph') as HTMLButtonElement;
   const tabTable = document.getElementById('tab-table') as HTMLButtonElement;
-  const graphView = document.getElementById('graph-view') as HTMLDivElement;
-  const tableView = document.getElementById('table-view') as HTMLDivElement;
   const tableContainer = document.getElementById('table-container') as HTMLDivElement;
 
   function switchToView(view: 'graph' | 'table') {
@@ -776,13 +843,13 @@ async function main() {
     if (view === 'graph') {
       tabGraph.classList.add('active');
       tabTable.classList.remove('active');
-      graphView.classList.remove('hidden');
-      tableView.classList.add('hidden');
+      graphView?.classList.remove('hidden');
+      tableView?.classList.add('hidden');
     } else {
       tabGraph.classList.remove('active');
       tabTable.classList.add('active');
-      graphView.classList.add('hidden');
-      tableView.classList.remove('hidden');
+      graphView?.classList.add('hidden');
+      tableView?.classList.remove('hidden');
       renderTable();
     }
   }
