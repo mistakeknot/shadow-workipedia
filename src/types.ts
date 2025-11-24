@@ -40,6 +40,10 @@ export interface GraphNode {
   domain?: string;
   connectionCount?: number;
 
+  // Wiki article
+  hasArticle?: boolean;
+  wordCount?: number;
+
   // Visualization
   color: string;
   size: number;
@@ -56,13 +60,26 @@ export interface GraphEdge {
   bidirectional?: boolean;
 }
 
+export interface WikiArticle {
+  id: string;
+  title: string;
+  type: 'issue' | 'system';
+  frontmatter: Record<string, any>;
+  content: string;
+  html: string;
+  wordCount: number;
+  lastUpdated: string;
+}
+
 export interface GraphData {
   nodes: GraphNode[];
   edges: GraphEdge[];
+  articles?: Record<string, WikiArticle>;
   metadata: {
     generatedAt: string;
     issueCount: number;
     systemCount: number;
     edgeCount: number;
+    articleCount?: number;
   };
 }

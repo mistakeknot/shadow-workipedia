@@ -2,6 +2,7 @@ import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import type { GraphData, GraphNode, GraphEdge, IssueCategory, IssueUrgency } from '../src/types';
 import { parseSystemWalkTracker, getSystemWalkData } from './parse-system-walks';
+import { loadWikiContent, getWikiArticle, type WikiArticle } from './parse-wiki';
 
 const PARENT_REPO = join(process.cwd(), '..');
 const OUTPUT_PATH = join(process.cwd(), 'public', 'data.json');
@@ -588,19 +589,44 @@ async function main() {
   }
   console.log(`  - ${issueSystemEdgeCount} issue-system edges`);
 
+  // Load wiki articles
+  console.log('📚 Loading wiki articles...');
+  const wikiContent = loadWikiContent();
+
+  // Create wiki articles map for output
+  const wikiArticles: Record<string, WikiArticle> = {};
+
+  // Attach wiki article metadata to nodes
+  for (const node of nodes) {
+    const article = getWikiArticle(node.id, node.type as 'issue' | 'system', wikiContent);
+    if (article) {
+      // Add hasArticle flag to node
+      node.hasArticle = true;
+      node.wordCount = article.wordCount;
+
+      // Store full article content separately
+      wikiArticles[node.id] = article;
+    }
+  }
+
+  console.log(`  - ${wikiContent.issues.size} issue articles`);
+  console.log(`  - ${wikiContent.systems.size} system articles`);
+
   const data: GraphData = {
     nodes,
     edges,
+    articles: wikiArticles, // Include full articles
     metadata: {
       generatedAt: new Date().toISOString(),
       issueCount: nodes.filter(n => n.type === 'issue').length,
       systemCount: nodes.filter(n => n.type === 'system').length,
       edgeCount: edges.length,
+      articleCount: Object.keys(wikiArticles).length,
     },
   };
 
   writeFileSync(OUTPUT_PATH, JSON.stringify(data, null, 2));
-  console.log(`✅ Extracted ${data.metadata.issueCount} issues, ${data.metadata.systemCount} systems, ${data.metadata.edgeCount} edges`);
+  console.log(`✅ Extracted ${data.metadata.issueCount} issues, ${data.metadata.systemCount} systems, ${data.metadata.edgeCount} edges, ${data.metadata.articleCount} articles`);
   console.log(`📦 Wrote to ${OUTPUT_PATH}`);
 }
 
