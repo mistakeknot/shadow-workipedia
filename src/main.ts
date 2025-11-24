@@ -33,8 +33,20 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
       ${node.affectedSystems && node.affectedSystems.length > 0 ? `
         <h3>Affected Systems</h3>
         <div class="affected-systems">
-          ${node.affectedSystems.map(system => `<span class="badge system-badge">${system}</span>`).join('')}
+          ${node.affectedSystems.map(system => {
+            // Convert system name to ID (kebab-case)
+            const systemId = system.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            return `<span class="badge system-badge clickable-badge" data-system-id="${systemId}" data-system-name="${system}">${system}</span>`;
+          }).join('')}
         </div>
+      ` : ''}
+
+      ${node.systemWalk?.hasSystemWalk ? `
+        <h3>System Walk Subsystems <span class="badge system-walk-complete">✓ Complete</span></h3>
+        <div class="subsystems">
+          ${node.systemWalk.subsystems.map(subsystem => `<div class="subsystem-item">${subsystem}</div>`).join('')}
+        </div>
+        <p class="system-walk-info">${node.systemWalk.subsystems.length} subsystems • ${node.systemWalk.totalLines?.toLocaleString()} total lines</p>
       ` : ''}
 
       ${node.triggerConditions ? `
@@ -238,6 +250,9 @@ async function main() {
     'Security', 'Technological', 'Cultural', 'Infrastructure'
   ]);
 
+  // View mode state ('issues', 'systems', 'full')
+  let viewMode: 'issues' | 'systems' | 'full' = 'issues';
+
   // Search state
   let searchTerm = '';
   let searchResults = new Set<string>();
@@ -297,8 +312,9 @@ async function main() {
 
         animate();
 
-        // Add click handlers to connection items
+        // Add click handlers to connection items and system badges
         const attachConnectionHandlers = () => {
+          // Handle connection item clicks
           const connectionItems = panelContent.querySelectorAll('.connection-item');
           connectionItems.forEach(item => {
             item.addEventListener('click', () => {
@@ -347,6 +363,70 @@ async function main() {
               }
             });
           });
+
+          // Handle system badge clicks
+          const systemBadges = panelContent.querySelectorAll('.clickable-badge[data-system-id]');
+          systemBadges.forEach(badge => {
+            badge.addEventListener('click', () => {
+              const systemId = badge.getAttribute('data-system-id');
+              const systemName = badge.getAttribute('data-system-name');
+              const targetNode = graph.getNodes().find(n => n.id === systemId && n.type === 'system');
+
+              if (targetNode && targetNode.x !== undefined && targetNode.y !== undefined) {
+                // Switch to Full Network mode to show systems
+                if (viewMode !== 'full' && viewMode !== 'systems') {
+                  viewMode = 'full';
+                  const viewModeBtns = document.querySelectorAll('.view-mode-btn');
+                  viewModeBtns.forEach(btn => {
+                    if ((btn as HTMLElement).dataset.mode === 'full') {
+                      btn.classList.add('active');
+                    } else {
+                      btn.classList.remove('active');
+                    }
+                  });
+                }
+
+                selectedNode = targetNode;
+                panelContent.innerHTML = renderDetailPanel(targetNode, data);
+                attachConnectionHandlers(); // Re-attach handlers
+
+                // Pan to center the system node
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const newX = centerX - targetNode.x * currentTransform.k;
+                const newY = centerY - targetNode.y * currentTransform.k;
+
+                const startX = currentTransform.x;
+                const startY = currentTransform.y;
+                const duration = 500;
+                const startTime = Date.now();
+
+                const animate = () => {
+                  const elapsed = Date.now() - startTime;
+                  const progress = Math.min(elapsed / duration, 1);
+                  const eased = 1 - Math.pow(1 - progress, 3);
+
+                  currentTransform.x = startX + (newX - startX) * eased;
+                  currentTransform.y = startY + (newY - startY) * eased;
+
+                  hoverHandler.updateTransform(currentTransform);
+                  clickHandler.updateTransform(currentTransform);
+                  dragHandler.updateTransform(currentTransform);
+                  render();
+
+                  if (progress < 1) {
+                    requestAnimationFrame(animate);
+                  } else {
+                    zoomHandler.setTransform(currentTransform);
+                  }
+                };
+
+                animate();
+              } else {
+                console.warn(`System node not found: ${systemName} (${systemId})`);
+              }
+            });
+          });
         };
 
         attachConnectionHandlers();
@@ -365,6 +445,40 @@ async function main() {
     selectedNode = null;
     detailPanel.classList.add('hidden');
     render();
+  });
+
+  // View mode selector
+  const viewModeBtns = document.querySelectorAll('.view-mode-btn');
+  viewModeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mode = (btn as HTMLElement).dataset.mode as 'issues' | 'systems' | 'full';
+      viewMode = mode;
+
+      // Update active button
+      viewModeBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Update visibility of category filters based on mode
+      const categoryFilters = document.getElementById('category-filters') as HTMLDivElement;
+      const searchInput = document.getElementById('search') as HTMLInputElement;
+
+      if (mode === 'systems') {
+        // Hide category filters and search for systems-only view
+        categoryFilters.style.display = 'none';
+        searchInput.placeholder = 'Search systems...';
+      } else if (mode === 'full') {
+        categoryFilters.style.display = 'flex';
+        searchInput.placeholder = 'Search issues & systems...';
+      } else {
+        categoryFilters.style.display = 'flex';
+        searchInput.placeholder = 'Search issues...';
+      }
+
+      render();
+      if (currentView === 'table') {
+        renderTable();
+      }
+    });
   });
 
   // Create category filter buttons
@@ -473,6 +587,17 @@ async function main() {
 
     // Draw edges
     for (const link of graph.getLinks()) {
+      // View mode filtering
+      const sourceType = link.source.type;
+      const targetType = link.target.type;
+
+      if (viewMode === 'issues' && (sourceType === 'system' || targetType === 'system')) {
+        continue; // Skip edges connected to systems in issues-only mode
+      }
+      if (viewMode === 'systems' && (sourceType === 'issue' || targetType === 'issue')) {
+        continue; // Skip edges connected to issues in systems-only mode
+      }
+
       // Show edge only if ALL categories of both source and target are active
       const sourceAllCategoriesActive = link.source.categories?.every(cat => activeCategories.has(cat)) ?? true;
       const targetAllCategoriesActive = link.target.categories?.every(cat => activeCategories.has(cat)) ?? true;
@@ -495,6 +620,14 @@ async function main() {
 
     // Draw nodes
     for (const node of graph.getNodes()) {
+      // View mode filtering
+      if (viewMode === 'issues' && node.type === 'system') {
+        continue; // Skip systems in issues-only mode
+      }
+      if (viewMode === 'systems' && node.type === 'issue') {
+        continue; // Skip issues in systems-only mode
+      }
+
       // Show node only if ALL of its categories are active (hide if ANY category is disabled)
       const allCategoriesActive = node.categories?.every(cat => activeCategories.has(cat)) ?? true;
 
@@ -527,6 +660,29 @@ async function main() {
       ctx.beginPath();
       ctx.arc(node.x!, node.y!, size, 0, 2 * Math.PI);
       ctx.fill();
+
+      // System nodes: Add distinctive dashed stroke and inner ring
+      if (node.type === 'system') {
+        ctx.globalAlpha = isRelevant ? 1.0 : 0.15;
+
+        // Outer dashed stroke
+        ctx.strokeStyle = '#e2e8f0'; // Light gray
+        ctx.lineWidth = 2.5 / currentTransform.k;
+        ctx.setLineDash([4 / currentTransform.k, 3 / currentTransform.k]); // Dashed pattern
+        ctx.beginPath();
+        ctx.arc(node.x!, node.y!, size + (2 / currentTransform.k), 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.setLineDash([]); // Reset to solid line
+
+        // Inner ring for extra emphasis
+        ctx.strokeStyle = 'rgba(226, 232, 240, 0.4)';
+        ctx.lineWidth = 1.5 / currentTransform.k;
+        ctx.beginPath();
+        ctx.arc(node.x!, node.y!, size - (2 / currentTransform.k), 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.globalAlpha = isRelevant ? (isHovered ? 1.0 : 0.9) : 0.1;
+      }
 
       // Draw border rings for additional categories (if multi-category)
       if (node.categories && node.categories.length > 1) {
@@ -632,6 +788,10 @@ async function main() {
   renderTable = function() {
     // Get filtered nodes
     const nodes = graph.getNodes().filter(node => {
+      // Apply view mode filter
+      if (viewMode === 'issues' && node.type === 'system') return false;
+      if (viewMode === 'systems' && node.type === 'issue') return false;
+
       // Apply category filter - show only if ALL categories are active
       const allCategoriesActive = node.categories?.every(cat => activeCategories.has(cat)) ?? true;
       if (!allCategoriesActive) return false;

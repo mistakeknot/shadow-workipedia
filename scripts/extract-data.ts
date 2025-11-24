@@ -1,6 +1,7 @@
 import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import type { GraphData, GraphNode, GraphEdge, IssueCategory, IssueUrgency } from '../src/types';
+import { parseSystemWalkTracker, getSystemWalkData, type SystemWalkData } from './parse-system-walks';
 
 const PARENT_REPO = join(process.cwd(), '..');
 const OUTPUT_PATH = join(process.cwd(), 'public', 'data.json');
@@ -263,7 +264,12 @@ function getMockIssues(): RawIssue[] {
   ];
 }
 
-function issueToNode(issue: RawIssue, curatedMappings: Map<string, string[]>): GraphNode {
+function issueToNode(
+  issue: RawIssue,
+  issueNumber: number,
+  curatedMappings: Map<string, string[]>,
+  systemWalkMap: Map<string, { issueNumber: number; subsystemCount: number; totalLines: number }>
+): GraphNode {
   const urgencySizes = {
     Critical: 16,
     High: 12,
@@ -274,6 +280,9 @@ function issueToNode(issue: RawIssue, curatedMappings: Map<string, string[]>): G
 
   // Use first category as primary color (will draw border rings for others)
   const primaryCategory = issue.categories[0];
+
+  // Get system walk data for this issue
+  const systemWalk = getSystemWalkData(issue.id, issueNumber, PARENT_REPO, systemWalkMap);
 
   return {
     id: issue.id,
@@ -290,6 +299,7 @@ function issueToNode(issue: RawIssue, curatedMappings: Map<string, string[]>): G
     peakYears: issue.peakYears,
     crisisExamples: issue.crisisExamples,
     evolutionPaths: issue.evolutionPaths,
+    systemWalk,
     color: CATEGORY_COLORS[primaryCategory],
     size: urgencySizes[issue.urgency],
   };
@@ -300,12 +310,18 @@ interface ConnectivitySystem {
   connections: number;
 }
 
-function parseSystemsFromConnectivity(): ConnectivitySystem[] {
+interface ConnectivityData {
+  systems: ConnectivitySystem[];
+  edges: Array<{ source: string; target: string; implementation: string; phase: string }>;
+}
+
+function parseSystemsFromConnectivity(): ConnectivityData {
   const connectivityPath = join(PARENT_REPO, 'docs/technical/simulation-systems/CONNECTIVITY-INDEX.json');
 
   if (!existsSync(connectivityPath)) {
     console.warn('⚠️  CONNECTIVITY-INDEX.json not found, using mock systems');
-    return getMockSystems();
+    const mockSystems = getMockSystems();
+    return { systems: mockSystems, edges: [] };
   }
 
   const content = readFileSync(connectivityPath, 'utf-8');
@@ -313,25 +329,34 @@ function parseSystemsFromConnectivity(): ConnectivitySystem[] {
 
   // Count connections per system
   const systemConnections = new Map<string, number>();
+  const systemEdges: Array<{ source: string; target: string; implementation: string; phase: string }> = [];
 
   if (data.connections && Array.isArray(data.connections)) {
     for (const edge of data.connections) {
       const source = edge.source;
       const target = edge.target;
 
-      if (source) {
+      if (source && target) {
         systemConnections.set(source, (systemConnections.get(source) || 0) + 1);
-      }
-      if (target) {
         systemConnections.set(target, (systemConnections.get(target) || 0) + 1);
+
+        // Store edge for later processing
+        systemEdges.push({
+          source,
+          target,
+          implementation: edge.implementation || 'Planned',
+          phase: edge.phase || 'P0',
+        });
       }
     }
   }
 
-  return Array.from(systemConnections.entries()).map(([name, connections]) => ({
+  const systems = Array.from(systemConnections.entries()).map(([name, connections]) => ({
     name,
     connections,
   }));
+
+  return { systems, edges: systemEdges };
 }
 
 function getMockSystems(): ConnectivitySystem[] {
@@ -345,6 +370,28 @@ function getMockSystems(): ConnectivitySystem[] {
     { name: 'Military', connections: 18 },
     { name: 'Trade', connections: 25 },
   ];
+}
+
+function systemToNode(system: ConnectivitySystem): GraphNode {
+  // Generate ID from system name (kebab-case)
+  const id = system.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+  // System node color (distinct from issue categories)
+  const systemColor = '#64748b'; // Slate gray
+
+  // Size based on connection count (4-20px range)
+  const size = Math.min(20, Math.max(6, 6 + system.connections / 10));
+
+  return {
+    id,
+    type: 'system',
+    label: system.name,
+    description: `Simulation system with ${system.connections} connections`,
+    connectionCount: system.connections,
+    domain: 'Simulation',
+    color: systemColor,
+    size,
+  };
 }
 
 function loadCuratedConnections(): Map<string, Array<{targetId: string, relationshipType: string, reasoning: string}>> {
@@ -473,23 +520,73 @@ async function main() {
   const curatedMappings = loadCuratedMappings();
   console.log(`📋 Loaded ${curatedMappings.size} curated issue-system mappings`);
 
+  // Parse system walk tracker
+  const systemWalkMap = parseSystemWalkTracker(PARENT_REPO);
+
   // Extract issues
   const rawIssues = parseIssueCatalog(multiCategoryData);
   console.log(`📋 Found ${rawIssues.length} issues in catalog`);
 
-  const issueNodes = rawIssues.map(issue => issueToNode(issue, curatedMappings));
+  const issueNodes = rawIssues.map((issue, index) => issueToNode(issue, index + 1, curatedMappings, systemWalkMap));
   nodes.push(...issueNodes);
 
-  // Extract systems (for metadata only, not as nodes)
-  const systems = parseSystemsFromConnectivity();
-  console.log(`🎯 Found ${systems.length} systems (metadata only, not rendered as nodes)`);
+  // Extract systems as nodes
+  const connectivityData = parseSystemsFromConnectivity();
+  console.log(`🎯 Found ${connectivityData.systems.length} systems`);
 
-  // Extract edges (issue-to-issue only)
-  console.log('🔗 Extracting issue connections...');
+  const systemNodes = connectivityData.systems.map(system => systemToNode(system));
+  nodes.push(...systemNodes);
 
+  // Create system ID map for edge creation
+  const systemIdMap = new Map(systemNodes.map(s => [s.label, s.id]));
+
+  // Extract edges
+  console.log('🔗 Extracting connections...');
+
+  // 1. Issue-to-issue edges
   const issueEdges = extractIssueEdges(rawIssues);
   console.log(`  - ${issueEdges.length} issue-issue edges`);
   edges.push(...issueEdges);
+
+  // 2. System-to-system edges
+  for (const edge of connectivityData.edges) {
+    const sourceId = systemIdMap.get(edge.source);
+    const targetId = systemIdMap.get(edge.target);
+
+    if (sourceId && targetId) {
+      edges.push({
+        source: sourceId,
+        target: targetId,
+        type: 'system-system',
+        strength: edge.implementation === 'Live' ? 0.8 : edge.implementation === 'Partial' ? 0.5 : 0.3,
+        label: `${edge.implementation} (${edge.phase})`,
+        bidirectional: true,
+      });
+    }
+  }
+  console.log(`  - ${connectivityData.edges.length} system-system edges`);
+
+  // 3. Issue-to-system edges
+  let issueSystemEdgeCount = 0;
+  for (const issue of issueNodes) {
+    if (issue.affectedSystems && issue.affectedSystems.length > 0) {
+      for (const systemName of issue.affectedSystems) {
+        const systemId = systemIdMap.get(systemName);
+        if (systemId) {
+          edges.push({
+            source: issue.id,
+            target: systemId,
+            type: 'issue-system',
+            strength: 0.6,
+            label: 'affects',
+            bidirectional: false,
+          });
+          issueSystemEdgeCount++;
+        }
+      }
+    }
+  }
+  console.log(`  - ${issueSystemEdgeCount} issue-system edges`);
 
   const data: GraphData = {
     nodes,

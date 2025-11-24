@@ -29,6 +29,12 @@ export interface GraphNode {
   peakYears?: string;
   crisisExamples?: string[];
   evolutionPaths?: string[];
+  systemWalk?: {
+    hasSystemWalk: boolean;
+    subsystems: string[];
+    architectureFile?: string;
+    totalLines?: number;
+  };
 
   // System-specific
   domain?: string;
