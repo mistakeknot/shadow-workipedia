@@ -184,16 +184,20 @@ async function main() {
     throw new Error('Required view elements not found');
   }
 
+  // Get detail panel (needed for router)
+  const detailPanelElement = document.getElementById('detail-panel') as HTMLDivElement;
+
   // Initialize article router
   const router = new ArticleRouter((route) => {
     if (route) {
-      // Article view - hide graph/table, show article
+      // Article view - hide graph/table/detail panel, show article
       graphView.classList.add('hidden');
       tableView.classList.add('hidden');
       articleView.classList.remove('hidden');
       if (header) header.classList.add('hidden');
       if (tabNav) tabNav.classList.add('hidden');
       if (filterBar) filterBar.classList.add('hidden');
+      if (detailPanelElement) detailPanelElement.classList.add('hidden');
 
       // Get route info and render article
       const routeInfo = router.getCurrentRoute();
