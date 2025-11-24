@@ -276,6 +276,8 @@ async function main() {
         // Show detail panel
         panelContent.innerHTML = renderDetailPanel(node, data);
         detailPanel.classList.remove('hidden');
+        // Hide tooltip when detail panel opens (prevents overlap on mobile)
+        tooltip.classList.add('hidden');
 
         // Pan to center the clicked node
         const centerX = canvas.width / 2;
@@ -324,6 +326,8 @@ async function main() {
                 selectedNode = targetNode;
                 panelContent.innerHTML = renderDetailPanel(targetNode, data);
                 attachConnectionHandlers(); // Re-attach handlers for new connections
+                // Hide tooltip to prevent overlap
+                tooltip.classList.add('hidden');
 
                 // Pan to center the selected node in the viewport
                 const centerX = canvas.width / 2;
@@ -389,6 +393,8 @@ async function main() {
                 selectedNode = targetNode;
                 panelContent.innerHTML = renderDetailPanel(targetNode, data);
                 attachConnectionHandlers(); // Re-attach handlers
+                // Hide tooltip to prevent overlap
+                tooltip.classList.add('hidden');
 
                 // Pan to center the system node
                 const centerX = canvas.width / 2;
@@ -822,8 +828,9 @@ async function main() {
             break;
           case 'urgency':
             const urgencyOrder = { Critical: 4, High: 3, Medium: 2, Low: 1, Latent: 0 };
-            aVal = urgencyOrder[a.urgency || 'Latent'];
-            bVal = urgencyOrder[b.urgency || 'Latent'];
+            // Systems don't have urgency - sort them to the end
+            aVal = a.type === 'system' ? -1 : urgencyOrder[a.urgency || 'Latent'];
+            bVal = b.type === 'system' ? -1 : urgencyOrder[b.urgency || 'Latent'];
             break;
           case 'connections':
             aVal = data.edges.filter(e => e.source === a.id || e.target === a.id).length;
@@ -871,7 +878,10 @@ async function main() {
                   </div>
                 </td>
                 <td>
-                  <span class="badge urgency-${node.urgency || 'latent'}">${node.urgency || 'latent'}</span>
+                  ${node.type === 'system'
+                    ? '<span class="badge system-badge">N/A</span>'
+                    : `<span class="badge urgency-${node.urgency || 'latent'}">${node.urgency || 'latent'}</span>`
+                  }
                 </td>
                 <td>${connectionCount}</td>
               </tr>
@@ -906,6 +916,8 @@ async function main() {
           selectedNode = node;
           panelContent.innerHTML = renderDetailPanel(node, data);
           detailPanel.classList.remove('hidden');
+          // Hide tooltip when detail panel opens (prevents overlap on mobile)
+          tooltip.classList.add('hidden');
 
           // Attach connection handlers for navigation within table view
           const attachConnectionHandlers = () => {
@@ -918,6 +930,8 @@ async function main() {
                   selectedNode = targetNode;
                   panelContent.innerHTML = renderDetailPanel(targetNode, data);
                   attachConnectionHandlers(); // Re-attach for new connections
+                  // Hide tooltip to prevent overlap
+                  tooltip.classList.add('hidden');
                 }
               });
             });
