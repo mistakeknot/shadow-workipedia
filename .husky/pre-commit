@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "🔍 Running TypeScript type check..."
+pnpm tsc --noEmit
+
+if [ $? -ne 0 ]; then
+  echo "❌ TypeScript check failed. Fix errors before committing."
+  exit 1
+fi
+
+echo "✅ Pre-commit checks passed!"
