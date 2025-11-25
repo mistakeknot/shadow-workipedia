@@ -593,19 +593,24 @@ async function main() {
   console.log('📚 Loading wiki articles...');
   const wikiContent = loadWikiContent();
 
-  // Create wiki articles map for output
+  // Create wiki articles map for output - include ALL wiki articles
   const wikiArticles: Record<string, WikiArticle> = {};
 
-  // Attach wiki article metadata to nodes
+  // First, add all wiki articles (even those without matching catalog nodes)
+  for (const [id, article] of wikiContent.issues) {
+    wikiArticles[id] = article;
+  }
+  for (const [id, article] of wikiContent.systems) {
+    wikiArticles[id] = article;
+  }
+
+  // Then, attach wiki article metadata to matching nodes
   for (const node of nodes) {
     const article = getWikiArticle(node.id, node.type as 'issue' | 'system', wikiContent);
     if (article) {
       // Add hasArticle flag to node
       node.hasArticle = true;
       node.wordCount = article.wordCount;
-
-      // Store full article content separately
-      wikiArticles[node.id] = article;
     }
   }
 
