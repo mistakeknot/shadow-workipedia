@@ -12,14 +12,27 @@ function formatDate(dateStr: string): string {
   }
 }
 
+export type ViewType = 'graph' | 'table' | 'wiki';
+export type RouteType =
+  | { kind: 'view'; view: ViewType }
+  | { kind: 'article'; type: 'issue' | 'system'; slug: string }
+  | null;
+
 /**
- * Router for handling article navigation
+ * Router for handling navigation
+ * Supports routes:
+ *   #/ or #/graph - Graph view (default)
+ *   #/table - Table view
+ *   #/wiki - Wiki list view
+ *   #/wiki/issue-slug - Wiki article for an issue
+ *   #/issue/slug - Issue article (legacy, redirects to #/wiki/slug)
+ *   #/system/slug - System article
  */
 export class ArticleRouter {
-  private currentRoute: string | null = null;
+  private currentRoute: RouteType = null;
 
   constructor(
-    private onRouteChange: (route: string | null) => void
+    private onRouteChange: (route: RouteType) => void
   ) {
     // Listen for hash changes
     window.addEventListener('hashchange', () => this.handleRouteChange());
@@ -31,42 +44,61 @@ export class ArticleRouter {
   private handleRouteChange() {
     const hash = window.location.hash;
 
-    if (!hash || hash === '#/') {
-      this.currentRoute = null;
-      this.onRouteChange(null);
+    // Default to graph view
+    if (!hash || hash === '#/' || hash === '#/graph') {
+      this.currentRoute = { kind: 'view', view: 'graph' };
+      this.onRouteChange(this.currentRoute);
       return;
     }
 
-    // Parse routes like #/issue/water-scarcity-wars or #/system/economy
-    const match = hash.match(/^#\/(issue|system)\/([a-z0-9-]+)$/);
-
-    if (match) {
-      this.currentRoute = hash;
-      this.onRouteChange(hash);
-    } else {
-      // Invalid route, go home
-      this.navigateHome();
+    // View routes: #/table, #/wiki
+    if (hash === '#/table') {
+      this.currentRoute = { kind: 'view', view: 'table' };
+      this.onRouteChange(this.currentRoute);
+      return;
     }
+
+    if (hash === '#/wiki') {
+      this.currentRoute = { kind: 'view', view: 'wiki' };
+      this.onRouteChange(this.currentRoute);
+      return;
+    }
+
+    // Article routes: #/wiki/slug, #/issue/slug, #/system/slug
+    const articleMatch = hash.match(/^#\/(wiki|issue|system)\/([a-z0-9-]+)$/);
+    if (articleMatch) {
+      const [, routeType, slug] = articleMatch;
+      // Normalize wiki and issue routes to the same handling
+      const type = routeType === 'system' ? 'system' : 'issue';
+      this.currentRoute = { kind: 'article', type, slug };
+      this.onRouteChange(this.currentRoute);
+      return;
+    }
+
+    // Invalid route, default to graph
+    this.navigateToView('graph');
   }
 
   navigateToArticle(type: 'issue' | 'system', slug: string) {
-    window.location.hash = `#/${type}/${slug}`;
+    // Use #/wiki/slug for issues, #/system/slug for systems
+    const prefix = type === 'issue' ? 'wiki' : 'system';
+    window.location.hash = `#/${prefix}/${slug}`;
+  }
+
+  navigateToView(view: ViewType) {
+    if (view === 'graph') {
+      window.location.hash = '#/';
+    } else {
+      window.location.hash = `#/${view}`;
+    }
   }
 
   navigateHome() {
     window.location.hash = '#/';
   }
 
-  getCurrentRoute(): { type: 'issue' | 'system'; slug: string } | null {
-    if (!this.currentRoute) return null;
-
-    const match = this.currentRoute.match(/^#\/(issue|system)\/([a-z0-9-]+)$/);
-    if (!match) return null;
-
-    return {
-      type: match[1] as 'issue' | 'system',
-      slug: match[2],
-    };
+  getCurrentRoute(): RouteType {
+    return this.currentRoute;
   }
 }
 

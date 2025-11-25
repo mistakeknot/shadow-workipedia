@@ -3,7 +3,7 @@ import type { GraphData, IssueCategory } from './types';
 import { GraphSimulation } from './graph';
 import type { SimNode } from './graph';
 import { ZoomPanHandler, HoverHandler, ClickHandler, DragHandler } from './interactions';
-import { ArticleRouter, renderArticleView, renderArticleNotFound } from './article';
+import { ArticleRouter, renderArticleView, renderArticleNotFound, type RouteType, type ViewType } from './article';
 
 // Category color mapping (must match extract-data.ts)
 const CATEGORY_COLORS: Record<IssueCategory, string> = {
@@ -243,16 +243,77 @@ async function main() {
   // Track selected wiki article
   let selectedWikiArticle: string | null = null;
 
+  // View state (needed early for router initialization)
+  let currentView: 'graph' | 'table' | 'wiki' = 'graph';
+
+  // Forward declare render functions (implemented later)
+  let renderTable: () => void;
+  let renderWikiList: () => void;
+
   // Get detail panel (needed for router)
   const detailPanelElement = document.getElementById('detail-panel') as HTMLDivElement;
 
+  // Store router reference for navigation
+  let router: ArticleRouter;
+
+  // Helper to switch views without updating URL (called by router)
+  function showView(view: ViewType) {
+    currentView = view;
+
+    // Hide tooltip when switching views
+    const tooltipEl = document.getElementById('tooltip');
+    if (tooltipEl) tooltipEl.classList.add('hidden');
+
+    // Update tab active states
+    const tabGraph = document.getElementById('tab-graph');
+    const tabTable = document.getElementById('tab-table');
+    const tabWiki = document.getElementById('tab-wiki');
+
+    tabGraph?.classList.remove('active');
+    tabTable?.classList.remove('active');
+    tabWiki?.classList.remove('active');
+
+    articleView?.classList.add('hidden');
+    if (header) header.classList.remove('hidden');
+    if (tabNav) tabNav.classList.remove('hidden');
+    if (filterBar) filterBar.classList.remove('hidden');
+
+    if (view === 'graph') {
+      tabGraph?.classList.add('active');
+      graphView?.classList.remove('hidden');
+      tableView?.classList.add('hidden');
+      wikiView?.classList.add('hidden');
+    } else if (view === 'table') {
+      tabTable?.classList.add('active');
+      graphView?.classList.add('hidden');
+      tableView?.classList.remove('hidden');
+      wikiView?.classList.add('hidden');
+      renderTable();
+    } else if (view === 'wiki') {
+      tabWiki?.classList.add('active');
+      graphView?.classList.add('hidden');
+      tableView?.classList.add('hidden');
+      wikiView?.classList.remove('hidden');
+      renderWikiList();
+    }
+  }
+
   // Initialize article router (side effects only - registers hash change listener)
-  new ArticleRouter((route) => {
+  router = new ArticleRouter((route: RouteType) => {
     // Hide tooltip on any route change
     const tooltipEl = document.getElementById('tooltip');
     if (tooltipEl) tooltipEl.classList.add('hidden');
 
-    if (route) {
+    if (!route) {
+      // Default to graph view
+      showView('graph');
+      return;
+    }
+
+    if (route.kind === 'view') {
+      // View route - show the appropriate view
+      showView(route.view);
+    } else if (route.kind === 'article') {
       // Article view - hide graph/table/wiki/detail panel, show article
       graphView.classList.add('hidden');
       tableView.classList.add('hidden');
@@ -263,38 +324,14 @@ async function main() {
       if (filterBar) filterBar.classList.add('hidden');
       if (detailPanelElement) detailPanelElement.classList.add('hidden');
 
-      // Parse route info directly from hash (avoid calling router during init)
-      const match = route.match(/^#\/(issue|system)\/([a-z0-9-]+)$/);
-      if (match && data.articles) {
-        const [, type, slug] = match;
+      const { type, slug } = route;
+      if (data.articles) {
         const article = data.articles[slug];
         if (article) {
           articleContainer.innerHTML = renderArticleView(article, data);
         } else {
-          articleContainer.innerHTML = renderArticleNotFound(type as 'issue' | 'system', slug);
+          articleContainer.innerHTML = renderArticleNotFound(type, slug);
         }
-      }
-    } else {
-      // Graph/table view - show navigation, hide article
-      articleView.classList.add('hidden');
-      if (header) header.classList.remove('hidden');
-      if (tabNav) tabNav.classList.remove('hidden');
-      if (filterBar) filterBar.classList.remove('hidden');
-
-      // Show active tab view (graph, table, or wiki)
-      const activeTab = document.querySelector('.tab-btn.active');
-      if (activeTab?.id === 'tab-table') {
-        graphView.classList.add('hidden');
-        tableView.classList.remove('hidden');
-        wikiView?.classList.add('hidden');
-      } else if (activeTab?.id === 'tab-wiki') {
-        graphView.classList.add('hidden');
-        tableView.classList.add('hidden');
-        wikiView?.classList.remove('hidden');
-      } else {
-        graphView.classList.remove('hidden');
-        tableView.classList.add('hidden');
-        wikiView?.classList.add('hidden');
       }
     }
   });
@@ -399,14 +436,9 @@ async function main() {
   let searchTerm = '';
   let searchResults = new Set<string>();
 
-  // View state (needed early for category filter handlers)
-  let currentView: 'graph' | 'table' | 'wiki' = 'graph';
+  // Table sort state
   let tableSortColumn: string | null = null;
   let tableSortDirection: 'asc' | 'desc' = 'asc';
-
-  // Forward declare render functions (implemented later)
-  let renderTable: () => void;
-  let renderWikiList: () => void;
 
   // Shared function to attach detail panel interaction handlers
   function attachDetailPanelHandlers() {
@@ -464,10 +496,10 @@ async function main() {
       readArticleBtn.addEventListener('click', () => {
         const articleId = readArticleBtn.getAttribute('data-wiki-article-id');
         if (articleId && data.articles && data.articles[articleId]) {
-          selectedWikiArticle = articleId;
           detailPanel.classList.add('hidden');
           selectedNode = null;
-          switchToView('wiki');
+          // Navigate to the wiki article (updates URL)
+          router.navigateToArticle('issue', articleId);
         }
       });
     }
@@ -922,41 +954,10 @@ async function main() {
   const tabWiki = document.getElementById('tab-wiki') as HTMLButtonElement;
   const tableContainer = document.getElementById('table-container') as HTMLDivElement;
 
-  function switchToView(view: 'graph' | 'table' | 'wiki') {
-    currentView = view;
-
-    // Hide tooltip when switching views
-    const tooltipEl = document.getElementById('tooltip');
-    if (tooltipEl) tooltipEl.classList.add('hidden');
-
-    // Update tab active states
-    tabGraph.classList.remove('active');
-    tabTable.classList.remove('active');
-    tabWiki.classList.remove('active');
-
-    if (view === 'graph') {
-      tabGraph.classList.add('active');
-      graphView?.classList.remove('hidden');
-      tableView?.classList.add('hidden');
-      wikiView?.classList.add('hidden');
-    } else if (view === 'table') {
-      tabTable.classList.add('active');
-      graphView?.classList.add('hidden');
-      tableView?.classList.remove('hidden');
-      wikiView?.classList.add('hidden');
-      renderTable();
-    } else if (view === 'wiki') {
-      tabWiki.classList.add('active');
-      graphView?.classList.add('hidden');
-      tableView?.classList.add('hidden');
-      wikiView?.classList.remove('hidden');
-      renderWikiList();
-    }
-  }
-
-  tabGraph.addEventListener('click', () => switchToView('graph'));
-  tabTable.addEventListener('click', () => switchToView('table'));
-  tabWiki.addEventListener('click', () => switchToView('wiki'));
+  // Tab clicks navigate via router (which updates URL and calls showView)
+  tabGraph.addEventListener('click', () => router.navigateToView('graph'));
+  tabTable.addEventListener('click', () => router.navigateToView('table'));
+  tabWiki.addEventListener('click', () => router.navigateToView('wiki'));
 
   // Table rendering (assign to forward-declared function)
   renderTable = function() {
@@ -1167,9 +1168,10 @@ async function main() {
     wikiSidebarContent.querySelectorAll('.wiki-sidebar-item').forEach(item => {
       item.addEventListener('click', () => {
         const articleId = item.getAttribute('data-article-id');
-        if (articleId) {
-          selectedWikiArticle = articleId;
-          renderWikiList(); // Re-render to update active state and content
+        if (articleId && data.articles && data.articles[articleId]) {
+          const article = data.articles[articleId];
+          // Navigate via router to update URL
+          router.navigateToArticle(article.type as 'issue' | 'system', articleId);
         }
       });
     });
@@ -1182,8 +1184,8 @@ async function main() {
         if (nodeId) {
           const targetNode = graph.getNodes().find(n => n.id === nodeId);
           if (targetNode) {
-            // Switch to Graph view
-            switchToView('graph');
+            // Switch to Graph view via router
+            router.navigateToView('graph');
 
             // Select the node and show detail panel
             selectedNode = targetNode;
@@ -1229,14 +1231,14 @@ async function main() {
 
         // Check if this article exists in our wiki
         if (data.articles && data.articles[articleId]) {
-          // Navigate within wiki view
-          selectedWikiArticle = articleId;
-          renderWikiList();
+          // Navigate to the article (updates URL)
+          const type = match[1] as 'issue' | 'system';
+          router.navigateToArticle(type, articleId);
         } else {
           // No article exists - show the node in graph view with detail panel
           const targetNode = graph.getNodes().find(n => n.id === articleId);
           if (targetNode) {
-            switchToView('graph');
+            router.navigateToView('graph');
             selectedNode = targetNode;
             panelContent.innerHTML = renderDetailPanel(targetNode, data);
             detailPanel.classList.remove('hidden');

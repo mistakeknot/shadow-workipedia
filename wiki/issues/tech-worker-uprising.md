@@ -1,0 +1,72 @@
+---
+id: tech-worker-uprising
+title: Tech Worker Uprising
+number: 368
+category: Economic
+urgency: Medium
+tags: [tech, labor, unions, activism, silicon-valley, workers, organizing, ethics]
+publicConcern: 48
+economicImpact: 62
+socialImpact: 68
+affectedSystems: [Technology Industry, Labor Relations, Politics, Economy]
+connections: [union-resurgence, gig-economy-serfdom, ai-job-displacement-tsunami]
+editedBy: Shadow Work Team
+lastUpdated: 2025-11-24
+---
+
+# Tech Worker Uprising
+
+## Overview
+
+For decades, Silicon Valley cultivated a mythology of the tech worker as a privileged elite—well-compensated, surrounded by perks, participating in world-changing innovation. That mythology is collapsing. Workers at Google, Amazon, Apple, Meta, and smaller tech companies have begun organizing at scale, striking over ethics concerns (AI weaponization, surveillance systems, content moderation), wage stagnation relative to stock buybacks, mass layoffs executed without severance or warning, and a fundamental betrayal of the "mission-driven" corporate values they were recruited into believing.
+
+The 2020s mark the first genuine labor movement in technology—an industry that spent decades dismissive of unions as relics of industrial-era thinking. Google's 2020 walkout over workplace harassment and political retaliation sparked organizing in warehouses (Amazon Fulfillment), content moderation centers (Meta), data annotation sweatshops (AI training), and engineering teams across the sector. Workers are discovering that their skills—once positioned as individually meritorious and therefore non-unionizable—give them genuine collective leverage, especially when AI training pipelines depend on labor that cannot be easily automated. The "cool job mystique" is dead, replaced by a hardening recognition: tech workers are workers, capital is extractive, and organizing is necessary.
+
+This uprising contains multiple fault lines: white-collar engineers organizing around ethics and layoffs, blue-collar warehouse and logistics workers demanding basic safety and dignity, global moderators and data annotators fighting against exploitation, and a demographic shift as immigrant workers, women entering tech, and younger workers bring different expectations and organizing traditions. What unites them is the collapse of the implicit social contract that positioned tech work as meritocratic transcendence and the realization that visibility and technical skill do not protect against precarity, wage theft, harassment, or being discarded.
+
+## Game Mechanics
+
+### Parameter Effects
+
+- **Tech Worker Unionization Rate**: Increases from near-zero baseline (0.1%) toward 15-25% in organized companies; creates immediate wage and benefit pressure; higher unionization rates trigger broader sector wage competition for remaining non-unionized talent
+- **Tech Industry Profitability**: Under pressure as wage demands and compliance costs rise; forced layoffs create organizing momentum, driving further unionization—a vicious cycle for capital
+- **Technology Investment Velocity**: Slows as capital diverts to lobbying against labor and automation of "problem" positions; accelerates automation of data annotation, content moderation, and warehouse roles to eliminate union-vulnerable workers
+- **Political Polarization**: Increases as tech labor becomes visible as a working-class constituency; splits traditional pro-business conservative positions from pro-capital libertarian ideology; energizes broader labor movement and cross-sector solidarity
+- **Engineering Brain Drain**: Accelerates as workers leave tech for non-tech industries, nonprofits, or independent work; creates recruitment crisis especially for "ethics" roles (AI safety, responsible AI) that require technical credibility but are first to be cut during contractions
+
+### Event Types
+
+1. **Major Tech Company Unionization Drive**: Google, Amazon, Apple, or Meta engineering/warehouse division initiates formal union certification campaign; triggers counter-mobilization by management (union-busting, aggressive messaging); results in dramatic vote showing 30-40% support, insufficient for certification but demonstrating latent organizing potential
+
+2. **Layoff-Triggered Mass Walkout**: Company announces layoffs; workers stage coordinated walkout over insufficient severance, lack of warning, or ethical concerns about deployed systems; creates cascading walkouts across other tech companies as solidarity spreads
+
+3. **Ethical Uprising Over Weapons/Surveillance**: Workers discover their labor is being used for government surveillance, military systems, or authoritarian regimes; trigger public petition, then escalate to sick-outs and work refusal; management forced to divest or rebrand projects
+
+4. **Cross-Sector Tech Labor Coalition**: Warehouse workers, engineers, moderators, and data annotators coordinate demands across companies; launch industry-wide strategy to exploit supply chain dependencies and interconnected systems; raises stakes and visibility
+
+5. **Tech Worker Strike Over Wages/Equity**: Organized group of engineers or specialists withhold labor demanding equity compensation reform, end of stock buyback programs, or across-the-board wage increases; even short strikes create disruptions in AI training or cloud infrastructure
+
+### Cascading Effects
+
+- Triggers **Union Resurgence** as tech labor victories create organizational templates and demonstrate viability of workplace organizing in previously "unorganizable" sectors; revives union culture among younger workers and white-collar professions
+- Exacerbates **Gig Economy Serfdom** when tech companies accelerate automation and contractor conversion to bypass unionized workforce; data annotation, content moderation, and QA testing shift to lower-cost global platforms and algorithmic dispatch systems
+- Amplifies **AI Job Displacement Tsunami** as automation investments accelerate specifically to eliminate labor-intensive, union-vulnerable roles; workers who organized for raises discover their roles automated away within 18-24 months
+- Creates pressure for **Political Realignment** as tech workers become visible swing voters; disrupts Silicon Valley's traditional libertarian + progressive coalition by surfacing contradiction between "move fast and break things" ideology and worker welfare
+
+## Warning Signs
+
+- **Stock Buyback Expansion + Wage Stagnation**: Company returning capital to shareholders while engineering salary growth flat; creates narrative of capital extraction that fuels organizing momentum
+- **Rapid Growth in Contractor/Temporary Workforce**: Company hiring increasing percentages of temps, contractors, and gig workers to reduce benefits/unionization vulnerability; demonstrates premeditated anti-labor strategy
+- **Layoff-First-Ask-Questions-Later Pattern**: Multiple rounds of layoffs without severance, rehiring freezes, or transparent criteria; workers internalize precarity and seek collective protection through organizing
+- **Visible Demographic Shift**: Younger workers, immigrant workers, women, and people of color entering tech in significant numbers; these groups bring organizing traditions and lower tolerance for meritocratic mythology
+- **Ethical Concerns About Products**: Workers publicly questioning surveillance features, weapons integration, or authoritarian regime sales; demonstrates readiness to act on values and organize around mission/values misalignment
+- **"Resignation Contagion"** in Specific Teams: High-visibility departures of respected engineers from controversial projects; signals that organizing/exodus can succeed in extracting concessions or separating from unethical work
+- **Informal Worker Communication Networks**: Slack workspaces, private Discord servers, or encrypted apps where workers coordinate beyond management view; growth of these networks signals organizing readiness
+
+---
+
+*Connected issues and related systems are automatically populated from the graph.*
+
+**Contributors**: Shadow Work Team
+**Last Updated**: 2025-11-24
+**Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/tech-worker-uprising.md)
