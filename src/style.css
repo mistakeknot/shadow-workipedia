@@ -1415,14 +1415,87 @@ body {
 }
 
 .wiki-welcome h2 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.wiki-welcome-subtitle {
+  font-size: 1.125rem;
   color: #94a3b8;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem !important;
 }
 
 .wiki-welcome p {
   font-size: 1rem;
   margin-bottom: 0.5rem;
+}
+
+/* Wiki Article View (in main content area with sidebar) */
+.wiki-article-view {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.wiki-article-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wiki-article-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 0.75rem;
+}
+
+.wiki-article-view .article-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.wiki-article-view .article-content {
+  line-height: 1.8;
+  color: #cbd5e1;
+}
+
+.wiki-article-view .article-content h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.wiki-article-view .article-content h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 1.25rem 0 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wiki-article-view .article-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 1rem 0 0.5rem;
+}
+
+.wiki-article-view .related-content {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wiki-article-view .article-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
 }
 
 .wiki-empty-sidebar {

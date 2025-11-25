@@ -3,7 +3,7 @@ import type { GraphData, IssueCategory } from './types';
 import { GraphSimulation } from './graph';
 import type { SimNode } from './graph';
 import { ZoomPanHandler, HoverHandler, ClickHandler, DragHandler } from './interactions';
-import { ArticleRouter, renderArticleView, renderArticleNotFound, type RouteType, type ViewType } from './article';
+import { ArticleRouter, renderArticleView, renderArticleNotFound, renderWikiArticleContent, type RouteType, type ViewType } from './article';
 
 // Category color mapping (must match extract-data.ts)
 const CATEGORY_COLORS: Record<IssueCategory, string> = {
@@ -312,25 +312,37 @@ async function main() {
 
     if (route.kind === 'view') {
       // View route - show the appropriate view
+      // Clear selected wiki article when navigating to wiki list (not an article)
+      if (route.view === 'wiki') {
+        selectedWikiArticle = null;
+      }
       showView(route.view);
     } else if (route.kind === 'article') {
-      // Article view - hide graph/table/wiki/detail panel, show article
-      graphView.classList.add('hidden');
-      tableView.classList.add('hidden');
-      wikiView.classList.add('hidden');
-      articleView.classList.remove('hidden');
-      if (header) header.classList.add('hidden');
-      if (tabNav) tabNav.classList.add('hidden');
-      if (filterBar) filterBar.classList.add('hidden');
-      if (detailPanelElement) detailPanelElement.classList.add('hidden');
+      // Issue articles show in wiki view with sidebar
+      if (route.type === 'issue') {
+        selectedWikiArticle = route.slug;
+        showView('wiki');
+        // Re-render to update selection and article content
+        renderWikiList();
+      } else {
+        // System articles still use full-page view for now
+        graphView.classList.add('hidden');
+        tableView.classList.add('hidden');
+        wikiView.classList.add('hidden');
+        articleView.classList.remove('hidden');
+        if (header) header.classList.add('hidden');
+        if (tabNav) tabNav.classList.add('hidden');
+        if (filterBar) filterBar.classList.add('hidden');
+        if (detailPanelElement) detailPanelElement.classList.add('hidden');
 
-      const { type, slug } = route;
-      if (data.articles) {
-        const article = data.articles[slug];
-        if (article) {
-          articleContainer.innerHTML = renderArticleView(article, data);
-        } else {
-          articleContainer.innerHTML = renderArticleNotFound(type, slug);
+        const { type, slug } = route;
+        if (data.articles) {
+          const article = data.articles[slug];
+          if (article) {
+            articleContainer.innerHTML = renderArticleView(article, data);
+          } else {
+            articleContainer.innerHTML = renderArticleNotFound(type, slug);
+          }
         }
       }
     }
@@ -1113,10 +1125,7 @@ async function main() {
       a.title.localeCompare(b.title)
     );
 
-    // Auto-select first article if none selected
-    if (articles.length > 0 && !selectedWikiArticle) {
-      selectedWikiArticle = articles[0].id;
-    }
+    // Don't auto-select - show welcome message when on #/wiki
 
     // Group by type
     const issueArticles = articles.filter(a => a.type === 'issue');
@@ -1151,15 +1160,16 @@ async function main() {
 
     wikiSidebarContent.innerHTML = sidebarHtml;
 
-    // Render article content
+    // Render article content or welcome message
     if (selectedWikiArticle && data.articles[selectedWikiArticle]) {
       const article = data.articles[selectedWikiArticle];
-      wikiArticleContent.innerHTML = renderArticleView(article, data);
+      wikiArticleContent.innerHTML = renderWikiArticleContent(article, data);
     } else {
       wikiArticleContent.innerHTML = `
         <div class="wiki-welcome">
-          <h2>Welcome to the Wiki</h2>
-          <p>Select an article from the sidebar to read.</p>
+          <h2>Shadow Workipedia</h2>
+          <p class="wiki-welcome-subtitle">${articles.length} articles documenting global issues and systems</p>
+          <p>Select an article from the sidebar to start reading.</p>
         </div>
       `;
     }

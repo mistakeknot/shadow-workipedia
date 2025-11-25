@@ -142,6 +142,43 @@ export function renderArticleView(article: WikiArticle, data: GraphData): string
 }
 
 /**
+ * Render wiki article content for the sidebar view (no back button)
+ */
+export function renderWikiArticleContent(article: WikiArticle, data: GraphData): string {
+  // Find the node for additional metadata
+  const node = data.nodes.find(n => n.id === article.id);
+
+  return `
+    <div class="wiki-article-view">
+      <div class="wiki-article-header">
+        <h1 class="wiki-article-title">${article.title}</h1>
+        <div class="article-meta">
+          <span class="article-type-badge">${article.type}</span>
+          <span class="article-word-count">${article.wordCount.toLocaleString()} words</span>
+          ${article.lastUpdated ? `<span class="article-updated">Updated ${formatDate(article.lastUpdated)}</span>` : ''}
+        </div>
+      </div>
+
+      <article class="article-content">
+        ${article.html}
+      </article>
+
+      ${node ? renderRelatedContent(node, data) : ''}
+
+      <div class="article-footer">
+        <a
+          href="https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/${article.type}s/${article.id}.md"
+          target="_blank"
+          class="edit-link"
+        >
+          📝 Edit this article on GitHub
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+/**
  * Render related content section
  */
 function renderRelatedContent(node: any, data: GraphData): string {
