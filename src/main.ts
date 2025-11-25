@@ -246,8 +246,8 @@ async function main() {
   // Get detail panel (needed for router)
   const detailPanelElement = document.getElementById('detail-panel') as HTMLDivElement;
 
-  // Initialize article router
-  const router = new ArticleRouter((route) => {
+  // Initialize article router (side effects only - registers hash change listener)
+  new ArticleRouter((route) => {
     // Hide tooltip on any route change
     const tooltipEl = document.getElementById('tooltip');
     if (tooltipEl) tooltipEl.classList.add('hidden');
