@@ -1,6 +1,18 @@
 import type { GraphData, WikiArticle } from './types';
 
 /**
+ * Format ISO date string to readable format
+ */
+function formatDate(dateStr: string): string {
+  try {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  } catch {
+    return dateStr;
+  }
+}
+
+/**
  * Router for handling article navigation
  */
 export class ArticleRouter {
@@ -68,13 +80,13 @@ export function renderArticleView(article: WikiArticle, data: GraphData): string
   return `
     <div class="article-view">
       <div class="article-header">
-        <button class="back-btn" onclick="window.location.hash='#/'">
-          ← Back to Graph
+        <button class="back-btn" data-back-to-graph="${article.id}">
+          ← Back
         </button>
         <div class="article-meta">
           <span class="article-type-badge">${article.type}</span>
           <span class="article-word-count">${article.wordCount.toLocaleString()} words</span>
-          ${article.lastUpdated ? `<span class="article-updated">Updated ${article.lastUpdated}</span>` : ''}
+          ${article.lastUpdated ? `<span class="article-updated">Updated ${formatDate(article.lastUpdated)}</span>` : ''}
         </div>
       </div>
 
@@ -118,15 +130,18 @@ function renderRelatedContent(node: any, data: GraphData): string {
   const connectedIssues = connectedNodes.filter(n => n.type === 'issue');
   const connectedSystems = connectedNodes.filter(n => n.type === 'system');
 
+  const INITIAL_SHOW = 10;
+  const hasMoreIssues = connectedIssues.length > INITIAL_SHOW;
+
   return `
     <div class="related-content">
       <h2>Related Content</h2>
 
       ${connectedIssues.length > 0 ? `
-        <div class="related-section">
+        <div class="related-section" data-section="issues">
           <h3>Connected Issues (${connectedIssues.length})</h3>
           <div class="related-links">
-            ${connectedIssues.slice(0, 10).map(n => `
+            ${connectedIssues.slice(0, INITIAL_SHOW).map(n => `
               <a
                 href="#/${n.type}/${n.id}"
                 class="related-link ${n.hasArticle ? 'has-article' : ''}"
@@ -135,7 +150,23 @@ function renderRelatedContent(node: any, data: GraphData): string {
                 ${n.hasArticle ? '<span class="article-indicator">📄</span>' : ''}
               </a>
             `).join('')}
-            ${connectedIssues.length > 10 ? `<span class="more-count">+${connectedIssues.length - 10} more</span>` : ''}
+            ${hasMoreIssues ? `
+              <div class="related-links-overflow" data-expanded="false">
+                ${connectedIssues.slice(INITIAL_SHOW).map(n => `
+                  <a
+                    href="#/${n.type}/${n.id}"
+                    class="related-link ${n.hasArticle ? 'has-article' : ''}"
+                  >
+                    ${n.label}
+                    ${n.hasArticle ? '<span class="article-indicator">📄</span>' : ''}
+                  </a>
+                `).join('')}
+              </div>
+              <button class="expand-toggle" data-target="issues">
+                <span class="expand-text">+${connectedIssues.length - INITIAL_SHOW} more</span>
+                <span class="collapse-text">Show less</span>
+              </button>
+            ` : ''}
           </div>
         </div>
       ` : ''}
@@ -166,12 +197,6 @@ function renderRelatedContent(node: any, data: GraphData): string {
 export function renderArticleNotFound(type: 'issue' | 'system', slug: string): string {
   return `
     <div class="article-view article-not-found">
-      <div class="article-header">
-        <button class="back-btn" onclick="window.location.hash='#/'">
-          ← Back to Graph
-        </button>
-      </div>
-
       <div class="not-found-content">
         <h1>Article Not Found</h1>
         <p>No wiki article exists yet for this ${type}.</p>

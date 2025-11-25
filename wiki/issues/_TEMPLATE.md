@@ -18,80 +18,32 @@ lastUpdated: 2025-11-24
 
 ## Overview
 
-Brief 2-3 sentence summary of the issue. What is it? Why does it matter?
+Brief 2-3 sentence summary of the issue. What is it? Why does it matter? What tensions does it create?
 
-## Background
+## Game Mechanics
 
-### Historical Context
+**Parameter Effects:**
+- **Parameter Name**: How it changes and under what conditions
+- **Parameter Name**: How it changes and under what conditions
 
-How did this issue emerge? Key historical events and trends.
+**Event Types:**
+1. **Event Name**: Brief description of what triggers it and consequences
+2. **Event Name**: Brief description of what triggers it and consequences
 
-### Current State
+**Cascading Effects:**
+- Triggers **Related Issue** when [condition]
+- Amplifies **Related Issue** by [mechanism]
+- Can lead to **Related Issue** in [circumstances]
 
-What's happening now? Current statistics, trends, and developments.
+## Warning Signs
 
-## In Shadow Work
-
-### Game Mechanics
-
-How this issue manifests in the game:
-- **Parameter Effects**: Which parameters are affected and how
-- **Events**: Types of events this issue can trigger
-- **Cascading Effects**: How it interacts with other systems
-- **Victory Conditions**: How it relates to win/loss scenarios
-
-### Strategic Considerations
-
-Tips for players dealing with this issue:
-- Early game approaches
-- Mid game strategies
-- Late game implications
-
-## Real-World Context
-
-### Key Statistics
-
-- **Stat 1**: Value and source
-- **Stat 2**: Value and source
-- **Stat 3**: Value and source
-
-### Notable Examples
-
-Case studies or examples from real world:
-
-#### Example 1: Location/Event
-Description of the example...
-
-#### Example 2: Location/Event
-Description of the example...
-
-### Expert Perspectives
-
-> "Quote from expert or report"
-> — Source attribution
-
-## Related Content
-
-### Connected Issues
-- [Related Issue 1](#) - Why it's related
-- [Related Issue 2](#) - Why it's related
-
-### Affected Systems
-- [System 1](#) - How it affects this system
-- [System 2](#) - How it affects this system
-
-### Further Reading
-- [External Resource 1](url) - Description
-- [External Resource 2](url) - Description
-
-## References
-
-1. Source citation 1
-2. Source citation 2
-3. Source citation 3
+- Condition + Condition = Risk
+- Condition + Condition = Risk
 
 ---
 
-**Contributors**: List of people who helped write this article
-**Last Updated**: Date of last edit
+*Connected issues and related systems are automatically populated from the graph.*
+
+**Contributors**: List of contributors
+**Last Updated**: Date
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/issue-slug-here.md)

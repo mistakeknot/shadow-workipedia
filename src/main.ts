@@ -22,6 +22,35 @@ function getCategoryColor(category: IssueCategory): string {
 }
 
 function renderDetailPanel(node: SimNode, data: GraphData): string {
+  // If node has a wiki article, show the article content
+  if (node.hasArticle && data.articles && data.articles[node.id]) {
+    const article = data.articles[node.id];
+    return `
+      <div class="panel-article-view">
+        <div class="panel-article-header">
+          <div class="article-meta">
+            <span class="article-type-badge">${article.type}</span>
+            <span class="article-word-count">${article.wordCount.toLocaleString()} words</span>
+          </div>
+        </div>
+        <article class="article-content">
+          ${article.html}
+        </article>
+        ${renderPanelRelatedContent(node, data)}
+        <div class="article-footer">
+          <a
+            href="https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/${article.type}s/${article.id}.md"
+            target="_blank"
+            class="edit-link"
+          >
+            📝 Edit this article on GitHub
+          </a>
+        </div>
+      </div>
+    `;
+  }
+
+  // Fallback: show basic issue/system card if no article
   if (node.type === 'issue') {
     return `
       <h2>${node.label}</h2>
@@ -30,12 +59,6 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
         <span class="badge urgency-${node.urgency?.toLowerCase()}">${node.urgency}</span>
       </div>
       <p class="description">${node.description || 'No description available.'}</p>
-
-      ${node.hasArticle ? `
-        <button class="read-article-btn" onclick="window.location.hash='#/${node.type}/${node.id}'">
-          📄 Read Full Article (${node.wordCount?.toLocaleString()} words)
-        </button>
-      ` : ''}
 
       ${node.affectedSystems && node.affectedSystems.length > 0 ? `
         <h3>Affected Systems</h3>
@@ -46,14 +69,6 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
             return `<span class="badge system-badge clickable-badge" data-system-id="${systemId}" data-system-name="${system}">${system}</span>`;
           }).join('')}
         </div>
-      ` : ''}
-
-      ${node.systemWalk?.hasSystemWalk ? `
-        <h3>System Walk Subsystems <span class="badge system-walk-complete">✓ Complete</span></h3>
-        <div class="subsystems">
-          ${node.systemWalk.subsystems.map(subsystem => `<div class="subsystem-item">${subsystem}</div>`).join('')}
-        </div>
-        <p class="system-walk-info">${node.systemWalk.subsystems.length} subsystems • ${node.systemWalk.totalLines?.toLocaleString()} total lines</p>
       ` : ''}
 
       ${node.triggerConditions ? `
@@ -75,26 +90,19 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
         </ul>
       ` : ''}
 
-      ${node.evolutionPaths && node.evolutionPaths.length > 0 ? `
-        <h3>Evolution Paths</h3>
-        <ul class="evolution-list">
-          ${node.evolutionPaths.map(path => `
-            <li>${path}</li>
-          `).join('')}
-        </ul>
-      ` : ''}
-
       <h3>Connected Nodes (${getConnections(node, data).length})</h3>
       <div class="connections">
-        ${getConnections(node, data).map(conn => `
+        ${getConnections(node, data, 20).map(conn => `
           <div class="connection-item" data-node-id="${conn.id}">
             <span class="connection-type">${conn.type}</span>
             <span class="connection-name">${conn.label}</span>
           </div>
         `).join('')}
+        ${getConnections(node, data).length > 20 ? `<span class="more-count">+${getConnections(node, data).length - 20} more</span>` : ''}
       </div>
     `;
   } else {
+    const allConnections = getConnections(node, data);
     return `
       <h2>${node.label}</h2>
       <div class="node-badges">
@@ -102,38 +110,79 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
       </div>
       <p class="description">${node.description || 'Simulation system'}</p>
 
-      ${node.hasArticle ? `
-        <button class="read-article-btn" onclick="window.location.hash='#/${node.type}/${node.id}'">
-          📄 Read Full Article (${node.wordCount?.toLocaleString()} words)
-        </button>
-      ` : ''}
-
       <h3>Stats</h3>
       <div class="stat-item">
         <span>Connections:</span>
-        <strong>${node.connectionCount}</strong>
+        <strong>${allConnections.length}</strong>
       </div>
 
       <h3>Connected Nodes</h3>
       <div class="connections">
-        ${getConnections(node, data).map(conn => `
+        ${allConnections.slice(0, 30).map(conn => `
           <div class="connection-item" data-node-id="${conn.id}">
             <span class="connection-type">${conn.type}</span>
             <span class="connection-name">${conn.label}</span>
           </div>
         `).join('')}
+        ${allConnections.length > 30 ? `<span class="more-count">+${allConnections.length - 30} more</span>` : ''}
       </div>
     `;
   }
 }
 
-function getConnections(node: SimNode, data: GraphData): Array<{id: string, label: string, type: string}> {
+function renderPanelRelatedContent(node: SimNode, data: GraphData): string {
+  const connections = getConnections(node, data); // No limit - get all
+  const connectedIssues = connections.filter(c => {
+    const n = data.nodes.find(node => node.id === c.id);
+    return n?.type === 'issue';
+  });
+  const connectedSystems = connections.filter(c => {
+    const n = data.nodes.find(node => node.id === c.id);
+    return n?.type === 'system';
+  });
+
+  return `
+    <div class="related-content">
+      <h2>Related Content</h2>
+
+      ${connectedIssues.length > 0 ? `
+        <div class="related-section">
+          <h3>Connected Issues (${connectedIssues.length})</h3>
+          <div class="connections">
+            ${connectedIssues.map(conn => `
+              <div class="connection-item" data-node-id="${conn.id}">
+                <span class="connection-name">${conn.label}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${connectedSystems.length > 0 ? `
+        <div class="related-section">
+          <h3>Related Systems (${connectedSystems.length})</h3>
+          <div class="connections">
+            ${connectedSystems.map(conn => `
+              <div class="connection-item" data-node-id="${conn.id}">
+                <span class="connection-name">${conn.label}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function getConnections(node: SimNode, data: GraphData, limit?: number): Array<{id: string, label: string, type: string}> {
   const connections: Array<{id: string, label: string, type: string}> = [];
+  const seen = new Set<string>(); // Deduplicate connections
 
   for (const edge of data.edges) {
     if (edge.source === node.id) {
       const target = data.nodes.find(n => n.id === edge.target);
-      if (target) {
+      if (target && !seen.has(target.id)) {
+        seen.add(target.id);
         connections.push({
           id: target.id,
           label: target.label,
@@ -142,7 +191,8 @@ function getConnections(node: SimNode, data: GraphData): Array<{id: string, labe
       }
     } else if (edge.target === node.id) {
       const source = data.nodes.find(n => n.id === edge.source);
-      if (source) {
+      if (source && !seen.has(source.id)) {
+        seen.add(source.id);
         connections.push({
           id: source.id,
           label: source.label,
@@ -152,7 +202,10 @@ function getConnections(node: SimNode, data: GraphData): Array<{id: string, labe
     }
   }
 
-  return connections.slice(0, 20); // Limit to 20 connections
+  // Sort alphabetically by label
+  connections.sort((a, b) => a.label.localeCompare(b.label));
+
+  return limit ? connections.slice(0, limit) : connections;
 }
 
 async function main() {
@@ -174,39 +227,51 @@ async function main() {
   // Get view elements
   const graphView = document.getElementById('graph-view');
   const tableView = document.getElementById('table-view');
+  const wikiView = document.getElementById('wiki-view');
+  const wikiSidebarContent = document.getElementById('wiki-sidebar-content');
+  const wikiArticleContent = document.getElementById('wiki-article-content');
   const articleView = document.getElementById('article-view');
   const articleContainer = document.getElementById('article-container');
   const header = document.getElementById('header');
   const tabNav = document.getElementById('tab-nav');
   const filterBar = document.getElementById('filter-bar');
 
-  if (!graphView || !tableView || !articleView || !articleContainer) {
+  if (!graphView || !tableView || !wikiView || !wikiSidebarContent || !wikiArticleContent || !articleView || !articleContainer) {
     throw new Error('Required view elements not found');
   }
+
+  // Track selected wiki article
+  let selectedWikiArticle: string | null = null;
 
   // Get detail panel (needed for router)
   const detailPanelElement = document.getElementById('detail-panel') as HTMLDivElement;
 
   // Initialize article router
   const router = new ArticleRouter((route) => {
+    // Hide tooltip on any route change
+    const tooltipEl = document.getElementById('tooltip');
+    if (tooltipEl) tooltipEl.classList.add('hidden');
+
     if (route) {
-      // Article view - hide graph/table/detail panel, show article
+      // Article view - hide graph/table/wiki/detail panel, show article
       graphView.classList.add('hidden');
       tableView.classList.add('hidden');
+      wikiView.classList.add('hidden');
       articleView.classList.remove('hidden');
       if (header) header.classList.add('hidden');
       if (tabNav) tabNav.classList.add('hidden');
       if (filterBar) filterBar.classList.add('hidden');
       if (detailPanelElement) detailPanelElement.classList.add('hidden');
 
-      // Get route info and render article
-      const routeInfo = router.getCurrentRoute();
-      if (routeInfo && data.articles) {
-        const article = data.articles[routeInfo.slug];
+      // Parse route info directly from hash (avoid calling router during init)
+      const match = route.match(/^#\/(issue|system)\/([a-z0-9-]+)$/);
+      if (match && data.articles) {
+        const [, type, slug] = match;
+        const article = data.articles[slug];
         if (article) {
           articleContainer.innerHTML = renderArticleView(article, data);
         } else {
-          articleContainer.innerHTML = renderArticleNotFound(routeInfo.type, routeInfo.slug);
+          articleContainer.innerHTML = renderArticleNotFound(type as 'issue' | 'system', slug);
         }
       }
     } else {
@@ -216,14 +281,20 @@ async function main() {
       if (tabNav) tabNav.classList.remove('hidden');
       if (filterBar) filterBar.classList.remove('hidden');
 
-      // Show active tab view (graph or table)
+      // Show active tab view (graph, table, or wiki)
       const activeTab = document.querySelector('.tab-btn.active');
       if (activeTab?.id === 'tab-table') {
         graphView.classList.add('hidden');
         tableView.classList.remove('hidden');
+        wikiView?.classList.add('hidden');
+      } else if (activeTab?.id === 'tab-wiki') {
+        graphView.classList.add('hidden');
+        tableView.classList.add('hidden');
+        wikiView?.classList.remove('hidden');
       } else {
         graphView.classList.remove('hidden');
         tableView.classList.add('hidden');
+        wikiView?.classList.add('hidden');
       }
     }
   });
@@ -329,12 +400,143 @@ async function main() {
   let searchResults = new Set<string>();
 
   // View state (needed early for category filter handlers)
-  let currentView: 'graph' | 'table' = 'graph';
+  let currentView: 'graph' | 'table' | 'wiki' = 'graph';
   let tableSortColumn: string | null = null;
   let tableSortDirection: 'asc' | 'desc' = 'asc';
 
-  // Forward declare renderTable function (implemented later)
+  // Forward declare render functions (implemented later)
   let renderTable: () => void;
+  let renderWikiList: () => void;
+
+  // Shared function to attach detail panel interaction handlers
+  function attachDetailPanelHandlers() {
+    // Handle connection item clicks
+    const connectionItems = panelContent.querySelectorAll('.connection-item');
+    connectionItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const nodeId = item.getAttribute('data-node-id');
+        const targetNode = graph.getNodes().find(n => n.id === nodeId);
+        if (targetNode && targetNode.x !== undefined && targetNode.y !== undefined) {
+          selectedNode = targetNode;
+          panelContent.innerHTML = renderDetailPanel(targetNode, data);
+          attachDetailPanelHandlers(); // Re-attach handlers for new connections
+          tooltip.classList.add('hidden');
+
+          // Pan to center the selected node
+          const centerX = canvas.width / 2;
+          const centerY = canvas.height / 2;
+          const newX = centerX - targetNode.x * currentTransform.k;
+          const newY = centerY - targetNode.y * currentTransform.k;
+
+          const startX = currentTransform.x;
+          const startY = currentTransform.y;
+          const duration = 500;
+          const startTime = Date.now();
+
+          const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+
+            currentTransform.x = startX + (newX - startX) * eased;
+            currentTransform.y = startY + (newY - startY) * eased;
+
+            hoverHandler.updateTransform(currentTransform);
+            clickHandler.updateTransform(currentTransform);
+            dragHandler.updateTransform(currentTransform);
+            render();
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              zoomHandler.setTransform(currentTransform);
+            }
+          };
+
+          animate();
+        }
+      });
+    });
+
+    // Handle read article button clicks (navigate to wiki view)
+    const readArticleBtn = panelContent.querySelector('.read-article-btn[data-wiki-article-id]');
+    if (readArticleBtn) {
+      readArticleBtn.addEventListener('click', () => {
+        const articleId = readArticleBtn.getAttribute('data-wiki-article-id');
+        if (articleId && data.articles && data.articles[articleId]) {
+          selectedWikiArticle = articleId;
+          detailPanel.classList.add('hidden');
+          selectedNode = null;
+          switchToView('wiki');
+        }
+      });
+    }
+
+    // Handle system badge clicks
+    const systemBadges = panelContent.querySelectorAll('.clickable-badge[data-system-id]');
+    systemBadges.forEach(badge => {
+      badge.addEventListener('click', () => {
+        const systemId = badge.getAttribute('data-system-id');
+        const systemName = badge.getAttribute('data-system-name');
+        const targetNode = graph.getNodes().find(n => n.id === systemId && n.type === 'system');
+
+        if (targetNode && targetNode.x !== undefined && targetNode.y !== undefined) {
+          // Switch to Full Network mode to show systems
+          if (viewMode !== 'full' && viewMode !== 'systems') {
+            viewMode = 'full';
+            const viewModeBtns = document.querySelectorAll('.view-mode-btn');
+            viewModeBtns.forEach(btn => {
+              if ((btn as HTMLElement).dataset.mode === 'full') {
+                btn.classList.add('active');
+              } else {
+                btn.classList.remove('active');
+              }
+            });
+          }
+
+          selectedNode = targetNode;
+          panelContent.innerHTML = renderDetailPanel(targetNode, data);
+          attachDetailPanelHandlers();
+          tooltip.classList.add('hidden');
+
+          // Pan to center the system node
+          const centerX = canvas.width / 2;
+          const centerY = canvas.height / 2;
+          const newX = centerX - targetNode.x * currentTransform.k;
+          const newY = centerY - targetNode.y * currentTransform.k;
+
+          const startX = currentTransform.x;
+          const startY = currentTransform.y;
+          const duration = 500;
+          const startTime = Date.now();
+
+          const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+
+            currentTransform.x = startX + (newX - startX) * eased;
+            currentTransform.y = startY + (newY - startY) * eased;
+
+            hoverHandler.updateTransform(currentTransform);
+            clickHandler.updateTransform(currentTransform);
+            dragHandler.updateTransform(currentTransform);
+            render();
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              zoomHandler.setTransform(currentTransform);
+            }
+          };
+
+          animate();
+        } else {
+          console.warn(`System node not found: ${systemName} (${systemId})`);
+        }
+      });
+    });
+  }
 
   // Initialize click handler
   const clickHandler = new ClickHandler(
@@ -386,127 +588,7 @@ async function main() {
         animate();
 
         // Add click handlers to connection items and system badges
-        const attachConnectionHandlers = () => {
-          // Handle connection item clicks
-          const connectionItems = panelContent.querySelectorAll('.connection-item');
-          connectionItems.forEach(item => {
-            item.addEventListener('click', () => {
-              const nodeId = item.getAttribute('data-node-id');
-              const targetNode = graph.getNodes().find(n => n.id === nodeId);
-              if (targetNode && targetNode.x !== undefined && targetNode.y !== undefined) {
-                selectedNode = targetNode;
-                panelContent.innerHTML = renderDetailPanel(targetNode, data);
-                attachConnectionHandlers(); // Re-attach handlers for new connections
-                // Hide tooltip to prevent overlap
-                tooltip.classList.add('hidden');
-
-                // Pan to center the selected node in the viewport
-                const centerX = canvas.width / 2;
-                const centerY = canvas.height / 2;
-                const newX = centerX - targetNode.x * currentTransform.k;
-                const newY = centerY - targetNode.y * currentTransform.k;
-
-                // Smooth transition to new position
-                const startX = currentTransform.x;
-                const startY = currentTransform.y;
-                const duration = 500; // ms
-                const startTime = Date.now();
-
-                const animate = () => {
-                  const elapsed = Date.now() - startTime;
-                  const progress = Math.min(elapsed / duration, 1);
-                  // Ease-out curve
-                  const eased = 1 - Math.pow(1 - progress, 3);
-
-                  currentTransform.x = startX + (newX - startX) * eased;
-                  currentTransform.y = startY + (newY - startY) * eased;
-
-                  hoverHandler.updateTransform(currentTransform);
-                  clickHandler.updateTransform(currentTransform);
-                  dragHandler.updateTransform(currentTransform);
-                  render();
-
-                  if (progress < 1) {
-                    requestAnimationFrame(animate);
-                  } else {
-                    // Sync d3-zoom's internal transform to prevent jump on next pan
-                    zoomHandler.setTransform(currentTransform);
-                  }
-                };
-
-                animate();
-              }
-            });
-          });
-
-          // Handle system badge clicks
-          const systemBadges = panelContent.querySelectorAll('.clickable-badge[data-system-id]');
-          systemBadges.forEach(badge => {
-            badge.addEventListener('click', () => {
-              const systemId = badge.getAttribute('data-system-id');
-              const systemName = badge.getAttribute('data-system-name');
-              const targetNode = graph.getNodes().find(n => n.id === systemId && n.type === 'system');
-
-              if (targetNode && targetNode.x !== undefined && targetNode.y !== undefined) {
-                // Switch to Full Network mode to show systems
-                if (viewMode !== 'full' && viewMode !== 'systems') {
-                  viewMode = 'full';
-                  const viewModeBtns = document.querySelectorAll('.view-mode-btn');
-                  viewModeBtns.forEach(btn => {
-                    if ((btn as HTMLElement).dataset.mode === 'full') {
-                      btn.classList.add('active');
-                    } else {
-                      btn.classList.remove('active');
-                    }
-                  });
-                }
-
-                selectedNode = targetNode;
-                panelContent.innerHTML = renderDetailPanel(targetNode, data);
-                attachConnectionHandlers(); // Re-attach handlers
-                // Hide tooltip to prevent overlap
-                tooltip.classList.add('hidden');
-
-                // Pan to center the system node
-                const centerX = canvas.width / 2;
-                const centerY = canvas.height / 2;
-                const newX = centerX - targetNode.x * currentTransform.k;
-                const newY = centerY - targetNode.y * currentTransform.k;
-
-                const startX = currentTransform.x;
-                const startY = currentTransform.y;
-                const duration = 500;
-                const startTime = Date.now();
-
-                const animate = () => {
-                  const elapsed = Date.now() - startTime;
-                  const progress = Math.min(elapsed / duration, 1);
-                  const eased = 1 - Math.pow(1 - progress, 3);
-
-                  currentTransform.x = startX + (newX - startX) * eased;
-                  currentTransform.y = startY + (newY - startY) * eased;
-
-                  hoverHandler.updateTransform(currentTransform);
-                  clickHandler.updateTransform(currentTransform);
-                  dragHandler.updateTransform(currentTransform);
-                  render();
-
-                  if (progress < 1) {
-                    requestAnimationFrame(animate);
-                  } else {
-                    zoomHandler.setTransform(currentTransform);
-                  }
-                };
-
-                animate();
-              } else {
-                console.warn(`System node not found: ${systemName} (${systemId})`);
-              }
-            });
-          });
-        };
-
-        attachConnectionHandlers();
+        attachDetailPanelHandlers();
       } else {
         detailPanel.classList.add('hidden');
       }
@@ -837,27 +919,44 @@ async function main() {
   // Set up tab navigation
   const tabGraph = document.getElementById('tab-graph') as HTMLButtonElement;
   const tabTable = document.getElementById('tab-table') as HTMLButtonElement;
+  const tabWiki = document.getElementById('tab-wiki') as HTMLButtonElement;
   const tableContainer = document.getElementById('table-container') as HTMLDivElement;
 
-  function switchToView(view: 'graph' | 'table') {
+  function switchToView(view: 'graph' | 'table' | 'wiki') {
     currentView = view;
+
+    // Hide tooltip when switching views
+    const tooltipEl = document.getElementById('tooltip');
+    if (tooltipEl) tooltipEl.classList.add('hidden');
+
+    // Update tab active states
+    tabGraph.classList.remove('active');
+    tabTable.classList.remove('active');
+    tabWiki.classList.remove('active');
 
     if (view === 'graph') {
       tabGraph.classList.add('active');
-      tabTable.classList.remove('active');
       graphView?.classList.remove('hidden');
       tableView?.classList.add('hidden');
-    } else {
-      tabGraph.classList.remove('active');
+      wikiView?.classList.add('hidden');
+    } else if (view === 'table') {
       tabTable.classList.add('active');
       graphView?.classList.add('hidden');
       tableView?.classList.remove('hidden');
+      wikiView?.classList.add('hidden');
       renderTable();
+    } else if (view === 'wiki') {
+      tabWiki.classList.add('active');
+      graphView?.classList.add('hidden');
+      tableView?.classList.add('hidden');
+      wikiView?.classList.remove('hidden');
+      renderWikiList();
     }
   }
 
   tabGraph.addEventListener('click', () => switchToView('graph'));
   tabTable.addEventListener('click', () => switchToView('table'));
+  tabWiki.addEventListener('click', () => switchToView('wiki'));
 
   // Table rendering (assign to forward-declared function)
   renderTable = function() {
@@ -989,24 +1088,186 @@ async function main() {
           tooltip.classList.add('hidden');
 
           // Attach connection handlers for navigation within table view
-          const attachConnectionHandlers = () => {
-            const connectionItems = panelContent.querySelectorAll('.connection-item');
-            connectionItems.forEach(item => {
-              item.addEventListener('click', () => {
-                const targetNodeId = item.getAttribute('data-node-id');
-                const targetNode = graph.getNodes().find(n => n.id === targetNodeId);
-                if (targetNode) {
-                  selectedNode = targetNode;
-                  panelContent.innerHTML = renderDetailPanel(targetNode, data);
-                  attachConnectionHandlers(); // Re-attach for new connections
-                  // Hide tooltip to prevent overlap
-                  tooltip.classList.add('hidden');
-                }
-              });
-            });
-          };
+          attachDetailPanelHandlers();
+        }
+      });
+    });
+  }
 
-          attachConnectionHandlers();
+  // Wiki sidebar and article rendering
+  renderWikiList = function() {
+    if (!data.articles || Object.keys(data.articles).length === 0) {
+      wikiSidebarContent.innerHTML = `<div class="wiki-empty-sidebar">No articles yet</div>`;
+      wikiArticleContent.innerHTML = `
+        <div class="wiki-welcome">
+          <h2>Welcome to the Wiki</h2>
+          <p>Wiki articles will appear here as they are created.</p>
+        </div>
+      `;
+      return;
+    }
+
+    // Convert articles to array and sort by title
+    const articles = Object.values(data.articles).sort((a, b) =>
+      a.title.localeCompare(b.title)
+    );
+
+    // Auto-select first article if none selected
+    if (articles.length > 0 && !selectedWikiArticle) {
+      selectedWikiArticle = articles[0].id;
+    }
+
+    // Group by type
+    const issueArticles = articles.filter(a => a.type === 'issue');
+    const systemArticles = articles.filter(a => a.type === 'system');
+
+    // Render sidebar
+    const renderSidebarItem = (article: typeof articles[0]) => `
+      <div class="wiki-sidebar-item${selectedWikiArticle === article.id ? ' active' : ''}" data-article-id="${article.id}">
+        ${article.title}
+      </div>
+    `;
+
+    const sidebarHtml = `
+      ${issueArticles.length > 0 ? `
+        <div class="wiki-sidebar-section">
+          <h3>Issues (${issueArticles.length})</h3>
+          <div class="wiki-sidebar-list">
+            ${issueArticles.map(renderSidebarItem).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${systemArticles.length > 0 ? `
+        <div class="wiki-sidebar-section">
+          <h3>Systems (${systemArticles.length})</h3>
+          <div class="wiki-sidebar-list">
+            ${systemArticles.map(renderSidebarItem).join('')}
+          </div>
+        </div>
+      ` : ''}
+    `;
+
+    wikiSidebarContent.innerHTML = sidebarHtml;
+
+    // Render article content
+    if (selectedWikiArticle && data.articles[selectedWikiArticle]) {
+      const article = data.articles[selectedWikiArticle];
+      wikiArticleContent.innerHTML = renderArticleView(article, data);
+    } else {
+      wikiArticleContent.innerHTML = `
+        <div class="wiki-welcome">
+          <h2>Welcome to the Wiki</h2>
+          <p>Select an article from the sidebar to read.</p>
+        </div>
+      `;
+    }
+
+    // Attach click handlers to sidebar items
+    wikiSidebarContent.querySelectorAll('.wiki-sidebar-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const articleId = item.getAttribute('data-article-id');
+        if (articleId) {
+          selectedWikiArticle = articleId;
+          renderWikiList(); // Re-render to update active state and content
+        }
+      });
+    });
+
+    // Attach click handler to back button (navigate to graph and show issue card)
+    const backBtn = wikiArticleContent.querySelector('.back-btn[data-back-to-graph]');
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        const nodeId = backBtn.getAttribute('data-back-to-graph');
+        if (nodeId) {
+          const targetNode = graph.getNodes().find(n => n.id === nodeId);
+          if (targetNode) {
+            // Switch to Graph view
+            switchToView('graph');
+
+            // Select the node and show detail panel
+            selectedNode = targetNode;
+            panelContent.innerHTML = renderDetailPanel(targetNode, data);
+            detailPanel.classList.remove('hidden');
+
+            // Attach handlers for detail panel interactions
+            attachDetailPanelHandlers();
+
+            // Pan to center on the node if it has coordinates
+            if (targetNode.x !== undefined && targetNode.y !== undefined) {
+              const centerX = canvas.width / 2;
+              const centerY = canvas.height / 2;
+              const newX = centerX - targetNode.x * currentTransform.k;
+              const newY = centerY - targetNode.y * currentTransform.k;
+
+              currentTransform.x = newX;
+              currentTransform.y = newY;
+
+              hoverHandler.updateTransform(currentTransform);
+              clickHandler.updateTransform(currentTransform);
+              dragHandler.updateTransform(currentTransform);
+              zoomHandler.setTransform(currentTransform);
+              render();
+            }
+          }
+        }
+      });
+    }
+
+    // Attach click handlers to related content links (stay within wiki view)
+    wikiArticleContent.querySelectorAll('.related-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        // Parse the href to extract article ID (e.g., "#/issue/water-scarcity-wars" -> "water-scarcity-wars")
+        const match = href.match(/^#\/(issue|system)\/([a-z0-9-]+)$/);
+        if (!match) return;
+
+        const articleId = match[2];
+
+        // Check if this article exists in our wiki
+        if (data.articles && data.articles[articleId]) {
+          // Navigate within wiki view
+          selectedWikiArticle = articleId;
+          renderWikiList();
+        } else {
+          // No article exists - show the node in graph view with detail panel
+          const targetNode = graph.getNodes().find(n => n.id === articleId);
+          if (targetNode) {
+            switchToView('graph');
+            selectedNode = targetNode;
+            panelContent.innerHTML = renderDetailPanel(targetNode, data);
+            detailPanel.classList.remove('hidden');
+            attachDetailPanelHandlers();
+
+            // Pan to center on the node
+            if (targetNode.x !== undefined && targetNode.y !== undefined) {
+              const centerX = canvas.width / 2;
+              const centerY = canvas.height / 2;
+              currentTransform.x = centerX - targetNode.x * currentTransform.k;
+              currentTransform.y = centerY - targetNode.y * currentTransform.k;
+              hoverHandler.updateTransform(currentTransform);
+              clickHandler.updateTransform(currentTransform);
+              dragHandler.updateTransform(currentTransform);
+              zoomHandler.setTransform(currentTransform);
+              render();
+            }
+          }
+        }
+      });
+    });
+
+    // Attach click handlers to expand toggle buttons
+    wikiArticleContent.querySelectorAll('.expand-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('data-expanded') === 'true';
+        const overflow = button.previousElementSibling as HTMLElement;
+
+        if (overflow && overflow.classList.contains('related-links-overflow')) {
+          overflow.setAttribute('data-expanded', String(!isExpanded));
+          button.setAttribute('data-expanded', String(!isExpanded));
         }
       });
     });
