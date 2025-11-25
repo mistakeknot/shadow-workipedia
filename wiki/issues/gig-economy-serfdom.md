@@ -18,39 +18,51 @@ lastUpdated: 2025-11-24
 
 ## Overview
 
-Platform companies classify workers as independent contractors despite exercising employee-level control, avoiding minimum wage, benefits, and labor protections while using algorithmic management to dictate earnings and working conditions. This creates a permanent underclass of atomized workers bearing all business risk with no safety net, triggering labor unrest as traditional employment protections prove inadequate for digital platforms.
+Platform companies classify workers as independent contractors despite exercising employee-level control, avoiding minimum wage, benefits, and labor protections while using algorithmic management to dictate earnings and working conditions. By 2030, 36% of the US workforce participates in gig work (up from 16% in 2020), with 29% depending on it as their primary income source. Platform workers earn an average of $15.50/hour before expenses (vehicle costs, fuel, insurance, phone bills), dropping to $9-11/hour net income—below minimum wage in most jurisdictions. This creates a permanent underclass of atomized workers bearing all business risk with no safety net, triggering labor unrest as traditional employment protections prove inadequate for digital platforms.
+
+The misclassification crisis affects 57 million gig workers globally as of 2025. Only 8% receive employer-provided health insurance, 3% have access to unemployment benefits, and 2% participate in employer-sponsored retirement plans. Meanwhile, platform companies extract 20-30% commission fees while algorithmic systems assign shifts, set wages, and terminate workers without human oversight or appeals.
 
 ## Game Mechanics
 
 **Parameter Effects:**
-- **Worker Security**: Decreases as gig work proliferates; increases only through successful unionization or legislation mandating reclassification
-- **Platform Power**: Grows exponentially as platforms consolidate market share; directly inversely correlated with worker organizing capacity
-- **Labor Organizing Capacity**: Suppressed by worker fragmentation and algorithmic isolation; spikes during high-profile misclassification lawsuits
-- **Social Safety Net Gaps**: Widens as traditional employment declines; benefits (healthcare, unemployment, retirement) become disconnected from work
-- **Income Volatility**: Increases with algorithmic wage manipulation and platform rule changes; creates boom-bust cycles for dependent workers
+- **Worker Security**: Decreases by -2 to -4 points per 5% increase in gig workforce share; increases by +6 to +10 points when legislation mandates reclassification, or +3 to +5 points when platform-specific collective bargaining agreements are reached
+- **Platform Power**: Grows at +15% annually during consolidation phases (market share >40%); decreases by -25 to -40% following antitrust breakup rulings or successful worker organizing campaigns
+- **Labor Organizing Capacity**: Base rate suppressed to 30-40% of traditional sector levels due to worker fragmentation; spikes by +60 to +120% during high-profile misclassification lawsuits or viral wage theft exposures
+- **Social Safety Net Gaps**: Widens by +12 to +18% for every 10% decline in traditional employment; healthcare gaps affect 92% of gig workers, unemployment coverage drops from 87% (W-2 workers) to 8% (gig workers), retirement participation falls from 67% to 2%
+- **Income Volatility**: Month-to-month variance increases from ±15% (traditional employment) to ±80-120% (gig work); algorithmic wage changes can reduce hourly rates by 20-35% without notice; deactivation/reactivation cycles create 0-income weeks for 41% of workers annually
 
 **Event Types:**
 
-1. **Misclassification Lawsuit**: State or federal ruling on worker classification triggers immediate policy responses; outcomes ripple through platform business models
-2. **Platform Strike**: Worker collective action (organized or emergent) disrupts services; amplifies organizing momentum if sustained
-3. **Gig Worker Law Passage**: Legislation mandating benefits or classification changes; creates compliance pressure and precedent
-4. **Algorithmic Wage Theft Exposure**: Public revelation of wage manipulation (rating systems, tip hiding, surge pricing suppression); triggers regulatory scrutiny
-5. **Platform Monopoly Ruling**: Antitrust action against dominant platform; opens space for worker power and alternative models
+1. **Misclassification Lawsuit**: State or federal ruling on worker classification triggers immediate policy responses. **Win conditions**: Worker Security +8 to +12 points, Platform Power -15 to -25%, triggers copycat lawsuits in 4-7 additional jurisdictions. **Loss conditions**: Worker Security -3 to -5 points, Platform Power +10 to +15%, chills organizing for 18-24 months. **Probability**: 8-12% annually per major platform, increasing to 22-28% when gig workforce exceeds 25% of regional labor market.
+
+2. **Platform Strike**: Worker collective action disrupts services for 1-7 days. **Triggers**: Sudden wage cuts >15%, deactivation wave affecting >2% of workforce, high-profile safety incident. **Impact**: Platform revenue -$2-8 million per day (major metro), public support +40 to +65% if demands framed as livable wages, organizing momentum +80 to +150% if sustained >3 days. **Failure threshold**: Participation <12% of active workers, platform deploys replacement workers at 2x wage rates.
+
+3. **Gig Worker Law Passage**: Legislation mandating portable benefits, earnings floors, or reclassification. **Examples**: AB5 (California, 2019), Prop 22 override (hypothetical), EU Platform Work Directive. **Effects**: Worker Security +10 to +18 points (reclassification) or +4 to +7 points (portable benefits only), Platform Power -20 to -35% (reclassification) or -8 to -12% (benefits mandate), compliance costs $450-900 per worker annually. **Spread mechanics**: 35-50% chance adjacent jurisdictions adopt similar laws within 24 months.
+
+4. **Algorithmic Wage Theft Exposure**: Leaked documents or investigative reporting reveals systematic wage manipulation (hidden tips, surge pricing suppression, phantom deductions). **Trigger frequency**: 6-9% annually per major platform. **Impact**: Regulatory investigations (75% probability), class-action lawsuits ($50-300 million settlements), Worker Security -2 to -4 points (short-term demoralization), Labor Organizing Capacity +40 to +80% (viral outrage effect). **Media amplification**: +120 to +200% organizing boost if exposure reaches 20+ million impressions.
+
+5. **Platform Monopoly Ruling**: Antitrust action forces divestiture, operational restrictions, or breakup. **Threshold**: Market share >55% in category, demonstrated exclusionary conduct. **Effects**: Platform Power -60 to -85%, Worker Security +5 to +9 points (increased competition for workers), Labor Organizing Capacity +30 to +50% (reduced retaliation fears). **Recovery time**: Platform Power rebounds +15 to +25% over 36-48 months through new consolidation.
 
 **Cascading Effects:**
-- Triggers **AI Job Displacement Tsunami** when automation replaces gig workers faster than new opportunities emerge
-- Exacerbates **Housing Impossibility Crisis** when gig income insufficient for rent (high-impact in urban centers)
-- Accelerates **Healthcare System Collapse** when millions lack employer coverage and can't afford individual plans
-- Deepens **Student Debt Slavery** as gig workers can't earn enough to service loans while meeting basic needs
+- Triggers **AI Job Displacement Tsunami** when automation replaces gig workers at rates exceeding 8-12% annually (delivery bots, autonomous vehicles, AI customer service); accelerates when gig wages fall below $12/hour effective rate (makes automation ROI positive within 18 months)
+- Exacerbates **Housing Impossibility Crisis** when gig median income ($24,000-32,000/year) falls below 30% of median rent in 65%+ of metro areas; threshold crossed when housing cost burden exceeds 50% of monthly earnings for 35%+ of gig workers
+- Accelerates **Healthcare System Collapse** when uninsured gig workers reach 18-25 million (driving $15-28 billion in uncompensated emergency care annually); emergency room utilization by gig workers +45 to +70% compared to insured populations
+- Deepens **Student Debt Slavery** when gig workers' effective hourly rates ($9-11/hour post-expenses) make standard loan repayment impossible; default rates climb from 11% (W-2 workers) to 34-42% (gig-dependent workers); triggers when 40%+ of gig workers hold student debt averaging $38,000+
 
 ## Warning Signs
 
-- Percentage of workforce in gig/platform work + Lack of worker organizing = Accelerating wage deflation
-- Platform rule changes + No worker appeals process = Growing worker resentment and latent organizing potential
-- Rising platform profitability + Stagnant or declining worker income = Unsustainable inequality and regulatory pressure
-- Algorithmic management systems + Worker invisibility to each other = Suppressed collective action (until catalyst event)
-- Benefits tied to employment + Growth of non-employee work = Expanding gaps in healthcare, retirement, unemployment insurance
-- Multiple gig platforms + No cross-platform bargaining = Race-to-bottom wage competition
+- **Gig workforce share reaches 28-32%** of regional labor market + **Union density <6%** in gig sectors = Accelerating wage deflation at -4 to -7% annually, effective wages approaching legal minimums within 24-36 months
+- **Platform algorithm changes >3 times/quarter** + **0% worker input on policies** + **No appeals process** = Worker resentment index climbing +25 to +40% quarterly, organizing potential reaches 65-80% latent capacity (requires catalyst event)
+- **Platform profit margins 18-28%** + **Worker median income declining -2 to -5% annually** (inflation-adjusted) = Unsustainable inequality trajectory, regulatory intervention probability 40-55% within 24 months, strike risk 18-25% annually
+- **Algorithmic black-box management** + **Worker isolation (85-92% never meet coworkers)** + **Anti-organizing surveillance** = Collective action suppressed to <15% of traditional sector baseline until viral catalyst (wage theft exposure, viral deactivation story) breaks isolation
+- **90-95% of gig workers lack employer benefits** + **Traditional employment declining -1.5 to -2.5% annually** = Healthcare gaps affecting 45-60 million workers by 2030, retirement crisis (72% of gig workers have <$5,000 saved), unemployment coverage falling from 87% to 62% of workforce
+- **4-7 competing platforms per sector** + **Zero cross-platform bargaining** + **Commission creep (20% → 30% over 5 years)** = Race-to-bottom wage competition driving hourly rates down -12 to -18% in saturated markets, worker turnover 85-120% annually
+
+**Critical Thresholds:**
+- **35% gig workforce share**: Political tipping point where electoral pressure forces legislative action (65-75% probability)
+- **Effective wages <$10/hour**: Mass exodus from gig work begins, platform service quality collapses, regulatory intervention accelerates
+- **60+ million gig workers**: Social safety net financing crisis as payroll tax base erodes, Medicare/Social Security funding gaps widen by $80-140 billion annually
+- **Platform Power index >75/100**: Worker organizing becomes structurally impossible without antitrust intervention; platforms achieve regulatory capture
 
 ---
 

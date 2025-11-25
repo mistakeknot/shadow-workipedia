@@ -20,34 +20,86 @@ lastUpdated: 2025-11-24
 
 Artificial intelligence and automation technologies eliminate jobs faster than new roles can be created, triggering mass unemployment across sectors previously considered "safe." White-collar professions, creative industries, and service jobs all face disruption, concentrating wealth among AI owners while leaving billions economically stranded.
 
+By 2030, an estimated 300-375 million workers globally will need to transition to new occupational categories due to automation. Research indicates 47% of jobs in developed economies are at high risk of automation within two decades, with middle-skill routine tasks facing immediate displacement. Unlike previous industrial revolutions that created comparable replacement jobs over generations, AI adoption occurs at 5-10x the speed with minimal labor absorption.
+
+The displacement follows a three-wave pattern: (1) routine manual tasks (2018-2025, ~85 million jobs), (2) routine cognitive tasks (2025-2032, ~140 million jobs), and (3) complex non-routine tasks (2032-2040, ~150 million jobs). Each wave concentrates economic gains among capital owners while fragmenting labor markets into precarious gig work or permanent unemployment.
+
 ## Game Mechanics
 
 **Parameter Effects:**
-- **Employment Rate**: Decreases sharply in affected sectors
-- **Economic Inequality**: Increases dramatically as AI profits concentrate
-- **Social Stability**: Decreases with rising unemployment
-- **Education Value**: Declines as credentials become obsolete faster than debt can be repaid
-- **Political Polarization**: Increases as displaced workers seek radical solutions
+- **Employment Rate**: -15-25% in automated sectors over 5-year periods, -8-12% nationally when waves overlap
+- **Economic Inequality**: Gini coefficient increases +0.08-0.15 as AI profits concentrate in top 1% of capital owners
+- **Social Stability**: -25-40% when unemployment exceeds 12-15% threshold, triggering protest events
+- **Productivity**: +40-60% in automated sectors, creating GDP/employment divergence
+- **Education Value**: -30-50% credential premium decay as degree requirements disappear for automated roles
+- **Political Polarization**: +20-35% as displaced workers support populist/radical parties promising automation controls
 
 **Event Types:**
-1. **Sector Automation Wave**: An industry experiences rapid AI adoption, triggering layoffs
-2. **White Collar Collapse**: Professional services (legal, accounting, medical diagnostics) face sudden displacement
-3. **Retraining Failure**: Government programs fail to keep pace with displacement speed
-4. **AI Productivity Boom**: GDP rises while employment falls, creating political tension
-5. **Labor Unrest**: Mass protests demand protection from automation or AI taxation
+
+1. **Sector Automation Wave** (Triggers: AI adoption rate >35% in industry, productivity gain >25% YoY)
+   - Immediate: 15-30% workforce reduction over 18 months
+   - Medium-term: Regional unemployment spikes (+5-8% local rate) in specialized economies (Detroit auto, Silicon Valley tech support)
+   - Outcome: 40-60% of displaced workers exit labor force permanently, 30-40% downshift to gig economy at 50-70% prior wages
+
+2. **White Collar Collapse** (Triggers: AI achieves 85%+ accuracy in legal research, medical diagnosis, or financial analysis)
+   - Professional services sectors see 25-45% headcount reductions within 3 years
+   - Creates "credential crisis": $100K law degrees competing for $45K paralegal positions
+   - Generates 50-80% increase in "overqualified worker" metric, depressing all wage bands
+   - Political pressure for professional licensing protectionism increases +60-90%
+
+3. **Retraining Failure** (Triggers: Displacement rate >2x retraining capacity, program completion <30%)
+   - Government commits $50-200B to retraining programs with 15-25% actual job placement rates
+   - Creates "permanent student" class cycling through ineffective programs while collecting reduced benefits
+   - 60-75% of retrained workers end up in lower-wage sectors regardless of new credentials
+   - Public trust in institutional solutions decreases -35-50%
+
+4. **AI Productivity Boom** (Triggers: GDP growth +4-6% while employment growth <0%)
+   - GDP rises 25-40% while total employment falls 8-15%, creating historic labor share collapse
+   - Corporate profit margins expand +12-20 percentage points, concentrating in AI platform owners
+   - Generates political crisis: "Why are we poorer when the economy is richer?"
+   - Wealth concentration: top 0.1% capture 60-80% of productivity gains
+   - Triggers demonstrations when unemployment benefits expire while corporate earnings hit records
+
+5. **Labor Unrest** (Triggers: Unemployment >12%, AI firms' market cap grows >40% YoY, benefit adequacy <50% prior wages)
+   - Mass protests demanding automation taxes (typically 15-25% of labor cost savings) to fund UBI
+   - Strikes against "algorithmic management" expand from tech sector to general labor
+   - Political movements emerge demanding "right to human employment" constitutional protections
+   - 30-50% increase in support for parties promising AI nationalization or breakup
+   - Potential for violence when protesters target AI infrastructure (data centers, robotics factories)
 
 **Cascading Effects:**
-- Triggers **Gig Economy Serfdom** as displaced workers accept precarious platform work
-- Amplifies **Student Debt Slavery** when degrees become worthless faster than loans can be repaid
-- Can lead to **Mental Health Apocalypse** as mass unemployment destroys purpose and identity
-- Creates pressure for **Universal Basic Income Trials** as traditional welfare proves inadequate
+- Triggers **Gig Economy Serfdom** as 40-60% of displaced workers accept platform work at 50-70% prior earnings with zero benefits
+- Amplifies **Student Debt Slavery** when degrees lose 30-50% of earning premium faster than $1.7T in loans can be repaid
+- Can lead to **Mental Health Apocalypse** as 8-15% unemployment destroys purpose and identity, correlating with +25-40% increase in depression/anxiety rates
+- Creates pressure for **Universal Basic Income Trials** when traditional welfare proves inadequate for 15-25% structural unemployment
+- Accelerates **Economic Inequality** as AI capital concentration drives Gini coefficient past 0.50 "severe inequality" threshold
 
 ## Warning Signs
 
-- Rising Productivity + Flat/Declining Employment = Automation displacement beginning
-- High Inequality + Low Social Mobility = Political radicalization risk
-- Rapid AI Investment + Weak Safety Nets = Social crisis imminent
-- Education Debt + Credential Devaluation = Generational despair
+**Early Stage (2025-2028):**
+- Productivity growth +3-5% YoY while employment growth <1% = Automation displacement beginning
+- Labor share of GDP declining from 62% to 55-58% = Capital capturing automation gains
+- AI investment as % of GDP crosses 2.5-3.5% threshold = Sector disruption imminent
+- Job posting duration decreases 30-40% while "overqualified applicant" ratio rises 50-80%
+
+**Critical Thresholds (2028-2032):**
+- Unemployment rate sustained above 9-12% = Political stability at risk
+- Gini coefficient >0.45 + downward mobility >40% = Radicalization conditions present
+- Inequality + Low Social Mobility metrics combine to create "despair index" >65 = Mass protest likely
+- Long-term unemployment (>27 weeks) exceeds 35-45% of total unemployed = Permanent displacement occurring
+
+**Crisis Indicators (2032+):**
+- Employment-to-population ratio falls below 55-58% (from historical 63-67%) = Labor force exodus
+- AI taxation bills proposed in >30% of jurisdictions = Political consensus forming for intervention
+- Retraining program failure rate >70% + education debt delinquency >25% = Generational despair
+- Combination of 12%+ unemployment + <45% benefit adequacy + 35%+ productivity gains to capital = Revolution risk
+
+**Sector-Specific Warnings:**
+- **Transportation**: Autonomous vehicle deployment >25% triggers 3.5-4.5 million job losses (trucking, taxi, delivery)
+- **Retail**: E-commerce + automation crosses 70% market share, eliminating 6-8 million cashier/sales jobs
+- **Manufacturing**: "Lights-out" factories exceed 15% of production capacity, displacing 8-12 million assembly workers
+- **Finance**: AI trading + robo-advisors manage >60% of assets, eliminating 2-3 million analyst/advisor positions
+- **Legal**: AI contract review/discovery reaches 90% accuracy, threatening 1.5-2 million paralegal/junior attorney jobs
 
 ---
 

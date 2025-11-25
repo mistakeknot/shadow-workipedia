@@ -20,33 +20,60 @@ lastUpdated: 2025-11-24
 
 As freshwater scarcity intensifies globally, corporations and governments battle for control of water resources. What was once a public good becomes a commodity, triggering conflicts ranging from legal disputes to armed confrontations. Communities face displacement, price gouging, and loss of traditional water rights.
 
+Water stress begins when availability drops below 1,700 m³ per capita per year. Absolute scarcity occurs below 500 m³ per capita per year. In game terms, privatization becomes likely when a region's Water Availability parameter falls below 60% of baseline while Corporate Influence exceeds 70 points. The Nile Basin, Indus River system, and Colorado River basin serve as historical flashpoints, with over 2.3 billion people currently living in water-stressed regions.
+
 ## Game Mechanics
 
 **Parameter Effects:**
-- **Water Access**: Decreases for populations in privatized regions
-- **Public Trust**: Sharp decline when privatization occurs
-- **Economic Inequality**: Increases as water costs rise
-- **Social Stability**: Decreases, can trigger unrest
-- **Corporate Power**: Increases significantly
+
+- **Water Access**: Decreases by 25-40% for populations in privatized regions, with low-income households experiencing 45-60% reduction in access
+- **Public Trust**: Sharp decline of -15 to -30 points when privatization occurs, with additional -5 points per subsequent shutoff event
+- **Economic Inequality**: Increases by +12-20% as water costs rise from averaging $0.50/m³ (public) to $2.50-4.00/m³ (private)
+- **Social Stability**: Decreases by -10 to -25 points depending on severity; drops below 30 trigger civil unrest events
+- **Corporate Power**: Increases by +18-35 points significantly in affected regions, with multinational water corporations gaining monopoly control over 40-70% of urban water systems
+
+**Critical Thresholds:**
+
+- **Water Availability < 1,000 m³/capita/year**: Scarcity risk emerges, +30% chance of privatization proposals
+- **Corporate Influence > 75 + Water Availability < 800 m³/capita/year**: Privatization becomes 85% likely within 5 years
+- **Water Cost > 5% household income**: Triggers shutoff cascade affecting 15-25% of poor households
+- **Shutoffs affecting > 10% of population + Public Trust < 40**: 70% chance of violent protests within 2 years
 
 **Event Types:**
-1. **Privatization Proposals**: Government considers selling water utilities to private companies
-2. **Water Shutoffs**: Companies cut service to non-paying customers, triggering protests
-3. **Legal Challenges**: Communities sue for restoration of water rights
-4. **Violent Conflicts**: Armed clashes over water access in scarcity regions
-5. **International Tensions**: Cross-border water disputes escalate to diplomatic crises
+
+1. **Privatization Proposals**: Government considers selling water utilities to private companies when fiscal pressure exceeds 65 points and corporate lobbying reaches 70+ influence. Probability increases by +8% per point of fiscal deficit above baseline. Outcome determines whether privatization succeeds (55% base chance modified by public trust level), partial privatization occurs (25% chance), or proposal fails due to public resistance (20% chance, requires Public Trust > 60).
+
+2. **Water Shutoffs**: Companies cut service to non-paying customers when bills exceed 8-12% of household income, triggering protests affecting 5,000-50,000 people. Each shutoff reduces Public Trust by -3 to -8 points and increases Social Unrest by +10-15%. If shutoffs affect more than 15% of a city's population, 60% chance of triggering "Water Rights Protest" event with potential for violent suppression.
+
+3. **Legal Challenges**: Communities sue for restoration of water rights when privatization has been active for 3+ years and affected population exceeds 100,000. Success rate: 25-40% depending on judicial independence (requires Judicial Independence > 55). Victory restores 40-60% of lost water access over 8-12 years but costs affected communities 12-18 million in legal fees.
+
+4. **Violent Conflicts**: Armed clashes over water access in scarcity regions when Water Availability drops below 500 m³/capita/year and Social Stability falls below 25. Casualty range: 50-2,500 deaths per conflict event. 30% chance of escalating to regional insurgency if military presence exceeds 70 points. Historical examples: 2024 Daraa water riots (Syria), 2019 Chennai water conflicts (India), 2018 Cape Town Day Zero tensions.
+
+5. **International Tensions**: Cross-border water disputes escalate to diplomatic crises when upstream nations reduce downstream flow by more than 20% during drought periods (Water Availability < 1,200 m³/capita/year). Probability of military posturing: 45% for minor disputes, 75% for disputes affecting > 20 million people. Examples: Egypt-Ethiopia GERD dispute (potential 25% reduction in Nile flow), India-Pakistan Indus Waters tensions, Turkey-Syria-Iraq Tigris-Euphrates conflicts.
 
 **Cascading Effects:**
-- Triggers **Climate Refugee Crisis** when water becomes unaffordable or unavailable
-- Amplifies **Aquifer Depletion** as companies over-extract to maximize profits
-- Enables **Corporate Water Monopolies** formation through market consolidation
-- Can lead to **Urban Collapse** when cities lose affordable water access
+
+- Triggers **Climate Refugee Crisis** when water becomes unaffordable (> 10% household income) or unavailable (< 50 liters/person/day), displacing 2-8 million people per major city affected
+- Amplifies **Aquifer Depletion** as companies over-extract to maximize profits, increasing extraction rates by 35-60% above sustainable levels, depleting major aquifers 15-25 years faster
+- Enables **Corporate Water Monopolies** formation through market consolidation, with top 3 companies controlling 60-85% of privatized markets within 10-15 years
+- Can lead to **Urban Collapse** when cities lose affordable water access, triggering 20-40% population decline over 5-10 years in severely affected metropolitan areas (> 5 million residents)
 
 ## Warning Signs
 
-- Drought + High Corporate Influence = Privatization risk
-- Water Privatization + High Inequality = Violent conflict risk
-- Multiple Privatizations + Low Public Trust = Revolution risk
+**Privatization Risk Triggers:**
+- Drought (Water Availability < 1,200 m³/capita/year) + High Corporate Influence (> 70) = 65% privatization risk within 3 years
+- Fiscal Crisis (Government Debt > 85% GDP) + Corporate Lobbying (> 60 points) = 75% privatization risk
+- Previous Utility Privatization (electricity, telecommunications) + Water Scarcity (< 1,500 m³/capita/year) = 55% risk of water privatization following same pattern
+
+**Violent Conflict Risk Triggers:**
+- Water Privatization Active + High Inequality (Gini > 0.45) + Low Income Access (< 60 liters/person/day) = 70% violent conflict risk within 2 years
+- Shutoffs affecting > 15% population + Social Stability < 30 = 85% protest risk, 40% violent escalation
+- Water Availability < 500 m³/capita/year + Ethnic Tensions (> 60 points) + Armed Groups Present = 90% armed conflict risk
+
+**Revolution Risk Triggers:**
+- Multiple Privatizations (3+ utilities) + Low Public Trust (< 25) + Economic Inequality (Gini > 0.50) = 60% revolution risk within 5 years
+- Water Shutoffs + Electricity Shutoffs + Food Price Spikes (> 40% increase) = 80% regime instability risk
+- Corporate Water Monopoly (> 75% market share) + Median Water Cost > 15% household income + No Political Alternatives = 70% revolutionary pressure
 
 ---
 

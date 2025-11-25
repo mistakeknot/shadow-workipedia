@@ -61,71 +61,6 @@ Solar radiation management (SRM)—also known as geoengineering—represents hum
 - **Termination Shock Rhetoric Entering Policy Debates** = Political leaders openly discussing SRM-induced dependencies and weaponization scenarios; deterrence framework crystallizing
 - **Climate Scientist Credibility Crisis + Attribution Uncertainty** = Public unable to distinguish SRM effects from natural climate variability; conspiracy theories metastasize; policy-making paralyzed
 
-## Real-World Deployment Scenarios
-
-### Scenario 1: The Maldives Emergency SRM (2027–2030)
-
-**Trigger**: Indian summer monsoons weaken 28% due to accumulated warming and aerosol pollution. South Asian agricultural output crashes 35%. Grain prices spike 180%. At the same time, Maldives faces existential sea-level rise threat; nation formally requests UN-backed emergency SRM to cool ocean temperatures and reduce thermal expansion.
-
-**Escalation**:
-- US-EU coalition backs Maldives request; proposes SAI deployment over Indian Ocean to cool tropical regions
-- India protests unilateral deployment; announces its own "protective" SAI program over South Asia to maintain monsoon stability
-- China joins India's program, claiming environmental sovereignty over Pacific precipitation
-- Pakistan and Bangladesh support India, fearing SRM will be weaponized against monsoon-dependent regions
-- Indonesia and Thailand demand compensation for potential precipitation changes
-
-**Consequences**:
-- Three simultaneous SAI deployments with conflicting objectives create atmospheric interference
-- Global temperatures drop 0.9°C within 18 months; unexpected consequence: polar regions cool faster than tropics, destabilizing jet streams
-- North Atlantic storm track shifts 4 degrees latitude northward; hurricane season becomes unpredictable and more intense
-- West African Sahel rains fail completely; 40 million face famine; climate refugee crisis becomes humanitarian catastrophe
-- Attribution battles rage: Is monsoon variation natural or SRM-caused? No scientific consensus; India accuses US of causing Sahel drought
-- Stock markets crash as agricultural futures become untradeable; grain hoarding triggers 400% price spikes
-
-**Outcome**: SRM deployed without binding governance; three competing blocs with incompatible climate objectives; permanent termination shock risk established; scientific credibility shattered by attribution failure.
-
-### Scenario 2: Termination Shock Hostage (2035–2038)
-
-**Trigger**: Ten years of combined US-EU-Indian-Chinese SRM deployment have cooled global temperatures by 1.4°C. Global agriculture, water infrastructure, and population distributions have adapted to SAI-maintained climate. Suddenly, geopolitical crisis erupts: US-China conflict over Taiwan escalates; both nations occupy geoengineering command-and-control centers.
-
-**Escalation**:
-- China demands US cede Pacific military presence in exchange for continued SAI cooperation
-- US counter-threatens to halt all western SRM deployment, knowing termination shock will devastate Chinese agriculture
-- China raises ante: threatens to overload aerosol injection to create 3°C cooling, triggering crop failures in competing agricultural regions (US Midwest, EU, Argentina)
-- Global financial markets realize: Climate itself has become strategic weapon; food is leverage for military concessions
-- India and EU scramble to maintain independent SRM capability; parallel programs destabilize atmosphere further
-
-**Consequences**:
-- Grain commodity markets freeze; traders cannot price risk; clearing houses collapse under margin calls
-- Russia launches military buildup, demanding its own SRM access as security guarantee
-- Brazil and Indonesia demand SRM compensation payments; threaten to withhold ecosystem services
-- Middle East experiences unprecedented heat wave as competing SRM programs overshoot cooling in some regions; refugee pressure on Europe triples
-- Developing nations, unable to afford inflated food prices, face mass starvation; climate debt becomes existential
-- Nuclear powers nearly clash over geoengineering command infrastructure
-
-**Outcome**: Climate weaponized; termination shock becomes permanent deterrent; humans trapped in perpetual SRM dependency; geoengineering infrastructure becomes as strategically important as nuclear arsenals.
-
-### Scenario 3: SRM Infrastructure Sabotage (2032–2034)
-
-**Trigger**: A consortium of nationalist movements, environmental extremists, and rival intelligence agencies conduct coordinated cyber and kinetic strikes against SRM infrastructure. SAI aircraft are sabotaged in neutral airspace; stratospheric injection system control networks hacked; sensor arrays destroyed.
-
-**Escalation**:
-- SRM coalition grounds aircraft due to security concerns; aerosol loading declines 40% within 2 weeks
-- Previously cooled regions suddenly warm 0.8–1.2°C within 30–60 days; crops adapted to SAI conditions wilt
-- Attribution crisis: Multiple actors claim responsibility; unclear whether sabotage was military, terrorist, or environmental activist operation
-- SRM nations declare national emergency; mobilize military to protect remaining infrastructure
-- Rival powers accuse each other of sabotage; military buildups along geoengineering infrastructure boundaries
-- Cyber warfare escalates; nations attempt to sabotage each other's SRM systems; escalation risk becomes existential
-
-**Consequences**:
-- Rapid warming triggers simultaneous crop failures across North America, Eurasia, South Asia
-- Global grain production drops 30%; prices spike 500%+
-- Military interventions in agriculturally critical regions (Punjab, Egypt Nile Delta, Ukraine)
-- Humanitarian crisis affects 2+ billion; climate refugee pressure becomes overwhelming
-- New hybrid warfare doctrine: Geoengineering infrastructure treated as valid military target; deterrence frameworks collapse
-
-**Outcome**: SRM becomes militarized; sabotage risk becomes permanent strategic consideration; nations forced to maintain expensive, redundant geoengineering infrastructure; perpetual hybrid warfare over climate control.
-
 ## Technical Realism & Governance Gaps
 
 **Why SRM Becomes Irresistible:**
@@ -150,41 +85,13 @@ Solar radiation management (SRM)—also known as geoengineering—represents hum
 - Creates permanent leverage: Any SRM-capable power can threaten withdrawal to coerce political concessions
 - Escape route doesn't exist: Humanity trapped in perpetual geoengineering dependence; climate itself becomes hostage to technological maintenance and geopolitical negotiation
 
-## Impact on Shadow Work Systems
+## Example Scenarios
 
-**Climate Systems**:
-- Precipitation patterns become decoupled from natural climate drivers; regional water cycles become dependent on maintained geoengineering
-- Albedo feedback loops disrupted; Arctic ice-albedo feedback partially counteracted but other feedback mechanisms amplified
-- Ocean circulation potentially destabilized; thermohaline circulation sensitive to altered surface temperatures and precipitation
-- Biological carbon pump disrupted by reduced sunlight penetration; ocean productivity cascades create food chain disruptions
+**Unilateral Deployment**: Indian monsoons weaken 28% due to warming. Maldives requests UN-backed emergency SRM. US-EU coalition backs deployment; India announces protective counter-deployment; China joins India's program. Three simultaneous SAI deployments with conflicting objectives create atmospheric interference, destabilize jet streams, and trigger attribution battles over who caused West African Sahel drought.
 
-**International Relations**:
-- New alliance structures emerge: SRM-capable nations form blocs; non-SRM nations forced into dependency relationships
-- Military doctrines rapidly evolve to include climate control as strategic objective; deterrence frameworks crystallize around geoengineering infrastructure
-- Neutral nations face choice between alignment with SRM powers or alliance with non-aligned opposition; non-aligned movement splinters
-- Climate becomes primary axis of geopolitical conflict, superseding traditional resource competition
-- Termination shock risk creates permanent strategic vulnerability; nations hold hostage over climate itself
+**Termination Shock Coercion**: After 10 years of SRM cooling global temperatures 1.4°C, US-China conflict escalates over Taiwan. China demands US cede Pacific military presence in exchange for continued SAI cooperation. US threatens to halt western SRM deployment, knowing termination shock will devastate Chinese agriculture. Climate becomes strategic weapon; grain markets freeze; nuclear powers nearly clash over geoengineering command infrastructure.
 
-**Governance & Politics**:
-- International law fragmented: No binding SRM treaty; UN unable to regulate technology; national sovereignty doctrines favor unilateral deployment
-- Democratic accountability shattered: Public cannot understand or verify SRM effects; policy made by technical experts and military planners; public consent becomes irrelevant
-- Authoritarian geoengineering advantages: Authoritarian governments can deploy SRM without public debate; democratic nations bound by slower consensus; incentive structure favors authoritarian deployment first
-- Climate negotiations become theater: Nations negotiate carbon reduction commitments they don't intend to meet, betting on SRM as backup
-
-**Technology & Science**:
-- Massive R&D into aerosol delivery systems, atmospheric monitoring, and counter-geoengineering technologies
-- Sensor networks and satellite constellations deployed globally to detect and attribute SRM deployments; surveillance infrastructure multiplied
-- Cyber warfare becomes existential threat; climate control networks attractive military targets; critical infrastructure protection spirals into unwinnable security game
-- AI systems deployed to monitor atmosphere, detect anomalies, attribute causation; machine learning trained on insufficient data; unpredictable failures cascade
-- Scientific institutions lose autonomy; geoengineering research becomes militarized; dual-use research becomes norm rather than exception
-
-**Economy & Markets**:
-- Agricultural markets become completely speculative; futures trading destabilizes as SRM creates unpredictable precipitation
-- Grain reserves become strategic weapons; hoarding behavior destroys market pricing; supply chains fragment into regional autarky
-- Energy markets shift as reduced solar radiation decreases air-conditioning demand in some regions; solar power generation becomes less efficient
-- Climate tech companies become as strategically important as oil majors were in 20th century; nation-states begin acquiring geoengineering firms
-- Climate insurance becomes uninsurable; insurers withdraw from exposed regions; financial markets segment by climate risk; inequality amplifies
-- Debt sustainability of developing nations collapses as SRM-induced agricultural disruptions eliminate export revenue sources
+**Infrastructure Sabotage**: Coordinated cyber and kinetic strikes against SRM aircraft and control networks reduce aerosol loading 40% within 2 weeks. Previously cooled regions warm 0.8–1.2°C within 30–60 days; crops adapted to SAI conditions wilt. Attribution crisis follows as multiple actors claim responsibility. SRM nations mobilize military to protect remaining infrastructure; hybrid warfare escalates.
 
 ---
 
