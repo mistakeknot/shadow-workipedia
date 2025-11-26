@@ -764,6 +764,56 @@ async function main() {
   // Connect drag handler to zoom handler (so drag can disable pan)
   dragHandler.setZoomHandler(zoomHandler);
 
+  // Fit entire graph to view with padding
+  function fitToView() {
+    const nodes = graph.getNodes();
+    if (nodes.length === 0) return;
+
+    // Calculate bounding box of all nodes
+    let minX = Infinity, maxX = -Infinity;
+    let minY = Infinity, maxY = -Infinity;
+
+    for (const node of nodes) {
+      if (node.x !== undefined && node.y !== undefined) {
+        minX = Math.min(minX, node.x - node.size);
+        maxX = Math.max(maxX, node.x + node.size);
+        minY = Math.min(minY, node.y - node.size);
+        maxY = Math.max(maxY, node.y + node.size);
+      }
+    }
+
+    if (!isFinite(minX)) return;
+
+    const graphWidth = maxX - minX;
+    const graphHeight = maxY - minY;
+    const graphCenterX = (minX + maxX) / 2;
+    const graphCenterY = (minY + maxY) / 2;
+
+    // Add padding (10% on each side)
+    const padding = 0.1;
+    const availableWidth = canvas.width * (1 - 2 * padding);
+    const availableHeight = canvas.height * (1 - 2 * padding);
+
+    // Calculate scale to fit
+    const scaleX = availableWidth / graphWidth;
+    const scaleY = availableHeight / graphHeight;
+    const scale = Math.min(scaleX, scaleY, 1); // Don't zoom in past 1x
+
+    // Calculate translation to center
+    const canvasCenterX = canvas.width / 2;
+    const canvasCenterY = canvas.height / 2;
+    const translateX = canvasCenterX - graphCenterX * scale;
+    const translateY = canvasCenterY - graphCenterY * scale;
+
+    // Apply transform
+    currentTransform = { x: translateX, y: translateY, k: scale };
+    zoomHandler.setTransform(currentTransform);
+    hoverHandler.updateTransform(currentTransform);
+    clickHandler.updateTransform(currentTransform);
+    dragHandler.updateTransform(currentTransform);
+    render();
+  }
+
   // Render loop
   function render() {
     if (!ctx) return;
@@ -918,13 +968,16 @@ async function main() {
 
   render();
 
+  // Fit graph to view after simulation settles (500ms delay)
+  setTimeout(fitToView, 500);
+
   // Set up reset button
   const resetBtn = document.getElementById('reset-btn');
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
-      // Reset zoom
-      zoomHandler.reset();
+      // Restart simulation and fit to view after it settles
       graph.restart();
+      setTimeout(fitToView, 300);
 
       // Reset categories
       activeCategories.clear();
