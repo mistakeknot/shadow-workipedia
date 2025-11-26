@@ -959,17 +959,22 @@ async function main() {
     ctx.restore();
   }
 
-  graph.onTick(render);
+  // Track whether initial fit has been done
+  let initialFitDone = false;
+
+  graph.onTick(() => {
+    // On first tick, fit to view before rendering
+    if (!initialFitDone) {
+      initialFitDone = true;
+      fitToView();
+    }
+    render();
+  });
 
   // Now that all dependencies (activeCategories, searchTerm, etc.) are initialized,
   // we can safely call resizeCanvas which calls render
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
-
-  render();
-
-  // Fit graph to view after simulation settles (500ms delay)
-  setTimeout(fitToView, 500);
 
   // Set up reset button
   const resetBtn = document.getElementById('reset-btn');
