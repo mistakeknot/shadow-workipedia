@@ -1010,7 +1010,21 @@ async function main() {
   // Tab clicks navigate via router (which updates URL and calls showView)
   tabGraph.addEventListener('click', () => router.navigateToView('graph'));
   tabTable.addEventListener('click', () => router.navigateToView('table'));
-  tabWiki.addEventListener('click', () => router.navigateToView('wiki'));
+  tabWiki.addEventListener('click', () => {
+    // If a node is selected, navigate to its wiki article
+    if (selectedNode) {
+      const nodeId = selectedNode.id;
+      const nodeType = selectedNode.type;
+      // Clear selection and close detail panel
+      selectedNode = null;
+      const detailPanel = document.getElementById('detail-panel');
+      if (detailPanel) detailPanel.classList.add('hidden');
+      // Navigate to the wiki article
+      router.navigateToArticle(nodeType, nodeId);
+    } else {
+      router.navigateToView('wiki');
+    }
+  });
 
   // Table rendering (assign to forward-declared function)
   renderTable = function() {
