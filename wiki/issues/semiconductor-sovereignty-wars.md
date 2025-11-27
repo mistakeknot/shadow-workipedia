@@ -153,7 +153,7 @@ The collision of Taiwan's strategic importance, China's ambitions to reverse "th
 - Historical baseline: 1-2 major Chinese exercises yearly (2010-2020)
 - Early warning: 4-6 exercises yearly with increased troop counts and duration
 - Critical threshold: Monthly exercises with 100,000+ troops, live-fire drills crossing median line
-- Indicator**: Watch PLA naval deployment notices, Taiwan foreign ministry statements, ADIZ incursion frequency
+- **Indicator**: Watch PLA naval deployment notices, Taiwan foreign ministry statements, ADIZ incursion frequency
 
 **TSMC Production Bottlenecks & Capacity Constraints**
 - Indicators: Chip manufacturers report 12+ month lead times (normal = 6-8 weeks)

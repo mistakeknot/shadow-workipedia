@@ -147,4 +147,4 @@ Seabed mining success → Terrestrial mining pressure eases → Land-based ecosy
 
 **Contributors**: Shadow Work Team
 **Last Updated**: 2025-11-24
-**Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/deepsea-mining-rush-and-pacific-sovereignty-fight.md)
+**Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/deep-sea-mining-rush-and-pacific-sovereignty-fight.md)

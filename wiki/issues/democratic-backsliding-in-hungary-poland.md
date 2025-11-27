@@ -111,4 +111,4 @@ AND regime_classification = competitive_authoritarianism
 
 **Contributors**: Shadow Work Team
 **Last Updated**: 2025-11-24
-**Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/democratic-backsliding-in-hungarypoland.md)
+**Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/democratic-backsliding-in-hungary-poland.md)

@@ -97,4 +97,4 @@ Cold-chain infrastructure—the interconnected network of refrigeration, transpo
 
 **Contributors**: Shadow Work Team
 **Last Updated**: 2025-11-24
-**Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/global-coldchain-failure-and-vaccine-spoilage.md)
+**Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/global-cold-chain-failure-and-vaccine-spoilage.md)

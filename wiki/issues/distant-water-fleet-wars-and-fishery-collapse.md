@@ -75,4 +75,4 @@ Industrial fishing fleets, particularly China's distant-water fishing fleet—no
 
 **Contributors**: Shadow Work Team
 **Last Updated**: 2025-11-24
-**Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/distantwater-fleet-wars-and-fishery-collapse.md)
+**Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/distant-water-fleet-wars-and-fishery-collapse.md)
