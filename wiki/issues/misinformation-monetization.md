@@ -33,7 +33,7 @@ Misinformation has become a profitable enterprise where financial incentives sys
 1. **Engagement Optimization Scandal**: Document emerges showing platforms deliberately deprioritize fact-checked content because it generates 40-60% lower ad impressions; creates regulatory backlash triggering $5B-$20B fines and forced algorithm transparency (Media Trust -2.5, Public Concern +25)
 2. **Content Farm Bubble Burst**: Vietnamese/Indian content farm networks collapse when YouTube/TikTok purge monetization for coordinated false narratives; 500k channels offline, exposing systematic infrastructure (Journalism Capacity +1.5, Media Trust +0.8)
 3. **Influencer Conspiracy Profiteering**: High-profile streamer ($50M+ annual revenue from misinformation content) faces lawsuit from medical malpractice victims; sparks regulatory push for advertiser liability (Economic Inequality +1.5, Public Concern +20)
-4. **Foreign Disinformation Monetization': Leaked NSA documents reveal Chinese state actors earned $300M+ through coordinated YouTube/TikTok networks spreading US political division content; triggers sanctions and platform purges (Media Trust -1.8, Electoral Integrity -2.2)
+4. **Foreign Disinformation Monetization**: Leaked NSA documents reveal Chinese state actors earned $300M+ through coordinated YouTube/TikTok networks spreading US political division content; triggers sanctions and platform purges (Media Trust -1.8, Electoral Integrity -2.2)
 5. **Fact-Checking Defunding Crisis**: Google, Meta reduce funding for fact-checking operations by 40-60% citing cost pressures; fact-check capacity drops below critical threshold, corrective capacity lag increases from 6 months to 18-24 months (Media Trust -3, Epistemic Authority -2.5)
 
 **Cascading Effects:**

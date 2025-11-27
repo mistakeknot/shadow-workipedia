@@ -76,7 +76,7 @@ These movements are particularly dangerous not because they involve small groups
 |-----------|-----------|---------|
 | Tech billionaire wealth > 100B + Longtermist funding > 50M/yr | Governance capture in policy advisory roles | Algorithmic systems begin replacing democratic processes |
 | Religious Participation > 60 + Tech Industry Influence > 70 | "AI as salvation" narrative dominates elite discourse | Charter city experiments accelerate; public skepticism collapses |
-| Charter cities operating with algortihmic governance > 3 | Perceived success of "meritocratic" models | Democratic norms erode; alternative governance models gain legitimacy |
+| Charter cities operating with algorithmic governance > 3 | Perceived success of "meritocratic" models | Democratic norms erode; alternative governance models gain legitimacy |
 | News coverage of "AI safety" exceeds coverage of "AI harms" by 3:1 | Belief formation exceeds scrutiny | Regulatory capture becomes self-reinforcing |
 | Wealth Inequality > 80 + Tech Industry Influence > 75 | Billionaire-funded ideologies gain policy influence | Existential risk frameworks override immediate social needs |
 

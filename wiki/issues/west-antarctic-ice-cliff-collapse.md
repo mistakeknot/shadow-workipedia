@@ -45,7 +45,7 @@ The human consequences would be staggering. A 3-meter sea level rise would flood
 - Accelerated ice sheet flow measurements (satellite confirmation)
 - Coastal city emergency declarations (adaptation/retreat planning)
 - Mass coastal property value collapses (market repricing)
-- International disputes over climate climate refugee resettlement
+- International disputes over climate refugee resettlement
 
 ## Cascading Effects
 
