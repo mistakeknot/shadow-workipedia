@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "extract-data": "tsx scripts/extract-data.ts",
     "typecheck": "tsc --noEmit",
-    "prepare": "husky"
+    "prepare": "husky || true"
   },
   "devDependencies": {
     "@types/d3": "^7.4.3",
