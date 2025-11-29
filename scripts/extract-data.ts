@@ -1,11 +1,13 @@
-import { writeFileSync, readFileSync, existsSync } from 'fs';
+import { writeFileSync, readFileSync, existsSync, readdirSync } from 'fs';
 import { join } from 'path';
+import * as yaml from 'yaml';
 import type { GraphData, GraphNode, GraphEdge, IssueCategory, IssueUrgency } from '../src/types';
 import { parseSystemWalkTracker, getSystemWalkData } from './parse-system-walks';
 import { loadWikiContent, getWikiArticle, type WikiArticle } from './parse-wiki';
 
 const PARENT_REPO = join(process.cwd(), '..');
 const OUTPUT_PATH = join(process.cwd(), 'public', 'data.json');
+const YAML_DATA_DIR = join(PARENT_REPO, 'data/issues');
 
 // Color palette for categories (will be used in future extraction logic)
 const CATEGORY_COLORS: Record<IssueCategory, string> = {
@@ -468,22 +470,32 @@ function systemToNode(system: ConnectivitySystem): GraphNode {
   };
 }
 
-function loadCuratedConnections(): Map<string, Array<{targetId: string, relationshipType: string, reasoning: string}>> {
-  const connectionsPath = join(process.cwd(), 'issue-issue-connections.json');
+function loadCuratedConnections(): Map<string, Array<{targetId: string, relationshipType: string, strength: number}>> {
+  const connectionMap = new Map<string, Array<{targetId: string, relationshipType: string, strength: number}>>();
 
-  if (!existsSync(connectionsPath)) {
-    console.warn('⚠️  Curated connections not found, returning empty map');
-    return new Map();
+  // Read connections from YAML files in data/issues/
+  if (!existsSync(YAML_DATA_DIR)) {
+    console.warn('⚠️  YAML data directory not found, returning empty map');
+    return connectionMap;
   }
 
-  const content = readFileSync(connectionsPath, 'utf-8');
-  const data = JSON.parse(content);
+  const yamlFiles = readdirSync(YAML_DATA_DIR).filter(f => f.endsWith('.yaml') && !f.startsWith('_'));
 
-  const connectionMap = new Map();
+  for (const file of yamlFiles) {
+    try {
+      const content = readFileSync(join(YAML_DATA_DIR, file), 'utf-8');
+      const data = yaml.parse(content);
 
-  if (data.connections && Array.isArray(data.connections)) {
-    for (const conn of data.connections) {
-      connectionMap.set(conn.issueId, conn.connectedTo);
+      if (data.id && data.connections && Array.isArray(data.connections) && data.connections.length > 0) {
+        const connections = data.connections.map((conn: { target: string; relationship?: string; strength?: number }) => ({
+          targetId: conn.target,
+          relationshipType: conn.relationship || 'correlates',
+          strength: conn.strength || 0.5
+        }));
+        connectionMap.set(data.id, connections);
+      }
+    } catch (err) {
+      console.warn(`⚠️  Error parsing ${file}:`, err);
     }
   }
 
@@ -516,20 +528,12 @@ function extractIssueEdges(issues: RawIssue[], wikiSlugs?: Set<string>): GraphEd
         continue;
       }
 
-      // Map relationship type to edge strength
-      const strengthMap: Record<string, number> = {
-        'causal': 0.8,
-        'reinforcing': 0.7,
-        'sequential': 0.6,
-        'thematic': 0.5,
-      };
-
       edges.push({
         source: issue.id,
         target: conn.targetId,
         type: 'issue-issue',
-        strength: strengthMap[conn.relationshipType] || 0.5,
-        label: `${conn.relationshipType}: ${conn.reasoning.substring(0, 60)}...`,
+        strength: conn.strength || 0.5,
+        label: conn.relationshipType,
         bidirectional: false,
       });
     }
@@ -654,22 +658,41 @@ async function main() {
   console.log(`  - ${issueEdges.length} issue-issue edges`);
   edges.push(...issueEdges);
 
-  // 1b. Issue-to-issue edges from wiki-only articles (from frontmatter connections)
+  // 1b. Issue-to-issue edges from wiki-only articles (from YAML connections first, fallback to frontmatter)
+  const curatedConnections = loadCuratedConnections();
   let wikiOnlyEdgeCount = 0;
   for (const article of wikiOnlyArticles) {
-    const connections = article.frontmatter.connections;
-    if (Array.isArray(connections)) {
-      for (const targetId of connections) {
-        // Only add edge if target exists (in wiki slugs)
-        if (typeof targetId === 'string' && wikiIssueSlugs.has(targetId) && targetId !== article.id) {
+    // First try YAML connections (higher quality)
+    const yamlConnections = curatedConnections.get(article.id);
+    if (yamlConnections && yamlConnections.length > 0) {
+      for (const conn of yamlConnections) {
+        if (wikiIssueSlugs.has(conn.targetId) && conn.targetId !== article.id) {
           edges.push({
             source: article.id,
-            target: targetId,
+            target: conn.targetId,
             type: 'issue-issue',
-            strength: 0.5,
-            bidirectional: true,
+            strength: conn.strength || 0.5,
+            label: conn.relationshipType,
+            bidirectional: false,
           });
           wikiOnlyEdgeCount++;
+        }
+      }
+    } else {
+      // Fallback to frontmatter connections
+      const connections = article.frontmatter.connections;
+      if (Array.isArray(connections)) {
+        for (const targetId of connections) {
+          if (typeof targetId === 'string' && wikiIssueSlugs.has(targetId) && targetId !== article.id) {
+            edges.push({
+              source: article.id,
+              target: targetId,
+              type: 'issue-issue',
+              strength: 0.5,
+              bidirectional: true,
+            });
+            wikiOnlyEdgeCount++;
+          }
         }
       }
     }

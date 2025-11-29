@@ -823,9 +823,11 @@ async function main() {
       if (viewMode === 'issues' && node.type === 'system') return false;
       if (viewMode === 'systems' && node.type === 'issue') return false;
 
-      // Category filtering - show node only if ALL of its categories are active
-      const allCategoriesActive = node.categories?.every(cat => activeCategories.has(cat)) ?? true;
-      return allCategoriesActive;
+      // Category filtering - show node if ANY of its categories are active (additive filtering)
+      // Systems don't have categories, so always show them based on view mode
+      if (!node.categories || node.categories.length === 0) return true;
+      const anyCategoryActive = node.categories.some(cat => activeCategories.has(cat));
+      return anyCategoryActive;
     });
   }
 
@@ -860,11 +862,11 @@ async function main() {
         continue; // Skip edges connected to issues in systems-only mode
       }
 
-      // Show edge only if ALL categories of both source and target are active
-      const sourceAllCategoriesActive = link.source.categories?.every(cat => activeCategories.has(cat)) ?? true;
-      const targetAllCategoriesActive = link.target.categories?.every(cat => activeCategories.has(cat)) ?? true;
+      // Show edge if ANY category of both source and target are active (additive filtering)
+      const sourceAnyCategoryActive = !link.source.categories?.length || link.source.categories.some(cat => activeCategories.has(cat));
+      const targetAnyCategoryActive = !link.target.categories?.length || link.target.categories.some(cat => activeCategories.has(cat));
 
-      if (!sourceAllCategoriesActive || !targetAllCategoriesActive) continue;
+      if (!sourceAnyCategoryActive || !targetAnyCategoryActive) continue;
 
       const isConnected = selectedNode &&
         (link.source.id === selectedNode.id || link.target.id === selectedNode.id);
@@ -890,10 +892,10 @@ async function main() {
         continue; // Skip issues in systems-only mode
       }
 
-      // Show node only if ALL of its categories are active (hide if ANY category is disabled)
-      const allCategoriesActive = node.categories?.every(cat => activeCategories.has(cat)) ?? true;
+      // Show node if ANY of its categories are active (additive filtering)
+      const anyCategoryActive = !node.categories?.length || node.categories.some(cat => activeCategories.has(cat));
 
-      if (!allCategoriesActive) continue;
+      if (!anyCategoryActive) continue;
 
       const isHovered = hoveredNode && node.id === hoveredNode.id;
       const isSelected = selectedNode && node.id === selectedNode.id;
@@ -1060,9 +1062,9 @@ async function main() {
       if (viewMode === 'issues' && node.type === 'system') return false;
       if (viewMode === 'systems' && node.type === 'issue') return false;
 
-      // Apply category filter - show only if ALL categories are active
-      const allCategoriesActive = node.categories?.every(cat => activeCategories.has(cat)) ?? true;
-      if (!allCategoriesActive) return false;
+      // Apply category filter - show if ANY category is active (additive filtering)
+      const anyCategoryActive = !node.categories?.length || node.categories.some(cat => activeCategories.has(cat));
+      if (!anyCategoryActive) return false;
 
       // Apply search filter
       if (searchTerm !== '') {
