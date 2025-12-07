@@ -6,7 +6,7 @@ import { marked } from 'marked';
 export interface WikiArticle {
   id: string;
   title: string;
-  type: 'issue' | 'system';
+  type: 'issue' | 'system' | 'principle';
   frontmatter: Record<string, any>;
   content: string;
   html: string;
@@ -17,7 +17,7 @@ export interface WikiArticle {
 /**
  * Parse a single wiki markdown file
  */
-export function parseWikiArticle(filePath: string, type: 'issue' | 'system'): WikiArticle | null {
+export function parseWikiArticle(filePath: string, type: 'issue' | 'system' | 'principle'): WikiArticle | null {
   if (!existsSync(filePath)) {
     return null;
   }
@@ -39,7 +39,7 @@ export function parseWikiArticle(filePath: string, type: 'issue' | 'system'): Wi
 
     return {
       id: frontmatter.id || 'unknown',
-      title: frontmatter.title || 'Untitled',
+      title: frontmatter.title || frontmatter.name || 'Untitled',
       type,
       frontmatter,
       content,
@@ -56,7 +56,7 @@ export function parseWikiArticle(filePath: string, type: 'issue' | 'system'): Wi
 /**
  * Parse all wiki articles from a directory
  */
-export function parseWikiDirectory(dirPath: string, type: 'issue' | 'system'): Map<string, WikiArticle> {
+export function parseWikiDirectory(dirPath: string, type: 'issue' | 'system' | 'principle'): Map<string, WikiArticle> {
   const articles = new Map<string, WikiArticle>();
 
   if (!existsSync(dirPath)) {
@@ -83,19 +83,23 @@ export function parseWikiDirectory(dirPath: string, type: 'issue' | 'system'): M
   return articles;
 }
 
+export type WikiContent = {
+  issues: Map<string, WikiArticle>;
+  systems: Map<string, WikiArticle>;
+  principles: Map<string, WikiArticle>;
+};
+
 /**
  * Load all wiki content
  */
-export function loadWikiContent(): {
-  issues: Map<string, WikiArticle>;
-  systems: Map<string, WikiArticle>;
-} {
+export function loadWikiContent(): WikiContent {
   const wikiRoot = join(process.cwd(), 'wiki');
 
   const issues = parseWikiDirectory(join(wikiRoot, 'issues'), 'issue');
   const systems = parseWikiDirectory(join(wikiRoot, 'systems'), 'system');
+  const principles = parseWikiDirectory(join(wikiRoot, 'principles'), 'principle');
 
-  return { issues, systems };
+  return { issues, systems, principles };
 }
 
 /**
@@ -103,10 +107,12 @@ export function loadWikiContent(): {
  */
 export function hasWikiArticle(
   nodeId: string,
-  nodeType: 'issue' | 'system',
-  wikiContent: { issues: Map<string, WikiArticle>; systems: Map<string, WikiArticle> }
+  nodeType: 'issue' | 'system' | 'principle',
+  wikiContent: WikiContent
 ): boolean {
-  const articles = nodeType === 'issue' ? wikiContent.issues : wikiContent.systems;
+  const articles = nodeType === 'issue' ? wikiContent.issues :
+                   nodeType === 'system' ? wikiContent.systems :
+                   wikiContent.principles;
   return articles.has(nodeId);
 }
 
@@ -115,9 +121,11 @@ export function hasWikiArticle(
  */
 export function getWikiArticle(
   nodeId: string,
-  nodeType: 'issue' | 'system',
-  wikiContent: { issues: Map<string, WikiArticle>; systems: Map<string, WikiArticle> }
+  nodeType: 'issue' | 'system' | 'principle',
+  wikiContent: WikiContent
 ): WikiArticle | null {
-  const articles = nodeType === 'issue' ? wikiContent.issues : wikiContent.systems;
+  const articles = nodeType === 'issue' ? wikiContent.issues :
+                   nodeType === 'system' ? wikiContent.systems :
+                   wikiContent.principles;
   return articles.get(nodeId) || null;
 }

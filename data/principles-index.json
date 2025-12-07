@@ -1,0 +1,3562 @@
+{
+  "generatedAt": "2025-12-06T19:18:57.983Z",
+  "count": 508,
+  "principles": [
+    {
+      "id": "abolition-momentum-legislative-process",
+      "name": "Abolition Momentum Legislative Process",
+      "system": "SW#47: death penalty abolition",
+      "sourceFile": "47-death-penalty-abolition-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "ac-stratification-inequality",
+      "name": "AC Stratification Inequality",
+      "system": "SW#14: urban heat island",
+      "sourceFile": "14-urban-heat-island-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "accountability-vacuum-algorithmic-opacity-responsibility-impossibility",
+      "name": "Accountability Vacuum Algorithmic Opacity Responsibility Impossibility",
+      "system": "SW#95: autonomous weapons laws accountability crisis",
+      "sourceFile": "95-autonomous-weapons-laws-accountability-crisis-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "adjacency-corridor-flow",
+      "name": "Adjacency Corridor Flow",
+      "system": "SW#10: education",
+      "sourceFile": "10-education-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "affordability-threshold-nationalization",
+      "name": "Affordability Threshold Nationalization",
+      "system": "SW#42: water desalination mega trusts",
+      "sourceFile": "42-water-desalination-mega-trusts-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "age-selective-migration-brain-drain",
+      "name": "Age Selective Migration Brain Drain",
+      "system": "SW#05: population",
+      "sourceFile": "05-population-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "aging-infrastructure-exponential-failure-cascade",
+      "name": "Aging Infrastructure Exponential Failure Cascade",
+      "system": "SW#54: nuclear plant crisis cascade",
+      "sourceFile": "54-nuclear-plant-crisis-cascade-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "aging-infrastructure-maintenance-death-spiral",
+      "name": "Aging Infrastructure Maintenance Death Spiral",
+      "system": "SW#71: electrical grid collapse infrastructure decay",
+      "sourceFile": "71-electrical-grid-collapse-infrastructure-decay-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "agricultural-cafo-resistance-breeding-zoonotic-transfer",
+      "name": "Agricultural Cafo Resistance Breeding Zoonotic Transfer",
+      "system": "SW#72: antibiotic resistance superbug pandemic",
+      "sourceFile": "72-antibiotic-resistance-superbug-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "agricultural-dependence-reform-impossibility-permanent-risk",
+      "name": "Agricultural Dependence Reform Impossibility Permanent Risk",
+      "system": "SW#83: factory farming disease incubators",
+      "sourceFile": "83-factory-farming-disease-incubators-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "agricultural-simultaneous-failure-reinsurance-collapse",
+      "name": "Agricultural Simultaneous Failure Reinsurance Collapse",
+      "system": "SW#68: arctic blue ocean jet stream",
+      "sourceFile": "68-arctic-blue-ocean-jet-stream-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "agricultural-vector-livestock-catastrophe-food-security-cascade",
+      "name": "Agricultural Vector Livestock Catastrophe Food Security Cascade",
+      "system": "SW#85: vector borne disease geographic expansion",
+      "sourceFile": "85-vector-borne-disease-geographic-expansion-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "ai-capability-democratization-biosafety-collapse",
+      "name": "AI Capability Democratization Biosafety Collapse",
+      "system": "SW#66: gene drive synthetic biology catastrophe",
+      "sourceFile": "66-gene-drive-synthetic-biology-catastrophe-ARCHITECTURE.md",
+      "thresholdCount": 13
+    },
+    {
+      "id": "albedo-feedback-irreversibility-hysteresis",
+      "name": "Albedo Feedback Irreversibility Hysteresis",
+      "system": "SW#68: arctic blue ocean jet stream",
+      "sourceFile": "68-arctic-blue-ocean-jet-stream-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "allee-effect-breeding-collapse-recruitment-failure-irreversibility",
+      "name": "Allee Effect Breeding Collapse Recruitment Failure Irreversibility",
+      "system": "SW#82: freshwater fisheries collapse",
+      "sourceFile": "82-freshwater-fisheries-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "alliance-convergence-binding",
+      "name": "Alliance Convergence Binding",
+      "system": "SW#12: culture",
+      "sourceFile": "12-culture-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "alliance-threat-decay",
+      "name": "Alliance Threat Decay",
+      "system": "SW#03: diplomacy",
+      "sourceFile": "03-diplomacy-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "amoc-collapse-threshold",
+      "name": "AMOC Collapse Threshold",
+      "system": "SW#01: climate",
+      "sourceFile": "01-climate-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "amoc-sahel-monsoon-teleconnection-food-collapse-mass-displacement",
+      "name": "AMOC Sahel Monsoon Teleconnection Food Collapse Mass Displacement",
+      "system": "SW#63: amoc collapse",
+      "sourceFile": "63-amoc-collapse-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "antarctic-treaty-collapse-resource-rush-militarization",
+      "name": "Antarctic Treaty Collapse Resource Rush Militarization",
+      "system": "SW#64: west antarctic ice cliff collapse",
+      "sourceFile": "64-west-antarctic-ice-cliff-collapse-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "antibiotic-dependency-resistance-breeding-last-resort-extinction",
+      "name": "Antibiotic Dependency Resistance Breeding Last Resort Extinction",
+      "system": "SW#83: factory farming disease incubators",
+      "sourceFile": "83-factory-farming-disease-incubators-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "arctic-amplification-feedback",
+      "name": "Arctic Amplification Feedback",
+      "system": "SW#01: climate",
+      "sourceFile": "01-climate-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "arctic-economic-boom-geopolitical-militarization-paradox",
+      "name": "Arctic Economic Boom Geopolitical Militarization Paradox",
+      "system": "SW#63: amoc collapse",
+      "sourceFile": "63-amoc-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "arctic-shipping-sovereignty-resource-rush-militarization",
+      "name": "Arctic Shipping Sovereignty Resource Rush Militarization",
+      "system": "SW#68: arctic blue ocean jet stream",
+      "sourceFile": "68-arctic-blue-ocean-jet-stream-ARCHITECTURE.md",
+      "thresholdCount": 14
+    },
+    {
+      "id": "asat-proliferation-demonstration-normalization-arms-race",
+      "name": "ASAT Proliferation Demonstration Normalization Arms Race",
+      "system": "SW#92: space weaponization orbital conflict",
+      "sourceFile": "92-space-weaponization-orbital-conflict-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "assassination-normalization-leadership-vulnerability-security-collapse",
+      "name": "Assassination Normalization Leadership Vulnerability Security Collapse",
+      "system": "SW#106: political violence escalation",
+      "sourceFile": "106-political-violence-escalation-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "asymmetric-arms-race",
+      "name": "Asymmetric Arms Race",
+      "system": "SW#02: technology",
+      "sourceFile": "02-technology-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "asymmetric-procyclical-amplification",
+      "name": "Asymmetric Procyclical Amplification",
+      "system": "SW#18: shadow banking collapse",
+      "sourceFile": "18-shadow-banking-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "attribution-ambiguity-plausible-deniability-gray-zone-exploitation-retaliation-paralysis",
+      "name": "Attribution Ambiguity Plausible Deniability Gray Zone Exploitation Retaliation Paralysis",
+      "system": "SW#91: seafloor data cable wars",
+      "sourceFile": "91-seafloor-data-cable-wars-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "attribution-deterrence-failure-paradox",
+      "name": "Attribution Deterrence Failure Paradox",
+      "system": "SW#53: critical infrastructure attacks",
+      "sourceFile": "53-critical-infrastructure-attacks-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "attribution-fog-of-war-co-orbital-perfect-deniability",
+      "name": "Attribution Fog Of War Co Orbital Perfect Deniability",
+      "system": "SW#92: space weaponization orbital conflict",
+      "sourceFile": "92-space-weaponization-orbital-conflict-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "attribution-fog-of-war-ignition-pattern-legal-threshold-gap",
+      "name": "Attribution Fog Of War Ignition Pattern Legal Threshold Gap",
+      "system": "SW#89: pyrocumulonimbus warfare",
+      "sourceFile": "89-pyrocumulonimbus-warfare-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "attribution-impossibility-natural-vs-engineered-forensic-confidence-collapse",
+      "name": "Attribution Impossibility Natural Vs Engineered Forensic Confidence Collapse",
+      "system": "SW#94: synthetic biology weaponization biological attribution crisis",
+      "sourceFile": "94-synthetic-biology-weaponization-biological-attribution-crisis-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "attribution-insider-nation-state-convergence-paralysis",
+      "name": "Attribution Insider Nation State Convergence Paralysis",
+      "system": "SW#60: factory kill switch sabotage",
+      "sourceFile": "60-factory-kill-switch-sabotage-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "attribution-unattributability-paradox-perfect-deniability-quantum-forensics-impossibility",
+      "name": "Attribution Unattributability Paradox Perfect Deniability Quantum Forensics Impossibility",
+      "system": "SW#93: quantum computing post quantum cryptographic crisis",
+      "sourceFile": "93-quantum-computing-post-quantum-cryptographic-crisis-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "austerity-political-sustainability-impossibility-democracy-incompatibility",
+      "name": "Austerity Political Sustainability Impossibility Democracy Incompatibility",
+      "system": "SW#97: global debt jubilee sovereign default cascade",
+      "sourceFile": "97-global-debt-jubilee-sovereign-default-cascade-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "austerity-uprising-state-failure-migration",
+      "name": "Austerity Uprising State Failure Migration",
+      "system": "SW#50: climate loss damage sovereign debt",
+      "sourceFile": "50-climate-loss-damage-sovereign-debt-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "authenticity-verification-gap-forensic-confidence-decision-threshold-paralysis",
+      "name": "Authenticity Verification Gap Forensic Confidence Decision Threshold Paralysis",
+      "system": "SW#90: ai deepfake diplomatic mutinies",
+      "sourceFile": "90-ai-deepfake-diplomatic-mutinies-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "autonomous-propagation-irreversibility-threshold",
+      "name": "Autonomous Propagation Irreversibility Threshold",
+      "system": "SW#66: gene drive synthetic biology catastrophe",
+      "sourceFile": "66-gene-drive-synthetic-biology-catastrophe-ARCHITECTURE.md",
+      "thresholdCount": 17
+    },
+    {
+      "id": "backfire-effect-correction-paradox",
+      "name": "Backfire Effect Correction Paradox",
+      "system": "SW#43: disinformation plague",
+      "sourceFile": "43-disinformation-plague-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "bioaccumulation-food-chain-trophic-magnification",
+      "name": "Bioaccumulation Food Chain Trophic Magnification",
+      "system": "SW#77: soil contamination heavy metal accumulation",
+      "sourceFile": "77-soil-contamination-heavy-metal-accumulation-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "biomass-collapse-protected-area-landscape-catastrophe",
+      "name": "Biomass Collapse Protected Area Landscape Catastrophe",
+      "system": "SW#79: insect apocalypse pollinator collapse",
+      "sourceFile": "79-insect-apocalypse-pollinator-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "biometric-identity-breach-irreversibility-permanent-vulnerability",
+      "name": "Biometric Identity Breach Irreversibility Permanent Vulnerability",
+      "system": "SW#107: digital exile financial control",
+      "sourceFile": "107-digital-exile-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "biosecurity-dual-use-tragedy-commons-impossibility",
+      "name": "Biosecurity Dual Use Tragedy Commons Impossibility",
+      "system": "SW#66: gene drive synthetic biology catastrophe",
+      "sourceFile": "66-gene-drive-synthetic-biology-catastrophe-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "biosecurity-verification-vacuum-bwc-unenforceable-lab-inspection-futility",
+      "name": "Biosecurity Verification Vacuum BWC Unenforceable Lab Inspection Futility",
+      "system": "SW#94: synthetic biology weaponization biological attribution crisis",
+      "sourceFile": "94-synthetic-biology-weaponization-biological-attribution-crisis-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "black-carbon-albedo-development-emission-feedback-irreversibility",
+      "name": "Black Carbon Albedo Development Emission Feedback Irreversibility",
+      "system": "SW#86: himalayan third pole glacier collapse",
+      "sourceFile": "86-himalayan-third-pole-glacier-collapse-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "black-lung-denial-rage",
+      "name": "Black Lung Denial Rage",
+      "system": "SW#27: coal country collapse",
+      "sourceFile": "27-coal-country-collapse-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "blasphemy-ratchet-irreversibility",
+      "name": "Blasphemy Ratchet Irreversibility",
+      "system": "SW#24: religious freedom",
+      "sourceFile": "24-religious-freedom-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "bloc-clustering-censorship-export",
+      "name": "Bloc Clustering Censorship Export",
+      "system": "SW#41: splinternet data localization",
+      "sourceFile": "41-splinternet-data-localization-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "boom-bust-frontier-collapse-stranded-asset-trap",
+      "name": "Boom Bust Frontier Collapse Stranded Asset Trap",
+      "system": "SW#65: amazon rainforest dieback",
+      "sourceFile": "65-amazon-rainforest-dieback-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "broker-network-opacity-attribution-impossibility-proliferation",
+      "name": "Broker Network Opacity Attribution Impossibility Proliferation",
+      "system": "SW#61: spyware for hire export wars",
+      "sourceFile": "61-spyware-for-hire-export-wars-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "bullwhip-amplification-demand-oscillation-supplier-bankruptcy",
+      "name": "Bullwhip Amplification Demand Oscillation Supplier Bankruptcy",
+      "system": "SW#81: global supply chain collapse",
+      "sourceFile": "81-global-supply-chain-collapse-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "burnout-labor-shortage-doom-loop",
+      "name": "Burnout Labor Shortage Doom Loop",
+      "system": "SW#69: mental health apocalypse",
+      "sourceFile": "69-mental-health-apocalypse-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "cafo-viral-mixing-reassortment-lottery-pandemic-generation",
+      "name": "CAFO Viral Mixing Reassortment Lottery Pandemic Generation",
+      "system": "SW#83: factory farming disease incubators",
+      "sourceFile": "83-factory-farming-disease-incubators-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "camp-quality-collapse",
+      "name": "Camp Quality Collapse",
+      "system": "SW#35: climate refugee",
+      "sourceFile": "35-climate-refugee-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "capacity-exhaustion-rationing-two-tier-medicine",
+      "name": "Capacity Exhaustion Rationing Two Tier Medicine",
+      "system": "SW#78: healthcare system collapse",
+      "sourceFile": "78-healthcare-system-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "captive-audience-psychological-warfare-effectiveness",
+      "name": "Captive Audience Psychological Warfare Effectiveness",
+      "system": "SW#56: union busting epidemic",
+      "sourceFile": "56-union-busting-epidemic-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "carbon-flip-paris-agreement-impossibility-cascade",
+      "name": "Carbon Flip Paris Agreement Impossibility Cascade",
+      "system": "SW#65: amazon rainforest dieback",
+      "sourceFile": "65-amazon-rainforest-dieback-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "carbonate-chemistry-saturation-state-dissolution-threshold",
+      "name": "Carbonate Chemistry Saturation State Dissolution Threshold",
+      "system": "SW#75: ocean acidification marine ecosystem collapse",
+      "sourceFile": "75-ocean-acidification-marine-ecosystem-collapse-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "care-commodification-quality-collapse-profit-extraction",
+      "name": "Care Commodification Quality Collapse Profit Extraction",
+      "system": "SW#104: care economy crises",
+      "sourceFile": "104-care-economy-crises-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "care-crisis-triage-abandonment-elderly-disabled-children",
+      "name": "Care Crisis Triage Abandonment Elderly Disabled Children",
+      "system": "SW#104: care economy crises",
+      "sourceFile": "104-care-economy-crises-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "care-demand-exponential-aging-disability-childcare-convergence",
+      "name": "Care Demand Exponential Aging Disability Childcare Convergence",
+      "system": "SW#104: care economy crises",
+      "sourceFile": "104-care-economy-crises-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "care-worker-shortage-impossible-recruitment-retention-collapse",
+      "name": "Care Worker Shortage Impossible Recruitment Retention Collapse",
+      "system": "SW#104: care economy crises",
+      "sourceFile": "104-care-economy-crises-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "cascade-tipping-dynamics",
+      "name": "Cascade Tipping Dynamics",
+      "system": "SW#01: climate",
+      "sourceFile": "01-climate-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "cascading-blackout-normalization-exodus-loop",
+      "name": "Cascading Blackout Normalization Exodus Loop",
+      "system": "SW#71: electrical grid collapse infrastructure decay",
+      "sourceFile": "71-electrical-grid-collapse-infrastructure-decay-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "cascading-depletion-acceleration",
+      "name": "Cascading Depletion Acceleration",
+      "system": "SW#07: water conflict unified",
+      "sourceFile": "07-water-conflict-unified-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "cascading-food-web-functional-extinction-decomposition-failure",
+      "name": "Cascading Food Web Functional Extinction Decomposition Failure",
+      "system": "SW#79: insect apocalypse pollinator collapse",
+      "sourceFile": "79-insect-apocalypse-pollinator-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "cascading-tipping-point-interconnection-amplification",
+      "name": "Cascading Tipping Point Interconnection Amplification",
+      "system": "SW#64: west antarctic ice cliff collapse",
+      "sourceFile": "64-west-antarctic-ice-cliff-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "cbdc-adoption-inevitability-efficiency-financial-inclusion-coercion",
+      "name": "CBDC Adoption Inevitability Efficiency Financial Inclusion Coercion",
+      "system": "SW#100: cbdc surveillance financial control",
+      "sourceFile": "100-cbdc-surveillance-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "cemetery-capacity-exhaustion-burial-impossibility-urban-crisis",
+      "name": "Cemetery Capacity Exhaustion Burial Impossibility Urban Crisis",
+      "system": "SW#103: death dying infrastructure",
+      "sourceFile": "103-death-dying-infrastructure-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "climate-contamination-mobilization-spread-cascade",
+      "name": "Climate Contamination Mobilization Spread Cascade",
+      "system": "SW#77: soil contamination heavy metal accumulation",
+      "sourceFile": "77-soil-contamination-heavy-metal-accumulation-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "climate-disaster-design-basis-exceedance",
+      "name": "Climate Disaster Design Basis Exceedance",
+      "system": "SW#54: nuclear plant crisis cascade",
+      "sourceFile": "54-nuclear-plant-crisis-cascade-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "climate-extreme-weather-amplification-compound-stress",
+      "name": "Climate Extreme Weather Amplification Compound Stress",
+      "system": "SW#71: electrical grid collapse infrastructure decay",
+      "sourceFile": "71-electrical-grid-collapse-infrastructure-decay-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "climate-migration-megacity-overflow-carrying-capacity-overshoot",
+      "name": "Climate Migration Megacity Overflow Carrying Capacity Overshoot",
+      "system": "SW#101: megacity ungovernability slum state collapse",
+      "sourceFile": "101-megacity-ungovernability-slum-state-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "climate-migration-system-overwhelm",
+      "name": "Climate Migration System Overwhelm",
+      "system": "SW#51: economic immigration conflicts",
+      "sourceFile": "51-economic-immigration-conflicts-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "climate-mortality-vulnerability-structure",
+      "name": "Climate Mortality Vulnerability Structure",
+      "system": "SW#05: population",
+      "sourceFile": "05-population-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "climate-nuclear-waste-deadlock-fossil-lock-in",
+      "name": "Climate Nuclear Waste Deadlock Fossil Lock In",
+      "system": "SW#76: nuclear waste storage failure radioactive legacy",
+      "sourceFile": "76-nuclear-waste-storage-failure-radioactive-legacy-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "coastal-refugee-sovereignty-island-nation-extinction",
+      "name": "Coastal Refugee Sovereignty Island Nation Extinction",
+      "system": "SW#75: ocean acidification marine ecosystem collapse",
+      "sourceFile": "75-ocean-acidification-marine-ecosystem-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "codebase-fragmentation-productivity",
+      "name": "Codebase Fragmentation Productivity",
+      "system": "SW#41: splinternet data localization",
+      "sourceFile": "41-splinternet-data-localization-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "cognitive-impairment-safety-collapse",
+      "name": "Cognitive Impairment Safety Collapse",
+      "system": "SW#48: long covid labor collapse",
+      "sourceFile": "48-long-covid-labor-collapse-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "cognitive-inequality-enhancement-divide-biological-class-warfare",
+      "name": "Cognitive Inequality Enhancement Divide Biological Class Warfare",
+      "system": "SW#96: brain computer interface neural sovereignty crisis",
+      "sourceFile": "96-brain-computer-interface-neural-sovereignty-crisis-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "cognitive-liberty-extinction-neural-privacy-impossibility-thought-crime-enforcement",
+      "name": "Cognitive Liberty Extinction Neural Privacy Impossibility Thought Crime Enforcement",
+      "system": "SW#96: brain computer interface neural sovereignty crisis",
+      "sourceFile": "96-brain-computer-interface-neural-sovereignty-crisis-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "communal-riot-election-cycle-feedback",
+      "name": "Communal Riot Election Cycle Feedback",
+      "system": "SW#24: religious freedom",
+      "sourceFile": "24-religious-freedom-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "communications-productivity-leap",
+      "name": "Communications Productivity Leap",
+      "system": "SW#09: infrastructure",
+      "sourceFile": "09-infrastructure-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "compliance-cost-exponential-exit",
+      "name": "Compliance Cost Exponential Exit",
+      "system": "SW#41: splinternet data localization",
+      "sourceFile": "41-splinternet-data-localization-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "consolidation-oligopoly-capture",
+      "name": "Consolidation Oligopoly Capture",
+      "system": "SW#42: water desalination mega trusts",
+      "sourceFile": "42-water-desalination-mega-trusts-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "consultant-industry-professionalization-asymmetry",
+      "name": "Consultant Industry Professionalization Asymmetry",
+      "system": "SW#56: union busting epidemic",
+      "sourceFile": "56-union-busting-epidemic-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "contagion-adoption-s-curve",
+      "name": "Contagion Adoption S Curve",
+      "system": "SW#12: culture",
+      "sourceFile": "12-culture-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "contagion-interconnectedness-financial-system-cascade-impossibility-isolation",
+      "name": "Contagion Interconnectedness Financial System Cascade Impossibility Isolation",
+      "system": "SW#97: global debt jubilee sovereign default cascade",
+      "sourceFile": "97-global-debt-jubilee-sovereign-default-cascade-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "continental-hydrological-collapse-flying-rivers-water-security",
+      "name": "Continental Hydrological Collapse Flying Rivers Water Security",
+      "system": "SW#65: amazon rainforest dieback",
+      "sourceFile": "65-amazon-rainforest-dieback-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "conversion-paradox-regulatory-blockage",
+      "name": "Conversion Paradox Regulatory Blockage",
+      "system": "SW#49: commercial real estate doom loop",
+      "sourceFile": "49-commercial-real-estate-doom-loop-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "coordinated-default-negotiating-leverage",
+      "name": "Coordinated Default Negotiating Leverage",
+      "system": "SW#50: climate loss damage sovereign debt",
+      "sourceFile": "50-climate-loss-damage-sovereign-debt-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "coordination-cascade-participation-threshold",
+      "name": "Coordination Cascade Participation Threshold",
+      "system": "SW#55: general strike movements",
+      "sourceFile": "55-general-strike-movements-ARCHITECTURE.md",
+      "thresholdCount": 10
+    },
+    {
+      "id": "copycat-incident-frequency-escalation-normalization",
+      "name": "Copycat Incident Frequency Escalation Normalization",
+      "system": "SW#60: factory kill switch sabotage",
+      "sourceFile": "60-factory-kill-switch-sabotage-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "coral-reef-bioerosion-calcification-crossover-structural-collapse",
+      "name": "Coral Reef Bioerosion Calcification Crossover Structural Collapse",
+      "system": "SW#75: ocean acidification marine ecosystem collapse",
+      "sourceFile": "75-ocean-acidification-marine-ecosystem-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "cost-disease-economic-unsustainability-insurance-collapse",
+      "name": "Cost Disease Economic Unsustainability Insurance Collapse",
+      "system": "SW#78: healthcare system collapse",
+      "sourceFile": "78-healthcare-system-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "counter-mobilization",
+      "name": "Counter Mobilization",
+      "system": "SW#115: vaccine hesitancy public health trust collapse",
+      "sourceFile": "115-vaccine-hesitancy-public-health-trust-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "counter-movements",
+      "name": "Counter Movements",
+      "system": "SW#25: racial reckoning",
+      "sourceFile": "25-racial-reckoning-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "counter-spraying",
+      "name": "Counter Spraying",
+      "system": "SW#88: aerosol geoengineering proxy war",
+      "sourceFile": "88-aerosol-geoengineering-proxy-war-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "countermeasure-arms-race-futility-spiral",
+      "name": "Countermeasure Arms Race Futility Spiral",
+      "system": "SW#59: gnss spoofing positioning collapse",
+      "sourceFile": "59-gnss-spoofing-positioning-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "countermeasure-futility-megafire-suppression-impossibility-permanent-vulnerability",
+      "name": "Countermeasure Futility Megafire Suppression Impossibility Permanent Vulnerability",
+      "system": "SW#89: pyrocumulonimbus warfare",
+      "sourceFile": "89-pyrocumulonimbus-warfare-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "credentialism-inflation-degree-value-collapse-economic-futility",
+      "name": "Credentialism Inflation Degree Value Collapse Economic Futility",
+      "system": "SW#105: institutional legitimacy collapse",
+      "sourceFile": "105-institutional-legitimacy-collapse-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "credit-rating-downgrade-cascade",
+      "name": "Credit Rating Downgrade Cascade",
+      "system": "SW#50: climate loss damage sovereign debt",
+      "sourceFile": "50-climate-loss-damage-sovereign-debt-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "credit-score-algorithmic-tyranny-life-outcome-determination",
+      "name": "Credit Score Algorithmic Tyranny Life Outcome Determination",
+      "system": "SW#107: digital exile financial control",
+      "sourceFile": "107-digital-exile-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "creditor-debtor-geopolitical-realignment-debt-trap-diplomacy-sovereignty-loss",
+      "name": "Creditor Debtor Geopolitical Realignment Debt Trap Diplomacy Sovereignty Loss",
+      "system": "SW#97: global debt jubilee sovereign default cascade",
+      "sourceFile": "97-global-debt-jubilee-sovereign-default-cascade-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "criminalization-revolving-door-fiscal-trap",
+      "name": "Criminalization Revolving Door Fiscal Trap",
+      "system": "SW#39: homelessness crisis",
+      "sourceFile": "39-homelessness-crisis-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "crisis-alliance-rupture-threshold",
+      "name": "Crisis Alliance Rupture Threshold",
+      "system": "SW#13: institutions",
+      "sourceFile": "13-institutions-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "crisis-window-lobbying-reversal",
+      "name": "Crisis Window Lobbying Reversal",
+      "system": "SW#18: shadow banking collapse",
+      "sourceFile": "18-shadow-banking-collapse-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "critical-chokepoint-cascade-multiplier-economics",
+      "name": "Critical Chokepoint Cascade Multiplier Economics",
+      "system": "SW#60: factory kill switch sabotage",
+      "sourceFile": "60-factory-kill-switch-sabotage-ARCHITECTURE.md",
+      "thresholdCount": 11
+    },
+    {
+      "id": "critical-infrastructure-death-toll-escalation",
+      "name": "Critical Infrastructure Death Toll Escalation",
+      "system": "SW#52: ransomware pandemic",
+      "sourceFile": "52-ransomware-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "cross-bloc-communication-collapse",
+      "name": "Cross Bloc Communication Collapse",
+      "system": "SW#41: splinternet data localization",
+      "sourceFile": "41-splinternet-data-localization-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "cryptocurrency-economic-viability-spiral",
+      "name": "Cryptocurrency Economic Viability Spiral",
+      "system": "SW#52: ransomware pandemic",
+      "sourceFile": "52-ransomware-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "cultural-absorption-recruitment-tier",
+      "name": "Cultural Absorption Recruitment Tier",
+      "system": "SW#13: institutions",
+      "sourceFile": "13-institutions-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "cultural-distance-alliance-gate",
+      "name": "Cultural Distance Alliance Gate",
+      "system": "SW#13: institutions",
+      "sourceFile": "13-institutions-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "currency-sovereignty-debt-denomination-asymmetry-inflation-escape",
+      "name": "Currency Sovereignty Debt Denomination Asymmetry Inflation Escape",
+      "system": "SW#97: global debt jubilee sovereign default cascade",
+      "sourceFile": "97-global-debt-jubilee-sovereign-default-cascade-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "cyber-insurance-moral-hazard-death-spiral",
+      "name": "Cyber Insurance Moral Hazard Death Spiral",
+      "system": "SW#52: ransomware pandemic",
+      "sourceFile": "52-ransomware-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "cyber-kinetic-escalation-threshold-ambiguity",
+      "name": "Cyber Kinetic Escalation Threshold Ambiguity",
+      "system": "SW#53: critical infrastructure attacks",
+      "sourceFile": "53-critical-infrastructure-attacks-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "cyber-physical-attack-insurance-cascade",
+      "name": "Cyber Physical Attack Insurance Cascade",
+      "system": "SW#71: electrical grid collapse infrastructure decay",
+      "sourceFile": "71-electrical-grid-collapse-infrastructure-decay-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "cycle-exhaustion-dormancy-irreversibility",
+      "name": "Cycle Exhaustion Dormancy Irreversibility",
+      "system": "SW#25: racial reckoning",
+      "sourceFile": "25-racial-reckoning-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "dam-fragmentation-migration-barrier-compound-passage-failure",
+      "name": "Dam Fragmentation Migration Barrier Compound Passage Failure",
+      "system": "SW#82: freshwater fisheries collapse",
+      "sourceFile": "82-freshwater-fisheries-collapse-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "de-dollarization",
+      "name": "De Dollarization",
+      "system": "SW#100: cbdc surveillance financial control",
+      "sourceFile": "100-cbdc-surveillance-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "death-literacy-collapse-clinical-dysfunction-autonomy-loss",
+      "name": "Death Literacy Collapse Clinical Dysfunction Autonomy Loss",
+      "system": "SW#103: death dying infrastructure",
+      "sourceFile": "103-death-dying-infrastructure-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "death-row-attrition-delay-paradox",
+      "name": "Death Row Attrition Delay Paradox",
+      "system": "SW#47: death penalty abolition",
+      "sourceFile": "47-death-penalty-abolition-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "debt-accumulation-unsustainability-gdp-ratio-exponential-growth",
+      "name": "Debt Accumulation Unsustainability GDP Ratio Exponential Growth",
+      "system": "SW#97: global debt jubilee sovereign default cascade",
+      "sourceFile": "97-global-debt-jubilee-sovereign-default-cascade-ARCHITECTURE.md",
+      "thresholdCount": 11
+    },
+    {
+      "id": "debt-cascade-threshold",
+      "name": "Debt Cascade Threshold",
+      "system": "SW#04: economy",
+      "sourceFile": "04-economy-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "decision-loop-compression-ooda-collapse-human-control-impossibility",
+      "name": "Decision Loop Compression OODA Collapse Human Control Impossibility",
+      "system": "SW#95: autonomous weapons laws accountability crisis",
+      "sourceFile": "95-autonomous-weapons-laws-accountability-crisis-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "decommissioning-cost-explosion-utility-bankruptcy",
+      "name": "Decommissioning Cost Explosion Utility Bankruptcy",
+      "system": "SW#54: nuclear plant crisis cascade",
+      "sourceFile": "54-nuclear-plant-crisis-cascade-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "defund-reversal-backlash-ratchet",
+      "name": "Defund Reversal Backlash Ratchet",
+      "system": "SW#25: racial reckoning",
+      "sourceFile": "25-racial-reckoning-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "delta-displacement-freshwater-lens-destruction-double-migration",
+      "name": "Delta Displacement Freshwater Lens Destruction Double Migration",
+      "system": "SW#64: west antarctic ice cliff collapse",
+      "sourceFile": "64-west-antarctic-ice-cliff-collapse-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "demand-destruction-cascade",
+      "name": "Demand Destruction Cascade",
+      "system": "SW#26: oil industry death",
+      "sourceFile": "26-oil-industry-death-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "demilitarization-cultural-lock",
+      "name": "Demilitarization Cultural Lock",
+      "system": "SW#13: institutions",
+      "sourceFile": "13-institutions-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "democratic-backsliding-cascade",
+      "name": "Democratic Backsliding Cascade",
+      "system": "SW#11: politics",
+      "sourceFile": "11-politics-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "demographic-aging-death-rate-exponential-infrastructure-demand",
+      "name": "Demographic Aging Death Rate Exponential Infrastructure Demand",
+      "system": "SW#103: death dying infrastructure",
+      "sourceFile": "103-death-dying-infrastructure-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "demographic-dependency-ratio-mathematical-collapse",
+      "name": "Demographic Dependency Ratio Mathematical Collapse",
+      "system": "SW#73: pension system collapse retirement crisis",
+      "sourceFile": "73-pension-system-collapse-retirement-crisis-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "demographic-inevitability-boomer-aging-care-impossibility",
+      "name": "Demographic Inevitability Boomer Aging Care Impossibility",
+      "system": "SW#78: healthcare system collapse",
+      "sourceFile": "78-healthcare-system-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "demographic-momentum-irreversibility",
+      "name": "Demographic Momentum Irreversibility",
+      "system": "SW#05: population",
+      "sourceFile": "05-population-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "dependence-ratchet-irreversibility",
+      "name": "Dependence Ratchet Irreversibility",
+      "system": "SW#42: water desalination mega trusts",
+      "sourceFile": "42-water-desalination-mega-trusts-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "dependency-ratio-growth-collapse",
+      "name": "Dependency Ratio Growth Collapse",
+      "system": "SW#05: population",
+      "sourceFile": "05-population-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "dependency-ratio-inversion-worker-retiree-economic-impossibility",
+      "name": "Dependency Ratio Inversion Worker Retiree Economic Impossibility",
+      "system": "SW#98: global demographic collapse",
+      "sourceFile": "98-global-demographic-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "deplatforming-cascading-coordinated-permanent-exclusion",
+      "name": "Deplatforming Cascading Coordinated Permanent Exclusion",
+      "system": "SW#107: digital exile financial control",
+      "sourceFile": "107-digital-exile-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "deportation-violence-recidivism-cycle",
+      "name": "Deportation Violence Recidivism Cycle",
+      "system": "SW#51: economic immigration conflicts",
+      "sourceFile": "51-economic-immigration-conflicts-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "differential-vulnerability-cascade",
+      "name": "Differential Vulnerability Cascade",
+      "system": "SW#02: technology",
+      "sourceFile": "02-technology-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "diffusion-gradient-espionage",
+      "name": "Diffusion Gradient Espionage",
+      "system": "SW#02: technology",
+      "sourceFile": "02-technology-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "digital-exile-resistance-alternative-infrastructure-corporate-state-convergence",
+      "name": "Digital Exile Resistance Alternative Infrastructure Corporate State Convergence",
+      "system": "SW#107: digital exile financial control",
+      "sourceFile": "107-digital-exile-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "diminishing-returns-maintenance",
+      "name": "Diminishing Returns Maintenance",
+      "system": "SW#02: technology",
+      "sourceFile": "02-technology-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "disaster-debt-resilience-doom-loop",
+      "name": "Disaster Debt Resilience Doom Loop",
+      "system": "SW#50: climate loss damage sovereign debt",
+      "sourceFile": "50-climate-loss-damage-sovereign-debt-ARCHITECTURE.md",
+      "thresholdCount": 12
+    },
+    {
+      "id": "dissident-financial-deplatforming-protest-impossibility-resistance-elimination",
+      "name": "Dissident Financial Deplatforming Protest Impossibility Resistance Elimination",
+      "system": "SW#100: cbdc surveillance financial control",
+      "sourceFile": "100-cbdc-surveillance-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "dna-exoneration-innocence-shock-cascade",
+      "name": "DNA Exoneration Innocence Shock Cascade",
+      "system": "SW#47: death penalty abolition",
+      "sourceFile": "47-death-penalty-abolition-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "dose-response",
+      "name": "Dose Response",
+      "system": "SW#30: pfas crisis",
+      "sourceFile": "30-pfas-crisis-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "downtown-abandonment-foot-traffic-collapse",
+      "name": "Downtown Abandonment Foot Traffic Collapse",
+      "system": "SW#49: commercial real estate doom loop",
+      "sourceFile": "49-commercial-real-estate-doom-loop-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "drug-scarcity-botched-execution-spiral",
+      "name": "Drug Scarcity Botched Execution Spiral",
+      "system": "SW#47: death penalty abolition",
+      "sourceFile": "47-death-penalty-abolition-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "dual-use-militarization-asat-escalation-deterrence-paradox",
+      "name": "Dual Use Militarization ASAT Escalation Deterrence Paradox",
+      "system": "SW#62: starlink satellite internet sovereignty",
+      "sourceFile": "62-starlink-satellite-internet-sovereignty-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "dual-use-research-dilemma-gain-of-function-safety-innovation-paradox",
+      "name": "Dual Use Research Dilemma Gain Of Function Safety Innovation Paradox",
+      "system": "SW#94: synthetic biology weaponization biological attribution crisis",
+      "sourceFile": "94-synthetic-biology-weaponization-biological-attribution-crisis-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "dual-use-technology-security-dilemma",
+      "name": "Dual Use Technology Security Dilemma",
+      "system": "SW#53: critical infrastructure attacks",
+      "sourceFile": "53-critical-infrastructure-attacks-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "economic-asymmetry-offense-defense-verification-cost-virality-speed",
+      "name": "Economic Asymmetry Offense Defense Verification Cost Virality Speed",
+      "system": "SW#90: ai deepfake diplomatic mutinies",
+      "sourceFile": "90-ai-deepfake-diplomatic-mutinies-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "economic-discounting-intergenerational-injustice-political-paralysis",
+      "name": "Economic Discounting Intergenerational Injustice Political Paralysis",
+      "system": "SW#64: west antarctic ice cliff collapse",
+      "sourceFile": "64-west-antarctic-ice-cliff-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "economic-disruption-supply-chain-propagation",
+      "name": "Economic Disruption Supply Chain Propagation",
+      "system": "SW#55: general strike movements",
+      "sourceFile": "55-general-strike-movements-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "economic-force-accumulation",
+      "name": "Economic Force Accumulation",
+      "system": "SW#11: politics",
+      "sourceFile": "11-politics-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "economic-military-dependency-catastrophic-single-point-failure",
+      "name": "Economic Military Dependency Catastrophic Single Point Failure",
+      "system": "SW#92: space weaponization orbital conflict",
+      "sourceFile": "92-space-weaponization-orbital-conflict-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "education-fertility-cascade",
+      "name": "Education Fertility Cascade",
+      "system": "SW#05: population",
+      "sourceFile": "05-population-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "electoral-violence-voter-intimidation-legitimacy-collapse",
+      "name": "Electoral Violence Voter Intimidation Legitimacy Collapse",
+      "system": "SW#106: political violence escalation",
+      "sourceFile": "106-political-violence-escalation-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "elevation-dependent-warming-amplification-accelerated-mass-loss",
+      "name": "Elevation Dependent Warming Amplification Accelerated Mass Loss",
+      "system": "SW#86: himalayan third pole glacier collapse",
+      "sourceFile": "86-himalayan-third-pole-glacier-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "elite-bunkerization-political-death-spiral",
+      "name": "Elite Bunkerization Political Death Spiral",
+      "system": "SW#14: urban heat island",
+      "sourceFile": "14-urban-heat-island-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "encryption-bifurcation-global-inequality",
+      "name": "Encryption Bifurcation Global Inequality",
+      "system": "SW#59: gnss spoofing positioning collapse",
+      "sourceFile": "59-gnss-spoofing-positioning-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "energy-economy-multiplier",
+      "name": "Energy Economy Multiplier",
+      "system": "SW#09: infrastructure",
+      "sourceFile": "09-infrastructure-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "energy-transition-mineral-demand-exponential-extraction-acceleration",
+      "name": "Energy Transition Mineral Demand Exponential Extraction Acceleration",
+      "system": "SW#102: critical mineral extraction wars green colonialism",
+      "sourceFile": "102-critical-mineral-extraction-wars-green-colonialism-ARCHITECTURE.md",
+      "thresholdCount": 11
+    },
+    {
+      "id": "engagement-maximization-amplification-trap",
+      "name": "Engagement Maximization Amplification Trap",
+      "system": "SW#43: disinformation plague",
+      "sourceFile": "43-disinformation-plague-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "engineered-pandemic-extinction-probability-civilization-fragility-threshold",
+      "name": "Engineered Pandemic Extinction Probability Civilization Fragility Threshold",
+      "system": "SW#94: synthetic biology weaponization biological attribution crisis",
+      "sourceFile": "94-synthetic-biology-weaponization-biological-attribution-crisis-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "enmod-treaty-enforcement-vacuum-proliferation-normalization-cascade",
+      "name": "ENMOD Treaty Enforcement Vacuum Proliferation Normalization Cascade",
+      "system": "SW#89: pyrocumulonimbus warfare",
+      "sourceFile": "89-pyrocumulonimbus-warfare-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "environmental-defender-violence-organized-crime-impunity-spiral",
+      "name": "Environmental Defender Violence Organized Crime Impunity Spiral",
+      "system": "SW#65: amazon rainforest dieback",
+      "sourceFile": "65-amazon-rainforest-dieback-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "erosion-regeneration-asymmetry-irreversibility",
+      "name": "Erosion Regeneration Asymmetry Irreversibility",
+      "system": "SW#70: topsoil depletion agricultural collapse",
+      "sourceFile": "70-topsoil-depletion-agricultural-collapse-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "escalation-ladder-ignition-seeding-shootdown-conventional-war-nuclear-threshold",
+      "name": "Escalation Ladder Ignition Seeding Shootdown Conventional War Nuclear Threshold",
+      "system": "SW#89: pyrocumulonimbus warfare",
+      "sourceFile": "89-pyrocumulonimbus-warfare-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "event-driven",
+      "name": "Event Driven",
+      "system": "SW#65: amazon rainforest dieback",
+      "sourceFile": "65-amazon-rainforest-dieback-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "exodus-fiscal-collapse-ratchet",
+      "name": "Exodus Fiscal Collapse Ratchet",
+      "system": "SW#14: urban heat island",
+      "sourceFile": "14-urban-heat-island-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "expert-authority-collapse-conspiracy-proliferation-epistemological-crisis",
+      "name": "Expert Authority Collapse Conspiracy Proliferation Epistemological Crisis",
+      "system": "SW#105: institutional legitimacy collapse",
+      "sourceFile": "105-institutional-legitimacy-collapse-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "exploit-market-price-escalation-patch-speed-arms-race",
+      "name": "Exploit Market Price Escalation Patch Speed Arms Race",
+      "system": "SW#61: spyware for hire export wars",
+      "sourceFile": "61-spyware-for-hire-export-wars-ARCHITECTURE.md",
+      "thresholdCount": 10
+    },
+    {
+      "id": "exponential-cost-escalation-depth",
+      "name": "Exponential Cost Escalation Depth",
+      "system": "SW#07: water conflict unified",
+      "sourceFile": "07-water-conflict-unified-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "exponential-demand-linear-supply",
+      "name": "Exponential Demand Linear Supply",
+      "system": "SW#40: ai compute resource wars",
+      "sourceFile": "40-ai-compute-resource-wars-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "export-control-jurisdiction-arbitrage-regulatory-collapse",
+      "name": "Export Control Jurisdiction Arbitrage Regulatory Collapse",
+      "system": "SW#61: spyware for hire export wars",
+      "sourceFile": "61-spyware-for-hire-export-wars-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "extraction-environmental-destruction-sacrifice-zone-creation",
+      "name": "Extraction Environmental Destruction Sacrifice Zone Creation",
+      "system": "SW#102: critical mineral extraction wars green colonialism",
+      "sourceFile": "102-critical-mineral-extraction-wars-green-colonialism-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "extrinsic-incubation-acceleration-transmission-season-extension",
+      "name": "Extrinsic Incubation Acceleration Transmission Season Extension",
+      "system": "SW#85: vector borne disease geographic expansion",
+      "sourceFile": "85-vector-borne-disease-geographic-expansion-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "false-surrender-broadcast-fleet-stand-down-surprise-attack-tactical-defeat",
+      "name": "False Surrender Broadcast Fleet Stand Down Surprise Attack Tactical Defeat",
+      "system": "SW#90: ai deepfake diplomatic mutinies",
+      "sourceFile": "90-ai-deepfake-diplomatic-mutinies-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "family-caregiver-collapse-sandwich-generation-economic-destruction",
+      "name": "Family Caregiver Collapse Sandwich Generation Economic Destruction",
+      "system": "SW#104: care economy crises",
+      "sourceFile": "104-care-economy-crises-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "family-separation-tracking-failure-trauma",
+      "name": "Family Separation Tracking Failure Trauma",
+      "system": "SW#51: economic immigration conflicts",
+      "sourceFile": "51-economic-immigration-conflicts-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "fertility-collapse-below-replacement-tfr-exponential-population-decline",
+      "name": "Fertility Collapse Below Replacement TFR Exponential Population Decline",
+      "system": "SW#98: global demographic collapse",
+      "sourceFile": "98-global-demographic-collapse-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "fertilizer-dependency-diminishing-returns-death-spiral",
+      "name": "Fertilizer Dependency Diminishing Returns Death Spiral",
+      "system": "SW#70: topsoil depletion agricultural collapse",
+      "sourceFile": "70-topsoil-depletion-agricultural-collapse-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "financial-cascade-hft-latency-failure-payment-system-collapse-market-closure",
+      "name": "Financial Cascade HFT Latency Failure Payment System Collapse Market Closure",
+      "system": "SW#91: seafloor data cable wars",
+      "sourceFile": "91-seafloor-data-cable-wars-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "financial-surveillance-transaction-monitoring-privacy-extinction",
+      "name": "Financial Surveillance Transaction Monitoring Privacy Extinction",
+      "system": "SW#107: digital exile financial control",
+      "sourceFile": "107-digital-exile-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "financial-timestamp-chaos-market-freeze",
+      "name": "Financial Timestamp Chaos Market Freeze",
+      "system": "SW#57: carrington solar storm",
+      "sourceFile": "57-carrington-solar-storm-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "fire-intensity-convection-threshold-stratospheric-injection-amplification",
+      "name": "Fire Intensity Convection Threshold Stratospheric Injection Amplification",
+      "system": "SW#89: pyrocumulonimbus warfare",
+      "sourceFile": "89-pyrocumulonimbus-warfare-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "first-mover-market-capture-competitive-proliferation-cascade",
+      "name": "First Mover Market Capture Competitive Proliferation Cascade",
+      "system": "SW#62: starlink satellite internet sovereignty",
+      "sourceFile": "62-starlink-satellite-internet-sovereignty-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "fiscal-impossibility-tax-base-informal-economy-revenue-collapse",
+      "name": "Fiscal Impossibility Tax Base Informal Economy Revenue Collapse",
+      "system": "SW#101: megacity ungovernability slum state collapse",
+      "sourceFile": "101-megacity-ungovernability-slum-state-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "fisheries-catch-effort-economic-death-spiral",
+      "name": "Fisheries Catch Effort Economic Death Spiral",
+      "system": "SW#75: ocean acidification marine ecosystem collapse",
+      "sourceFile": "75-ocean-acidification-marine-ecosystem-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "flash-war-instability-first-strike-advantage-preemptive-strike-pressure",
+      "name": "Flash War Instability First Strike Advantage Preemptive Strike Pressure",
+      "system": "SW#95: autonomous weapons laws accountability crisis",
+      "sourceFile": "95-autonomous-weapons-laws-accountability-crisis-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "forced-transition-timing-trap",
+      "name": "Forced Transition Timing Trap",
+      "system": "SW#26: oil industry death",
+      "sourceFile": "26-oil-industry-death-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "fortress-contagion",
+      "name": "Fortress Contagion",
+      "system": "SW#35: climate refugee",
+      "sourceFile": "35-climate-refugee-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "funeral-industry-exploitation-grief-commodification-cost-crisis",
+      "name": "Funeral Industry Exploitation Grief Commodification Cost Crisis",
+      "system": "SW#103: death dying infrastructure",
+      "sourceFile": "103-death-dying-infrastructure-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "fungal-thermotolerance-thermal-exclusion-breakdown-mammalian-vulnerability",
+      "name": "Fungal Thermotolerance Thermal Exclusion Breakdown Mammalian Vulnerability",
+      "system": "SW#85: vector borne disease geographic expansion",
+      "sourceFile": "85-vector-borne-disease-geographic-expansion-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "futures-volatility-financing-doom-loop",
+      "name": "Futures Volatility Financing Doom Loop",
+      "system": "SW#42: water desalination mega trusts",
+      "sourceFile": "42-water-desalination-mega-trusts-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "gdp-gradient-drain",
+      "name": "GDP Gradient Drain",
+      "system": "SW#10: education",
+      "sourceFile": "10-education-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "generational-replacement-lock",
+      "name": "Generational Replacement Lock",
+      "system": "SW#12: culture",
+      "sourceFile": "12-culture-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "generational-warfare-intergenerational-equity-collapse-social-contract-breakdown",
+      "name": "Generational Warfare Intergenerational Equity Collapse Social Contract Breakdown",
+      "system": "SW#98: global demographic collapse",
+      "sourceFile": "98-global-demographic-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "genetic-caste-consolidation-speciation-risk",
+      "name": "Genetic Caste Consolidation Speciation Risk",
+      "system": "SW#66: gene drive synthetic biology catastrophe",
+      "sourceFile": "66-gene-drive-synthetic-biology-catastrophe-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "genetic-diversity-monopoly-vulnerability-trap",
+      "name": "Genetic Diversity Monopoly Vulnerability Trap",
+      "system": "SW#70: topsoil depletion agricultural collapse",
+      "sourceFile": "70-topsoil-depletion-agricultural-collapse-ARCHITECTURE.md",
+      "thresholdCount": 11
+    },
+    {
+      "id": "genetic-monoculture-vulnerability-amplification-catastrophic-outbreaks",
+      "name": "Genetic Monoculture Vulnerability Amplification Catastrophic Outbreaks",
+      "system": "SW#83: factory farming disease incubators",
+      "sourceFile": "83-factory-farming-disease-incubators-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "geo-fencing",
+      "name": "Geo Fencing",
+      "system": "SW#100: cbdc surveillance financial control",
+      "sourceFile": "100-cbdc-surveillance-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "geoengineering-intervention-unintended-consequences-cascade",
+      "name": "Geoengineering Intervention Unintended Consequences Cascade",
+      "system": "SW#63: amoc collapse",
+      "sourceFile": "63-amoc-collapse-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "geoengineering-moral-hazard-termination-shock-irreversibility",
+      "name": "Geoengineering Moral Hazard Termination Shock Irreversibility",
+      "system": "SW#67: boreal permafrost carbon pulse",
+      "sourceFile": "67-boreal-permafrost-carbon-pulse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "geoengineering-termination-shock-lock-in-governance-failure",
+      "name": "Geoengineering Termination Shock Lock In Governance Failure",
+      "system": "SW#68: arctic blue ocean jet stream",
+      "sourceFile": "68-arctic-blue-ocean-jet-stream-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "geographic-concentration-supply-chain-vulnerability-geopolitical-leverage",
+      "name": "Geographic Concentration Supply Chain Vulnerability Geopolitical Leverage",
+      "system": "SW#102: critical mineral extraction wars green colonialism",
+      "sourceFile": "102-critical-mineral-extraction-wars-green-colonialism-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "geographic-proximity-amplification",
+      "name": "Geographic Proximity Amplification",
+      "system": "SW#03: diplomacy",
+      "sourceFile": "03-diplomacy-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "geopolitical-cbdc-fragmentation-dollar-alternative-reserve-currency-warfare",
+      "name": "Geopolitical CBDC Fragmentation Dollar Alternative Reserve Currency Warfare",
+      "system": "SW#100: cbdc surveillance financial control",
+      "sourceFile": "100-cbdc-surveillance-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "geopolitical-pivot-debt-for-diplomacy",
+      "name": "Geopolitical Pivot Debt For Diplomacy",
+      "system": "SW#50: climate loss damage sovereign debt",
+      "sourceFile": "50-climate-loss-damage-sovereign-debt-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "glof-moraine-dam-catastrophic-outburst-cascade-failure",
+      "name": "GLOF Moraine Dam Catastrophic Outburst Cascade Failure",
+      "system": "SW#86: himalayan third pole glacier collapse",
+      "sourceFile": "86-himalayan-third-pole-glacier-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "gps-constellation-destruction-cascading-infrastructure-collapse",
+      "name": "GPS Constellation Destruction Cascading Infrastructure Collapse",
+      "system": "SW#57: carrington solar storm",
+      "sourceFile": "57-carrington-solar-storm-ARCHITECTURE.md",
+      "thresholdCount": 10
+    },
+    {
+      "id": "gray-zone-escalation-attribution-paralysis",
+      "name": "Gray Zone Escalation Attribution Paralysis",
+      "system": "SW#59: gnss spoofing positioning collapse",
+      "sourceFile": "59-gnss-spoofing-positioning-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "green-colonialism-backlash-resistance-movement-transition-sabotage",
+      "name": "Green Colonialism Backlash Resistance Movement Transition Sabotage",
+      "system": "SW#102: critical mineral extraction wars green colonialism",
+      "sourceFile": "102-critical-mineral-extraction-wars-green-colonialism-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "greenland-commitment-tipping",
+      "name": "Greenland Commitment Tipping",
+      "system": "SW#01: climate",
+      "sourceFile": "01-climate-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "grid-capacity-threshold-blackout",
+      "name": "Grid Capacity Threshold Blackout",
+      "system": "SW#40: ai compute resource wars",
+      "sourceFile": "40-ai-compute-resource-wars-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "grid-cascade-blackout-amplification",
+      "name": "Grid Cascade Blackout Amplification",
+      "system": "SW#14: urban heat island",
+      "sourceFile": "14-urban-heat-island-ARCHITECTURE.md",
+      "thresholdCount": 12
+    },
+    {
+      "id": "grid-collapse-cross-system-instantaneous-cascade",
+      "name": "Grid Collapse Cross System Instantaneous Cascade",
+      "system": "SW#71: electrical grid collapse infrastructure decay",
+      "sourceFile": "71-electrical-grid-collapse-infrastructure-decay-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "grief-support-infrastructure-absence-social-isolation-compounding",
+      "name": "Grief Support Infrastructure Absence Social Isolation Compounding",
+      "system": "SW#103: death dying infrastructure",
+      "sourceFile": "103-death-dying-infrastructure-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "habitat-fragmentation-monoculture-desert-flowering-resource-collapse",
+      "name": "Habitat Fragmentation Monoculture Desert Flowering Resource Collapse",
+      "system": "SW#79: insect apocalypse pollinator collapse",
+      "sourceFile": "79-insect-apocalypse-pollinator-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "healthcare-capacity-collapse-trigger",
+      "name": "Healthcare Capacity Collapse Trigger",
+      "system": "SW#06: pandemic",
+      "sourceFile": "06-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "healthcare-diagnostic-mismatch-specialist-exodus-treatment-gap",
+      "name": "Healthcare Diagnostic Mismatch Specialist Exodus Treatment Gap",
+      "system": "SW#85: vector borne disease geographic expansion",
+      "sourceFile": "85-vector-borne-disease-geographic-expansion-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "healthcare-workforce-exodus-cascade",
+      "name": "Healthcare Workforce Exodus Cascade",
+      "system": "SW#48: long covid labor collapse",
+      "sourceFile": "48-long-covid-labor-collapse-ARCHITECTURE.md",
+      "thresholdCount": 10
+    },
+    {
+      "id": "hhi-lobbying-influence-multiplier",
+      "name": "HHI Lobbying Influence Multiplier",
+      "system": "SW#13: institutions",
+      "sourceFile": "13-institutions-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "homeland-security-grant-militarization-ratchet",
+      "name": "Homeland Security Grant Militarization Ratchet",
+      "system": "SW#46: police militarization",
+      "sourceFile": "46-police-militarization-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "horizontal-gene-transfer-selection-pressure-acceleration",
+      "name": "Horizontal Gene Transfer Selection Pressure Acceleration",
+      "system": "SW#72: antibiotic resistance superbug pandemic",
+      "sourceFile": "72-antibiotic-resistance-superbug-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "housing-crisis-tipping-point",
+      "name": "Housing Crisis Tipping Point",
+      "system": "SW#09: infrastructure",
+      "sourceFile": "09-infrastructure-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "housing-first-success-contagion-adoption",
+      "name": "Housing First Success Contagion Adoption",
+      "system": "SW#39: homelessness crisis",
+      "sourceFile": "39-homelessness-crisis-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "iatrogenic-catastrophe-irreversibility-brain-surgery-mortality",
+      "name": "Iatrogenic Catastrophe Irreversibility Brain Surgery Mortality",
+      "system": "SW#96: brain computer interface neural sovereignty crisis",
+      "sourceFile": "96-brain-computer-interface-neural-sovereignty-crisis-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "ice-raid-violence-escalation",
+      "name": "ICE Raid Violence Escalation",
+      "system": "SW#51: economic immigration conflicts",
+      "sourceFile": "51-economic-immigration-conflicts-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "ice-sheet-irreversibility",
+      "name": "Ice Sheet Irreversibility",
+      "system": "SW#35: climate refugee",
+      "sourceFile": "35-climate-refugee-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "identity-radicalization-mobilization-loop",
+      "name": "Identity Radicalization Mobilization Loop",
+      "system": "SW#05: population",
+      "sourceFile": "05-population-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "ideology-dominance-capture-asymmetry",
+      "name": "Ideology Dominance Capture Asymmetry",
+      "system": "SW#24: religious freedom",
+      "sourceFile": "24-religious-freedom-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "immigration-replacement-impossibility-cultural-assimilation-limits",
+      "name": "Immigration Replacement Impossibility Cultural Assimilation Limits",
+      "system": "SW#98: global demographic collapse",
+      "sourceFile": "98-global-demographic-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "immune-escape-mutation-dynamics",
+      "name": "Immune Escape Mutation Dynamics",
+      "system": "SW#06: pandemic",
+      "sourceFile": "06-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "india-pakistan",
+      "name": "India Pakistan",
+      "system": "SW#86: himalayan third pole glacier collapse",
+      "sourceFile": "86-himalayan-third-pole-glacier-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "indigenous-displacement-cultural-preservation-land-rights-conflict",
+      "name": "Indigenous Displacement Cultural Preservation Land Rights Conflict",
+      "system": "SW#67: boreal permafrost carbon pulse",
+      "sourceFile": "67-boreal-permafrost-carbon-pulse-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "indigenous-territory-demarcation-agribusiness-frontier-conflict",
+      "name": "Indigenous Territory Demarcation Agribusiness Frontier Conflict",
+      "system": "SW#65: amazon rainforest dieback",
+      "sourceFile": "65-amazon-rainforest-dieback-ARCHITECTURE.md",
+      "thresholdCount": 14
+    },
+    {
+      "id": "industrial-regenerative-transition-window-closure",
+      "name": "Industrial Regenerative Transition Window Closure",
+      "system": "SW#70: topsoil depletion agricultural collapse",
+      "sourceFile": "70-topsoil-depletion-agricultural-collapse-ARCHITECTURE.md",
+      "thresholdCount": 12
+    },
+    {
+      "id": "inequality-collectivist-pressure",
+      "name": "Inequality Collectivist Pressure",
+      "system": "SW#12: culture",
+      "sourceFile": "12-culture-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "infection-to-chronic-disability-pipeline",
+      "name": "Infection To Chronic Disability Pipeline",
+      "system": "SW#48: long covid labor collapse",
+      "sourceFile": "48-long-covid-labor-collapse-ARCHITECTURE.md",
+      "thresholdCount": 13
+    },
+    {
+      "id": "informal-settlement-proliferation-slum-majority-parallel-governance",
+      "name": "Informal Settlement Proliferation Slum Majority Parallel Governance",
+      "system": "SW#101: megacity ungovernability slum state collapse",
+      "sourceFile": "101-megacity-ungovernability-slum-state-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "infrastructure-asymmetry-attacker-advantage-cutting-cheap-repair-expensive-permanent-deficit",
+      "name": "Infrastructure Asymmetry Attacker Advantage Cutting Cheap Repair Expensive Permanent Deficit",
+      "system": "SW#91: seafloor data cable wars",
+      "sourceFile": "91-seafloor-data-cable-wars-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "infrastructure-asymmetry-attacker-advantage-kessler-inevitability",
+      "name": "Infrastructure Asymmetry Attacker Advantage Kessler Inevitability",
+      "system": "SW#92: space weaponization orbital conflict",
+      "sourceFile": "92-space-weaponization-orbital-conflict-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "infrastructure-cascade-magnification",
+      "name": "Infrastructure Cascade Magnification",
+      "system": "SW#53: critical infrastructure attacks",
+      "sourceFile": "53-critical-infrastructure-attacks-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "infrastructure-collapse-cascade",
+      "name": "Infrastructure Collapse Cascade",
+      "system": "SW#09: infrastructure",
+      "sourceFile": "09-infrastructure-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "infrastructure-foundation-collapse-maintenance-cost-spiral",
+      "name": "Infrastructure Foundation Collapse Maintenance Cost Spiral",
+      "system": "SW#67: boreal permafrost carbon pulse",
+      "sourceFile": "67-boreal-permafrost-carbon-pulse-ARCHITECTURE.md",
+      "thresholdCount": 12
+    },
+    {
+      "id": "infrastructure-heat-island-foundation-failure-monitoring-collapse",
+      "name": "Infrastructure Heat Island Foundation Failure Monitoring Collapse",
+      "system": "SW#87: permafrost thaw methane bomb",
+      "sourceFile": "87-permafrost-thaw-methane-bomb-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "infrastructure-upgrade-lag",
+      "name": "Infrastructure Upgrade Lag",
+      "system": "SW#40: ai compute resource wars",
+      "sourceFile": "40-ai-compute-resource-wars-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "institutional-replacement-corporate-algorithmic-authoritarian-capture",
+      "name": "Institutional Replacement Corporate Algorithmic Authoritarian Capture",
+      "system": "SW#105: institutional legitimacy collapse",
+      "sourceFile": "105-institutional-legitimacy-collapse-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "insurance-refugee-housing-cascade",
+      "name": "Insurance Refugee Housing Cascade",
+      "system": "SW#44: climate insurance collapse",
+      "sourceFile": "44-climate-insurance-collapse-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "integration-capacity-mismatch",
+      "name": "Integration Capacity Mismatch",
+      "system": "SW#35: climate refugee",
+      "sourceFile": "35-climate-refugee-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "integration-employment-scale-mismatch",
+      "name": "Integration Employment Scale Mismatch",
+      "system": "SW#27: coal country collapse",
+      "sourceFile": "27-coal-country-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "inter-basin-conflict-violence",
+      "name": "Inter Basin Conflict Violence",
+      "system": "SW#42: water desalination mega trusts",
+      "sourceFile": "42-water-desalination-mega-trusts-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "intergenerational-theft-monitoring-cost-unfunded-liability-collapse",
+      "name": "Intergenerational Theft Monitoring Cost Unfunded Liability Collapse",
+      "system": "SW#76: nuclear waste storage failure radioactive legacy",
+      "sourceFile": "76-nuclear-waste-storage-failure-radioactive-legacy-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "intergenerational-warfare-effective-tax-escalation",
+      "name": "Intergenerational Warfare Effective Tax Escalation",
+      "system": "SW#73: pension system collapse retirement crisis",
+      "sourceFile": "73-pension-system-collapse-retirement-crisis-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "international-humanitarian-law-obsolescence-distinction-proportionality-impossibility",
+      "name": "International Humanitarian Law Obsolescence Distinction Proportionality Impossibility",
+      "system": "SW#95: autonomous weapons laws accountability crisis",
+      "sourceFile": "95-autonomous-weapons-laws-accountability-crisis-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "inventory-buffer-collapse-zero-resilience-threshold",
+      "name": "Inventory Buffer Collapse Zero Resilience Threshold",
+      "system": "SW#81: global supply chain collapse",
+      "sourceFile": "81-global-supply-chain-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "investment-capacity-constraint",
+      "name": "Investment Capacity Constraint",
+      "system": "SW#09: infrastructure",
+      "sourceFile": "09-infrastructure-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "investment-return-underfunding-death-spiral",
+      "name": "Investment Return Underfunding Death Spiral",
+      "system": "SW#73: pension system collapse retirement crisis",
+      "sourceFile": "73-pension-system-collapse-retirement-crisis-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "irreversibility-ocean-mixing-timescale-millennium-commitment",
+      "name": "Irreversibility Ocean Mixing Timescale Millennium Commitment",
+      "system": "SW#75: ocean acidification marine ecosystem collapse",
+      "sourceFile": "75-ocean-acidification-marine-ecosystem-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "irreversibility-timescale-mismatch-committed-warming-refreezing-impossibility",
+      "name": "Irreversibility Timescale Mismatch Committed Warming Refreezing Impossibility",
+      "system": "SW#87: permafrost thaw methane bomb",
+      "sourceFile": "87-permafrost-thaw-methane-bomb-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "irreversible-compaction-subsidence",
+      "name": "Irreversible Compaction Subsidence",
+      "system": "SW#07: water conflict unified",
+      "sourceFile": "07-water-conflict-unified-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "jet-stream-weakening-blocking-pattern-amplification",
+      "name": "Jet Stream Weakening Blocking Pattern Amplification",
+      "system": "SW#68: arctic blue ocean jet stream",
+      "sourceFile": "68-arctic-blue-ocean-jet-stream-ARCHITECTURE.md",
+      "thresholdCount": 12
+    },
+    {
+      "id": "jubilee-coordination-impossibility-creditor-prisoner-dilemma",
+      "name": "Jubilee Coordination Impossibility Creditor Prisoner Dilemma",
+      "system": "SW#97: global debt jubilee sovereign default cascade",
+      "sourceFile": "97-global-debt-jubilee-sovereign-default-cascade-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "judicial-capture-enforcement-gap-trap",
+      "name": "Judicial Capture Enforcement Gap Trap",
+      "system": "SW#24: religious freedom",
+      "sourceFile": "24-religious-freedom-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "just-transition-cultural-barrier",
+      "name": "Just Transition Cultural Barrier",
+      "system": "SW#27: coal country collapse",
+      "sourceFile": "27-coal-country-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "just-transition-success-bifurcation",
+      "name": "Just Transition Success Bifurcation",
+      "system": "SW#26: oil industry death",
+      "sourceFile": "26-oil-industry-death-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "kessler-cascade-threshold-irreversibility-permanent-orbital-denial",
+      "name": "Kessler Cascade Threshold Irreversibility Permanent Orbital Denial",
+      "system": "SW#92: space weaponization orbital conflict",
+      "sourceFile": "92-space-weaponization-orbital-conflict-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "labor-dependency-enforcement-paradox",
+      "name": "Labor Dependency Enforcement Paradox",
+      "system": "SW#51: economic immigration conflicts",
+      "sourceFile": "51-economic-immigration-conflicts-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "labor-exploitation-artisanal-mining-human-rights-violations",
+      "name": "Labor Exploitation Artisanal Mining Human Rights Violations",
+      "system": "SW#102: critical mineral extraction wars green colonialism",
+      "sourceFile": "102-critical-mineral-extraction-wars-green-colonialism-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "labor-force-contraction-gdp-growth-impossibility-secular-stagnation",
+      "name": "Labor Force Contraction GDP Growth Impossibility Secular Stagnation",
+      "system": "SW#98: global demographic collapse",
+      "sourceFile": "98-global-demographic-collapse-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "legitimacy-crisis-cultural-entrenchment",
+      "name": "Legitimacy Crisis Cultural Entrenchment",
+      "system": "SW#48: long covid labor collapse",
+      "sourceFile": "48-long-covid-labor-collapse-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "legitimacy-mobilization-threshold",
+      "name": "Legitimacy Mobilization Threshold",
+      "system": "SW#11: politics",
+      "sourceFile": "11-politics-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "leverage-frequency-cascade",
+      "name": "Leverage Frequency Cascade",
+      "system": "SW#18: shadow banking collapse",
+      "sourceFile": "18-shadow-banking-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "license-extension-economic-safety-trade-off",
+      "name": "License Extension Economic Safety Trade Off",
+      "system": "SW#54: nuclear plant crisis cascade",
+      "sourceFile": "54-nuclear-plant-crisis-cascade-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "literacy-foundation-multiplier",
+      "name": "Literacy Foundation Multiplier",
+      "system": "SW#10: education",
+      "sourceFile": "10-education-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "loneliness-social-capital-erosion-cascade",
+      "name": "Loneliness Social Capital Erosion Cascade",
+      "system": "SW#69: mental health apocalypse",
+      "sourceFile": "69-mental-health-apocalypse-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "long-term-political-impact-union-power-trajectory",
+      "name": "Long Term Political Impact Union Power Trajectory",
+      "system": "SW#55: general strike movements",
+      "sourceFile": "55-general-strike-movements-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "loss-ratio-death-spiral",
+      "name": "Loss Ratio Death Spiral",
+      "system": "SW#44: climate insurance collapse",
+      "sourceFile": "44-climate-insurance-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "mad-proliferation-threshold",
+      "name": "MAD Proliferation Threshold",
+      "system": "SW#03: diplomacy",
+      "sourceFile": "03-diplomacy-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "manual-override-automation-backlash-irreversibility",
+      "name": "Manual Override Automation Backlash Irreversibility",
+      "system": "SW#60: factory kill switch sabotage",
+      "sourceFile": "60-factory-kill-switch-sabotage-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "manufacturing-nationalism-geopolitical-competition-recovery",
+      "name": "Manufacturing Nationalism Geopolitical Competition Recovery",
+      "system": "SW#57: carrington solar storm",
+      "sourceFile": "57-carrington-solar-storm-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "marine-ice-sheet-instability-commitment-irreversibility",
+      "name": "Marine Ice Sheet Instability Commitment Irreversibility",
+      "system": "SW#64: west antarctic ice cliff collapse",
+      "sourceFile": "64-west-antarctic-ice-cliff-collapse-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "market-narrative-divergence",
+      "name": "Market Narrative Divergence",
+      "system": "SW#27: coal country collapse",
+      "sourceFile": "27-coal-country-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "medical-industrial-death-prolongation-suffering-multiplication",
+      "name": "Medical Industrial Death Prolongation Suffering Multiplication",
+      "system": "SW#103: death dying infrastructure",
+      "sourceFile": "103-death-dying-infrastructure-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "megacity-ungovernability-inflection",
+      "name": "Megacity Ungovernability Inflection",
+      "system": "SW#11: politics",
+      "sourceFile": "11-politics-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "metal-persistence-irreversibility-zero-half-life",
+      "name": "Metal Persistence Irreversibility Zero Half Life",
+      "system": "SW#77: soil contamination heavy metal accumulation",
+      "sourceFile": "77-soil-contamination-heavy-metal-accumulation-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "methane-stratospheric-injection-arctic-amplification-runaway-threshold",
+      "name": "Methane Stratospheric Injection Arctic Amplification Runaway Threshold",
+      "system": "SW#87: permafrost thaw methane bomb",
+      "sourceFile": "87-permafrost-thaw-methane-bomb-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "military-mutiny-deepfake-commander-unit-cohesion-breakdown-operational-paralysis",
+      "name": "Military Mutiny Deepfake Commander Unit Cohesion Breakdown Operational Paralysis",
+      "system": "SW#90: ai deepfake diplomatic mutinies",
+      "sourceFile": "90-ai-deepfake-diplomatic-mutinies-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "military-neural-enhancement-soldier-sovereignty-crisis-chemical-coercion",
+      "name": "Military Neural Enhancement Soldier Sovereignty Crisis Chemical Coercion",
+      "system": "SW#96: brain computer interface neural sovereignty crisis",
+      "sourceFile": "96-brain-computer-interface-neural-sovereignty-crisis-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "militia-formation-mainstreaming-paramilitary-normalization",
+      "name": "Militia Formation Mainstreaming Paramilitary Normalization",
+      "system": "SW#106: political violence escalation",
+      "sourceFile": "106-political-violence-escalation-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "mine-remediation-liability-orphaning",
+      "name": "Mine Remediation Liability Orphaning",
+      "system": "SW#27: coal country collapse",
+      "sourceFile": "27-coal-country-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "moderate-radical-split-compromise-trap",
+      "name": "Moderate Radical Split Compromise Trap",
+      "system": "SW#55: general strike movements",
+      "sourceFile": "55-general-strike-movements-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "monarch-collapse-phenology-mismatch-climate-amplification",
+      "name": "Monarch Collapse Phenology Mismatch Climate Amplification",
+      "system": "SW#79: insect apocalypse pollinator collapse",
+      "sourceFile": "79-insect-apocalypse-pollinator-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "monetary-policy-tyranny-negative-rates-wealth-confiscation-escape-impossibility",
+      "name": "Monetary Policy Tyranny Negative Rates Wealth Confiscation Escape Impossibility",
+      "system": "SW#100: cbdc surveillance financial control",
+      "sourceFile": "100-cbdc-surveillance-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "moral-hazard-emissions-acceleration-decarbonization-abandonment-permanent-lock-in",
+      "name": "Moral Hazard Emissions Acceleration Decarbonization Abandonment Permanent Lock In",
+      "system": "SW#88: aerosol geoengineering proxy war",
+      "sourceFile": "88-aerosol-geoengineering-proxy-war-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "moral-hazard-exposure-amplification",
+      "name": "Moral Hazard Exposure Amplification",
+      "system": "SW#44: climate insurance collapse",
+      "sourceFile": "44-climate-insurance-collapse-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "mortality-approval-instability-spiral",
+      "name": "Mortality Approval Instability Spiral",
+      "system": "SW#06: pandemic",
+      "sourceFile": "06-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "movement-surge-policy-window-non-linearity",
+      "name": "Movement Surge Policy Window Non Linearity",
+      "system": "SW#25: racial reckoning",
+      "sourceFile": "25-racial-reckoning-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "multi-actor-deployment-chemical-interference-climate-control-failure",
+      "name": "Multi Actor Deployment Chemical Interference Climate Control Failure",
+      "system": "SW#88: aerosol geoengineering proxy war",
+      "sourceFile": "88-aerosol-geoengineering-proxy-war-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "multi-century-commitment-political-horizon-discounting-paralysis",
+      "name": "Multi Century Commitment Political Horizon Discounting Paralysis",
+      "system": "SW#66: gene drive synthetic biology catastrophe",
+      "sourceFile": "66-gene-drive-synthetic-biology-catastrophe-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "multi-channel-contagion-cascade",
+      "name": "Multi Channel Contagion Cascade",
+      "system": "SW#04: economy",
+      "sourceFile": "04-economy-ARCHITECTURE.md",
+      "thresholdCount": 10
+    },
+    {
+      "id": "multi-decade-invisibility-inertia-crisis-detection-delay",
+      "name": "Multi Decade Invisibility Inertia Crisis Detection Delay",
+      "system": "SW#67: boreal permafrost carbon pulse",
+      "sourceFile": "67-boreal-permafrost-carbon-pulse-ARCHITECTURE.md",
+      "thresholdCount": 10
+    },
+    {
+      "id": "multi-factor-threat-multiplicative",
+      "name": "Multi Factor Threat Multiplicative",
+      "system": "SW#03: diplomacy",
+      "sourceFile": "03-diplomacy-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "multi-system-cascade-tipping-point-interconnection",
+      "name": "Multi System Cascade Tipping Point Interconnection",
+      "system": "SW#68: arctic blue ocean jet stream",
+      "sourceFile": "68-arctic-blue-ocean-jet-stream-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "multilateral-acceleration-pooling",
+      "name": "Multilateral Acceleration Pooling",
+      "system": "SW#02: technology",
+      "sourceFile": "02-technology-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "multiple-plant-cascade-systemic-failure",
+      "name": "Multiple Plant Cascade Systemic Failure",
+      "system": "SW#54: nuclear plant crisis cascade",
+      "sourceFile": "54-nuclear-plant-crisis-cascade-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "nationalization-retaliation-connectivity-collapse-standoff",
+      "name": "Nationalization Retaliation Connectivity Collapse Standoff",
+      "system": "SW#62: starlink satellite internet sovereignty",
+      "sourceFile": "62-starlink-satellite-internet-sovereignty-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "neo-feudalism",
+      "name": "Neo Feudalism",
+      "system": "SW#71: electrical grid collapse infrastructure decay",
+      "sourceFile": "71-electrical-grid-collapse-infrastructure-decay-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "neural-hacking-brain-attack-surface-defense-impossibility",
+      "name": "Neural Hacking Brain Attack Surface Defense Impossibility",
+      "system": "SW#96: brain computer interface neural sovereignty crisis",
+      "sourceFile": "96-brain-computer-interface-neural-sovereignty-crisis-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "nlrb-institutional-decay-illegal-firing-impunity",
+      "name": "NLRB Institutional Decay Illegal Firing Impunity",
+      "system": "SW#56: union busting epidemic",
+      "sourceFile": "56-union-busting-epidemic-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "non-renewable-extraction-ratio",
+      "name": "Non Renewable Extraction Ratio",
+      "system": "SW#07: water conflict unified",
+      "sourceFile": "07-water-conflict-unified-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "normalization-event-horizon-trust-collapse",
+      "name": "Normalization Event Horizon Trust Collapse",
+      "system": "SW#59: gnss spoofing positioning collapse",
+      "sourceFile": "59-gnss-spoofing-positioning-collapse-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "nosocomial-infection-healthcare-worker-exodus-hospital-death-zones",
+      "name": "Nosocomial Infection Healthcare Worker Exodus Hospital Death Zones",
+      "system": "SW#72: antibiotic resistance superbug pandemic",
+      "sourceFile": "72-antibiotic-resistance-superbug-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "nuclear-waste-accumulation-disposal-impossibility",
+      "name": "Nuclear Waste Accumulation Disposal Impossibility",
+      "system": "SW#54: nuclear plant crisis cascade",
+      "sourceFile": "54-nuclear-plant-crisis-cascade-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "occupancy-guarantee-perverse-incentive",
+      "name": "Occupancy Guarantee Perverse Incentive",
+      "system": "SW#45: mass incarceration crisis",
+      "sourceFile": "45-mass-incarceration-crisis-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "ocean-acidification-decoupling-coral-fisheries-marine-collapse-irreversible",
+      "name": "Ocean Acidification Decoupling Coral Fisheries Marine Collapse Irreversible",
+      "system": "SW#88: aerosol geoengineering proxy war",
+      "sourceFile": "88-aerosol-geoengineering-proxy-war-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "offshore-migration-enforcement-collapse",
+      "name": "Offshore Migration Enforcement Collapse",
+      "system": "SW#18: shadow banking collapse",
+      "sourceFile": "18-shadow-banking-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "orbital-density-kessler-cascade-irreversibility",
+      "name": "Orbital Density Kessler Cascade Irreversibility",
+      "system": "SW#62: starlink satellite internet sovereignty",
+      "sourceFile": "62-starlink-satellite-internet-sovereignty-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "organic-matter-yield-collapse-threshold",
+      "name": "Organic Matter Yield Collapse Threshold",
+      "system": "SW#70: topsoil depletion agricultural collapse",
+      "sourceFile": "70-topsoil-depletion-agricultural-collapse-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "organizing-campaigns-chilling-effect-collapse",
+      "name": "Organizing Campaigns Chilling Effect Collapse",
+      "system": "SW#56: union busting epidemic",
+      "sourceFile": "56-union-busting-epidemic-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "ot-it-convergence-attack-surface-explosion",
+      "name": "OT IT Convergence Attack Surface Explosion",
+      "system": "SW#60: factory kill switch sabotage",
+      "sourceFile": "60-factory-kill-switch-sabotage-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "overfishing-desperation-spiral-gear-technology-escalation",
+      "name": "Overfishing Desperation Spiral Gear Technology Escalation",
+      "system": "SW#82: freshwater fisheries collapse",
+      "sourceFile": "82-freshwater-fisheries-collapse-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "overnight-funding-fragility",
+      "name": "Overnight Funding Fragility",
+      "system": "SW#18: shadow banking collapse",
+      "sourceFile": "18-shadow-banking-collapse-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "pandemic-preparedness-decay-institutional-memory-loss",
+      "name": "Pandemic Preparedness Decay Institutional Memory Loss",
+      "system": "SW#78: healthcare system collapse",
+      "sourceFile": "78-healthcare-system-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "panic-buying-hoarding-substitution-cascade-wealth-stratification",
+      "name": "Panic Buying Hoarding Substitution Cascade Wealth Stratification",
+      "system": "SW#81: global supply chain collapse",
+      "sourceFile": "81-global-supply-chain-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "partition-trust-polarization-trap",
+      "name": "Partition Trust Polarization Trap",
+      "system": "SW#11: politics",
+      "sourceFile": "11-politics-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "patch-deployment-lag-exploitation-race",
+      "name": "Patch Deployment Lag Exploitation Race",
+      "system": "SW#52: ransomware pandemic",
+      "sourceFile": "52-ransomware-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 11
+    },
+    {
+      "id": "patch-speed-trap-hardware-implant-pivot-irreversibility",
+      "name": "Patch Speed Trap Hardware Implant Pivot Irreversibility",
+      "system": "SW#61: spyware for hire export wars",
+      "sourceFile": "61-spyware-for-hire-export-wars-ARCHITECTURE.md",
+      "thresholdCount": 11
+    },
+    {
+      "id": "peak-water-over-allocation-trap-permanent-scarcity",
+      "name": "Peak Water Over Allocation Trap Permanent Scarcity",
+      "system": "SW#86: himalayan third pole glacier collapse",
+      "sourceFile": "86-himalayan-third-pole-glacier-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "pension-collapse-multi-decade-inevitability-denial",
+      "name": "Pension Collapse Multi Decade Inevitability Denial",
+      "system": "SW#73: pension system collapse retirement crisis",
+      "sourceFile": "73-pension-system-collapse-retirement-crisis-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "permafrost-methane-mobilization",
+      "name": "Permafrost Methane Mobilization",
+      "system": "SW#01: climate",
+      "sourceFile": "01-climate-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "permanent-replacement-strike-weapon-destruction",
+      "name": "Permanent Replacement Strike Weapon Destruction",
+      "system": "SW#56: union busting epidemic",
+      "sourceFile": "56-union-busting-epidemic-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "pesticide-treadmill-resistance-acceleration-beneficial-kill-spiral",
+      "name": "Pesticide Treadmill Resistance Acceleration Beneficial Kill Spiral",
+      "system": "SW#79: insect apocalypse pollinator collapse",
+      "sourceFile": "79-insect-apocalypse-pollinator-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "petro-state-hyperinflation-collapse",
+      "name": "Petro State Hyperinflation Collapse",
+      "system": "SW#26: oil industry death",
+      "sourceFile": "26-oil-industry-death-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "pharmaceutical-rd-market-failure-innovation-drought",
+      "name": "Pharmaceutical Rd Market Failure Innovation Drought",
+      "system": "SW#72: antibiotic resistance superbug pandemic",
+      "sourceFile": "72-antibiotic-resistance-superbug-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "platform-consolidation-digital-infrastructure-dependency-exclusion-civil-death",
+      "name": "Platform Consolidation Digital Infrastructure Dependency Exclusion Civil Death",
+      "system": "SW#107: digital exile financial control",
+      "sourceFile": "107-digital-exile-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "police-complicity-violence-amplification",
+      "name": "Police Complicity Violence Amplification",
+      "system": "SW#24: religious freedom",
+      "sourceFile": "24-religious-freedom-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "police-encounter-racial-disparity-escalation",
+      "name": "Police Encounter Racial Disparity Escalation",
+      "system": "SW#25: racial reckoning",
+      "sourceFile": "25-racial-reckoning-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "policy-contagion-escalation",
+      "name": "Policy Contagion Escalation",
+      "system": "SW#41: splinternet data localization",
+      "sourceFile": "41-splinternet-data-localization-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "policy-contagion-regional-convergence",
+      "name": "Policy Contagion Regional Convergence",
+      "system": "SW#39: homelessness crisis",
+      "sourceFile": "39-homelessness-crisis-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "policy-ideology-contagion",
+      "name": "Policy Ideology Contagion",
+      "system": "SW#40: ai compute resource wars",
+      "sourceFile": "40-ai-compute-resource-wars-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "policy-whiplash",
+      "name": "Policy Whiplash",
+      "system": "SW#35: climate refugee",
+      "sourceFile": "35-climate-refugee-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "political-reform-acquired-rights-paralysis",
+      "name": "Political Reform Acquired Rights Paralysis",
+      "system": "SW#73: pension system collapse retirement crisis",
+      "sourceFile": "73-pension-system-collapse-retirement-crisis-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "pollinator-agriculture-dependency-paradox-hand-pollination-endgame",
+      "name": "Pollinator Agriculture Dependency Paradox Hand Pollination Endgame",
+      "system": "SW#79: insect apocalypse pollinator collapse",
+      "sourceFile": "79-insect-apocalypse-pollinator-collapse-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "pollution-invasive-synergy-ecosystem-state-flip",
+      "name": "Pollution Invasive Synergy Ecosystem State Flip",
+      "system": "SW#82: freshwater fisheries collapse",
+      "sourceFile": "82-freshwater-fisheries-collapse-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "port-congestion-geographic-cascade-entire-coast-gridlock",
+      "name": "Port Congestion Geographic Cascade Entire Coast Gridlock",
+      "system": "SW#81: global supply chain collapse",
+      "sourceFile": "81-global-supply-chain-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "port-relocation-cascade-stranded-asset-crisis",
+      "name": "Port Relocation Cascade Stranded Asset Crisis",
+      "system": "SW#64: west antarctic ice cliff collapse",
+      "sourceFile": "64-west-antarctic-ice-cliff-collapse-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "post-antibiotic-surgery-infection-cascade-rationing",
+      "name": "Post Antibiotic Surgery Infection Cascade Rationing",
+      "system": "SW#72: antibiotic resistance superbug pandemic",
+      "sourceFile": "72-antibiotic-resistance-superbug-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "post-quantum-migration-impossibility-infrastructure-inertia-gap-vulnerability",
+      "name": "Post Quantum Migration Impossibility Infrastructure Inertia Gap Vulnerability",
+      "system": "SW#93: quantum computing post quantum cryptographic crisis",
+      "sourceFile": "93-quantum-computing-post-quantum-cryptographic-crisis-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "power-budget-matthew-effect",
+      "name": "Power Budget Matthew Effect",
+      "system": "SW#13: institutions",
+      "sourceFile": "13-institutions-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "pre-storm-shutdown-impossible-dilemma",
+      "name": "Pre Storm Shutdown Impossible Dilemma",
+      "system": "SW#57: carrington solar storm",
+      "sourceFile": "57-carrington-solar-storm-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "precipitation-enhancement-seeding-rain-bomb-flash-flood-cascade",
+      "name": "Precipitation Enhancement Seeding Rain Bomb Flash Flood Cascade",
+      "system": "SW#89: pyrocumulonimbus warfare",
+      "sourceFile": "89-pyrocumulonimbus-warfare-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "prescriber-desert-medication-shortage-access-collapse",
+      "name": "Prescriber Desert Medication Shortage Access Collapse",
+      "system": "SW#69: mental health apocalypse",
+      "sourceFile": "69-mental-health-apocalypse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "prevalence-capacity-crisis-threshold",
+      "name": "Prevalence Capacity Crisis Threshold",
+      "system": "SW#69: mental health apocalypse",
+      "sourceFile": "69-mental-health-apocalypse-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "price-elasticity-scarcity-spike",
+      "name": "Price Elasticity Scarcity Spike",
+      "system": "SW#07: water conflict unified",
+      "sourceFile": "07-water-conflict-unified-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "prison-industrial-lobbying-escalation-cycle",
+      "name": "Prison Industrial Lobbying Escalation Cycle",
+      "system": "SW#45: mass incarceration crisis",
+      "sourceFile": "45-mass-incarceration-crisis-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "private-actor-geopolitical-dependency-trap-sovereignty-crisis",
+      "name": "Private Actor Geopolitical Dependency Trap Sovereignty Crisis",
+      "system": "SW#62: starlink satellite internet sovereignty",
+      "sourceFile": "62-starlink-satellite-internet-sovereignty-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "productivity-inequality-divergence",
+      "name": "Productivity Inequality Divergence",
+      "system": "SW#02: technology",
+      "sourceFile": "02-technology-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "programmable-money-conditional-spending-totalitarian-control",
+      "name": "Programmable Money Conditional Spending Totalitarian Control",
+      "system": "SW#100: cbdc surveillance financial control",
+      "sourceFile": "100-cbdc-surveillance-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "proliferation-asymmetry-democratization-force-multiplication",
+      "name": "Proliferation Asymmetry Democratization Force Multiplication",
+      "system": "SW#95: autonomous weapons laws accountability crisis",
+      "sourceFile": "95-autonomous-weapons-laws-accountability-crisis-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "pronatalist-policy-futility-tfr-recovery-impossibility",
+      "name": "Pronatalist Policy Futility TFR Recovery Impossibility",
+      "system": "SW#98: global demographic collapse",
+      "sourceFile": "98-global-demographic-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "property-rights-equity-displacement-asymmetry",
+      "name": "Property Rights Equity Displacement Asymmetry",
+      "system": "SW#44: climate insurance collapse",
+      "sourceFile": "44-climate-insurance-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "property-tax-assessment-lag-crisis",
+      "name": "Property Tax Assessment Lag Crisis",
+      "system": "SW#49: commercial real estate doom loop",
+      "sourceFile": "49-commercial-real-estate-doom-loop-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "prosperity-progressive-threshold",
+      "name": "Prosperity Progressive Threshold",
+      "system": "SW#12: culture",
+      "sourceFile": "12-culture-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "protein-dependency-food-security-malnutrition-cascade",
+      "name": "Protein Dependency Food Security Malnutrition Cascade",
+      "system": "SW#82: freshwater fisheries collapse",
+      "sourceFile": "82-freshwater-fisheries-collapse-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "protest-suppression-escalation-spiral",
+      "name": "Protest Suppression Escalation Spiral",
+      "system": "SW#46: police militarization",
+      "sourceFile": "46-police-militarization-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "pteropod-collapse-trophic-cascade-salmon-whale-starvation",
+      "name": "Pteropod Collapse Trophic Cascade Salmon Whale Starvation",
+      "system": "SW#75: ocean acidification marine ecosystem collapse",
+      "sourceFile": "75-ocean-acidification-marine-ecosystem-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "public-epistemic-collapse-trust-erosion-tribal-polarization-fact-check-failure",
+      "name": "Public Epistemic Collapse Trust Erosion Tribal Polarization Fact Check Failure",
+      "system": "SW#90: ai deepfake diplomatic mutinies",
+      "sourceFile": "90-ai-deepfake-diplomatic-mutinies-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "public-good-privatization-institutional-hollowing-service-abandonment",
+      "name": "Public Good Privatization Institutional Hollowing Service Abandonment",
+      "system": "SW#105: institutional legitimacy collapse",
+      "sourceFile": "105-institutional-legitimacy-collapse-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "qualified-immunity-impunity-cycle",
+      "name": "Qualified Immunity Impunity Cycle",
+      "system": "SW#46: police militarization",
+      "sourceFile": "46-police-militarization-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "quantum-supremacy-race-geopolitical-first-mover-cryptographic-hegemony",
+      "name": "Quantum Supremacy Race Geopolitical First Mover Cryptographic Hegemony",
+      "system": "SW#93: quantum computing post quantum cryptographic crisis",
+      "sourceFile": "93-quantum-computing-post-quantum-cryptographic-crisis-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "racial-disparity-amplification-war-on-drugs",
+      "name": "Racial Disparity Amplification War On Drugs",
+      "system": "SW#45: mass incarceration crisis",
+      "sourceFile": "45-mass-incarceration-crisis-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "ransomware-payment-coordination-failure-tragedy",
+      "name": "Ransomware Payment Coordination Failure Tragedy",
+      "system": "SW#52: ransomware pandemic",
+      "sourceFile": "52-ransomware-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "reality-exile-democratic-crisis",
+      "name": "Reality Exile Democratic Crisis",
+      "system": "SW#43: disinformation plague",
+      "sourceFile": "43-disinformation-plague-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "recidivism-reentry-barrier-trap",
+      "name": "Recidivism Reentry Barrier Trap",
+      "system": "SW#45: mass incarceration crisis",
+      "sourceFile": "45-mass-incarceration-crisis-ARCHITECTURE.md",
+      "thresholdCount": 11
+    },
+    {
+      "id": "reform-backlash-public-opinion-cycle",
+      "name": "Reform Backlash Public Opinion Cycle",
+      "system": "SW#45: mass incarceration crisis",
+      "sourceFile": "45-mass-incarceration-crisis-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "reform-backlash-public-opinion-whiplash",
+      "name": "Reform Backlash Public Opinion Whiplash",
+      "system": "SW#46: police militarization",
+      "sourceFile": "46-police-militarization-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "refugee-capacity-saturation",
+      "name": "Refugee Capacity Saturation",
+      "system": "SW#03: diplomacy",
+      "sourceFile": "03-diplomacy-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "regime-suppression-rebound",
+      "name": "Regime Suppression Rebound",
+      "system": "SW#12: culture",
+      "sourceFile": "12-culture-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "regime-transition-multi-pathway",
+      "name": "Regime Transition Multi Pathway",
+      "system": "SW#11: politics",
+      "sourceFile": "11-politics-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "regional-cooling-pattern-attribution-monsoon-disruption-blame-cascade",
+      "name": "Regional Cooling Pattern Attribution Monsoon Disruption Blame Cascade",
+      "system": "SW#88: aerosol geoengineering proxy war",
+      "sourceFile": "88-aerosol-geoengineering-proxy-war-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "regional-specialization-cascading-shortage-amplification",
+      "name": "Regional Specialization Cascading Shortage Amplification",
+      "system": "SW#70: topsoil depletion agricultural collapse",
+      "sourceFile": "70-topsoil-depletion-agricultural-collapse-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "regional-temperature-inversion-paradox-adaptation-asymmetry",
+      "name": "Regional Temperature Inversion Paradox Adaptation Asymmetry",
+      "system": "SW#63: amoc collapse",
+      "sourceFile": "63-amoc-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "regulatory-capture-ag-gag-enforcement-impossibility",
+      "name": "Regulatory Capture Ag Gag Enforcement Impossibility",
+      "system": "SW#83: factory farming disease incubators",
+      "sourceFile": "83-factory-farming-disease-incubators-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "reinsurance-capacity-exhaustion-systemic-risk",
+      "name": "Reinsurance Capacity Exhaustion Systemic Risk",
+      "system": "SW#44: climate insurance collapse",
+      "sourceFile": "44-climate-insurance-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "remote-work-vacancy-valuation-cascade",
+      "name": "Remote Work Vacancy Valuation Cascade",
+      "system": "SW#49: commercial real estate doom loop",
+      "sourceFile": "49-commercial-real-estate-doom-loop-ARCHITECTURE.md",
+      "thresholdCount": 10
+    },
+    {
+      "id": "renewable-integration-frequency-instability-threshold",
+      "name": "Renewable Integration Frequency Instability Threshold",
+      "system": "SW#71: electrical grid collapse infrastructure decay",
+      "sourceFile": "71-electrical-grid-collapse-infrastructure-decay-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "repair-bottleneck-ship-vulnerability-permanent-partition-zones-maritime-warfare",
+      "name": "Repair Bottleneck Ship Vulnerability Permanent Partition Zones Maritime Warfare",
+      "system": "SW#91: seafloor data cable wars",
+      "sourceFile": "91-seafloor-data-cable-wars-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "reparations-contribution-shortfall-gridlock",
+      "name": "Reparations Contribution Shortfall Gridlock",
+      "system": "SW#50: climate loss damage sovereign debt",
+      "sourceFile": "50-climate-loss-damage-sovereign-debt-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "repository-failure-certainty-geological-timescale-multiplication",
+      "name": "Repository Failure Certainty Geological Timescale Multiplication",
+      "system": "SW#76: nuclear waste storage failure radioactive legacy",
+      "sourceFile": "76-nuclear-waste-storage-failure-radioactive-legacy-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "reserve-flight-trigger",
+      "name": "Reserve Flight Trigger",
+      "system": "SW#04: economy",
+      "sourceFile": "04-economy-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "reshoring-impossibility-expertise-extinction-dependency-lock",
+      "name": "Reshoring Impossibility Expertise Extinction Dependency Lock",
+      "system": "SW#81: global supply chain collapse",
+      "sourceFile": "81-global-supply-chain-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "resilience-investment-futility-permanent-asymmetry-satellite-vulnerability",
+      "name": "Resilience Investment Futility Permanent Asymmetry Satellite Vulnerability",
+      "system": "SW#92: space weaponization orbital conflict",
+      "sourceFile": "92-space-weaponization-orbital-conflict-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "resilience-investment-timescale-mismatch-vulnerability-lock-in-digital-sovereignty-partition",
+      "name": "Resilience Investment Timescale Mismatch Vulnerability Lock In Digital Sovereignty Partition",
+      "system": "SW#91: seafloor data cable wars",
+      "sourceFile": "91-seafloor-data-cable-wars-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "resistance-evolution-antibiotic-use-death-spiral",
+      "name": "Resistance Evolution Antibiotic Use Death Spiral",
+      "system": "SW#72: antibiotic resistance superbug pandemic",
+      "sourceFile": "72-antibiotic-resistance-superbug-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "resistance-evolution-insecticide-antimalarial-antifungal-treatment-failure",
+      "name": "Resistance Evolution Insecticide Antimalarial Antifungal Treatment Failure",
+      "system": "SW#85: vector borne disease geographic expansion",
+      "sourceFile": "85-vector-borne-disease-geographic-expansion-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "resource-nationalism-supply-disruption-green-transition-constraint",
+      "name": "Resource Nationalism Supply Disruption Green Transition Constraint",
+      "system": "SW#102: critical mineral extraction wars green colonialism",
+      "sourceFile": "102-critical-mineral-extraction-wars-green-colonialism-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "restoration-impossibility-permanent-loss-timescale-mismatch",
+      "name": "Restoration Impossibility Permanent Loss Timescale Mismatch",
+      "system": "SW#82: freshwater fisheries collapse",
+      "sourceFile": "82-freshwater-fisheries-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "retroactive-decryption-harvest-now-decrypt-later-permanent-information-exposure",
+      "name": "Retroactive Decryption Harvest Now Decrypt Later Permanent Information Exposure",
+      "system": "SW#93: quantum computing post quantum cryptographic crisis",
+      "sourceFile": "93-quantum-computing-post-quantum-cryptographic-crisis-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "rhetoric-radicalization-pipeline-online-offline-action-conversion",
+      "name": "Rhetoric Radicalization Pipeline Online Offline Action Conversion",
+      "system": "SW#106: political violence escalation",
+      "sourceFile": "106-political-violence-escalation-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "rural-hospital-closure-medical-desert-economic-death-spiral",
+      "name": "Rural Hospital Closure Medical Desert Economic Death Spiral",
+      "system": "SW#78: healthcare system collapse",
+      "sourceFile": "78-healthcare-system-collapse-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "sabotage-acceleration-paradox",
+      "name": "Sabotage Acceleration Paradox",
+      "system": "SW#26: oil industry death",
+      "sourceFile": "26-oil-industry-death-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "sacrifice-zone-poverty-trap-environmental-racism-amplification",
+      "name": "Sacrifice Zone Poverty Trap Environmental Racism Amplification",
+      "system": "SW#77: soil contamination heavy metal accumulation",
+      "sourceFile": "77-soil-contamination-heavy-metal-accumulation-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "sanctuary-federal-occupation-escalation",
+      "name": "Sanctuary Federal Occupation Escalation",
+      "system": "SW#51: economic immigration conflicts",
+      "sourceFile": "51-economic-immigration-conflicts-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "scada-attack-defense-asymmetry",
+      "name": "SCADA Attack Defense Asymmetry",
+      "system": "SW#53: critical infrastructure attacks",
+      "sourceFile": "53-critical-infrastructure-attacks-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "sea-level-displacement",
+      "name": "Sea Level Displacement",
+      "system": "SW#35: climate refugee",
+      "sourceFile": "35-climate-refugee-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "secularization-backlash-mobilization-reversal",
+      "name": "Secularization Backlash Mobilization Reversal",
+      "system": "SW#24: religious freedom",
+      "sourceFile": "24-religious-freedom-ARCHITECTURE.md",
+      "thresholdCount": 11
+    },
+    {
+      "id": "security-vacuum-gang-governance-violence-monopoly-state-failure",
+      "name": "Security Vacuum Gang Governance Violence Monopoly State Failure",
+      "system": "SW#101: megacity ungovernability slum state collapse",
+      "sourceFile": "101-megacity-ungovernability-slum-state-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "sentencing-disparity-geographic-concentration",
+      "name": "Sentencing Disparity Geographic Concentration",
+      "system": "SW#47: death penalty abolition",
+      "sourceFile": "47-death-penalty-abolition-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "sequential-progression-capacity",
+      "name": "Sequential Progression Capacity",
+      "system": "SW#10: education",
+      "sourceFile": "10-education-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "service-provision-impossibility-infrastructure-deficit-permanent-underclass",
+      "name": "Service Provision Impossibility Infrastructure Deficit Permanent Underclass",
+      "system": "SW#101: megacity ungovernability slum state collapse",
+      "sourceFile": "101-megacity-ungovernability-slum-state-collapse-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "severance-tax-death-spiral",
+      "name": "Severance Tax Death Spiral",
+      "system": "SW#27: coal country collapse",
+      "sourceFile": "27-coal-country-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "shadow-economy-displacement-trap",
+      "name": "Shadow Economy Displacement Trap",
+      "system": "SW#48: long covid labor collapse",
+      "sourceFile": "48-long-covid-labor-collapse-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "shadow-leverage-amplification",
+      "name": "Shadow Leverage Amplification",
+      "system": "SW#04: economy",
+      "sourceFile": "04-economy-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "shantytown-permanence-irreversible-threshold",
+      "name": "Shantytown Permanence Irreversible Threshold",
+      "system": "SW#39: homelessness crisis",
+      "sourceFile": "39-homelessness-crisis-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "shelter-capacity-barrier-cascade-exclusion",
+      "name": "Shelter Capacity Barrier Cascade Exclusion",
+      "system": "SW#39: homelessness crisis",
+      "sourceFile": "39-homelessness-crisis-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "signal-power-physics-vulnerability-impossibility",
+      "name": "Signal Power Physics Vulnerability Impossibility",
+      "system": "SW#59: gnss spoofing positioning collapse",
+      "sourceFile": "59-gnss-spoofing-positioning-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "social-media-comparison-addiction-spiral",
+      "name": "Social Media Comparison Addiction Spiral",
+      "system": "SW#69: mental health apocalypse",
+      "sourceFile": "69-mental-health-apocalypse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "sovereign-debt-hidden-liability-materialization-cascade",
+      "name": "Sovereign Debt Hidden Liability Materialization Cascade",
+      "system": "SW#73: pension system collapse retirement crisis",
+      "sourceFile": "73-pension-system-collapse-retirement-crisis-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "sovereign-wealth-geopolitical-leverage",
+      "name": "Sovereign Wealth Geopolitical Leverage",
+      "system": "SW#42: water desalination mega trusts",
+      "sourceFile": "42-water-desalination-mega-trusts-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "space-traffic-management-coordination-failure-tragedy-commons",
+      "name": "Space Traffic Management Coordination Failure Tragedy Commons",
+      "system": "SW#62: starlink satellite internet sovereignty",
+      "sourceFile": "62-starlink-satellite-internet-sovereignty-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "specialization-lock-in",
+      "name": "Specialization Lock In",
+      "system": "SW#04: economy",
+      "sourceFile": "04-economy-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "species-network-cascade-ecosystem-services-collapse",
+      "name": "Species Network Cascade Ecosystem Services Collapse",
+      "system": "SW#66: gene drive synthetic biology catastrophe",
+      "sourceFile": "66-gene-drive-synthetic-biology-catastrophe-ARCHITECTURE.md",
+      "thresholdCount": 10
+    },
+    {
+      "id": "spent-fuel-pool-fukushima-risk-distributed-chernobyl-overhead",
+      "name": "Spent Fuel Pool Fukushima Risk Distributed Chernobyl Overhead",
+      "system": "SW#76: nuclear waste storage failure radioactive legacy",
+      "sourceFile": "76-nuclear-waste-storage-failure-radioactive-legacy-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "ssdi-backlog-spiral",
+      "name": "SSDI Backlog Spiral",
+      "system": "SW#48: long covid labor collapse",
+      "sourceFile": "48-long-covid-labor-collapse-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "state-actor-weaponization-cascade",
+      "name": "State Actor Weaponization Cascade",
+      "system": "SW#43: disinformation plague",
+      "sourceFile": "43-disinformation-plague-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "state-repression-escalation-martyrdom-backfire",
+      "name": "State Repression Escalation Martyrdom Backfire",
+      "system": "SW#55: general strike movements",
+      "sourceFile": "55-general-strike-movements-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "stochastic-terrorism-probability-amplification-attribution-impossibility",
+      "name": "Stochastic Terrorism Probability Amplification Attribution Impossibility",
+      "system": "SW#106: political violence escalation",
+      "sourceFile": "106-political-violence-escalation-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "stock-accumulation-compound",
+      "name": "Stock Accumulation Compound",
+      "system": "SW#10: education",
+      "sourceFile": "10-education-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "stop-and-frisk",
+      "name": "Stop And Frisk",
+      "system": "SW#45: mass incarceration crisis",
+      "sourceFile": "45-mass-incarceration-crisis-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "storage-supremacy-hegemony",
+      "name": "Storage Supremacy Hegemony",
+      "system": "SW#07: water conflict unified",
+      "sourceFile": "07-water-conflict-unified-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "stranded-asset-credit-spiral",
+      "name": "Stranded Asset Credit Spiral",
+      "system": "SW#26: oil industry death",
+      "sourceFile": "26-oil-industry-death-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "stranded-assets-resource-extraction-temporal-arbitrage-trap",
+      "name": "Stranded Assets Resource Extraction Temporal Arbitrage Trap",
+      "system": "SW#67: boreal permafrost carbon pulse",
+      "sourceFile": "67-boreal-permafrost-carbon-pulse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "strike-fund-depletion-endurance-race",
+      "name": "Strike Fund Depletion Endurance Race",
+      "system": "SW#55: general strike movements",
+      "sourceFile": "55-general-strike-movements-ARCHITECTURE.md",
+      "thresholdCount": 12
+    },
+    {
+      "id": "sub-systems",
+      "name": "Sub Systems",
+      "system": "SW#98: global demographic collapse",
+      "sourceFile": "98-global-demographic-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "suicide-contagion-social-media-amplification",
+      "name": "Suicide Contagion Social Media Amplification",
+      "system": "SW#69: mental health apocalypse",
+      "sourceFile": "69-mental-health-apocalypse-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "superfund-cleanup-funding-litigation-paralysis",
+      "name": "Superfund Cleanup Funding Litigation Paralysis",
+      "system": "SW#77: soil contamination heavy metal accumulation",
+      "sourceFile": "77-soil-contamination-heavy-metal-accumulation-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "supply-chain-cascade-amplification",
+      "name": "Supply Chain Cascade Amplification",
+      "system": "SW#52: ransomware pandemic",
+      "sourceFile": "52-ransomware-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "supply-chain-solarwinds-mass-compromise",
+      "name": "Supply Chain SolarWinds Mass Compromise",
+      "system": "SW#53: critical infrastructure attacks",
+      "sourceFile": "53-critical-infrastructure-attacks-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "swat-deployment-mission-creep",
+      "name": "SWAT Deployment Mission Creep",
+      "system": "SW#46: police militarization",
+      "sourceFile": "46-police-militarization-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "synthetic-pandemic-first-strike-advantage-defense-impossibility-attribution-deterrence-collapse",
+      "name": "Synthetic Pandemic First Strike Advantage Defense Impossibility Attribution Deterrence Collapse",
+      "system": "SW#94: synthetic biology weaponization biological attribution crisis",
+      "sourceFile": "94-synthetic-biology-weaponization-biological-attribution-crisis-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "systemic-override-fatigue-trap",
+      "name": "Systemic Override Fatigue Trap",
+      "system": "SW#18: shadow banking collapse",
+      "sourceFile": "18-shadow-banking-collapse-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "taiwan-semiconductor-single-point-failure-global-collapse",
+      "name": "Taiwan Semiconductor Single Point Failure Global Collapse",
+      "system": "SW#81: global supply chain collapse",
+      "sourceFile": "81-global-supply-chain-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "tech-gap-surge",
+      "name": "Tech Gap Surge",
+      "system": "SW#10: education",
+      "sourceFile": "10-education-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "techno-optimism",
+      "name": "Techno Optimism",
+      "system": "SW#98: global demographic collapse",
+      "sourceFile": "98-global-demographic-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "technology-democratization-crispr-proliferation-benchtop-weaponization",
+      "name": "Technology Democratization CRISPR Proliferation Benchtop Weaponization",
+      "system": "SW#94: synthetic biology weaponization biological attribution crisis",
+      "sourceFile": "94-synthetic-biology-weaponization-biological-attribution-crisis-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "technology-proliferation-medical-consumer-weaponization-pipeline",
+      "name": "Technology Proliferation Medical Consumer Weaponization Pipeline",
+      "system": "SW#96: brain computer interface neural sovereignty crisis",
+      "sourceFile": "96-brain-computer-interface-neural-sovereignty-crisis-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "temperature-thaw-active-layer-deepening-exponential-carbon-exposure",
+      "name": "Temperature Thaw Active Layer Deepening Exponential Carbon Exposure",
+      "system": "SW#87: permafrost thaw methane bomb",
+      "sourceFile": "87-permafrost-thaw-methane-bomb-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "temperature-thaw-carbon-release-feedback-amplification",
+      "name": "Temperature Thaw Carbon Release Feedback Amplification",
+      "system": "SW#67: boreal permafrost carbon pulse",
+      "sourceFile": "67-boreal-permafrost-carbon-pulse-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "temperature-threshold-vector-survival-permanent-establishment",
+      "name": "Temperature Threshold Vector Survival Permanent Establishment",
+      "system": "SW#85: vector borne disease geographic expansion",
+      "sourceFile": "85-vector-borne-disease-geographic-expansion-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "temporal-mismatch-civilizational-continuity-impossibility",
+      "name": "Temporal Mismatch Civilizational Continuity Impossibility",
+      "system": "SW#76: nuclear waste storage failure radioactive legacy",
+      "sourceFile": "76-nuclear-waste-storage-failure-radioactive-legacy-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "termination-shock-committed-warming-rebound-catastrophic-acceleration",
+      "name": "Termination Shock Committed Warming Rebound Catastrophic Acceleration",
+      "system": "SW#88: aerosol geoengineering proxy war",
+      "sourceFile": "88-aerosol-geoengineering-proxy-war-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "thermohaline-circulation-bifurcation-irreversibility-physics",
+      "name": "Thermohaline Circulation Bifurcation Irreversibility Physics",
+      "system": "SW#63: amoc collapse",
+      "sourceFile": "63-amoc-collapse-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "thermokarst-lake-lateral-expansion-methane-factory-albedo-feedback",
+      "name": "Thermokarst Lake Lateral Expansion Methane Factory Albedo Feedback",
+      "system": "SW#87: permafrost thaw methane bomb",
+      "sourceFile": "87-permafrost-thaw-methane-bomb-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "three-strikes-mandatory-minimum-rigidity",
+      "name": "Three Strikes Mandatory Minimum Rigidity",
+      "system": "SW#45: mass incarceration crisis",
+      "sourceFile": "45-mass-incarceration-crisis-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "timing-precision-death-trap-irreversibility",
+      "name": "Timing Precision Death Trap Irreversibility",
+      "system": "SW#59: gnss spoofing positioning collapse",
+      "sourceFile": "59-gnss-spoofing-positioning-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "tipping-point-detection-uncertainty-early-warning-dilemma",
+      "name": "Tipping Point Detection Uncertainty Early Warning Dilemma",
+      "system": "SW#63: amoc collapse",
+      "sourceFile": "63-amoc-collapse-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "trade-ideology-fragility",
+      "name": "Trade Ideology Fragility",
+      "system": "SW#03: diplomacy",
+      "sourceFile": "03-diplomacy-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "trade-offs",
+      "name": "Trade Offs",
+      "system": "SW#65: amazon rainforest dieback",
+      "sourceFile": "65-amazon-rainforest-dieback-ARCHITECTURE.md",
+      "thresholdCount": 7
+    },
+    {
+      "id": "trade-route-seeding-cascade",
+      "name": "Trade Route Seeding Cascade",
+      "system": "SW#06: pandemic",
+      "sourceFile": "06-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "tragedy-of-temporal-commons-political-impossibility",
+      "name": "Tragedy Of Temporal Commons Political Impossibility",
+      "system": "SW#57: carrington solar storm",
+      "sourceFile": "57-carrington-solar-storm-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "transaction-visibility-total-financial-surveillance-privacy-extinction",
+      "name": "Transaction Visibility Total Financial Surveillance Privacy Extinction",
+      "system": "SW#100: cbdc surveillance financial control",
+      "sourceFile": "100-cbdc-surveillance-financial-control-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "transboundary-water-wars-nuclear-threshold-india-pakistan-escalation",
+      "name": "Transboundary Water Wars Nuclear Threshold India Pakistan Escalation",
+      "system": "SW#86: himalayan third pole glacier collapse",
+      "sourceFile": "86-himalayan-third-pole-glacier-collapse-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "transformer-manufacturing-bottleneck-recovery-impossibility",
+      "name": "Transformer Manufacturing Bottleneck Recovery Impossibility",
+      "system": "SW#57: carrington solar storm",
+      "sourceFile": "57-carrington-solar-storm-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "transit-death-spiral",
+      "name": "Transit Death Spiral",
+      "system": "SW#49: commercial real estate doom loop",
+      "sourceFile": "49-commercial-real-estate-doom-loop-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "transport-trade-efficiency",
+      "name": "Transport Trade Efficiency",
+      "system": "SW#09: infrastructure",
+      "sourceFile": "09-infrastructure-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "transportation-nimby-distributed-vulnerability-amplification",
+      "name": "Transportation NIMBY Distributed Vulnerability Amplification",
+      "system": "SW#76: nuclear waste storage failure radioactive legacy",
+      "sourceFile": "76-nuclear-waste-storage-failure-radioactive-legacy-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "treatment-first",
+      "name": "Treatment First",
+      "system": "SW#39: homelessness crisis",
+      "sourceFile": "39-homelessness-crisis-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "treaty-enforcement-futility-dual-use-verification-impossibility-laws-governance-vacuum",
+      "name": "Treaty Enforcement Futility Dual Use Verification Impossibility LAWS Governance Vacuum",
+      "system": "SW#95: autonomous weapons laws accountability crisis",
+      "sourceFile": "95-autonomous-weapons-laws-accountability-crisis-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "treaty-enforcement-vacuum-verification-impossibility-crqc-opacity",
+      "name": "Treaty Enforcement Vacuum Verification Impossibility CRQC Opacity",
+      "system": "SW#93: quantum computing post quantum cryptographic crisis",
+      "sourceFile": "93-quantum-computing-post-quantum-cryptographic-crisis-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "trust-erosion-cascading-interconnected-institutional-collapse",
+      "name": "Trust Erosion Cascading Interconnected Institutional Collapse",
+      "system": "SW#105: institutional legitimacy collapse",
+      "sourceFile": "105-institutional-legitimacy-collapse-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "trust-erosion-irreversibility",
+      "name": "Trust Erosion Irreversibility",
+      "system": "SW#43: disinformation plague",
+      "sourceFile": "43-disinformation-plague-ARCHITECTURE.md",
+      "thresholdCount": 8
+    },
+    {
+      "id": "trust-transaction-friction",
+      "name": "Trust Transaction Friction",
+      "system": "SW#04: economy",
+      "sourceFile": "04-economy-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "tsmc-chokepoint-fragmentation",
+      "name": "TSMC Chokepoint Fragmentation",
+      "system": "SW#40: ai compute resource wars",
+      "sourceFile": "40-ai-compute-resource-wars-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "turnkey-surveillance-capability-asymmetry-authoritarian-proliferation",
+      "name": "Turnkey Surveillance Capability Asymmetry Authoritarian Proliferation",
+      "system": "SW#61: spyware for hire export wars",
+      "sourceFile": "61-spyware-for-hire-export-wars-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "uhi-mitigation-diminishing-returns",
+      "name": "UHI Mitigation Diminishing Returns",
+      "system": "SW#14: urban heat island",
+      "sourceFile": "14-urban-heat-island-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "unilateral-deployment-capability-sovereignty-bypass-treaty-impossibility",
+      "name": "Unilateral Deployment Capability Sovereignty Bypass Treaty Impossibility",
+      "system": "SW#88: aerosol geoengineering proxy war",
+      "sourceFile": "88-aerosol-geoengineering-proxy-war-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "union-density-collapse-positive-feedback-spiral",
+      "name": "Union Density Collapse Positive Feedback Spiral",
+      "system": "SW#56: union busting epidemic",
+      "sourceFile": "56-union-busting-epidemic-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "union-power-qualified-immunity-veto",
+      "name": "Union Power Qualified Immunity Veto",
+      "system": "SW#25: racial reckoning",
+      "sourceFile": "25-racial-reckoning-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "unpaid-care-work-invisibility-economic-undervaluation-exploitation",
+      "name": "Unpaid Care Work Invisibility Economic Undervaluation Exploitation",
+      "system": "SW#104: care economy crises",
+      "sourceFile": "104-care-economy-crises-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "urban-lead-childhood-neurological-irreversibility",
+      "name": "Urban Lead Childhood Neurological Irreversibility",
+      "system": "SW#77: soil contamination heavy metal accumulation",
+      "sourceFile": "77-soil-contamination-heavy-metal-accumulation-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "urbanization-acceleration-megacity-growth-governance-capacity-mismatch",
+      "name": "Urbanization Acceleration Megacity Growth Governance Capacity Mismatch",
+      "system": "SW#101: megacity ungovernability slum state collapse",
+      "sourceFile": "101-megacity-ungovernability-slum-state-collapse-ARCHITECTURE.md",
+      "thresholdCount": 5
+    },
+    {
+      "id": "vacancy-squat-eviction-battle",
+      "name": "Vacancy Squat Eviction Battle",
+      "system": "SW#49: commercial real estate doom loop",
+      "sourceFile": "49-commercial-real-estate-doom-loop-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "vaccine-development-path-lock",
+      "name": "Vaccine Development Path Lock",
+      "system": "SW#06: pandemic",
+      "sourceFile": "06-pandemic-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "vegetation-rainfall-feedback-savannization-threshold",
+      "name": "Vegetation Rainfall Feedback Savannization Threshold",
+      "system": "SW#65: amazon rainforest dieback",
+      "sourceFile": "65-amazon-rainforest-dieback-ARCHITECTURE.md",
+      "thresholdCount": 15
+    },
+    {
+      "id": "vendor-backdoor-normalization-liability-shield-collapse",
+      "name": "Vendor Backdoor Normalization Liability Shield Collapse",
+      "system": "SW#60: factory kill switch sabotage",
+      "sourceFile": "60-factory-kill-switch-sabotage-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "vendor-liability-bankruptcy-shadow-market-emergence",
+      "name": "Vendor Liability Bankruptcy Shadow Market Emergence",
+      "system": "SW#61: spyware for hire export wars",
+      "sourceFile": "61-spyware-for-hire-export-wars-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "vigilante-justice-backlash-paradox",
+      "name": "Vigilante Justice Backlash Paradox",
+      "system": "SW#47: death penalty abolition",
+      "sourceFile": "47-death-penalty-abolition-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "vigilante-justice-state-monopoly-violence-collapse-parallel-sovereignty",
+      "name": "Vigilante Justice State Monopoly Violence Collapse Parallel Sovereignty",
+      "system": "SW#106: political violence escalation",
+      "sourceFile": "106-political-violence-escalation-ARCHITECTURE.md",
+      "thresholdCount": 1
+    },
+    {
+      "id": "viral-incident-amplification-feedback",
+      "name": "Viral Incident Amplification Feedback",
+      "system": "SW#25: racial reckoning",
+      "sourceFile": "25-racial-reckoning-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "viral-nuclear-panic-emergency-alert-denial-delay-mass-casualties",
+      "name": "Viral Nuclear Panic Emergency Alert Denial Delay Mass Casualties",
+      "system": "SW#90: ai deepfake diplomatic mutinies",
+      "sourceFile": "90-ai-deepfake-diplomatic-mutinies-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "virality-asymmetry-truth-decay",
+      "name": "Virality Asymmetry Truth Decay",
+      "system": "SW#43: disinformation plague",
+      "sourceFile": "43-disinformation-plague-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "visibility-political-pressure-non-linear",
+      "name": "Visibility Political Pressure Non Linear",
+      "system": "SW#39: homelessness crisis",
+      "sourceFile": "39-homelessness-crisis-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "voluntary-association-collapse-social-capital-extinction-atomization",
+      "name": "Voluntary Association Collapse Social Capital Extinction Atomization",
+      "system": "SW#105: institutional legitimacy collapse",
+      "sourceFile": "105-institutional-legitimacy-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "voluntary-buyout-failure-constitutional-stalemate",
+      "name": "Voluntary Buyout Failure Constitutional Stalemate",
+      "system": "SW#44: climate insurance collapse",
+      "sourceFile": "44-climate-insurance-collapse-ARCHITECTURE.md",
+      "thresholdCount": 3
+    },
+    {
+      "id": "vpn-mesh-darknet-surge",
+      "name": "VPN Mesh Darknet Surge",
+      "system": "SW#41: splinternet data localization",
+      "sourceFile": "41-splinternet-data-localization-ARCHITECTURE.md",
+      "thresholdCount": 6
+    },
+    {
+      "id": "water-consumption-agricultural-displacement",
+      "name": "Water Consumption Agricultural Displacement",
+      "system": "SW#40: ai compute resource wars",
+      "sourceFile": "40-ai-compute-resource-wars-ARCHITECTURE.md",
+      "thresholdCount": 4
+    },
+    {
+      "id": "wet-bulb-habitability-boundary",
+      "name": "Wet Bulb Habitability Boundary",
+      "system": "SW#01: climate",
+      "sourceFile": "01-climate-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "wetbulb-mortality-threshold",
+      "name": "WetBulb Mortality Threshold",
+      "system": "SW#14: urban heat island",
+      "sourceFile": "14-urban-heat-island-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "workforce-exodus-burnout-moral-injury-death-spiral",
+      "name": "Workforce Exodus Burnout Moral Injury Death Spiral",
+      "system": "SW#78: healthcare system collapse",
+      "sourceFile": "78-healthcare-system-collapse-ARCHITECTURE.md",
+      "thresholdCount": 2
+    },
+    {
+      "id": "worst-case",
+      "name": "Worst Case",
+      "system": "SW#90: ai deepfake diplomatic mutinies",
+      "sourceFile": "90-ai-deepfake-diplomatic-mutinies-ARCHITECTURE.md",
+      "thresholdCount": 0
+    },
+    {
+      "id": "yedoma-ice-content-catastrophic-volume-loss-carbon-pulse",
+      "name": "Yedoma Ice Content Catastrophic Volume Loss Carbon Pulse",
+      "system": "SW#87: permafrost thaw methane bomb",
+      "sourceFile": "87-permafrost-thaw-methane-bomb-ARCHITECTURE.md",
+      "thresholdCount": 9
+    },
+    {
+      "id": "zoonotic-spillover-worker-bridge-human-adaptation",
+      "name": "Zoonotic Spillover Worker Bridge Human Adaptation",
+      "system": "SW#83: factory farming disease incubators",
+      "sourceFile": "83-factory-farming-disease-incubators-ARCHITECTURE.md",
+      "thresholdCount": 1
+    }
+  ]
+}

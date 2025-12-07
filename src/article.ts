@@ -15,7 +15,7 @@ function formatDate(dateStr: string): string {
 export type ViewType = 'graph' | 'table' | 'wiki' | 'communities';
 export type RouteType =
   | { kind: 'view'; view: ViewType }
-  | { kind: 'article'; type: 'issue' | 'system'; slug: string }
+  | { kind: 'article'; type: 'issue' | 'system' | 'principle'; slug: string }
   | { kind: 'community'; slug: string }
   | null;
 
@@ -80,12 +80,13 @@ export class ArticleRouter {
       return;
     }
 
-    // Article routes: #/wiki/slug, #/issue/slug, #/system/slug
-    const articleMatch = hash.match(/^#\/(wiki|issue|system)\/([a-z0-9-]+)$/);
+    // Article routes: #/wiki/slug, #/issue/slug, #/system/slug, #/principle/slug
+    const articleMatch = hash.match(/^#\/(wiki|issue|system|principle)\/([a-z0-9-]+)$/);
     if (articleMatch) {
       const [, routeType, slug] = articleMatch;
-      // Normalize wiki and issue routes to the same handling
-      const type = routeType === 'system' ? 'system' : 'issue';
+      // Normalize routes to correct type
+      const type = routeType === 'system' ? 'system' :
+                   routeType === 'principle' ? 'principle' : 'issue';
       this.currentRoute = { kind: 'article', type, slug };
       this.onRouteChange(this.currentRoute);
       return;
@@ -95,8 +96,8 @@ export class ArticleRouter {
     this.navigateToView('graph');
   }
 
-  navigateToArticle(_type: 'issue' | 'system', slug: string) {
-    // Use #/wiki/slug for both issues and systems (wiki view with sidebar)
+  navigateToArticle(_type: 'issue' | 'system' | 'principle', slug: string) {
+    // Use #/wiki/slug for issues, systems, and principles (wiki view with sidebar)
     window.location.hash = `#/wiki/${slug}`;
   }
 
@@ -217,12 +218,34 @@ function renderRelatedContent(node: any, data: GraphData): string {
   const connectedIssues = connectedNodes.filter(n => n.type === 'issue');
   const connectedSystems = connectedNodes.filter(n => n.type === 'system');
 
+  // Find principles for this issue (match sourceFile to issue id)
+  const relatedPrinciples = node.type === 'issue' && data.principles
+    ? data.principles.filter(p => {
+        // Extract issue slug from sourceFile: "44-climate-insurance-collapse-ARCHITECTURE.md" → "climate-insurance-collapse"
+        const match = p.sourceFile.match(/^\d+[a-z]?-(.+)-ARCHITECTURE\.md$/);
+        return match && match[1] === node.id;
+      })
+    : [];
+
   const INITIAL_SHOW = 10;
   const hasMoreIssues = connectedIssues.length > INITIAL_SHOW;
 
   return `
     <div class="related-content">
       <h2>Related Content</h2>
+
+      ${relatedPrinciples.length > 0 ? `
+        <div class="related-section principles-section">
+          <h3>Design Principles (${relatedPrinciples.length})</h3>
+          <div class="related-links">
+            ${relatedPrinciples.map(p => `
+              <a href="#/wiki/${p.id}" class="related-link has-article principle-link">
+                ${p.name}
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
 
       ${connectedIssues.length > 0 ? `
         <div class="related-section" data-section="issues">
@@ -281,7 +304,7 @@ function renderRelatedContent(node: any, data: GraphData): string {
 /**
  * Render "article not found" message
  */
-export function renderArticleNotFound(type: 'issue' | 'system', slug: string): string {
+export function renderArticleNotFound(type: 'issue' | 'system' | 'principle', slug: string): string {
   return `
     <div class="article-view article-not-found">
       <div class="not-found-content">

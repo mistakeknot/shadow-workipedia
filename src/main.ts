@@ -505,6 +505,8 @@ async function main() {
   // View toggles state
   let showIssues = true;
   let showSystems = false;
+  let showPrinciples = false;
+  let showDataFlows = false; // Show directed data flow arrows
 
   // Cluster visualization state
   let showClusters = false;
@@ -528,6 +530,7 @@ async function main() {
         if (targetNode && targetNode.x !== undefined && targetNode.y !== undefined) {
           selectedNode = targetNode;
           panelContent.innerHTML = renderDetailPanel(targetNode, data);
+          panelContent.scrollTop = 0; // Reset scroll position for new node
           attachDetailPanelHandlers(); // Re-attach handlers for new connections
           tooltip.classList.add('hidden');
 
@@ -599,6 +602,7 @@ async function main() {
 
           selectedNode = targetNode;
           panelContent.innerHTML = renderDetailPanel(targetNode, data);
+          panelContent.scrollTop = 0; // Reset scroll position for new node
           attachDetailPanelHandlers();
           tooltip.classList.add('hidden');
 
@@ -651,6 +655,7 @@ async function main() {
       if (node && node.x !== undefined && node.y !== undefined) {
         // Show detail panel
         panelContent.innerHTML = renderDetailPanel(node, data);
+        panelContent.scrollTop = 0; // Reset scroll position for new node
         detailPanel.classList.remove('hidden');
         // Hide tooltip when detail panel opens (prevents overlap on mobile)
         tooltip.classList.add('hidden');
@@ -730,10 +735,38 @@ async function main() {
       showSystems = !showSystems;
       showSystemsBtn.classList.toggle('active', showSystems);
       updateSearchPlaceholder();
+      // Restart simulation to spread out newly visible nodes
+      graph.restart();
       render();
       if (currentView === 'table') {
         renderTable();
       }
+    });
+  }
+
+  // Principles toggle button
+  const showPrinciplesBtn = document.getElementById('show-principles-btn') as HTMLButtonElement;
+  if (showPrinciplesBtn) {
+    showPrinciplesBtn.addEventListener('click', () => {
+      showPrinciples = !showPrinciples;
+      showPrinciplesBtn.classList.toggle('active', showPrinciples);
+      updateSearchPlaceholder();
+      // Restart simulation to spread out newly visible nodes
+      graph.restart();
+      render();
+      if (currentView === 'table') {
+        renderTable();
+      }
+    });
+  }
+
+  // Data Flows toggle button
+  const showDataFlowsBtn = document.getElementById('show-dataflows-btn') as HTMLButtonElement;
+  if (showDataFlowsBtn) {
+    showDataFlowsBtn.addEventListener('click', () => {
+      showDataFlows = !showDataFlows;
+      showDataFlowsBtn.classList.toggle('active', showDataFlows);
+      render();
     });
   }
 
@@ -742,12 +775,17 @@ async function main() {
     const searchInput = document.getElementById('search') as HTMLInputElement;
     if (!searchInput) return;
 
-    if (showIssues && showSystems) {
-      searchInput.placeholder = 'Search issues & systems...';
-    } else if (showSystems) {
-      searchInput.placeholder = 'Search systems...';
+    const types: string[] = [];
+    if (showIssues) types.push('issues');
+    if (showSystems) types.push('systems');
+    if (showPrinciples) types.push('principles');
+
+    if (types.length === 0) {
+      searchInput.placeholder = 'Search...';
+    } else if (types.length === 1) {
+      searchInput.placeholder = `Search ${types[0]}...`;
     } else {
-      searchInput.placeholder = 'Search issues...';
+      searchInput.placeholder = `Search ${types.join(' & ')}...`;
     }
   }
 
@@ -910,9 +948,11 @@ async function main() {
       // View toggle filtering
       if (node.type === 'issue' && !showIssues) return false;
       if (node.type === 'system' && !showSystems) return false;
+      if (node.type === 'principle' && !showPrinciples) return false;
 
       // Category filtering - show node if ANY of its categories are active (additive filtering)
-      // Systems don't have categories, so always show them based on view mode
+      // Systems and Principles don't have categories, so always show them based on view mode
+      if (node.type === 'principle') return true;
       if (!node.categories || node.categories.length === 0) return true;
       const anyCategoryActive = node.categories.some(cat => activeCategories.has(cat));
       return anyCategoryActive;
@@ -1027,6 +1067,53 @@ async function main() {
     }
   }
 
+  // Helper function to draw an arrow at the end of an edge
+  function drawArrow(
+    ctx: CanvasRenderingContext2D,
+    fromX: number,
+    fromY: number,
+    toX: number,
+    toY: number,
+    nodeRadius: number,
+    arrowSize: number
+  ) {
+    const angle = Math.atan2(toY - fromY, toX - fromX);
+
+    // Calculate arrow tip position (at edge of target node)
+    const tipX = toX - nodeRadius * Math.cos(angle);
+    const tipY = toY - nodeRadius * Math.sin(angle);
+
+    // Arrow wings
+    const wingAngle = Math.PI / 6; // 30 degrees
+    const leftX = tipX - arrowSize * Math.cos(angle - wingAngle);
+    const leftY = tipY - arrowSize * Math.sin(angle - wingAngle);
+    const rightX = tipX - arrowSize * Math.cos(angle + wingAngle);
+    const rightY = tipY - arrowSize * Math.sin(angle + wingAngle);
+
+    // Draw filled arrowhead
+    ctx.beginPath();
+    ctx.moveTo(tipX, tipY);
+    ctx.lineTo(leftX, leftY);
+    ctx.lineTo(rightX, rightY);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  // Helper function to draw a diamond shape for principle nodes
+  function drawDiamond(
+    ctx: CanvasRenderingContext2D,
+    x: number,
+    y: number,
+    size: number
+  ) {
+    ctx.beginPath();
+    ctx.moveTo(x, y - size);      // Top
+    ctx.lineTo(x + size, y);      // Right
+    ctx.lineTo(x, y + size);      // Bottom
+    ctx.lineTo(x - size, y);      // Left
+    ctx.closePath();
+  }
+
   // Render loop
   function render() {
     if (!ctx) return;
@@ -1064,8 +1151,18 @@ async function main() {
       // Skip edges based on view toggles
       if (sourceType === 'issue' && !showIssues) continue;
       if (sourceType === 'system' && !showSystems) continue;
+      if (sourceType === 'principle' && !showPrinciples) continue;
       if (targetType === 'issue' && !showIssues) continue;
       if (targetType === 'system' && !showSystems) continue;
+      if (targetType === 'principle' && !showPrinciples) continue;
+
+      // Skip data-flow edges if not enabled
+      const edgeData = data.edges.find(e =>
+        (e.source === link.source.id && e.target === link.target.id) ||
+        (e.source === link.target.id && e.target === link.source.id)
+      );
+      const isDataFlow = edgeData?.type === 'data-flow';
+      if (isDataFlow && !showDataFlows) continue;
 
       // Show edge if ANY category of both source and target are active (additive filtering)
       const sourceAnyCategoryActive = !link.source.categories?.length || link.source.categories.some(cat => activeCategories.has(cat));
@@ -1076,15 +1173,39 @@ async function main() {
       const isConnected = selectedNode &&
         (link.source.id === selectedNode.id || link.target.id === selectedNode.id);
 
-      ctx.strokeStyle = isConnected
-        ? 'rgba(148, 163, 184, 0.8)'
-        : 'rgba(148, 163, 184, 0.15)';
-      ctx.lineWidth = (isConnected ? 2 : 1) / currentTransform.k;
+      // Different styling for data flow edges
+      if (isDataFlow) {
+        ctx.strokeStyle = isConnected
+          ? 'rgba(245, 158, 11, 0.9)'  // Amber for data flows
+          : 'rgba(245, 158, 11, 0.25)';
+        ctx.lineWidth = (isConnected ? 2.5 : 1.5) / currentTransform.k;
+      } else {
+        ctx.strokeStyle = isConnected
+          ? 'rgba(148, 163, 184, 0.8)'
+          : 'rgba(148, 163, 184, 0.15)';
+        ctx.lineWidth = (isConnected ? 2 : 1) / currentTransform.k;
+      }
 
       ctx.beginPath();
       ctx.moveTo(link.source.x!, link.source.y!);
       ctx.lineTo(link.target.x!, link.target.y!);
       ctx.stroke();
+
+      // Draw arrowhead for directed edges (data flows)
+      if (isDataFlow && edgeData?.directed) {
+        ctx.fillStyle = ctx.strokeStyle;
+        const targetSize = link.target.size || 8;
+        const arrowSize = Math.max(6, 10 / currentTransform.k);
+        drawArrow(
+          ctx,
+          link.source.x!,
+          link.source.y!,
+          link.target.x!,
+          link.target.y!,
+          targetSize + 2,
+          arrowSize
+        );
+      }
     }
 
     // Draw nodes
@@ -1092,9 +1213,13 @@ async function main() {
       // View toggle filtering
       if (node.type === 'issue' && !showIssues) continue;
       if (node.type === 'system' && !showSystems) continue;
+      if (node.type === 'principle' && !showPrinciples) continue;
 
       // Show node if ANY of its categories are active (additive filtering)
-      const anyCategoryActive = !node.categories?.length || node.categories.some(cat => activeCategories.has(cat));
+      // Principles don't have categories, so they're always "active" if shown
+      const anyCategoryActive = node.type === 'principle' ||
+        !node.categories?.length ||
+        node.categories.some(cat => activeCategories.has(cat));
 
       if (!anyCategoryActive) continue;
 
@@ -1122,10 +1247,26 @@ async function main() {
 
       const size = (isHovered || isSelected) ? node.size * 1.2 : node.size;
 
-      // Draw main circle (primary category/community color)
-      ctx.beginPath();
-      ctx.arc(node.x!, node.y!, size, 0, 2 * Math.PI);
-      ctx.fill();
+      // Draw node shape based on type
+      if (node.type === 'principle') {
+        // Principle nodes: Diamond shape
+        drawDiamond(ctx, node.x!, node.y!, size);
+        ctx.fill();
+
+        // Add subtle glow effect for principles
+        ctx.globalAlpha = isRelevant ? 0.3 : 0.05;
+        ctx.strokeStyle = node.color;
+        ctx.lineWidth = 2 / currentTransform.k;
+        drawDiamond(ctx, node.x!, node.y!, size + 3 / currentTransform.k);
+        ctx.stroke();
+
+        ctx.globalAlpha = isRelevant ? (isHovered ? 1.0 : 0.9) : 0.1;
+      } else {
+        // Issue and System nodes: Circle shape
+        ctx.beginPath();
+        ctx.arc(node.x!, node.y!, size, 0, 2 * Math.PI);
+        ctx.fill();
+      }
 
       // System nodes: Add distinctive dashed stroke and inner ring
       if (node.type === 'system') {
@@ -1384,6 +1525,7 @@ async function main() {
         if (node) {
           selectedNode = node;
           panelContent.innerHTML = renderDetailPanel(node, data);
+          panelContent.scrollTop = 0; // Reset scroll position for new node
           detailPanel.classList.remove('hidden');
           // Hide tooltip when detail panel opens (prevents overlap on mobile)
           tooltip.classList.add('hidden');
@@ -1419,7 +1561,9 @@ async function main() {
 
     // Group by type
     const issueArticles = articles.filter(a => a.type === 'issue');
-    const systemArticles = articles.filter(a => a.type === 'system');
+    // Filter out subsystems (those with parentheses) to show only main systems
+    const systemArticles = articles.filter(a => a.type === 'system' && !a.title.includes('('));
+    const principleArticles = articles.filter(a => a.type === 'principle');
 
     // Mobile: collapse sidebar when an article is selected
     if (wikiSidebar) {
@@ -1461,20 +1605,54 @@ async function main() {
           </div>
         </div>
       ` : ''}
+
+      ${principleArticles.length > 0 ? `
+        <div class="wiki-sidebar-section">
+          <h3>Principles (${principleArticles.length})</h3>
+          <div class="wiki-sidebar-list">
+            ${principleArticles.map(renderSidebarItem).join('')}
+          </div>
+        </div>
+      ` : ''}
     `;
 
     wikiSidebarContent.innerHTML = sidebarHtml;
 
-    // Render article content or welcome message
+    // Render article content or welcome message with collapsible lists
     if (selectedWikiArticle && data.articles[selectedWikiArticle]) {
       const article = data.articles[selectedWikiArticle];
       wikiArticleContent.innerHTML = renderWikiArticleContent(article, data);
     } else {
+      // Render collapsible sections for the main wiki page
+      const renderCollapsibleSection = (title: string, items: typeof articles, typeClass: string) => {
+        if (items.length === 0) return '';
+        return `
+          <details class="wiki-collapsible-section ${typeClass}" open>
+            <summary>
+              <span class="section-title">${title}</span>
+              <span class="section-count">${items.length}</span>
+            </summary>
+            <div class="wiki-article-grid">
+              ${items.map(article => `
+                <a href="#/wiki/${article.id}" class="wiki-article-card">
+                  <span class="article-title">${article.title}</span>
+                </a>
+              `).join('')}
+            </div>
+          </details>
+        `;
+      };
+
       wikiArticleContent.innerHTML = `
-        <div class="wiki-welcome">
-          <h2>Shadow Workipedia</h2>
-          <p class="wiki-welcome-subtitle">${articles.length} articles</p>
-          <p>Select an article from the sidebar to start reading.</p>
+        <div class="wiki-welcome-full">
+          <h1>Shadow Workipedia</h1>
+          <p class="wiki-welcome-subtitle">${articles.length} articles documenting global challenges and systemic risks</p>
+
+          <div class="wiki-sections">
+            ${renderCollapsibleSection('Issues', issueArticles, 'issues-section')}
+            ${renderCollapsibleSection('Systems', systemArticles, 'systems-section')}
+            ${renderCollapsibleSection('Principles', principleArticles, 'principles-section')}
+          </div>
         </div>
       `;
     }
@@ -1513,6 +1691,7 @@ async function main() {
             // Select the node and show detail panel
             selectedNode = targetNode;
             panelContent.innerHTML = renderDetailPanel(targetNode, data);
+            panelContent.scrollTop = 0; // Reset scroll position for new node
             detailPanel.classList.remove('hidden');
 
             // Attach handlers for detail panel interactions
@@ -1564,6 +1743,7 @@ async function main() {
             router.navigateToView('graph');
             selectedNode = targetNode;
             panelContent.innerHTML = renderDetailPanel(targetNode, data);
+            panelContent.scrollTop = 0; // Reset scroll position for new node
             detailPanel.classList.remove('hidden');
             attachDetailPanelHandlers();
 

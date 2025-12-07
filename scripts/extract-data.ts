@@ -1,7 +1,7 @@
 import { writeFileSync, readFileSync, existsSync, readdirSync } from 'fs';
 import { join } from 'path';
 import * as yaml from 'yaml';
-import type { GraphData, GraphNode, GraphEdge, IssueCategory, IssueUrgency, CommunityInfo } from '../src/types';
+import type { GraphData, GraphNode, GraphEdge, IssueCategory, IssueUrgency, CommunityInfo, PrincipleInfo, DataFlowInfo } from '../src/types';
 import { parseSystemWalkTracker, getSystemWalkData } from './parse-system-walks';
 import { loadWikiContent, getWikiArticle, type WikiArticle } from './parse-wiki';
 
@@ -9,6 +9,8 @@ const PARENT_REPO = join(process.cwd(), '..');
 const OUTPUT_PATH = join(process.cwd(), 'public', 'data.json');
 const YAML_DATA_DIR = join(PARENT_REPO, 'data/issues');
 const COMMUNITIES_DATA_FILE = join(PARENT_REPO, 'data/generated/analysis/communities-with-mechanics.json');
+const PRINCIPLES_INDEX_FILE = join(process.cwd(), 'data/principles-index.json');
+const DATA_FLOWS_FILE = join(process.cwd(), 'data/system-data-flows.json');
 
 // Color palette for categories (will be used in future extraction logic)
 const CATEGORY_COLORS: Record<IssueCategory, string> = {
@@ -665,6 +667,151 @@ function loadCommunityData(): {
   return { communityMap, communities };
 }
 
+interface ExtractedPrinciple {
+  id: string;
+  name: string;
+  system: string;
+  sourceFile: string;
+  thresholdCount: number;
+}
+
+function loadPrinciplesData(): { principles: PrincipleInfo[]; nodes: GraphNode[]; edges: GraphEdge[] } {
+  if (!existsSync(PRINCIPLES_INDEX_FILE)) {
+    console.warn('⚠️  Principles index not found. Run extract-principles.ts first.');
+    return { principles: [], nodes: [], edges: [] };
+  }
+
+  const content = readFileSync(PRINCIPLES_INDEX_FILE, 'utf-8');
+  const data = JSON.parse(content);
+
+  const principles: PrincipleInfo[] = [];
+  const nodes: GraphNode[] = [];
+  const edges: GraphEdge[] = [];
+
+  // Principle node color (distinct from issues/systems)
+  const principleColor = '#f59e0b'; // Amber-500
+
+  // Hub systems (SW#01-13) map to system nodes, not issues
+  const hubSystemMap: Record<string, string> = {
+    'climate': 'climate',
+    'technology': 'technology',
+    'diplomacy': 'diplomacy',
+    'economy': 'economy',
+    'population': 'population',
+    'pandemic': 'pandemic',
+    'water-conflict-unified': 'resources', // Map to resources system
+    'infrastructure': 'infrastructure',
+    'education': 'education',
+    'politics': 'politics',
+    'culture': 'culture',
+    'institutions': 'institutions',
+  };
+
+  if (data.principles && Array.isArray(data.principles)) {
+    for (const p of data.principles as ExtractedPrinciple[]) {
+      // Create PrincipleInfo
+      principles.push({
+        id: p.id,
+        name: p.name,
+        description: '', // Will be loaded from wiki article
+        sourceSystem: p.system,
+        sourceFile: p.sourceFile || '',
+        thresholds: [],
+        relatedPrinciples: [],
+        systems: [],
+      });
+
+      // Create GraphNode for visualization
+      nodes.push({
+        id: p.id,
+        type: 'principle',
+        label: p.name,
+        description: p.system,
+        sourceSystem: p.system,
+        thresholds: [],
+        color: principleColor,
+        size: Math.min(12, 6 + p.thresholdCount), // Size based on threshold count
+      });
+
+      // Extract target from sourceFile (e.g., "44-climate-insurance-collapse-ARCHITECTURE.md")
+      const fileMatch = p.sourceFile?.match(/^(\d+[a-z]?)-(.+)-ARCHITECTURE\.md$/);
+      if (fileMatch) {
+        const swNumber = fileMatch[1];
+        const slugPart = fileMatch[2]; // Already kebab-case from filename
+
+        // Check if this is a hub system (SW#01-13, single or double digit without letter)
+        const isHubSystem = /^(0[1-9]|1[0-3])$/.test(swNumber);
+
+        if (isHubSystem && hubSystemMap[slugPart]) {
+          // Connect to system node
+          edges.push({
+            source: p.id,
+            target: hubSystemMap[slugPart],
+            type: 'principle-system',
+            strength: 0.4,
+            directed: false,
+          });
+        } else {
+          // Connect to issue node
+          edges.push({
+            source: p.id,
+            target: slugPart,
+            type: 'principle-issue',
+            strength: 0.3,
+            directed: false,
+          });
+        }
+      }
+    }
+  }
+
+  return { principles, nodes, edges };
+}
+
+function loadDataFlows(): { dataFlows: DataFlowInfo[]; edges: GraphEdge[] } {
+  if (!existsSync(DATA_FLOWS_FILE)) {
+    console.warn('⚠️  Data flows file not found. Run extract-principles.ts first.');
+    return { dataFlows: [], edges: [] };
+  }
+
+  const content = readFileSync(DATA_FLOWS_FILE, 'utf-8');
+  const data = JSON.parse(content);
+
+  const dataFlows: DataFlowInfo[] = [];
+  const edges: GraphEdge[] = [];
+
+  if (data.flows && Array.isArray(data.flows)) {
+    // Deduplicate flows
+    const seenFlows = new Set<string>();
+
+    for (const flow of data.flows) {
+      const flowKey = `${flow.source}->${flow.target}:${flow.direction}`;
+      if (seenFlows.has(flowKey)) continue;
+      seenFlows.add(flowKey);
+
+      dataFlows.push({
+        source: flow.source,
+        target: flow.target,
+        direction: flow.direction,
+        data: flow.data || [],
+      });
+
+      // Create directed edge
+      edges.push({
+        source: flow.source.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^sw-/, ''),
+        target: flow.target.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^sw-/, ''),
+        type: 'data-flow',
+        strength: 0.4,
+        directed: true,
+        flowDirection: flow.direction,
+        label: flow.direction === 'reads' ? 'reads from' : 'writes to',
+      });
+    }
+  }
+
+  return { dataFlows, edges };
+}
+
 async function main() {
   console.log('🔍 Extracting data from Shadow Work...');
 
@@ -682,6 +829,14 @@ async function main() {
   // Load community data
   const { communityMap, communities } = loadCommunityData();
   console.log(`🎨 Loaded ${Object.keys(communities).length} communities with ${communityMap.size} member assignments`);
+
+  // Load principles data (from extract-principles.ts output)
+  const { principles, nodes: principleNodes, edges: principleEdges } = loadPrinciplesData();
+  console.log(`🔬 Loaded ${principles.length} design principles with ${principleEdges.length} edges`);
+
+  // Load data flows (from extract-principles.ts output)
+  const { dataFlows, edges: dataFlowEdges } = loadDataFlows();
+  console.log(`🔗 Loaded ${dataFlows.length} data flow connections`);
 
   // Parse system walk tracker
   const systemWalkMap = parseSystemWalkTracker(PARENT_REPO);
@@ -729,6 +884,30 @@ async function main() {
 
   const systemNodes = connectivityData.systems.map(system => systemToNode(system));
   nodes.push(...systemNodes);
+
+  // Add principle nodes (optional, controlled by flag)
+  // Only add principles that have valid edges to avoid disconnected clusters
+  const includePrinciples = process.argv.includes('--include-principles');
+  if (includePrinciples && principleNodes.length > 0) {
+    // Get all valid target IDs (issues + systems) before adding principle nodes
+    const validTargetIds = new Set(nodes.map(n => n.id));
+
+    // Find which principles have valid edges
+    const validPrincipleEdges = principleEdges.filter(e => validTargetIds.has(e.target));
+    const connectedPrincipleIds = new Set(validPrincipleEdges.map(e => e.source));
+
+    // Only add principle nodes that have at least one valid edge
+    const connectedPrincipleNodes = principleNodes.filter(n => connectedPrincipleIds.has(n.id));
+    nodes.push(...connectedPrincipleNodes);
+
+    // Add the valid edges
+    edges.push(...validPrincipleEdges);
+
+    const skippedNodes = principleNodes.length - connectedPrincipleNodes.length;
+    const skippedEdges = principleEdges.length - validPrincipleEdges.length;
+    console.log(`🔬 Added ${connectedPrincipleNodes.length} principle nodes (${skippedNodes} skipped - no matching target)`);
+    console.log(`🔗 Added ${validPrincipleEdges.length} principle edges (${skippedEdges} skipped - invalid target)`);
+  }
 
   // Create system ID map for edge creation
   const systemIdMap = new Map(systemNodes.map(s => [s.label, s.id]));
@@ -837,10 +1016,13 @@ async function main() {
   for (const [id, article] of wikiContent.systems) {
     wikiArticles[id] = article;
   }
+  for (const [id, article] of wikiContent.principles) {
+    wikiArticles[id] = article;
+  }
 
   // Then, attach wiki article metadata to matching nodes
   for (const node of nodes) {
-    const article = getWikiArticle(node.id, node.type as 'issue' | 'system', wikiContent);
+    const article = getWikiArticle(node.id, node.type as 'issue' | 'system' | 'principle', wikiContent);
     if (article) {
       // Add hasArticle flag to node
       node.hasArticle = true;
@@ -860,12 +1042,17 @@ async function main() {
 
   console.log(`  - ${wikiContent.issues.size} issue articles`);
   console.log(`  - ${wikiContent.systems.size} system articles`);
+  console.log(`  - ${wikiContent.principles.size} principle articles`);
+
+  const principleCount = nodes.filter(n => n.type === 'principle').length;
 
   const data: GraphData = {
     nodes,
     edges,
     articles: wikiArticles, // Include full articles
     communities, // Include community metadata
+    principles: includePrinciples ? principles : undefined,
+    dataFlows: dataFlows.length > 0 ? dataFlows : undefined,
     metadata: {
       generatedAt: new Date().toISOString(),
       issueCount: nodes.filter(n => n.type === 'issue').length,
@@ -873,11 +1060,21 @@ async function main() {
       edgeCount: edges.length,
       articleCount: Object.keys(wikiArticles).length,
       communityCount: Object.keys(communities).length,
+      principleCount: includePrinciples ? principleCount : undefined,
+      dataFlowCount: dataFlows.length > 0 ? dataFlows.length : undefined,
     },
   };
 
   writeFileSync(OUTPUT_PATH, JSON.stringify(data, null, 2));
-  console.log(`✅ Extracted ${data.metadata.issueCount} issues, ${data.metadata.systemCount} systems, ${data.metadata.edgeCount} edges, ${data.metadata.articleCount} articles, ${data.metadata.communityCount} communities`);
+
+  let summary = `✅ Extracted ${data.metadata.issueCount} issues, ${data.metadata.systemCount} systems, ${data.metadata.edgeCount} edges, ${data.metadata.articleCount} articles, ${data.metadata.communityCount} communities`;
+  if (principleCount > 0) {
+    summary += `, ${principleCount} principles`;
+  }
+  if (dataFlows.length > 0) {
+    summary += `, ${dataFlows.length} data flows`;
+  }
+  console.log(summary);
   console.log(`📦 Wrote to ${OUTPUT_PATH}`);
 }
 
