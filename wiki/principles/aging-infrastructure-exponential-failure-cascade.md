@@ -12,4 +12,4 @@ Reactor design life 40-60 years but 93 of 94 US reactors sought extensions to 60
 
 ## Source
 
-Extracted from [Nuclear Plant Crisis Cascade](#/wiki/nuclear-plant-crisis-cascade) at line 12.
+Extracted from [Nuclear Plant Crisis Cascade](#/wiki/nuclear-plant-crisis-cascade) at line 13.

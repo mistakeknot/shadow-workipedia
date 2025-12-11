@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Education](#/wiki/education) at line 22.
+Extracted from [Education](#/wiki/education) at line 24.

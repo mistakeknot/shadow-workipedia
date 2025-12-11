@@ -12,4 +12,4 @@ Decarceration reforms (First Step Act 2018 federal 3,000 early releases, Califor
 
 ## Source
 
-Extracted from [Mass Incarceration Crisis](#/wiki/mass-incarceration-crisis) at line 20.
+Extracted from [Mass Incarceration Crisis](#/wiki/mass-incarceration-crisis) at line 27.

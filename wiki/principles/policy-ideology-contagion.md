@@ -12,4 +12,4 @@ Government responses cluster by ideology (Technocrats 85% fast-track infrastruct
 
 ## Source
 
-Extracted from [Ai Compute Resource Wars](#/wiki/ai-compute-resource-wars) at line 19.
+Extracted from [Ai Compute Resource Wars](#/wiki/ai-compute-resource-wars) at line 20.

@@ -12,4 +12,4 @@ Supply chain stages amplify small demand changes exponentially where 10% consume
 
 ## Source
 
-Extracted from [Global Supply Chain Collapse](#/wiki/global-supply-chain-collapse) at line 17.
+Extracted from [Global Supply Chain Collapse](#/wiki/global-supply-chain-collapse) at line 18.

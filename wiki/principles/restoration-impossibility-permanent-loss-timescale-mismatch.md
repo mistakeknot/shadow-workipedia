@@ -12,4 +12,4 @@ Collapsed freshwater systems cannot be restored within human timescales where da
 
 ## Source
 
-Extracted from [Freshwater Fisheries Collapse](#/wiki/freshwater-fisheries-collapse) at line 23.
+Extracted from [Freshwater Fisheries Collapse](#/wiki/freshwater-fisheries-collapse) at line 24.

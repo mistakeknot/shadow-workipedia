@@ -12,4 +12,4 @@ Fertility collapse below replacement (2.1→1.3) combined with life expectancy e
 
 ## Source
 
-Extracted from [Pension System Collapse Retirement Crisis](#/wiki/pension-system-collapse-retirement-crisis) at line 13.
+Extracted from [Pension System Collapse Retirement Crisis](#/wiki/pension-system-collapse-retirement-crisis) at line 14.

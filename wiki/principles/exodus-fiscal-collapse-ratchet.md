@@ -12,4 +12,4 @@ Sustained uninhabitability (wet bulb >33°C, mortality >100/100k/year, blackouts
 
 ## Source
 
-Extracted from [Urban Heat Island](#/wiki/urban-heat-island) at line 21.
+Extracted from [Urban Heat Island](#/wiki/urban-heat-island) at line 22.

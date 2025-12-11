@@ -12,4 +12,4 @@ Educational credentials undergo hyperinflation as bachelor's degree holders reac
 
 ## Source
 
-Extracted from [Institutional Legitimacy Collapse](#/wiki/institutional-legitimacy-collapse) at line 15.
+Extracted from [Institutional Legitimacy Collapse](#/wiki/institutional-legitimacy-collapse) at line 16.

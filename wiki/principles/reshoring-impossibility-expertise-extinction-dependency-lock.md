@@ -12,4 +12,4 @@ Fifty years offshoring creates irreversible capacity loss where expertise extinc
 
 ## Source
 
-Extracted from [Global Supply Chain Collapse](#/wiki/global-supply-chain-collapse) at line 23.
+Extracted from [Global Supply Chain Collapse](#/wiki/global-supply-chain-collapse) at line 24.

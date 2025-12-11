@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Electrical Grid Collapse Infrastructure Decay](#/wiki/electrical-grid-collapse-infrastructure-decay) at line 18.
+Extracted from [Electrical Grid Collapse Infrastructure Decay](#/wiki/electrical-grid-collapse-infrastructure-decay) at line 21.

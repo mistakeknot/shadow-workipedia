@@ -12,4 +12,4 @@ Immigration replacement requires sustained flows 1-3% population annually (Germa
 
 ## Source
 
-Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 19.
+Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 21.

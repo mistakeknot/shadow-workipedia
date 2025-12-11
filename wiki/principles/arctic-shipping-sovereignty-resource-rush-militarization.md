@@ -12,4 +12,4 @@ Northern Sea Route (NSR, Russia, 5,600km, 40% shorter Asia-Europe vs Suez Canal)
 
 ## Source
 
-Extracted from [Arctic Blue Ocean Jet Stream](#/wiki/arctic-blue-ocean-jet-stream) at line 22.
+Extracted from [Arctic Blue Ocean Jet Stream](#/wiki/arctic-blue-ocean-jet-stream) at line 23.

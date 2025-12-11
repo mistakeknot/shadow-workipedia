@@ -768,6 +768,39 @@ function loadPrinciplesData(): { principles: PrincipleInfo[]; nodes: GraphNode[]
   return { principles, nodes, edges };
 }
 
+/**
+ * Build a mapping from SW# numbers to issue/system slugs
+ * Parses ARCHITECTURE filenames like "01-climate-ARCHITECTURE.md" → "01" → "climate"
+ */
+function buildSwNumberToSlugMap(): Map<string, string> {
+  const archDir = join(PARENT_REPO, 'docs/technical/simulation-systems');
+  const map = new Map<string, string>();
+
+  if (!existsSync(archDir)) {
+    console.warn('⚠️  ARCHITECTURE directory not found');
+    return map;
+  }
+
+  const files = readdirSync(archDir).filter(f => f.endsWith('-ARCHITECTURE.md'));
+
+  for (const file of files) {
+    // Parse filename: "01-climate-ARCHITECTURE.md" → num="01", slug="climate"
+    const match = file.match(/^(\d+[a-z]?)-(.+)-ARCHITECTURE\.md$/);
+    if (match) {
+      const [, num, slug] = match;
+      // Store both with and without leading zeros for flexible matching
+      map.set(num, slug);
+      // Also store normalized version (e.g., "01" → "1" for matching "SW#1")
+      const normalized = String(parseInt(num, 10));
+      if (normalized !== num) {
+        map.set(normalized, slug);
+      }
+    }
+  }
+
+  return map;
+}
+
 function loadDataFlows(): { dataFlows: DataFlowInfo[]; edges: GraphEdge[] } {
   if (!existsSync(DATA_FLOWS_FILE)) {
     console.warn('⚠️  Data flows file not found. Run extract-principles.ts first.');
@@ -777,17 +810,40 @@ function loadDataFlows(): { dataFlows: DataFlowInfo[]; edges: GraphEdge[] } {
   const content = readFileSync(DATA_FLOWS_FILE, 'utf-8');
   const data = JSON.parse(content);
 
+  // Build SW# → slug mapping
+  const swMap = buildSwNumberToSlugMap();
+  console.log(`🗺️  Built SW# mapping with ${swMap.size} entries`);
+
   const dataFlows: DataFlowInfo[] = [];
   const edges: GraphEdge[] = [];
+
+  // Helper to convert SW#XX to slug
+  const swToSlug = (swRef: string): string | null => {
+    // Extract number from "SW#01", "SW#1", "SW#420", etc.
+    const match = swRef.match(/^SW#(\d+[a-z]?)$/i);
+    if (!match) return null;
+    const num = match[1];
+    return swMap.get(num) || swMap.get(String(parseInt(num, 10))) || null;
+  };
 
   if (data.flows && Array.isArray(data.flows)) {
     // Deduplicate flows
     const seenFlows = new Set<string>();
+    let skippedCount = 0;
 
     for (const flow of data.flows) {
       const flowKey = `${flow.source}->${flow.target}:${flow.direction}`;
       if (seenFlows.has(flowKey)) continue;
       seenFlows.add(flowKey);
+
+      // Convert SW# references to slugs
+      const sourceSlug = swToSlug(flow.source);
+      const targetSlug = swToSlug(flow.target);
+
+      if (!sourceSlug || !targetSlug) {
+        skippedCount++;
+        continue;
+      }
 
       dataFlows.push({
         source: flow.source,
@@ -796,16 +852,20 @@ function loadDataFlows(): { dataFlows: DataFlowInfo[]; edges: GraphEdge[] } {
         data: flow.data || [],
       });
 
-      // Create directed edge
+      // Create directed edge with proper slug IDs
       edges.push({
-        source: flow.source.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^sw-/, ''),
-        target: flow.target.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^sw-/, ''),
+        source: sourceSlug,
+        target: targetSlug,
         type: 'data-flow',
         strength: 0.4,
         directed: true,
         flowDirection: flow.direction,
         label: flow.direction === 'reads' ? 'reads from' : 'writes to',
       });
+    }
+
+    if (skippedCount > 0) {
+      console.log(`  ⚠️  Skipped ${skippedCount} flows with unmapped SW# references`);
     }
   }
 
@@ -1002,14 +1062,14 @@ async function main() {
   }
   console.log(`  - ${issueSystemEdgeCount} issue-system edges`);
 
-  // 4. Data flow edges (system-to-system directed flows)
-  // Only add data flows between valid system nodes
-  const validSystemIds = new Set(systemNodes.map(n => n.id));
+  // 4. Data flow edges (directed flows between issues and/or systems)
+  // Allow data flows between any valid nodes (issues or systems)
+  const allNodeIds = new Set(nodes.map(n => n.id));
   const validDataFlowEdges = dataFlowEdges.filter(
-    e => validSystemIds.has(e.source) && validSystemIds.has(e.target)
+    e => allNodeIds.has(e.source) && allNodeIds.has(e.target) && e.source !== e.target
   );
   edges.push(...validDataFlowEdges);
-  console.log(`  - ${validDataFlowEdges.length} data-flow edges (${dataFlowEdges.length - validDataFlowEdges.length} skipped - invalid system)`);
+  console.log(`  - ${validDataFlowEdges.length} data-flow edges (${dataFlowEdges.length - validDataFlowEdges.length} skipped - invalid node)`);
 
   // Process wiki articles (already loaded earlier for connection validation)
   console.log('📚 Processing wiki articles...');

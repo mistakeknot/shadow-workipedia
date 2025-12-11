@@ -12,4 +12,4 @@ Indus Waters Treaty (1960) allocates 168 MAF but 2050 projected flow only 120 MA
 
 ## Source
 
-Extracted from [Himalayan Third Pole Glacier Collapse](#/wiki/himalayan-third-pole-glacier-collapse) at line 21.
+Extracted from [Himalayan Third Pole Glacier Collapse](#/wiki/himalayan-third-pole-glacier-collapse) at line 22.

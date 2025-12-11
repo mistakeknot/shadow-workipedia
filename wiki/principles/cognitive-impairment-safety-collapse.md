@@ -12,4 +12,4 @@ Brain fog prevalence (65% of Long COVID patients) interacts with safety-critical
 
 ## Source
 
-Extracted from [Long Covid Labor Collapse](#/wiki/long-covid-labor-collapse) at line 20.
+Extracted from [Long Covid Labor Collapse](#/wiki/long-covid-labor-collapse) at line 21.

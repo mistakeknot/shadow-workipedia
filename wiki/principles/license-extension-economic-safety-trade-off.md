@@ -12,4 +12,4 @@ Nuclear reactor economics require 60-80 year operation to amortize $10B-20B cons
 
 ## Source
 
-Extracted from [Nuclear Plant Crisis Cascade](#/wiki/nuclear-plant-crisis-cascade) at line 20.
+Extracted from [Nuclear Plant Crisis Cascade](#/wiki/nuclear-plant-crisis-cascade) at line 21.

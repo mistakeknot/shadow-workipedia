@@ -12,4 +12,4 @@ DNA technology capability curve (0.10 detection in 1989 → 1.0 perfect reliabil
 
 ## Source
 
-Extracted from [Death Penalty Abolition](#/wiki/death-penalty-abolition) at line 14.
+Extracted from [Death Penalty Abolition](#/wiki/death-penalty-abolition) at line 15.

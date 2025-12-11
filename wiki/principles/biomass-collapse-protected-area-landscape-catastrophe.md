@@ -12,4 +12,4 @@ Measured 75% flying insect biomass decline (1989-2016 German nature reserves, 82
 
 ## Source
 
-Extracted from [Insect Apocalypse Pollinator Collapse](#/wiki/insect-apocalypse-pollinator-collapse) at line 13.
+Extracted from [Insect Apocalypse Pollinator Collapse](#/wiki/insect-apocalypse-pollinator-collapse) at line 15.

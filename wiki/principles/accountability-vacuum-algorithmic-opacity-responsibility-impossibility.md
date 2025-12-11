@@ -12,4 +12,4 @@ Lethal autonomous weapons create accountability vacuum where no identifiable hum
 
 ## Source
 
-Extracted from [Autonomous Weapons Laws Accountability Crisis](#/wiki/autonomous-weapons-laws-accountability-crisis) at line 22.
+Extracted from [Autonomous Weapons Laws Accountability Crisis](#/wiki/autonomous-weapons-laws-accountability-crisis) at line 23.

@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Permafrost Thaw Methane Bomb](#/wiki/permafrost-thaw-methane-bomb) at line 21.
+Extracted from [Permafrost Thaw Methane Bomb](#/wiki/permafrost-thaw-methane-bomb) at line 23.

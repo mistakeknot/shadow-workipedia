@@ -12,4 +12,4 @@ Wassenaar Arrangement 42 members (US, EU, Israel, Japan, Australia) restricting 
 
 ## Source
 
-Extracted from [Spyware For Hire Export Wars](#/wiki/spyware-for-hire-export-wars) at line 17.
+Extracted from [Spyware For Hire Export Wars](#/wiki/spyware-for-hire-export-wars) at line 18.

@@ -12,4 +12,4 @@ Temporary wet storage pools designed for 20-year cooling now hold 40-60 year inv
 
 ## Source
 
-Extracted from [Nuclear Waste Storage Failure Radioactive Legacy](#/wiki/nuclear-waste-storage-failure-radioactive-legacy) at line 21.
+Extracted from [Nuclear Waste Storage Failure Radioactive Legacy](#/wiki/nuclear-waste-storage-failure-radioactive-legacy) at line 22.

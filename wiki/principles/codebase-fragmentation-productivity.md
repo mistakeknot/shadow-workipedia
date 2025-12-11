@@ -12,4 +12,4 @@ Developer productivity decays maintaining multiple incompatible stacks (1 codeba
 
 ## Source
 
-Extracted from [Splinternet Data Localization](#/wiki/splinternet-data-localization) at line 15.
+Extracted from [Splinternet Data Localization](#/wiki/splinternet-data-localization) at line 16.

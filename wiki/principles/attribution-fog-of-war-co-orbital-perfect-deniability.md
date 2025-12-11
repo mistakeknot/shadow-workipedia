@@ -12,4 +12,4 @@ Attribution confidence natural collision vs intentional ASAT achieves only 40-60
 
 ## Source
 
-Extracted from [Space Weaponization Orbital Conflict](#/wiki/space-weaponization-orbital-conflict) at line 15.
+Extracted from [Space Weaponization Orbital Conflict](#/wiki/space-weaponization-orbital-conflict) at line 16.

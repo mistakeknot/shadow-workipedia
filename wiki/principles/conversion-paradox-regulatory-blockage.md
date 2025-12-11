@@ -12,4 +12,4 @@ Housing shortage + office surplus creates conversion opportunity but zoning regu
 
 ## Source
 
-Extracted from [Commercial Real Estate Doom Loop](#/wiki/commercial-real-estate-doom-loop) at line 22.
+Extracted from [Commercial Real Estate Doom Loop](#/wiki/commercial-real-estate-doom-loop) at line 23.

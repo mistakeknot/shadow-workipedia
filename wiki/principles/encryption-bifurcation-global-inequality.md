@@ -12,4 +12,4 @@ GPS III rollout (2030-2040) offers civilian M-code access (encrypted, secure) bu
 
 ## Source
 
-Extracted from [Gnss Spoofing Positioning Collapse](#/wiki/gnss-spoofing-positioning-collapse) at line 17.
+Extracted from [Gnss Spoofing Positioning Collapse](#/wiki/gnss-spoofing-positioning-collapse) at line 18.

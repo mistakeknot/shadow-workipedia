@@ -12,4 +12,4 @@ Political violence emerges from radicalization pipeline where extremist rhetoric
 
 ## Source
 
-Extracted from [Political Violence Escalation](#/wiki/political-violence-escalation) at line 13.
+Extracted from [Political Violence Escalation](#/wiki/political-violence-escalation) at line 16.

@@ -12,4 +12,4 @@ AI biodesign models trained on pathogen data (viral genomes, protein sequences) 
 
 ## Source
 
-Extracted from [Gene Drive Synthetic Biology Catastrophe](#/wiki/gene-drive-synthetic-biology-catastrophe) at line 23.
+Extracted from [Gene Drive Synthetic Biology Catastrophe](#/wiki/gene-drive-synthetic-biology-catastrophe) at line 24.

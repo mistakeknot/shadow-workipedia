@@ -12,4 +12,4 @@ Global supply chain consolidation creates critical chokepoints where <5 faciliti
 
 ## Source
 
-Extracted from [Factory Kill Switch Sabotage](#/wiki/factory-kill-switch-sabotage) at line 17.
+Extracted from [Factory Kill Switch Sabotage](#/wiki/factory-kill-switch-sabotage) at line 18.

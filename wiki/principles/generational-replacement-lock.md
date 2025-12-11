@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Culture](#/wiki/culture) at line 13.
+Extracted from [Culture](#/wiki/culture) at line 14.

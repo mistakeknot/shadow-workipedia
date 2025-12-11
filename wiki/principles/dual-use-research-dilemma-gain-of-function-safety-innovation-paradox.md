@@ -12,4 +12,4 @@ Gain-of-function (GOF) research creates safety-innovation paradox where pandemic
 
 ## Source
 
-Extracted from [Synthetic Biology Weaponization Biological Attribution Crisis](#/wiki/synthetic-biology-weaponization-biological-attribution-crisis) at line 24.
+Extracted from [Synthetic Biology Weaponization Biological Attribution Crisis](#/wiki/synthetic-biology-weaponization-biological-attribution-crisis) at line 25.

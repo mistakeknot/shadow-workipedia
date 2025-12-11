@@ -12,4 +12,4 @@ Initial ground subsidence from ice melt creates depressions that fill with water
 
 ## Source
 
-Extracted from [Permafrost Thaw Methane Bomb](#/wiki/permafrost-thaw-methane-bomb) at line 17.
+Extracted from [Permafrost Thaw Methane Bomb](#/wiki/permafrost-thaw-methane-bomb) at line 19.

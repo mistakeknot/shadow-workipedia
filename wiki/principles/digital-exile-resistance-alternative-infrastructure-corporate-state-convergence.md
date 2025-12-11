@@ -12,4 +12,4 @@ Digital exiles build alternative infrastructure (cryptocurrency for payments, To
 
 ## Source
 
-Extracted from [Digital Exile Financial Control](#/wiki/digital-exile-financial-control) at line 23.
+Extracted from [Digital Exile Financial Control](#/wiki/digital-exile-financial-control) at line 26.

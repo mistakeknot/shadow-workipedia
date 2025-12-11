@@ -12,4 +12,4 @@ Utilization exceeding 85% triggers mortality penalty multiplier (+2.5× case fat
 
 ## Source
 
-Extracted from [Pandemic](#/wiki/pandemic) at line 14.
+Extracted from [Pandemic](#/wiki/pandemic) at line 17.

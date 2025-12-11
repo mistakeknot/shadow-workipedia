@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Coal Country Collapse](#/wiki/coal-country-collapse) at line 21.
+Extracted from [Coal Country Collapse](#/wiki/coal-country-collapse) at line 23.

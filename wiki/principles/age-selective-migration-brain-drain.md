@@ -12,4 +12,4 @@ Net youth emigration of 5-15% of cohort from developing economies (Philippines: 
 
 ## Source
 
-Extracted from [Population](#/wiki/population) at line 22.
+Extracted from [Population](#/wiki/population) at line 24.

@@ -12,4 +12,4 @@ Synthetic biology enables creation of pathogens combining SARS-CoV-2 transmissib
 
 ## Source
 
-Extracted from [Synthetic Biology Weaponization Biological Attribution Crisis](#/wiki/synthetic-biology-weaponization-biological-attribution-crisis) at line 30.
+Extracted from [Synthetic Biology Weaponization Biological Attribution Crisis](#/wiki/synthetic-biology-weaponization-biological-attribution-crisis) at line 31.

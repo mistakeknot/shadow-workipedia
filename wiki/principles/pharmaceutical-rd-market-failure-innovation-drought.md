@@ -12,4 +12,4 @@ Antibiotic development economics catastrophe (development cost $1.5B vs average 
 
 ## Source
 
-Extracted from [Antibiotic Resistance Superbug Pandemic](#/wiki/antibiotic-resistance-superbug-pandemic) at line 22.
+Extracted from [Antibiotic Resistance Superbug Pandemic](#/wiki/antibiotic-resistance-superbug-pandemic) at line 25.

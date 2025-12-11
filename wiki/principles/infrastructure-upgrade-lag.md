@@ -12,4 +12,4 @@ Grid capacity upgrades require 5-10 year timelines (substation construction, HVD
 
 ## Source
 
-Extracted from [Ai Compute Resource Wars](#/wiki/ai-compute-resource-wars) at line 21.
+Extracted from [Ai Compute Resource Wars](#/wiki/ai-compute-resource-wars) at line 22.

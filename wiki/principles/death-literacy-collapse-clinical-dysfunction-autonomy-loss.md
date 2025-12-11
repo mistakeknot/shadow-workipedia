@@ -12,4 +12,4 @@ Modern populations possess minimal death literacy as death medicalized and remov
 
 ## Source
 
-Extracted from [Death Dying Infrastructure](#/wiki/death-dying-infrastructure) at line 23.
+Extracted from [Death Dying Infrastructure](#/wiki/death-dying-infrastructure) at line 24.

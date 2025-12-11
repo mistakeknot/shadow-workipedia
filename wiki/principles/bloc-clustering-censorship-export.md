@@ -12,4 +12,4 @@ Internet fragments into 4-5 blocs (US-aligned 1.5B declining to 1.2B, China-alig
 
 ## Source
 
-Extracted from [Splinternet Data Localization](#/wiki/splinternet-data-localization) at line 19.
+Extracted from [Splinternet Data Localization](#/wiki/splinternet-data-localization) at line 20.

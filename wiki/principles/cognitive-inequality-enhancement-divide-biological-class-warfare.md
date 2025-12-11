@@ -12,4 +12,4 @@ Neural enhancement creates cognitive stratification where BCI users achieve IQ g
 
 ## Source
 
-Extracted from [Brain Computer Interface Neural Sovereignty Crisis](#/wiki/brain-computer-interface-neural-sovereignty-crisis) at line 26.
+Extracted from [Brain Computer Interface Neural Sovereignty Crisis](#/wiki/brain-computer-interface-neural-sovereignty-crisis) at line 27.

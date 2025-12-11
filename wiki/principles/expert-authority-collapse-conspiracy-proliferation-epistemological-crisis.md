@@ -12,4 +12,4 @@ Expert authority evaporates as public trust in scientists/doctors/academics fall
 
 ## Source
 
-Extracted from [Institutional Legitimacy Collapse](#/wiki/institutional-legitimacy-collapse) at line 17.
+Extracted from [Institutional Legitimacy Collapse](#/wiki/institutional-legitimacy-collapse) at line 18.

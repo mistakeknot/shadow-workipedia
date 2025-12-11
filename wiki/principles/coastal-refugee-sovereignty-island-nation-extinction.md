@@ -12,4 +12,4 @@ Combined reef death (storm protection lost) + acidification protein collapse + s
 
 ## Source
 
-Extracted from [Ocean Acidification Marine Ecosystem Collapse](#/wiki/ocean-acidification-marine-ecosystem-collapse) at line 23.
+Extracted from [Ocean Acidification Marine Ecosystem Collapse](#/wiki/ocean-acidification-marine-ecosystem-collapse) at line 25.

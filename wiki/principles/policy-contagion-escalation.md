@@ -12,4 +12,4 @@ Data localization mandates spread via neighbor adoption (0.40-0.70 probability d
 
 ## Source
 
-Extracted from [Splinternet Data Localization](#/wiki/splinternet-data-localization) at line 11.
+Extracted from [Splinternet Data Localization](#/wiki/splinternet-data-localization) at line 12.

@@ -12,4 +12,4 @@ Soil organic matter declines 3-6% (1900s baseline)→1-2% (2020s degraded) at 2-
 
 ## Source
 
-Extracted from [Topsoil Depletion Agricultural Collapse](#/wiki/topsoil-depletion-agricultural-collapse) at line 21.
+Extracted from [Topsoil Depletion Agricultural Collapse](#/wiki/topsoil-depletion-agricultural-collapse) at line 24.

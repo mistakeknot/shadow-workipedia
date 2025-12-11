@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 15.
+Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 17.

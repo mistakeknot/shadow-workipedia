@@ -12,4 +12,4 @@ Black Americans 2.5× police encounter rate + 3× lethal force rate vs whites tr
 
 ## Source
 
-Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 15.
+Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 16.

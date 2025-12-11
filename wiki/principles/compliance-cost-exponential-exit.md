@@ -12,4 +12,4 @@ Multi-region compliance costs scale exponentially (3 regions = 4-6x single regio
 
 ## Source
 
-Extracted from [Splinternet Data Localization](#/wiki/splinternet-data-localization) at line 13.
+Extracted from [Splinternet Data Localization](#/wiki/splinternet-data-localization) at line 14.

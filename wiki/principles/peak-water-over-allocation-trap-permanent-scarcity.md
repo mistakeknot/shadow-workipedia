@@ -12,4 +12,4 @@ Temporarily increased melt (2000-2030) creates false security where governments 
 
 ## Source
 
-Extracted from [Himalayan Third Pole Glacier Collapse](#/wiki/himalayan-third-pole-glacier-collapse) at line 15.
+Extracted from [Himalayan Third Pole Glacier Collapse](#/wiki/himalayan-third-pole-glacier-collapse) at line 16.

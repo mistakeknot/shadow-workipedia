@@ -12,4 +12,4 @@ Mutation rate × transmission intensity creates immune evasion where vaccine eff
 
 ## Source
 
-Extracted from [Pandemic](#/wiki/pandemic) at line 18.
+Extracted from [Pandemic](#/wiki/pandemic) at line 21.

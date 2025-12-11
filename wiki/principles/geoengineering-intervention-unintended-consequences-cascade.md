@@ -12,4 +12,4 @@ AMOC collapse mitigation attempts using Arctic aerosols (sulfate injection reduc
 
 ## Source
 
-Extracted from [Amoc Collapse](#/wiki/amoc-collapse) at line 26.
+Extracted from [Amoc Collapse](#/wiki/amoc-collapse) at line 27.

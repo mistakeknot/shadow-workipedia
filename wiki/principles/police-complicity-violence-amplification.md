@@ -12,4 +12,4 @@ Police complicity formula Min(0.90, religiousNationalism × 0.50 + institutional
 
 ## Source
 
-Extracted from [Religious Freedom](#/wiki/religious-freedom) at line 19.
+Extracted from [Religious Freedom](#/wiki/religious-freedom) at line 21.

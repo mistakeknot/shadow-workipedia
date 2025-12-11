@@ -12,4 +12,4 @@ Regime = Favored Majority + elections imminent triggers periodic communal riots 
 
 ## Source
 
-Extracted from [Religious Freedom](#/wiki/religious-freedom) at line 21.
+Extracted from [Religious Freedom](#/wiki/religious-freedom) at line 23.

@@ -12,4 +12,4 @@ Death sentencing probability varies dramatically by jurisdiction (Texas 12% of m
 
 ## Source
 
-Extracted from [Death Penalty Abolition](#/wiki/death-penalty-abolition) at line 12.
+Extracted from [Death Penalty Abolition](#/wiki/death-penalty-abolition) at line 13.

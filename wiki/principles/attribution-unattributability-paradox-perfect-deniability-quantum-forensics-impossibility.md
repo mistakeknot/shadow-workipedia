@@ -12,4 +12,4 @@ Quantum decryption attacks achieve perfect unattributability as compromised plai
 
 ## Source
 
-Extracted from [Quantum Computing Post Quantum Cryptographic Crisis](#/wiki/quantum-computing-post-quantum-cryptographic-crisis) at line 30.
+Extracted from [Quantum Computing Post Quantum Cryptographic Crisis](#/wiki/quantum-computing-post-quantum-cryptographic-crisis) at line 31.

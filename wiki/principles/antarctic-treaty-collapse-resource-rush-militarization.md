@@ -12,4 +12,4 @@ Ice retreat 2000 → 2024 → 2050 → 2100 exposes Antarctic seabed improving a
 
 ## Source
 
-Extracted from [West Antarctic Ice Cliff Collapse](#/wiki/west-antarctic-ice-cliff-collapse) at line 20.
+Extracted from [West Antarctic Ice Cliff Collapse](#/wiki/west-antarctic-ice-cliff-collapse) at line 22.

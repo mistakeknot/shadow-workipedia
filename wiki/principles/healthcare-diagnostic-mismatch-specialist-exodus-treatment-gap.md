@@ -12,4 +12,4 @@ Temperate healthcare systems structurally unprepared for tropical disease burden
 
 ## Source
 
-Extracted from [Vector Borne Disease Geographic Expansion](#/wiki/vector-borne-disease-geographic-expansion) at line 19.
+Extracted from [Vector Borne Disease Geographic Expansion](#/wiki/vector-borne-disease-geographic-expansion) at line 20.

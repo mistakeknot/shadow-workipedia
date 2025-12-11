@@ -12,4 +12,4 @@ Operators invest in detection → attackers switch to seamless takeover (drag-of
 
 ## Source
 
-Extracted from [Gnss Spoofing Positioning Collapse](#/wiki/gnss-spoofing-positioning-collapse) at line 21.
+Extracted from [Gnss Spoofing Positioning Collapse](#/wiki/gnss-spoofing-positioning-collapse) at line 22.

@@ -12,4 +12,4 @@ West Antarctic Ice Sheet (WAIS) Thwaites/Pine Island glaciers sit bedrock below 
 
 ## Source
 
-Extracted from [West Antarctic Ice Cliff Collapse](#/wiki/west-antarctic-ice-cliff-collapse) at line 16.
+Extracted from [West Antarctic Ice Cliff Collapse](#/wiki/west-antarctic-ice-cliff-collapse) at line 18.

@@ -12,4 +12,4 @@ Total fertility rate (TFR) falls below replacement 2.1 children per woman across
 
 ## Source
 
-Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 13.
+Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 15.

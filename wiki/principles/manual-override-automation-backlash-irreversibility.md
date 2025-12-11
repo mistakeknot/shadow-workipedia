@@ -12,4 +12,4 @@ Resilience countermeasures retrofit manual override $50K-500K per facility with 
 
 ## Source
 
-Extracted from [Factory Kill Switch Sabotage](#/wiki/factory-kill-switch-sabotage) at line 21.
+Extracted from [Factory Kill Switch Sabotage](#/wiki/factory-kill-switch-sabotage) at line 22.

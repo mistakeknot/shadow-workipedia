@@ -12,4 +12,4 @@ Youth awareness spreads via social media that effective tax rates >50% fund boom
 
 ## Source
 
-Extracted from [Pension System Collapse Retirement Crisis](#/wiki/pension-system-collapse-retirement-crisis) at line 19.
+Extracted from [Pension System Collapse Retirement Crisis](#/wiki/pension-system-collapse-retirement-crisis) at line 20.

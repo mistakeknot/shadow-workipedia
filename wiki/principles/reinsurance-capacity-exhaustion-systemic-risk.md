@@ -12,4 +12,4 @@ Global reinsurance market $650B annual capacity faces concentration risk when ma
 
 ## Source
 
-Extracted from [Climate Insurance Collapse](#/wiki/climate-insurance-collapse) at line 21.
+Extracted from [Climate Insurance Collapse](#/wiki/climate-insurance-collapse) at line 23.

@@ -12,4 +12,4 @@ Foreign interference operations (Russian IRA $1.25M/month budget reaching 126M A
 
 ## Source
 
-Extracted from [Disinformation Plague](#/wiki/disinformation-plague) at line 23.
+Extracted from [Disinformation Plague](#/wiki/disinformation-plague) at line 25.

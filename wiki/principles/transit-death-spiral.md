@@ -12,4 +12,4 @@ Remote work ridership collapse -20% to -50% (commuter rail -40% to -60%) drives 
 
 ## Source
 
-Extracted from [Commercial Real Estate Doom Loop](#/wiki/commercial-real-estate-doom-loop) at line 16.
+Extracted from [Commercial Real Estate Doom Loop](#/wiki/commercial-real-estate-doom-loop) at line 17.

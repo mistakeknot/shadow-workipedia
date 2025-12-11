@@ -12,4 +12,4 @@ Crisis urgency (+45% max weight) + systemic risk (+35%) can override ideology en
 
 ## Source
 
-Extracted from [Shadow Banking Collapse](#/wiki/shadow-banking-collapse) at line 21.
+Extracted from [Shadow Banking Collapse](#/wiki/shadow-banking-collapse) at line 23.

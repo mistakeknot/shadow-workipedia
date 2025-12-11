@@ -12,4 +12,4 @@ AI biodesign capability growth timeline 2024 basic guide RNA design → 2027 pro
 
 ## Source
 
-Extracted from [Gene Drive Synthetic Biology Catastrophe](#/wiki/gene-drive-synthetic-biology-catastrophe) at line 17.
+Extracted from [Gene Drive Synthetic Biology Catastrophe](#/wiki/gene-drive-synthetic-biology-catastrophe) at line 18.

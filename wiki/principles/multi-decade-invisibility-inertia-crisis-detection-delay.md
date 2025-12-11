@@ -12,4 +12,4 @@ Permafrost thaw slow-onset high-inertia crisis where thaw depth 0.5m/decade base
 
 ## Source
 
-Extracted from [Boreal Permafrost Carbon Pulse](#/wiki/boreal-permafrost-carbon-pulse) at line 22.
+Extracted from [Boreal Permafrost Carbon Pulse](#/wiki/boreal-permafrost-carbon-pulse) at line 24.

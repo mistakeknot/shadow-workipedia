@@ -12,4 +12,4 @@ Climate disasters drive insurance loss ratios (claims/premiums) from sustainable
 
 ## Source
 
-Extracted from [Climate Insurance Collapse](#/wiki/climate-insurance-collapse) at line 13.
+Extracted from [Climate Insurance Collapse](#/wiki/climate-insurance-collapse) at line 15.

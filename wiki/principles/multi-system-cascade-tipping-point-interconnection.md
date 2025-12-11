@@ -18,4 +18,4 @@ BOE threshold crossing triggers cascading tipping points where sea ice loss → 
 
 ## Source
 
-Extracted from [Arctic Blue Ocean Jet Stream](#/wiki/arctic-blue-ocean-jet-stream) at line 26.
+Extracted from [Arctic Blue Ocean Jet Stream](#/wiki/arctic-blue-ocean-jet-stream) at line 27.

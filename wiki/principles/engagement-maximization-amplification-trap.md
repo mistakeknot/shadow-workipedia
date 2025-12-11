@@ -12,4 +12,4 @@ Platform algorithms optimize for engagement (dwell time, likes, shares) creating
 
 ## Source
 
-Extracted from [Disinformation Plague](#/wiki/disinformation-plague) at line 15.
+Extracted from [Disinformation Plague](#/wiki/disinformation-plague) at line 17.

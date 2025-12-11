@@ -12,4 +12,4 @@ Single reactor meltdown (Fukushima Unit 1) triggers multi-unit cascade via share
 
 ## Source
 
-Extracted from [Nuclear Plant Crisis Cascade](#/wiki/nuclear-plant-crisis-cascade) at line 22.
+Extracted from [Nuclear Plant Crisis Cascade](#/wiki/nuclear-plant-crisis-cascade) at line 23.

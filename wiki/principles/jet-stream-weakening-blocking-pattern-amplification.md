@@ -12,4 +12,4 @@ Arctic-midlatitude temperature gradient baseline 20°C reduces as Arctic warms 0
 
 ## Source
 
-Extracted from [Arctic Blue Ocean Jet Stream](#/wiki/arctic-blue-ocean-jet-stream) at line 18.
+Extracted from [Arctic Blue Ocean Jet Stream](#/wiki/arctic-blue-ocean-jet-stream) at line 19.

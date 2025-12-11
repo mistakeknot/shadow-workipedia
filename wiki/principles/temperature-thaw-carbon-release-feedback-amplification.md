@@ -12,4 +12,4 @@ Arctic permafrost 24M km² total (17M km² continuous, 7M km² discontinuous) st
 
 ## Source
 
-Extracted from [Boreal Permafrost Carbon Pulse](#/wiki/boreal-permafrost-carbon-pulse) at line 14.
+Extracted from [Boreal Permafrost Carbon Pulse](#/wiki/boreal-permafrost-carbon-pulse) at line 16.

@@ -12,4 +12,4 @@ Illegal logging/mining/ranching operations protected by organized crime networks
 
 ## Source
 
-Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 19.
+Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 20.

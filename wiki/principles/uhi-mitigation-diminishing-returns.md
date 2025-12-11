@@ -12,4 +12,4 @@ Urban heat island >10°C becomes economically infeasible to mitigate (tree plant
 
 ## Source
 
-Extracted from [Urban Heat Island](#/wiki/urban-heat-island) at line 19.
+Extracted from [Urban Heat Island](#/wiki/urban-heat-island) at line 20.

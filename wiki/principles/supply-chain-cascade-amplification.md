@@ -12,4 +12,4 @@ Software supply chain compromise enables mass simultaneous encryption (Kaseya 1,
 
 ## Source
 
-Extracted from [Ransomware Pandemic](#/wiki/ransomware-pandemic) at line 21.
+Extracted from [Ransomware Pandemic](#/wiki/ransomware-pandemic) at line 22.

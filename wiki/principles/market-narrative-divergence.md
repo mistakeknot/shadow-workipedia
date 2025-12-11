@@ -12,4 +12,4 @@ Natural gas fracking drives 60% of 334 coal plant closures (2010-2023) at $2-4/m
 
 ## Source
 
-Extracted from [Coal Country Collapse](#/wiki/coal-country-collapse) at line 13.
+Extracted from [Coal Country Collapse](#/wiki/coal-country-collapse) at line 15.

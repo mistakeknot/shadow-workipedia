@@ -12,4 +12,4 @@ Urban growth concentrates in informal settlements where 1.1B slum residents (202
 
 ## Source
 
-Extracted from [Megacity Ungovernability Slum State Collapse](#/wiki/megacity-ungovernability-slum-state-collapse) at line 15.
+Extracted from [Megacity Ungovernability Slum State Collapse](#/wiki/megacity-ungovernability-slum-state-collapse) at line 16.

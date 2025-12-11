@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Pandemic](#/wiki/pandemic) at line 16.
+Extracted from [Pandemic](#/wiki/pandemic) at line 19.

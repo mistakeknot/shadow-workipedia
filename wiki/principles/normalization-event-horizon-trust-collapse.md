@@ -12,4 +12,4 @@ Black Sea Ghost Fleet (2023-2024) hundreds of AIS/GNSS tracks jump inland, cargo
 
 ## Source
 
-Extracted from [Gnss Spoofing Positioning Collapse](#/wiki/gnss-spoofing-positioning-collapse) at line 19.
+Extracted from [Gnss Spoofing Positioning Collapse](#/wiki/gnss-spoofing-positioning-collapse) at line 20.

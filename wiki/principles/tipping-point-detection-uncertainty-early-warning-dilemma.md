@@ -12,4 +12,4 @@ AMOC monitoring infrastructure satellite missions (sea surface temperature/salin
 
 ## Source
 
-Extracted from [Amoc Collapse](#/wiki/amoc-collapse) at line 24.
+Extracted from [Amoc Collapse](#/wiki/amoc-collapse) at line 25.

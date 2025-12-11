@@ -12,4 +12,4 @@ Target pest resistance evolution drives dose escalation and new chemical deploym
 
 ## Source
 
-Extracted from [Insect Apocalypse Pollinator Collapse](#/wiki/insect-apocalypse-pollinator-collapse) at line 17.
+Extracted from [Insect Apocalypse Pollinator Collapse](#/wiki/insect-apocalypse-pollinator-collapse) at line 19.

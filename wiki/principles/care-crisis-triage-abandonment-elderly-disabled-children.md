@@ -12,4 +12,4 @@ Care system reaches triage crisis where demand 2× supply forcing abandonment de
 
 ## Source
 
-Extracted from [Care Economy Crises](#/wiki/care-economy-crises) at line 23.
+Extracted from [Care Economy Crises](#/wiki/care-economy-crises) at line 24.

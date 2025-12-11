@@ -12,4 +12,4 @@ CBDC enables challenge to dollar hegemony as China digital yuan plus Russia/Iran
 
 ## Source
 
-Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 23.
+Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 25.

@@ -12,4 +12,4 @@ SCADA system vulnerabilities (40% utilities lack adequate defenses) combined wit
 
 ## Source
 
-Extracted from [Electrical Grid Collapse Infrastructure Decay](#/wiki/electrical-grid-collapse-infrastructure-decay) at line 22.
+Extracted from [Electrical Grid Collapse Infrastructure Decay](#/wiki/electrical-grid-collapse-infrastructure-decay) at line 25.

@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Seafloor Data Cable Wars](#/wiki/seafloor-data-cable-wars) at line 13.
+Extracted from [Seafloor Data Cable Wars](#/wiki/seafloor-data-cable-wars) at line 14.

@@ -12,4 +12,4 @@ Excess mortality >2% population generates approval penalties (-15 points per 1M 
 
 ## Source
 
-Extracted from [Pandemic](#/wiki/pandemic) at line 22.
+Extracted from [Pandemic](#/wiki/pandemic) at line 25.

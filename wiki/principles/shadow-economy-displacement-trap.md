@@ -12,4 +12,4 @@ Formal employment exit (Long COVID severity Ã— zero accommodation availability â
 
 ## Source
 
-Extracted from [Long Covid Labor Collapse](#/wiki/long-covid-labor-collapse) at line 22.
+Extracted from [Long Covid Labor Collapse](#/wiki/long-covid-labor-collapse) at line 23.

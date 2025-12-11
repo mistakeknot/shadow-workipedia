@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Carrington Solar Storm](#/wiki/carrington-solar-storm) at line 23.
+Extracted from [Carrington Solar Storm](#/wiki/carrington-solar-storm) at line 24.

@@ -12,4 +12,4 @@ Pipeline/refinery attacks (Keystone XL precedent) create supply disruption → p
 
 ## Source
 
-Extracted from [Oil Industry Death](#/wiki/oil-industry-death) at line 21.
+Extracted from [Oil Industry Death](#/wiki/oil-industry-death) at line 23.

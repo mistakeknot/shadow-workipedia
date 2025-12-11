@@ -12,4 +12,4 @@ Vigilantism proliferates as state violence monopoly erodes where armed citizens 
 
 ## Source
 
-Extracted from [Political Violence Escalation](#/wiki/political-violence-escalation) at line 23.
+Extracted from [Political Violence Escalation](#/wiki/political-violence-escalation) at line 26.

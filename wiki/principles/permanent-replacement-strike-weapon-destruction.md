@@ -16,4 +16,4 @@ PATCO 1981 Reagan watershed normalized permanent striker replacement (legal unde
 
 ## Source
 
-Extracted from [Union Busting Epidemic](#/wiki/union-busting-epidemic) at line 20.
+Extracted from [Union Busting Epidemic](#/wiki/union-busting-epidemic) at line 22.

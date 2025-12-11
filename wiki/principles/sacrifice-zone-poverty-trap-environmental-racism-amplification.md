@@ -12,4 +12,4 @@ Contamination systematically concentrates in poor/minority communities through h
 
 ## Source
 
-Extracted from [Soil Contamination Heavy Metal Accumulation](#/wiki/soil-contamination-heavy-metal-accumulation) at line 21.
+Extracted from [Soil Contamination Heavy Metal Accumulation](#/wiki/soil-contamination-heavy-metal-accumulation) at line 23.

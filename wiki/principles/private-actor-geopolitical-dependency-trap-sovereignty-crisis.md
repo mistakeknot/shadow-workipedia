@@ -12,4 +12,4 @@ National Starlink adoption creates critical infrastructure dependency where Ukra
 
 ## Source
 
-Extracted from [Starlink Satellite Internet Sovereignty](#/wiki/starlink-satellite-internet-sovereignty) at line 18.
+Extracted from [Starlink Satellite Internet Sovereignty](#/wiki/starlink-satellite-internet-sovereignty) at line 19.

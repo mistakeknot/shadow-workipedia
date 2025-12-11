@@ -12,4 +12,4 @@ Working-age population (15-64) shrinkage 0.5-1.5% annually (Japan -0.9%, Germany
 
 ## Source
 
-Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 17.
+Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 19.

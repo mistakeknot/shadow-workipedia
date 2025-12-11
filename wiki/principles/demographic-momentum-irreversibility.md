@@ -12,4 +12,4 @@ Total fertility rate (TFR) decline from 6.0 to 1.5 over development trajectory c
 
 ## Source
 
-Extracted from [Population](#/wiki/population) at line 16.
+Extracted from [Population](#/wiki/population) at line 18.

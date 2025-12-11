@@ -12,4 +12,4 @@ Technology domain progress (0-100 scale) requires sustained R&D investment with 
 
 ## Source
 
-Extracted from [Technology](#/wiki/technology) at line 16.
+Extracted from [Technology](#/wiki/technology) at line 17.

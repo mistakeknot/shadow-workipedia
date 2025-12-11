@@ -12,4 +12,4 @@ Quantum computing arms control verification faces fundamental impossibility as C
 
 ## Source
 
-Extracted from [Quantum Computing Post Quantum Cryptographic Crisis](#/wiki/quantum-computing-post-quantum-cryptographic-crisis) at line 32.
+Extracted from [Quantum Computing Post Quantum Cryptographic Crisis](#/wiki/quantum-computing-post-quantum-cryptographic-crisis) at line 33.

@@ -12,4 +12,4 @@ False information spreads 6× faster than truth via memetic virality mechanics (
 
 ## Source
 
-Extracted from [Disinformation Plague](#/wiki/disinformation-plague) at line 13.
+Extracted from [Disinformation Plague](#/wiki/disinformation-plague) at line 15.

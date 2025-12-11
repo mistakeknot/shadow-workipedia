@@ -12,4 +12,4 @@ Debt sustainability critically depends on currency denomination where domestic-c
 
 ## Source
 
-Extracted from [Global Debt Jubilee Sovereign Default Cascade](#/wiki/global-debt-jubilee-sovereign-default-cascade) at line 28.
+Extracted from [Global Debt Jubilee Sovereign Default Cascade](#/wiki/global-debt-jubilee-sovereign-default-cascade) at line 30.

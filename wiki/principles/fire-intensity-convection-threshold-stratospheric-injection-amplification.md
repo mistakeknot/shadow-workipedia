@@ -12,4 +12,4 @@ Megafires exceeding 100,000 kW/m fire intensity (achievable via 15+ simultaneous
 
 ## Source
 
-Extracted from [Pyrocumulonimbus Warfare](#/wiki/pyrocumulonimbus-warfare) at line 13.
+Extracted from [Pyrocumulonimbus Warfare](#/wiki/pyrocumulonimbus-warfare) at line 14.

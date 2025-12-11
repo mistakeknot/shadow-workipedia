@@ -12,4 +12,4 @@ Stochastic terrorism operates through statistical violence where inflammatory rh
 
 ## Source
 
-Extracted from [Political Violence Escalation](#/wiki/political-violence-escalation) at line 17.
+Extracted from [Political Violence Escalation](#/wiki/political-violence-escalation) at line 20.

@@ -12,4 +12,4 @@ Extraction-affected communities mobilize resistance movements opposing mining pr
 
 ## Source
 
-Extracted from [Critical Mineral Extraction Wars Green Colonialism](#/wiki/critical-mineral-extraction-wars-green-colonialism) at line 23.
+Extracted from [Critical Mineral Extraction Wars Green Colonialism](#/wiki/critical-mineral-extraction-wars-green-colonialism) at line 25.

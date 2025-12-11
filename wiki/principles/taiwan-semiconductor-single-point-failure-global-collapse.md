@@ -12,4 +12,4 @@ Geographic concentration creates existential vulnerability where Taiwan produces
 
 ## Source
 
-Extracted from [Global Supply Chain Collapse](#/wiki/global-supply-chain-collapse) at line 15.
+Extracted from [Global Supply Chain Collapse](#/wiki/global-supply-chain-collapse) at line 16.

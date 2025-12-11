@@ -12,4 +12,4 @@ Major disaster triggers 1-2 notch initial downgrade → borrowing cost spreads s
 
 ## Source
 
-Extracted from [Climate Loss Damage Sovereign Debt](#/wiki/climate-loss-damage-sovereign-debt) at line 18.
+Extracted from [Climate Loss Damage Sovereign Debt](#/wiki/climate-loss-damage-sovereign-debt) at line 20.

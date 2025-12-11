@@ -12,4 +12,4 @@ Creating convincing deepfake costs $100-10,000 and takes hours-to-days while for
 
 ## Source
 
-Extracted from [Ai Deepfake Diplomatic Mutinies](#/wiki/ai-deepfake-diplomatic-mutinies) at line 15.
+Extracted from [Ai Deepfake Diplomatic Mutinies](#/wiki/ai-deepfake-diplomatic-mutinies) at line 17.

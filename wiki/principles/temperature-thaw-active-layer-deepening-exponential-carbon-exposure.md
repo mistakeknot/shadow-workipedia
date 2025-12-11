@@ -12,4 +12,4 @@ Warming penetrates soil layers at 2-5 cm/year in continuous permafrost zones, de
 
 ## Source
 
-Extracted from [Permafrost Thaw Methane Bomb](#/wiki/permafrost-thaw-methane-bomb) at line 13.
+Extracted from [Permafrost Thaw Methane Bomb](#/wiki/permafrost-thaw-methane-bomb) at line 15.

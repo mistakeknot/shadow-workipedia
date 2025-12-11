@@ -12,4 +12,4 @@ Autonomous weapon systems compress OODA loop (observe-orient-decide-act) from hu
 
 ## Source
 
-Extracted from [Autonomous Weapons Laws Accountability Crisis](#/wiki/autonomous-weapons-laws-accountability-crisis) at line 20.
+Extracted from [Autonomous Weapons Laws Accountability Crisis](#/wiki/autonomous-weapons-laws-accountability-crisis) at line 21.

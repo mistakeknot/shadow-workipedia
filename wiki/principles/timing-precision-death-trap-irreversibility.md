@@ -12,4 +12,4 @@ Technology advances tighten timing precision requirements from ±1 second aviati
 
 ## Source
 
-Extracted from [Gnss Spoofing Positioning Collapse](#/wiki/gnss-spoofing-positioning-collapse) at line 15.
+Extracted from [Gnss Spoofing Positioning Collapse](#/wiki/gnss-spoofing-positioning-collapse) at line 16.

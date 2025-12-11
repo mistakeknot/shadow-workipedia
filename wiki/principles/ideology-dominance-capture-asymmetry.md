@@ -12,4 +12,4 @@ Ideology accounts for 40% weight in legal regime adoption (highest), creating 18
 
 ## Source
 
-Extracted from [Religious Freedom](#/wiki/religious-freedom) at line 13.
+Extracted from [Religious Freedom](#/wiki/religious-freedom) at line 15.

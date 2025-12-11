@@ -12,4 +12,4 @@ Green energy transition requires critical mineral production increases 4-6× (20
 
 ## Source
 
-Extracted from [Critical Mineral Extraction Wars Green Colonialism](#/wiki/critical-mineral-extraction-wars-green-colonialism) at line 13.
+Extracted from [Critical Mineral Extraction Wars Green Colonialism](#/wiki/critical-mineral-extraction-wars-green-colonialism) at line 15.

@@ -12,4 +12,4 @@ Private prison occupancy guarantee contracts (80-100% minimum occupancy, governm
 
 ## Source
 
-Extracted from [Mass Incarceration Crisis](#/wiki/mass-incarceration-crisis) at line 22.
+Extracted from [Mass Incarceration Crisis](#/wiki/mass-incarceration-crisis) at line 29.

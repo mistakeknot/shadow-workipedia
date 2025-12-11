@@ -12,4 +12,4 @@ Institutional pacifist cultural shifts (like post-WWII Japan) of 0.10-0.30 magni
 
 ## Source
 
-Extracted from [Institutions](#/wiki/institutions) at line 23.
+Extracted from [Institutions](#/wiki/institutions) at line 24.

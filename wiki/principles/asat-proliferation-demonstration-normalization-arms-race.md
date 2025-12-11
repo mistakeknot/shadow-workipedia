@@ -12,4 +12,4 @@ Direct-ascent kinetic ASAT capability proliferates from 6+ nations (2024) to 8+ 
 
 ## Source
 
-Extracted from [Space Weaponization Orbital Conflict](#/wiki/space-weaponization-orbital-conflict) at line 19.
+Extracted from [Space Weaponization Orbital Conflict](#/wiki/space-weaponization-orbital-conflict) at line 20.

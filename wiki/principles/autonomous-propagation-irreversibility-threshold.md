@@ -12,4 +12,4 @@ Gene drive inheritance bias 95-99% offspring carry modification (vs 50% Mendelia
 
 ## Source
 
-Extracted from [Gene Drive Synthetic Biology Catastrophe](#/wiki/gene-drive-synthetic-biology-catastrophe) at line 15.
+Extracted from [Gene Drive Synthetic Biology Catastrophe](#/wiki/gene-drive-synthetic-biology-catastrophe) at line 16.

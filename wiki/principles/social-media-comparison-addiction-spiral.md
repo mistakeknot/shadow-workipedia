@@ -12,4 +12,4 @@ Screen time 6-10 hours/day creates FOMO and comparison anxiety from curated feed
 
 ## Source
 
-Extracted from [Mental Health Apocalypse](#/wiki/mental-health-apocalypse) at line 24.
+Extracted from [Mental Health Apocalypse](#/wiki/mental-health-apocalypse) at line 25.

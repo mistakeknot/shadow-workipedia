@@ -12,4 +12,4 @@ Media trust collapses from 72% baseline (1950) → 54% (1997) → 32% (2024) →
 
 ## Source
 
-Extracted from [Disinformation Plague](#/wiki/disinformation-plague) at line 19.
+Extracted from [Disinformation Plague](#/wiki/disinformation-plague) at line 21.

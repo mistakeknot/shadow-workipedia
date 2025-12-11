@@ -12,4 +12,4 @@ Government response follows 8-step escalation ladder (ignore → negotiate → l
 
 ## Source
 
-Extracted from [General Strike Movements](#/wiki/general-strike-movements) at line 17.
+Extracted from [General Strike Movements](#/wiki/general-strike-movements) at line 19.

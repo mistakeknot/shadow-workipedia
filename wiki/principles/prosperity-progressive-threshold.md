@@ -12,4 +12,4 @@ GDP >$10,000 per capita triggers Inglehart post-materialist drift toward progres
 
 ## Source
 
-Extracted from [Culture](#/wiki/culture) at line 15.
+Extracted from [Culture](#/wiki/culture) at line 16.

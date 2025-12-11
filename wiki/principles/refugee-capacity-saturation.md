@@ -12,4 +12,4 @@ Resettlement capacity degrades nonlinearly when refugee inflow exceeds 2-3% annu
 
 ## Source
 
-Extracted from [Diplomacy](#/wiki/diplomacy) at line 18.
+Extracted from [Diplomacy](#/wiki/diplomacy) at line 19.

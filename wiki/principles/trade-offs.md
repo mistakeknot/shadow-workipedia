@@ -17,4 +17,4 @@ category: principle
 
 ## Source
 
-Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 305.
+Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 306.

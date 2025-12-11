@@ -12,4 +12,4 @@ Barrier penalties (sobriety 25% + ID 20% + curfew 15% + pets 10% + religion 10%)
 
 ## Source
 
-Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 13.
+Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 15.

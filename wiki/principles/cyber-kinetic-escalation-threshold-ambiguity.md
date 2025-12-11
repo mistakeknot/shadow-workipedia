@@ -12,4 +12,4 @@ Escalation ladder espionage (SolarWinds acceptable "everyone does it") → disru
 
 ## Source
 
-Extracted from [Critical Infrastructure Attacks](#/wiki/critical-infrastructure-attacks) at line 23.
+Extracted from [Critical Infrastructure Attacks](#/wiki/critical-infrastructure-attacks) at line 25.

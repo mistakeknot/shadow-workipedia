@@ -19,4 +19,4 @@ Indus Waters Treaty (1960) under unprecedented stress, both nuclear powers, Kash
 
 ## Source
 
-Extracted from [Himalayan Third Pole Glacier Collapse](#/wiki/himalayan-third-pole-glacier-collapse) at line 78.
+Extracted from [Himalayan Third Pole Glacier Collapse](#/wiki/himalayan-third-pole-glacier-collapse) at line 79.

@@ -12,4 +12,4 @@ Financial markets depend on <10ms latency where 10-30% cable capacity loss spike
 
 ## Source
 
-Extracted from [Seafloor Data Cable Wars](#/wiki/seafloor-data-cable-wars) at line 21.
+Extracted from [Seafloor Data Cable Wars](#/wiki/seafloor-data-cable-wars) at line 22.

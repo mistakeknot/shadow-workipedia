@@ -12,4 +12,4 @@ Designer baby market growth enhancement tiers $50k disease elimination (sickle c
 
 ## Source
 
-Extracted from [Gene Drive Synthetic Biology Catastrophe](#/wiki/gene-drive-synthetic-biology-catastrophe) at line 21.
+Extracted from [Gene Drive Synthetic Biology Catastrophe](#/wiki/gene-drive-synthetic-biology-catastrophe) at line 22.

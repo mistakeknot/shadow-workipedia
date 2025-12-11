@@ -12,4 +12,4 @@ Cyber insurance market growth $2.5B (2015) → $10B (2021) → $20B projected (2
 
 ## Source
 
-Extracted from [Ransomware Pandemic](#/wiki/ransomware-pandemic) at line 23.
+Extracted from [Ransomware Pandemic](#/wiki/ransomware-pandemic) at line 24.

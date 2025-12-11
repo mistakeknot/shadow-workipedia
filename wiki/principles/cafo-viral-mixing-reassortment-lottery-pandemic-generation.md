@@ -12,4 +12,4 @@ Concentrated Animal Feeding Operations pack tens of thousands genetically identi
 
 ## Source
 
-Extracted from [Factory Farming Disease Incubators](#/wiki/factory-farming-disease-incubators) at line 18.
+Extracted from [Factory Farming Disease Incubators](#/wiki/factory-farming-disease-incubators) at line 20.

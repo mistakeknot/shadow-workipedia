@@ -12,4 +12,4 @@ Modern society provides minimal grief support infrastructure as bereavement leav
 
 ## Source
 
-Extracted from [Death Dying Infrastructure](#/wiki/death-dying-infrastructure) at line 19.
+Extracted from [Death Dying Infrastructure](#/wiki/death-dying-infrastructure) at line 20.

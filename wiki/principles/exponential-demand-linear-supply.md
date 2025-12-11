@@ -12,4 +12,4 @@ AI training FLOPs grow 100x every 2-3 years (GPT-2 10^20 → GPT-3 10^23 → GPT
 
 ## Source
 
-Extracted from [Ai Compute Resource Wars](#/wiki/ai-compute-resource-wars) at line 11.
+Extracted from [Ai Compute Resource Wars](#/wiki/ai-compute-resource-wars) at line 12.

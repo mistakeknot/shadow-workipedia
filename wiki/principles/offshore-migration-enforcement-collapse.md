@@ -12,4 +12,4 @@ Regulatory arbitrage drives $5-8T offshore when Basel III enforced onshore (Caym
 
 ## Source
 
-Extracted from [Shadow Banking Collapse](#/wiki/shadow-banking-collapse) at line 23.
+Extracted from [Shadow Banking Collapse](#/wiki/shadow-banking-collapse) at line 25.

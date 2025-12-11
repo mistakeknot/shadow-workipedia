@@ -12,4 +12,4 @@ NLRB case resolution timeline petition → hearing 3-6mo → decision 6-12mo →
 
 ## Source
 
-Extracted from [Union Busting Epidemic](#/wiki/union-busting-epidemic) at line 18.
+Extracted from [Union Busting Epidemic](#/wiki/union-busting-epidemic) at line 20.

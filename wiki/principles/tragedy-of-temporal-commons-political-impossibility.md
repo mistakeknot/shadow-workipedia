@@ -12,4 +12,4 @@ $290B hardening investment (5 tiers: $10B early warning, $100B GIC blockers, $30
 
 ## Source
 
-Extracted from [Carrington Solar Storm](#/wiki/carrington-solar-storm) at line 19.
+Extracted from [Carrington Solar Storm](#/wiki/carrington-solar-storm) at line 20.

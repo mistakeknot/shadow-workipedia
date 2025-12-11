@@ -12,4 +12,4 @@ Solar storm heats thermosphere 1200K → 2200K increasing atmospheric density 10
 
 ## Source
 
-Extracted from [Carrington Solar Storm](#/wiki/carrington-solar-storm) at line 15.
+Extracted from [Carrington Solar Storm](#/wiki/carrington-solar-storm) at line 16.

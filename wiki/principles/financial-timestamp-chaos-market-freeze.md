@@ -12,4 +12,4 @@ Financial markets require microsecond precision timestamp synchronization provid
 
 ## Source
 
-Extracted from [Carrington Solar Storm](#/wiki/carrington-solar-storm) at line 17.
+Extracted from [Carrington Solar Storm](#/wiki/carrington-solar-storm) at line 18.

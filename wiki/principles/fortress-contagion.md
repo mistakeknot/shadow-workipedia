@@ -12,4 +12,4 @@ When >60% major destinations adopt military enforcement, secondary cascades conc
 
 ## Source
 
-Extracted from [Climate Refugee](#/wiki/climate-refugee) at line 19.
+Extracted from [Climate Refugee](#/wiki/climate-refugee) at line 20.

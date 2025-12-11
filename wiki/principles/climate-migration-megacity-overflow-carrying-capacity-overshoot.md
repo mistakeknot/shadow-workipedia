@@ -12,4 +12,4 @@ Climate displacement drives 200-500M rural-urban migration (2025-2050) overwhelm
 
 ## Source
 
-Extracted from [Megacity Ungovernability Slum State Collapse](#/wiki/megacity-ungovernability-slum-state-collapse) at line 23.
+Extracted from [Megacity Ungovernability Slum State Collapse](#/wiki/megacity-ungovernability-slum-state-collapse) at line 24.

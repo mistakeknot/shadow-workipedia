@@ -12,4 +12,4 @@ Major blackouts propagate through interconnected grids in minutes (Northeast 200
 
 ## Source
 
-Extracted from [Electrical Grid Collapse Infrastructure Decay](#/wiki/electrical-grid-collapse-infrastructure-decay) at line 24.
+Extracted from [Electrical Grid Collapse Infrastructure Decay](#/wiki/electrical-grid-collapse-infrastructure-decay) at line 27.

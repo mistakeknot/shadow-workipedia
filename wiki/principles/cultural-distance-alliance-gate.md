@@ -12,4 +12,4 @@ Alliance formation requires cultural distance <0.30, creating ideological cluste
 
 ## Source
 
-Extracted from [Institutions](#/wiki/institutions) at line 21.
+Extracted from [Institutions](#/wiki/institutions) at line 22.

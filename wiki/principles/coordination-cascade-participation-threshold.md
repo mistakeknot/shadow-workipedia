@@ -12,4 +12,4 @@ General strikes require coordination threshold where millions must walk out simu
 
 ## Source
 
-Extracted from [General Strike Movements](#/wiki/general-strike-movements) at line 13.
+Extracted from [General Strike Movements](#/wiki/general-strike-movements) at line 15.

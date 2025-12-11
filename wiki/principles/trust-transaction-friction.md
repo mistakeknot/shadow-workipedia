@@ -12,4 +12,4 @@ High institutional trust economies reduce transaction costs 30-50% through lower
 
 ## Source
 
-Extracted from [Economy](#/wiki/economy) at line 15.
+Extracted from [Economy](#/wiki/economy) at line 16.

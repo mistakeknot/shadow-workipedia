@@ -12,4 +12,4 @@ Conflict probability increases 4-8x for immediately adjacent countries (shared b
 
 ## Source
 
-Extracted from [Diplomacy](#/wiki/diplomacy) at line 12.
+Extracted from [Diplomacy](#/wiki/diplomacy) at line 13.

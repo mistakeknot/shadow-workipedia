@@ -12,4 +12,4 @@ Strike economic impact scales with sector criticality and duration via supply ch
 
 ## Source
 
-Extracted from [General Strike Movements](#/wiki/general-strike-movements) at line 15.
+Extracted from [General Strike Movements](#/wiki/general-strike-movements) at line 17.

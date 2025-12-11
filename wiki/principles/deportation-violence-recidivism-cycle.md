@@ -12,4 +12,4 @@ Deportations to violence-ridden countries (10-15% deported to homicide >50 per 1
 
 ## Source
 
-Extracted from [Economic Immigration Conflicts](#/wiki/economic-immigration-conflicts) at line 25.
+Extracted from [Economic Immigration Conflicts](#/wiki/economic-immigration-conflicts) at line 26.

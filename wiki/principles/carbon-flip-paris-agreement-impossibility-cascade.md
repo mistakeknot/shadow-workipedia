@@ -18,4 +18,4 @@ Amazon carbon sink historical 2 GtCO₂/year absorption (1970-2010) represents 1
 
 ## Source
 
-Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 23.
+Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 24.

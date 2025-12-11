@@ -12,4 +12,4 @@ Healthcare workers experience 1.5-2× Long COVID exposure risk (15-25% vs 10-15%
 
 ## Source
 
-Extracted from [Long Covid Labor Collapse](#/wiki/long-covid-labor-collapse) at line 18.
+Extracted from [Long Covid Labor Collapse](#/wiki/long-covid-labor-collapse) at line 19.

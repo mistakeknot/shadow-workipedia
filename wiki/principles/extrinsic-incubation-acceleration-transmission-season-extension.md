@@ -12,4 +12,4 @@ Higher temperatures accelerate pathogen development in vectors exponentially fol
 
 ## Source
 
-Extracted from [Vector Borne Disease Geographic Expansion](#/wiki/vector-borne-disease-geographic-expansion) at line 15.
+Extracted from [Vector Borne Disease Geographic Expansion](#/wiki/vector-borne-disease-geographic-expansion) at line 16.

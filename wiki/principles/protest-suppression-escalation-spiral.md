@@ -12,4 +12,4 @@ Militarized police crackdowns on protests (Ferguson 2014 MRAPs/snipers/tear gas,
 
 ## Source
 
-Extracted from [Police Militarization](#/wiki/police-militarization) at line 22.
+Extracted from [Police Militarization](#/wiki/police-militarization) at line 24.

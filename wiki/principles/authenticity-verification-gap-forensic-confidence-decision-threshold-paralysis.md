@@ -12,4 +12,4 @@ Deepfake generation quality reaches 85-95% realism (still images/audio 2024) whi
 
 ## Source
 
-Extracted from [Ai Deepfake Diplomatic Mutinies](#/wiki/ai-deepfake-diplomatic-mutinies) at line 13.
+Extracted from [Ai Deepfake Diplomatic Mutinies](#/wiki/ai-deepfake-diplomatic-mutinies) at line 15.

@@ -12,4 +12,4 @@ Orbital slot allocation International Telecommunication Union (ITU) first-come-f
 
 ## Source
 
-Extracted from [Starlink Satellite Internet Sovereignty](#/wiki/starlink-satellite-internet-sovereignty) at line 20.
+Extracted from [Starlink Satellite Internet Sovereignty](#/wiki/starlink-satellite-internet-sovereignty) at line 21.

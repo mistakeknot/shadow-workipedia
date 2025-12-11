@@ -12,4 +12,4 @@ Promised $200M retraining delivers <$50M (2015-2020) creating 15% re-employment 
 
 ## Source
 
-Extracted from [Coal Country Collapse](#/wiki/coal-country-collapse) at line 19.
+Extracted from [Coal Country Collapse](#/wiki/coal-country-collapse) at line 21.

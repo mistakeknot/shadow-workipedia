@@ -12,4 +12,4 @@ Arrival rates exceeding resettlement capacity by 3-10× ratio create permanent c
 
 ## Source
 
-Extracted from [Climate Refugee](#/wiki/climate-refugee) at line 21.
+Extracted from [Climate Refugee](#/wiki/climate-refugee) at line 22.

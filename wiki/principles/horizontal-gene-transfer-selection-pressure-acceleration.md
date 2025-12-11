@@ -12,4 +12,4 @@ Bacterial resistance genes proliferate via plasmid conjugation (10^-5 to 10^-7 p
 
 ## Source
 
-Extracted from [Antibiotic Resistance Superbug Pandemic](#/wiki/antibiotic-resistance-superbug-pandemic) at line 18.
+Extracted from [Antibiotic Resistance Superbug Pandemic](#/wiki/antibiotic-resistance-superbug-pandemic) at line 21.

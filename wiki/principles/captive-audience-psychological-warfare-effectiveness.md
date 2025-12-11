@@ -12,4 +12,4 @@ Mandatory anti-union meetings deployed in 80% of campaigns (2010-2023 EPI) use p
 
 ## Source
 
-Extracted from [Union Busting Epidemic](#/wiki/union-busting-epidemic) at line 16.
+Extracted from [Union Busting Epidemic](#/wiki/union-busting-epidemic) at line 18.

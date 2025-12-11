@@ -12,4 +12,4 @@ Global debt reaches 256% GDP (2020) from 200% (2008) with sovereign debt 88% GDP
 
 ## Source
 
-Extracted from [Global Debt Jubilee Sovereign Default Cascade](#/wiki/global-debt-jubilee-sovereign-default-cascade) at line 20.
+Extracted from [Global Debt Jubilee Sovereign Default Cascade](#/wiki/global-debt-jubilee-sovereign-default-cascade) at line 22.

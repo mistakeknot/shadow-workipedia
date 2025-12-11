@@ -12,4 +12,4 @@ Slum population >50% and informal economy >60% creating tax revenue collapse to 
 
 ## Source
 
-Extracted from [Politics](#/wiki/politics) at line 21.
+Extracted from [Politics](#/wiki/politics) at line 22.

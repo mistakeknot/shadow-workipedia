@@ -12,4 +12,4 @@ Liability lawsuits Apple vs NSO $1B claimed, WhatsApp vs NSO $500M, Meta vs spyw
 
 ## Source
 
-Extracted from [Spyware For Hire Export Wars](#/wiki/spyware-for-hire-export-wars) at line 19.
+Extracted from [Spyware For Hire Export Wars](#/wiki/spyware-for-hire-export-wars) at line 20.

@@ -12,4 +12,4 @@ Repo overnight funding >80% of dealer balance sheets creates 4-day collapse wind
 
 ## Source
 
-Extracted from [Shadow Banking Collapse](#/wiki/shadow-banking-collapse) at line 17.
+Extracted from [Shadow Banking Collapse](#/wiki/shadow-banking-collapse) at line 19.

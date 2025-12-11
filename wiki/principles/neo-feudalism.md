@@ -12,4 +12,4 @@ Power access defines social hierarchy â†’ electrified elite vs dark underclass â
 
 ## Source
 
-Extracted from [Electrical Grid Collapse Infrastructure Decay](#/wiki/electrical-grid-collapse-infrastructure-decay) at line 239.
+Extracted from [Electrical Grid Collapse Infrastructure Decay](#/wiki/electrical-grid-collapse-infrastructure-decay) at line 242.

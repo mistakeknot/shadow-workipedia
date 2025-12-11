@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Space Weaponization Orbital Conflict](#/wiki/space-weaponization-orbital-conflict) at line 13.
+Extracted from [Space Weaponization Orbital Conflict](#/wiki/space-weaponization-orbital-conflict) at line 14.

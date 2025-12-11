@@ -12,4 +12,4 @@ GNSS spoofing perfect gray-zone weapon (software-based, cheap, deniable, prolife
 
 ## Source
 
-Extracted from [Gnss Spoofing Positioning Collapse](#/wiki/gnss-spoofing-positioning-collapse) at line 23.
+Extracted from [Gnss Spoofing Positioning Collapse](#/wiki/gnss-spoofing-positioning-collapse) at line 24.

@@ -12,4 +12,4 @@ Individual organizations rationally pay ransoms (hospital: save lives NOW, city:
 
 ## Source
 
-Extracted from [Ransomware Pandemic](#/wiki/ransomware-pandemic) at line 25.
+Extracted from [Ransomware Pandemic](#/wiki/ransomware-pandemic) at line 26.

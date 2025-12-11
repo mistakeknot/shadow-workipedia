@@ -12,4 +12,4 @@ Blood PFAS >20 ng/mL (bioaccumulation score 0.60+) → cancer risk +40-60% (kidn
 
 ## Source
 
-Extracted from [Pfas Crisis](#/wiki/pfas-crisis) at line 110.
+Extracted from [Pfas Crisis](#/wiki/pfas-crisis) at line 111.

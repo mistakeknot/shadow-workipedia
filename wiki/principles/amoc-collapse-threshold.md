@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Climate](#/wiki/climate) at line 17.
+Extracted from [Climate](#/wiki/climate) at line 18.

@@ -12,4 +12,4 @@ Threat levels emerge from multiplicative combination of military power ratio, ge
 
 ## Source
 
-Extracted from [Diplomacy](#/wiki/diplomacy) at line 10.
+Extracted from [Diplomacy](#/wiki/diplomacy) at line 11.

@@ -12,4 +12,4 @@ Public institutions hollow out as funding declines (education -15% real per stud
 
 ## Source
 
-Extracted from [Institutional Legitimacy Collapse](#/wiki/institutional-legitimacy-collapse) at line 21.
+Extracted from [Institutional Legitimacy Collapse](#/wiki/institutional-legitimacy-collapse) at line 22.

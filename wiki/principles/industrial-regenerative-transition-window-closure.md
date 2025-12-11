@@ -12,4 +12,4 @@ Industrial agriculture soil-mining practices (tillage 10-100× erosion, monocult
 
 ## Source
 
-Extracted from [Topsoil Depletion Agricultural Collapse](#/wiki/topsoil-depletion-agricultural-collapse) at line 25.
+Extracted from [Topsoil Depletion Agricultural Collapse](#/wiki/topsoil-depletion-agricultural-collapse) at line 28.

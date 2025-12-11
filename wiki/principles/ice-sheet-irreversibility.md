@@ -12,4 +12,4 @@ Greenland collapse at >2°C regional warming accelerates rise from 0.0002m/year 
 
 ## Source
 
-Extracted from [Climate Refugee](#/wiki/climate-refugee) at line 23.
+Extracted from [Climate Refugee](#/wiki/climate-refugee) at line 24.

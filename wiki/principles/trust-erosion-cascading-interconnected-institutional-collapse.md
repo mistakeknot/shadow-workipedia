@@ -12,4 +12,4 @@ Institutional trust collapses across interconnected spheres where university tru
 
 ## Source
 
-Extracted from [Institutional Legitimacy Collapse](#/wiki/institutional-legitimacy-collapse) at line 13.
+Extracted from [Institutional Legitimacy Collapse](#/wiki/institutional-legitimacy-collapse) at line 14.

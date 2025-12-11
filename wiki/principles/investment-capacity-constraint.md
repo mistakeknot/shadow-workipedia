@@ -12,4 +12,4 @@ Annual infrastructure investment of 3-7% GDP with maintenance backlog accumulati
 
 ## Source
 
-Extracted from [Infrastructure](#/wiki/infrastructure) at line 23.
+Extracted from [Infrastructure](#/wiki/infrastructure) at line 25.

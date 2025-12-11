@@ -12,4 +12,4 @@ Biological warfare establishes perfect first-strike advantage where attacker ach
 
 ## Source
 
-Extracted from [Synthetic Biology Weaponization Biological Attribution Crisis](#/wiki/synthetic-biology-weaponization-biological-attribution-crisis) at line 28.
+Extracted from [Synthetic Biology Weaponization Biological Attribution Crisis](#/wiki/synthetic-biology-weaponization-biological-attribution-crisis) at line 29.

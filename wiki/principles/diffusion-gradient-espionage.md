@@ -12,4 +12,4 @@ Knowledge diffuses via trade partners and treaties with 1-2 year lag for treaty 
 
 ## Source
 
-Extracted from [Technology](#/wiki/technology) at line 20.
+Extracted from [Technology](#/wiki/technology) at line 21.

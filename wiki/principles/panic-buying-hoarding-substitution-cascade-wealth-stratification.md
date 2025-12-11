@@ -12,4 +12,4 @@ Shortage visibility triggers irreversible panic dynamics where social media spre
 
 ## Source
 
-Extracted from [Global Supply Chain Collapse](#/wiki/global-supply-chain-collapse) at line 19.
+Extracted from [Global Supply Chain Collapse](#/wiki/global-supply-chain-collapse) at line 20.

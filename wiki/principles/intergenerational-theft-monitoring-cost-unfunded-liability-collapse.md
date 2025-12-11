@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Nuclear Waste Storage Failure Radioactive Legacy](#/wiki/nuclear-waste-storage-failure-radioactive-legacy) at line 27.
+Extracted from [Nuclear Waste Storage Failure Radioactive Legacy](#/wiki/nuclear-waste-storage-failure-radioactive-legacy) at line 28.

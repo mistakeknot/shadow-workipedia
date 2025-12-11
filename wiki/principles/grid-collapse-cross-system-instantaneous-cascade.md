@@ -12,4 +12,4 @@ Grid failure instantly cascades through all 18 resource systems (water pumps sto
 
 ## Source
 
-Extracted from [Electrical Grid Collapse Infrastructure Decay](#/wiki/electrical-grid-collapse-infrastructure-decay) at line 28.
+Extracted from [Electrical Grid Collapse Infrastructure Decay](#/wiki/electrical-grid-collapse-infrastructure-decay) at line 31.

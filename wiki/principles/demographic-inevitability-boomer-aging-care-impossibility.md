@@ -12,4 +12,4 @@ Baby Boomer aging guarantees demand explosion (73M Americans >65 by 2030 needing
 
 ## Source
 
-Extracted from [Healthcare System Collapse](#/wiki/healthcare-system-collapse) at line 28.
+Extracted from [Healthcare System Collapse](#/wiki/healthcare-system-collapse) at line 32.

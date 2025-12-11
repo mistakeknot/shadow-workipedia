@@ -12,4 +12,4 @@ Authoritarian regimes suppress trait expression but cannot prevent underground d
 
 ## Source
 
-Extracted from [Culture](#/wiki/culture) at line 23.
+Extracted from [Culture](#/wiki/culture) at line 24.

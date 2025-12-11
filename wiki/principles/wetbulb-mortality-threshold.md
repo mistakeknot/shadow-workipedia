@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Urban Heat Island](#/wiki/urban-heat-island) at line 13.
+Extracted from [Urban Heat Island](#/wiki/urban-heat-island) at line 14.

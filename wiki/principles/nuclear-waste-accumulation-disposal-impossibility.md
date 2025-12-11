@@ -12,4 +12,4 @@ Spent fuel accumulation 300,000 metric tons globally (+10,000-12,000 tons/year) 
 
 ## Source
 
-Extracted from [Nuclear Plant Crisis Cascade](#/wiki/nuclear-plant-crisis-cascade) at line 16.
+Extracted from [Nuclear Plant Crisis Cascade](#/wiki/nuclear-plant-crisis-cascade) at line 17.

@@ -12,4 +12,4 @@ CBDC programmability enables conditional spending restrictions where money expir
 
 ## Source
 
-Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 17.
+Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 19.

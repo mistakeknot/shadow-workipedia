@@ -12,4 +12,4 @@ Fossil water aquifers (Ogallala, North China Plain) deplete at 50:1 withdrawal-t
 
 ## Source
 
-Extracted from [Water Conflict Unified](#/wiki/water-conflict-unified) at line 20.
+Extracted from [Water Conflict Unified](#/wiki/water-conflict-unified) at line 21.

@@ -12,4 +12,4 @@ Single-sector attack triggers cascade via dependencies (power grid failure → w
 
 ## Source
 
-Extracted from [Critical Infrastructure Attacks](#/wiki/critical-infrastructure-attacks) at line 19.
+Extracted from [Critical Infrastructure Attacks](#/wiki/critical-infrastructure-attacks) at line 21.

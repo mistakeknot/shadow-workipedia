@@ -12,4 +12,4 @@ Producer nations increasingly assert resource sovereignty through nationalizatio
 
 ## Source
 
-Extracted from [Critical Mineral Extraction Wars Green Colonialism](#/wiki/critical-mineral-extraction-wars-green-colonialism) at line 21.
+Extracted from [Critical Mineral Extraction Wars Green Colonialism](#/wiki/critical-mineral-extraction-wars-green-colonialism) at line 23.

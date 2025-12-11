@@ -12,4 +12,4 @@ Aquifer depletion exceeding virgin compression stress creates permanent land sub
 
 ## Source
 
-Extracted from [Water Conflict Unified](#/wiki/water-conflict-unified) at line 30.
+Extracted from [Water Conflict Unified](#/wiki/water-conflict-unified) at line 31.

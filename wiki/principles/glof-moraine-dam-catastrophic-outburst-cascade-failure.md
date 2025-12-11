@@ -12,4 +12,4 @@ Glacier retreat creates 3,000+ glacial lakes (200+ dangerous) behind unstable mo
 
 ## Source
 
-Extracted from [Himalayan Third Pole Glacier Collapse](#/wiki/himalayan-third-pole-glacier-collapse) at line 17.
+Extracted from [Himalayan Third Pole Glacier Collapse](#/wiki/himalayan-third-pole-glacier-collapse) at line 18.

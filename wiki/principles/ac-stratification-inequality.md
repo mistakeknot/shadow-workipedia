@@ -12,4 +12,4 @@ Mortality ratio amplifies from 10× → 50× without justice policies as rich AC
 
 ## Source
 
-Extracted from [Urban Heat Island](#/wiki/urban-heat-island) at line 15.
+Extracted from [Urban Heat Island](#/wiki/urban-heat-island) at line 16.

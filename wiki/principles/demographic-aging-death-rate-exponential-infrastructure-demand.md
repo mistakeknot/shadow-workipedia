@@ -12,4 +12,4 @@ Global aging drives death rate acceleration from 55M deaths annually (2020) to 7
 
 ## Source
 
-Extracted from [Death Dying Infrastructure](#/wiki/death-dying-infrastructure) at line 13.
+Extracted from [Death Dying Infrastructure](#/wiki/death-dying-infrastructure) at line 14.

@@ -12,4 +12,4 @@ IHL core principles (distinction between combatants/civilians, proportionality o
 
 ## Source
 
-Extracted from [Autonomous Weapons Laws Accountability Crisis](#/wiki/autonomous-weapons-laws-accountability-crisis) at line 28.
+Extracted from [Autonomous Weapons Laws Accountability Crisis](#/wiki/autonomous-weapons-laws-accountability-crisis) at line 29.

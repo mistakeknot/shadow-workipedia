@@ -12,4 +12,4 @@ Cross-border transmission via commercial networks seeds new regional epidemics w
 
 ## Source
 
-Extracted from [Pandemic](#/wiki/pandemic) at line 20.
+Extracted from [Pandemic](#/wiki/pandemic) at line 23.

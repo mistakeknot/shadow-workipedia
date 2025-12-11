@@ -12,4 +12,4 @@ Sovereign defaults trigger contagion through interconnected financial system whe
 
 ## Source
 
-Extracted from [Global Debt Jubilee Sovereign Default Cascade](#/wiki/global-debt-jubilee-sovereign-default-cascade) at line 22.
+Extracted from [Global Debt Jubilee Sovereign Default Cascade](#/wiki/global-debt-jubilee-sovereign-default-cascade) at line 24.

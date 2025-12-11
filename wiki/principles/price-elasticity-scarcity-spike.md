@@ -12,4 +12,4 @@ Water pricing exhibits exponential elasticity when scarcity exceeds 0.6 threshol
 
 ## Source
 
-Extracted from [Water Conflict Unified](#/wiki/water-conflict-unified) at line 28.
+Extracted from [Water Conflict Unified](#/wiki/water-conflict-unified) at line 29.

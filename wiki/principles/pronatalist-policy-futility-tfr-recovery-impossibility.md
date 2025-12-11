@@ -12,4 +12,4 @@ Pronatalist policies (cash payments, childcare subsidies, parental leave) costin
 
 ## Source
 
-Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 21.
+Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 23.

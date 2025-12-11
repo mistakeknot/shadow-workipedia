@@ -12,4 +12,4 @@ BCI technology enables direct brain state monitoring detecting intentions before
 
 ## Source
 
-Extracted from [Brain Computer Interface Neural Sovereignty Crisis](#/wiki/brain-computer-interface-neural-sovereignty-crisis) at line 30.
+Extracted from [Brain Computer Interface Neural Sovereignty Crisis](#/wiki/brain-computer-interface-neural-sovereignty-crisis) at line 31.

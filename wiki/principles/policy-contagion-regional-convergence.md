@@ -12,4 +12,4 @@ LA 700 sweeps/year (2022) → San Diego/Sacramento/Phoenix within 2 years (conta
 
 ## Source
 
-Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 17.
+Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 19.

@@ -12,4 +12,4 @@ Climate change amplifies contamination through multiple pathways: flooding inund
 
 ## Source
 
-Extracted from [Soil Contamination Heavy Metal Accumulation](#/wiki/soil-contamination-heavy-metal-accumulation) at line 23.
+Extracted from [Soil Contamination Heavy Metal Accumulation](#/wiki/soil-contamination-heavy-metal-accumulation) at line 25.

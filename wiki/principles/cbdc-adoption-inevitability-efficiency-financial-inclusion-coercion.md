@@ -12,4 +12,4 @@ Central Bank Digital Currencies achieve adoption through efficiency gains (insta
 
 ## Source
 
-Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 13.
+Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 15.

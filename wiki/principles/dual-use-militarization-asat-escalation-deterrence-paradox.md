@@ -12,4 +12,4 @@ Starlink military adoption Ukraine 20,000+ terminals enables tactical advantage 
 
 ## Source
 
-Extracted from [Starlink Satellite Internet Sovereignty](#/wiki/starlink-satellite-internet-sovereignty) at line 22.
+Extracted from [Starlink Satellite Internet Sovereignty](#/wiki/starlink-satellite-internet-sovereignty) at line 23.

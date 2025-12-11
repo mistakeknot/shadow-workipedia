@@ -12,4 +12,4 @@ Institutional power couples directly to budget allocation in zero-sum competitio
 
 ## Source
 
-Extracted from [Institutions](#/wiki/institutions) at line 13.
+Extracted from [Institutions](#/wiki/institutions) at line 14.

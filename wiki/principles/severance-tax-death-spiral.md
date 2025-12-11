@@ -12,4 +12,4 @@ Coal revenue -80% (Wyoming) and -70% (West Virginia) collapses tax base below 20
 
 ## Source
 
-Extracted from [Coal Country Collapse](#/wiki/coal-country-collapse) at line 17.
+Extracted from [Coal Country Collapse](#/wiki/coal-country-collapse) at line 19.

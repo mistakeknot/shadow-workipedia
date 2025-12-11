@@ -12,4 +12,4 @@ Biological attribution distinguishing natural outbreak from engineered pathogen 
 
 ## Source
 
-Extracted from [Synthetic Biology Weaponization Biological Attribution Crisis](#/wiki/synthetic-biology-weaponization-biological-attribution-crisis) at line 22.
+Extracted from [Synthetic Biology Weaponization Biological Attribution Crisis](#/wiki/synthetic-biology-weaponization-biological-attribution-crisis) at line 23.

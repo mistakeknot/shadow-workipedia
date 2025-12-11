@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Climate Refugee](#/wiki/climate-refugee) at line 13.
+Extracted from [Climate Refugee](#/wiki/climate-refugee) at line 14.

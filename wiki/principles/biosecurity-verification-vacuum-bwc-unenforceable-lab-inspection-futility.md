@@ -12,4 +12,4 @@ Biological Weapons Convention (BWC) verification faces fundamental impossibility
 
 ## Source
 
-Extracted from [Synthetic Biology Weaponization Biological Attribution Crisis](#/wiki/synthetic-biology-weaponization-biological-attribution-crisis) at line 26.
+Extracted from [Synthetic Biology Weaponization Biological Attribution Crisis](#/wiki/synthetic-biology-weaponization-biological-attribution-crisis) at line 27.

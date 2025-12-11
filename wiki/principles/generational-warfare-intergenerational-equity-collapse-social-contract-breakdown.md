@@ -12,4 +12,4 @@ Demographic imbalance triggers intergenerational conflict as elderly 30-40% popu
 
 ## Source
 
-Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 23.
+Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 25.

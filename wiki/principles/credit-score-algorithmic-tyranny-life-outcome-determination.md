@@ -12,4 +12,4 @@ Credit scores determine life trajectories where FICO 300-850 range controls acce
 
 ## Source
 
-Extracted from [Digital Exile Financial Control](#/wiki/digital-exile-financial-control) at line 17.
+Extracted from [Digital Exile Financial Control](#/wiki/digital-exile-financial-control) at line 20.

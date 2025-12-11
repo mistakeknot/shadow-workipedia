@@ -12,4 +12,4 @@ Open acceptance (95% intake) generates -15 domestic stability leading to nativis
 
 ## Source
 
-Extracted from [Climate Refugee](#/wiki/climate-refugee) at line 15.
+Extracted from [Climate Refugee](#/wiki/climate-refugee) at line 16.

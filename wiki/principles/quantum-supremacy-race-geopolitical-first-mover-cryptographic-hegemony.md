@@ -12,4 +12,4 @@ Quantum computing race creates winner-take-all scenario where first nation achie
 
 ## Source
 
-Extracted from [Quantum Computing Post Quantum Cryptographic Crisis](#/wiki/quantum-computing-post-quantum-cryptographic-crisis) at line 24.
+Extracted from [Quantum Computing Post Quantum Cryptographic Crisis](#/wiki/quantum-computing-post-quantum-cryptographic-crisis) at line 25.

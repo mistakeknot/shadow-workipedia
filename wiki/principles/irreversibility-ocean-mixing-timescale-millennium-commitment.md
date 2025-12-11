@@ -12,4 +12,4 @@ Ocean mixing timescales (surface→deep 100-1000 years, full equilibration 10,00
 
 ## Source
 
-Extracted from [Ocean Acidification Marine Ecosystem Collapse](#/wiki/ocean-acidification-marine-ecosystem-collapse) at line 21.
+Extracted from [Ocean Acidification Marine Ecosystem Collapse](#/wiki/ocean-acidification-marine-ecosystem-collapse) at line 23.

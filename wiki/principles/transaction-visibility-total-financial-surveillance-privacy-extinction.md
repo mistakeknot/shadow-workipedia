@@ -12,4 +12,4 @@ CBDC architecture enables complete transaction visibility where every payment (l
 
 ## Source
 
-Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 15.
+Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 17.

@@ -12,4 +12,4 @@ Movement strength >0.70 + virality >50M + Gini >40 → defund 40% adoption rate 
 
 ## Source
 
-Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 17.
+Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 18.

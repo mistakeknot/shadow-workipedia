@@ -12,4 +12,4 @@ Shadow banking non-regulated leverage of 20-50× creates 3-5× deposit multiplie
 
 ## Source
 
-Extracted from [Economy](#/wiki/economy) at line 21.
+Extracted from [Economy](#/wiki/economy) at line 22.

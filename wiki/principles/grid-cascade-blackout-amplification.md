@@ -12,4 +12,4 @@ Single substation failure during AC demand surge 2-4× baseline (+10% per °C >3
 
 ## Source
 
-Extracted from [Urban Heat Island](#/wiki/urban-heat-island) at line 17.
+Extracted from [Urban Heat Island](#/wiki/urban-heat-island) at line 18.

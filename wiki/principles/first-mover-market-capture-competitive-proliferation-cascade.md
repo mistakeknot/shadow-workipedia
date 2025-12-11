@@ -12,4 +12,4 @@ Starlink first-mover advantage 5,000 satellites deployed (2024 vs OneWeb 648, Ku
 
 ## Source
 
-Extracted from [Starlink Satellite Internet Sovereignty](#/wiki/starlink-satellite-internet-sovereignty) at line 26.
+Extracted from [Starlink Satellite Internet Sovereignty](#/wiki/starlink-satellite-internet-sovereignty) at line 27.

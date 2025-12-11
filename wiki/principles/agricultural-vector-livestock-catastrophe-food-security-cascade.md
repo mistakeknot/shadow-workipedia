@@ -12,4 +12,4 @@ Vector expansion threatens food security through livestock epidemics where Bluet
 
 ## Source
 
-Extracted from [Vector Borne Disease Geographic Expansion](#/wiki/vector-borne-disease-geographic-expansion) at line 21.
+Extracted from [Vector Borne Disease Geographic Expansion](#/wiki/vector-borne-disease-geographic-expansion) at line 22.

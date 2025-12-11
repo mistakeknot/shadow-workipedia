@@ -12,4 +12,4 @@ Office workers remote → downtown foot traffic -40% to -60% → retail/restaura
 
 ## Source
 
-Extracted from [Commercial Real Estate Doom Loop](#/wiki/commercial-real-estate-doom-loop) at line 20.
+Extracted from [Commercial Real Estate Doom Loop](#/wiki/commercial-real-estate-doom-loop) at line 21.

@@ -12,4 +12,4 @@ State security provision collapses in megacity periphery where police presence f
 
 ## Source
 
-Extracted from [Megacity Ungovernability Slum State Collapse](#/wiki/megacity-ungovernability-slum-state-collapse) at line 19.
+Extracted from [Megacity Ungovernability Slum State Collapse](#/wiki/megacity-ungovernability-slum-state-collapse) at line 20.

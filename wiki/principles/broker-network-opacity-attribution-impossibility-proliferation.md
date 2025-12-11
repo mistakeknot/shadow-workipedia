@@ -12,4 +12,4 @@ Exploit broker networks Zerodium/Crowdfence/Vupen public pricing 30% deals discl
 
 ## Source
 
-Extracted from [Spyware For Hire Export Wars](#/wiki/spyware-for-hire-export-wars) at line 25.
+Extracted from [Spyware For Hire Export Wars](#/wiki/spyware-for-hire-export-wars) at line 26.

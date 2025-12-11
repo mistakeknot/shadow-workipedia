@@ -12,4 +12,4 @@ IMF austerity conditionality (cuts 20-30%, tax hikes) creates political backlash
 
 ## Source
 
-Extracted from [Climate Loss Damage Sovereign Debt](#/wiki/climate-loss-damage-sovereign-debt) at line 22.
+Extracted from [Climate Loss Damage Sovereign Debt](#/wiki/climate-loss-damage-sovereign-debt) at line 24.

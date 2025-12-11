@@ -12,4 +12,4 @@ Factory farms produce 70% global meat/eggs making abolition/reform politically i
 
 ## Source
 
-Extracted from [Factory Farming Disease Incubators](#/wiki/factory-farming-disease-incubators) at line 28.
+Extracted from [Factory Farming Disease Incubators](#/wiki/factory-farming-disease-incubators) at line 30.

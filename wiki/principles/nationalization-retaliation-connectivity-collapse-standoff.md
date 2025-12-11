@@ -12,4 +12,4 @@ Regulatory capture vs withdrawal threat creates unregulatable private monopoly w
 
 ## Source
 
-Extracted from [Starlink Satellite Internet Sovereignty](#/wiki/starlink-satellite-internet-sovereignty) at line 24.
+Extracted from [Starlink Satellite Internet Sovereignty](#/wiki/starlink-satellite-internet-sovereignty) at line 25.

@@ -12,4 +12,4 @@ Commercial spyware turnkey deployment enables low-capability regimes deploy adva
 
 ## Source
 
-Extracted from [Spyware For Hire Export Wars](#/wiki/spyware-for-hire-export-wars) at line 21.
+Extracted from [Spyware For Hire Export Wars](#/wiki/spyware-for-hire-export-wars) at line 22.

@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Healthcare System Collapse](#/wiki/healthcare-system-collapse) at line 20.
+Extracted from [Healthcare System Collapse](#/wiki/healthcare-system-collapse) at line 24.

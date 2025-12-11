@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Pyrocumulonimbus Warfare](#/wiki/pyrocumulonimbus-warfare) at line 19.
+Extracted from [Pyrocumulonimbus Warfare](#/wiki/pyrocumulonimbus-warfare) at line 20.

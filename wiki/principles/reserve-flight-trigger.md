@@ -12,4 +12,4 @@ Foreign currency reserves <3 months imports create structural capital flight tip
 
 ## Source
 
-Extracted from [Economy](#/wiki/economy) at line 19.
+Extracted from [Economy](#/wiki/economy) at line 20.

@@ -12,4 +12,4 @@ Offensive cyber capabilities indistinguishable from defensive research (NSA Eter
 
 ## Source
 
-Extracted from [Critical Infrastructure Attacks](#/wiki/critical-infrastructure-attacks) at line 25.
+Extracted from [Critical Infrastructure Attacks](#/wiki/critical-infrastructure-attacks) at line 27.

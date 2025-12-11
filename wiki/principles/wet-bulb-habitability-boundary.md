@@ -12,4 +12,4 @@ Humid regions approaching 35°C wet-bulb threshold create >1-in-1000 year extrem
 
 ## Source
 
-Extracted from [Climate](#/wiki/climate) at line 25.
+Extracted from [Climate](#/wiki/climate) at line 26.

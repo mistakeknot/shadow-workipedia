@@ -12,4 +12,4 @@ Unhoused population + vacant buildings + enforcement gaps create occupation cond
 
 ## Source
 
-Extracted from [Commercial Real Estate Doom Loop](#/wiki/commercial-real-estate-doom-loop) at line 24.
+Extracted from [Commercial Real Estate Doom Loop](#/wiki/commercial-real-estate-doom-loop) at line 25.

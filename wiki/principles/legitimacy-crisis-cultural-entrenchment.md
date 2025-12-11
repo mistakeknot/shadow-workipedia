@@ -12,4 +12,4 @@ Illness recognition vs denial movements determine policy trajectories where deni
 
 ## Source
 
-Extracted from [Long Covid Labor Collapse](#/wiki/long-covid-labor-collapse) at line 24.
+Extracted from [Long Covid Labor Collapse](#/wiki/long-covid-labor-collapse) at line 25.

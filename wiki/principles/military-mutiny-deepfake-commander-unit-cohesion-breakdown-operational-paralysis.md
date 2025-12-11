@@ -12,4 +12,4 @@ Deepfake video showing battalion commander calling soldiers to "stand with me ag
 
 ## Source
 
-Extracted from [Ai Deepfake Diplomatic Mutinies](#/wiki/ai-deepfake-diplomatic-mutinies) at line 21.
+Extracted from [Ai Deepfake Diplomatic Mutinies](#/wiki/ai-deepfake-diplomatic-mutinies) at line 23.

@@ -12,4 +12,4 @@ Sovereign debt/GDP >90% creates self-reinforcing default probability acceleratio
 
 ## Source
 
-Extracted from [Economy](#/wiki/economy) at line 13.
+Extracted from [Economy](#/wiki/economy) at line 14.

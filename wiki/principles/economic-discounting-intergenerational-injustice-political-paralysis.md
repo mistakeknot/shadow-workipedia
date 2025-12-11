@@ -12,4 +12,4 @@ Multi-century commitment timescales (2035 trigger → 2300 equilibrium) encounte
 
 ## Source
 
-Extracted from [West Antarctic Ice Cliff Collapse](#/wiki/west-antarctic-ice-cliff-collapse) at line 24.
+Extracted from [West Antarctic Ice Cliff Collapse](#/wiki/west-antarctic-ice-cliff-collapse) at line 26.

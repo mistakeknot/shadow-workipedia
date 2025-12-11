@@ -12,4 +12,4 @@ Peak oil demand (2030-2035) when EV adoption >30% + carbon pricing $50/ton creat
 
 ## Source
 
-Extracted from [Oil Industry Death](#/wiki/oil-industry-death) at line 13.
+Extracted from [Oil Industry Death](#/wiki/oil-industry-death) at line 15.

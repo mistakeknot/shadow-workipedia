@@ -12,4 +12,4 @@ Qualified immunity doctrine (1967 Pierson v. Ray) creates "clearly established" 
 
 ## Source
 
-Extracted from [Police Militarization](#/wiki/police-militarization) at line 16.
+Extracted from [Police Militarization](#/wiki/police-militarization) at line 18.

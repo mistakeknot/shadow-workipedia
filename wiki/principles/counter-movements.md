@@ -12,4 +12,4 @@ Blue Lives Matter (police union-funded, 350k FOP members, $100M spending), "Law 
 
 ## Source
 
-Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 69.
+Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 70.

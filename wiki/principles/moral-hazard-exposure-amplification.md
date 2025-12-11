@@ -12,4 +12,4 @@ Subsidized government insurance premiums (NFIP 40-60% below actuarial rates) inc
 
 ## Source
 
-Extracted from [Climate Insurance Collapse](#/wiki/climate-insurance-collapse) at line 15.
+Extracted from [Climate Insurance Collapse](#/wiki/climate-insurance-collapse) at line 17.

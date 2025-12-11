@@ -12,4 +12,4 @@ Literacy rate (0.0-1.0) provides 0.5-1.0× multiplier on all human capital forma
 
 ## Source
 
-Extracted from [Education](#/wiki/education) at line 30.
+Extracted from [Education](#/wiki/education) at line 32.

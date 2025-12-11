@@ -12,4 +12,4 @@ Autonomous weapons compress conflict timescales from hours-days (human decision 
 
 ## Source
 
-Extracted from [Autonomous Weapons Laws Accountability Crisis](#/wiki/autonomous-weapons-laws-accountability-crisis) at line 26.
+Extracted from [Autonomous Weapons Laws Accountability Crisis](#/wiki/autonomous-weapons-laws-accountability-crisis) at line 27.

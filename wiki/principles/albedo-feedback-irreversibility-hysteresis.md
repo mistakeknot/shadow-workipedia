@@ -12,4 +12,4 @@ Arctic sea ice extent September minimum historical 7.5M km² 1979 → 3.41M km²
 
 ## Source
 
-Extracted from [Arctic Blue Ocean Jet Stream](#/wiki/arctic-blue-ocean-jet-stream) at line 16.
+Extracted from [Arctic Blue Ocean Jet Stream](#/wiki/arctic-blue-ocean-jet-stream) at line 17.

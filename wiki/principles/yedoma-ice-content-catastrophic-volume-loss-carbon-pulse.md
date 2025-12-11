@@ -12,4 +12,4 @@ Yedoma permafrost (500,000 km² across Siberia/Alaska) contains 50% organic carb
 
 ## Source
 
-Extracted from [Permafrost Thaw Methane Bomb](#/wiki/permafrost-thaw-methane-bomb) at line 15.
+Extracted from [Permafrost Thaw Methane Bomb](#/wiki/permafrost-thaw-methane-bomb) at line 17.

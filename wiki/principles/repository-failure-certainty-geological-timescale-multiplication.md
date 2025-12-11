@@ -12,4 +12,4 @@ Every geological repository failure mode (groundwater intrusion at mm/year event
 
 ## Source
 
-Extracted from [Nuclear Waste Storage Failure Radioactive Legacy](#/wiki/nuclear-waste-storage-failure-radioactive-legacy) at line 19.
+Extracted from [Nuclear Waste Storage Failure Radioactive Legacy](#/wiki/nuclear-waste-storage-failure-radioactive-legacy) at line 20.

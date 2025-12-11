@@ -12,4 +12,4 @@ Pre-filtered migration corridors (<$10k source, >$30k target) limit brain drain 
 
 ## Source
 
-Extracted from [Education](#/wiki/education) at line 32.
+Extracted from [Education](#/wiki/education) at line 34.

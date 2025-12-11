@@ -12,4 +12,4 @@ Banking crisis (NPL >15%) triggers simultaneous currency collapse (-20-40%), tra
 
 ## Source
 
-Extracted from [Economy](#/wiki/economy) at line 23.
+Extracted from [Economy](#/wiki/economy) at line 24.

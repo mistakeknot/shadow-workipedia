@@ -12,4 +12,4 @@ Seeding pyroCb-generated clouds with 250 kg silver iodide achieves +25% precipit
 
 ## Source
 
-Extracted from [Pyrocumulonimbus Warfare](#/wiki/pyrocumulonimbus-warfare) at line 17.
+Extracted from [Pyrocumulonimbus Warfare](#/wiki/pyrocumulonimbus-warfare) at line 18.

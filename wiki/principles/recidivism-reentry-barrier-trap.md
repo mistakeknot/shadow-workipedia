@@ -12,4 +12,4 @@ Incarceration creates compounding reentry barriers (employment rejection 60-80% 
 
 ## Source
 
-Extracted from [Mass Incarceration Crisis](#/wiki/mass-incarceration-crisis) at line 14.
+Extracted from [Mass Incarceration Crisis](#/wiki/mass-incarceration-crisis) at line 21.

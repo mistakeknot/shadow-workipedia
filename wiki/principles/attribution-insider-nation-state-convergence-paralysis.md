@@ -12,4 +12,4 @@ Forensic difficulty distinguishing insider threats (disgruntled engineers person
 
 ## Source
 
-Extracted from [Factory Kill Switch Sabotage](#/wiki/factory-kill-switch-sabotage) at line 19.
+Extracted from [Factory Kill Switch Sabotage](#/wiki/factory-kill-switch-sabotage) at line 20.

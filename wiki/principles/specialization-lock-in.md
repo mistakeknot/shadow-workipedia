@@ -12,4 +12,4 @@ Comparative advantage specialization over 10-20 years creates 15-25% cost-incumb
 
 ## Source
 
-Extracted from [Economy](#/wiki/economy) at line 17.
+Extracted from [Economy](#/wiki/economy) at line 18.

@@ -12,4 +12,4 @@ East Siberian Arctic Shelf (2.1M km²) subsea permafrost degraded from -18°C to
 
 ## Source
 
-Extracted from [Permafrost Thaw Methane Bomb](#/wiki/permafrost-thaw-methane-bomb) at line 19.
+Extracted from [Permafrost Thaw Methane Bomb](#/wiki/permafrost-thaw-methane-bomb) at line 21.

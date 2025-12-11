@@ -12,4 +12,4 @@ Oil revenue >60-90% budget dependency (Saudi Arabia, Venezuela, Nigeria) with br
 
 ## Source
 
-Extracted from [Oil Industry Death](#/wiki/oil-industry-death) at line 17.
+Extracted from [Oil Industry Death](#/wiki/oil-industry-death) at line 19.

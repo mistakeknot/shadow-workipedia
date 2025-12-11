@@ -12,4 +12,4 @@ Amazon trees evapotranspire 50-80% rainfall recycled into atmosphere creating fo
 
 ## Source
 
-Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 15.
+Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 16.

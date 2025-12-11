@@ -12,4 +12,4 @@ Regime legitimacy <30% across any tier triggering mass mobilization potential, w
 
 ## Source
 
-Extracted from [Politics](#/wiki/politics) at line 11.
+Extracted from [Politics](#/wiki/politics) at line 12.

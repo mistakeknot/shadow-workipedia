@@ -12,4 +12,4 @@ Private prison corporations (CoreCivic/GEO Group 0 beds 1980 → 130k 2012, 8.4%
 
 ## Source
 
-Extracted from [Mass Incarceration Crisis](#/wiki/mass-incarceration-crisis) at line 12.
+Extracted from [Mass Incarceration Crisis](#/wiki/mass-incarceration-crisis) at line 19.

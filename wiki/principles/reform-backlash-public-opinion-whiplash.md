@@ -12,4 +12,4 @@ Ferguson 2014 + George Floyd 2020 uprisings (15-26M participants, largest US pro
 
 ## Source
 
-Extracted from [Police Militarization](#/wiki/police-militarization) at line 18.
+Extracted from [Police Militarization](#/wiki/police-militarization) at line 20.

@@ -12,4 +12,4 @@ Death penalty abolition states experience vigilante justice probability 1.5× hi
 
 ## Source
 
-Extracted from [Death Penalty Abolition](#/wiki/death-penalty-abolition) at line 22.
+Extracted from [Death Penalty Abolition](#/wiki/death-penalty-abolition) at line 23.

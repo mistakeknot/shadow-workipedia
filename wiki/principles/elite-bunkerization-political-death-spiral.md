@@ -12,4 +12,4 @@ Inequality >20 Gini enables elite AC bunker retreat (wealthy neighborhoods Â±10Â
 
 ## Source
 
-Extracted from [Urban Heat Island](#/wiki/urban-heat-island) at line 23.
+Extracted from [Urban Heat Island](#/wiki/urban-heat-island) at line 24.

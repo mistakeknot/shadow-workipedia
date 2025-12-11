@@ -12,4 +12,4 @@ Union avoidance consultant industry growth $5M (1970s) → $340M (2020) creates 
 
 ## Source
 
-Extracted from [Union Busting Epidemic](#/wiki/union-busting-epidemic) at line 14.
+Extracted from [Union Busting Epidemic](#/wiki/union-busting-epidemic) at line 16.

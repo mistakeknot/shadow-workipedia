@@ -12,4 +12,4 @@ Once blasphemy laws enacted (activates at Favored Majority regime+), prosecution
 
 ## Source
 
-Extracted from [Religious Freedom](#/wiki/religious-freedom) at line 15.
+Extracted from [Religious Freedom](#/wiki/religious-freedom) at line 17.

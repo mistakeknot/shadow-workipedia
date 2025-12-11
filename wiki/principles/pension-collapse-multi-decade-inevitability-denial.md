@@ -12,4 +12,4 @@ Unlike financial crises exploding suddenly, pension collapses unfold over decade
 
 ## Source
 
-Extracted from [Pension System Collapse Retirement Crisis](#/wiki/pension-system-collapse-retirement-crisis) at line 23.
+Extracted from [Pension System Collapse Retirement Crisis](#/wiki/pension-system-collapse-retirement-crisis) at line 24.

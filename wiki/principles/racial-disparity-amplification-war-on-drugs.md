@@ -12,4 +12,4 @@ War on Drugs policies (Reagan-era mandatory minimums, crack vs powder cocaine 10
 
 ## Source
 
-Extracted from [Mass Incarceration Crisis](#/wiki/mass-incarceration-crisis) at line 16.
+Extracted from [Mass Incarceration Crisis](#/wiki/mass-incarceration-crisis) at line 23.

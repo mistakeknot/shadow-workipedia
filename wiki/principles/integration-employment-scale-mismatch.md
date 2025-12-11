@@ -12,4 +12,4 @@ Solar-on-reclaimed-mines reinvestment programs create 100s of jobs (symbolic cul
 
 ## Source
 
-Extracted from [Coal Country Collapse](#/wiki/coal-country-collapse) at line 23.
+Extracted from [Coal Country Collapse](#/wiki/coal-country-collapse) at line 25.

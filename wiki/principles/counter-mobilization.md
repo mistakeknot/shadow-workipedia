@@ -14,4 +14,4 @@ category: principle
 
 ## Source
 
-Extracted from [Vaccine Hesitancy Public Health Trust Collapse](#/wiki/vaccine-hesitancy-public-health-trust-collapse) at line 93.
+Extracted from [Vaccine Hesitancy Public Health Trust Collapse](#/wiki/vaccine-hesitancy-public-health-trust-collapse) at line 110.

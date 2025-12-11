@@ -12,4 +12,4 @@ Systemic risk >0.80 forces bailout (+35% dominates ideology, NC 0.20→0.75 reve
 
 ## Source
 
-Extracted from [Shadow Banking Collapse](#/wiki/shadow-banking-collapse) at line 19.
+Extracted from [Shadow Banking Collapse](#/wiki/shadow-banking-collapse) at line 21.

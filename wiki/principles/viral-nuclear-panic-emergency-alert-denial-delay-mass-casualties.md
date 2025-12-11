@@ -12,4 +12,4 @@ Deepfake president announcing "imminent nuclear attack, seek shelter immediately
 
 ## Source
 
-Extracted from [Ai Deepfake Diplomatic Mutinies](#/wiki/ai-deepfake-diplomatic-mutinies) at line 19.
+Extracted from [Ai Deepfake Diplomatic Mutinies](#/wiki/ai-deepfake-diplomatic-mutinies) at line 21.

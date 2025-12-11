@@ -12,4 +12,4 @@ Platform deplatforming operates through cascade where initial exclusion from one
 
 ## Source
 
-Extracted from [Digital Exile Financial Control](#/wiki/digital-exile-financial-control) at line 15.
+Extracted from [Digital Exile Financial Control](#/wiki/digital-exile-financial-control) at line 18.

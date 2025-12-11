@@ -12,4 +12,4 @@ Discrete ideologies and social movements spread via logistic diffusion curves wi
 
 ## Source
 
-Extracted from [Culture](#/wiki/culture) at line 19.
+Extracted from [Culture](#/wiki/culture) at line 20.

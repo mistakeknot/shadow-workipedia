@@ -12,4 +12,4 @@ Individual nation default creates pariah status + capital market exclusion with 
 
 ## Source
 
-Extracted from [Climate Loss Damage Sovereign Debt](#/wiki/climate-loss-damage-sovereign-debt) at line 20.
+Extracted from [Climate Loss Damage Sovereign Debt](#/wiki/climate-loss-damage-sovereign-debt) at line 22.

@@ -12,4 +12,4 @@ Device maker patch latency reduction iOS 120 → 30 days, Android 180 → 60 day
 
 ## Source
 
-Extracted from [Spyware For Hire Export Wars](#/wiki/spyware-for-hire-export-wars) at line 23.
+Extracted from [Spyware For Hire Export Wars](#/wiki/spyware-for-hire-export-wars) at line 24.

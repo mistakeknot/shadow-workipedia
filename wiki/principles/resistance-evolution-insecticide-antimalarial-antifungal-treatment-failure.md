@@ -12,4 +12,4 @@ Simultaneous resistance evolution across all intervention categories where insec
 
 ## Source
 
-Extracted from [Vector Borne Disease Geographic Expansion](#/wiki/vector-borne-disease-geographic-expansion) at line 23.
+Extracted from [Vector Borne Disease Geographic Expansion](#/wiki/vector-borne-disease-geographic-expansion) at line 24.

@@ -16,4 +16,4 @@ Healthcare cost explosion (18% GDP 2023 = $4.3T growing 6%/year vs 3% economy) m
 
 ## Source
 
-Extracted from [Healthcare System Collapse](#/wiki/healthcare-system-collapse) at line 22.
+Extracted from [Healthcare System Collapse](#/wiki/healthcare-system-collapse) at line 26.

@@ -12,4 +12,4 @@ BCI creates unprecedented attack surface as brain lacks firewall mechanisms (no 
 
 ## Source
 
-Extracted from [Brain Computer Interface Neural Sovereignty Crisis](#/wiki/brain-computer-interface-neural-sovereignty-crisis) at line 24.
+Extracted from [Brain Computer Interface Neural Sovereignty Crisis](#/wiki/brain-computer-interface-neural-sovereignty-crisis) at line 25.

@@ -12,4 +12,4 @@ Strike coalitions inherently unstable as moderates (union officials, reformist p
 
 ## Source
 
-Extracted from [General Strike Movements](#/wiki/general-strike-movements) at line 21.
+Extracted from [General Strike Movements](#/wiki/general-strike-movements) at line 23.

@@ -12,4 +12,4 @@ Original decommissioning estimates $300M-400M but reality $500M-1B+ (Maine Yanke
 
 ## Source
 
-Extracted from [Nuclear Plant Crisis Cascade](#/wiki/nuclear-plant-crisis-cascade) at line 18.
+Extracted from [Nuclear Plant Crisis Cascade](#/wiki/nuclear-plant-crisis-cascade) at line 19.

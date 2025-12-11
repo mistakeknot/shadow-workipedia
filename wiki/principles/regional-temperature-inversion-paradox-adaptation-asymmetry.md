@@ -12,4 +12,4 @@ AMOC collapse paradoxically cools Europe -5 to -10°C (UK/Scandinavia winter -8 
 
 ## Source
 
-Extracted from [Amoc Collapse](#/wiki/amoc-collapse) at line 18.
+Extracted from [Amoc Collapse](#/wiki/amoc-collapse) at line 19.

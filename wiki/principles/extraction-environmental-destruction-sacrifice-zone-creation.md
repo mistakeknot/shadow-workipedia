@@ -12,4 +12,4 @@ Critical mineral extraction creates environmental destruction zones where lithiu
 
 ## Source
 
-Extracted from [Critical Mineral Extraction Wars Green Colonialism](#/wiki/critical-mineral-extraction-wars-green-colonialism) at line 17.
+Extracted from [Critical Mineral Extraction Wars Green Colonialism](#/wiki/critical-mineral-extraction-wars-green-colonialism) at line 19.

@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Factory Farming Disease Incubators](#/wiki/factory-farming-disease-incubators) at line 20.
+Extracted from [Factory Farming Disease Incubators](#/wiki/factory-farming-disease-incubators) at line 22.

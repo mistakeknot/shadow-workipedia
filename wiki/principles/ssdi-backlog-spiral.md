@@ -12,4 +12,4 @@ Long COVID prevalence drives SSDI filing surge (baseline 1M/year → 1.8-2.5M/ye
 
 ## Source
 
-Extracted from [Long Covid Labor Collapse](#/wiki/long-covid-labor-collapse) at line 16.
+Extracted from [Long Covid Labor Collapse](#/wiki/long-covid-labor-collapse) at line 17.

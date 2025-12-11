@@ -12,4 +12,4 @@ Permafrost feedback amplification where methane release approaching 1 GtC-eq/yea
 
 ## Source
 
-Extracted from [Boreal Permafrost Carbon Pulse](#/wiki/boreal-permafrost-carbon-pulse) at line 20.
+Extracted from [Boreal Permafrost Carbon Pulse](#/wiki/boreal-permafrost-carbon-pulse) at line 22.

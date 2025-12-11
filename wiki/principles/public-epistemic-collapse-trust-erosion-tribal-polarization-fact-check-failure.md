@@ -12,4 +12,4 @@ Trust in mainstream verification sources falls below 40% threshold triggering ir
 
 ## Source
 
-Extracted from [Ai Deepfake Diplomatic Mutinies](#/wiki/ai-deepfake-diplomatic-mutinies) at line 23.
+Extracted from [Ai Deepfake Diplomatic Mutinies](#/wiki/ai-deepfake-diplomatic-mutinies) at line 25.

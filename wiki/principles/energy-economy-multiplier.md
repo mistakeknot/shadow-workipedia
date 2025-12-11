@@ -12,4 +12,4 @@ Energy infrastructure quality >0.7 creating 150% industry output and 200% servic
 
 ## Source
 
-Extracted from [Infrastructure](#/wiki/infrastructure) at line 13.
+Extracted from [Infrastructure](#/wiki/infrastructure) at line 15.

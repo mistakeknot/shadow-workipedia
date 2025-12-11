@@ -12,4 +12,4 @@ Target species elimination mosquitoes (disease vector) triggers food web depende
 
 ## Source
 
-Extracted from [Gene Drive Synthetic Biology Catastrophe](#/wiki/gene-drive-synthetic-biology-catastrophe) at line 19.
+Extracted from [Gene Drive Synthetic Biology Catastrophe](#/wiki/gene-drive-synthetic-biology-catastrophe) at line 20.

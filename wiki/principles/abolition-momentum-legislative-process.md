@@ -12,4 +12,4 @@ State-by-state abolition follows multi-stage legislative process where committee
 
 ## Source
 
-Extracted from [Death Penalty Abolition](#/wiki/death-penalty-abolition) at line 20.
+Extracted from [Death Penalty Abolition](#/wiki/death-penalty-abolition) at line 21.

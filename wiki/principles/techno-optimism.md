@@ -13,4 +13,4 @@ Robots, AI, life extension, artificial wombs
 
 ## Source
 
-Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 200.
+Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 202.

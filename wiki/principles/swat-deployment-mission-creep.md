@@ -12,4 +12,4 @@ SWAT deployments escalate from rare high-risk scenarios 3,000/year (1980s) → r
 
 ## Source
 
-Extracted from [Police Militarization](#/wiki/police-militarization) at line 14.
+Extracted from [Police Militarization](#/wiki/police-militarization) at line 16.

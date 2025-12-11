@@ -12,4 +12,4 @@ Single hyperscale data center power demand (300MW-5GW approaching nuclear plant 
 
 ## Source
 
-Extracted from [Ai Compute Resource Wars](#/wiki/ai-compute-resource-wars) at line 15.
+Extracted from [Ai Compute Resource Wars](#/wiki/ai-compute-resource-wars) at line 16.

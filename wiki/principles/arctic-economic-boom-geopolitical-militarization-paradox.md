@@ -12,4 +12,4 @@ AMOC collapse Arctic warming amplification opens Northwest Passage 6-9 months/ye
 
 ## Source
 
-Extracted from [Amoc Collapse](#/wiki/amoc-collapse) at line 22.
+Extracted from [Amoc Collapse](#/wiki/amoc-collapse) at line 23.

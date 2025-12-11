@@ -12,4 +12,4 @@ Police union binding arbitration 72% large cities → 98% complaint dismissal ra
 
 ## Source
 
-Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 21.
+Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 22.

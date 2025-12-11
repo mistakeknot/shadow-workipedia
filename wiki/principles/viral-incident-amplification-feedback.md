@@ -12,4 +12,4 @@ Video evidence + unarmed victim + >10M views triggers national movement formatio
 
 ## Source
 
-Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 13.
+Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 14.

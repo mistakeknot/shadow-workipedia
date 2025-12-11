@@ -12,4 +12,4 @@ Multiple tipping points converge at +2.5-3.5°C (Amazon dieback 90 Gt CO₂, Wes
 
 ## Source
 
-Extracted from [Climate](#/wiki/climate) at line 23.
+Extracted from [Climate](#/wiki/climate) at line 24.

@@ -12,4 +12,4 @@ Solar/wind variability challenges grid frequency 59.95-60.05 Hz tolerance (Calif
 
 ## Source
 
-Extracted from [Electrical Grid Collapse Infrastructure Decay](#/wiki/electrical-grid-collapse-infrastructure-decay) at line 20.
+Extracted from [Electrical Grid Collapse Infrastructure Decay](#/wiki/electrical-grid-collapse-infrastructure-decay) at line 23.

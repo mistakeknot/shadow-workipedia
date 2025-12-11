@@ -12,4 +12,4 @@ Camp age >24 months + population >500 + defense capacity >0.70 → permanent sha
 
 ## Source
 
-Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 23.
+Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 25.

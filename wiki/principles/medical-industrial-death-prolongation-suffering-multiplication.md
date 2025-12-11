@@ -12,4 +12,4 @@ Medical technology enables death prolongation through ICU interventions, ventila
 
 ## Source
 
-Extracted from [Death Dying Infrastructure](#/wiki/death-dying-infrastructure) at line 15.
+Extracted from [Death Dying Infrastructure](#/wiki/death-dying-infrastructure) at line 16.

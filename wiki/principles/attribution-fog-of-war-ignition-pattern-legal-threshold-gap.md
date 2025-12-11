@@ -12,4 +12,4 @@ Satellite forensics detect ignition points (±100m precision) along suspicious l
 
 ## Source
 
-Extracted from [Pyrocumulonimbus Warfare](#/wiki/pyrocumulonimbus-warfare) at line 15.
+Extracted from [Pyrocumulonimbus Warfare](#/wiki/pyrocumulonimbus-warfare) at line 16.

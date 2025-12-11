@@ -12,4 +12,4 @@ Successful union busting creates deterrent cascade where organizing campaigns pl
 
 ## Source
 
-Extracted from [Union Busting Epidemic](#/wiki/union-busting-epidemic) at line 24.
+Extracted from [Union Busting Epidemic](#/wiki/union-busting-epidemic) at line 26.

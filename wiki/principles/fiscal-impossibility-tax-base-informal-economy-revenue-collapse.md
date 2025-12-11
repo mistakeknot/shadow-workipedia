@@ -12,4 +12,4 @@ Megacity fiscal sustainability impossible as informal economy reaches 60-80% eco
 
 ## Source
 
-Extracted from [Megacity Ungovernability Slum State Collapse](#/wiki/megacity-ungovernability-slum-state-collapse) at line 21.
+Extracted from [Megacity Ungovernability Slum State Collapse](#/wiki/megacity-ungovernability-slum-state-collapse) at line 22.

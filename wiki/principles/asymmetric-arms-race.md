@@ -12,4 +12,4 @@ AI generation capabilities lead detection by 6-18 months with detection success 
 
 ## Source
 
-Extracted from [Technology](#/wiki/technology) at line 12.
+Extracted from [Technology](#/wiki/technology) at line 13.

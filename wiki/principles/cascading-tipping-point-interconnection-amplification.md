@@ -18,4 +18,4 @@ WAIS collapse 3-5m SLR over 200-300 years interacts with other climate tipping p
 
 ## Source
 
-Extracted from [West Antarctic Ice Cliff Collapse](#/wiki/west-antarctic-ice-cliff-collapse) at line 26.
+Extracted from [West Antarctic Ice Cliff Collapse](#/wiki/west-antarctic-ice-cliff-collapse) at line 28.

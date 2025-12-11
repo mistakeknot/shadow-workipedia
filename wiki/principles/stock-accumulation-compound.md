@@ -12,4 +12,4 @@ Human capital index (0.0-10.0) builds over 30-50 years from literacy → tertiar
 
 ## Source
 
-Extracted from [Education](#/wiki/education) at line 24.
+Extracted from [Education](#/wiki/education) at line 26.

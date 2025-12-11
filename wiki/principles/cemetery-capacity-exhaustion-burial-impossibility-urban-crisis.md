@@ -12,4 +12,4 @@ Urban cemetery capacity approaches exhaustion as land scarcity (New York 3 years
 
 ## Source
 
-Extracted from [Death Dying Infrastructure](#/wiki/death-dying-infrastructure) at line 21.
+Extracted from [Death Dying Infrastructure](#/wiki/death-dying-infrastructure) at line 22.

@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 23.
+Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 24.

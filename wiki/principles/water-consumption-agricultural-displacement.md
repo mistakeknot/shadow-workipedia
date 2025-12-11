@@ -12,4 +12,4 @@ Data center cooling requirements (1 facility = 10,000-50,000 homes equivalent, 3
 
 ## Source
 
-Extracted from [Ai Compute Resource Wars](#/wiki/ai-compute-resource-wars) at line 17.
+Extracted from [Ai Compute Resource Wars](#/wiki/ai-compute-resource-wars) at line 18.

@@ -12,4 +12,4 @@ SAI masks atmospheric warming but doesn't reduce CO₂ absorption by oceans crea
 
 ## Source
 
-Extracted from [Aerosol Geoengineering Proxy War](#/wiki/aerosol-geoengineering-proxy-war) at line 23.
+Extracted from [Aerosol Geoengineering Proxy War](#/wiki/aerosol-geoengineering-proxy-war) at line 24.

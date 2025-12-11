@@ -12,4 +12,4 @@ SAI deployment reduces warming urgency causing fossil fuel emissions to continue
 
 ## Source
 
-Extracted from [Aerosol Geoengineering Proxy War](#/wiki/aerosol-geoengineering-proxy-war) at line 19.
+Extracted from [Aerosol Geoengineering Proxy War](#/wiki/aerosol-geoengineering-proxy-war) at line 20.

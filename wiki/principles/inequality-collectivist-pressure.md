@@ -12,4 +12,4 @@ Gini coefficient >0.45 generates collectivist cultural pressure independent of r
 
 ## Source
 
-Extracted from [Culture](#/wiki/culture) at line 17.
+Extracted from [Culture](#/wiki/culture) at line 18.

@@ -12,4 +12,4 @@ Strategic desal acquisitions by Saudi PIF, UAE ADQ, Qatar QIA in client states (
 
 ## Source
 
-Extracted from [Water Desalination Mega Trusts](#/wiki/water-desalination-mega-trusts) at line 23.
+Extracted from [Water Desalination Mega Trusts](#/wiki/water-desalination-mega-trusts) at line 24.

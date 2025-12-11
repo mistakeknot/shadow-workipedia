@@ -12,4 +12,4 @@ Incremental institutional capture reducing trust <30% (courts, media, civil soci
 
 ## Source
 
-Extracted from [Politics](#/wiki/politics) at line 15.
+Extracted from [Politics](#/wiki/politics) at line 16.

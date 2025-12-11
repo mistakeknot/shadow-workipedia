@@ -12,4 +12,4 @@ Professional care workforce shortage reaches 15-20M globally (2030) growing to 3
 
 ## Source
 
-Extracted from [Care Economy Crises](#/wiki/care-economy-crises) at line 17.
+Extracted from [Care Economy Crises](#/wiki/care-economy-crises) at line 18.

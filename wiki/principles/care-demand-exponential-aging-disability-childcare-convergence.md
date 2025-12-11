@@ -12,4 +12,4 @@ Care demand accelerates exponentially as elderly 65+ reach 1.5B (2040) from 700M
 
 ## Source
 
-Extracted from [Care Economy Crises](#/wiki/care-economy-crises) at line 13.
+Extracted from [Care Economy Crises](#/wiki/care-economy-crises) at line 14.

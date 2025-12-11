@@ -12,4 +12,4 @@ Autonomous weapons proliferation creates force asymmetry where $1M AI developmen
 
 ## Source
 
-Extracted from [Autonomous Weapons Laws Accountability Crisis](#/wiki/autonomous-weapons-laws-accountability-crisis) at line 24.
+Extracted from [Autonomous Weapons Laws Accountability Crisis](#/wiki/autonomous-weapons-laws-accountability-crisis) at line 25.

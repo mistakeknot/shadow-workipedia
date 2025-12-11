@@ -12,4 +12,4 @@ Central America droughts + hurricanes + crop failures drive border encounters su
 
 ## Source
 
-Extracted from [Economic Immigration Conflicts](#/wiki/economic-immigration-conflicts) at line 23.
+Extracted from [Economic Immigration Conflicts](#/wiki/economic-immigration-conflicts) at line 24.

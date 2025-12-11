@@ -12,4 +12,4 @@ Software supply chain compromise enables simultaneous backdoor installation acro
 
 ## Source
 
-Extracted from [Critical Infrastructure Attacks](#/wiki/critical-infrastructure-attacks) at line 21.
+Extracted from [Critical Infrastructure Attacks](#/wiki/critical-infrastructure-attacks) at line 23.

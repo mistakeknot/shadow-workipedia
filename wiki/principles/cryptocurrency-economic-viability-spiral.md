@@ -12,4 +12,4 @@ Bitcoin anonymous payment infrastructure enables ransomware economic model (vict
 
 ## Source
 
-Extracted from [Ransomware Pandemic](#/wiki/ransomware-pandemic) at line 15.
+Extracted from [Ransomware Pandemic](#/wiki/ransomware-pandemic) at line 16.

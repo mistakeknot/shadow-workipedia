@@ -12,4 +12,4 @@ Depression prevalence doubles 8%→18% post-2020 while psychiatric bed capacity 
 
 ## Source
 
-Extracted from [Mental Health Apocalypse](#/wiki/mental-health-apocalypse) at line 16.
+Extracted from [Mental Health Apocalypse](#/wiki/mental-health-apocalypse) at line 17.

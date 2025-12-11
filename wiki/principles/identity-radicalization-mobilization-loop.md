@@ -12,4 +12,4 @@ Male economic decline (declining real wages -1-2% annually for 15-20 years in de
 
 ## Source
 
-Extracted from [Population](#/wiki/population) at line 26.
+Extracted from [Population](#/wiki/population) at line 28.

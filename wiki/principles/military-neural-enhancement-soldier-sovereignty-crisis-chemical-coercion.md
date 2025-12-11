@@ -12,4 +12,4 @@ Military BCI adoption for combat enhancement (reaction time 5×, pain suppressio
 
 ## Source
 
-Extracted from [Brain Computer Interface Neural Sovereignty Crisis](#/wiki/brain-computer-interface-neural-sovereignty-crisis) at line 28.
+Extracted from [Brain Computer Interface Neural Sovereignty Crisis](#/wiki/brain-computer-interface-neural-sovereignty-crisis) at line 29.

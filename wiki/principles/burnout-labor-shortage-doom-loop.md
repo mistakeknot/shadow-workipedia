@@ -12,4 +12,4 @@ Healthcare sector 62% burnout drives 18-73% attrition depending on sector, incre
 
 ## Source
 
-Extracted from [Mental Health Apocalypse](#/wiki/mental-health-apocalypse) at line 20.
+Extracted from [Mental Health Apocalypse](#/wiki/mental-health-apocalypse) at line 21.

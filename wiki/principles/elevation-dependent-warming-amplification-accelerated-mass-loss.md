@@ -12,4 +12,4 @@ Himalayan-Tibetan Plateau experiences 2-3× faster warming than global average (
 
 ## Source
 
-Extracted from [Himalayan Third Pole Glacier Collapse](#/wiki/himalayan-third-pole-glacier-collapse) at line 13.
+Extracted from [Himalayan Third Pole Glacier Collapse](#/wiki/himalayan-third-pole-glacier-collapse) at line 14.

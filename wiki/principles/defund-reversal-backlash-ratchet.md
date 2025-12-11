@@ -12,4 +12,4 @@ Property damage >$500M + crime surge >20% (real or perceived) → Law & Order sa
 
 ## Source
 
-Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 19.
+Extracted from [Racial Reckoning](#/wiki/racial-reckoning) at line 20.

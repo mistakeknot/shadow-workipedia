@@ -16,4 +16,4 @@ Union density 35% (1954 peak) → 10% (2023) → private sector 6.1% approaching
 
 ## Source
 
-Extracted from [Union Busting Epidemic](#/wiki/union-busting-epidemic) at line 22.
+Extracted from [Union Busting Epidemic](#/wiki/union-busting-epidemic) at line 24.

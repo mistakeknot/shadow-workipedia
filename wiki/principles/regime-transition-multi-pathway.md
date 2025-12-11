@@ -12,4 +12,4 @@ Legitimacy, revolutionary, and authoritarian forces accumulating independently, 
 
 ## Source
 
-Extracted from [Politics](#/wiki/politics) at line 17.
+Extracted from [Politics](#/wiki/politics) at line 18.

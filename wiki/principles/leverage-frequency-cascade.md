@@ -12,4 +12,4 @@ Leverage >25× changes crisis frequency 1/30→1/10 years and enables 5-round ma
 
 ## Source
 
-Extracted from [Shadow Banking Collapse](#/wiki/shadow-banking-collapse) at line 13.
+Extracted from [Shadow Banking Collapse](#/wiki/shadow-banking-collapse) at line 15.

@@ -12,4 +12,4 @@ Climate crisis demands replacing fossil fuels with nuclear baseload power (only 
 
 ## Source
 
-Extracted from [Nuclear Waste Storage Failure Radioactive Legacy](#/wiki/nuclear-waste-storage-failure-radioactive-legacy) at line 23.
+Extracted from [Nuclear Waste Storage Failure Radioactive Legacy](#/wiki/nuclear-waste-storage-failure-radioactive-legacy) at line 24.

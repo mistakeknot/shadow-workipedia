@@ -12,4 +12,4 @@ Once permafrost thaws, refreezing requires 10,000+ years even under cooling cond
 
 ## Source
 
-Extracted from [Permafrost Thaw Methane Bomb](#/wiki/permafrost-thaw-methane-bomb) at line 23.
+Extracted from [Permafrost Thaw Methane Bomb](#/wiki/permafrost-thaw-methane-bomb) at line 25.

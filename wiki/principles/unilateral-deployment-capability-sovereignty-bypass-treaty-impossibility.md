@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Aerosol Geoengineering Proxy War](#/wiki/aerosol-geoengineering-proxy-war) at line 13.
+Extracted from [Aerosol Geoengineering Proxy War](#/wiki/aerosol-geoengineering-proxy-war) at line 14.

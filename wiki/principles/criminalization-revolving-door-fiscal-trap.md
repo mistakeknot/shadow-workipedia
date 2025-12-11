@@ -12,4 +12,4 @@ Criminalization policy → sweep frequency = criminalization × 1000/year → ar
 
 ## Source
 
-Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 19.
+Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 21.

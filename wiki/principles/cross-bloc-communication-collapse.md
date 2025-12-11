@@ -12,4 +12,4 @@ Global internet users able to communicate via common protocols declines from 95%
 
 ## Source
 
-Extracted from [Splinternet Data Localization](#/wiki/splinternet-data-localization) at line 17.
+Extracted from [Splinternet Data Localization](#/wiki/splinternet-data-localization) at line 18.

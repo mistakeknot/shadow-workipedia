@@ -16,4 +16,4 @@ After discovery undisclosed remote access 50%+ industrial control platforms (Sie
 
 ## Source
 
-Extracted from [Factory Kill Switch Sabotage](#/wiki/factory-kill-switch-sabotage) at line 23.
+Extracted from [Factory Kill Switch Sabotage](#/wiki/factory-kill-switch-sabotage) at line 24.

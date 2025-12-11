@@ -12,4 +12,4 @@ Atlantic SST gradient (tropical vs subtropical) controls Intertropical Convergen
 
 ## Source
 
-Extracted from [Amoc Collapse](#/wiki/amoc-collapse) at line 20.
+Extracted from [Amoc Collapse](#/wiki/amoc-collapse) at line 21.

@@ -12,4 +12,4 @@ CRE valuations collapse -30% to -70% (2023-2025) but property tax assessments la
 
 ## Source
 
-Extracted from [Commercial Real Estate Doom Loop](#/wiki/commercial-real-estate-doom-loop) at line 18.
+Extracted from [Commercial Real Estate Doom Loop](#/wiki/commercial-real-estate-doom-loop) at line 19.

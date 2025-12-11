@@ -12,4 +12,4 @@ Infrastructure quality <0.3 triggering simultaneous degradation across health (w
 
 ## Source
 
-Extracted from [Infrastructure](#/wiki/infrastructure) at line 19.
+Extracted from [Infrastructure](#/wiki/infrastructure) at line 21.

@@ -12,4 +12,4 @@ Militia groups proliferate from 300 active US groups (2010) to 1,000+ (2025) wit
 
 ## Source
 
-Extracted from [Political Violence Escalation](#/wiki/political-violence-escalation) at line 15.
+Extracted from [Political Violence Escalation](#/wiki/political-violence-escalation) at line 18.

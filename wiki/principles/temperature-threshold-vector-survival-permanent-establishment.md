@@ -12,4 +12,4 @@ Climate warming crosses vector survival thresholds enabling permanent establishm
 
 ## Source
 
-Extracted from [Vector Borne Disease Geographic Expansion](#/wiki/vector-borne-disease-geographic-expansion) at line 13.
+Extracted from [Vector Borne Disease Geographic Expansion](#/wiki/vector-borne-disease-geographic-expansion) at line 14.

@@ -12,4 +12,4 @@ Yield per kg fertilizer declining since 1990s (grain yield growth 2-3%/year 1960
 
 ## Source
 
-Extracted from [Topsoil Depletion Agricultural Collapse](#/wiki/topsoil-depletion-agricultural-collapse) at line 29.
+Extracted from [Topsoil Depletion Agricultural Collapse](#/wiki/topsoil-depletion-agricultural-collapse) at line 32.

@@ -12,4 +12,4 @@ Arctic oil/gas reserves $50B-$200B value encounter permafrost thaw creating extr
 
 ## Source
 
-Extracted from [Boreal Permafrost Carbon Pulse](#/wiki/boreal-permafrost-carbon-pulse) at line 24.
+Extracted from [Boreal Permafrost Carbon Pulse](#/wiki/boreal-permafrost-carbon-pulse) at line 26.

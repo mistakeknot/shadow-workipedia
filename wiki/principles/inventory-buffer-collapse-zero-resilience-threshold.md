@@ -12,4 +12,4 @@ Fifty years optimization eliminates resilience by stripping inventory from 90-da
 
 ## Source
 
-Extracted from [Global Supply Chain Collapse](#/wiki/global-supply-chain-collapse) at line 13.
+Extracted from [Global Supply Chain Collapse](#/wiki/global-supply-chain-collapse) at line 14.

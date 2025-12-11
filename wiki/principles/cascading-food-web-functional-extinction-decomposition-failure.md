@@ -12,4 +12,4 @@ Insect base collapse cascades through ecosystem as insectivores starve (birds -2
 
 ## Source
 
-Extracted from [Insect Apocalypse Pollinator Collapse](#/wiki/insect-apocalypse-pollinator-collapse) at line 21.
+Extracted from [Insect Apocalypse Pollinator Collapse](#/wiki/insect-apocalypse-pollinator-collapse) at line 23.

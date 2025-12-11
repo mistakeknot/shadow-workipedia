@@ -12,4 +12,4 @@ Transport network quality determining 0-100% trade cost reduction, directly modu
 
 ## Source
 
-Extracted from [Infrastructure](#/wiki/infrastructure) at line 15.
+Extracted from [Infrastructure](#/wiki/infrastructure) at line 17.

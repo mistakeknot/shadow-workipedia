@@ -12,4 +12,4 @@ Electoral violence escalates from isolated incidents to systematic intimidation 
 
 ## Source
 
-Extracted from [Political Violence Escalation](#/wiki/political-violence-escalation) at line 21.
+Extracted from [Political Violence Escalation](#/wiki/political-violence-escalation) at line 24.

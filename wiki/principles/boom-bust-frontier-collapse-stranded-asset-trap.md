@@ -12,4 +12,4 @@ Agribusiness frontier expansion 1970-2025 (10% → 20% deforestation) produces e
 
 ## Source
 
-Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 25.
+Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 26.

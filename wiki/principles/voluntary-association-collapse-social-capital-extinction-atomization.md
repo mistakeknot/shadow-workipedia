@@ -12,4 +12,4 @@ Voluntary associations (civic groups, religious congregations, unions, fraternal
 
 ## Source
 
-Extracted from [Institutional Legitimacy Collapse](#/wiki/institutional-legitimacy-collapse) at line 19.
+Extracted from [Institutional Legitimacy Collapse](#/wiki/institutional-legitimacy-collapse) at line 20.

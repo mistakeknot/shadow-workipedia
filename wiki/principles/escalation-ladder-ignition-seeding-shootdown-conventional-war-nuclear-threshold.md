@@ -12,4 +12,4 @@ PyroCb warfare escalates through rungs (Rung 3: covert ignition, Rung 5: rain bo
 
 ## Source
 
-Extracted from [Pyrocumulonimbus Warfare](#/wiki/pyrocumulonimbus-warfare) at line 23.
+Extracted from [Pyrocumulonimbus Warfare](#/wiki/pyrocumulonimbus-warfare) at line 24.

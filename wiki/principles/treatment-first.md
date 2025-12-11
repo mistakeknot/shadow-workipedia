@@ -17,4 +17,4 @@ Mandatory sobriety before housing, no pets, couples separated, strict curfew, ID
 
 ## Source
 
-Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 442.
+Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 444.

@@ -14,4 +14,4 @@ BRICS CBDC alternatives
 
 ## Source
 
-Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 231.
+Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 233.

@@ -12,4 +12,4 @@ Gradual 30-year transition avoids stranded asset collapse but enables climate ca
 
 ## Source
 
-Extracted from [Oil Industry Death](#/wiki/oil-industry-death) at line 23.
+Extracted from [Oil Industry Death](#/wiki/oil-industry-death) at line 25.

@@ -12,4 +12,4 @@ Economic interdependence (40%+ bilateral trade) can override ideological opposit
 
 ## Source
 
-Extracted from [Diplomacy](#/wiki/diplomacy) at line 16.
+Extracted from [Diplomacy](#/wiki/diplomacy) at line 17.

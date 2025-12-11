@@ -12,4 +12,4 @@ Care provision shifts from community/family to commodified services where privat
 
 ## Source
 
-Extracted from [Care Economy Crises](#/wiki/care-economy-crises) at line 21.
+Extracted from [Care Economy Crises](#/wiki/care-economy-crises) at line 22.

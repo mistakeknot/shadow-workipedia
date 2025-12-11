@@ -12,4 +12,4 @@ Population exceeding 150% capacity deteriorates conditions by -0.20 threshold st
 
 ## Source
 
-Extracted from [Climate Refugee](#/wiki/climate-refugee) at line 17.
+Extracted from [Climate Refugee](#/wiki/climate-refugee) at line 18.

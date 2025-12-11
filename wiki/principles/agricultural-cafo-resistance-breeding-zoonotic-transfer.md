@@ -12,4 +12,4 @@ Concentrated Animal Feeding Operations (CAFOs) use 70% of US antibiotics (63,000
 
 ## Source
 
-Extracted from [Antibiotic Resistance Superbug Pandemic](#/wiki/antibiotic-resistance-superbug-pandemic) at line 20.
+Extracted from [Antibiotic Resistance Superbug Pandemic](#/wiki/antibiotic-resistance-superbug-pandemic) at line 23.

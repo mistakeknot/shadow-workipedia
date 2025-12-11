@@ -12,4 +12,4 @@ Heavy metals concentrate up food chains through bioaccumulation where each troph
 
 ## Source
 
-Extracted from [Soil Contamination Heavy Metal Accumulation](#/wiki/soil-contamination-heavy-metal-accumulation) at line 15.
+Extracted from [Soil Contamination Heavy Metal Accumulation](#/wiki/soil-contamination-heavy-metal-accumulation) at line 17.

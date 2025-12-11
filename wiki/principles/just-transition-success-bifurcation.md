@@ -12,4 +12,4 @@ Retraining funding $5k-20k/worker creates 40% re-employment success within 2 yea
 
 ## Source
 
-Extracted from [Oil Industry Death](#/wiki/oil-industry-death) at line 19.
+Extracted from [Oil Industry Death](#/wiki/oil-industry-death) at line 21.

@@ -12,4 +12,4 @@ NOAA/NASA DSCOVR satellite at L1 Lagrange point provides 15-45 min CME warning b
 
 ## Source
 
-Extracted from [Carrington Solar Storm](#/wiki/carrington-solar-storm) at line 21.
+Extracted from [Carrington Solar Storm](#/wiki/carrington-solar-storm) at line 22.

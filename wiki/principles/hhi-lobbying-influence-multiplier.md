@@ -12,4 +12,4 @@ Market concentration (HHI 2500-10000) gates lobbying power multipliers of 2.5-5Ã
 
 ## Source
 
-Extracted from [Institutions](#/wiki/institutions) at line 19.
+Extracted from [Institutions](#/wiki/institutions) at line 20.

@@ -12,4 +12,4 @@ CBDC eliminates zero lower bound enabling unlimited negative interest rates as c
 
 ## Source
 
-Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 21.
+Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 23.

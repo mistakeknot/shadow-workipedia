@@ -12,4 +12,4 @@ Alliances persist only while shared threats remain significant (avgThreatLevel >
 
 ## Source
 
-Extracted from [Diplomacy](#/wiki/diplomacy) at line 20.
+Extracted from [Diplomacy](#/wiki/diplomacy) at line 21.

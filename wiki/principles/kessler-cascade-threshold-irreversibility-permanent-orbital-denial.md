@@ -12,4 +12,4 @@ Debris density >10,000 objects >10cm in LEO crosses self-sustaining cascade thre
 
 ## Source
 
-Extracted from [Space Weaponization Orbital Conflict](#/wiki/space-weaponization-orbital-conflict) at line 21.
+Extracted from [Space Weaponization Orbital Conflict](#/wiki/space-weaponization-orbital-conflict) at line 22.

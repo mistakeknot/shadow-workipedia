@@ -12,4 +12,4 @@ Quantum retroactive decryption threat creates "harvest now, decrypt later" incen
 
 ## Source
 
-Extracted from [Quantum Computing Post Quantum Cryptographic Crisis](#/wiki/quantum-computing-post-quantum-cryptographic-crisis) at line 26.
+Extracted from [Quantum Computing Post Quantum Cryptographic Crisis](#/wiki/quantum-computing-post-quantum-cryptographic-crisis) at line 27.

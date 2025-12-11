@@ -12,4 +12,4 @@ Debt repayment through austerity proves politically unsustainable as required fi
 
 ## Source
 
-Extracted from [Global Debt Jubilee Sovereign Default Cascade](#/wiki/global-debt-jubilee-sovereign-default-cascade) at line 26.
+Extracted from [Global Debt Jubilee Sovereign Default Cascade](#/wiki/global-debt-jubilee-sovereign-default-cascade) at line 28.

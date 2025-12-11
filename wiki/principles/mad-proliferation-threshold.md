@@ -12,4 +12,4 @@ Second-strike nuclear capability creates 95% conflict reduction between nuclear 
 
 ## Source
 
-Extracted from [Diplomacy](#/wiki/diplomacy) at line 14.
+Extracted from [Diplomacy](#/wiki/diplomacy) at line 15.

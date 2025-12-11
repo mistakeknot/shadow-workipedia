@@ -12,4 +12,4 @@ Atlantic Meridional Overturning Circulation (AMOC) salinity-driven thermohaline 
 
 ## Source
 
-Extracted from [Amoc Collapse](#/wiki/amoc-collapse) at line 16.
+Extracted from [Amoc Collapse](#/wiki/amoc-collapse) at line 17.

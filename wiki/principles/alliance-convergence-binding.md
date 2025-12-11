@@ -12,4 +12,4 @@ Allied nations converge culturally at 0.001-0.01/year, with duration-dependent b
 
 ## Source
 
-Extracted from [Culture](#/wiki/culture) at line 21.
+Extracted from [Culture](#/wiki/culture) at line 22.

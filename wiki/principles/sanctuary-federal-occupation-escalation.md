@@ -12,4 +12,4 @@ Sanctuary policies (500+ jurisdictions refuse ICE detainer requests, prohibit lo
 
 ## Source
 
-Extracted from [Economic Immigration Conflicts](#/wiki/economic-immigration-conflicts) at line 21.
+Extracted from [Economic Immigration Conflicts](#/wiki/economic-immigration-conflicts) at line 22.

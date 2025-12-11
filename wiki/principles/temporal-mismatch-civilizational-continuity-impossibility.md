@@ -12,4 +12,4 @@ Nuclear waste remains lethally radioactive 10,000-100,000 years (plutonium-239 h
 
 ## Source
 
-Extracted from [Nuclear Waste Storage Failure Radioactive Legacy](#/wiki/nuclear-waste-storage-failure-radioactive-legacy) at line 17.
+Extracted from [Nuclear Waste Storage Failure Radioactive Legacy](#/wiki/nuclear-waste-storage-failure-radioactive-legacy) at line 18.

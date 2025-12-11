@@ -12,4 +12,4 @@ Carrington-Class CME (1% annual probability at solar maximum, Dst -1200 to -1760
 
 ## Source
 
-Extracted from [Carrington Solar Storm](#/wiki/carrington-solar-storm) at line 13.
+Extracted from [Carrington Solar Storm](#/wiki/carrington-solar-storm) at line 14.

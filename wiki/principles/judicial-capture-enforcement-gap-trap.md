@@ -12,4 +12,4 @@ Religious influence 0.80 → judicial independence collapses to 0.20 → plainti
 
 ## Source
 
-Extracted from [Religious Freedom](#/wiki/religious-freedom) at line 17.
+Extracted from [Religious Freedom](#/wiki/religious-freedom) at line 19.

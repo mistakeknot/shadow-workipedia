@@ -12,4 +12,4 @@ Industrial Internet of Things (IIoT) cloud-connected platforms bridge air gap be
 
 ## Source
 
-Extracted from [Factory Kill Switch Sabotage](#/wiki/factory-kill-switch-sabotage) at line 15.
+Extracted from [Factory Kill Switch Sabotage](#/wiki/factory-kill-switch-sabotage) at line 16.

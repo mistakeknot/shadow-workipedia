@@ -12,4 +12,4 @@ Housing affordability ratio >15× wages or supply shortage >30% creating tent ci
 
 ## Source
 
-Extracted from [Infrastructure](#/wiki/infrastructure) at line 21.
+Extracted from [Infrastructure](#/wiki/infrastructure) at line 23.

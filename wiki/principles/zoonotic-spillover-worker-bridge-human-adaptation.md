@@ -12,4 +12,4 @@ Farm workers provide pathogen bridge between animals and general population wher
 
 ## Source
 
-Extracted from [Factory Farming Disease Incubators](#/wiki/factory-farming-disease-incubators) at line 24.
+Extracted from [Factory Farming Disease Incubators](#/wiki/factory-farming-disease-incubators) at line 26.

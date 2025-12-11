@@ -12,4 +12,4 @@ Asset write-downs >$100B trigger credit rating downgrades (investment→junk 3-s
 
 ## Source
 
-Extracted from [Oil Industry Death](#/wiki/oil-industry-death) at line 15.
+Extracted from [Oil Industry Death](#/wiki/oil-industry-death) at line 17.

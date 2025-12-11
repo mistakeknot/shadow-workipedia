@@ -12,4 +12,4 @@ Insurer exodus + property value collapse (-30-70% overnight when mortgage lender
 
 ## Source
 
-Extracted from [Climate Insurance Collapse](#/wiki/climate-insurance-collapse) at line 19.
+Extracted from [Climate Insurance Collapse](#/wiki/climate-insurance-collapse) at line 21.

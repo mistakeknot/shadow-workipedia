@@ -12,4 +12,4 @@ Bacteria evolve 500,000× faster than humans (20-minute generation time vs 25-ye
 
 ## Source
 
-Extracted from [Antibiotic Resistance Superbug Pandemic](#/wiki/antibiotic-resistance-superbug-pandemic) at line 28.
+Extracted from [Antibiotic Resistance Superbug Pandemic](#/wiki/antibiotic-resistance-superbug-pandemic) at line 31.

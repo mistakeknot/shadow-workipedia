@@ -12,4 +12,4 @@ Crises cause 30-70% alliance dissolution, instantly redistributing power and for
 
 ## Source
 
-Extracted from [Institutions](#/wiki/institutions) at line 17.
+Extracted from [Institutions](#/wiki/institutions) at line 18.

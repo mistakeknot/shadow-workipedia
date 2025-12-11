@@ -12,4 +12,4 @@ Death row population 3,500 peak (1995) → 2,400 (2022) via attrition where only
 
 ## Source
 
-Extracted from [Death Penalty Abolition](#/wiki/death-penalty-abolition) at line 18.
+Extracted from [Death Penalty Abolition](#/wiki/death-penalty-abolition) at line 19.

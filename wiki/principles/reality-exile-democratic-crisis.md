@@ -12,4 +12,4 @@ Population disconnection from mainstream information sources escalates (5% → 1
 
 ## Source
 
-Extracted from [Disinformation Plague](#/wiki/disinformation-plague) at line 21.
+Extracted from [Disinformation Plague](#/wiki/disinformation-plague) at line 23.

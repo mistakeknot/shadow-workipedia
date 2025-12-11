@@ -12,4 +12,4 @@ Serious loneliness prevalence rises 20%→36% post-2020 as average close friends
 
 ## Source
 
-Extracted from [Mental Health Apocalypse](#/wiki/mental-health-apocalypse) at line 22.
+Extracted from [Mental Health Apocalypse](#/wiki/mental-health-apocalypse) at line 23.

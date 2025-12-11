@@ -12,4 +12,4 @@ Arctic Indigenous population 650k total (Alaska 120k, Canada 200k, Russia 250k, 
 
 ## Source
 
-Extracted from [Boreal Permafrost Carbon Pulse](#/wiki/boreal-permafrost-carbon-pulse) at line 18.
+Extracted from [Boreal Permafrost Carbon Pulse](#/wiki/boreal-permafrost-carbon-pulse) at line 20.

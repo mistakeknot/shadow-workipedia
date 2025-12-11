@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Mental Health Apocalypse](#/wiki/mental-health-apocalypse) at line 26.
+Extracted from [Mental Health Apocalypse](#/wiki/mental-health-apocalypse) at line 27.

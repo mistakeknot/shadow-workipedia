@@ -12,4 +12,4 @@ Sea level rise +1m → +2m → +3m triggers port vulnerability thresholds where 
 
 ## Source
 
-Extracted from [West Antarctic Ice Cliff Collapse](#/wiki/west-antarctic-ice-cliff-collapse) at line 18.
+Extracted from [West Antarctic Ice Cliff Collapse](#/wiki/west-antarctic-ice-cliff-collapse) at line 20.

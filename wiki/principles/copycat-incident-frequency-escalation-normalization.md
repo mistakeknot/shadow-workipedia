@@ -12,4 +12,4 @@ Successful kill switch extortion precedent (Colonial Pipeline $5M paid 2021, JBS
 
 ## Source
 
-Extracted from [Factory Kill Switch Sabotage](#/wiki/factory-kill-switch-sabotage) at line 25.
+Extracted from [Factory Kill Switch Sabotage](#/wiki/factory-kill-switch-sabotage) at line 26.

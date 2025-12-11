@@ -12,4 +12,4 @@ Digital platform consolidation creates essential infrastructure where 5 companie
 
 ## Source
 
-Extracted from [Digital Exile Financial Control](#/wiki/digital-exile-financial-control) at line 13.
+Extracted from [Digital Exile Financial Control](#/wiki/digital-exile-financial-control) at line 16.

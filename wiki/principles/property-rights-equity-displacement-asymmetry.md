@@ -12,4 +12,4 @@ Mandatory retreat compensation frameworks create stratification where wealthy ho
 
 ## Source
 
-Extracted from [Climate Insurance Collapse](#/wiki/climate-insurance-collapse) at line 23.
+Extracted from [Climate Insurance Collapse](#/wiki/climate-insurance-collapse) at line 25.

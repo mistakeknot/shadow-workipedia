@@ -12,4 +12,4 @@ Coordinated debt forgiveness faces fundamental impossibility as creditors (sover
 
 ## Source
 
-Extracted from [Global Debt Jubilee Sovereign Default Cascade](#/wiki/global-debt-jubilee-sovereign-default-cascade) at line 24.
+Extracted from [Global Debt Jubilee Sovereign Default Cascade](#/wiki/global-debt-jubilee-sovereign-default-cascade) at line 26.

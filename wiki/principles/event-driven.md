@@ -13,4 +13,4 @@ Violence calculations only when thresholds crossed (deforestation >10%, killings
 
 ## Source
 
-Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 440.
+Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 441.

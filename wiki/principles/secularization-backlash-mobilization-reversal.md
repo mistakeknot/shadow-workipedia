@@ -12,4 +12,4 @@ Secularization >60% threshold (USA 65% 2020, France 75%, Sweden 80%) triggers gu
 
 ## Source
 
-Extracted from [Religious Freedom](#/wiki/religious-freedom) at line 23.
+Extracted from [Religious Freedom](#/wiki/religious-freedom) at line 25.

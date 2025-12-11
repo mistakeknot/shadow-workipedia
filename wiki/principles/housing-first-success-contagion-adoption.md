@@ -12,4 +12,4 @@ Housing First retention ≥85% (Utah/Houston proven) → +0.20 legitimacy boost 
 
 ## Source
 
-Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 21.
+Extracted from [Homelessness Crisis](#/wiki/homelessness-crisis) at line 23.

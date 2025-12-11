@@ -12,4 +12,4 @@ COVID lessons abandoned as stockpiles deplete/expire without replacement, workfo
 
 ## Source
 
-Extracted from [Healthcare System Collapse](#/wiki/healthcare-system-collapse) at line 26.
+Extracted from [Healthcare System Collapse](#/wiki/healthcare-system-collapse) at line 30.

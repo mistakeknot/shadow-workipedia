@@ -12,4 +12,4 @@ Hospitals running 85-95% baseline occupancy (zero surge capability) with ICU bed
 
 ## Source
 
-Extracted from [Healthcare System Collapse](#/wiki/healthcare-system-collapse) at line 24.
+Extracted from [Healthcare System Collapse](#/wiki/healthcare-system-collapse) at line 28.

@@ -12,4 +12,4 @@ R&D cooperation treaties (CERN, ITER, ISS) provide 2-3x breakthrough acceleratio
 
 ## Source
 
-Extracted from [Technology](#/wiki/technology) at line 18.
+Extracted from [Technology](#/wiki/technology) at line 19.

@@ -12,4 +12,4 @@ Topsoil erodes 10-40 tons/hectare/year under conventional tillage (10-100× no-t
 
 ## Source
 
-Extracted from [Topsoil Depletion Agricultural Collapse](#/wiki/topsoil-depletion-agricultural-collapse) at line 19.
+Extracted from [Topsoil Depletion Agricultural Collapse](#/wiki/topsoil-depletion-agricultural-collapse) at line 22.

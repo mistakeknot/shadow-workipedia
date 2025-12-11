@@ -12,4 +12,4 @@ Cyber attribution requires forensic analysis (IP tracing multi-hop routing, malw
 
 ## Source
 
-Extracted from [Critical Infrastructure Attacks](#/wiki/critical-infrastructure-attacks) at line 17.
+Extracted from [Critical Infrastructure Attacks](#/wiki/critical-infrastructure-attacks) at line 19.

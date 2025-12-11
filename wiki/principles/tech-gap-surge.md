@@ -12,4 +12,4 @@ Rival technological superiority >3 levels with >0.5 rivalry strength triggers 10
 
 ## Source
 
-Extracted from [Education](#/wiki/education) at line 26.
+Extracted from [Education](#/wiki/education) at line 28.

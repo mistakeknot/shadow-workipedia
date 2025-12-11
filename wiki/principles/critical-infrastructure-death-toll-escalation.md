@@ -12,4 +12,4 @@ Hospitals targeted preferentially (60-70% payment rate vs 30-40% government due 
 
 ## Source
 
-Extracted from [Ransomware Pandemic](#/wiki/ransomware-pandemic) at line 17.
+Extracted from [Ransomware Pandemic](#/wiki/ransomware-pandemic) at line 18.

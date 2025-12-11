@@ -12,4 +12,4 @@ Major river deltas (Nile, Ganges-Brahmaputra, Mekong, Niger) inundation displace
 
 ## Source
 
-Extracted from [West Antarctic Ice Cliff Collapse](#/wiki/west-antarctic-ice-cliff-collapse) at line 22.
+Extracted from [West Antarctic Ice Cliff Collapse](#/wiki/west-antarctic-ice-cliff-collapse) at line 24.

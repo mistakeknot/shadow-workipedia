@@ -12,4 +12,4 @@ European pharmaceutical companies boycott lethal injection drugs (2010 ban expor
 
 ## Source
 
-Extracted from [Death Penalty Abolition](#/wiki/death-penalty-abolition) at line 16.
+Extracted from [Death Penalty Abolition](#/wiki/death-penalty-abolition) at line 17.

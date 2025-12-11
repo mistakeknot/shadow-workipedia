@@ -12,4 +12,4 @@ Asset price rise +10% increases leverage slowly (+1.0, 10-year buildup 15×→25
 
 ## Source
 
-Extracted from [Shadow Banking Collapse](#/wiki/shadow-banking-collapse) at line 15.
+Extracted from [Shadow Banking Collapse](#/wiki/shadow-banking-collapse) at line 17.

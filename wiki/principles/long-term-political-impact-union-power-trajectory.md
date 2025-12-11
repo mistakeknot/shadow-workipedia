@@ -12,4 +12,4 @@ Strike outcomes determine labor movement trajectory for generation → victory (
 
 ## Source
 
-Extracted from [General Strike Movements](#/wiki/general-strike-movements) at line 23.
+Extracted from [General Strike Movements](#/wiki/general-strike-movements) at line 25.

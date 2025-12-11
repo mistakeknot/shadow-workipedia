@@ -12,4 +12,4 @@ BCI implantation requires invasive neurosurgery (craniotomy, electrode insertion
 
 ## Source
 
-Extracted from [Brain Computer Interface Neural Sovereignty Crisis](#/wiki/brain-computer-interface-neural-sovereignty-crisis) at line 22.
+Extracted from [Brain Computer Interface Neural Sovereignty Crisis](#/wiki/brain-computer-interface-neural-sovereignty-crisis) at line 23.

@@ -12,4 +12,4 @@ Automation increases productivity (+80%) while reducing labor income share (-50%
 
 ## Source
 
-Extracted from [Technology](#/wiki/technology) at line 22.
+Extracted from [Technology](#/wiki/technology) at line 23.

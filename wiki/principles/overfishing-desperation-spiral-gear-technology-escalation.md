@@ -12,4 +12,4 @@ Protein dependency drives fishing intensification as catches decline creating de
 
 ## Source
 
-Extracted from [Freshwater Fisheries Collapse](#/wiki/freshwater-fisheries-collapse) at line 17.
+Extracted from [Freshwater Fisheries Collapse](#/wiki/freshwater-fisheries-collapse) at line 18.

@@ -12,4 +12,4 @@ Managed retreat programs offering 50-100% pre-crisis property value achieve only
 
 ## Source
 
-Extracted from [Climate Insurance Collapse](#/wiki/climate-insurance-collapse) at line 17.
+Extracted from [Climate Insurance Collapse](#/wiki/climate-insurance-collapse) at line 19.

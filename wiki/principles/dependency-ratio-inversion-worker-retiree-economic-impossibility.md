@@ -12,4 +12,4 @@ Demographic aging inverts dependency ratios from historical 8 workers per retire
 
 ## Source
 
-Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 15.
+Extracted from [Global Demographic Collapse](#/wiki/global-demographic-collapse) at line 17.

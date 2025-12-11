@@ -12,4 +12,4 @@ Regime legitimacy loss creating 40-point partisan trust gaps between elite and m
 
 ## Source
 
-Extracted from [Politics](#/wiki/politics) at line 19.
+Extracted from [Politics](#/wiki/politics) at line 20.

@@ -12,4 +12,4 @@ Starlink constellation deployment 5,000 satellites (2024) → 42,000 planned (20
 
 ## Source
 
-Extracted from [Starlink Satellite Internet Sovereignty](#/wiki/starlink-satellite-internet-sovereignty) at line 16.
+Extracted from [Starlink Satellite Internet Sovereignty](#/wiki/starlink-satellite-internet-sovereignty) at line 17.

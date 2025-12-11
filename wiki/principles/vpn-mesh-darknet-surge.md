@@ -12,4 +12,4 @@ Underground network adoption escalates as censorship intensifies (VPN usage 25% 
 
 ## Source
 
-Extracted from [Splinternet Data Localization](#/wiki/splinternet-data-localization) at line 21.
+Extracted from [Splinternet Data Localization](#/wiki/splinternet-data-localization) at line 22.

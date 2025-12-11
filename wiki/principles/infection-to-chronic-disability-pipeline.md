@@ -12,4 +12,4 @@ COVID infection converts to Long COVID at 10-20% rate (acute → chronic symptom
 
 ## Source
 
-Extracted from [Long Covid Labor Collapse](#/wiki/long-covid-labor-collapse) at line 14.
+Extracted from [Long Covid Labor Collapse](#/wiki/long-covid-labor-collapse) at line 15.

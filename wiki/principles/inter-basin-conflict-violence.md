@@ -12,4 +12,4 @@ Coastal desal demand growth triggers upstream water transfers (Colorado River â†
 
 ## Source
 
-Extracted from [Water Desalination Mega Trusts](#/wiki/water-desalination-mega-trusts) at line 21.
+Extracted from [Water Desalination Mega Trusts](#/wiki/water-desalination-mega-trusts) at line 22.

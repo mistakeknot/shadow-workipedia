@@ -12,4 +12,4 @@ CBDC enables instant financial deplatforming where dissidents/protesters lose tr
 
 ## Source
 
-Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 19.
+Extracted from [Cbdc Surveillance Financial Control](#/wiki/cbdc-surveillance-financial-control) at line 21.

@@ -12,4 +12,4 @@ Financial surveillance achieves total visibility as electronic payments (95%+ tr
 
 ## Source
 
-Extracted from [Digital Exile Financial Control](#/wiki/digital-exile-financial-control) at line 21.
+Extracted from [Digital Exile Financial Control](#/wiki/digital-exile-financial-control) at line 24.

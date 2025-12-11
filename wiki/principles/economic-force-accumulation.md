@@ -12,4 +12,4 @@ GDP collapse >15% annual creating 40-point legitimacy loss multiplier, unemploym
 
 ## Source
 
-Extracted from [Politics](#/wiki/politics) at line 13.
+Extracted from [Politics](#/wiki/politics) at line 14.

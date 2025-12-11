@@ -12,4 +12,4 @@ Industry lobbying prevents biosecurity regulations where "ag-gag" laws criminali
 
 ## Source
 
-Extracted from [Factory Farming Disease Incubators](#/wiki/factory-farming-disease-incubators) at line 26.
+Extracted from [Factory Farming Disease Incubators](#/wiki/factory-farming-disease-incubators) at line 28.

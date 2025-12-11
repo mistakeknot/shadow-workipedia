@@ -12,4 +12,4 @@ Civilization dependency escalates from $400B satellite economy (2024) to $1.2T (
 
 ## Source
 
-Extracted from [Space Weaponization Orbital Conflict](#/wiki/space-weaponization-orbital-conflict) at line 17.
+Extracted from [Space Weaponization Orbital Conflict](#/wiki/space-weaponization-orbital-conflict) at line 18.

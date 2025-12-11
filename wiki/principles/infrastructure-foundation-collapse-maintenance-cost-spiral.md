@@ -12,4 +12,4 @@ Arctic infrastructure Trans-Alaska Pipeline 1,300 km, Siberian pipelines 10,000+
 
 ## Source
 
-Extracted from [Boreal Permafrost Carbon Pulse](#/wiki/boreal-permafrost-carbon-pulse) at line 16.
+Extracted from [Boreal Permafrost Carbon Pulse](#/wiki/boreal-permafrost-carbon-pulse) at line 18.

@@ -12,4 +12,4 @@ Shipping bottlenecks spread systematically where Ever Given Suez blockage (6 day
 
 ## Source
 
-Extracted from [Global Supply Chain Collapse](#/wiki/global-supply-chain-collapse) at line 21.
+Extracted from [Global Supply Chain Collapse](#/wiki/global-supply-chain-collapse) at line 22.

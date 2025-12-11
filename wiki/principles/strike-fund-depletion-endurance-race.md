@@ -12,4 +12,4 @@ General strike outcome depends on which side's resources exhaust first → strik
 
 ## Source
 
-Extracted from [General Strike Movements](#/wiki/general-strike-movements) at line 19.
+Extracted from [General Strike Movements](#/wiki/general-strike-movements) at line 21.

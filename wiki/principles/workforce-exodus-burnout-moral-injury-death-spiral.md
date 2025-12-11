@@ -12,4 +12,4 @@ Post-COVID healthcare worker exodus (500,000+ quit 2021-2022) driven by physicia
 
 ## Source
 
-Extracted from [Healthcare System Collapse](#/wiki/healthcare-system-collapse) at line 18.
+Extracted from [Healthcare System Collapse](#/wiki/healthcare-system-collapse) at line 22.

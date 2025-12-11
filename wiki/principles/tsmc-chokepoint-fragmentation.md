@@ -12,4 +12,4 @@ category: principle
 
 ## Source
 
-Extracted from [Ai Compute Resource Wars](#/wiki/ai-compute-resource-wars) at line 13.
+Extracted from [Ai Compute Resource Wars](#/wiki/ai-compute-resource-wars) at line 14.

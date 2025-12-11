@@ -12,4 +12,4 @@ Remote/hybrid work penetration 50-80% drives office demand collapse -30% to -50%
 
 ## Source
 
-Extracted from [Commercial Real Estate Doom Loop](#/wiki/commercial-real-estate-doom-loop) at line 14.
+Extracted from [Commercial Real Estate Doom Loop](#/wiki/commercial-real-estate-doom-loop) at line 15.

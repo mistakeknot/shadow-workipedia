@@ -12,4 +12,4 @@ Hospital-acquired infection rates explode 5%→30-40% as ICU ventilator-associat
 
 ## Source
 
-Extracted from [Antibiotic Resistance Superbug Pandemic](#/wiki/antibiotic-resistance-superbug-pandemic) at line 26.
+Extracted from [Antibiotic Resistance Superbug Pandemic](#/wiki/antibiotic-resistance-superbug-pandemic) at line 29.

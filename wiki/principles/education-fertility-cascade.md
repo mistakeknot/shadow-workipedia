@@ -12,4 +12,4 @@ Female secondary enrollment increase from 20% to 80% correlates with TFR decline
 
 ## Source
 
-Extracted from [Population](#/wiki/population) at line 20.
+Extracted from [Population](#/wiki/population) at line 22.

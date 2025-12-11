@@ -12,4 +12,4 @@ Food supply chain brittleness (3-day supermarket inventory down from 7-14 days 1
 
 ## Source
 
-Extracted from [Topsoil Depletion Agricultural Collapse](#/wiki/topsoil-depletion-agricultural-collapse) at line 27.
+Extracted from [Topsoil Depletion Agricultural Collapse](#/wiki/topsoil-depletion-agricultural-collapse) at line 30.

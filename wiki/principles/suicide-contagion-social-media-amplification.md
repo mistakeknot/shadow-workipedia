@@ -12,4 +12,4 @@ Werther effect baseline +10-30% suicide risk following celebrity deaths (Robin W
 
 ## Source
 
-Extracted from [Mental Health Apocalypse](#/wiki/mental-health-apocalypse) at line 18.
+Extracted from [Mental Health Apocalypse](#/wiki/mental-health-apocalypse) at line 19.

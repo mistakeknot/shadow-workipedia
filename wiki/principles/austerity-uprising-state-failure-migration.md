@@ -12,4 +12,4 @@ IMF austerity (40% cuts) × inequality (30% Gini) × disaster severity (30% GDP 
 
 ## Source
 
-Extracted from [Climate Loss Damage Sovereign Debt](#/wiki/climate-loss-damage-sovereign-debt) at line 24.
+Extracted from [Climate Loss Damage Sovereign Debt](#/wiki/climate-loss-damage-sovereign-debt) at line 26.

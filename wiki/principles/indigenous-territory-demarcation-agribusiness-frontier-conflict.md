@@ -12,4 +12,4 @@ Indigenous territory status determines deforestation rates where demarcated terr
 
 ## Source
 
-Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 17.
+Extracted from [Amazon Rainforest Dieback](#/wiki/amazon-rainforest-dieback) at line 18.

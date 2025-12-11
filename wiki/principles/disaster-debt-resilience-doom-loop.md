@@ -12,4 +12,4 @@ Climate disasters impose GDP losses (hurricanes -5% to -20%, floods -2% to -10%,
 
 ## Source
 
-Extracted from [Climate Loss Damage Sovereign Debt](#/wiki/climate-loss-damage-sovereign-debt) at line 14.
+Extracted from [Climate Loss Damage Sovereign Debt](#/wiki/climate-loss-damage-sovereign-debt) at line 16.

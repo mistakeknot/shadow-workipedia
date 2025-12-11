@@ -12,4 +12,4 @@ Fact-checking corrections reach only 10-30% of original false content audience d
 
 ## Source
 
-Extracted from [Disinformation Plague](#/wiki/disinformation-plague) at line 17.
+Extracted from [Disinformation Plague](#/wiki/disinformation-plague) at line 19.

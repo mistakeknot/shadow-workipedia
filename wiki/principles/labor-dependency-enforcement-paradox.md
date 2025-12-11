@@ -12,4 +12,4 @@ Undocumented population growth (3M 1990 → 11M 2007 peak → 10.5M 2023) drives
 
 ## Source
 
-Extracted from [Economic Immigration Conflicts](#/wiki/economic-immigration-conflicts) at line 15.
+Extracted from [Economic Immigration Conflicts](#/wiki/economic-immigration-conflicts) at line 16.

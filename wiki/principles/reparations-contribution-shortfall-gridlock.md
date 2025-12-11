@@ -12,4 +12,4 @@ Loss & Damage fund annual needs $100-400B (cumulative disaster losses) vs contri
 
 ## Source
 
-Extracted from [Climate Loss Damage Sovereign Debt](#/wiki/climate-loss-damage-sovereign-debt) at line 16.
+Extracted from [Climate Loss Damage Sovereign Debt](#/wiki/climate-loss-damage-sovereign-debt) at line 18.

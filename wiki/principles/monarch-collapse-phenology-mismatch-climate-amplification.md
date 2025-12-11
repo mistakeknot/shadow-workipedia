@@ -12,4 +12,4 @@ Monarch butterfly 90% decline (eastern) and 99.9% collapse (California 27M→2K)
 
 ## Source
 
-Extracted from [Insect Apocalypse Pollinator Collapse](#/wiki/insect-apocalypse-pollinator-collapse) at line 23.
+Extracted from [Insect Apocalypse Pollinator Collapse](#/wiki/insect-apocalypse-pollinator-collapse) at line 25.

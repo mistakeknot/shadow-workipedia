@@ -12,4 +12,4 @@ Post-9/11 homeland security grants $35B (2002-2012) flow to urban police departm
 
 ## Source
 
-Extracted from [Police Militarization](#/wiki/police-militarization) at line 20.
+Extracted from [Police Militarization](#/wiki/police-militarization) at line 22.
