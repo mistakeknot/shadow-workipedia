@@ -45,6 +45,12 @@ interface IssueRedirectIndex {
   deprecatedIssueIds: Set<string>; // issue ids with mergedInto
 }
 
+function normalizePercentLike(value: unknown, fallback: number): number {
+  if (typeof value !== 'number' || Number.isNaN(value)) return fallback;
+  const scaled = value <= 10 ? value * 10 : value;
+  return Math.max(0, Math.min(100, Math.round(scaled)));
+}
+
 function parseIssueCatalog(multiCategoryData: Map<string, IssueCategory[]>): RawIssue[] {
   const catalogPath = join(PARENT_REPO, 'docs/technical/simulation-systems/ISSUE-CATALOG.md');
 
@@ -284,7 +290,8 @@ function issueToNode(
   curatedMappings: Map<string, string[]>,
   systemWalkMap: Map<string, { issueNumber: number; subsystemCount: number; totalLines: number }>,
   primitivesMapping: Map<string, PrimitiveName[]>,
-  slugToNumberMap: Map<string, number>
+  slugToNumberMap: Map<string, number>,
+  wikiIssueArticles: Map<string, WikiArticle>
 ): GraphNode {
   const urgencySizes = {
     Critical: 16,
@@ -306,6 +313,9 @@ function issueToNode(
   // Get primitives for this issue number
   const primitives = primitivesMapping.get(String(realIssueNumber));
 
+  const wikiArticle = wikiIssueArticles.get(issue.id);
+  const fm = wikiArticle?.frontmatter ?? {};
+
   return {
     id: issue.id,
     type: 'issue',
@@ -313,9 +323,10 @@ function issueToNode(
     categories: issue.categories,
     urgency: issue.urgency,
     description: issue.description,
-    publicConcern: Math.floor(Math.random() * 40) + 60, // Mock: 60-100
-    economicImpact: Math.floor(Math.random() * 50) + 50, // Mock: 50-100
-    socialImpact: Math.floor(Math.random() * 50) + 50,   // Mock: 50-100
+    // Deterministic: derived from wiki frontmatter when available, otherwise defaults.
+    publicConcern: normalizePercentLike(fm.publicConcern, 70),
+    economicImpact: normalizePercentLike(fm.economicImpact, 60),
+    socialImpact: normalizePercentLike(fm.socialImpact, 60),
     affectedSystems: curatedMappings.get(issue.id) || [],
     primitives,
     triggerConditions: issue.triggerConditions,
@@ -388,9 +399,9 @@ function wikiArticleToNode(
   }
 
   // Convert 0-10 scale to 0-100 if needed
-  const publicConcern = fm.publicConcern ? (fm.publicConcern <= 10 ? fm.publicConcern * 10 : fm.publicConcern) : 70;
-  const economicImpact = fm.economicImpact ? (fm.economicImpact <= 10 ? fm.economicImpact * 10 : fm.economicImpact) : 60;
-  const socialImpact = fm.socialImpact ? (fm.socialImpact <= 10 ? fm.socialImpact * 10 : fm.socialImpact) : 60;
+  const publicConcern = normalizePercentLike(fm.publicConcern, 70);
+  const economicImpact = normalizePercentLike(fm.economicImpact, 60);
+  const socialImpact = normalizePercentLike(fm.socialImpact, 60);
 
   return {
     id: article.id,
@@ -1380,7 +1391,9 @@ async function main() {
     console.log(`📦 Skipping ${archivedCount} archived issues (wiki articles in archive)`);
   }
 
-  const issueNodes = rawIssues.map((issue, index) => issueToNode(issue, index + 1, curatedMappings, systemWalkMap, primitivesMapping, slugToNumberMap));
+  const issueNodes = rawIssues.map((issue, index) =>
+    issueToNode(issue, index + 1, curatedMappings, systemWalkMap, primitivesMapping, slugToNumberMap, wikiContent.issues)
+  );
   nodes.push(...issueNodes);
 
   // Create nodes from wiki-only articles (not in catalog)
