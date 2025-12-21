@@ -34,14 +34,6 @@ Despite supermajority public support for evidence-based prevention measures—un
 - **Gun Regulation Strength** (-50 to +50): Each 10-point increase reduces school shooting frequency by 3-5%. Extreme risk protection orders particularly effective (15-20% reduction).
 - **Social Cohesion Index** (-50 to +50): Each 10-point decrease increases isolation-driven incidents by 2-3%. School bullying and social fragmentation become upstream indicators.
 
-### Event Types
-
-- **Threat Assessment Activation** (35% probability when risk factors exceed threshold): Triggers mental health intervention, potential arrest, or violence prevention order. Success rate depends on institutional capacity and funding.
-- **School Lockdown Incident** (baseline 2-3% annually): Minor threats, lockdowns, emergency response. Psychological impact proportional to duration and local community trauma history.
-- **Mass Casualty Shooting** (baseline 0.3-0.5% annually, rises with gun access and cohesion loss): Multi-victim active shooter event. Consequences cascade across mental health, education effectiveness, trust in institutions, and policy windows.
-- **Survivor Advocacy Wave** (100% probability within 3 months of major incident): Survivors organize politically, media attention spikes, temporary policy window opens. Effects fade within 6-12 months without legislative action.
-- **Armed Civilian Response** (increases with armed school staff presence): Escalates incident severity 40-60% when untrained civilians engage shooters. Creates secondary casualties from friendly fire scenarios.
-
 ### Cascading Effects
 
 - **Trauma Contagion**: Each school shooting event increases anxiety disorder diagnoses district-wide by 15-30% over following 12 months, persisting 3-5 years. Compounds across multiple incidents within region.

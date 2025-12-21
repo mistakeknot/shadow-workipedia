@@ -31,15 +31,6 @@ Helium is the second-most abundant element in the universe but vanishingly scarc
 - **Geopolitical Leverage**: Nations with helium reserves (US, Australia, Qatar, Russia) gain 10–15 influence points; can weaponize supply as coercion
 - **Technology Advancement Speed**: Slows by 20–40% in advanced materials, semiconductors, and fusion research when cryogenic access restricted
 
-**Event Types:**
-1. **Production Collapse at Key Facility**: Explosion, accident, or sabotage at a major helium extraction plant (US Cliffside Field, Australian EPC project, Qatar LNG facility) reduces global output by 15–40%; shortage lasts 3–8 months depending on redundancy
-2. **Geopolitical Supply Disruption**: Sanctions, trade war, or political instability cuts off access to non-US helium (Russia, Qatar); forces rationing and prioritization of end-uses
-3. **Cryogenic System Cascade Failure**: A major research institution or hospital system suffers helium loss due to system failure, accelerating shutdown of dependent equipment and triggering 2–3 secondary failures in nearby facilities
-4. **Semiconductor Fab Idling**: Shortage forces major chipmakers to idle fabs, reducing output by 25–50%; cascades into broader chip shortage and device production delays
-5. **MRI Diagnostic Backlog Crisis**: Healthcare system rationing of MRI scans delays diagnoses; cancer screening programs defer, treatment initiation delays by weeks; mortality increases in patient cohorts dependent on imaging
-6. **Fusion/Particle Physics Research Halt**: Helium shortage forces shutdown of major particle accelerators (CERN, Fermilab) or fusion experiments (ITER); fundamental physics research stalls for 1–2 years
-7. **Black Market and Hoarding Surge**: Healthcare facilities and manufacturers hoard helium at inflated prices; medical-grade helium becomes unavailable; alternative-use helium (balloons, industrial) diverts into medical markets
-
 **Cascading Effects:**
 - Triggers **Healthcare Equipment Crisis** as MRI machines, CT scanners, and cryogenic surgery equipment become inoperable; diagnostic capacity collapses
 - Amplifies **Semiconductor Shortage** by 50–75% when cryogenic cooling access restricted; compounds existing chip supply constraints

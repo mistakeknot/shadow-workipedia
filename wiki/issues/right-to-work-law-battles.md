@@ -38,18 +38,6 @@ The political machinery behind right-to-work expansion reveals deeper power dyna
 
 - **Corporate Mobility**: Right-to-work laws increase corporate relocation probability to that jurisdiction by 15-22% for manufacturing, logistics, and light industrial sectors. This creates absolute desperation in union-stronghold regions as employers credibly threaten departure.
 
-### Event Types
-
-- **State Legislature Passage** (Probability: 15% annually in Republican-controlled legislatures without existing RTW laws): Right-to-work bill advances from committee to floor vote. Labor mobilizes mass protests and lobbying; corporate interests deploy funded campaigns. Outcomes range from legislature passage (60%) to failure with state-level backlash (30%) to delayed passage after failed attempts (10%).
-
-- **Union Financial Crisis** (Probability: 8% annually per union organization in RTW state post-enactment): Collective revenue loss reaches critical threshold forcing service cuts, organizing reductions, or consolidation. Unions must choose between maintaining contract administration services and investing in new organizing—often choosing service maintenance as membership erodes.
-
-- **Corporate Relocation** (Probability: 12% annually for manufacturing facilities in highly unionized regions facing RTW-adjacent states): Major employer announces facility closure or relocation to newly favorable RTW jurisdiction. Economic shock hits regional communities; displaced workers cannot easily organize in destination states with hostile laws.
-
-- **Public Sector Attack** (Probability: 10% annually in Republican-controlled states post-private-sector RTW): Politicians extend RTW principles to public sector (teachers, municipal workers), attacking the remaining union stronghold. Public sector unions face sudden financial devastation as membership drops 20-35% within 2-3 years.
-
-- **Counter-Movement Ballot Initiative** (Probability: 6% annually in Democratic-controlled legislatures in RTW-affected regions): Labor movements attempt to use ballot initiatives to reverse RTW laws or strengthen organizing protections. Funding disparity (3:1 or worse) means most initiatives fail despite strong worker support, but occasional victories in strong union states provide momentum.
-
 ### Cascading Effects
 
 - **Union → Wage Stagnation**: Union financial collapse directly reduces wage-setting capacity. Non-unionized workforce in surrounding regions experiences wage pressure from employer mobility threats; unionized remnants paradoxically maintain higher wages as employers minimize further concessions to preserve shrinking organized workforces. Net effect: wage inequality increases even as overall wage floor drops.

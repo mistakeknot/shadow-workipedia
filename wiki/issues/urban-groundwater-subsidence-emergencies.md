@@ -38,18 +38,6 @@ What makes this a systemic emergency is that it cannot be solved locally or quic
 
 - **Coastal_Vulnerability** (amplifies subsidence impact by 1.5-2.5x): Coastal cities experience compound risk: subsidence lowers relative ground elevation while sea level rises, creating a deadly double effect. A city with 5mm annual subsidence in an inland location becomes catastrophic at 7.5-12.5mm equivalent risk in a coastal megacity.
 
-### Event Types
-
-- **Sudden Subsidence Event** (15% annual probability, magnitude varies): Aquifer collapse, compaction layer failure, or major drought-driven extraction surge causes unexpected rapid settlement (5-50cm in weeks). Can trigger immediate infrastructure failures: pipeline breaks, building foundation damage, traffic disruptions on roads with cracked pavement.
-
-- **Sewer/Utility Infrastructure Failure** (8% annual probability per major system): Cracked and misaligned sewage lines cause contamination and backup. Gas pipeline ruptures create explosion risk. Water mains break, compounding water loss. Each failure forces emergency repairs costing 0.2-0.5% GDP and creates disease outbreak risk if sewage contaminates drinking water.
-
-- **Saltwater Intrusion Acceleration** (coastal only, 12% annual probability): As land sinks relative to sea level, saltwater penetrates aquifers. Freshwater wells become brackish within 1-5 years, forcing emergency desalination or surface water development. Affects 10-30% of coastal city water supply when triggered.
-
-- **Building and Infrastructure Displacement** (5% annual probability, affects 50,000-500,000 residents): Differential subsidence across the city causes uneven ground settlement. Buildings crack structurally, become uninhabitable, or require emergency evacuation. Can render entire neighborhoods unusable, forcing mass relocation and creating refugee populations within the same city.
-
-- **Aquifer Depletion Crisis** (recurring event, 6% annual probability): Available groundwater drops below extraction rate, forcing water rationing or emergency supply from distant sources. Triggers protests, migration pressure, and industrial shutdown if manufacturing and agriculture depend on reliable supply. Can destabilize political systems if water allocations are perceived as unfair.
-
 ### Cascading Effects
 
 - **Compound Coastal Risk**: Subsidence + sea level rise + storm surge create "triple threat" flooding. A city sinking 1cm/year and experiencing 3mm sea level rise sees a compounded effect equivalent to ~13mm/year sea level rise relative to the city's elevation. 100-year flood events occur every 20-30 years in severely subsiding coastal cities.

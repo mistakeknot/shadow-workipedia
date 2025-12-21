@@ -47,15 +47,6 @@ This system particularly disadvantages those from lower socioeconomic background
 - **Wage Returns to Education**: Diminished by oversupply
 - **Skill Development**: Distorted by signaling focus
 
-### Event Types
-
-- **Degree Requirement Scandal**: Major employer removes unnecessary credential barriers
-- **Graduate Unemployment Crisis**: Advanced degree holders unable to find work
-- **Bootcamp Disruption**: Alternative credentials challenge traditional degrees
-- **Credential Fraud Ring**: Fake degree mills exposed
-- **Student Debt Default Wave**: Borrowers unable to service education loans
-- **Professional Licensing Reform**: States eliminate unnecessary requirements
-
 ### Cascading Effects
 
 Credential inflation creates economic distortions:

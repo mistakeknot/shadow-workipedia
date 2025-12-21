@@ -38,18 +38,6 @@ The global race for post-quantum cryptography creates parallel risks. The transi
 
 - **Migration Coordination Capability** (0-100): International coordination on simultaneous cryptographic migration. Below 30 enables competitive advantage through delayed/selective migration; below 15 triggers unilateral cryptographic defaults creating incompatibility crises.
 
-### Event Types
-
-- **Cryptanalytic Breakthrough** (Probability scales with Quantum Computing Advancement): A state or private laboratory achieves unexpected acceleration in quantum capability. Impact: -15 to Post-Quantum Adoption, -20 to Cryptographic Supply Chain Resilience. Triggers Emergency Cryptographic Migration event.
-
-- **Harvest Decryption Confirmation** (Triggers if Data Harvesting Intelligence > 60): Leaked documents reveal adversaries successfully decrypted harvested data from 5-10 years prior. Impact: -25 to Public Trust in Cybersecurity, triggers diplomatic crisis, accelerates Post-Quantum migration by +15.
-
-- **Legacy System Vulnerability Cascade** (Triggers during Post-Quantum migration): Transition creates interoperability gaps where old and new systems fail to communicate. Impact: -30 to Financial System Stability, +15 to Cybersecurity Collapse risk, affects 20-40% of enterprise infrastructure.
-
-- **Cryptographic Supply Chain Sabotage** (Probability scales inversely with Supply Chain Resilience): Nation-state injects quantum-vulnerable components or backdoors into encryption hardware during transition. Impact: -40 to Cryptographic Supply Chain Resilience, +25 to Espionage Risk, affects critical infrastructure globally.
-
-- **Unilateral Cryptographic Default** (Triggers if Migration Coordination < 15): A major economy (US, China, EU) unilaterally transitions to proprietary or controlled post-quantum standard. Impact: +20 to International Tension, -30 to Global Financial System Interoperability, triggers trade wars.
-
 ### Cascading Effects
 
 - **Financial System Fragmentation**: Incompatible cryptographic standards between banking systems (US Federal Reserve, SWIFT, ECB, PBOC) create settlement failures, liquidity crunches, and regional banking collapses. Transaction processing slows from milliseconds to hours; derivative markets freeze; global trade finance halts.

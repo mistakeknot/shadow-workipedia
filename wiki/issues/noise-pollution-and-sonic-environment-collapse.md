@@ -34,17 +34,6 @@ The psychological and physiological impacts extend beyond hearing damage. Chroni
 **Urban Livability**: -11% (quality of life degradation)
 **Worker Productivity**: -6% (concentration, fatigue, accident rates)
 
-### Event Types
-
-**Noise Ordinance Challenged**: Industry fights local noise regulation
-**Airport Expansion Conflict**: Communities resist noise pollution increase
-**Hearing Loss Epidemic Recognized**: Public health data reveals scope
-**Quiet Zone Established**: Rare successful noise reduction policy
-**Industrial Noise Lawsuit**: Community sues over health impacts
-**Traffic Noise Study Released**: Research quantifies cardiovascular effects
-**School Performance Gap Linked**: Noise pollution identified as factor
-**Noise-Induced Insomnia Crisis**: Sleep disruption widespread in cities
-
 ### Cascading Effects
 
 Noise pollution → Chronic sleep disruption → Cardiovascular disease increase → Healthcare costs rise → Worker productivity decline → Educational outcomes worsen → Mental health deteriorates → Social inequality deepens (wealthy flee to quiet areas)

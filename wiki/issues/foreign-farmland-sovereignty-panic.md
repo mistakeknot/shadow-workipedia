@@ -48,15 +48,6 @@ The political dynamics prove volatile as the issue cuts across traditional parti
 - **Rural Communities**: Disrupted by absentee foreign ownership
 - **Property Rights**: Tension between universal rights and national restrictions
 
-### Event Types
-
-- **Major Foreign Land Purchase**: High-profile acquisition triggers backlash
-- **National Security Incident**: Foreign-owned farm near military base exposed
-- **Water Depletion Crisis**: Foreign agriculture drains aquifer for export crops
-- **Legislative Ban**: State prohibits foreign agricultural land ownership
-- **International Retaliation**: Target nation restricts U.S. investments abroad
-- **Rural Community Protest**: Local resistance to foreign farmland takeover
-
 ### Cascading Effects
 
 Foreign farmland ownership creates political and economic tensions:

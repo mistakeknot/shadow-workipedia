@@ -34,17 +34,6 @@ Attempts to address obesity through individual behavior change have failed compr
 **Social Inequality**: +10% (obesity concentrated in poor communities)
 **Military Readiness**: -7% (recruitment challenges, fitness issues)
 
-### Event Types
-
-**Obesity Milestone Reached**: New percentage threshold crossed
-**Childhood Obesity Crisis**: Youth rates accelerate dramatically
-**Diabetes Epidemic Declared**: Type 2 diabetes becomes widespread
-**Food Industry Reform Proposed**: Regulatory attempts to modify environment
-**Obesity Discrimination Lawsuit**: Legal challenge to weight-based bias
-**Weight Loss Drug Breakthrough**: Pharmaceutical intervention shows promise
-**School Lunch Reform**: Nutrition standards upgraded or abandoned
-**Bariatric Surgery Surge**: Surgical interventions become common
-
 ### Cascading Effects
 
 Obesogenic environment → Obesity rates rise → Chronic disease prevalence increases → Healthcare costs surge → Worker productivity declines → Military recruitment suffers → Life expectancy falls → Social inequality deepens → Healthcare system strain intensifies

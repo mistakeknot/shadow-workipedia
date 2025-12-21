@@ -48,15 +48,6 @@ Formal recycling infrastructure lags far behind waste generation due to economic
 - **Technology Sustainability**: Questioned by disposal crisis
 - **Global Inequality**: Reinforced by waste flow patterns
 
-### Event Types
-
-- **Toxic Dumping Scandal**: Illegal e-waste shipments exposed
-- **E-Waste Worker Health Crisis**: Cancer clusters documented in recycling zones
-- **Environmental Contamination Disaster**: Heavy metals poison water supplies
-- **Extended Producer Responsibility**: Regulations require manufacturer take-back
-- **Right to Repair Victory**: Laws mandate repairable device design
-- **Circular Economy Pilot**: Successful closed-loop electronics recycling launched
-
 ### Cascading Effects
 
 E-waste crisis creates compounding harms:

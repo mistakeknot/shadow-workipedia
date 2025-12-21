@@ -36,20 +36,6 @@ A sudden, severe disruption in global fertilizer supply chains triggers cascadin
 
 - **Migration Pressure**: Increases 2–4x in food-deficit regions. Rural-to-urban migration accelerates as farms fail; cross-border migration to food-secure regions increases 50–150% within 6–12 months, creating refugee crises and border militarization.
 
-**Event Types:**
-
-1. **Fertilizer Supply Shock**: Geopolitical sanctions, port closure, or mining disaster eliminates 30–50% of global supply or disrupts key trade routes (Baltic Sea, Suez Canal, China-dependent phosphate). Cascades into 6–12 month supply shortage and 2–3x price spike. Recovery timeline depends on resolution of underlying geopolitical conflict.
-
-2. **Agricultural Panic Buying**: Governments and large corporate farms anticipate shortages and place massive orders, depleting available inventory and accelerating price spikes by 40–60%. Creates shortage spiral: early buyers secure supply, late buyers face empty markets.
-
-3. **Food Price Hyperinflation**: Food prices spike 100–200%+ within 2–4 months, triggering automatic riots in cities where food spending exceeds 50% of household income. Simultaneous riots in 15+ cities reduce government capacity to respond; emergency services overwhelmed.
-
-4. **Rural Agricultural Collapse**: Farming communities unable to afford fertilizer abandon crops or reduce application rates by 60–80%, leading to harvest failures across entire regions within 3–6 months. Rural economies contract 30–50%; farmer suicide rates increase 150–300%.
-
-5. **Government Rationing Imposition**: Food shortage forces government to implement mandatory rationing, price controls, or seizure of agricultural production. Creates black markets, reduces farmer incentive to plant, and accelerates long-term production collapse. Triggers elite hoarding and corruption spirals.
-
-6. **International Food Trade War**: Exporting nations impose export controls and food nationalism; importing nations respond with military or economic coercion. Trade completely severs in affected regions; prices spike to 5–10x baseline in isolated markets within weeks.
-
 **Cascading Effects:**
 
 - Triggers **global-hunger-crisis** when fertilizer shortage persists >6 months + food prices increase >60%

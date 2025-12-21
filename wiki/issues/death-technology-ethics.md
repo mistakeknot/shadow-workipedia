@@ -67,44 +67,6 @@ Simultaneously, burial practices fracture along environmental and technological 
   - Subscription models for ongoing AI interactions
   - Premium tiers for deepfake videos, voice synthesis
 
-### Event Types
-
-**AI Grief Chatbot Scandal**
-- Trigger: High-profile case of AI chatbot giving harmful advice to griever OR unauthorized resurrection
-- Immediate: Public backlash, regulatory scrutiny, platform shutdowns
-- Secondary: Legislation requiring consent, opt-out registries for death data
-- Affects: Technology -40, PublicTrust -35, LegalSystem +20 (new regulations)
-
-**Digital Resurrection Consent Crisis**
-- Trigger: Family lawsuit over unauthorized AI recreation of deceased family member
-- Immediate: Court battles over posthumous data rights, platform liability
-- Secondary: "Digital Do Not Resuscitate" directives in estate planning
-- Affects: LegalSystem -30, Technology -25, SocialStability -20
-
-**Green Burial vs. Traditional Cemetery War**
-- Trigger: Municipality bans traditional burial OR green burial movement reaches 20% market share
-- Immediate: Cemetery industry lobbying, cultural/religious backlash
-- Secondary: Zoning battles, environmental impact studies mandate
-- Affects: Environment +30/-40, SocialCohesion -35, PoliticalPolarization +25
-
-**Recomposition Legalization Battle**
-- Trigger: State legislature considers legalizing human composting
-- Immediate: Religious opposition, "dignity of dead" arguments vs. environmental advocacy
-- Secondary: Patchwork state laws, composting facility NIMBY conflicts
-- Affects: Environment +25, SocialCohesion -30, PoliticalDivide +20
-
-**Grief Tech Dependency Epidemic**
-- Trigger: Mental health studies link AI chatbot use to prolonged grief, depression
-- Immediate: Calls for grief tech regulation, mental health warnings required
-- Secondary: Insurance coverage disputes for AI grief therapy vs. human counseling
-- Affects: MentalHealth -35, Technology -30, HealthcareSystem -20
-
-**Death Data Ownership Collapse**
-- Trigger: Major platform bankruptcy/acquisition raises questions about stored death data
-- Immediate: Families lose access to deceased's AI chatbots, digital memorials
-- Secondary: Class action lawsuits, data portability mandates for death tech
-- Affects: LegalSystem -40, Technology -35, PublicTrust -45
-
 ### Cascading Effects
 
 **To Mental Health Crisis**: AI grief chatbot dependency prevents healthy grief processing, creating generation of individuals unable to cope with loss without technological intermediaries.

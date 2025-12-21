@@ -40,20 +40,6 @@ The insurgency feeds on cascading system failures: climate-driven desertificatio
 
 **Regional Governance Quality** (0-100): Fragile governments unable to provide security, justice, or services lose legitimacy. Jihadist groups exploit this legitimacy vacuum by positioning themselves as more functional alternatives. Governments below 25 quality lose -2 governance points monthly as jihadist parallel administrations expand.
 
-### Event Types
-
-**Major Territorial Seizure** (Base Probability: 2-5% monthly when conditions favor insurgency): Jihadist coalition seizes control of major town or district, displacing 10,000-50,000 civilians. May trigger refugee crises, humanitarian emergency declarations, international pressure for intervention. Economic impact: -$50-200M in trade disruption, -5-15% regional GDP growth.
-
-**Military Coup or Regime Change** (Probability: 1-3% annually): Weak government falls to military junta, often with tacit jihadist non-aggression pacts or even coordination agreements. Creates power vacuum and reduces state capacity 10-20 points. Examples: Mali (2021), Burkina Faso (2022), Niger (2023).
-
-**Jihadist Splinter/Alliance Formation** (Probability: 3-8% annually): Competing jihadist groups either splinter into rival factions (reducing coordination, increasing regional instability) or forge strategic alliances (consolidating control). Major schisms usually triggered by leadership disputes, disagreements on tactics/theology, or competition for resources.
-
-**Mass Displacement Wave** (Probability: 1-3% monthly in high-conflict zones): Jihadist offensive or sectarian violence displaces 50,000-500,000 civilians across borders, straining refugee systems in neighboring countries and triggering humanitarian crises. Downstream effects: increased migration pressure toward Europe, destabilization of neighboring states, disease outbreaks in refugee camps.
-
-**Foreign Intervention Escalation** (Probability: 1-2% annually): Major military power (France, US, regional coalition) significantly escalates military operations, airstrikes, or special operations. Temporarily increases casualty rates and suppresses jihadist gains 10-15%, but often triggers anti-Western sentiment and jihadist propaganda victories framing conflict as religious war.
-
-**International Sanctions/Support Reversal** (Probability: 2-4% annually): Following coup or human rights crisis, international partners withdraw military/economic aid, freeze assets, or impose sanctions. Temporarily weakens government capacity but may increase jihadist appeal if presented as anti-colonial resistance.
-
 ### Cascading Effects
 
 **Climate Stress → Rural Migration → Recruitment Pipeline**: Expanding Sahara drives pastoral communities into towns where they encounter unemployment, resentment of urbanites, and jihadist recruiters. Each 10-point climate stress increase eventually drives +2-3% recruitment rate increase 6-12 months downstream.

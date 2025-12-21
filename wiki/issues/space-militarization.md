@@ -10,6 +10,7 @@ economicImpact: 72
 socialImpact: 68
 affectedSystems: [Military, Space Industry, International Security, Communications]
 connections: [space-weaponization-and-orbital-conflict]
+caseStudyOf: space-weaponization-and-orbital-conflict
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
 ---
@@ -33,18 +34,6 @@ This arms race also deepens strategic inequality. Advanced space capabilities re
 - **Technology Advancement (Space Technology Index)**: +1.5% acceleration of space weapons development per advancement tier; enables new orbital capabilities
 - **International Cooperation (Treaty Ratification)**: -2.5% militarization events per active treaty; -5% if major powers jointly enforce space arms control
 - **Commercial Space Activity (Launch Volume)**: +1% militarization risk per 10% increase in commercial launches; creates dual-use capability expansion
-
-### Event Types
-
-- **Anti-Satellite Test** (Probability: 12% annually when tension high): Nation conducts ASAT weapon test, destroys defunct satellite. Creates 500-5000 debris fragments depending on impact method. Triggers diplomatic crisis, inspires copycat tests by rival powers. Cascades to Kessler Syndrome risk if multiple tests occur.
-
-- **Space Force Expansion** (Probability: 8% annually): Major power announces new space military branch, commands, or dedicated budget. Increases orbital surveillance capability by 15-30%. Other powers announce matching programs within 6-18 months.
-
-- **Satellite Network Hardening** (Probability: 15% annually for military): Armed forces deploy encrypted, distributed, redundant satellite networks resistant to jamming/attacks. Increases strategic stability (+2 stability modifier) but concentrates power among military-industrial complex.
-
-- **Orbital Debris Crisis Event** (Probability: 6% annually): Accidental collision or cascade reaction causes debris shower affecting multiple satellite constellations. Damages 20-40% of low-Earth orbit satellites. Triggers insurance crises and economic disruption in navigation/communications sectors.
-
-- **Space Weapon Treaty Negotiation** (Probability: 18% annually): International summit to negotiate space arms control. Success rate depends on geopolitical tension, alignment of major powers, domestic political support. Failure increases risk of uncontrolled escalation.
 
 ### Cascading Effects
 

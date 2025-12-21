@@ -10,6 +10,7 @@ economicImpact: 82
 socialImpact: 79
 affectedSystems: [Environment, Infrastructure, Economy, Health, Transportation]
 connections: [permafrost-methane-release, climate-refugee-floods, arctic-blue-ocean-event-and-jet-stream-breakdown]
+caseStudyOf: permafrost-methane-release
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 ---
@@ -29,13 +30,6 @@ The boreal permafrost carbon pulse represents an accelerating release of ancient
 - **Permafrost Stability Threshold (0-100)**: Measures remaining buffer before permafrost carbon system becomes runaway irreversible. Values below 25 indicate imminent tipping point; below 10 indicates tipping point already crossed in some regional zones. Irreversible once crossed.
 - **Boreal Ecosystem Transformation (0-100)**: Tracks conversion of stable permafrost biomes to unstable, carbon-cycling systems. Includes shift from tundra to shrubland to boreal forest. Changes albedo, affects precipitation patterns, disrupts wildlife migration patterns.
 - **Economic Disruption Index (0-100)**: Models cascading costs: emergency infrastructure repairs, supply chain rerouting, commodity price volatility (especially energy), insurance claim waves, relocation expenses for Arctic communities and resource extraction operations.
-
-**Event Types:**
-1. **Sudden Thaw-Induced Subsidence Wave**: Multiple infrastructure failures occur simultaneously across wide geographic area—hundreds of kilometers of roads become impassable, pipelines rupture, entire buildings collapse. Triggers emergency declarations, forces evacuation of communities, creates humanitarian crisis in remote Arctic regions.
-2. **Methane Pulse Detection**: Satellite or ground sensors record anomalous methane concentration spike—plumes from thawing lake beds, coastal erosion, exposed organic matter. May prompt international Arctic monitoring coalitions or geopolitical disputes over monitoring data access and sovereignty.
-3. **Runaway Feedback Loop Declaration**: Climate scientists formally declare boreal permafrost has crossed point of no return; feedback loop now self-sustaining independent of future emissions. Triggers either climate emergency mobilization or widespread climate denial/apathy. Permanently locks in higher warming trajectory.
-4. **Major Pipeline/Transport Corridor Failure**: Critical energy or commodity transport route becomes impassable or ruptures catastrophically. Disrupts global energy/commodity supplies, triggers regional energy crises, forces expensive rerouting or engineering interventions. Multiplied impacts if route serves multiple critical functions.
-5. **Arctic Community Displacement Event**: Settlement becomes uninhabitable within months due to ground instability. Affects indigenous populations with deep territorial roots, creating climate refugee crisis, sovereignty disputes, cultural preservation crises. Visible symbol of climate system destabilization.
 
 **Cascading Effects:**
 - Triggers **Climate Tipping Points** when permafrost stability threshold falls below 20 and methane pulse frequency exceeds 3 events/decade, creating self-sustaining global warming feedback

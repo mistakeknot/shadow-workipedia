@@ -36,18 +36,6 @@ Twenty years later, Iraq remains fractured along sectarian lines. Iranian Revolu
 
 - **Sunni Marginalization** (0-100): Peaked at 85 during civil war. De-Ba'athification purged 100,000+ Sunni officials. Sunni-majority provinces receive <10% of oil revenues despite 25% of population. Youth unemployment 40-50% in devastated regions.
 
-**Event Types:**
-
-1. **Sectarian Violence Spike**: Triggered by major attack (mosque bombing, assassination). Death tolls can reach 500+ daily at peak. Each spike displaces 100,000+, deepens segregation, and strengthens militia recruitment.
-
-2. **ISIS Resurgence**: 10,000-20,000 fighters remain in ungoverned spaces. Major attack capability persists. Full territorial resurgence possible if state stability drops below 30 and Sunni marginalization exceeds 80.
-
-3. **Iranian-U.S. Proxy Clash**: Shi'ite militias attack U.S. forces; U.S. retaliates against Iranian assets. Escalation risk increases when regional tensions spike. Could trigger U.S. withdrawal, completing Iranian strategic victory.
-
-4. **Kurdish Independence Crisis**: Kurdish referendum (2017) showed 93% support. Baghdad blocked independence through military pressure. Future crisis likely when oil revenues or regional dynamics shift.
-
-5. **Economic Collapse**: Oil-dependent economy vulnerable to price crashes. Below $40/barrel triggers government salary arrears, militia funding competition, and renewed instability.
-
 **Cascading Effects:**
 
 - Triggers **Regional Refugee Crisis**: Each major violence spike generates 500,000+ refugees. Syria, Jordan, Lebanon absorbed 2.5+ million Iraqis, straining host nation stability.

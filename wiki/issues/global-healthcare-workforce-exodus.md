@@ -39,20 +39,6 @@ This creates a catastrophic feedback loop: provider shortage → increased workl
 
 - **Medical Education Pipeline Efficiency**: Training new providers takes 8-12 years (physician) or 2-4 years (nursing). New graduate retention rate baseline 85%; falls to 40-50% in high-burnout regions. Cannot backfill departures at current exit rates—educational capacity saturated at 2-3% annual provider growth, but exodus exceeds 5-8% in crisis regions.
 
-**Event Types:**
-
-1. **Provider Exodus Wave**: Triggered when burnout exceeds 70 across multiple sectors + wage gap to neighboring country >300%. Cascades as each provider departure increases workload for remaining staff. Single hospital can lose 15-25% of staff within 6 months, collapsing surgical capacity and specialty services. Consequence: 2-3 year recovery window even if burnout resolves.
-
-2. **Healthcare Worker Strike/Protest**: Burnout >72 + delayed compensation + safety incidents >3 per month trigger coordinated action. Affects 10,000-100,000 providers across region. Healthcare system operates at 40-60% capacity for 2-8 weeks. Mortality spike: +18-35% above baseline during strike period.
-
-3. **Recruitment Poaching Acceleration**: Wealthy nations' immigration laws relax or targeted recruitment drives begin. Can extract 5,000-15,000 providers per year from middle-income countries. Creates cascading exodus: first wave triggers second wave as remaining providers see colleagues leaving successfully. Amplification factor 1.4-1.8x.
-
-4. **Rural Clinic Closure Cascade**: Exodus from rural areas reaches critical mass—clinics unable to find replacement physicians/nurses. 100-200 clinics close per year in severely affected regions. Creates 50+ mile healthcare deserts affecting 5-20 million people per country. Rural populations resort to traditional medicine, herbalists, unqualified practitioners; preventable mortality rises 2-4x baseline.
-
-5. **Medical Education System Collapse**: Burnout among medical educators rises above 75; simultaneously, enrollment plummets as prospective students see field as unsustainable. New graduate cohort falls 30-40% below replacement needs. 8-12 year pipeline means shortage amplifies for decades; recovery requires 15+ years.
-
-6. **Cross-Border Healthcare Debt Crisis**: Lower-income countries lose 30,000+ providers annually to emigration while simultaneously importing expensive care-seeking (citizens traveling to wealthier nations for treatment). Healthcare spending increases 50-80% while capacity drops 40-60%—unsustainable fiscal position triggers healthcare system bankruptcy in 20+ countries.
-
 **Cascading Effects:**
 
 - Triggers **pandemic-aftermath** amplification when healthcare collapse prevents pandemic response capacity. Regions losing >30% provider capacity cannot mount vaccination programs, disease surveillance, or outbreak response. Pandemic death toll increases 2-3x compared to well-staffed response scenarios.

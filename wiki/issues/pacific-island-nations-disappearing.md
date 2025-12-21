@@ -36,38 +36,6 @@ The human dimension amplifies the urgency. Climate displacement from island nati
 | **International Climate Finance** | <$50B/year to adaptation | Island nations cannot afford sea walls, freshwater systems, or managed relocation; hopelessness spreads |
 | **Pacific Economic Integration** | Regional trade <20% of GDP | Islands become dependent on outside aid; domestic resilience collapses; vulnerability to trade shocks |
 
-### Event Types
-
-**Migration Pressure Wave** (Probability: 65% when island habitability drops below 60%)
-- Mass departure begins; 20-50% of population relocates within 5 years
-- Destination nations experience labor supply surge (cheap labor) but also cultural tensions
-- Islands lose tax base and institutional capacity; remaining infrastructure decays
-- Effect: -30 stability in island nation; +15 migration pressure in developed nations
-
-**Sovereignty Dissolution** (Probability: 40% when territory becomes <50% of original baseline)
-- International legal frameworks break down; maritime rights contested
-- Former island nations lose seat at UN; cultural minority status in new countries
-- Regional power vacuums attract foreign investment/military positioning
-- Effect: +20 geopolitical instability in Pacific; -40 morale in affected nations
-
-**Environmental Refugee Crisis** (Probability: 55% when population displacement exceeds 100,000)
-- Sudden influx of stateless persons; humanitarian systems overwhelmed
-- Destination nations debate citizenship, benefits, integration timelines
-- Social unrest in host communities; political backlash against "climate migration"
-- Effect: -25 social cohesion in destination nations; +35 border tension
-
-**Cultural Extinction** (Probability: 80% when diaspora population exceeds 70% of original)
-- Traditional languages cease active use within one generation
-- Oral histories and cultural practices fade as communities scatter
-- Heritage sites permanently submerged; archaeologists race to document
-- Effect: -50 cultural resilience; permanent loss of unique human knowledge
-
-**Economic Collapse Chain** (Probability: 70% when GDP per capita drops below $2,000 for >2 years)
-- Fishing industry collapses as ocean ecosystems destabilize
-- Tourism sector disappears; no territory to market
-- Government defaults on debt; public services cease
-- Effect: -45 economic output; cascades to remittance-dependent diaspora
-
 ### Cascading Effects
 
 1. **Saltwater Intrusion → Agriculture Failure → Food Security Crisis**

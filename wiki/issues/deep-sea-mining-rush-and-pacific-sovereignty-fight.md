@@ -31,14 +31,6 @@ The seabed beneath the world's oceans contains vast deposits of polymetallic nod
 5. **Global Trade Competitiveness** → Seabed mineral supply reduces EV battery costs by 8-12%, shifts geopolitical leverage toward mining-dependent economies
 6. **Governance Capacity** (ISA Authority Strength) → Weak governance → mining proceeds unchecked; strong governance → environmental impact studies delay operations 2-3 years
 
-**Event Types:**
-
-1. **Nodule Extraction Starts** (70% probability when conditions align) → Monthly copper/nickel yields, 15-25% ocean ecosystem degradation in extraction zones, Pacific island revenue increases 12-20%
-2. **Biodiversity Collapse Cascade** (35% probability after 24+ months of mining) → Fish populations in affected regions drop 40-60%, local fishing economies collapse, food security crises in island nations
-3. **Sovereignty Crisis Escalation** (45% probability when mining revenue conflicts with environmental warnings) → Pacific nations split into pro-mining and conservation blocs, regional diplomatic breakdown, potential military confrontation over maritime zones
-4. **Environmental Monitoring Breakthrough** (25% probability) → Unexpected ecosystem damage documentation forces temporary mining suspension, ISA implements emergency protocols, investor confidence drops 20-30%
-5. **Alternative Supply Chain Success** (40% probability) → Breakthrough in battery recycling or alternative chemistry reduces mining urgency, venture capital diverts away, environmental pressure eases
-
 **Cascading Effects:**
 
 1. **Mining Expansion Loop**: Successful nodule extraction → Increased battery metal supply → Lower EV costs → Higher EV adoption → Reinforced mining demand → Zone expansion

@@ -34,17 +34,6 @@ The industry's normalization represents a broader trend toward predatory finance
 **Household Debt**: +9% (high-interest debt accumulation)
 **Community Economic Health**: -8% (wealth extraction from poor areas)
 
-### Event Types
-
-**Payday Lender Proliferation**: Industry expands into new markets
-**Debt Trap Investigation**: Journalism exposes lending practices
-**Regulatory Reform Proposed**: Attempts to cap interest rates
-**Borrower Bankruptcy**: Debt spiral leads to financial collapse
-**Industry Lobbying Victory**: Regulation blocked or weakened
-**Alternative Banking Proposed**: Credit union or postal banking plan
-**Class Action Lawsuit**: Legal challenge to predatory practices
-**Storefront Concentration**: Multiple lenders cluster in poor neighborhoods
-
 ### Cascading Effects
 
 Financial emergency → Payday loan taken → Cannot repay → Loan renewed with fees → Debt accumulates → Bank account drained → More desperate borrowing → Debt spiral deepens → Bankruptcy or chronic poverty → Wealth extracted from poor communities

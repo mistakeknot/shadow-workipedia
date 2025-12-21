@@ -38,18 +38,6 @@ The political economy of destruction is deeply entrenched. Cattle ranching, soy 
 
 - **Fire Season Severity** (events/year): Annual fire count in Amazon region. Background level ~40,000/year. Elevated levels (80,000+) indicate systemic stress. 2019 reached 90,000+ fires. Fires are primarily human-caused (land clearing) but spread uncontrollably in drought conditions.
 
-**Event Types:**
-
-1. **Deforestation Spike**: Political shift, enforcement collapse, or commodity price surge drives rapid forest clearing. Forest Cover drops 0.5-1% in single year. Triggers international outcry but economic interests resist intervention. Each spike makes tipping point more likely and recovery harder.
-
-2. **Mega-Drought**: Climate change-intensified drought creates extreme fire conditions. Fire Season Severity doubles. Forest mortality increases independent of direct deforestation. Regional Rainfall Index drops 10-15 points. Agricultural regions experience crop failures. Economic pressure may drive more deforestation (perverse response).
-
-3. **Indigenous Rights Victory**: Court ruling, international pressure, or government commitment strengthens indigenous territorial protection. Deforestation Rate decreases 15-25% in protected areas. Creates legal precedent complicating future rollback. But enforcement requires sustained resources.
-
-4. **Tipping Point Crossed**: Scientific evidence confirms self-reinforcing dieback has begun in significant Amazon region. Global carbon budget immediately worsens. International climate negotiations disrupted. Some nations consider geoengineering interventions. No practical reversal options—adaptation becomes primary focus.
-
-5. **International Trade Pressure**: Major importing nations (EU, China) implement forest-linked trade restrictions. Brazilian agricultural exports face market access challenges. Creates economic incentive for forest protection but also generates nationalist backlash and sovereignty disputes.
-
 **Cascading Effects:**
 
 - Triggers **Global Climate Acceleration** when: Forest Cover drops below 75% AND self-reinforcing dieback begins AND 150+ billion tons of carbon release becomes locked in.

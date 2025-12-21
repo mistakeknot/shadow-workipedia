@@ -58,38 +58,6 @@ The implications extend beyond single nations. As democratic countries struggle 
 - Mobile network operators provide location tracking integration
 - Higher values enable revenue generation from surveillance systems
 
-### Event Types
-
-**Major System Launch (Probability: 8-12% per year in high-authoritarianism contexts)**
-- A new country initiates comprehensive social credit system covering 50M+ citizens
-- Immediately blacklists 100K-1M individuals for political, financial, or social reasons
-- Triggers 2-3% increase in population surveillance concern
-- Creates template for neighboring countries (regional contagion effect)
-
-**Scope Expansion Event (Probability: 15-22% annually in operational systems)**
-- Existing system incorporates new data stream (religious affiliation, family associations, debt records)
-- Retroactively applies scoring algorithm to historical data
-- Affects 5-20% of already-penalized population with enhanced restrictions
-- Generates "Mission Creep" cascades affecting civil liberties systems
-
-**Surveillance Vendor Breakthrough (Probability: 10-15% per year)**
-- Technology company develops more accurate face recognition or behavioral prediction
-- System vendors begin aggressive international marketing (Singapore, UAE, Africa, Latin America)
-- 2-5 new countries adopt system within 18 months
-- Creates positive feedback loop between surveillance and social control technologies
-
-**Public Resistance Emergence (Probability: 12-18% in mature systems)**
-- Organized groups develop workarounds, fake identity methods, or parallel systems
-- Creates 5-10% reduction in system effectiveness temporarily
-- Triggers government counter-measures (penalties increase by 30-50%, expansion of surveillance)
-- May lead to broader civil unrest if resistance gains momentum
-
-**Financial System Integration Crisis (Probability: 6-10% annually)**
-- Widespread false positives or data errors cause economic damage to innocent individuals
-- 10K-100K people simultaneously denied credit, travel, or employment
-- Media exposure triggers international criticism and regulatory pressure
-- Creates temporary friction but usually resolved with minor reforms rather than system dismantling
-
 ### Cascading Effects
 
 **Surveillance State Consolidation**

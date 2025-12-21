@@ -35,14 +35,6 @@ Defensive capabilities lag offensive innovations by years. Zero-day vulnerabilit
 - **Cryptocurrency Regulation (-4% per decrement)**: Lack of regulation enables ransom payments and money laundering; eases state-sponsored criminal funding pipelines
 - **Tech Worker Shortage (+7% per increment)**: Increases dwell time by reducing defender availability; incentivizes brain drain to private sector, leaving government/defense cybersecurity understaffed
 
-### Event Types
-
-- **Advanced Persistent Threat Deployment (8% annual baseline)**: Sophisticated APT group establishes presence in target network (government agency, energy provider, defense contractor); immediately begins intelligence gathering phase; triggers secondary effects in related Critical Infrastructure system with 40% probability
-- **Zero-Day Exploitation (3% annual baseline)**: Previously unknown vulnerability in widely-deployed software (Windows, Exchange, Cisco IOS) is weaponized by state actor; enables rapid lateral movement across organizations using affected systems; probability increases 2x when Supply Chain Integrity is degraded
-- **Ransomware Attribution Reversal (12% annual baseline, accelerates 2x during US-China tensions)**: Criminal ransomware traced back to state intelligence agency; victim organization forced to choose between government-mandated non-payment and capitulation; triggers secondary event in Government Corruption system
-- **Infrastructure Destabilization Probe (6% annual baseline)**: State actor test-fires capabilities against non-critical segment of power grid or water system to measure detection/response times; successful probes reduce effective future defense levels; triggers alert cascade
-- **Election Interference Vector (5% annual baseline, +3% per year of declined International Cooperation)**: Credentials stolen from election official; state actor gains access to voter registration database for specific state/region; creates secondary Political Interference event with 60% probability
-
 ### Cascading Effects
 
 - **Healthcare System Compromise → Medical Delays**: Hospital networks encrypted by ransomware trigger patient care disruptions; diagnostic imaging unavailable; elective surgeries postponed; secondary events in Health Crisis system with direct mortality correlation

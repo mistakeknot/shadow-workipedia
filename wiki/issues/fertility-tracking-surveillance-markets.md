@@ -39,18 +39,6 @@ The fundamental economic tension is severe: fertility tracking apps operate on f
 
 - **Political-Commercial Data Fusion**: Anti-abortion organizations and campaigns have begun purchasing fertility profiles from data brokers. Campaign finance documents reveal $2-8 million annually spent on acquiring fertility data for "reproductive counseling" targeting (de facto abortion alternatives marketing) and political opposition research on reproductive rights advocates.
 
-**Event Types:**
-
-1. **Major Data Breach**: A fertility app or connected data broker experiences security breach exposing 1-50 million fertility records. Consequences: 30-50% immediate user exodus from affected app, 15-25% user exodus from entire category (trust collapse), state attorneys general launch investigations, app may face $10-50 million in damages and regulatory fines. If breach includes location data tied to abortion clinics, users may face immediate prosecution risk.
-
-2. **Law Enforcement Subpoena Campaign**: State or federal law enforcement initiates systematic subpoena campaign against fertility app providers (occurred in Wisconsin, Texas, Oklahoma: 2023-2024). Triggers provider legal choice: resist (costly litigation, app shutdown threat) or comply (eroding user trust, enabling prosecution). Cascade effect: if major provider capitulates, 2-4 smaller providers follow; reproductive surveillance infrastructure becomes normalized.
-
-3. **Insurance Discrimination Settlement**: Major insurer caught using fertility tracking data for premium setting; triggers class action, settlement of $50-200 million. Media coverage increases awareness of data monetization practices by 40-60%, causing temporary user migration and app-hopping. However, fragmentation creates worse surveillance landscape: instead of concentrated data in 1-2 major apps, fertility tracking data disperses across 8-12 niche apps with weaker privacy practices.
-
-4. **Abortion "Supply Chain" Intelligence Report**: Anti-abortion organization publishes detailed map of abortion access routes built from aggregated fertility tracking data (location patterns, interstate travel, clinic proximity alerts). Public exposure triggers Congressional hearings, state legislation banning "abortion facilitating" data sales, but enforcement remains weak. Commercial incentives to continue selling reproductive data exceed legal penalties.
-
-5. **Contraceptive Targeting Campaign**: Pharmaceutical company or medical device manufacturer uses fertility tracking data to target women with contraceptive method switching offers. Simultaneously, anti-abortion groups use same data to identify women in early pregnancy planning phase for "alternatives counseling." Creates dual-use data ecosystem where same information serves both commercial and political reproductive control agendas.
-
 **Cascading Effects:**
 
 - Triggers **abortion-access-crisis** acceleration by 10-20% when law enforcement obtains fertility tracking data and prosecution rates rise; women avoid seeking abortion information through digital channels, reducing access to critical information during time-sensitive decisions

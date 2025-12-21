@@ -43,22 +43,6 @@ The evidence base is contested. Studies show youth with gender dysphoria experie
 
 - **Research Capacity**: Declines 20-30% in restricted jurisdictions; long-term outcome studies become impossible, evidence base stagnates, creating feedback loop of "insufficient evidence" justifying further restrictions.
 
-**Event Types:**
-
-1. **Restrictive Legislation Enacted**: State or country passes law banning puberty blockers, hormone therapy, or surgeries for minors; criminalizes providers; triggers immediate provider exodus (25-40% within 12 months), patient displacement, and mental health crisis among affected youth.
-
-2. **Medical Organization Guideline Update**: Major medical body (AAP, AMA, Endocrine Society, WPATH) updates or maintains gender-affirming care guidelines in response to evidence; shifts legitimacy and provider confidence; can de-escalate conflict by 10-15 points or escalate if rejected by political actors.
-
-3. **Legislative Backlash Ballot Initiative**: Voters in a state approve protection for gender-affirming care or reject/overturn restrictions (occurred in several U.S. states); increases access, reverses provider migration, regionally de-escalates polarization by 8-12 percentage points.
-
-4. **Detransition-Related Legal Case**: Prominent lawsuit by former patient claiming harm from gender-affirming care; triggers media cascade, amplifies doubt about evidence, increases legal liability costs for providers and clinics by 200-400%, causes provider exodus even in non-restrictive jurisdictions.
-
-5. **Suicide Cluster in Restrictive Region**: Elevated suicide attempts among gender dysphoric youth in restriction jurisdiction; national media coverage; either validates harm narrative (access denied = suicide risk) or blamed on affirmation culture depending on political framing.
-
-6. **International Policy Divergence**: Different countries adopt opposing policies (e.g., UK restricts while Canada expands); creates media and policy confusion, refugee flows of families seeking affirming care, and transnational advocacy mobilization.
-
-7. **Provider Conscience Clause Conflict**: Healthcare providers cite religious/moral objection to gender-affirming care; conflicts with professional duty, labor law, and patient access; escalates healthcare politicization by 8-12 points and creates regional access deserts.
-
 **Cascading Effects:**
 
 - Triggers **youth-mental-health-crisis** when access restrictions exceed 40% of youth population + suicide ideation increases >15% regionally

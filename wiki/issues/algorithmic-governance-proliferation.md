@@ -30,18 +30,6 @@ Algorithmic governance refers to the increasing use of computational systems, ma
 
 - **Democratic Accountability** (0-100): Reflects citizen and legislator understanding of and control over algorithmic governance systems. Declines when algorithm complexity exceeds public comprehension; increases through algorithmic transparency mandates and citizen participation in algorithm design.
 
-**Event Types:**
-
-1. **Algorithmic Audit Requirement**: Government mandates third-party audits of critical algorithms. Temporarily increases transparency but creates compliance burden; affects government automation efficiency by 5-15%.
-
-2. **Algorithm Bias Scandal**: Media investigation exposes discriminatory outcomes (loan denials, hiring, criminal justice). Spikes public concern, may trigger regulatory backlash or normalization depending on response.
-
-3. **Predictive Policing Deployment**: Law enforcement implements algorithmic risk assessment for patrol allocation and arrest prediction. Increases reported crime efficiency but correlates with democratic accountability decline and civil rights issues.
-
-4. **Welfare Automation Crisis**: Algorithmic benefit determination systems generate mass wrongful denials. Creates humanitarian crisis, sparks citizen protests, temporarily collapses trust in government institutions.
-
-5. **AI Governance Council Formation**: Government creates oversight body for algorithmic decision-making. Moderate stabilizer; increases accountability perception without addressing underlying technical complexity problems.
-
 **Cascading Effects:**
 
 - Triggers **Democratic Backsliding** when algorithmic governance systematically removes meaningful citizen participation from major policy decisions.

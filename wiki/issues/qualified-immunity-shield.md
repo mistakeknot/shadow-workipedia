@@ -38,18 +38,6 @@ The cascading effects are profound. Victims lack meaningful recourse beyond crim
 
 - **Legal Reform Pressure (+3 to +8)**: Paradoxically, qualified immunity increases pressure for legislative reform. Each widely-publicized case creates political momentum, though courts maintain that only Congress can modify the doctrine (which it hasn't, despite multiple attempts).
 
-### Event Types
-
-- **Immunity Grant Event (45% probability)**: Court dismisses civil suit on qualified immunity grounds before trial. Impact: Victim accountability failure, reduced public trust (-3 to -5 Justice metric points), increased reform pressure (+2 to +4 Legislative Reform points). Multiple grants in short timeframe increase inequality metrics.
-
-- **High-Profile Misconduct Case (28% probability)**: Widely-publicized incident where officer clearly violated rights but immunity shield prevents civil recovery. Impact: Media amplification, protest triggers, reform pressure acceleration (+4 to +7), public trust decline (-4 to -7). Often connects to concurrent protests and media cycles.
-
-- **Police Union Immunity Defense (35% probability)**: Union aggressively defends qualified immunity in settlements, lawsuits, or media. Impact: Hardlines police-community relations, energizes reform movements, creates political conflict. May trigger advocacy group mobilization and legislative attempts.
-
-- **Judicial Interpretation Shift (12% probability, low frequency)**: Court (typically appellate level) narrows or expands "clearly established" standard, affecting future immunity grants. Impact: Creates jurisprudence wave affecting multiple cases. Narrow interpretation increases litigation, broad interpretation reduces access to courts.
-
-- **Legislative Reform Attempt (18% probability)**: Congress or state legislature introduces qualified immunity reform bill. Impact: Creates political conflict between law enforcement lobbies and civil rights advocates. Success blockage increases reform pressure; passage would require doctrine overhaul elsewhere.
-
 ### Cascading Effects
 
 - **Police Misconduct Concentration**: When qualified immunity shields high-problem officers from financial consequences, those officers remain in service longer, accumulating records and perpetuating patterns. Leads to increased misconduct events, complaint clustering, and targeted community impact.

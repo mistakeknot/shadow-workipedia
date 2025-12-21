@@ -38,18 +38,6 @@ The betrayal cuts deepest because post-apartheid South Africa once symbolized de
 
 **Crime Feedback Loop (+8% annual murder rate)**: Failing state cannot maintain policing and courts. Criminals operate openly. Business investment flees. Tax base shrinks. State cannot pay police. Crime escalates exponentially. At >70 murders per 100k annually, entire neighborhoods become ungovernable, forcing vigilante justice and parallel security systems.
 
-### Event Types
-
-**Elite Defection (15% annually, -25 institutional capacity)**: A major faction within the ANC/government recognizes state failure is destroying their own wealth and defects to opposition or regional autonomy. Examples: Gauteng breakaway, Western Cape independent governance, Johannesburg municipal rejection of national directives. Each defection reduces central state capacity to enforce policies nationwide.
-
-**Infrastructure Cascade Failure (8% annually, -15 each in energy/water/transport)**: When multiple critical infrastructure systems fail simultaneously (blackouts + water shutoffs + transport breakdown), urban centers become ungovernable within 72 hours. Hospitals cannot operate. Businesses close. Homeless surge. Triggers either military intervention or local autonomous takeover.
-
-**Corporate Exodus (12% annually, -8 GDP growth)**: Major multinationals (mining, finance, tech) relocate headquarters to Botswana, Kenya, or offshore. Capital flight accelerates. Each departing corporation takes tax revenue, employment, and investor confidence. Unemployment surges in surrounding regions, creating ungovernable slums.
-
-**Securocrat Coup Attempt (4% annually, +2 military power, -10 legitimacy)**: Military or security faction attempts to seize control, believing only martial law can restore order. Even failed attempts (like the 2022 military involvement rumors) trigger international isolation and capital flight. Success means authoritarian consolidation; failure means fragmentation.
-
-**Wage Collapse/Public Sector Strike (18% annually)**: Government cannot pay civil servants, teachers, police on time. Strikes spiral for months. Service delivery halts. Police walkouts enable crime sprees. Teachers absent means educational system accelerates toward failure. Each strike episode reduces institutional capacity by 5-8%.
-
 ### Cascading Effects
 
 **State Failure → Service Collapse**: Corruption and institutional decay reduce state capacity below critical threshold. Government cannot maintain water treatment, electricity grids, courts, hospitals, schools simultaneously. First sign is rolling blackouts. Within 2-3 years, water shortages follow. By year 5, courts no longer function, police abandon neighborhoods, healthcare becomes emergency-only. Entire regions revert to pre-industrial conditions.

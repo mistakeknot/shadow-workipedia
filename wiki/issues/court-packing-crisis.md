@@ -31,13 +31,6 @@ Court packing represents the systematic erosion of judicial independence through
 - **Institutional Trust**: Plummets as citizens recognize that legal outcomes are predetermined by political composition rather than actual case merits
 - **Constitutional Order**: Destabilizes when multiple proposals circulate simultaneously (expand Supreme Court to 13, then 17, then emergency appointments), creating uncertainty about what Constitution actually permits
 
-**Event Types:**
-1. **Court Expansion Proposal**: Majority party proposes adding 4 seats to Supreme Court to reverse minority party's 5-4 advantage. Triggers immediate counter-proposal from minority to add 8 seats, creating bidding war for institutional legitimacy.
-2. **Vacancy Refusal**: Ruling party refuses to allow confirmation votes on minority-party judges for open seats. Minority responds by threatening to add seats if they gain power, establishing tit-for-tat escalation pattern.
-3. **Emergency Appointment**: President claims constitutional emergency and appoints judges without Senate confirmation, or uses emergency powers to restructure lower courts. Triggers constitutional crisis about executive versus legislative authority.
-4. **Judicial Legitimacy Crisis**: Supreme Court decision widely seen as obviously partisan rather than principled (5-4 along party lines on party-relevant issue). Public trust in judiciary drops sharply; both sides lose faith in legal process.
-5. **Constitutional Convention Threat**: One faction proposes constitutional convention to resolve court composition crisis, opening possibility of wholesale constitutional restructuring and institutional redesign.
-
 **Cascading Effects:**
 - Triggers **Judicial Capture** when successful court-packing creates bench that reliably rules for the party in power, enabling executive overreach and legislative nullification
 - Amplifies **Democratic Backsliding** by removing courts as independent check on authoritarian executive power accumulation and minority rule protections

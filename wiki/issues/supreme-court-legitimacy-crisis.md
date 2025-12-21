@@ -41,14 +41,6 @@ The crisis stems from multiple reinforcing dynamics: increasingly ideological an
 - **Rule of Law**: -15 to -25 (selective compliance with rulings)
 - **Social Cohesion**: -10 to -15 (constitutional disagreements fracture society)
 
-### Event Types
-- Partisan 5-4 decisions on culturally divisive issues
-- Justice ethics scandals involving undisclosed gifts or financial conflicts
-- State or federal officials refusing to comply with Court rulings
-- Court packing or jurisdiction stripping proposals
-- Decline in public approval below 30% threshold
-- Justices making openly political statements or appearances
-
 ### Cascading Effects
 - **Legal System Crisis**: Lower courts and legal profession divided on authority of Supreme Court precedents
 - **Federalism Breakdown**: States selectively enforce or ignore federal constitutional interpretations

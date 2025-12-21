@@ -38,18 +38,6 @@ What distinguishes pyroCb warfare from ordinary arson is intentionality at scale
 
 - **Cross-Border Air Quality Agreements** (0-100): Treaties limiting transnational smoke impact create diplomatic pressure against pyroCb warfare. Effects: -12% strategic pyroCb deployment per 25-point increase; +30% international response coordination.
 
-### Event Types
-
-- **Deliberate Pyrogenic Ignition (5% base probability)**: Military or hostile non-state actors conduct coordinated arson across a region during high-risk fire weather windows. Success depends on military sophistication, climate instability, and detection evasion. Outcomes: pyroCb formation within 3-7 days (70% probability), stratospheric injection of 1-5 megatons of aerosol material, cross-border smoke plumes affecting 2-4 adjacent regions. Diplomatic fallout: +40 relationship strain per affected neighbor.
-
-- **Pyrocumulonimbus Cascade (3% conditional probability)**: Initial pyroCb event triggers secondary fire ignitions via lightning, embers, and wind patterns. Uncontrolled escalation compounds effects. Outcomes: +150% expanded fire footprint over 10-day period, economic damage x1.8 multiplier, infrastructure vulnerability +25%.
-
-- **Stratospheric Aerosol Injection (8% following major pyroCb)**: Smoke and particulates reach upper atmosphere, reducing solar radiation for 6-18 months across hemisphere. Cooling effect: -2 to -4°C regional temperature anomaly. Agricultural impacts: crop yield reduction 15-30% in affected zones.
-
-- **Military Grid Interdiction (6% during pyroCb event)**: Electromagnetic pulses from pyroCb lightning, combined with deliberate targeting of power transmission lines, disable military communications or civilian infrastructure. Effects: military effectiveness -40%, economy -3-5% GDP impact, recovery time 2-6 months.
-
-- **Attribution Collapse & Escalatory Spiral (4% when multiple pyroCb events undetected)**: Cumulative pyroCb attacks provoke mutual accusations, failed intelligence assessments, and counter-escalation without clear identification of perpetrators. Relationship strain compounds multiplicatively; war probability +15-25%.
-
 ### Cascading Effects
 
 - **Wildfire-Induced Displacement Chain**: Pyrogenic ignition triggers large-scale evacuation, overwhelming refugee systems, creating political instability and extremist recruitment opportunities. Migration pressure +200-400%, internal conflict risk +15%, international border tensions +25%.

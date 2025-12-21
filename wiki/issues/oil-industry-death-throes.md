@@ -11,16 +11,21 @@ socialImpact: 75
 affectedSystems: [Energy Markets, Labor Markets, Government Policy, Financial Markets, Infrastructure]
 connections: []
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-25
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Oil Industry Death Throes
 
 ## Overview
 
-The global oil industry faces inevitable structural decline as energy demand peaks and transitions accelerate—yet fights with maximum desperation to preserve market share, subsidies, and political influence. This is not a smooth technological transition. It is a gasping, violent contraction spanning two decades of price volatility, stranded assets, political warfare, sovereign debt collapses, and millions of displaced workers. OPEC+ attempts production cuts to stabilize prices, but massive overinvestment in oil infrastructure (refineries, pipelines, ports, drilling platforms) becomes economically worthless as electric vehicles, renewable energy, and demand destruction reshape global energy. Oil-dependent nations (Russia, Saudi Arabia, Nigeria, Venezuela) face existential fiscal crises as revenues collapse. The industry deploys every weapon: climate denial, regulatory capture, geopolitical leverage (weaponizing energy supplies), investment in speculative recovery technologies (hydrogen, carbon capture), and direct sabotage of renewable infrastructure. The termination point is visible—demand peaks 2025-2035 depending on scenario—but getting there triggers financial contagion, infrastructure abandonment, labor unrest, and desperate militarized resource grabs. Pension funds and insurance companies holding oil assets face insolvency. Governments financing major oil projects (like Arctic drilling) face sovereign downgrades. The world's stranded infrastructure—billions in pipelines, refineries, and platforms designed for 2050+ demand that will never materialize—becomes a monument to miscalculation and delayed transition.
+The global oil industry faces structural decline as electrification, efficiency, and clean-energy investment reduce long-run demand growth—yet it fights to preserve market share, subsidies, and political influence. This is not a smooth technological transition. It can be a volatile contraction: price whiplash, stranded assets, political warfare, and regional employment shocks. While peak-oil-demand timing varies by scenario, the International Energy Agency’s World Energy Outlook 2023 stated that demand for coal, oil, and natural gas is set to peak before 2030 under existing policies.[^iea_weo_2023] Even in that “early peak” framing, the path involves difficult distributional conflict: petrostates facing fiscal stress, firms defending sunk-cost assets, and governments balancing energy security against climate commitments.
+
+As of 2025-12-19, the political economy headwind remains large: the IMF estimates global fossil fuel subsidies (explicit + implicit) at about $7 trillion in 2022, rising to about $7.4 trillion in 2023.[^imf_subsidies_2023]
 
 ## Game Mechanics
+
+*All numeric ranges below are simulation parameters (illustrative), not real-world estimates unless explicitly sourced.*
 
 **Parameter Effects:**
 
@@ -31,17 +36,6 @@ The global oil industry faces inevitable structural decline as energy demand pea
 - **Renewable Energy Competitiveness**: Improves 5-8% annually as battery costs drop; breaks parity with oil in most regions by 2028-2032, making new oil projects economically irrational
 - **Sovereign Debt Risk**: Increases 2-4 points per $10/barrel sustained price drop for OPEC nations; triggers cascading rating downgrades and capital flight
 - **Geopolitical Leverage**: Oil becomes weapon-of-last-resort; OPEC+ or China-Russia coalitions restrict supplies to coerce political concessions; triggers energy security militarization
-
-**Event Types:**
-
-1. **Peak Demand Recognition**: Global oil demand flattens unexpectedly; markets realize 2030-2035 decline is structural, not cyclical; wave of asset writedowns triggers 15-25% equity market correction
-2. **OPEC+ Production War**: Cartel fractures as members prioritize survival over coordination; supply floods market; prices crash to $35-45/barrel; deepwater and arctic projects shelved permanently
-3. **Stranded Asset Debt Crisis**: Major oil company (Exxon, Shell, Saudi Aramco) faces downgrades below investment grade due to $200B+ stranded asset write-downs; bond yields spike; contagion spreads to banking system
-4. **Petrostate Fiscal Collapse**: Saudi Arabia, Nigeria, Russia, or Venezuela unable to service debt or maintain spending; currency crises, capital flight, domestic unrest; potential state failure and regional destabilization
-5. **Renewable Parity Breakthrough**: Battery/solar costs fall below oil production costs in 70%+ of markets; accelerates switch to renewables; oil demand destruction accelerates to 5-10% annually
-6. **Energy Supply Weaponization**: Russia restricts European gas; OPEC+ implements extended production cuts to manipulate prices; triggers energy security militarization and strategic reserve drawdowns
-7. **Worker-Led Destabilization**: Mass unemployment in oil regions triggers labor unrest, strikes, regional secessionism; energy infrastructure sabotage by displaced workers; supply disruptions amplify price spikes
-8. **Speculative Technology Panic**: Industry pivots to hydrogen, carbon capture, or direct air capture as "climate solutions"; massive speculative investments fail to materialize; bankruptcies and scandal compound industry credibility loss
 
 **Cascading Effects:**
 
@@ -150,5 +144,10 @@ During price crises and energy security panics, governments relax emissions stan
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-25
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/oil-industry-death-throes.md)
+
+## Sources
+
+[^iea_weo_2023]: https://www.iea.org/reports/world-energy-outlook-2023
+[^imf_subsidies_2023]: https://www.imf.org/en/Topics/climate-change/energy-subsidies

@@ -38,18 +38,6 @@ What distinguishes America's crisis is structural: the coupling of healthcare ac
 
 - **Debt Collection Regulation** (−1.9% per point): Stricter regulations on predatory debt collection practices and wage garnishment reduce the coercive debt spiral that converts medical debt into cascading financial destruction.
 
-### Event Types
-
-- **Catastrophic Diagnosis Event** (Probability: 2.3%): A family member receives a diagnosis requiring extended treatment (cancer, organ failure, chronic condition). Without adequate insurance, treatment costs exceed $200,000. Triggers bankruptcy filing within 18 months, home foreclosure, and family dissolution in 40% of cases.
-
-- **Out-of-Network Surprise Bill** (Probability: 8.7%): Despite choosing an in-network hospital, emergency surgery involves out-of-network surgeons, anesthesiologists, or pathologists. Patient receives $50,000+ in surprise bills even with insurance coverage. Triggers immediate debt collection and credit score collapse.
-
-- **Insurance Denial Cascade** (Probability: 4.1%): Insurance company denies coverage for treatments claimed as "experimental," "not medically necessary," or deemed a pre-existing condition. Appeals process takes 18+ months, during which bills accrue interest. Triggers financial crisis and permanent loss of coverage due to medical debt's impact on creditworthiness.
-
-- **Medication Rationing Decision** (Probability: 6.2%): Family chooses between purchasing essential medication (insulin, blood pressure medication, cancer drugs) and paying for food/housing. Skipping medication triggers health complications requiring emergency care, creating debt spiral.
-
-- **Medical Debt Sale to Collector** (Probability: 7.8%): Hospital sells unpaid medical debt to collectors at pennies on the dollar. Collectors pursue aggressive collection tactics including wage garnishment, asset seizure, and public shaming. Triggers permanent financial damage and community ostracism.
-
 ### Cascading Effects
 
 - **Labor Market Exit**: Adults managing medical debt reduce work hours, take disability leave, or exit the workforce entirely to reduce income (triggering Medicaid eligibility). Reduces household income by 35-60%, perpetuating poverty cycle and reducing consumer spending.

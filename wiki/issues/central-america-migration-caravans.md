@@ -33,15 +33,6 @@ The Northern Triangle—Guatemala, Honduras, and El Salvador—faces a perfect s
 - **Gang Control & Crime**: Paradoxically increases in origin countries as protective adults flee, leaving youth vulnerable to recruitment
 - **Economic Migration Pressure**: Rises when agricultural collapse (drought, floods, soil degradation) destroys rural livelihoods
 
-**Event Types:**
-1. **Caravan Assembly**: Thousands gather in Guatemala/Honduras town, organize transportation, declare northbound march; media coverage triggers additional departures and political backlash
-2. **Border Interdiction Crisis**: Caravan reaches Guatemala-Mexico or Mexico-US border; Mexico faces pressure from both sides (US demands enforcement, caravan demands passage)
-3. **Caravan Breakup/Dispersal**: Mexican authorities forcibly disperse caravan or US threatens aid cuts; migrants scatter into dangerous smuggler networks or informal crossings
-4. **Gang Infiltration**: Criminal organizations embed in caravan, extracting taxes, exploiting women for trafficking, taking recruitment/control passes
-5. **Asylum Processing Chaos**: Caravan arrivals exceed US court capacity by orders of magnitude; courts issue "Remain in Mexico" orders or asylum denials en masse
-6. **Political Weaponization**: US political leaders weaponize caravan imagery in campaign messaging, triggering voter polarization and vigilante border militia activity
-7. **Violence at Border**: Caravan encounters tear gas, lethal force, or vigilante violence; creates international incident and humanitarian outrage
-
 **Cascading Effects:**
 - Triggers **Asylum System Breakdown** as caravan arrivals exceed processing capacity by 10x-100x normal volumes, creating collapse of intake systems
 - Amplifies **Border Wall Politics** as visible caravans become justification for militarized borders, deportation acceleration, and funding for physical/technological barriers

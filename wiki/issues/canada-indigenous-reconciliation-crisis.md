@@ -32,16 +32,6 @@ Canada's Truth and Reconciliation Commission (TRC) exposed a 150-year genocide m
 - **Colonial Continuity**: Declines with land repatriation and co-management agreements; reinforced by unresolved land claims and extraction infrastructure expansion
 - **Political Legitimacy in Indigenous Communities**: Destroyed by broken promises; only recovers through tangible outcomes (land transfers, prosecution of abusers, funded services)
 
-**Event Types:**
-1. **Residential School Reckoning**: Mass grave sites discovered at former schools; triggers media firestorm, national trauma, and international embarrassment (Canada's "Uyghur moment")
-2. **Treaty Violation Escalation**: Government approves resource extraction (pipeline, mining, dam) on unceded territory; Indigenous blockades form; police raid with militarized force
-3. **MMIW Investigation Collapse**: Major case goes cold due to negligent police work; community protests demand investigation reopening and officer discipline
-4. **Reconciliation Fund Raid**: Federal government announces "fiscal priorities" and slashes TRC implementation funding; education programs shuttered, survivor services cut
-5. **Intergenerational Trauma Cascade**: Suicide cluster in residential school survivor community; public health emergency declared; affects school and workplace productivity
-6. **Resource Resistance Victory**: Indigenous-led blockade or court ruling stops major extraction project; creates precedent for Indigenous veto power; corporate lobbying intensifies
-7. **Child Apprehension Crisis**: Disproportionate removal of Indigenous children by child protective services continues; rates exceed residential school era numbers, framed as "child safety"
-8. **Land Back Symbolic Win**: Small land repatriation granted but with resource extraction carve-outs; Indigenous leaders split on whether partial sovereignty is acceptable
-
 **Cascading Effects:**
 - Triggers **Aboriginal Healthcare Collapse** when residential school trauma overwhelms mental health services and intergenerational health crises compound
 - Amplifies **Police Brutality Epidemic** by creating distrust of police in Indigenous communities, leading to underreporting of MMIW and violent crimes

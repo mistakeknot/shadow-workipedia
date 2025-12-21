@@ -39,18 +39,6 @@ The crisis intensifies through several reinforcing mechanisms: enhanced individu
 
 - **Brain Drain Acceleration**: Enhanced individuals emigrate from middle-income and lower-income nations at 8-15x higher rates than unenhanced peers, seeking environments where genetic enhancements are common and valuable. Developing nations lose 15-30% of potentially enhanced population cohorts per generation, undermining their ability to compete economically.
 
-**Event Types:**
-
-1. **Enhancement Threshold Breakthrough**: Enhancement technologies drop below $50,000 per child equivalent or become accessible through government programs in one or more wealthy nations. Triggers rapid adoption (40-60% of eligible births within 5 years), creates visible phenotypic divergence, and accelerates genetic discrimination. If affects >3 developed nations simultaneously, cascade effect: genetic screening becomes standard practice in other wealthy nations within 2 years.
-
-2. **Genetic Discrimination Crisis**: Major employer or institution caught using genetic screening for hiring/admission, lawsuits follow. Paradoxical effect: public outcry creates regulation in some jurisdictions, while others legalize screening as "legitimate selection criteria," fracturing regulatory landscape and accelerating discrimination in unregulated markets.
-
-3. **Endemic Genetic Disease Emergence**: New disease patterns emerge in unenhanced populations due to natural selection pressure—diseases once eliminated through vaccination/treatment now become endemic in regions avoiding genetic modification. Mortality spike triggers demand for corrective enhancement, widening access-inequality gap.
-
-4. **Brain Drain Tipping Point**: Net emigration of enhanced individuals from a middle-income nation exceeds 5% of enhanced cohort per year for 3+ consecutive years. Economic competitiveness collapses as human capital drain accelerates, government revenue declines, enhancement access declines further (feedback loop).
-
-5. **Eugenic Movement Resurgence**: Genetic data becomes mainstream; political movements explicitly advocate for "genetic improvement of population." Governments begin incentivizing enhancement or restricting reproduction by "genetically unfit" individuals. Triggers international sanctions, capital flight, and humanitarian crisis if enforced through coercive means.
-
 **Cascading Effects:**
 
 - Triggers **wealth-inequality** amplification when enhancement cost drops below accessible threshold; wealth gaps translate to genetic gaps, compound at 8-12% annually through heritable advantages

@@ -39,20 +39,6 @@ The crisis deepens because dark money spending disproportionately funds obstruct
 
 - **Regulatory Capture Velocity**: Accelerates 20-30% when targeted regulatory agencies face dark money opposition campaigns. EPA rule changes slowing 15-24 months under coordinated dark money assault; FCC approvals stalling 8-14 months; OSHA enforcement declining 20-35% under coordinated business-lobby dark money campaigns.
 
-**Event Types:**
-
-1. **Mega-Donor Activation**: A single billionaire or corporate interest commits $50-200M+ to anonymous spending targeting a specific policy goal (e.g., Koch Industries' 2014-2024 $900M+ dark money climate obstruction campaign). Generates coordinated media, ballot initiatives, and candidate opposition. Effects: regulatory capture on target issue (12-18 month delays), 8-12 percentage point polarization increase, opposing grassroots campaigns outspent 8:1 to 15:1.
-
-2. **Disclosure Scandal**: Investigative journalism or leaked documents reveal actual funders behind dark money organizations, creating temporary reputation damage. Examples: Americans for Prosperity revealed as Koch Industries shell (2010), American Action Network revealed as Chamber of Commerce front (2012). Short-term effect: 15-25% donor exodus, 6-9 month fundraising lag. Long-term: donors learn to use more opaque vehicles (c)(4) → (c)(6) → foreign trusts.
-
-3. **Regulatory Obstruction Campaign**: Coordinated dark money spending blocks agency rulemakings through administrative law challenges, congressional pressure, and public relations campaigns. EPA carbon emissions rules: 18-month delay; OSHA worker safety rules: 14-month delay; FCC broadband competition rules: 24-month delay. Each costs ~$30-80M in coordinated dark money spending to generate.
-
-4. **Ballot Initiative War**: Dark money funds opposing sides of citizen-initiated ballot measures, drowning out grassroots organizing. Minimum wage ballot initiatives see 4:1 to 8:1 spending ratios against (employers vs. labor). Pharma company dark money spending $50M+ to block drug price negotiation ballot measures. Success rate: 85%+ for well-funded dark money opposition campaigns.
-
-5. **Candidate Destruction**: Coordinated dark money attack campaigns targeting primary or general election opponents, funded by rival interests, party strategists, or ideological billionaires. Spending levels: $20-50M for Congressional races, $100-300M+ for Presidential races. Effectiveness: negative campaign spots reduce targeted candidate vote share 4-12 percentage points; disproportionately effective against insurgent/progressive candidates without existing donor networks.
-
-6. **Shadow Network Expansion**: Dark money infrastructure expands into new channels—foreign-influenced "think tanks," university endowment political spending, real estate developer political organizations. Each expansion layer adds 18-24 months of protection before exposure, allowing donors to maintain anonymity while influence grows.
-
 **Cascading Effects:**
 
 - Triggers **Regulatory Capture** when dark money spending targeting a single regulatory domain exceeds $40M annually, effectively creating donor veto over agency actions for 18-36 months regardless of public interest or scientific evidence.

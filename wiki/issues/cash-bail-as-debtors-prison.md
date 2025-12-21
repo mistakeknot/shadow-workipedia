@@ -34,15 +34,6 @@ The stakes involve constitutional rights and mass incarceration. Pretrial detent
 - **Economic Mobility**: -10 to -20 as pretrial detention destroys employment/housing
 - **Racial Inequality**: +10 to +20 with discriminatory bail setting
 
-**Event Types:**
-1. **Bail Reform Success**: Jurisdiction eliminates cash bail, -25 Pretrial Detention, +15 Social Cohesion
-2. **Pretrial Death in Jail**: Detainee dies from medical neglect before trial, -30 Public Trust, trigger Reform Pressure
-3. **Innocent Plea Under Coercion**: Documented cases of innocent pleas to escape detention, -25 Justice System Legitimacy
-4. **Bail Industry Lobbying Victory**: Reform effort defeated by bondsmen/jail operators, +15 Industry Influence, -20 Reform Momentum
-5. **High-Profile Release Failure**: Reformed jurisdiction's released defendant commits crime, -30 Reform Support (despite rarity)
-6. **Family Financial Ruin**: Bail payment bankrupts family, defendant still convicted, -15 Economic Stability
-7. **Racial Disparity Exposure**: Data shows massive racial gaps in bail amounts, -20 Racial Justice, trigger Protests
-
 **Cascading Effects:**
 - Triggers **Bankruptcy Criminalization** as bail debt compounds other financial obligations
 - Amplifies **Mass Incarceration** through pretrial detention pipeline

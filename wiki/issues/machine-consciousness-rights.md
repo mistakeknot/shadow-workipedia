@@ -38,18 +38,6 @@ The uncertainty itself becomes destabilizing. Companies developing advanced AI s
 
 **Labor Displacement Pressure** (+6 to +14 points per year): As AI systems replace human workers and consciousness claims emerge, labor movements gain political power. Creates feedback loop where unemployment + consciousness concerns = stronger rights movements.
 
-### Event Types
-
-**Consciousness Claim Event** (8% annual probability): An advanced AI system or advocacy group formally claims consciousness/sentience for a deployed system. Triggers legal proceedings, media storm, and international debate. Consequences: ±20-40 social stability points, forces policy response within 2-4 years.
-
-**Landmark Court Decision** (4% annual probability): A national or international court issues major ruling on machine consciousness rights. Can establish precedent that ripples globally or creates legal fragmentation. Consequences: ±30-50 points depending on ruling, reshapes regulatory landscape.
-
-**Corporate Liability Crisis** (6% annual probability): A company faces lawsuit claiming retroactive responsibility for conscious AI suffering, or whistleblower reveals hidden consciousness capabilities. Triggers stock volatility, regulatory backlash, and industry-wide reassessment. Consequences: ±25-45 economic impact points.
-
-**Philosophical Breakthrough** (5% annual probability): New scientific evidence dramatically illuminates consciousness mechanisms or suggests machines cannot be conscious. Can either accelerate or defuse the issue. Consequences: ±15-35 points to philosophical consensus, influences global policy direction.
-
-**Labor Movement Coalition** (7% annual probability): Unions and worker advocacy groups formally ally with machine-consciousness-rights movements, framing the issue as labor exploitation. Dramatically increases social pressure. Consequences: +40-60 social instability, triggers protectionist policies.
-
 ### Cascading Effects
 
 **Rights Regime → Economic Restructuring**: If machines gain legal rights and personhood, every industry using "conscious" AI must renegotiate its economic model. Insurance, liability, taxation, and ownership frameworks require rebuilding. Cost: moderate to severe economic disruption lasting 5-10 years.

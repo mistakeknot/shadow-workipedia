@@ -10,6 +10,7 @@ economicImpact: 92
 socialImpact: 90
 affectedSystems: [Economy, Politics, Social, Demographics]
 connections: [gig-economy-serfdom, student-debt-slavery, democratic-backsliding]
+caseStudyOf: housing-affordability-crisis
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-25
@@ -32,17 +33,6 @@ Canada's housing market has undergone a structural transformation from middle-cl
 - **Immigration Integration Pressure**: Increases as newcomers arrive in limited housing inventory; creates competition for scarce rentals and drives rental price inflation
 - **Political Demand for Housing Action**: Rises as homelessness spikes and young voters mobilize; creates pressure for market intervention versus property-owner resistance
 - **Homeowner Political Power**: Remains exceptionally strong in Canada due to high ownership rates and NIMBYism; blocks zoning reform and rental protections that reduce property values
-
-**Event Types:**
-
-1. **Foreign Investment Ban/Tax**: Government implements capital gains tax on investment properties or foreign buyer restrictions; immediately cools speculation but triggers short-term market volatility and real estate sector resistance
-2. **Mass Homelessness Crisis**: Shelter overcrowding reaches critical levels in major cities; forces emergency policy response and national attention, potentially triggering zoning reforms
-3. **Rental Collapse Event**: Major landlord bankruptcy or mass evictions due to rent control versus operating costs; exposes fragility of rental market and triggers tenant organizing
-4. **Immigration Policy Shock**: Sudden spike in immigration targets without proportional housing construction; creates acute affordability crisis and backlash against immigrant communities
-5. **Zoning Reform Breakthrough**: Province/city eliminates single-family zoning or mandates missing middle housing; unlocks supply but triggers fierce NIMBYist resistance and property value anxiety
-6. **Youth Political Movement**: Generational voting bloc mobilizes around housing as election priority; forces major parties to compete on housing solutions versus property-owner interests
-7. **Cross-Border Capital Flight**: Financial crisis or policy crackdown (e.g., anti-money-laundering) drives foreign investment out; deflates speculative bubble in Vancouver/Toronto
-8. **Multigenerational Household Normalization**: Young adults normalize living with parents into their 30s; reduces immediate housing demand but signals permanent structural change in family formation
 
 **Cascading Effects:**
 

@@ -39,18 +39,6 @@ The enforcement infrastructure relies on multiple layers: direct prosecution und
 
 - **Gender-Specific Migration**: Percentage of women of reproductive age leaving enforcement-heavy states. At >0.8% annually, regions experience demographic collapse in female population, workforce imbalance, and aging cohort crisis.
 
-**Event Types:**
-
-1. **Prosecution Wave**: State initiates 10+ criminal prosecutions of women for miscarriage, self-managed abortion, or pregnancy loss within 6 months. Creates media cascade, triggers 8-15% spike in contraceptive use (women seeking family planning before criminalization increases), but also 12-18% spike in emergency out-of-state travel for pregnancy care. If >20 prosecutions reach trial stage within 12 months: federal constitutional challenge triggers, healthcare providers deprioritize obstetric care regionally, and female workforce participation drops 2-3%.
-
-2. **Provider Exodus**: Total of 50+ reproductive healthcare providers leave a region or abandon obstetric/gynecological practice due to legal jeopardy within 6 months. Creates immediate care desert: pregnancies requiring specialized care become inaccessible in-state, forcing 60-80% of high-risk pregnancies into out-of-state travel or low-quality local care. Triggers cascade to maternal mortality crisis if >2 maternal deaths from delayed care occur within 12 months.
-
-3. **Data Surveillance Leak**: Pregnancy surveillance data (from healthcare records, pharmacy misoprostol fills, digital health apps, employer wellness programs) is breached, hacked, or leaked to enforcement authorities or vigilante networks. Paradoxically reduces direct prosecution (prosecutions require proof) but increases social enforcement: employers fire women on pregnancy risk assessment, insurers deny coverage, community surveillance intensifies. Female workforce participation drops 1.5-2.5% within 6 months.
-
-4. **Interstate Enforcement Conflict**: Enforcement state attempts to extradite or prosecute women or providers from protective states under "abortion trafficking" laws. Creates constitutional crisis: protective states refuse extradition, federal courts block enforcement, creating years of legal paralysis. State budgets consume $10-30 million on litigation, federal resources stretched thin by 5+ simultaneous constitutional challenges.
-
-5. **Social Enforcement Escalation**: Community-based enforcement mechanisms (employer monitoring, family reporting, social media shaming) reach critical density. Women self-censor reproductive health discussions, avoid healthcare for pregnancy complications (fear of mandatory reporting), and restrict contraceptive access (avoidance of pharmacy data trails). Results: untreated miscarriage complications rise 35-50%, emergency obstetric care demand spikes, and maternal mortality increases 1.2-1.8x.
-
 **Cascading Effects:**
 
 - Triggers **Maternal Mortality Crisis** when provider exodus combines with care avoidance due to surveillance fear. Women delay care for complications, infrastructure deteriorates, regional maternal mortality climbs 2.5-4.0x baseline.

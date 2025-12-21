@@ -31,13 +31,6 @@ The thawing of Arctic permafrost represents one of Earth's most dangerous climat
 - **Global Temperature Trajectory (°C)**: How additional permafrost forcing shifts long-term climate projection. Each major methane release event raises baseline warming by 0.1-0.3°C, compounding other anthropogenic forcing.
 - **Carbon Budget Remaining (Gt CO₂)**: Tracks how permafrost carbon affects humanity's remaining emissions budget for climate targets. Major release events permanently reduce available budget, making 1.5°C and 2°C targets mathematically impossible.
 
-**Event Types:**
-1. **Major Methane Seep Detected**: Remote monitoring reveals unexpected large-scale methane release event. Triggers scientific debate about scale and permanence. Increases Tipping Point Proximity by 3-8 points. Can prompt international Arctic monitoring agreements or geopolitical disputes over sovereignty.
-2. **Infrastructure Collapse**: Arctic road, pipeline, or building fails from ground subsidence. Creates supply disruptions (especially for fuel and medical supplies), forces emergency logistics rerouting, may strand communities temporarily. Increases Arctic Infrastructure Vulnerability by 5-15 points.
-3. **Permafrost Tipping Point Declaration**: IPCC or Arctic science committee formally declares permafrost carbon feedback has crossed point of no return. Massive psychological and political impact. Triggers either climate emergency declarations or denial/apathy responses. Permanently raises Methane Emissions and locks in higher temperature trajectory.
-4. **Arctic Community Relocation**: Settlement must relocate due to ground instability making land uninhabitable. Humanitarian crisis affecting indigenous populations and Arctic workers. Creates climate refugee pressure, increases Social Impact score, and raises Public Concern about climate justice.
-5. **Methane Monitoring Expansion**: New satellite constellation or ground-based sensors deployed to track Arctic methane. Improves visibility into actual release rates, may reveal either worse-than-expected emissions or evidence of methane hydrate stability. Can trigger policy responses or reveal monitoring gaps.
-
 **Cascading Effects:**
 - Triggers **Climate Tipping Points** when Tipping Point Proximity exceeds 80 and feedback strength exceeds 0.75, creating self-sustaining warming independent of future emissions
 - Amplifies **Arctic Resource Rush** by making previously inaccessible mineral and hydrocarbon deposits accessible while destabilizing infrastructure needed to exploit them

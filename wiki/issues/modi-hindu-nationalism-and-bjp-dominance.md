@@ -11,12 +11,15 @@ socialImpact: 85
 affectedSystems: [Government, Religious Institutions, Media, Civil Society, Minorities]
 connections: [muslim-persecution-and-communal-violence, democratic-backsliding]
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-24
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Modi Hindu Nationalism and BJP Dominance
 
 ## Overview
+
+As of 2025-12-19, Narendra Modi is prime minister of India. [^britannica-modi]
 
 Since Narendra Modi's election as Prime Minister in 2014, India has undergone a profound ideological transformation centered on Hindu nationalism (Hindutva). The Bharatiya Janata Party (BJP), under Modi's leadership, has consolidated unprecedented political power while simultaneously reshaping India's secular democratic institutions to align with a Hindu nationalist vision of Indian identity. This shift represents a fundamental challenge to the constitutional framework established by India's founders—one that separated religious identity from state functions and protected religious minorities as a core democratic principle.
 
@@ -37,29 +40,6 @@ The global implications are substantial. As the world's most populous democracy,
 **Media Pluralism Index (-20 to -35)**: Hindi-language television networks increasingly adopt pro-government editorial positions under economic pressure (advertising cuts for critical coverage, tax investigations for dissenting outlets). Digital platforms see preferential algorithmic promotion of Hindu nationalist content. Press freedom rankings fall 15-25 positions. Investigative journalism targeting BJP figures effectively becomes impossible; critical reporting faces legal harassment via sedition and defamation suits.
 
 **Constitutional Secularism Commitment (-25 to -40)**: Core secular constitutional provisions—equal citizenship regardless of religion, state neutrality on religious matters, minority protection guarantees—face sustained legal and administrative challenge. Constitutional amendments weaken secularism clauses; successive governments use emergency powers to bypass secular provisions; courts uphold majoritarian legislation. This index represents the functional degradation of the constitutional framework's secular protections.
-
-### Event Types
-
-**Communal Violence Escalation (12% annual probability, increases with Hindu Nationalist Sentiment above 65)**: Coordinated or spontaneous communal violence erupts in major cities, typically involving Hindu nationalist mobs attacking Muslim neighborhoods, businesses, or religious sites. Consequences vary by tier:
-- Tier 1 (localized): 50-200 deaths, 1,000-5,000 injured, sections of cities curfewed for 2-5 days. Police often accused of inaction or bias toward attackers. International attention moderate. Minority Security Index drops 2-3 points, Hindu Nationalist Sentiment increases 3-5 points.
-- Tier 2 (major city outbreak): 500-2,000 deaths, 5,000-20,000 injured, multi-week disruptions. Constitutional courts may issue emergency stays. Significant international criticism. All affected indices shift by 5-8 points in amplified directions.
-- Tier 3 (nationwide coordination): Orchestrated violence in 5+ cities, 5,000+ deaths. Creates crisis of regime legitimacy. Institutional Autonomy may sharply decline if courts/military respond independently.
-
-**Education Curriculum Saffronization (18% annual probability, automatic with Hindu Nationalist Sentiment above 70)**: Educational bodies mandate curriculum changes emphasizing Hindu civilizational narratives, de-emphasizing or reframing histories of communal violence, Islamic contributions to Indian culture, or criticism of Hindu nationalist figures. Effects:
-- Minority confidence in public education declines, accelerating private school enrollment
-- Long-term Hindu Nationalist Sentiment increases as generation socialized into revised narratives comes of age (+4-7 points per occurrence)
-- International academic partnerships decline as academic freedom concerns emerge
-- Minority Security Index declines as young cohorts lack cross-communal interaction
-
-**Institutional Capture Opportunity (10% annual probability, certain if Institutional Autonomy below 35)**: Senior positions in judiciary, election commission, investigative agencies, or civil service fall vacant. Government appoints candidates with known BJP sympathies. Institutional Autonomy declines 3-5 points; subsequent institutional checks on executive power become ineffective. Once triggered at high frequency, courts cease providing meaningful restraint on majoritarian legislation.
-
-**Minority-Owned Business Targeting (14% annual probability, increases with Hindu Nationalist Sentiment above 60)**: Tax authorities, regulatory agencies, or police launch investigations against prominent minority-owned businesses on charges widely seen as politically motivated. Consequences:
-- Business confidence collapses in minority communities, reducing capital investment
-- Wealthy minorities emigrate, reducing civil society opposition
-- Hindu business communities receive preferential regulatory treatment (informal protection from similar scrutiny)
-- Minority Economic Contribution index declines 5-10 points; wealth concentration among Hindu-majority populations increases
-
-**Constitutional Amendment Attempt (8% annual probability, automatic if Hindu Nationalist Sentiment above 75 and BJP holds supermajority)**: Government moves to amend Constitution to formally weaken secular provisions, establish Hindu civilization as state ideology, or remove minority protections. Success probability depends on Institutional Autonomy (below 40: >90% passage; 40-60: 50-70%; above 60: <30%). Successful amendments permanently reduce Constitutional Secularism Commitment by 15-25 points and create cascading institutional transformations.
 
 ### Cascading Effects
 
@@ -94,5 +74,9 @@ The global implications are substantial. As the world's most populous democracy,
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-24
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/modi-hindu-nationalism-and-bjp-dominance.md)
+
+## Sources
+
+[^britannica-modi]: Encyclopaedia Britannica, “Narendra Modi | Biography, Career, & Facts.” Accessed 2025-12-19. https://www.britannica.com/biography/Narendra-Modi

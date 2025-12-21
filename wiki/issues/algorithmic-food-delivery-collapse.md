@@ -39,20 +39,6 @@ The food delivery platform model has become structurally unsustainable. DoorDash
 - Elimination of tipping floors and surge pricing mechanisms during collapse phase.
 - Mass driver abandonment when subsistence becomes impossible.
 
-### Event Types
-
-1. **Commission Rate Shock**: Platform raises commissions 5-15% to approach profitability. Triggers restaurant margin crisis if economic indicators are weak.
-
-2. **Ghost Kitchen Saturation**: Delivery platform launches proprietary brand expansion into your region. Reduces traditional restaurant demand by 10-20% in affected categories.
-
-3. **Labor Supply Collapse**: Gig driver earnings fall below cost of vehicle operation (fuel, maintenance, insurance). Mass driver departure creates delivery delays and platform service degradation.
-
-4. **Restaurant Chain Default**: Regional restaurant chains dependent on delivery revenue file bankruptcy. Creates supply shock that drives up remaining restaurant prices 10-15%.
-
-5. **Platform Price War**: Platform initiates predatory pricing to capture market share. Masks underlying unit economics damage while accelerating restaurant margin compression.
-
-6. **Delivery System Breakdown**: Insufficient driver supply creates 60+ minute delivery times. Consumers defect to local pickup/dine-in, triggering restaurant traffic loss of 5-10%.
-
 ### Cascading Effects
 
 - **Commission Rate Shock** + **weak restaurant reserves** → **Restaurant Chain Default** (within 12-18 months)

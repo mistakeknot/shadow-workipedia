@@ -34,14 +34,6 @@ The fundamental dilemma: international pressure has consistently failed to denuc
 - **US-China Relations**: Cooperation enables coordinated pressure (-18% weapons development); deterioration eliminates enforcement mechanisms (+28% testing probability)
 - **International Arms Control Compliance**: Global weapons verification reduces DPRK concealment capability (-35%); breakdown enables proliferation to third parties (+40%)
 
-### Event Types
-
-- **Weapons Test Event** (probability: 8-12% annually) - Nuclear or ICBM test triggers international sanctions, military shows of force in region, and 6-month tension cycle
-- **Sanctions Evasion Detected** (probability: 15-20% annually) - Discovery of smuggling networks, cryptocurrency operations, or labor trafficking reveals regime's ability to sustain isolation
-- **Diplomatic Breakthrough Attempt** (probability: 4-6% annually) - China, US, or South Korea initiates negotiations offering sanctions relief; success depends on regime stability and economic pressure
-- **Miscalculation Incident** (probability: 6-10% annually) - Naval confrontation, border skirmish, or cyberattack escalates unexpectedly; South Korean response triggers crisis cycle
-- **Proliferation to Third Party** (probability: 3-5% annually) - DPRK transfers technology/materials to Iran, Syria, non-state actors, or rogue scientists distribute knowledge; amplifies global proliferation risk
-
 ### Cascading Effects
 
 - **Regional Military Escalation**: Weapons test triggers Japanese defense spending increase (+15%), South Korean alert status upgrade (+25%), US troop repositioning; compounds with China's naval expansion

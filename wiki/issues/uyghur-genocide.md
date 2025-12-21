@@ -34,14 +34,6 @@ International responses have been fragmented and inadequate. The United States, 
 - **Economic Development**: Regional economic development focused on majority Han populations increases resource disparities and funding for surveillance/policing infrastructure (direct effect: +0.7)
 - **Media Freedom Restriction**: Suppressed domestic and international media access prevents documentation and creates information vacuums filled by government narratives (direct effect: +0.85)
 
-### Event Types
-
-- **Detention Camp Expansion** (25% yearly probability): Opening of new internment facilities, mass arrests of "suspicious persons," increased quotas for detention (effect: societal fracture +20%, human suffering +15%)
-- **Forced Labor Conscription** (20% yearly probability): Mandatory labor assignments for detainees, forced agricultural/manufacturing work, debt-bondage arrangements (effect: economic extraction +10%, labor displacement +18%)
-- **International Sanctions Response** (30% conditional): Western trade restrictions, targeted sanctions on officials, supply chain decoupling (effect: economic pressure +12%, nationalist backlash +8%)
-- **Forced Assimilation Policy** (18% yearly probability): School assimilation mandates, language restrictions, religious suppression crackdowns (effect: cultural erosion +22%, social cohesion -25%)
-- **Whistleblower/Documentation Emergence** (15% yearly probability): Leaked documents, survivor testimonies, satellite imagery analysis released internationally (effect: credibility damage +10%, international coordination +15%)
-
 ### Cascading Effects
 
 - **Workforce Decimation**: Detention of working-age adults destabilizes family economics and creates labor shortages, forcing increased forced labor recruitment and pushing younger generations into state-controlled programs

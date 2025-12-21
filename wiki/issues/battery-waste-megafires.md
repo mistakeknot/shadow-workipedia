@@ -30,13 +30,6 @@ Rapidly expanding EV adoption and renewable energy storage deployment have creat
 - **Firefighting Resource Availability**: Water supply, specialized foam suppression (Class D metal fires require specialized agents), and hazmat teams. Standard firefighting tactics fail on lithium fires; high-pressure water can accelerate thermal runaway. Shortages extend burn times 5-10x.
 - **Regional Infrastructure Resilience**: Affects repair/recovery speed of contaminated zones. Transportation hubs, power grids, and agricultural land near megafires become unusable for weeks; economic cost multiplies with proximity to population centers.
 
-**Event Types:**
-1. **Thermal Runaway Cascade**: A single battery ignites; chain reaction spreads through warehouse/landfill containing thousands of units. Uncontrollable for 24-72 hours; produces 10-50 megatons CO2e, contaminates 10,000+ km² air/soil/water.
-2. **Warehouse Megafire**: Concentrated recycling facility or battery storage yard ignites (often inadequately regulated). Faster spread than cascades; releases massive toxic cloud within hours. Can trigger 3+ secondary fires in nearby facilities within 48 hours.
-3. **Illegal Dump Detonation**: Unregulated battery dumpsites (common in developing economies) ignite during rainfall, scavenging, or waste processing. Unpredictable behavior; lower containment capacity; forces mass evacuation of nearby communities.
-4. **Toxic Plume Event**: Fire-released hexafluorophosphate reacts with atmospheric moisture, forming hydrofluoric acid rain. Drifts 500+ km; destroys crops across agricultural zones; acidifies water supplies; causes respiratory hospitalizations in downwind urban areas (1,000-50,000+ depending on scale).
-5. **Supply Chain Shock Recovery**: Government mandates emergency battery sequestration and hazmat warehousing. Creates artificial scarcity in EV/renewable sectors; pushes Grid Instability higher; triggers rationing of new battery availability.
-
 **Cascading Effects:**
 - Triggers **EV Supply Chain Collapse** when megafires destroy major battery recycling/storage hubs; creates shortage of recycled materials, forcing reliance on new lithium mining to maintain production.
 - Amplifies **Lithium Mining Water Depletion** by forcing increased virgin lithium extraction (recycling offline); mining demand spikes to replace lost battery stock.

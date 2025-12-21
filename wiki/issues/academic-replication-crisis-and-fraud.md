@@ -33,14 +33,6 @@ The stakes involve humanity's knowledge infrastructure. Drug approvals based on 
 - **Public Trust in Institutions**: -15 to -30 as scientific credibility erodes
 - **Regulatory Effectiveness**: -10 to -20 when policy relies on fraudulent data
 
-**Event Types:**
-1. **High-Profile Fraud Exposure**: Major retraction scandal at prestigious institution triggers -20 Education Quality, -15 Public Trust
-2. **Replication Study Wave Fails**: Large-scale replication attempt shows 60-70% failure rate, -25 Innovation Rate
-3. **Patient Harm from Bad Research**: Deaths linked to irreproducible clinical trials, -30 Healthcare Capacity, trigger Medical Ethics Crisis
-4. **Predatory Journal Explosion**: Thousands of fake journals undermine peer review, -20 Education Quality
-5. **AI-Generated Paper Flood**: Automated fraud overwhelms detection systems, -15 Innovation Rate, -25 Regulatory Effectiveness
-6. **Whistleblower Retaliation**: Researcher reporting fraud faces career destruction, -10 Public Trust, -15 Academic Freedom
-
 **Cascading Effects:**
 - Triggers **Pharmaceutical Pricing Crisis** when drug approvals based on fraudulent trials face recalls
 - Amplifies **Misinformation Ecosystem** as scientific credibility collapse fuels conspiracy theories

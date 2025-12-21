@@ -39,22 +39,6 @@ The drivers operate synergistically to create extinction cascades. Neonicotinoid
 
 **Pathogen Pressure (0-100)**: Varroa mite infestation, Nosema prevalence, novel pathogen emergence. Baseline: 50-60. Above 70: triggers 5-8% quarterly losses in honeybees. Above 75: wild bee die-offs.
 
-### Event Types
-
-**Neonicotinoid Pulse Year**: Heavy pesticide application during spring reproduction triggers 20-35% die-off in wild bees within 4-8 weeks. Honeybee hives show reduced brood production and elevated parasitism. Results: 5-8% population decline that extends into next season. Occurs every 3-5 years historically; becomes annual without regulations.
-
-**Climate Phenological Mismatch**: Warm winter triggers early bloom; spring freeze kills flowers; pollinators emerge to depleted landscape. Results: mass starvation (15-40% wild bee mortality, 10-30% honeybee colony loss), 8-15% population decline in 2-4 weeks. Weakened populations become disease-susceptible.
-
-**Varroa/Nosema Outbreak**: Novel pathogen or rapid spread through stressed populations. Triggers 20-50% honeybee colony collapse in single season; wild bee die-offs cascade through 3-5 seasons. Affects 40-60% of commercial hives in region within 6-12 months.
-
-**Monoculture Harvest & Forage Gap**: Large-scale monoculture harvest creates regional forage desert for 2-4 weeks. Triggers acute starvation (20-35% mortality in mobile populations). Results: 3-8% regional decline.
-
-**Habitat Collapse Event**: Rapid land use change affects 5-25% of local wild pollinators immediately. Remaining populations crowded into smaller ranges, increasing disease transmission. Results: 10-30% local extinction of specialized species; genetic bottleneck reduces resilience.
-
-**Pollination Crisis & Emergency Response**: Agricultural yield decline exceeds 25-30% in major region. Farmers implement emergency hive rentals (costs spike 40-100%), hand-pollination (viable only for specialty crops), or crop switching. Results: agricultural restructuring, dietary diversity loss, price volatility.
-
-**Extinction Cascade Threshold Crossing**: When regional population falls below 40-50% of baseline AND multiple stressors remain active, population enters self-perpetuating decline. Results: 15-25% quarterly losses, specialized species extinction within 2-3 seasons, commercial beekeeping becomes uneconomic. Timeline: 3-5 years to near-total regional collapse without intervention.
-
 ### Cascading Effects
 
 **Triggers Agricultural Collapse** (25-50% when populations fall below 40% globally): Pollination-dependent crops fail cascadingly—almonds first, then apples, citrus, cucurbits within 1-3 seasons. Global food supply shifts toward wind-pollinated grains (wheat, rice, corn), creating protein/micronutrient deficiency epidemics.

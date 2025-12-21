@@ -35,16 +35,6 @@ The strategic implications are profound. Labor shortages constrain economic grow
 - **Healthcare Burden**: +25 to +40 (aging population)
 - **Innovation Capacity**: -20 to -35 (brain drain)
 
-### Event Types
-- **Conscription Crisis**: Military cannot fill ranks, forced to reduce force size
-- **Pension System Collapse**: Benefits cut, retirement age raised to 70+
-- **Regional Depopulation**: Entire oblasts become ghost regions
-- **Brain Drain Acceleration**: 500,000+ educated Russians emigrate annually
-- **Healthcare System Breakdown**: Insufficient workers to care for elderly
-- **Labor Shortage Emergency**: Key industries cannot find workers
-- **Immigration Backlash**: Ethnic tensions over Central Asian workers spike
-- **Territorial Abandonment**: Government withdraws services from depopulated areas
-
 ### Cascading Effects
 - Economic stagnation becomes structural
 - Military capacity permanently reduced

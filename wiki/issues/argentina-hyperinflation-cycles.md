@@ -11,7 +11,8 @@ socialImpact: 85
 affectedSystems: [Economy, Politics, Trade]
 connections: []
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-25
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Argentina Hyperinflation Cycles
@@ -19,6 +20,7 @@ lastUpdated: 2025-11-25
 ## Overview
 
 Argentina experiences recurring hyperinflation cycles driven by fiscal deficits, central bank money-printing, and lost policy credibility. Since 2018, the peso has collapsed from ~18 per USD to 1,000+ (2024), with inflation reaching 211% annually (2023) and 189% (2024). Each crisis follows a pattern: political pressure forces monetary expansion to fund spending, currency loses value, imports become unaffordable, price spirals accelerate, and IMF bailouts impose austerity that triggers political backlash. President Javier Milei's 2024 dollarization strategy (eliminating the peso) represents an extreme response to institutional failure. Without fiscal discipline and central bank autonomy, Argentina risks permanent currency dysfunction and sustained poverty increases affecting 55% of the population.
+Argentina experiences recurring hyperinflation cycles driven by fiscal deficits, central bank money-printing, and lost policy credibility. Since 2018, the peso has collapsed from ~18 per USD to 1,000+ (2024), with inflation reaching 211% annually (2023) and 189% (2024). Each crisis follows a pattern: political pressure forces monetary expansion to fund spending, currency loses value, imports become unaffordable, price spirals accelerate, and IMF bailouts impose austerity that triggers political backlash. As of 2025-12-19, Javier Milei is president of Argentina. [^britannica-milei] Without fiscal discipline and central bank autonomy, Argentina risks permanent currency dysfunction and sustained poverty increases affecting 55% of the population.
 
 ## Game Mechanics
 
@@ -33,18 +35,6 @@ Argentina experiences recurring hyperinflation cycles driven by fiscal deficits,
 - **IMF Bailout Cycles**: IMF programs trigger 6-12 month recession (GDP contraction 1.5-3%) due to austerity conditions. Bailouts provide 6-18 months of currency stabilization but require spending cuts that provoke 8-15 point polarization increases. Political opposition to austerity historically triggers early program abandonment (2001-2002) or default (2001).
 
 - **Political Instability Index**: Inflation exceeding 30% annually increases political polarization by 12-18 points and reduces government approval 4-6 points per 20% inflation. Central bank governor replacement accelerates when inflation exceeds 40% annually (historical average 2.1 governors per 3-year crisis cycle).
-
-**Event Types:**
-
-1. **Fiscal Deficit Spike**: Budget deficit exceeds 4% of GDP (triggered by election-year spending or commodity collapse). Central bank comes under political pressure to monetize 40-60% of deficit. Lag of 2-3 quarters before inflation peaks. Severity increases with successive crises due to lost credibility.
-
-2. **Currency Collapse Episode**: Peso loses >15% of value in single month (cascade triggers if >25% monthly). Import prices spike immediately; exporters profit but manufacturing input costs surge. Triggers capital flight, dollar hoarding, and informal dollarization (40-60% of transactions shift to USD in severe episodes). Real wages fall 5-8% in affected quarter.
-
-3. **IMF Program Entry**: Government accepts IMF bailout with austerity conditions. Triggers 2-4 quarters of GDP contraction (1.5-3% each quarter). Creates political crisis: austerity polarizes population 15-20 points, fractures ruling coalition, often forces early elections or program abandonment within 12-24 months.
-
-4. **Wage-Price Spiral**: Inflation reaches 50%+ quarterly; workers demand wage indexation; businesses raise prices to offset; wage increases fuel further price increases. Self-reinforcing cycle accelerates inflation 10-20 percentage points monthly until central bank tightens (rare due to political pressure) or currency crashes (causing reset to cycle start).
-
-5. **Dollarization Threshold**: Government or Central Bank announces currency replacement or abandonment of monetary policy (e.g., Milei's 2024 dollarization bill). Eliminates currency-collapse scenarios but locks economy into rigid exchange rate. Creates 1-2 year adjustment recession but permanently removes inflation trigger mechanism. Reduces policy flexibility: growth capped at 1.5-2.5% annually without peso devaluation for competitiveness.
 
 **Cascading Effects:**
 
@@ -77,5 +67,9 @@ Argentina experiences recurring hyperinflation cycles driven by fiscal deficits,
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-25
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/argentina-hyperinflation-cycles.md)
+
+## Sources
+
+[^britannica-milei]: Encyclopaedia Britannica, “Javier Milei | Biography, Politics, & Facts.” Accessed 2025-12-19. https://www.britannica.com/biography/Javier-Milei

@@ -48,15 +48,6 @@ Opposition comes from multiple sources: employers fearful of reduced control ove
 - **Labor Bargaining Power**: Strengthened by successful demonstrations
 - **Economic Growth**: Potentially reduced if output-focused metrics used
 
-### Event Types
-
-- **Four-Day Week Pilot Success**: Major trial demonstrates maintained productivity
-- **Union Contract Victory**: Workers negotiate reduced week without pay cuts
-- **National Policy Adoption**: Country implements four-day standard
-- **Employer Resistance Campaign**: Business groups fight reduced hours
-- **Productivity Measurement Debate**: Conflicts over output metrics
-- **Cultural Shift Documentation**: Changed attitudes toward work-life balance
-
 ### Cascading Effects
 
 Four-day week adoption creates broader transformations:

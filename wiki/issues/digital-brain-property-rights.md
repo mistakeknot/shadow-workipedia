@@ -10,6 +10,7 @@ economicImpact: 63
 socialImpact: 72
 affectedSystems: [Legal Systems, Technology Systems, Privacy Systems, Economic Systems]
 connections: [consciousness-property-battles]
+caseStudyOf: consciousness-property-battles
 editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'ContagionPropagation', 'FeedbackLoop', 'ExodusMigration', 'CaptureConcentration', 'QueueBacklog']
 lastUpdated: 2025-11-24
@@ -32,16 +33,6 @@ The gap between neurotechnology capability and legal protections enables a dysto
 - **Individual Autonomy**: Declines as neural targeting systems suppress genuine preferences in favor of manipulated choices
 - **Legal Framework Coherence**: Strained as property law, privacy law, and bioethics produce conflicting rulings on neural data ownership
 - **Economic Inequality**: Expands when wealthy individuals own their neural data while poor sell cognitive access for survival
-
-**Event Types:**
-
-1. **Neural Data Breach Cascade**: Major BCI manufacturer or data broker exposed with millions of raw neural recordings; triggers regulatory panic and class action lawsuits
-2. **Neural Property Rights Lawsuit**: Individual sues corporation claiming ownership of their own neural signature/cognitive patterns; contradictory court rulings in different jurisdictions
-3. **Corporate Brain Data Market Opens**: Patent approval and licensing framework creates legal market in neural algorithms and cognitive patterns extracted from individuals
-4. **Cognitive Liberty Bill Fails**: Legislative attempt to establish neural privacy rights blocked by industry lobbying; creates legal vacuum
-5. **Neural Targeting Scandal**: Leaked internal documents show companies using brain data to engineer addiction, suppress decision-making, manipulate purchasing behavior
-6. **Brain Data Discriminatory Pricing**: Insurance companies or employers use neural data to predict behavior; discriminate against individuals with "unfavorable" neural patterns
-7. **Synthetic Neural Identity Market**: Third parties create synthetic neural profiles based on aggregated brain data; deploy digital cognition proxies without original owners' knowledge
 
 **Cascading Effects:**
 - Triggers **Brain-Computer Interface Revolution** acceleration as corporate investment drives mass adoption despite privacy concerns

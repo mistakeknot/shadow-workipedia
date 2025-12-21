@@ -47,15 +47,6 @@ Gender dynamics add complexity as asymmetric matching patterns—where small per
 - **Gender Relations**: Strained by asymmetric matching dynamics
 - **Loneliness**: Increased despite connection technology
 
-### Event Types
-
-- **Dating App Addiction Crisis**: Usage patterns recognized as psychological harm
-- **Harassment Campaign Scandal**: Platform safety failures exposed
-- **Algorithm Bias Revelation**: Matching systems shown to reinforce inequalities
-- **Relationship Crisis Studies**: Research links apps to bonding difficulties
-- **Alternative Platform Emergence**: Relationship-focused apps challenge hookup culture
-- **Regulatory Investigation**: Government scrutiny of engagement optimization
-
 ### Cascading Effects
 
 Dating app dynamics create broader social consequences:

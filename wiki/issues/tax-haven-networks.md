@@ -45,16 +45,6 @@ Despite periodic reform efforts, tax haven networks prove remarkably resilient. 
 - **Corruption**: +10 to +20 (facilitates illicit finance)
 - **Financial Stability**: -5 to -15 (opacity creates systemic risks)
 
-### Event Types
-- Leak of offshore financial records (Panama Papers, Paradise Papers style)
-- Corporate profit shifting scandal reducing government revenue
-- Investigation revealing political leaders' use of tax havens
-- International tax reform agreement (or its failure)
-- New tax haven jurisdiction emerging to replace crackdowns
-- Financial intermediary prosecution for enabling tax evasion
-- Public backlash when tax haven use is revealed during fiscal crisis
-- Developing country loses billions to profit shifting by multinationals
-
 ### Cascading Effects
 - **Fiscal Crisis**: Governments forced to cut essential services or borrow unsustainably as tax base erodes
 - **Inequality Spiral**: Wealth accumulates untaxed while middle class bears increasing burdens

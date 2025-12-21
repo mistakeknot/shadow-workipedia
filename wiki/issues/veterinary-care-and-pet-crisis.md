@@ -44,17 +44,6 @@ The consequences extend beyond individual hardship. Animal shelters overflow wit
 - **Public Health**: -3 to -8 (untreated animal diseases create risks)
 - **Cost of Living**: +5 to +10 (pet care increasingly unaffordable)
 
-### Event Types
-- Viral stories of crowdfunding for pet medical care
-- Animal shelter crisis as surrenders exceed capacity
-- Veterinary consolidation raising prices in local markets
-- Pet owners going into debt or bankruptcy over veterinary costs
-- Public health incident traced to untreated animal disease
-- Veterinary deserts emerging in rural or low-income areas
-- Growth in unlicensed or underground veterinary services
-- Mental health crisis linked to inability to afford pet care
-- Generational shift away from pet ownership due to costs
-
 ### Cascading Effects
 - **Mental Health Impact**: Loss of pets that combat isolation worsens loneliness and depression
 - **Shelter Crisis**: Surrendered pets overwhelm already-stressed shelter systems

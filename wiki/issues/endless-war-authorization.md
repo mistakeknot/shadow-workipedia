@@ -10,20 +10,24 @@ economicImpact: 68
 socialImpact: 72
 affectedSystems: [Military Systems, Constitutional Order, Congressional Authority, Executive Power]
 connections: [drone-warfare-normalization]
+caseStudyOf: war-on-terror-endless-wars
 editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'ContagionPropagation', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash']
-lastUpdated: 2025-11-25
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Endless War Authorization
 
 ## Overview
 
-The 2001 Authorization for Use of Military Force (AUMF) represents a constitutional abdication: Congress granted the executive branch a blank check to wage war indefinitely against undefined adversaries with zero temporal or geographic limits. Passed three days after 9/11, the AUMF authorized military force against "those nations, organizations, or persons [the President] determines planned, authorized, committed, or aided the terrorist attacks" and any "associated forces"—language so expansive it has been invoked to justify military operations in 85+ countries across three decades, against organizations that didn't exist in 2001, in regions with no connection to the original attack.
+The 2001 Authorization for Use of Military Force (AUMF) represents a constitutional abdication: Congress granted the executive branch a blank check to wage war indefinitely against undefined adversaries with zero temporal or geographic limits. Passed three days after 9/11, the AUMF authorized military force against "those nations, organizations, or persons [the President] determines planned, authorized, committed, or aided the terrorist attacks" and any "associated forces"—language so expansive it has been cited to justify counterterrorism operations far beyond Afghanistan.[^aumf_2001]
 
 The mechanism works through constitutional inversion: rather than Congress declaring war on specific adversaries with defined objectives and time horizons, Congress granted permission for war to be waged at executive discretion. The predictable result: executive authority expanded unchecked, congressional oversight eroded, military operations proliferated globally without public debate, and war became a permanent institutional feature. What began as emergency authorization for Afghanistan evolved into standing authorization for perpetual warfare—enabling drone strikes in Yemen, air operations in Syria, counterterrorism operations in Somalia, and military presence in dozens of countries without renewed authorization or democratic deliberation.
 
 The cascading consequence is fundamental constitutional degradation: the separation of powers becomes theoretical rather than functional. Presidents cite the 2001 AUMF as legal justification for military actions unauthorized by Congress. Congress, unwilling to take political responsibility for war decisions, maintains the AUMF as legal cover for executive expansion. And the public, disconnected from war decisions made in their name, loses democratic participation in matters of life, death, and national resources. The AUMF institutionalizes unlimited executive war power—precisely what the Founders designed the Constitution to prevent.
+
+As of 2025-12-19, the 2001 AUMF remains in force.[^aumf_2001]
 
 ## Game Mechanics
 
@@ -31,7 +35,7 @@ The cascading consequence is fundamental constitutional degradation: the separat
 
 **Congressional War Authority Index**: Measures Congress's meaningful control over military force decisions. Baseline (pre-9/11): 70-85% of operations require new authorization. AUMF normalization: 20-40% require authorization. Advanced erosion: <10% require authorization; executive conducts military activities with minimal congressional review.
 
-**Executive Military Discretion Scope**: Tracks breadth of adversaries/territories authorized under AUMF interpretation. Baseline: Afghanistan/Pakistan against al-Qaeda/Taliban. Expanding scope: Yemen (2002+), Somalia (2007+), Syria (2014+), 85+ countries by 2025. Scope includes "associated forces" (exponential expansion), organizations formed after 2001 claiming terrorist affiliation, preemptive strikes against potential threats.
+**Executive Military Discretion Scope**: Tracks breadth of adversaries/territories authorized under AUMF interpretation. Baseline: Afghanistan/Pakistan against al-Qaeda/Taliban. Expanding scope: Yemen (2002+), Somalia (2007+), Syria (2014+), and other theaters. In practice, U.S. counterterrorism operations have spanned dozens of countries; a Costs of War count documented U.S. counterterrorism operations in 85 countries (2018-2020) and 78 countries (2021-2023).[^costs_of_war_85][^costs_of_war_78] Scope includes "associated forces" (exponential expansion), organizations formed after 2001 claiming terrorist affiliation, preemptive strikes against potential threats.
 
 **Temporal Indefiniteness Index**: Measures duration limits on AUMF authority. The 2001 AUMF contains no sunset clause, no temporal limits, no mandatory review. Enables multi-decade operations without renewal votes. Advanced indefiniteness: >90% of operations under open-ended authorization; Congress never renews; operations persist regardless of political changes.
 
@@ -109,11 +113,10 @@ The cascading consequence is fundamental constitutional degradation: the separat
 - Pattern established: AUMF scope expanded through executive reinterpretation, not Congressional authorization
 
 **Advanced Normalization (2015-2025):**
-- By 2025: AUMF invoked for operations in 85+ countries
+- AUMF routinely cited to justify counterterrorism operations well beyond Afghanistan; operations span dozens of countries (see Costs of War multi-year counts for snapshots)[^costs_of_war_85][^costs_of_war_78]
 - Executive conducts operations without Congressional debate beyond original AUMF
 - Congress votes to fund operations without voting on AUMF reauthorization
 - Judicial challenges consistently dismissed on political question/standing grounds
-- 2023: Expanded operations in Uganda/Kenya; Congress silent; operations proceed
 
 **Congressional Failures:**
 - 2007-2025: Multiple attempts to repeal/replace AUMF fail due to concerns about appearing weak on national security, executive veto threats, public disengagement
@@ -124,23 +127,27 @@ The cascading consequence is fundamental constitutional degradation: the separat
 - **Gulf of Tonkin Resolution (1964)**: Similar pattern—Congress delegates authority based on limited incident; executive expands operations far beyond original scope; Congress later regrets delegation; War Powers Act (1973) attempts restoration (proves weak in practice)
 - **Emergency Powers Template**: AUMF creates model for emergency-power expansion—temporary authority never lapses; becomes permanent; scope expands indefinitely; pattern repeated in surveillance expansion (PATRIOT Act), national security enforcement
 
-## Current Status (2025)
+## Current Status (as of 2025-12-19)
 
-- Congress has not voted on new military authorization since 2002 Iraq AUMF (23 years)
-- 2001 AUMF invoked for operations in 85+ countries (original theater: Afghanistan)
-- Congressional repeal attempts failed 6+ times (2007-2023)
-- Constitutional challenges dismissed in 15+ cases (2010-2025); courts consistently apply "political question doctrine"
+- 2001 AUMF remains in force.[^aumf_2001]
+- Congress has debated repeal/replacement repeatedly over the years, but a comprehensive replacement has not passed.
+- Courts have often dismissed war-powers challenges on standing and related justiciability grounds, leaving most contestation in the political branches.
 - Defense budget allocates permanent lines for "global counterterrorism operations"
 - Military doctrine assumes indefinite terrorism threat; personnel development includes "permanent counterterrorism" specialization
-- 2024 presidential election included minimal focus on military authorization despite operations in 85+ countries
 - Public polling: <40% of citizens can name 3+ countries where US military operates
 - No realistic prospect for Congressional repeal (political costs too high) or executive voluntary termination (authority too expansive)
 - Perpetual war institutionalized as baseline organizational mode
+
+## Sources
+
+[^aumf_2001]: https://www.congress.gov/bill/107th-congress/house-joint-resolution/64
+[^costs_of_war_85]: https://watson.brown.edu/costsofwar/papers/2021/US-counterterrorism-operations-2020
+[^costs_of_war_78]: https://watson.brown.edu/costsofwar/papers/2024/us-counterterrorism-operations-2023
 
 ---
 
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-25
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/endless-war-authorization.md)

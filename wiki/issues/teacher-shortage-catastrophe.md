@@ -45,17 +45,6 @@ The consequences extend far beyond education. When schools cannot staff classroo
 - **State Capacity**: -10 to -20 (cannot deliver basic services)
 - **Inequality**: +10 to +20 (private education diverges from public)
 
-### Event Types
-- School year beginning with thousands of unfilled teaching positions
-- Mass teacher walkouts or strikes over working conditions
-- Districts forced to move to four-day weeks due to staffing shortages
-- Emergency certification waivers to fill positions with unqualified personnel
-- Veteran teacher early retirement waves
-- Teacher training program enrollments declining 30%+ year over year
-- School closures due to inability to staff buildings
-- Student achievement declining across standardized assessments
-- Political battles over curriculum driving teacher exodus
-
 ### Cascading Effects
 - **Educational Collapse**: Class sizes balloon, courses canceled, schools close entirely in affected areas
 - **Achievement Gap Explosion**: Disadvantaged students suffer disproportionately from shortage

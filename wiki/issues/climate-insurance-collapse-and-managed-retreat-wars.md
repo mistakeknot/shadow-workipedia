@@ -35,18 +35,6 @@ The result redistributes hundreds of trillions in wealth from ordinary homeowner
 - **Economic Inequality**: Widens dramatically as climate-safe zones (prices rise) diverge from climate-sacrificed zones (prices collapse)
 - **Debt Defaults**: Rise 3-7x in climate zones as homeowners lose equity and mortgage payments become irrational
 
-**Event Types:**
-
-1. **Major Insurer Withdrawal**: Large insurance company announces regional exit; triggers panic selling, property values drop 15-25% immediately; other insurers follow within 6-12 months
-2. **Uninsurable Property Crisis**: Government creates insurer-of-last-resort programs (FAIR plans, state pools) that are underfunded and unsustainable
-3. **Mortgage Market Lockout**: Fannie Mae/Freddie Mac exclude uninsurable properties; millions of homeowners trapped (can't sell, can't refinance)
-4. **Managed Retreat Buyout Program**: Government launches publicly funded buyouts to relocate populations; buyouts consistently underpriced relative to pre-crisis values, creating wealth loss and resentment
-5. **Buyout Conflict Escalation**: Property owners refuse buyout offers, form associations, take legal action, resist relocation; municipalities struggle with enforcement
-6. **Climate Refugee Crowding**: Displaced populations flood climate-safe zones; housing prices spike; rental shortages; overcrowding creates political tensions
-7. **Municipal Bankruptcy Cascade**: Towns dependent on property tax revenue go insolvent; can't pay workers or maintain infrastructure
-8. **Speculative Real Estate Collapse**: Investment properties become worthless; REITs face margin calls; real estate crash triggers broader financial stress
-9. **Political Retreat Wars**: Communities refuse relocation, form local militias or blockades; retreat becomes militarized; violence over property rights erupts
-
 **Cascading Effects:**
 
 - Triggers **Climate Refugee Floods** as insurance-driven property collapse forces mass relocation

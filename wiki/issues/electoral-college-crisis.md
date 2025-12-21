@@ -39,18 +39,6 @@ Public legitimacy faces an unprecedented stress test: 65% of Americans, includin
 
 - **Political Reform Pressure**: Popular vote alternative sentiment increases 3-5 percentage points per divergent election. Reaches critical threshold (67% support) after two consecutive divergent elections, triggering constitutional amendment attempts. Failed amendment attempts increase pressure by additional 4-6 points.
 
-**Event Types:**
-
-1. **Popular Vote/Electoral Vote Divergence**: Electoral victor loses national popular vote by >1%. Triggers immediate legitimacy questions, amplifies election-denialism in losing-margin states by 8-15%, increases constitutional reform pressure. If second divergence occurs within 3 elections: cascades to **democratic-legitimacy-crisis** and triggers constitutional amendment attempts that must navigate state ratification deadlock.
-
-2. **Faithless Elector Bloc**: Multiple electors (>3) from same state or same partisan coalition attempt to vote contrary to pledges or state law. Creates constitutional uncertainty: state-level faithless elector laws vary widely (19 states penalize, 29 don't, 2 unclear). Can flip outcomes in close elections. Triggers 12-18 point constitutionality spikes if outcome-changing.
-
-3. **Swing State Cascade**: Major swing state flips from one party to another, triggering investment/policy cascade in 3-4 neighboring states as campaigns recognize new vulnerability. Creates regional policy distortions: swing states receive 3-4x infrastructure spending per capita compared to safe states. Repeat cascades increase regional resentment by 8-12 points annually.
-
-4. **Constitutional Amendment Attempt**: Supermajority (67% Congress approval) achieves amendment ratification vote. Requires 38 states (75% of 50) to ratify. Small-state and swing-state opposition creates deliberate ratification failure: each failed attempt increases reform pressure by additional 6-10 percentage points but also increases small-state coalitional solidarity by 5-8 points.
-
-5. **State-Level Enforcement Conflict**: Two or more states pass conflicting enforcement mechanisms (example: California penalizing faithless electors while Nevada rejects penalty concept). Creates simultaneous legal obligations for electors. If escalates to interstate compact attempts to circumvent Electoral College: triggers 12-20 point constitutional conflict and federal litigation consuming $50M-150M in legal costs over 2-3 years.
-
 **Cascading Effects:**
 
 - Triggers **democratic-legitimacy-crisis** when divergent election + electoral-fraud claims + faithless elector bloc converge within single election cycle

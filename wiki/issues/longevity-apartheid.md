@@ -39,20 +39,6 @@ This gap becomes intergenerational wealth multiplier: parents with access to lon
 
 - **Genetic Caste Formation**: Children of wealthy parents receive early-life epigenetic optimization, preventive gene therapy, and longevity-optimized education; children of poor parents receive baseline care. Creates measurable biological and cognitive divergence by age 30. Heritability of lifespan increases from 30% (genetics + environment) to 60-70% (genetics + epigenetics + treatment access), driving intergenerational immobility.
 
-**Event Types:**
-
-1. **Breakthrough Longevity Therapy Approval**: FDA, EMA, or China NMPA approves transformative longevity treatment (senolytic drug, gene therapy, cellular reprogramming). Wealthy nations adopt within 2-3 years; 40+ year gap emerges between treated and untreated populations within 5 years. Triggers social unrest in middle/low-income nations.
-
-2. **Longevity Tourism Boom**: Wealthy individuals travel to specialized longevity clinics (Singapore, Dubai, Switzerland) for treatments unavailable or illegal in home countries. Creates $500B+ specialized industry and establishes "longevity havens." Accelerates brain drain as practitioners migrate to high-paying markets.
-
-3. **Genetic Caste Enforcement Crisis**: Genetic testing becomes routine in wealthy nations; insurance and employment begin discriminating based on longevity potential. Individuals with poor genetic profiles face higher insurance premiums or employment barriers. Triggers 2-4 percentage point increase in social polarization; riots in affected cities.
-
-4. **Longevity-Based Immigration Wave**: Middle and upper-middle-class professionals and retirees migrate en masse to countries with advanced longevity access, seeking 20-30 additional healthy years. Creates housing pressure, cultural backlash, and political instability in destination countries. Source countries experience 3-8% population loss in critical skill cohorts.
-
-5. **Life Extension Dependency Shock**: Nation achieving 70%+ longevity treatment adoption realizes healthcare costs have doubled (managing 120+ year lifespans requires 40+ years of extended chronic disease prevention). Fiscal crisis; austerity cascades across other public services.
-
-6. **Intergenerational Wealth Threshold Crisis**: Multi-century family dynasties (now 3-4 generations deep) own 60-70% of productive assets; barriers to wealth entry become insurmountable for non-generational cohorts. Triggers land reforms, capital controls, or revolution.
-
 **Cascading Effects:**
 
 - Triggers **genetic-caste-formation** when medical discrimination based on longevity potential exceeds 15% of employment decisions

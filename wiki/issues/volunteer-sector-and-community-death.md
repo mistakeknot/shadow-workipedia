@@ -44,17 +44,6 @@ The consequences cascade across society. Communities lose capacity to respond to
 - **Youth Development**: -10 to -20 (mentoring and activity opportunities disappear)
 - **Community Resilience**: -15 to -25 (collective capacity erodes)
 
-### Event Types
-- Volunteer fire department closing due to lack of volunteers
-- Long-standing civic organization dissolving after decades
-- Community center or social club shuttering from declining membership
-- Youth sports leagues struggling to find coaches and organizers
-- Religious congregation closing or consolidating due to membership collapse
-- Volunteer-run services (food banks, crisis hotlines) scaling back or ending
-- Generational survey showing dramatic decline in civic participation
-- Emergency response capacity reduced as volunteer corps shrink
-- Local festivals or traditions ending due to lack of organizers
-
 ### Cascading Effects
 - **Community Collapse**: Loss of associational infrastructure means communities exist in name only
 - **Social Isolation**: People lose primary source of belonging and social connection beyond family

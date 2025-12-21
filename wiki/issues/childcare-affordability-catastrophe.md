@@ -35,15 +35,6 @@ The stakes involve gender equality, child development, and economic productivity
 - **Poverty Rate**: +10 to +20 as childcare costs push families into hardship
 - **Income Inequality**: +15 to +25 with access stratification
 
-**Event Types:**
-1. **Childcare Provider Collapse**: Major closures create care deserts, -30 Childcare Availability
-2. **Affordability Crisis Tipping Point**: Costs exceed median family income capacity, -35 Labor Force Participation
-3. **Subsidy Funding Lapse**: Pandemic-era support expires, -25 Childcare Affordability
-4. **Worker Exodus**: Childcare staff leave for better-paying jobs, -20 Care Quality
-5. **Universal Childcare Proposal**: Major policy initiative for subsidized care, +40 Affordability (if enacted)
-6. **Care Desert Expansion**: Rural/low-income areas lose all licensed providers, -30 Childcare Access
-7. **Employer Benefit Trend**: Companies add childcare support to retain workers, +15 Access (for some)
-
 **Cascading Effects:**
 - Triggers **Gender Pay Gap** expansion as women's workforce participation declines
 - Amplifies **Early Childhood Education Gaps** when care quality stratifies by income

@@ -38,20 +38,6 @@ By 2025, 24 nations face critical sand shortages affecting construction capacity
 
 - **Regional Stability**: Sand competition between neighboring nations triggers territorial disputes and sovereignty conflicts. Underwater sand mining claims overlap with fishing rights, maritime boundaries, and colonial legacy disputes, increasing interstate tension by 15-30% in affected regions.
 
-**Event Types:**
-
-1. **Major Sand Deposit Depletion**: A significant regional sand source becomes commercially exhausted (extraction costs exceed market prices). Construction halts or severely restricts, forcing alternative material sourcing. If alternative materials unavailable, triggers aging-infrastructure-crisis cascade and 12-24 month construction delays. Nations dependent on this deposit experience 15-35% reduction in construction capacity until alternatives established.
-
-2. **Organized Crime Escalation**: Criminal networks consolidate control over sand supply chains in weak-governance zones. Mining mafias initiate violent territorial disputes, government enforcement efforts fail, and illegal extraction accelerates environmental damage by 40-60%. Triggers resource-wars within same region and increases corruption index by 20-30% within 2 years.
-
-3. **Coastal Erosion Crisis**: Accelerated sand mining triggers catastrophic coastal erosion event, threatening 50,000+ people in vulnerable zones (low-lying deltas, island nations, megacity coastal slums). Triggers housing-crisis if population must relocate; triggers aging-infrastructure-crisis if critical infrastructure threatened; intensifies island-nations-collapse for vulnerable small island states.
-
-4. **Sand Trade Cartel Formation**: Leading sand-exporting nations (Vietnam, India, Indonesia, Morocco) coordinate export restrictions or price manipulation. Creates 25-45% price spikes globally, severe supply shortages in sand-deficit nations, and retaliatory trade measures. Amplifies aging-infrastructure-crisis and housing-crisis cascades by restricting material access.
-
-5. **Cross-Border Mining Conflict**: Nations dispute underwater sand deposits or river extraction rights. Creates 8-15% increases in military tensions, potential naval confrontations in contested zones, and escalates to armed resource-wars if competing claims not resolved through international arbitration. Particularly acute in Southeast Asia, Eastern Africa, and Mediterranean.
-
-6. **Environmental Tipping Point**: Unregulated mining destroys delta/estuary ecosystems beyond recovery threshold. Fish stocks collapse by 60-80%, triggering regional food security crisis; freshwater aquifers contaminated, affecting 500,000+ people; triggers water-wars with affected populations fighting for remaining resources and agricultural viability.
-
 **Cascading Effects:**
 
 - Triggers **aging-infrastructure-crisis** when sand scarcity reduces construction capacity >20% + construction material costs exceed budget allocation

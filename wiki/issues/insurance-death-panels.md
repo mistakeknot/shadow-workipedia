@@ -39,16 +39,6 @@ Corporate health insurers have systematized coverage denial through nested autho
 
 - **Mortality Inequality**: Death panels disproportionately affect low-income and uninsured patients who cannot afford out-of-pocket costs for denied treatments. Wealth-based survival disparities widen: wealthy patients appealing denials and self-paying for treatment exceed survival rates of insurance-dependent patients by 15-40% on cancer diagnoses.
 
-**Event Types:**
-
-1. **Mass Denial Event**: Insurance company implements new authorization protocols that increase denial rates above 25% for category (e.g., oncology denials jump 40%). Triggers patient advocacy mobilization, media attention, and potential regulatory investigation. If >2 major carriers simultaneously increase denial rates above 20%, cascades to healthcare system stress and potential government intervention demands.
-
-2. **High-Profile Death Narrative**: Media coverage of patient death attributed to insurance denial (denied treatment, delayed authorization). Creates 15-25% temporary reputation damage to insurance carrier, 8-12% increase in public support for insurance reform. If multiple deaths linked to single company within 6 months, triggers potential lawsuit class action and regulatory fines of $10-50 million.
-
-3. **Appeals System Breakdown**: Insurance appeals process fails due to volume overload, staffing collapse, or algorithmic malfunction. Appeal backlogs exceed 6 months; denied patients have no mechanism to challenge decisions. Forces regulatory intervention within weeks, triggers class action litigation, increases political pressure for public option by 18-25%.
-
-4. **Whistleblower Revelation**: Insurance company employee exposes systematic denial protocols designed to maximize profit rather than medical appropriateness. Creates regulatory investigations, DOJ litigation risk, fines of $50-200 million, and forced protocol overhaul. Generates 2-3 year reputational damage; public trust in company drops 40-60%.
-
 **Cascading Effects:**
 
 - Triggers **global-healthcare-workforce-exodus** when denial rates exceed 25% + appeal success rates fall below 3%, causing physician shortages and patient flight to alternative systems

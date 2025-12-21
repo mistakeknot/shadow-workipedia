@@ -45,17 +45,6 @@ The significance of worker cooperatives extends beyond their current economic fo
 - **Community Resilience**: +5 to +10 (locally-rooted ownership)
 - **Capital Access**: -5 to -15 (difficulty raising investment capital)
 
-### Event Types
-- Successful cooperative conversion of failing traditional business
-- Worker buyout preventing plant closure or offshoring
-- Cooperative sector growth exceeding traditional business formation
-- Policy changes improving cooperative access to capital or legal frameworks
-- High-profile cooperative success challenging dominant business models
-- Economic crisis creating openings for cooperative conversions
-- Educational institutions incorporating cooperative business models
-- Union-cooperative collaboration on worker ownership transitions
-- Generational shift toward interest in alternative ownership models
-
 ### Cascading Effects
 - **Economic Democracy Expansion**: Success of cooperatives normalizes worker ownership as viable model
 - **Capital Access Innovation**: New financing mechanisms emerge to support democratic enterprises

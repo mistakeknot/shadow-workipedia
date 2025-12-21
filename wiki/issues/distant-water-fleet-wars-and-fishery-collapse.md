@@ -30,14 +30,6 @@ Industrial fishing fleets, particularly China's distant-water fishing fleet—no
 - **Fishery Subsidy Levels**: Government subsidies to fishing industries (averaging $35B annually) artificially inflate fleet sizes. Removing subsidies reduces fleet growth by 60% but triggers political backlash in fishing communities.
 - **Stock Recovery Capacity**: Depleted stocks have limited recovery windows. Each year of recovery requires 3+ years of low harvest. Once catches exceed sustainable yields by >20%, stocks enter irreversible decline.
 
-**Event Types:**
-
-- **Fishing Fleet Expansion Crisis**: Government announces massive subsidy increase for distant-water fleets. Choice: Accept environmental cost for economic gains, or lose political support from maritime industries. Affects: ocean depletion (+25%), regional tensions (+15%), food security (-8%).
-- **IUU Fishing Bust**: International naval coalition detains 50+ illegal fishing vessels in disputed waters. Temporary deterrent (+18% enforcement) but escalates military tensions (+12%) and creates maritime incidents.
-- **Fishery Collapse Event**: Key stock (Atlantic Cod analog) crashes below 5% of historical biomass. Fishing ban triggers economic crisis in dependent regions (-$4B GDP), refugee flows, and diplomatic friction.
-- **Subsidy Removal Negotiations**: International pressure mounts for eliminating fishing subsidies. Success reduces fleet expansion by 40% but triggers protests and political instability in affected nations.
-- **Transhipment Network Exposed**: Investigative journalism reveals ships illegally laundering IUU catch through shell companies. Public outcry drives retailer boycotts (-$2B market) and demands for supply chain transparency.
-
 **Cascading Effects:**
 
 - **Food Security Collapse**: As stocks deplete, 800M+ people in developing coastal regions lose primary protein source. Malnutrition spikes, economic hardship drives migration inland/internationally, destabilizes small-scale fishing communities.

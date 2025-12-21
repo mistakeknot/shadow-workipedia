@@ -38,18 +38,6 @@ Beyond economic concentration, the patent landscape surrounding synthetic foods 
 
 **Regulatory Approval Speed**: Years required for regulatory approval (1-7 years). For incumbents with captured regulators: 1-2 years. For challengers: 4-6 years. Time differential directly translates to 8-15% market share advantage for incumbents.
 
-### Event Types
-
-**Patent Thicket Event** (30% annual probability): Major firm files 15-30 broad patents covering adjacent technology categories. Effect: Increases patent density +15-25, market entry cost +35-50%, competitor R&D efficiency -20-30%. Can trigger antitrust investigations (15% probability) with -40 patent density impact if jurisdiction acts.
-
-**Acquisition Wave** (25% annual probability): Leading firm acquires 2-4 emerging competitors or their key patents. Effect: Reduces competitor count -2 to -5, increases capital concentration +8-15%, raises licensing costs +12-20% across industry. Market consolidation accelerates 2-3 years per acquisition.
-
-**Regulatory Approval** (45% annual probability): New competitor or product receives regulatory clearance. Effect: Reduces approval time by 1-2 years for following entrants (network effect), increases patent challenge probability +15%, reduces incumbent price premium by 5-10%.
-
-**License Negotiation Breakdown** (20% annual probability): Failed negotiations between patent holder and new producer. Effect: Blocks market entry for 2-3 years, increases competitor desperation score +25-35%, raises probability of IP infringement attempts +12-18%, may trigger international trade disputes if involving developing nations.
-
-**Sovereignty Push** (15% annual probability): National government funds independent synthetic food capability. Effect: Reduces capital concentration -10-15%, creates parallel patent ecosystem, increases technology transfer +20-30%, generates diplomatic tension with incumbent nations (+15-25 geopolitical risk). Success probability: 40-60% depending on government commitment and technical capacity.
-
 ### Cascading Effects
 
 **Market Consolidation → Price Volatility**: As firms consolidate (fewer than 5 major producers), pricing becomes coordinated (explicit or implicit). Price stability decreases, enabling periodic 20-40% price spikes followed by 10-15% drops. This volatility destabilizes downstream industries (food processors, restaurants) causing 8-12% margin compression and bankruptcies among mid-size firms.

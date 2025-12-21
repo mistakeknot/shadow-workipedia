@@ -34,17 +34,6 @@ The political and cultural obstacles to post-growth economics are formidable. En
 **Employment Structure**: -8% (work reorganization required)
 **Climate Change Mitigation**: +14% (emissions reduction through contraction)
 
-### Event Types
-
-**Degrowth Movement Gains Support**: Political viability increases
-**Post-Growth Policy Implemented**: Government adopts steady-state approach
-**Growth-Based System Defended**: Mainstream economics rejects paradigm
-**Climate Emergency Forces Rethinking**: Ecological crisis drives policy shift
-**Wellbeing Indicators Replace GDP**: Alternative metrics adopted
-**Universal Basic Income Proposed**: Decoupling income from growth
-**Work-Sharing Initiative**: Reduced hours, maintained employment
-**Green Growth Proven Impossible**: Research undermines compromise position
-
 ### Cascading Effects
 
 Ecological limits recognized → Growth paradigm questioned → Post-growth theories gain traction → Policy experiments attempted → Growth-dependent systems challenged → Political resistance intensifies → Either transition to sustainable economics or ecological collapse forces change

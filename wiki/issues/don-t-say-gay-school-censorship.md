@@ -41,24 +41,6 @@ The cascade effects are immediate and severe: LGBTQ youth (who comprise 20% of h
 
 - **Cultural Polarization Index**: Increases 8-18 percentage points per quarter. School board meetings become war zones; moderate parents polarize to opposing extremes; community institutions (churches, community centers) split along LGBTQ acceptance lines; library censorship becomes referendum on culture war allegiances.
 
-**Event Types:**
-
-1. **Don't Say Gay Legislation Enactment**: New state passes sweeping censorship law. Triggers immediate chilling effect in schools within 3-6 months; library purges begin; teachers revise curriculum; LGBTQ youth reporting reduces 30-50% due to safety concerns (Youth Mental Health -2.5, Educational System Integrity -1.8, LGBTQ Safety Index -3.5).
-
-2. **School Board Takeover / Purge**: Culture war mobilization captures school board; new superintendent hired for "parental choice" agenda; progressive teachers fired or forced to resign; curriculum review processes accelerate book removal; institutional morale collapses (Brain Drain +18%, Institutional Trust -2.0, Educational System Integrity -2.2).
-
-3. **Teacher Firing / Legal Jeopardy Event**: High-profile teacher fired for using student's chosen pronouns, assigning LGBTQ literature, or discussing sexual orientation in age-appropriate context. National media coverage amplifies; legal defense costs spike; other teachers self-censor aggressively; profession reputation suffers (Brain Drain +22%, Educational System Integrity -1.9, Institutional Trust -1.5).
-
-4. **School Library Purge**: Coordinated book challenge campaign removes 200+ titles from school libraries in single district. Includes classic literature (Beloved, The Handmaid's Tale), LGBTQ-specific titles, and books featuring diverse families. Parents on both sides mobilize; media attention peaks; book publishers and authors respond (Cultural Polarization +12, Educational System Integrity -1.6).
-
-5. **Youth Mental Health Crisis Spike**: Suicide attempt rate among LGBTQ youth in restricted state rises 25%+ year-over-year; school shooting or suicide cluster attributed (by media/activists) to school censorship and unsafe environment. Creates national scandal; counter-activism mobilizes; polarization accelerates (Youth Mental Health -3.2, LGBTQ Safety Index -4.0, Cultural Polarization +15).
-
-6. **Federal Legal Challenge**: Civil rights organizations sue state over censorship law, claiming it violates First Amendment (teacher/author speech) and equal protection. Multi-year litigation; preliminary injunctions may freeze enforcement; state doubles down with additional legislation; legal costs spike (Brain Drain +14%, Cultural Polarization +10).
-
-7. **Protective State Response**: Progressive state passes legislation explicitly protecting LGBTQ curriculum; mandates LGBTQ inclusion in health standards; protects teachers from prosecution. Becomes migration destination for educators fleeing restricted states; regional policy divergence intensifies (Brain Drain -8% in progressive state, -20% in restricted state, Cultural Polarization +8).
-
-8. **Private School Exodus**: Enrollment shifts accelerate; 12-20% of families in restricted districts move children to private schools or homeschool; public school funding contracts; class sizes increase; inequity widens as wealthy families escape while low-income families remain trapped in deteriorating systems (Educational System Integrity -1.4, Institutional Trust -1.8, Wealth Inequality +2).
-
 **Cascading Effects:**
 
 - Triggers **youth-mental-health-crisis** amplification of 15-30 percentage points when censorship coincides with lack of affirming school environment + bullying escalation + reduced counselor support

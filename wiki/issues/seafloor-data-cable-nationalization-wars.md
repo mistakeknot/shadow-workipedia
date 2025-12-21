@@ -38,20 +38,6 @@ The nationalization wars unfold across multiple fronts simultaneously. Countries
 
 **Intelligence Access Coefficient (+0.8 per cable owned by geopolitical rival)**: When one nation owns or controls a major international cable, it gains the technical ability to perform surveillance on the data passing through it. This directly increases intelligence asymmetries and creates leverage for espionage, blackmail, and coercion.
 
-### Event Types
-
-**Cable Nationalization Decree (15% annual probability, moderate regional impact)**: A government announces it will take controlling ownership stakes in all submarine cables in its EEZ or passes laws requiring majority domestic ownership. Immediate effects: uncertainty about future investment, negotiations between governments and cable operators. Outcomes: either compromise ownership structures or cable operators divest and routes shift to alternative paths.
-
-**US Cable Blocking Action (8% annual probability if US-China tensions >75%, high geopolitical impact)**: The US government prevents American companies or US-friendly contractors from funding or operating a submarine cable project, usually citing national security. Immediate: Chinese companies accelerate alternative cable funding. Medium-term: bifurcation of global cable networks into Western and Chinese-backed systems.
-
-**Chinese Cable Acquisition (12% annual probability if Belt and Road investment >$200B, high strategic impact)**: Chinese entities acquire majority or controlling stakes in submarine cable systems connecting developing nations. Builds Beijing's leverage while creating concern in Washington. Often accompanied by technology transfer requirements or data-sharing agreements.
-
-**Submarine Cable Severance Event (22% annual probability, temporary but severe disruption)**: An undersea cable is damaged—typically by ship anchors, undersea earthquakes, or fishing activity—disrupting data routes for hours to weeks. Immediate economic damage compounds based on how many services relied on that cable. Drives policy pressure for redundancy requirements.
-
-**Cable Interception Disclosure (6% annual probability if geopolitical tensions >60%, high symbolic impact)**: Documents or whistleblowers reveal that a nation has been conducting surveillance on data passing through submarine cables they own or control. Creates crisis of trust, accelerates demands for domestic routing, and drives investment in encryption technologies.
-
-**Regional Cable Independence Initiative (10% annual probability in developing regions, moderate medium-term impact)**: A developing region (Africa, Southeast Asia, Caribbean) announces plans to build intra-regional submarine cables to reduce dependence on cables routed through colonial-era paths via Europe or North America. Creates opportunity for China to become primary investor and partner.
-
 ### Cascading Effects
 
 **Cable Ownership → Intelligence Asymmetry → Espionage Leverage**: When China owns cables, US intelligence agencies assume the data is compromised. This creates pressure to move sensitive communications through alternative channels, increasing costs and reducing efficiency. Over time it shifts geopolitical advantage toward Beijing.

@@ -34,18 +34,6 @@ Civil asset forfeiture is a legal mechanism that allows law enforcement agencies
 
 - **Legislative Reform Momentum**: Bipartisan coalitions (libertarian right + social justice left) have successfully reformed forfeiture laws in 35+ states since 2014, but reform faces entrenched police lobby resistance. States with strong civil liberties lobbies pass "conviction-requirement" laws (property seizure requires criminal conviction) reducing forfeiture by 65-80%, while states with weak reform pressure maintain status quo with minimal restrictions.
 
-**Event Types:**
-
-1. **Police Department Budget Crisis**: Municipal budget cuts trigger 15-40% increase in forfeiture seizures as departments compensate for lost revenues. If sustained >12 months, forfeiture becomes institutionalized revenue stream, creating path-dependent lock-in where eliminating forfeiture would require 20-30% budget increases from other sources (politically infeasible). Consequence: 500-2,000 additional seizures annually in affected jurisdiction.
-
-2. **High-Profile Seizure Abuse Case**: Media investigation exposes cases where police seized $500-50,000 from innocent citizens (student cash from summer job, small business revenue, elderly person's life savings). National media coverage triggers 5-15 percentage point drops in police favorability ratings in affected jurisdiction. If case involves civil rights organization filing suit, 65-80% probability of settlement forcing policy changes (conviction requirements, transparent accounting, civilian review).
-
-3. **Legislative Reform Victory**: State passes law requiring conviction before forfeiture or eliminating civil forfeiture entirely (occurred in New Mexico 2015, Nevada 2020, California 2021, Texas 2023). Forfeiture seizures in reformed state drop 65-85% within 12 months. Tax revenues to law enforcement decline 5-20%, triggering two-year political pressure to restore system. If police union successfully lobbies legislature, reforms are gutted 40-60% within 3-5 years.
-
-4. **Interstate Forfeiture Expansion via Equitable Sharing**: Federal DEA/FBI "equitable sharing" program allows local departments to seize property on federal grounds, bypassing state-level reform. Departments in reformed states exploit federal program to maintain seizure volumes, effectively circumventing local democratic will. Consequence: 30-50% of forfeiture seizures migrate to federal system, rendering state reforms 50-70% ineffective.
-
-5. **Racial Justice Activism Campaign**: Civil rights organizations launch #ForfeitureFreeze campaigns calling for moratoriums on all civil forfeiture pending comprehensive reform. If combined with media coverage of racial disparities (60-75% of seizures target communities of color) and class-action lawsuits, public support for abolition reaches 65-75%. Political capital forces legislative action within 18-24 months, though effectiveness varies by jurisdiction.
-
 **Cascading Effects:**
 
 - Triggers **Mass Incarceration Crisis** when forfeiture targeting (especially asset seizure without criminal charges) creates secondary effect of arrests for "civil forfeiture violation" in 15-25% of cases, driving prosecutions for possession charges that would not occur without forfeiture incentive

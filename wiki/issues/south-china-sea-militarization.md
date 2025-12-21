@@ -53,38 +53,6 @@ The geopolitical implications are severe: the militarization directly contradict
 - Technology transfer from U.S. and allies to Philippines, Vietnam, and other partners drives capability increases
 - Hypersonic missiles, advanced radar systems, and autonomous vessels accelerate from developmental to operational timelines
 
-### Event Types
-
-**Major Military Exercise Escalation** (Base Probability: 12% annually)
-- China conducts large-scale military drills around disputed islands with thousands of troops and advanced aircraft
-- Probability increases with U.S. freedom of navigation operations or allied naval presence
-- Consequences: Regional military alertness increases, commercial shipping disruptions possible, diplomatic protests escalate
-- Cascades to: Taiwan-Crisis (+15% escalation), China-U.S. Tensions (+18% intensity), Maritime Border Conflicts (+12% frequency)
-
-**Weapons System Deployment Event** (Base Probability: 8% annually)
-- Advanced air defense, anti-ship, or surface-to-air missile systems become operational on artificial islands
-- Announced through military media releases with capability claims; often verified by satellite imagery
-- Consequences: Regional air and naval operations become riskier, insurance and shipping costs increase 2-4%, military response planning accelerates
-- Cascades to: Regional Stability (-22% confidence), International Security (-18% index), Military Escalation (+25% readiness)
-
-**Enforcement Action Incident** (Base Probability: 15% annually)
-- Philippine or Vietnamese coast guard operates near Chinese-controlled features; confrontation occurs with water cannons, ramming, or weapons warning
-- Low-intensity confrontation creates viral social media moments, nationalist political responses in all involved countries
-- Consequences: Public opinion in Philippines/Vietnam hardens, Chinese nationalist sentiment strengthens, military response protocols activated
-- Cascades to: Regional Stability (-28% confidence), Trade Route Safety (-15% index), Military Escalation (+20% readiness)
-
-**International Diplomatic Protest** (Base Probability: 25% annually)
-- U.S., Japan, Australia, or European nations formally protest militarization, conduct freedom of navigation operations, or make political statements
-- China responds with counter-protests, restricts market access to protesting nations, or accelerates construction timelines as "defiance"
-- Consequences: Bilateral relations cool, strategic coordination agreements strain, third-party involvement increases
-- Cascades to: China-U.S. Tensions (+22% intensity), Regional Stability (-18% confidence), International Security (+15% urgency)
-
-**Civilian Infrastructure Incident** (Base Probability: 6% annually)
-- Commercial accident occurs near militarized zone: fishing vessel collision, maritime boundary confusion, or communications failure
-- Incident investigation becomes politicized; blame assignment determines relationship impacts and policy responses
-- Consequences: Maritime insurance costs spike 5-8%, commercial shipping routes temporarily reroute, regional confidence drops sharply
-- Cascades to: Trade Routes (-25% efficiency), Regional Stability (-32% confidence), Military Escalation (+18% readiness)
-
 ### Cascading Effects
 
 **Regional Military Buildups Trigger Allied Commitments**

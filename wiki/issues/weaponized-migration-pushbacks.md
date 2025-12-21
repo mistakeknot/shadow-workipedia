@@ -43,15 +43,6 @@ Mediterranean pushbacks represent another dimension of this weaponization. Europ
 - **Migration Routes**: +25 (stimulates more dangerous unofficial routes)
 - **Domestic Polarization**: +35 (exploited by nationalist movements)
 
-### Event Types
-- Mass coordinated pushback incidents at borders (hundreds in single operations)
-- Diplomatic crises and retaliatory sanctions over migrant treatment
-- Humanitarian disasters: deaths in forests, seas, deserts
-- International court cases and human rights tribunal proceedings
-- NGO and rescue worker prosecutions
-- State-coordinated migrant facilitation programs
-- Breakdown of bilateral border agreements
-
 ## Cascading Effects
 
 Weaponized migration connects to and amplifies:

@@ -32,19 +32,6 @@ Copper theft from electrical grids has evolved from isolated nuisance into syste
 - **Public Trust in Utilities**: Declines 15–25 points when repeated blackouts linked to infrastructure theft undermine confidence in power stability
 - **Supply Chain Disruption**: Raw material costs for grid repair spike 20–40% globally as recycled copper becomes profitable to steal instead of recycle
 
-**Event Types:**
-1. **Coordinated Substation Stripping**: Criminal network targets 5–10 substations in a region simultaneously, stealing copper windings, busbars, and grounding equipment; causes cascading blackouts affecting 500K–2M people; recovery takes 6–18 months if equipment must be rebuilt from scratch
-
-2. **Transmission Line Systematic Harvest**: Organized crews systematically strip copper conductors from long-distance transmission lines over weeks, avoiding detection by operating at night and using planned blackouts as cover; power loss of 20–40% in affected corridors
-
-3. **Rare Earth & Battery Mineral Looting**: Criminal operations target substations and transformers containing rare earth magnets, copper-beryllium alloys, and lithium components; high-value, portable targets that fuel battery and renewable energy supply shortages
-
-4. **Grid Operator Sabotage for Theft**: Criminal insiders working for utilities provide information on patrol schedules and security blind spots; theft efficiency multiplies 3–5x as cooperation between insiders and external crews eliminates detection delays
-
-5. **Infrastructure Security Escalation Cycle**: Utilities deploy armed guards, fencing, and surveillance; criminals respond with violence, intimidation of guards, or sabotage of security systems; grid security becomes militarized, costs explode, civilian casualties rise
-
-6. **Cascading Blackout from Theft-Induced Failure**: Theft of key load-balancing equipment creates grid instability; voltage collapse triggers automatic protection relays; blackout cascades across entire regions (50K–5M people) due to preventative infrastructure degradation
-
 **Cascading Effects:**
 - Triggers **Critical Infrastructure Attacks** when criminal networks gain knowledge of grid vulnerabilities and intentionally target sensitive nodes
 - Amplifies **Organized Crime Expansion** by 40–70% as copper theft revenue funds trafficking networks, arms smuggling, and corruption of law enforcement

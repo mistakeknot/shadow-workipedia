@@ -12,14 +12,15 @@ affectedSystems: [Regional Security, Humanitarian Systems, International Law, Af
 connections: []
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'CaptureConcentration', 'ResistanceBacklash', 'AdaptiveResistance']
-lastUpdated: 2025-11-25
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Ethiopia Tigray Genocide
 
 ## Overview
 
-The 2020-2022 Tigray War represents one of the 21st century's largest humanitarian catastrophes and a potential genocide. What began as conflict between Ethiopia's federal government under Prime Minister Abiy Ahmed and the Tigray People's Liberation Front (TPLF) rapidly transformed into systematic ethnic cleansing targeting Tigray's 6 million civilians. An estimated 500,000-600,000 people died (8-10% of the population), with 2 million displaced and 5.2 million requiring humanitarian assistance.
+The 2020-2022 Tigray War represents one of the 21st century's largest humanitarian catastrophes and a potential genocide. What began as conflict between Ethiopia's federal government under Prime Minister Abiy Ahmed and the Tigray People's Liberation Front (TPLF) rapidly transformed into systematic ethnic cleansing targeting Tigray's 6 million civilians. An estimated 500,000-600,000 people died (8-10% of the population), with 2 million displaced and 5.2 million requiring humanitarian assistance. As of 2025-12-19, Abiy Ahmed is prime minister of Ethiopia. [^britannica-abiy]
 
 The conflict's defining characteristics met the UN Genocide Convention definition: deliberate starvation as weapon of war (300,000-400,000 deaths from blockade), systematic sexual violence (10,000-30,000 documented rapes), ethnic targeting by Eritrean forces and federal militias, massacres including hospital patients and religious refugees, and estimated 50,000 extrajudicial killings of Tigrayan intellectuals and professionals. Despite real-time documentation, perpetrators remain largely unpunished.
 
@@ -111,5 +112,9 @@ The conflict exposed the complete failure of international response systems. Med
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-25
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/ethiopia-tigray-genocide.md)
+
+## Sources
+
+[^britannica-abiy]: Encyclopaedia Britannica, “Abiy Ahmed | Biography, Nobel Prize, & Facts.” Accessed 2025-12-19. https://www.britannica.com/biography/Abiy-Ahmed

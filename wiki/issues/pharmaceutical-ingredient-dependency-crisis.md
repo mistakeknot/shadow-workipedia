@@ -34,14 +34,6 @@ A sustained supply disruption of even 90 days would exhaust safety stock across 
 - **Healthcare System Fragility**: Systems with >70% import dependency suffer 8x mortality increases during supply shocks. Each 5% increase in domestic sourcing reduces shock mortality by 12%.
 - **Regulatory Compliance Burden**: FDA/EMA inspection requirements increase domestic production costs by 15-25%. Streamlining reduces shortage response time from 120 days to 45 days.
 
-### Event Types
-
-- **Supply Shock (Probability: 8-12% annually)**: Full suspension of exports from primary source nation for 30-180 days. Triggers shortages in 40-60 therapeutic categories. Critical care units forced to ration anesthetics and antibiotics.
-- **Precursor Shortage (Probability: 5-8% annually)**: Disruption of bulk chemical precursors used in 30+ API categories (not full APIs). Creates 6-12 month production bottleneck as alternative routes require validation.
-- **Quality Crisis (Probability: 3-5% annually)**: Contaminated API batches from manufacturing oversight. Forces recall of medications, triggers 2-3 week supply gap while replacement batches ship.
-- **Export Control Policy (Probability: 15-20% during high geopolitical tension)**: Deliberate government restrictions on pharmaceutical exports as leverage during trade disputes. Creates 60-90 day supply deficit.
-- **Manufacturing Failure (Probability: 2-4% annually)**: Plant closure from environmental violation, fire, or regulatory action. Disrupts 8-15% of global API supply for that class of compound.
-
 ### Cascading Effects
 
 - **Antibiotic Shortage → Infection Surge**: Hospital-acquired infection mortality increases 15-25% within 4 weeks. ICU capacity breach forces triage decisions. Secondary mortality in vulnerable populations (immunocompromised, elderly) rises 30-40%.

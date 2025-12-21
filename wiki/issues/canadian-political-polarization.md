@@ -41,20 +41,6 @@ By 2025, polarization has degraded Canada's institutional function: parliamentar
 
 - **Political Violence Risk**: Rises as rhetoric escalates, institutional responses are perceived as tyrannical, and cross-border militia networks establish Canadian cells. Antecedents appear in increased threats against elected officials, harassment of civil servants, and the normalization of confrontational protest tactics.
 
-**Event Types:**
-
-1. **Convoy-Scale Protest Mobilization**: Anti-government movement organizes mass occupation/blockade (mandate protests, cost-of-living action, climate response) with cross-border coordination and cryptocurrency funding. Triggers institutional fragmentation event if government response is perceived as excessive (invocation of emergency powers, financial account freezes, police brutality). Amplifies polarization by 8-15 percentage points; if suppressed violently, creates martyr narratives that drive recruitment into radical movements for 12-18 months.
-
-2. **Provincial-Federal Constitutional Showdown**: Provincial government (Alberta/Saskatchewan resource extraction rights, Quebec language laws, Ontario healthcare jurisdiction) directly challenges federal authority on ideologically charged issue. Creates parallel governance structures, erodes institutional coordination, and establishes precedent that provinces can ignore federal directives on selected issues. Increases regional fracture by 4-8 percentage points; can trigger cascade toward confederal instability if >2 provinces simultaneously challenge federal supremacy.
-
-3. **Algorithmic Reality Bifurcation**: Social media platforms' engagement algorithms create competing factual realities where opposing groups consume contradictory information about major events (economic data, COVID response, immigration outcomes). Manifests in >30 percentage point divergence in public perception of objective facts (inflation rate, healthcare performance). Undermines possibility of institutional consensus; makes legislative compromise impossible when voters believe opposite things about problem definition.
-
-4. **US Political Influence Operation**: US right-wing networks explicitly fund/coordinate Canadian political actors, provide messaging templates for Canadian opposition parties, or amplify Canadian grievances to destabilize US ally. Creates asymmetric political advantage for candidates/parties aligned with US ideological positioning. Raises foreign interference concerns; triggers national security response that compounds polarization further.
-
-5. **Institutional Legitimacy Collapse**: Multiple institutions simultaneously lose public trust (parliament gridlocked, courts perceived as politically biased, police weaponized against preferred movements, public health agencies distrusted). Creates vacuum where citizens substitute institutional authority with alternative legitimacy sources (online influencers, movement leaders, conspiracy narratives). Enables rapid radicalization; increases willingness to support extra-institutional action by 25-35 percentage points.
-
-6. **Media Institution Failure**: Legacy journalism collapses in region/demographic due to economic decline (advertising revenue collapse), raiding by hyperpartisan outlets, or audience migration to social media. Creates information void filled by unreliable/ideologically extreme sources. Regional polarization accelerates rapidly (12-18 month spike); institutional actors lose ability to reach broader public with moderate messaging.
-
 **Cascading Effects:**
 
 - Triggers **democratic-backsliding** when institutional legitimacy collapses triggers electoral manipulation by parties positioning themselves as only trustworthy alternative, leading to democratic norm erosion and acceptance of constitutional overreach

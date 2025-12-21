@@ -33,15 +33,6 @@ The stakes involve the fundamental nature of human reproduction and social struc
 - **Gender Equality**: +15 to +30 if pregnancy risks equalized (or -10 if reinforces inequality)
 - **Regulatory Effectiveness**: -10 to -20 as technology outpaces governance frameworks
 
-**Event Types:**
-1. **First Full Ectogenesis Birth**: Successful external gestation from conception to term, +40 Technology Advancement, -25 Social Cohesion (ethical backlash)
-2. **Artificial Womb Access Inequality**: Only wealthy access ectogenesis while abortion banned for poor, +30 Inequality, trigger Class Conflict
-3. **Ectogenesis Developmental Crisis**: Children gestated artificially show unexpected health/bonding issues, -30 Public Trust in Technology
-4. **Gestation Outsourcing Industry**: Commercial services offer pregnancy avoidance, -20 Social Cohesion, +15 Inequality
-5. **Religious Opposition Movement**: Major faiths condemn ectogenesis as unnatural, -20 Technology Adoption
-6. **Premature Infant Survival Breakthrough**: Artificial wombs save extremely premature babies, +25 Healthcare Quality
-7. **Parental Rights Legal Crisis**: Custody battles over ectogenesis pregnancies reach Supreme Court, -15 Legal Clarity
-
 **Cascading Effects:**
 - Triggers **IVF and Fertility Treatment Costs** debates as ectogenesis enters reproductive services
 - Amplifies **Surrogacy Exploitation** dynamics if artificial wombs marketed as ethical alternative

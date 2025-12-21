@@ -11,46 +11,39 @@ socialImpact: 91
 affectedSystems: [Democratic Institutions, Electoral Systems, Media, Social Cohesion]
 connections: [democratic-backsliding, disinformation-plague]
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-24
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Election Denialism
 
 ## Overview
 
-Election denialism represents a fundamental erosion of democratic legitimacy through widespread rejection of election results and systematic distrust of electoral institutions. The movement gained particular prominence during and after the 2020 U.S. presidential election, crystallized around the "Stop the Steal" narrative, but has deeper historical roots and continues to shape political outcomes and democratic stability through 2025.
+Election denialism represents a fundamental erosion of democratic legitimacy through widespread rejection of election results and systematic distrust of electoral institutions. The movement gained particular prominence during and after the 2020 U.S. presidential election, crystallized around the "Stop the Steal" narrative, and continues to shape political outcomes and democratic stability.
 
-The core mechanism operates through a feedback loop: election denialism delegitimizes electoral outcomes regardless of their validity, which undermines public confidence in democratic institutions, which then enables further anti-democratic measures (voting restrictions, institutional capture, violence), which in turn generates actual electoral irregularities through deliberate sabotage and incompetence, which then "validates" the original false claims. By 2025, approximately 32-38% of Americans believe the 2020 election was "stolen," despite exhaustive audits, 60+ failed court challenges, and investigations by Republican election officials that found no evidence of fraud. This persistent belief—held by roughly 40-45% of Republicans—represents a critical structural weakness in democratic resilience.
+The core mechanism operates through a feedback loop: election denialism delegitimizes electoral outcomes regardless of their validity, which undermines public confidence in democratic institutions, which then enables further anti-democratic measures (voting restrictions, institutional capture, violence), which in turn can generate real administrative failures through sabotage and incompetence, which then "validates" the original false claims. Despite repeated court losses and post-election reviews, distrust can persist for years and become a durable vulnerability in democratic resilience.
 
-The tangible harms are substantial. The January 6, 2021 Capitol attack killed five people, injured 140 law enforcement officers, and resulted in $30 million in property damage. By 2025, over 1,000 participants have been prosecuted, with numerous ongoing trials for seditious conspiracy charges. More systemically, election denialism has catalyzed voting restriction legislation in 18+ states, enabled gerrymandering through courts captured by election-skeptics, eroded election administration resources (30% of election officials have left office due to harassment since 2020), and created a political environment where threats against election workers and officials have increased 350% since 2020. State election infrastructure now faces systematic challenges: 21 states have pursued "election integrity" audits that lack any forensic validity, spreading misinformation about voting systems while consuming resources that should go toward cybersecurity and disaster recovery.
+The tangible harms are substantial. The January 6, 2021 Capitol attack injured law enforcement officers and triggered a large federal prosecution effort; Reuters later reported that nearly 1,600 rioters had been prosecuted, and that President Donald Trump issued pardons after returning to the presidency.[^reuters_jan6_prosecutions_pardons][^ap_trump_pardons_2025] More systemically, threats and harassment targeting election administrators and workers increased materially after 2020, contributing to resignations and recruitment challenges.[^brennan_2024_election_officials]
 
-Institutionally, election denialism has infected governance. Four state legislatures have entertained proposals to hand-select presidential electors directly, removing votes from the process entirely. The Republican National Committee officially denied the validity of the 2020 election in 2022. Key Republican officials who initially certified 2020 results or opposed false fraud claims—including election administrators, state attorneys general, and governors—faced primary challenges or resignation pressure, creating institutional selection effects toward election-denialist successors. This represents a potential cascading failure mode: if election-denialist operatives successfully capture election administration positions, they can introduce actual vulnerabilities (poor security, deleted records, incompetent audits) that then generate real irregularities, which become ammunition for the next cycle of denialism.
+Institutionally, election denialism can infect governance through staff selection effects (replacing experienced administrators with ideologically aligned but less competent successors), through politicized audits that consume scarce administrative capacity, and through legislative pressure on election administration. This represents a cascading failure mode: if election-denialist operatives capture election administration positions, they can introduce actual vulnerabilities (poor security, deleted records, incompetent audits) that then generate real irregularities, which become ammunition for the next cycle of denialism.
 
 ## Game Mechanics
 
 **Parameter Effects:**
 
-- **Democratic Trust Index**: Election denialism reduces confidence in democratic institutions by 8-15 percentage points for every major election cycle in which denial narratives dominate media discourse. Post-2020, trust in elections declined from 65% (2019) to 52% (2022) among Republicans and stabilized around 48-52% by 2025. Trust in election administrators specifically dropped 25-30 percentage points in states where denial narratives were strongest. This decline is sticky: even after election officials produce audits showing no fraud, belief in fraud increases if the audit process itself is attacked as "rigged."
+- **Democratic Trust Index**: In this model, election denialism reduces confidence in democratic institutions (and confidence in election administrators in particular). The decline is sticky: even after audits find no fraud, belief in fraud can persist if the audit process itself is framed as "rigged."
 
-- **Political Polarization**: Election denial drives 10-18 percentage point increases in partisan voting divergence on institutional trust and democracy questions. In 2020-2024 elections, polls showed 38-42% partisan gap on "was the election legitimate?" and 28-35% gap on "should an election defeat be accepted?" Polarization compounds: communities with high election denial show 12-15% lower levels of cross-partisan cooperation on local governance (school boards, infrastructure planning), making it harder to solve non-political problems.
+- **Political Polarization**: In this model, election denial drives sharp increases in partisan divergence on institutional trust and democracy questions, reducing cross-partisan cooperation on local governance.
 
-- **Election Administration Capacity**: States with strong election-denialist political movements experience systematic funding cuts to election offices (18-22% in vulnerable states), staff exodus (30-35% of experienced officials leave), and reduced cybersecurity investment (40-50% states with strong denial movements delayed critical voting system updates). This creates actual vulnerabilities: 8 states still use completely unauditable voting systems (no paper trail), 12 states have inadequate post-election audit procedures, and 15 states have insufficient disaster recovery protocols. Ironically, election-denialist demands for increased audits paradoxically consume resources that would otherwise strengthen actual security.
+- **Election Administration Capacity**: In this model, sustained denialism increases pressure on election offices, drives staff turnover, and diverts resources into politicized investigations and legal conflict rather than resilience work (cybersecurity, staffing, procedures, disaster recovery). Surveys indicate a materially elevated threat/harassment environment for local election officials.[^brennan_2024_election_officials]
 
-- **Interstate Coordination**: Election denialism increases partisan interstate conflict on election administration standards. Eight states have passed legislation threatening to withhold recognition of neighboring states' election results, and three states have entertained proposals to hand-select electors independent of voting. This fractionalizes the electoral system, creating potential cascade failure if multiple states simultaneously attempt electoral manipulation.
+- **Political Violence Amplitude**: In this model, election denial narratives increase threats, intimidation, and the probability of political violence targeting election workers and other perceived institutional opponents.[^brennan_2024_election_officials]
 
-- **Political Violence Amplitude**: Election denial narratives directly increase threat intensity against election officials and workers. Death threats against election administrators increased from ~5 documented cases (2010-2020) to 200+ cases annually (2021-2025). Swatting incidents targeting election workers escalated 400%+ in 2021-2023. Armed groups citing "election fraud" have conducted surveillance operations on ballot counting facilities (Arizona, Georgia, Wisconsin). A 2023 Militia Mapping Project analysis identified 12+ armed groups actively involved in election denial vigilantism.
+## Sources
 
-**Event Types:**
-
-1. **Denial Narrative Surge**: High-profile election fraud claims (false or real) trigger media amplification and social media cascade; denialism belief increases 15-25 percentage points over 4-8 weeks if claim is repeatedly featured across media ecosystems. Historical pattern: 2020 claims surge, 2024 claims surge, now persistent baseline of 32-38% belief even in absence of triggering claims.
-
-2. **Election Official Purge**: Election-denialist political movements take control of a state election administration; experienced non-partisan officials resign or are removed; replaced by ideologically-aligned operatives. Consequence: Election administration quality declines measurably within 12 months (longer audit times, lower security standards, reduced transparency). If >3 swing states experience purge simultaneously, systemic election integrity risk escalates to critical threshold.
-
-3. **Institutional Capture Event**: Court captures, legislative changes, or executive actions hand more electoral control to ideologically-motivated actors (legislature picking electors, partisan election boards). Consequence: Public confidence in electoral legitimacy drops 20-30 percentage points in affected jurisdiction, interstate conflict escalates, litigation increases 200%+.
-
-4. **Counter-Mobilization**: Massive turnout/activism in response to election denial claims, public officials win re-election or anti-denial candidates win primaries. Consequence: Reverses some institutional capture effects, election denialism belief drops 8-12 percentage points in region, but polarization typically increases (both sides mobilize more intensely).
-
-5. **Vigilante Escalation**: Armed groups begin conducting surveillance, intimidation, or violence targeting election facilities, officials, or ballot access points. Consequence: Election administration becomes physically dangerous, officials resign (15-20% increase in staff exits), voting access restricted in targeted areas, litigation over security measures.
+[^reuters_jan6_prosecutions_pardons]: https://www.reuters.com/world/us/trump-has-prosecutors-probing-his-election-fraud-claims-2025-12-17/
+[^ap_trump_pardons_2025]: https://apnews.com/article/trump-pardons-capitol-riot-january-6-c9f99a1606c7a6a1c8b5afc1c0b6ec33
+[^brennan_2024_election_officials]: https://www.brennancenter.org/our-work/research-reports/local-election-officials-survey
 
 **Cascading Effects:**
 
@@ -84,5 +77,5 @@ Institutionally, election denialism has infected governance. Four state legislat
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-24
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/election-denialism.md)

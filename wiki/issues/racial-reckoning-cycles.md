@@ -38,18 +38,6 @@ This pattern has real consequences for the institutions designed to address raci
 
 - **Intergenerational Trust in Justice Systems** (0-100): Reflects how younger generations view institutions' commitment to equity; each failed reform cycle reduces this by 8-12 points. Below 30 makes future mobilization more radical and less institutional in character.
 
-### Event Types
-
-- **Viral Incident / Catalyst Event** (25-35% probability during high racial tension): A police killing, discriminatory incident, or leaked racist communication triggers national outcry and rapid movement mobilization. Increases Public Concern by 20-30 points over 2-4 weeks. Sets off chain that can trigger reforms or intensify militarization depending on political response.
-
-- **Legislative / Policy Victory** (15-25% probability during peak momentum): Congress passes police reform bill, executive order banning certain practices, or states establish new accountability mechanisms. Provides 6-8 month window of genuinely improved conditions before active backlash begins. Paradoxically strengthens backlash forces by creating visible target for counter-mobilization.
-
-- **Backlash Counter-Mobilization** (30-40% probability 3-6 months after victory): Organized political response emerges; law enforcement lobbies against implementation, media narratives shift to "crime surge" and "defund police consequences," conservative political campaigns weaponize issue. Reduces reform effectiveness by 25-35% and triggers reversion toward previous policies within 12-18 months.
-
-- **Corporate Diversity / Performative Response** (20-30% probability mid-cycle): Major institutions announce diversity programs, commit to equity goals, establish committees. Temporarily reduces public pressure (Public Concern drops 8-12 points) but without actual structural change. When inevitable gap between rhetoric and reality becomes visible (12-18 months), cynicism increases by 15-25 points.
-
-- **Institutional Exhaustion / Movement Collapse** (25% probability after 2+ years sustained pressure): Activists experience burnout, funding dries up, organizational resources deplete. Dramatically accelerates transition to retrenchment phase. Movement effectiveness drops by 40-50% over 3 months. Enables rapid reversal of reforms without organized resistance.
-
 ### Cascading Effects
 
 - **Police Militarization ↔ Justice Movement Intensity**: Each cycle of backlash strengthens militarized policing; police militarization generates the incidents that spark movements. Creates feedback loop where each movement triggers more militarized response, making subsequent movements more confrontational and creating stronger political backlash.

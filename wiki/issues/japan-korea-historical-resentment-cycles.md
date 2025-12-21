@@ -37,18 +37,6 @@ This creates a predictable cycle: historical anniversary or new evidence emerges
 
 - **Regional Security Coordination** (0-100): Trilateral U.S.-Japan-Korea effectiveness drops 15-25% during disputes. North Korea exploits coordination gaps with missile tests timed to bilateral tensions. China gains strategic openings to offer Korea economic alternatives.
 
-**Event Types:**
-
-1. **Comfort Women Crisis**: New evidence, survivor testimonies, or court rulings demanding compensation trigger diplomatic crisis. Japanese government resistance versus Korean demands for expanded reckoning create 2-4 month standoffs with 6-12 month recovery.
-
-2. **Textbook Dispute**: Japanese ministry approves texts minimizing occupation → Korean protests → diplomatic crisis. Pattern repeats every 2-3 years with textbook approval cycles.
-
-3. **Territorial Confrontation**: Japanese sovereignty claims over Dokdo/Takeshima islets trigger coast guard incidents, nationalist mobilization, and military posturing despite the rocks' minimal strategic value.
-
-4. **Trade-History Fusion**: Economic competition (semiconductors, displays, shipbuilding) escalates when historical grievances provide political cover for protectionism. 2019 export restrictions were framed as response to Korean court ruling on forced labor.
-
-5. **Court Ruling Cascade**: Korean courts periodically rule Japanese government/corporations owe individual compensation (2018 forced labor, 2021 comfort women). Japan refuses compliance citing 1965 treaty. Impasse triggers bilateral crisis.
-
 **Cascading Effects:**
 
 - Amplifies **East Asian Tensions**: U.S. alliance effectiveness against North Korea/China reduced 15-25% during crises. North Korea gains operational freedom; China expands regional influence.

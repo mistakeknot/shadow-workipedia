@@ -34,15 +34,6 @@ The stakes involve societal sustainability and human dignity. When dementia pati
 - **Economic Productivity**: -20 to -35 from caregiver withdrawal and care costs
 - **Public Health**: -10 to -20 as caregiver health deteriorates
 
-**Event Types:**
-1. **Dementia Prevalence Milestone**: Cases exceed 10 million nationally, -30 Healthcare Capacity, trigger Long-Term Care Crisis
-2. **Caregiver Burnout Wave**: Mass exodus from family caregiving, -25 Social Cohesion
-3. **Nursing Home Collapse**: Major chains bankrupt, thousands displaced, -40 Healthcare Capacity
-4. **Alzheimer's Drug Failure**: Promising treatment fails Phase 3 trials, -15 Medical Research Hope
-5. **Elder Abuse Scandal**: Widespread neglect exposed in memory care facilities, -30 Public Trust
-6. **Medicaid Bankruptcy Surge**: Families impoverish themselves for nursing home coverage, -20 Economic Stability
-7. **Caregiver Employment Discrimination**: Workers fired for dementia care responsibilities, -15 Labor Rights
-
 **Cascading Effects:**
 - Triggers **Healthcare System Collapse** when dementia care demand exceeds all capacity
 - Amplifies **Aging Population Crisis** as dementia becomes dominant care need

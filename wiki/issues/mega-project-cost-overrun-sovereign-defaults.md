@@ -40,20 +40,6 @@ This creates financial colonialism through deliberate mechanisms: China's lendin
 
 **Government Budget Deficit**: Debt service consumes 25-40% of revenue (Sri Lanka 32%, Zambia 35%+), crowding out education, healthcare, and social services. Budget deficits widen 3-8 percentage points.
 
-### Event Types
-
-1. **Cost Overrun Announcement** (60-75% project completion): Company announces 40-60% cost increase. Government chooses: abandon project or approve overrun (95% approve). Triggers 10-20% currency depreciation, 15-25% bond spread increase, downgrade warning.
-
-2. **Debt Service Crisis Cascade** (18-36 months post-overrun): Debt service exceeds 30% of revenue. Reserves drop below 3 months import coverage. IMF mandates 20-30% spending cuts, privatization, wage freezes. Spawns education collapse, healthcare strikes, public layoffs.
-
-3. **Currency Crisis** (Reserves <$2B or debt service >35% revenue): Capital flight, currency peg breaks, 30-50% depreciation over 6-12 weeks. Inflation spikes 20-40%, triggering bank runs. Poverty increases 15-25 points within 12 months.
-
-4. **Strategic Asset Seizure Threat** (Missed payments/stalled restructuring): Creditors invoke collateral clauses. Scenarios: port seizure (Sri Lanka's Hambantota to China), highway/rail control, resource concessions (Angola/DRC oil/mining). Generates nationalist backlash, protests, regime instability.
-
-5. **Credit Rating Downgrade Spiral** (Debt >90% GDP): Downgrades increase borrowing costs 200-400 basis points, triggering covenant violations. Creates death spiral: higher rates worsen debt, triggering further downgrades. Within 12-18 months, capital markets close. Government must restructure (30-60% haircut), default, or seek IMF bailout.
-
-6. **Sovereign Default** (Failed negotiations): Debt haircut 20-60% (Sri Lanka: 26% in 2023). Triggers bank runs, insurance collapses, pension freeze, credit seizure. Currency loses 50-70%, inflation hits 40-60%, poverty spike causes humanitarian crisis.
-
 ### Cascading Effects
 
 - **Refugee/Migration Collapse**: Unemployment spikes 8-12 points, poverty exceeds 60%, migration pressure increases 200-300%. Brain drain: 20-35% of professionals emigrate within 3 years.

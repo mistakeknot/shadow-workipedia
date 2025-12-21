@@ -38,18 +38,6 @@ The structural fragility is compounded by regulatory uncertainty. If governments
 
 - **Financial Institution Custody Trust (0-100)**: Measures confidence that custodian banks properly safeguard stablecoin reserves. Banking failures, regulatory action, or custody disputes lower this metric, forcing multi-day withdrawals that cascade across the system.
 
-### Event Types
-
-- **Reserve Audit Revelation (15% annual probability, scales with Stablecoin Reserve Confidence decline)**: Third-party audit discovers reserves are only 85-95% backed, triggering immediate 5-15% reserve confidence decline. Market stabilizes if protocol implements rapid recapitalization; crises if protocol delays or denies findings.
-
-- **Custodian Bank Stress Event (8% annual probability, conditional on Financial Stability Index declining)**: Primary custodian bank experiences deposit flight or regulatory action, freezing stablecoin reserve access for 24-72 hours. Triggers immediate redemption pressure (Reserve Confidence -20 to -40) and forces alternative custody arrangements at higher cost.
-
-- **Regulatory Stablecoin Restrictions (12% annual probability, scales with political pressure)**: Government mandates stablecoin usage restrictions, requires immediate regulatory approval for new issuance, or imposes reserve requirements retroactively. Triggers 10-25% reserve confidence decline and forces institutional deleveraging within days.
-
-- **DeFi Cascade Liquidation Event (20% annual probability, conditional on Crypto Leverage Index above 60)**: Drop in stablecoin confidence triggers forced liquidations of over-leveraged positions, creating 3-7 day cascade of margin calls, price declines, and further liquidations. Each wave can reduce stablecoin value 5-15%.
-
-- **Eurodollar Liquidity Crunch (18% annual probability, scales with Stablecoin Reserve Confidence and Eurodollar System Stress)**: Offshore dollar shortage forces multinational corporations to delay payments, emerging markets to halt imports, and financial institutions to raise dollar borrowing costs sharply (LIBOR equivalent +2-5%). Trade finance freezes until central banks inject dollars via swap lines.
-
 ### Cascading Effects
 
 - **Stablecoin Confidence Collapse → Eurodollar Shock**: Reserve confidence below 30 forces $30-50B in daily redemptions, draining offshore dollar reserves and raising eurodollar interest rates 300-800 basis points. Corporate trade finance becomes inaccessible within 48 hours; emerging markets enter sudden capital-flight scenarios.

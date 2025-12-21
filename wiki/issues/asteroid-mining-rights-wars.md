@@ -30,14 +30,6 @@ Asteroid mining promises abundant rare earth metals, platinum-group elements, an
 - **Supply Chain Stability**: Decreases 10–20 points as terrestrial rare-earth mining declines and space mining remains geopolitically contested
 - **Space Infrastructure Durability**: Declines as mining debris increases orbital clutter and collision risk
 
-**Event Types:**
-1. **Successful Mining Extraction**: A corporation or national space program successfully extracts and returns rare earth metals from an asteroid; validates business model and triggers investment surge and competing claims within 12–18 months
-2. **Claim Collision Dispute**: Two or more entities (nations, corporations, consortiums) file overlapping or identical claims on the same asteroid; triggers legal battles, diplomatic incidents, or military posturing
-3. **Terrestrial Mining Collapse**: Rare-earth prices plummet due to anticipated asteroid supply; terrestrial mining operations close; supply-chain assumptions about Earth-based reserves shatter, creating mid-2030s supply shocks when space mining underperforms
-4. **Orbital Debris Cascade**: A mining operation's collision, fuel depletion, or sabotage creates uncontrolled orbital debris; cascades into Kessler syndrome risk, forcing space activities shutdown and stranding orbital infrastructure
-5. **Treaty Reinterpretation Crisis**: A major power or coalition reinterprets Outer Space Treaty to claim sovereign mining rights or territorial claims on celestial bodies; triggers counter-reinterpretations and fragmented space law
-6. **Mining Consortium Monopoly**: A single entity or tightly-controlled consortium controls 60%+ of accessible asteroid mining capacity; triggers regulatory backlash, sanctions, or cartel-breaking military action
-
 **Cascading Effects:**
 - Triggers **Rare-Earth Monopoly Collapse** as early space mining success creates false confidence, leading to premature terrestrial mining shutdown and supply-chain fragmentation when space mining fails to deliver scale
 - Amplifies **Supply-Chain Fragmentation** by 30–50% when geopolitically-contested mining rights prevent reliable sourcing of critical minerals

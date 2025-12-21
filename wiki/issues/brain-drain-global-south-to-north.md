@@ -34,15 +34,6 @@ The stakes involve global development trajectories and self-reinforcing inequali
 - **Labor Market (Destination)**: +10 to +20 from skilled worker influx
 - **Global Inequality**: +15 to +30 as brain drain reinforces disparities
 
-**Event Types:**
-1. **Medical Exodus**: 50%+ of medical school graduates emigrate, -35 Healthcare Capacity (source), trigger Health Crisis
-2. **Engineering Brain Drain**: Tech sector collapse as engineers migrate, -30 Innovation (source)
-3. **Active Recruitment Program**: Wealthy nation targets source country professionals, -20 Development Capacity
-4. **Emigration Restriction Attempt**: Source country limits professional emigration, -15 Civil Liberties, triggers protests
-5. **Remittance Dependency**: Economy relies on diaspora payments rather than domestic development, -25 Economic Sovereignty
-6. **Diaspora Return Program Success**: Incentives bring skilled workers home, +15 Development Capacity (rare)
-7. **Educational Investment Collapse**: Brain drain makes training investment futile, -20 Education Quality
-
 **Cascading Effects:**
 - Triggers **Skilled Immigration Restrictions** backlash as destination countries cherry-pick talent
 - Amplifies **Global Inequality** as rich nations extract human capital without compensation

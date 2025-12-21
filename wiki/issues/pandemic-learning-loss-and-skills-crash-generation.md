@@ -34,17 +34,6 @@ The long-term consequences may not fully emerge for decades. Students who missed
 **Economic Productivity**: -9% (long-term workforce capability reduced)
 **College Readiness**: -15% (preparation for higher education compromised)
 
-### Event Types
-
-**Learning Loss Study Released**: Research quantifies extent of damage
-**Remediation Program Launched**: Attempt to address gaps
-**Achievement Gap Widens**: Inequality in outcomes increases
-**College Enrollment Declines**: Pandemic cohort bypasses higher education
-**Standardized Test Scores Drop**: National assessments reveal crisis
-**Teacher Shortage Worsens**: Burnout from pandemic accelerates
-**Summer School Expansion**: Intensive catch-up efforts
-**Remote Learning Abandoned**: Return to in-person without addressing gaps
-
 ### Cascading Effects
 
 Pandemic school closures → Remote learning fails → Learning loss accumulates → Skills gaps persist → College readiness declines → Workforce preparation inadequate → Economic productivity suffers → Social mobility decreases → Inequality increases → Generational disadvantage entrenched

@@ -40,18 +40,6 @@ Interstate marriage recognition conflicts create cascading harms: pension benefi
 
 - **Religious Institution Conflict**: Expansions of religious exemptions in marriage-related services (catering, photography, counseling, healthcare) create 25-40 concurrent lawsuits per major state. Public conflicts increase religious polarization by 5-8 percentage points and reduce interfaith cooperation on social issues by 12-18%.
 
-**Event Types:**
-
-1. **Trigger Law Activation (Supreme Court Reversal)**: *Obergefell* is overturned in original decision or via narrow ruling gutting enforcement mechanisms. Immediate effects: 6 states ban same-sex marriage with criminal penalties; 18 states reactivate pre-2015 bans; federal government can no longer enforce national marriage recognition standard. Cascades if combined with high judicial legitimacy crisis: federal courts fracture into competing interpretations, creating 2-year legal vacuum. Triggers all cascading effects simultaneously.
-
-2. **Interstate Recognition Conflict Litigation Cascade**: Single state refuses to recognize valid same-sex marriages from other states (military spouse loses commissary benefits, LGBTQ+ couple's adoption rejected in guardianship case, pension dispute in federal court). If resolved against marriage equality, creates precedent; 8-15 additional states enact similar restrictions within 18 months. Triggers federal constitutional crisis requiring intervention.
-
-3. **Religious Exemption Expansion Conflict**: State legislature passes broad religious exemption law allowing denial of marriage-related services based on religious objection. Creates immediate legal conflicts (public accommodation law vs. religious freedom); 5-12 lawsuits filed within 60 days. If upheld at state/federal level, triggers rapid adoption by 12-18 additional states, fragmenting service access by ideology.
-
-4. **State Child Custody Challenge**: Conservative state government systematically challenges custody determinations from same-sex married couples through "best interest of child" arguments. Requires multi-year litigation; if successful, creates precedent that spreads to 8-15 additional states. Directly affects 120,000+ children with same-sex parents, creating generational trauma and family fragmentation.
-
-5. **Military Family Separation**: Federal benefit administration rules create conflicts with state marriage non-recognition policies. Commissioned officer in state without recognition loses housing allowance; military family structure fractures. Triggers Pentagon response and potential federal-state conflict over benefits policy, affecting 8,000-12,000 military-connected LGBTQ+ families.
-
 **Cascading Effects:**
 
 - Triggers **democratic-backsliding** by 15-25% through weaponization of marriage equality and LGBTQ+ rights as electoral proxy for judicial control and constitutional authority

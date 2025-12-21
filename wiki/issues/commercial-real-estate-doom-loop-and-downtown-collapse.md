@@ -34,17 +34,6 @@ This issue represents the most concentrated systemic financial risk in the post-
 - **Regional Employment**: Decreases 2-5% during severe cascades as construction, property management, security services, and service sector jobs tied to office/retail districts evaporate
 - **Real Estate Investment Sentiment**: Collapses triggering capital flight from mid-market properties, liquidity freeze for non-trophy assets, and duration risk as hold periods extend 10-15 years
 
-**Event Types:**
-1. **Maturity Wall Collision**: $300-400B in CRE loans reaching maturity annually (2023-2027) cannot refinance at lower LTV ratios; borrowers face 20-50% loan amount reductions or foreclosure; major REIT defaults trigger contagion across portfolios (e.g., Brookfield Property Partners $2B+ mark-downs 2023)
-
-2. **Regional Bank CRE Reckoning**: A mid-sized regional bank with 35%+ CRE concentration faces simultaneous loan defaults on 5-15% of portfolio, forcing rapid asset sales at distressed prices (40-50% discounts), triggering mark-to-market losses that exceed Tier 1 capital, forcing FDIC intervention or failure (similar to SVB model but CRE-focused)
-
-3. **Downtown Retail Extinction**: Anchor tenants (department stores, major chains) default on ground floor retail leases simultaneously, creating cascade of secondary retail closures (-50-80% remaining retail in affected districts within 12-24 months), killing foot traffic and collapsing remaining service sector (restaurants, bars, salons)
-
-4. **Municipal Tax Crisis Acceleration**: A major city loses 20-30% of property tax revenue within 18 months as office property valuations drop and defaults reduce tax base; forces 15-25% service cuts (transit, police, fire, parks), triggering population exodus that further contracts demand
-
-5. **Institutional Capital Withdrawal**: Insurance companies, pension funds, and international investors simultaneously reduce CRE allocations following recognition of structural vacancy; liquidity dries up for secondary market transactions, forcing hold-to-maturity strategies and 5-10 year resolution timelines for troubled assets
-
 **Cascading Effects:**
 - Triggers **Remote Work Revolution** as permanent office reduction creates tech sector cost arbitrage (SF/NYC salary reductions 15-30%), spreading to other sectors; lowers cost of living in secondary markets but concentrates talent migration away from affected cities
 - Amplifies **Municipal Fiscal Crisis** when property tax revenue collapse meets simultaneous cuts to state/federal support; forces painful choices between maintaining basic services and debt service on aging infrastructure

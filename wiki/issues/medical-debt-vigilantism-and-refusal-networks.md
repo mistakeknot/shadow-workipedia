@@ -36,18 +36,6 @@ The movement encompasses diverse tactics: coordinated refusal to pay (similar to
 
 - **Legal System Strain and Debt Collection Industry Viability**: Coordinated legal challenges to debt collection practices (disputing debt validity, challenging collection agency standing, filing counterclaims) increase litigation costs for collection agencies by 15-30%. When refusal networks reach 15%+ participation rates in a region, debt collection agencies face 20-40% reduction in profitability and begin withdrawing from regional markets entirely, creating vacuums that smaller, more aggressive collection agencies fill.
 
-**Event Types:**
-
-1. **Debt Abolition Purchase Event**: A collective or organization (formal or informal) purchases a portfolio of medical debt at steep discount (typically 1-3 cents on the dollar) and cancels it. Single events typically range from $100,000 to $50 million in debt. Consequences: 5,000-50,000 individuals receive debt cancellation notifications; affected hospitals/debt buyers lose 100-500% return on capitalized debt; media attention increases public awareness by 8-15 percentage points; triggers 3-5 copycat fundraising campaigns within 6 months.
-
-2. **Regional Debt Strike Coordination**: A refusal network in a city or region coordinates patients to collectively stop payment and challenge validity of medical debts simultaneously (typically 100-5,000 participants). Creates legal confusion for debt collection agencies (sudden spike in validation requests and legal disputes); hospitals and debt buyers experience 15-40% spike in litigation costs; if >20% of region participates, creates cascading defaults that collection agencies cannot process efficiently.
-
-3. **Healthcare Provider Policy Reversal**: A hospital system, facing refusal campaign pressure or reputational damage, reverses aggressive debt collection practices—stopping collection lawsuits, forgiving debt above certain thresholds, or ceasing wage garnishment. Signals vulnerability of medical debt collection to organized pressure; creates template for other campaigns; increases public confidence in refusal strategies by 10-20 percentage points; triggers 4-8 copycat campaigns in similar-sized hospital systems.
-
-4. **Coordinated Legal Challenge Victory**: Refusal networks successfully challenge debt collection agency standing, debt validation, or collection practice legality (particularly around state debt collection laws). Creates legal precedent limiting collection strategies; attorneys begin offering pro bono services for other cases; affects 5,000-50,000 debtors across similar debt collection situations; can trigger legislation restricting collection practices by 12-18 months if victory is high-profile.
-
-5. **Debt Strike Escalation to System Dysfunction**: Refusal network reaches critical mass (25%+ regional participation) and debt collection system enters partial failure mode—collection agencies cannot process volume of disputes, hospitals lose revenue predictability, credit reporting becomes unreliable. Creates cascading defaults, hospital billing departments collapse, regional credit availability contracts 8-15%.
-
 **Cascading Effects:**
 
 - Triggers **global-healthcare-workforce-exodus** when refusal participation exceeds 20% regionally + combined with staffing shortages, forcing hospitals into working capital crisis within 18-36 months

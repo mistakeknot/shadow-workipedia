@@ -38,20 +38,6 @@ The system's global impact extends beyond its origin countries. Oligarchic capit
 
 **Real Estate Market Distortion** (Housing Affordability -30 to -40): Oligarchs use real estate as primary money-laundering mechanism, driving property prices disconnected from local wages. Communities become unaffordable, wealth concentration accelerates, and housing transforms from shelter into speculative asset controlled by non-resident wealthy.
 
-### Event Types
-
-**Oligarch Capital Flight** (Probability: 35% quarterly): Sudden movement of large oligarchic fortunes to offshore havens or Western real estate following political instability, sanctions threats, or legal exposure. Effect: -15 Capital Flight metric, -10 State Capacity, +20 Western Financial System Opacity. Cascades to sanctions evasion schemes.
-
-**Media Monopolization** (Probability: 28% quarterly): Oligarch acquires major news outlets to suppress negative coverage and control political narrative. Effect: -20 Democratic Legitimacy, -15 Institutional Trust, +25 Information Asymmetry. Cascades to political manipulation and reduced oversight capacity.
-
-**Shell Corporation Network Exposure** (Probability: 18% quarterly): Investigation or leak reveals complex offshore ownership structures used to hide wealth and evade sanctions. Effect: -20 Financial System Opacity (short-term pressure for transparency), -10 Political Influence (temporary reputational damage), +30 Regulatory Momentum (brief window for enforcement). Often blocked by lobbying.
-
-**Real Estate Bubble Formation** (Probability: 42% quarterly): Oligarchic capital inflow drives property prices to unsustainable levels in gateway cities, pricing out local populations. Effect: -25 Housing Affordability, +20 Wealth Inequality, +15 Social Unrest (in affected cities), triggers housing affordability crisis event.
-
-**Money Laundering Pipeline Disruption** (Probability: 15% quarterly): Financial enforcement action, banking scandal, or geopolitical sanctions temporarily blocks oligarchic wealth movements. Effect: -15 Capital Flight (bottleneck), +25 Regulatory Effectiveness (temporary), -10 Political Influence (restricted funding capacity). Creates window for stronger enforcement if followed up.
-
-**Kleptocratic State Collapse** (Probability: 8% yearly): When oligarchic extraction reaches critical mass, state becomes non-functional, triggering political crisis, capital flight acceleration, and potential regime change. Effect: -50 State Capacity, -40 Democratic Legitimacy, +40 Capital Flight, -30 Economic Vitality. Cascades to systemic governance failure.
-
 ### Cascading Effects
 
 **Oligarchy → Media Capture → Information Collapse**: As oligarchs consolidate media ownership, independent journalism becomes impossible. The public loses reliable information about political decisions, corruption scandals, or oligarchic influence, weakening accountability mechanisms and enabling further extractive policies.

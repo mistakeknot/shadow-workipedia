@@ -45,17 +45,6 @@ The consequences extend far beyond direct military costs. The War on Terror enab
 - **Democratic Accountability**: -10 to -20 (executive power expansion)
 - **Regional Stability**: -15 to -30 (interventions destabilize regions)
 
-### Event Types
-- Military intervention expanding to new country under terrorism pretext
-- Drone strike civilian casualties creating new terrorist recruitment
-- War costs revealed to exceed projected budgets by orders of magnitude
-- Indefinite detention or torture scandal undermining moral authority
-- Failed state or terrorist organization emerging from previous intervention
-- Authorization for Use of Military Force (AUMF) expanded to new contexts
-- Surveillance program revealed to have operated beyond legal authority
-- Veterans returning with PTSD and inadequate support
-- Fiscal crisis exacerbated by unsustainable war spending
-
 ### Cascading Effects
 - **Fiscal Crisis**: Trillions in war costs crowd out productive investment and social programs
 - **Civil Liberty Erosion**: Counterterrorism justifications normalize surveillance and executive power expansion

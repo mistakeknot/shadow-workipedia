@@ -30,13 +30,6 @@ The widespread overuse of antibiotics in medicine and industrial agriculture has
 - **Pharmaceutical R&D**: Critical bottleneck—new antibiotics are unprofitable (short treatment cycles, resistant organisms emerge quickly), so companies focus on chronic drugs. Low R&D slows superbug countermeasures.
 - **Public Health Capacity**: Determines outbreak response speed and isolation capacity. Overwhelmed systems accelerate resistance spread through hospitals.
 
-**Event Types:**
-1. **Superbug Outbreak**: A new multi-drug resistant pathogen emerges (MRSA variant, NDM-1 Enterobacteria). Spreads rapidly in hospitals; triggers healthcare system stress and public concern spikes.
-2. **Hospital Cluster Infection**: Nosocomial (hospital-acquired) outbreak of resistant bacteria. Rapidly overwhelms a hospital's capacity; can trigger regional healthcare system cascade if multiple facilities affected.
-3. **Agricultural Antibiotic Ban**: Government restricts routine antibiotic use in livestock to curb resistance. Creates agricultural pressure (animals die from preventable infections), but reduces resistance spread rate.
-4. **New Antibiotic Breakthrough**: Pharmaceutical success creating novel class of antibiotics (e.g., new fluoroquinolone, phage therapy approval). Temporary Medical Effectiveness boost but high cost limits accessibility.
-5. **WHO Alert Escalation**: International health authority raises alarm on resistance crisis. Increases Public Concern, triggers policy responses, but can fuel healthcare system pressure if nations compete for limited antibiotics.
-
 **Cascading Effects:**
 - Triggers **Pandemic Response Wars** when antibiotic-resistant pathogens cause pandemics; nations hoard effective antibiotics and restrict exports.
 - Amplifies **Healthcare System Collapse** by increasing treatment costs and hospital-acquired infections; resistant pathogens overwhelm ICUs faster.

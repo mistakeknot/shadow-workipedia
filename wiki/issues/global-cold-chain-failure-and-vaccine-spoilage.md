@@ -36,33 +36,6 @@ Cold-chain infrastructure—the interconnected network of refrigeration, transpo
 
 6. **Trust in Institutions** - Visible vaccine spoilage and public awareness of waste fuel vaccine hesitancy, reducing demand by 10-40% and making batch shortages self-fulfilling prophecies.
 
-### Event Types
-
-1. **Cold-Chain Breakdown** (Probability increases with heat, wear, underfunding)
-   - Regional refrigeration system fails; 50,000-500,000 vaccine doses spoil within 24-48 hours
-   - Forces emergency procurement, strains budgets, delays routine immunization campaigns
-   - Triggers media coverage and skepticism about vaccine safety
-
-2. **Food Spoilage Crisis** (Triggered by power failures, seasonal heat peaks)
-   - Harvest losses spike to 50%+ in vulnerable regions; food prices rise 15-25%
-   - Malnutrition increases, particularly in children; long-term health impacts emerge
-   - Rural incomes collapse, forcing migration and social unrest
-
-3. **Vaccine Shortage Cascade** (Follows spoilage events in multiple countries)
-   - Global vaccine supply tightens; manufacturers cannot meet demand
-   - Measles, polio, or other VPD outbreaks occur in undervaccinated populations
-   - International organizations declare emergency; donor funding mobilized but arrives too late for outbreak control
-
-4. **Solar Panel Collapse** (Climate/infrastructure)
-   - Off-grid cold-chain systems lose power during extended cloudy seasons or equipment failure
-   - Remote clinics lose ability to preserve vaccines; backup transport unavailable
-   - Clinic staff resort to unrefrigerated storage, rendering doses useless
-
-5. **Infrastructure Adaptation Initiative** (Policy response)
-   - Governments invest in passive cooling, underground storage, or distributed solar systems
-   - 6-12 month delay before infrastructure becomes operational
-   - Reduces vulnerability by 20-35% once deployed
-
 ### Cascading Effects
 
 1. **Reduced Vaccination Coverage → Disease Resurgence** - Each 5% drop in vaccination coverage increases measles cases by 10-15%. Polio, dengue, and yellow fever resurgence follow in subsequent years.

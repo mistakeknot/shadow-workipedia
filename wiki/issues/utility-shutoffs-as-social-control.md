@@ -45,17 +45,6 @@ The consequences cascade beyond immediate hardship. Families without electricity
 - **Economic Participation**: -5 to -15 (cannot maintain employment without utilities)
 - **Inequality**: +10 to +20 (basic services inaccessible to poor)
 
-### Event Types
-- Mass utility shutoffs during extreme weather (heat waves, cold snaps)
-- Water shutoffs creating public health crisis in major city
-- Death of vulnerable person (child, elderly, medical dependent) due to utility disconnection
-- Families losing children to child protective services due to shutoffs
-- Utility companies prosecuted for illegal disconnection practices
-- Moratorium on shutoffs expires, triggering mass disconnections
-- Internet shutoffs preventing access to education, employment, government services
-- Residents reconnecting own utilities, creating safety hazards
-- Community resistance to shutoff practices (blockading trucks, reconnecting neighbors)
-
 ### Cascading Effects
 - **Public Health Crisis**: Water shutoffs create sanitation emergencies; heat/cold shutoffs cause deaths
 - **Educational Disruption**: Children cannot complete homework or attend online school without electricity/internet

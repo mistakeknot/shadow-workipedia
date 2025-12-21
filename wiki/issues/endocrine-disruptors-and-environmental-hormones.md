@@ -47,15 +47,6 @@ Regulatory systems struggle to address EDC risks due to chemical industry lobbyi
 - **Environmental Quality**: Contaminated by persistent chemicals
 - **Regulatory Effectiveness**: Challenged by complex risk assessment
 
-### Event Types
-
-- **Sperm Count Crisis**: Fertility decline reaches critical threshold
-- **Early Puberty Epidemic**: Hormonal disruption affects child development
-- **Chemical Ban Victory**: Major EDC restricted after health evidence
-- **Industry Suppression Scandal**: Chemical company hid safety data
-- **Biomonitoring Shock**: Population testing reveals widespread contamination
-- **Regulatory Failure Lawsuit**: Government sued for inadequate protection
-
 ### Cascading Effects
 
 Endocrine disruption creates multigenerational consequences:

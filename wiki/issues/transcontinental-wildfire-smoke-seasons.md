@@ -11,7 +11,8 @@ socialImpact: 78
 affectedSystems: [Public Health, Climate, Economy, Agriculture, Cities, Infrastructure]
 connections: []
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-24
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Transcontinental Wildfire Smoke Seasons
@@ -28,33 +29,21 @@ The crisis deepens through climate feedback loops: wildfires accelerate warming,
 
 ### Parameter Effects
 
-- **Air Quality Index**: During smoke seasons, regional AQI regularly reaches 150-400+ (unhealthy to hazardous); continental events create 200-300 AQI across 2-5 million km². Each 50-point increase reduces outdoor economic productivity 8-12%, increases respiratory hospitalizations 15-22%, and reduces cognitive performance 6-9%
+*All numeric values below are simulation parameters (illustrative), not real-world estimates unless explicitly sourced.*
 
-- **Wildfire Emissions**: Transcontinental seasons now inject 300-800 megatons CO₂-equivalent annually (vs. 3-4 megatons historically), rivaling fossil fuel emissions in intensity but concentrated in shorter periods
+- **Air Quality Index**: During smoke seasons, AQI can reach “Unhealthy for Sensitive Groups” through “Hazardous” in affected regions; define event severity bands and multipliers per band.
 
-- **Atmospheric Particulate Load**: Smoke seasons maintain PM2.5 levels 5-15x baseline for 4-8 weeks; continental events create 100-300 μg/m³ concentrations (healthy baseline <12 μg/m³); particles penetrate indoors despite sealing, requiring expensive filtration systems
+- **Wildfire Emissions**: Model carbon release as a function of burned area, fuel load, and fire intensity; treat annual totals as outputs rather than fixed constants.
 
-- **Supply Chain Visibility**: Continental smoke reduces safe visibility to 100-300 meters, shutting down precision agriculture, closing airports, halting construction, reducing shipping volumes 40-60%; aviation losses reach $2-5 billion per major event
+- **Atmospheric Particulate Load**: Model PM2.5 spikes and duration; calibrate from monitoring data for a selected baseline year/region, then scale via fire intensity and transport patterns.
 
-- **Agricultural Productivity**: Reduced light penetration decreases photosynthesis efficiency 15-30%; crop yields drop 8-18%; livestock productivity declines from heat stress and reduced forage quality
+- **Supply Chain Visibility**: Treat smoke-driven aviation and logistics disruption as a regional shock parameter (airport closures, reduced throughput, worker safety limits).
 
-- **Public Health Crisis Index**: Smoke seasons trigger 20-40 point increases in respiratory hospitalizations, cardiovascular events, and emergency visits; vulnerable populations face 15-25% mortality risk increases; chronic exposure creates long-term lung function degradation
+- **Agricultural Productivity**: Smoke reduces light and can alter temperature; model yield impacts as a function of smoke duration during critical growth windows + heat + drought.
 
-- **Psychological Well-Being**: Extended smoke seasons decrease population resilience 25-40 points; inability to engage in outdoor activities creates depression; children develop altered expectations of normal air quality; social cohesion decreases as populations fragment by ability to afford filtration or relocation
+- **Public Health Crisis Index**: Model acute asthma/respiratory surges and broader cardiovascular impacts during smoke days, with stronger effects in populations with prior asthma, outdoor work exposure, and limited filtration access.
 
-### Event Types
-
-**Continental Smoke Dome Formation**: Multiple megafires (>100,000 hectares burning simultaneously) create unified plumes covering 3-8 million km² for 3-12 weeks. Smoke reaches 10-15 km altitude; aerosols travel transcontinentally within 5-7 days. Probability: 35% annually in boreal regions, rising to 60% by 2050.
-
-**Urban Smoke Entrapment**: Smoke encounters urban heat islands and becomes trapped over major cities for 7-21 days by temperature inversions. AQI reaches 300-500; public panic overwhelms healthcare systems. Probability: 25% annually for cities in fire-prone regions.
-
-**Supply Chain Collapse**: Continental smoke reduces visibility to <300 meters across major corridors for 2-8 weeks. Airports close; shipping reduced 50-80%; trucking hazardous. Just-in-time chains fragment; inventory shortages cascade through manufacturing and retail. Probability: 20% annually in North America, rising to 50% by 2040.
-
-**Cross-Border Health Crises**: Smoke from fires in one nation creates public health emergencies downwind; healthcare overwhelmed; cross-border tensions escalate over inadequate fire management. Diplomatic disputes erupt; resource-sharing breaks down. Probability: 40% annually where smoke crosses borders.
-
-**Respiratory Pandemic Amplification**: Smoke season coincides with viral respiratory disease transmission. Smoke-inflamed airways increase infection susceptibility 2-3x; disease transmission accelerates indoors where populations shelter from smoke. Hospital systems manage simultaneous smoke and viral crises; ICU capacity exceeded. Probability: 25% annually during smoke seasons.
-
-**Atmospheric Chemistry Cascade**: Smoke particulates interact with tropospheric ozone and nitrogen oxides, creating secondary organic aerosol formation and amplified photochemical smog. Chemical reactions create toxic compounds; health impacts amplified beyond smoke alone. Probability: 30% annually in regions combining wildfire smoke with urban pollution.
+- **Psychological Well-Being**: Model resilience decline and “hazard season” normalization; tie impacts to event duration and unequal access to indoor air protection.
 
 ### Cascading Effects
 
@@ -83,20 +72,22 @@ The crisis deepens through climate feedback loops: wildfires accelerate warming,
 
 **Smoke-Driven Migration**: Families relocating from fire-prone regions; real estate values declining in smoke-affected areas; insurance companies raising premiums or withdrawing; demographic shifts visible within 5-10 years.
 
-**Wildfire Carbon Release Approaching Feedback Dominance**: Wildfire emissions becoming significant percentage of total atmospheric carbon load (currently ~5%, projected 15-25% by 2045); feedback loop between warming and fire emissions becoming self-reinforcing.
+**Wildfire Carbon Release Approaching Feedback Dominance**: Wildfire emissions become a larger share of regional emissions and a stronger climate feedback; treat the share and thresholds as scenario parameters to be calibrated.
 
 ## Historical Timeline
 
 - **2020-2021**: Australian megafires generate stratospheric smoke plume circling planet; western North America experiences unprecedented fire seasons
 - **2023**: Canadian boreal fires create continental smoke event affecting 100+ million people from Quebec to New York to Chicago
-- **2025-2027**: Fire seasons begin synchronizing across hemispheres; first overlapping continental smoke events occur
-- **2027-2028**: North American smoke dome covers 8 million km² for 8 consecutive weeks; 400 million people exposed to hazardous AQI
-- **2032-2033**: Eurasian triple fire season (Western Russia, Siberia, Mediterranean) creates unprecedented atmospheric complexity affecting 1+ billion people
-- **2035+**: Synchronized global smoke events become recurring; atmospheric circulation patterns permanently altered; populations adapt to seasonal air quality degradation
+*The items below are scenario projections, not forecasts.*
+
+- **2025-2027**: Fire seasons begin synchronizing across hemispheres; overlapping smoke events become more common
+- **2027-2028**: Multi-week North American smoke “dome” conditions become plausible in bad years
+- **2032-2033**: Multiple large fire regions in Eurasia overlap, creating compound smoke transport patterns
+- **2035+**: Synchronized global smoke events become recurring in worst-case trajectories; populations adapt to seasonal air quality degradation
 
 ## System Interconnections
 
-**Climate Feedback**: Soot from wildfires increases atmospheric solar absorption 2-4%; carbon released (300-800 megatons annually) rivals fossil fuel emissions; smoke particles alter cloud formation and precipitation patterns, creating conditions for larger subsequent fires.
+**Climate Feedback**: Soot and smoke aerosols can alter radiative balance and cloud formation; carbon released by fires reinforces warming; disrupted precipitation patterns can create conditions for larger subsequent fires.
 
 **Public Health Crisis**: Respiratory disease, cardiovascular events, asthma exacerbation, reduced cognitive function during acute events; chronic exposure creates persistent lung impairment; mental health crises from recurring uncontrollable hazard; vulnerable populations face 2-3x mortality risk.
 
@@ -106,10 +97,14 @@ The crisis deepens through climate feedback loops: wildfires accelerate warming,
 
 **Governance Breakdown**: Transboundary smoke creates bilateral tensions; no international agreements govern wildfire management; climate negotiations dominated by smoke impacts rather than long-term emissions; environmental refugees become political crisis; no legal framework for cross-border smoke damage.
 
+## Sources
+
+- CDC MMWR: Asthma-associated ED visits during Canadian wildfire smoke episodes (Apr–Aug 2023) — https://www.cdc.gov/mmwr/volumes/72/wr/mm7234a5.htm
+
 ---
 
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-24
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/transcontinental-wildfire-smoke-seasons.md)

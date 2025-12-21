@@ -35,16 +35,6 @@ The societal consequences extend beyond individual financial harm. Families cycl
 - **Mental Health** (Customers): -10 to -20
 - **Community Wealth**: -15 to -25
 
-### Event Types
-- **Repossession Wave**: Mass furniture seizures during economic downturn
-- **Rent-to-Own Scandal**: Investigation reveals 400%+ APR effective rates
-- **Regulatory Crackdown**: State/federal limits on rent-to-own terms
-- **Lawsuit Success**: Class action breaks arbitration clauses
-- **Expansion into Housing**: Rent-to-own model applied to homes
-- **Credit Bureau Integration**: Missed payments reported, worsening credit
-- **Predatory Targeting Exposed**: Marketing to financially illiterate revealed
-- **Competitor Undercutting**: Traditional retail offers installment plans
-
 ### Cascading Effects
 - Families repeatedly lose appliances/furniture, must re-rent same items
 - Credit scores worsen (if reported), limiting future access

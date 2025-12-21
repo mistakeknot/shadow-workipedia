@@ -33,14 +33,6 @@ Racial disparities in the criminal justice system are stark: Black Americans rep
 5. **Criminal Justice System Legitimacy** - Erodes with high incarceration rates, perceived unfairness, and public distrust; correlates with police legitimacy decline
 6. **Social Cohesion Degradation** - Increases as incarceration removes millions from communities, disrupts families, and concentrates disadvantage in neighborhoods
 
-**Event Types:**
-
-1. **Prison Overcrowding Crisis** - Facilities exceed capacity, leading to violence, health crises, and court-mandated releases (medium probability, high impact)
-2. **Wrongful Conviction Exoneration** - High-profile DNA exonerations expose systemic flaws, damaging public trust (low probability, critical impact)
-3. **Prison Reform Legislation** - Bipartisan criminal justice reform bills pass (sentencing reduction, rehabilitation programs) (medium probability, moderate positive impact)
-4. **Private Prison Expansion/Contraction** - Companies lobby for contracts or lose funding as policy shifts (ongoing low probability, cumulative impact)
-5. **Correctional Officer Crisis** - High suicide rates, PTSD, and recruitment failures in corrections workforce (medium probability, cascading impact)
-
 **Cascading Effects:**
 
 1. **Intergenerational Poverty Loop** - Incarceration removes primary earners from families, driving children into poverty and increasing likelihood of future involvement with criminal justice system

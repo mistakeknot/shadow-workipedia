@@ -40,26 +40,6 @@ The regulatory response remains fragmented and perpetually behind technological 
 
 **Regulatory Capture** (0-100): Effectiveness of lobbying and regulatory capture efforts. Prevents antitrust action when above 70, blocks new regulations when above 75, but increases public backlash when exposed above 80.
 
-### Event Types
-
-**Antitrust Enforcement Wave** (15% annual probability, increases with Market Lock-in > 80): Regulators file major cases seeking breakup or structural remedies. Triggers 2-3 year legal battles, forces divestitures of 5-15% of assets, generates 30-40% stock price volatility. Cascades to related platforms; success increases likelihood of similar action in other jurisdictions by 25%.
-
-**Creator Exodus Cascade** (12% annual probability when Creator Extraction > 70): Mass migration of content creators to alternative platforms. Reduces platform content quality by 20-35%, user engagement drops 15-25%, revenue from advertising declines 10-20%. Winners: decentralized platforms, worker cooperatives, individual creator business models.
-
-**Data Breach and Privacy Scandal** (8% annual probability, increases with Data Extraction > 85): Massive leak of user behavioral data, location history, or biometric information. Generates regulatory fines (2-5% annual revenue), lawsuits worth 3-8% of market cap, user churn of 5-15% depending on remediation. Reputational damage lasts 18-30 months.
-
-**Algorithmic Radicalization Crisis** (10% annual probability when Algorithm Opacity > 75): Investigation reveals algorithm systematically amplifying extremist content. Generates advertiser boycotts (5-20% revenue loss), congressional hearings, potential content moderation overhauls. Creates 60-90 day period of high volatility and cascading regulatory action across jurisdictions.
-
-**Content Moderation Revolt** (9% annual probability when Content Moderation Reach > 75): Journalists expose systematic bias in moderation decisions, coverage of disempowered populations, censorship of political speech. Triggers advertiser pressure, advertiser boycotts (10-25% revenue impact), increased regulatory scrutiny (×1.5 likelihood of enforcement action), creates momentum for independent moderation systems.
-
-**Market Lock-in Backlash** (11% annual probability when Market Lock-in > 80): Regulatory action forces interoperability, data portability, or API access to platforms. Reduces exclusive network effects by 20-40%, enables competitor emergence, can fracture once-unified user bases. Potential 15-30% user base fragmentation over 24-36 months.
-
-**Regulatory Capture Exposure** (7% annual probability): Journalists or researchers document organized regulatory capture efforts, off-book lobbying, hiring of regulators to private sector roles. Creates political momentum for ethics rules and regulatory independence. Damages company reputation (×1.3 reputational multiplier for 12 months), increases likelihood of stricter regulation by 40%.
-
-**Facial Recognition Moratorium** (6% annual probability, conditional on platforms deploying facial recognition): Cities, states, or countries ban facial recognition technology. Forces platform retraction of surveillance systems, damages adjacent business (advertising targeting, law enforcement contracts), impacts market cap by 2-5% depending on geographic scope.
-
-**Labor Organization and Strike** (8% annual probability, increases with Creator Extraction > 75): Content moderators, warehouse workers, or gig economy workers organize unionization drive or strike. Disrupts platform operations (5-15 day operational capacity reduction), generates reputational damage, forces labor cost increases (8-15% operating cost increase if unionization succeeds).
-
 ### Cascading Effects
 
 **Algorithmic Amplification of Misinformation Epidemic**: Platforms optimized for engagement amplify false health information, election misinformation, and conspiracy theories. Reduces trust in institutions by 10-20% per year, increases vaccine hesitancy by 5-8 percentage points, amplifies political polarization (increases political violence by 15-25%), undermines pandemic response effectiveness by 20-35%.

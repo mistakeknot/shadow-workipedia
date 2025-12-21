@@ -38,18 +38,6 @@ The problem deepens as climate change exacerbates hypoxia through warming (reduc
 
 - **Coastal Population Pressure** (+2.1 migration pressure per million coastal residents): Higher populations in coastal regions increase fishing pressure, agricultural expansion, and sewage loads, accelerating dead zone formation by 21% per million people.
 
-### Event Types
-
-- **Dead Zone Expansion Event** (12% annual probability, scales with runoff intensity): A major hypoxic zone expands beyond historical boundaries, eliminating 15-30% of fishing grounds in the affected region. Regional fish catches decline 20-35%, triggering migration waves and household income collapse in dependent communities.
-
-- **Fish Stock Migration Crisis** (8% annual probability, when zones exceed 40% of regional waters): Commercial fish species permanently abandon dead-zone regions, seeking oxygen-rich waters. Fisheries that depend on local stocks lose 60-80% of revenue within a single season.
-
-- **Coastal Community Displacement** (rising probability with zone expansion and poverty): Fishing communities face economic collapse and forced migration to urban centers. Creates 5,000-50,000 climate refugees annually per affected region, straining urban infrastructure and generating social tension.
-
-- **Maritime Boundary Conflict** (6% annual probability when desperation is high): Displaced fishing fleets cross into neighboring nations' waters seeking remaining fish stocks. Triggers naval confrontations, smuggling networks, and accusations of illegal fishing, destabilizing regional relationships.
-
-- **Food Security Crisis** (4% annual probability in regions with high fishery dependence): Protein-dependent populations face malnutrition as fish imports become unaffordable and catches collapse. Triggers domestic unrest, price inflation, and pressure on governments to support agriculture over ocean conservation.
-
 ### Cascading Effects
 
 - **Agricultural-Fishery Resource Conflict**: Policies favoring agricultural expansion (to feed displaced populations) increase runoff, expanding dead zones further, accelerating fishery collapse—a reinforcing cycle that destabilizes coastal governance.

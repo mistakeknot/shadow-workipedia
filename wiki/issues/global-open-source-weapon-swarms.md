@@ -34,24 +34,6 @@ Open-source drone designs, swarming algorithms, and accessible manufacturing (3D
 - **Terrorism Event Frequency**: Rises 15–25% globally within 18 months of major open-source swarm design release
 - **Public Confidence in Security**: Declines 2–4 points per swarm incident in major city; further declines if government response is visibly inadequate
 
-**Event Types:**
-
-1. **Open-Source Swarm Design Release**: A hacker, whistleblower, or academic publishes swarming code, 3D-printable airframe designs, and assembly instructions on GitHub. Code includes AI-driven coordination, obstacle avoidance, and distributed targeting. Within 6 months, 50+ organizations (state and non-state) adopt and modify it; proliferation becomes irreversible.
-
-2. **First Terrorist Swarm Attack**: A terror cell executes coordinated attack using 20–50 drones on civilian or military target. Attack succeeds, causing 50+ casualties and visible infrastructure damage. Immediate triggering event for international panic; governments demand emergency counter-measures; civil liberties restrictions accelerate.
-
-3. **Swarm Attack on Critical Infrastructure**: Coordinated drones target power grid substation, water treatment plant, or airport simultaneously from multiple vectors. Defense systems designed for 5–10 targets fail catastrophically. Regional blackouts or infrastructure shutdowns follow; economic cascades trigger.
-
-4. **Attribution Failure**: Swarm attack occurs; investigation cannot definitively link perpetrators to state or organization. Evidence points to multiple possible actors; international response paralyzed by uncertainty. Blame-shifting and false-flag accusations spread; geopolitical tensions escalate.
-
-5. **Counter-Drone Systems Saturation**: Government deploys expensive counter-swarm systems (directed energy, kinetic interceptors, net guns). Terrorists adapt by increasing swarm size beyond system capacity; defense costs spiral ($500,000+ per swarm intercepted) while attack costs remain <$50,000 per 50-drone swarm.
-
-6. **AI-Driven Autonomous Targeting Convergence**: Open-source swarming code integrates with open-source ML models (YOLOv8, Faster R-CNN) for autonomous target recognition and firing. Operator input no longer required; swarm becomes fully autonomous weapon. Escalation to "trigger-happy" autonomous systems without human approval authority.
-
-7. **Drone Manufacturing Industrialization**: Non-state actor establishes underground 3D-printing facility capable of producing 100+ drones per week. Supplies networks of terror cells, criminal organizations, and rogue regimes. Scale makes traditional law enforcement interdiction impossible.
-
-8. **International Proliferation Treaty Collapse**: Competing powers unable to negotiate binding limits on autonomous swarm weapons. Russia, China, US, and regional powers each pursue independent development; treaty negotiations fail. International governance fractures into "swarm arms race."
-
 ## Cascading Effects
 
 - **Triggers Autonomous Weapons Proliferation** when academic swarming research is published without export controls; barrier to entry drops below state-level resources

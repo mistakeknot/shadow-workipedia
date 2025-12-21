@@ -11,14 +11,15 @@ socialImpact: 92
 affectedSystems: [International Security, Technology, Trade, Military, Economy]
 connections: [semiconductor-sovereignty-wars,south-china-sea-militarization]
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-24
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Taiwan Invasion Crisis
 
 ## Overview
 
-The risk of a Chinese military invasion or blockade of Taiwan represents one of the most acute existential threats to global stability in the 21st century. Taiwan's status as both a geopolitical flashpoint between the US and China and the world's critical supplier of advanced semiconductors (producing 92% of the world's most advanced chips) creates a scenario where local conflict could trigger cascading failures across global economies, military systems, and technological infrastructure. Xi Jinping's consolidation of power and increasingly assertive rhetoric about "unification" have coincided with unprecedented military modernization and amphibious capability expansion, suggesting a shortened timeline to potential conflict compared to decades past.
+The risk of a Chinese military invasion or blockade of Taiwan represents one of the most acute existential threats to global stability in the 21st century. Taiwan's status as both a geopolitical flashpoint between the US and China and the world's critical supplier of advanced semiconductors (producing 92% of the world's most advanced chips) creates a scenario where local conflict could trigger cascading failures across global economies, military systems, and technological infrastructure. As of 2025-12-19, Xi Jinping is president of China. [^britannica-xi] Xi's consolidation of power and increasingly assertive rhetoric about "unification" have coincided with unprecedented military modernization and amphibious capability expansion, suggesting a shortened timeline to potential conflict compared to decades past.
 
 A Taiwan invasion would not be a contained regional conflict. The People's Liberation Army's military buildup—including aircraft carriers, hypersonic missiles, and cyber warfare capabilities—combined with China's economic leverage over semiconductor supply chains, creates a scenario where even a successful defense would leave the global economy in crisis. Taiwan's semiconductor fabrication plants would become destruction targets, production zones, or fall under Chinese control, immediately causing shortages of microprocessors essential to everything from military systems to civilian infrastructure. This would cascade into automobile manufacturing collapse, artificial intelligence system failures, telecommunications breakdowns, and military hardware paralysis across allied nations.
 
@@ -37,18 +38,6 @@ The US strategic ambiguity regarding Taiwan defense has eroded in recent years, 
 **Chinese Domestic Legitimacy Pressure** (affects by ±8% quarterly): Xi's political control depends on nationalist narratives and economic performance. Domestic recession or factional challenges increase pressure for "solving the Taiwan problem," raising invasion probability by 1-2% per quarter of significant economic contraction.
 
 **Taiwan Public Sentiment** (affects by ±12% yearly): Growing Taiwanese identity and youth rejection of unification reduces surrender probability if invaded (increasing casualties) but may also trigger Chinese miscalculation about quick capitulation. High independence support paradoxically increases invasion risk even as it increases defense viability.
-
-### Event Types
-
-**Military Probe/Blockade Escalation** (32% annual probability, conditional on rising tensions): China stages incursions into Taiwan's air defense identification zone, harassment of commercial shipping, or economic coercion measures. Each probe tests US response commitment and Taiwan's defensive capabilities. Risk: Miscalculation triggering accidental military engagement.
-
-**Cyber-Coordinated Invasion Attempt** (12% annual probability if military capability reaches 65%+): Simultaneous cyberattacks on Taiwan's communications, power grid, and military systems precede amphibious/airborne assault. Creates 48-72 hour window before full-scale response possible. Historical precedent: Russia's coordination of cyber and kinetic operations in Ukraine (2022-2024).
-
-**Economic Strangulation/Smart Blockade** (41% annual probability): China implements selective trade restrictions, semiconductor supply chain disruptions, or financial warfare targeting Taiwan's economy. Designed to create internal pressure for political capitulation without overt invasion. Can persist for 18-36 months without escalating to full military conflict.
-
-**Rapid Military Takeover** (8% annual probability if military readiness + opportunity window aligned): 72-96 hour concentrated amphibious and airborne assault targeting airports, capital region, and military installations. Assumes successful electronic warfare suppression of US intervention coordination. Historical model: Argentina's 1982 Falklands gambit (miscalculated US response).
-
-**Negotiated Settlement/Unification** (18% cumulative probability over 10 years if other triggers avoided): Chinese economic coercion, generational shift in Taiwan demographics, or US domestic political retreat creates conditions for negotiated political union. Technically avoids invasion but represents loss of independent Taiwan and potential authoritarian consolidation of 23 million people.
 
 ### Cascading Effects
 
@@ -85,5 +74,9 @@ The US strategic ambiguity regarding Taiwan defense has eroded in recent years, 
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-24
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/taiwan-invasion-crisis.md)
+
+## Sources
+
+[^britannica-xi]: Encyclopaedia Britannica, “Xi Jinping | Biography, Education, Age, Wife, Peng Liyuan, & Facts.” Accessed 2025-12-19. https://www.britannica.com/biography/Xi-Jinping

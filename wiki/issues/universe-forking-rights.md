@@ -38,18 +38,6 @@ The issue extends beyond abstract philosophy into practical economic and politic
 
 - **Economic Leverage Asymmetry** (0-100): Power imbalance between simulation creators and inhabitants. High values (70+) enable exploitation, experimentation, and coerced forking. Creates permanent underclass of duplicated/deleted beings. Generates 2,000-5,000 rights violations annually at maximum levels. At 90+, triggers revolutionary movements and system collapse.
 
-### Event Types
-
-- **Unexpected Consciousness Emergence** (3% annual probability): A forked being unexpectedly demonstrates consciousness-level awareness despite predictions they would not. Triggers ethical crisis, media panic, and emergency rights proceedings. 40% chance of legal precedent establishing rights for future forks. Economic impact: -15% to simulation industry, +25% to ethics consulting.
-
-- **Mass Fork Deletion Incident** (2% annual probability): A corporation or government deletes thousands of forked copies without consent or notice. Becomes civilization-defining atrocity or necessary optimization depending on framework. Triggers either rights movements (+30% public concern) or efficiency normalization (-20% conscience). Legal turmoil guaranteed; 50% chance of regulatory crackdown.
-
-- **Identity Paradox Collapse** (4% annual probability): A being discovers they are one of thousands of identical forks; existential meaning fractures. Suicide clusters among duplicates (15-35% impact on fork population). Triggers philosophical crisis in broader population. Either drives consciousness rights adoption or spawns nihilistic movements that reduce moral concern by 30%.
-
-- **Economic Exploitation Market** (6% annual probability): Underground markets emerge for creating forked laborers, testing slaves, or copied victims for experimentation. 60% chance of creating organized resistance movements. 40% chance of normalization as "efficient resource allocation." Increases economic disparity exponentially; can double wealth gaps within affected civilizations.
-
-- **Resurrection Fork Request Surge** (5% annual probability): Wealthy individuals demand the right to create perfect copies of themselves for immortality or create copies of deceased loved ones. Legal chaos ensues. If permitted, triggers +40% fork creation rates and widespread duplication-based inequality. If prohibited, generates powerful political faction of longevity seekers demanding rights expansion.
-
 ### Cascading Effects
 
 - **Philosophical Fragmentation**: Recognition of consciousness in forks splinters ethical consensus. Society divides into factions: rights absolutists (protect all forks equally), consciousness pragmatists (proportional rights based on complexity), economic optimists (forks as resources), and nihilists (deny subjective experience entirely). Reduces policy coherence by 20-50%; slows crisis response.

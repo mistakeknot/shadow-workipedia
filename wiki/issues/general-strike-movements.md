@@ -36,15 +36,6 @@ Modern platforms amplify organizing capacity while fragmentation threatens unity
 - **Government Legitimacy**: Under pressure if general strikes are massive and government perceived as favoring capital; rebounds if swift concessions granted
 - **Corporate Bargaining Power**: Temporarily devastated during general strike but recovers unless fundamental concessions granted; employers use breaks to stockpile, relocate, or automate
 
-**Event Types:**
-
-1. **Sector Strike Escalation**: A major industry strike (transportation, healthcare, energy) reaches critical mass and spreads to sympathetic sectors (warehouse workers, postal service); escalation probability increases with public support >60% and unified leadership
-2. **General Strike Declaration**: Multiple unions, workers' organizations, or autonomous collectives declare a general strike with specific demands; actual participation varies widely (30-80% of workforce) depending on enforcement capacity and worker resolve
-3. **Critical Service Disruption**: Hospitals reduce staffing, ports jam, power distribution falters, supply chains freeze—government declares emergency, triggering either rapid negotiation or military/police deployment
-4. **Cross-Border Strike Coordination**: Workers in multiple countries coordinate action (bus drivers EU-wide, dock workers globally), creating systemic pressure that national governments struggle to manage alone
-5. **Political Concession or Crackdown**: Either government grants major labor demands (wage floors, pension protection, union recognition) or escalates with arrests, injunctions, strikebreakers, and violence—outcome determines 5-20 year labor landscape
-6. **Strike Fund Depletion**: Workers sustain action for weeks but union strike funds exhaust; workers forced to choose between continued action and survival; creates psychological defeat even if partial demands met
-
 **Cascading Effects:**
 
 - Triggers **Labor Power Resurgence** when general strikes succeed in extracting concessions, building worker confidence for future action

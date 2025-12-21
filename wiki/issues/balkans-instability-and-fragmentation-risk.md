@@ -36,20 +36,6 @@ The region's instability threatens NATO's southeastern flank, destabilizes EU en
 
 **Refugee Flow Risk**: Armed conflict triggers displacements of 100,000-500,000+ depending on scale and duration. Historical precedent: 1990s wars displaced 4+ million. Contemporary refugee corridors flow toward EU member states (Slovenia, Hungary, Austria), creating political pressure and secondary migration waves.
 
-### Event Types
-
-1. **Kosovo Status Incident** (Probability 35-45% annually when tensions >60): Serbia moves military/police to Kosovo border in response to Kosovo independence assertions or customs dispute escalation. NATO Kosovo Force (KFOR) activates rapid response. International mediation efforts initiated. Triggers: +20% regional tension, +10 refugee flow thousands, -15% trade in affected corridors. Historical precedent: 2021 border tensions, 2023 Serb enclave tensions.
-
-2. **Bosnia Constitutional Crisis** (Probability 25-35% when ethnic polarization >70): Bosnian Serb leader (RS entity leadership) escalates secession rhetoric or triggers constitutional showdown over representation. EU/U.S. threaten sanctions. International administrators debate intervention. Triggers: Economic slowdown (-8% GDP), capital flight (+$500M-1B), political deadlock lasting 3-6 months minimum.
-
-3. **Ethnic Nationalism Electoral Surge** (Triggers automatically when conditions align): Nationalist parties across Serbia, Bosnia, Kosovo achieve electoral dominance (typically 40-65% combined vote share). Policy reversals: reduced minority protections, delayed EU reforms, militarization increases. Moderates lose influence. International cooperation frameworks deteriorate.
-
-4. **Russian Energy Weapon Activation** (Probability 30-40% during geopolitical tensions): Russia reduces natural gas flows or threatens supply cuts to pressure Serbia/Montenegro regarding sanctions votes, NATO stance, or regional policy shifts. Historical precedent: 2022 Gazprom reductions. Creates energy crisis in winter months, political pressure on governments, public suffering spike.
-
-5. **War Crimes Accountability Confrontations** (Triggers when international courts prosecute figures or memorial events trigger tensions): ICTY/IRMCT proceedings against indicted fugitives or tribunal decisions trigger ethnic outrage and nationalist backlash. Bosnian Serb population views prosecutions as victimization; Bosniak/Croat populations view perpetrator-supportive rhetoric as threatening. Increases group identity polarization by 20-40%.
-
-6. **Organized Crime & Trafficking Escalation** (Ongoing, +5-10% quarterly): Balkans serve as transit routes for heroin (Afghan→Europe), human trafficking, and weapons smuggling. Organized crime networks leverage regional instability to expand operations, infiltrate governance, and co-opt political parties. Increases corruption by 15-25%, undermines rule of law.
-
 ### Cascading Effects
 
 - **Triggers Comprehensive Refugee Crisis** when armed conflict exceeds localized clashes: Large-scale displacement (200,000+) forces EU border management crisis, secondary migration to Central Europe, political backlash in Austria/Hungary, far-right party strengthening (+10-20% electoral gains in EU border states). European migration politics destabilizes.

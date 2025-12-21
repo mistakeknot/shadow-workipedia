@@ -34,15 +34,6 @@ The stakes involve identity permanence and civil liberties. When biometric datab
 - **Identity Theft Rate**: +30 to +50 with biometric credential compromise
 - **Surveillance State Capacity**: +15 to +30 as biometric tracking expands
 
-**Event Types:**
-1. **National ID Database Breach**: Government biometric database compromised, 100M+ records stolen, -40 Cybersecurity, -35 Public Trust
-2. **Deepfake Authentication Bypass**: AI-generated biometrics defeat security systems, -30 Authentication Reliability
-3. **Biometric Payment Fraud Wave**: Stolen fingerprints/faces used for unauthorized transactions, -25 Financial System Trust
-4. **Airport Security Biometric Failure**: Facial recognition system spoofed, security breach, -20 Transportation Security
-5. **Healthcare Biometric Breach**: Medical identity theft via stolen biometric records, -30 Healthcare Data Security
-6. **Biometric Surveillance Abuse**: Government uses ID system to track dissidents/protesters, -25 Civil Liberties
-7. **Synthetic Identity Epidemic**: Combination of real biometric fragments creates undetectable fake identities, -35 Identity Verification
-
 **Cascading Effects:**
 - Triggers **Facial Recognition Overreach** backlash when breaches reveal surveillance scope
 - Amplifies **Digital Divide Deepening** as biometric-dependent systems exclude or endanger marginalized groups

@@ -32,15 +32,6 @@ The mega-trusts exploit this dependency: they control water supply to arid regio
 - **Regulatory Capture** (0-100): Degree to which mega-trusts influence water policy and pricing. High capture enables monopoly pricing, prevents public ownership, and blocks competition (+4% profit margins per 10 points).
 - **Coastal Dependency** (0-100): Percentage of regional water supply sourced from desalination. High dependency creates vulnerability to corporate control and geopolitical leverage (+3% vulnerability per 10 points).
 
-**Event Types:**
-
-- **Corporate Consolidation Event**: Two desalination mega-trusts merge, creating a supermonopoly. Regional water autonomy declines, prices spike 15-25%. Triggers regulatory backlash and public protest.
-- **Energy Crisis Cascade**: Grid failure or energy price spike forces desalination plants offline for weeks. Cascading water rationing, emergency declarations, industrial collapse in dependent regions.
-- **Geopolitical Water Hostage**: Mega-trust threatens service cutoff over political disputes. Nations forced into concessions; water security becomes military vulnerability.
-- **Desalination Debt Trap**: Nation borrows heavily to build desalination infrastructure, becomes indebted to mega-trusts for 20-30 years. Creates structural dependency and austerity.
-- **Public Rebellion**: Mass protests against water privatization; regions demand public desalination ownership. Corporate property at risk; pressure for regulatory reform.
-- **Climate Acceleration**: Intensifying droughts eliminate alternative water sources, forcing 100% desalination dependence. Prices soar; inequality becomes visible crisis.
-
 **Cascading Effects:**
 
 - **Structural Lock-In**: Desalination dependence becomes irreversible. Once built, plants require constant energy/maintenance; switching to alternatives impossible within decades.

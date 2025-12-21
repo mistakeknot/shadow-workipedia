@@ -41,18 +41,6 @@ The fundamental dynamic is one of distributional conflict: workers demand wage i
 
 - **Shipping Company Profitability**: Declines 15-45% during coordinated multi-port strikes; carriers absorb demurrage charges (container detention costs), face contract penalties from delayed shipments, and lose freight rate pricing power as customers shift to alternate routes/modes. However, profitable strikes create incentive for companies to increase automation investment to reduce labor dependency in future.
 
-**Event Types:**
-
-1. **Single Port Work Action**: A major port (Singapore, Rotterdam, Shanghai, LA) strikes for 7-21 days over wages/automation/benefits. Throughput drops 20-25% at that port; cargo reroutes to adjacent ports increasing their congestion 8-12%. Regional supply shortages appear in consumer goods and automotive within 5-7 days. Duration 7-14 days is economic sweet spot for labor (causes maximum damage with acceptable strike costs); longer strikes risk public backlash or employer replacement actions.
-
-2. **Coordinated Multi-Port Strike**: Labor unions coordinate work actions across 3-8 major ports (Los Angeles, Rotterdam, Singapore, Shanghai, Antwerp, Hamburg) simultaneously or in rapid sequence. Global container throughput drops 30-40%; shipping rates spike 200-400% as capacity scarcity drives price inflation. Manufacturing shutdowns cascade within 10-14 days as automotive, electronics, and consumer goods companies deplete safety stock. Political pressure on governments to intervene becomes extreme within 5-7 days.
-
-3. **Automation Resistance Escalation**: Labor movements expand demands to include job guarantees, automation moratoriums, or retraining fund commitments in contracts. Successful demands slow automation rollout 2-4 years but raise port costs 8-15%, which translates to 1-3% increases in shipping rates and consumer goods prices. Unsuccessful demands lead to accelerated automation as companies double down.
-
-4. **Supply Chain Bypass Movement**: Companies respond to repeated port labor disruptions by investing in alternate infrastructure: rail corridors, inland waterways, nearshoring manufacturing, or alternative ports. Investment diverts 5-15% of containerized cargo within 3-5 years, reducing port worker leverage by concentrating traffic among fewer willing employers and creating permanent capacity reduction at disrupted ports. Long Beach has seen cargo diversion due to labor reputation; Singapore has maintained labor stability to retain competitive position.
-
-5. **Wage-Price Inflation Spiral**: Labor successfully extracts 30%+ wage increases over 3-5 contracts; companies pass costs to shipping customers (1-2% annual rate increases) and customers pass to consumers (0.3-0.8% inflation contribution). At 3-5% annual wage inflation in shipping + 2% rate increases + 0.5% consumer inflation contribution, this becomes visible inflationary pressure within 12-24 months. Political backlash against "greedy unions" intensifies; populist movements in consuming countries begin demanding port labor regulation or automation acceleration.
-
 **Cascading Effects:**
 
 - Triggers **just-in-time-supply-chain-collapse** when 3+ coordinated port labor actions cause 8+ week recovery periods and companies shift 10%+ cargo to alternate routes, reducing network redundancy by 15-25%

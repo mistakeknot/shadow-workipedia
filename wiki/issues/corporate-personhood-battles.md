@@ -39,18 +39,6 @@ Public sentiment shows sustained opposition to corporate political dominance (68
 
 - **Constitutional Conflict Index**: Escalating state-level challenges to corporate personhood doctrine and federal court responses create constitutional tension. When 8+ states simultaneously pursue ballot initiatives to overturn corporate personhood or federal court cases addressing conflicting interpretations, institutional legitimacy of courts declines by 10-15%, affecting compliance with court orders in other domains.
 
-**Event Types:**
-
-1. **Corporate Speech Victory**: Federal or state court rules in favor of corporate speech rights in a new domain (climate disclosure, labor practices, antitrust challenges). Immediately expands corporate political strategy options, increases legal uncertainty for regulators, and triggers 2-4 months of legislative deadlock as regulatory agencies re-evaluate enforcement authority.
-
-2. **State Anti-Personhood Initiative**: State ballot initiative restricts corporate personhood or campaign spending passes with >55% support. Triggers immediate corporate legal challenges (expected within 60 days), creates 12-24 month period of legal uncertainty during which corporations increase direct lobbying and media spending. If initiative survives court challenge, other states follow within 18-36 months (tipping point effect).
-
-3. **Corporate Disclosure Crisis**: High-profile disclosure of secret corporate political spending (previously hidden through super-PACs or dark money groups) triggers public backlash. Amplifies demand for regulatory reform by 18-25 percentage points, increases support for anti-personhood measures by 12-18 percentage points, and can trigger temporary corporate spending restraint pending legal clarification.
-
-4. **Regulatory Cascade Victory**: Coordinated state/local governments successfully implement corporate regulation despite personhood challenges (labor standards, environmental rules, consumer protections). Creates template for other jurisdictions, increases regulatory coordination cost for corporations, and builds momentum for constitutional amendment efforts.
-
-5. **Federal Constitutional Amendment Threat**: Serious congressional movement toward constitutional amendment limiting corporate personhood (requires 2/3 House/Senate + 3/4 state ratification). Triggers intense corporate lobbying counteroffensive, public education campaigns spending $50-150 million, and potential corporate political spending increases of 20-30% to defeat amendment ratification in 13 target states.
-
 **Cascading Effects:**
 
 - Triggers **money-in-politics** by 25-35% through unlimited corporate campaign contributions enabled by personhood doctrine

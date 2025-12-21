@@ -35,16 +35,6 @@ The consequences cascade through global food systems: farmers become dependent o
 - **Agricultural Resilience**: -20 to -35
 - **Innovation** (Public Sector Breeding): -30 to -50
 
-### Event Types
-- **Seed Price Spike**: Major crops see 40%+ price increases
-- **Monopoly Merger**: Further consolidation to 3 or fewer companies
-- **Farmer Lawsuit Wave**: Corporations sue farmers for patent infringement
-- **Seed Saving Criminalized**: Laws ban traditional seed saving practices
-- **Terminator Technology**: Genetic use restriction tech deployed at scale
-- **Public Seed Bank Defunded**: Government breeding programs eliminated
-- **Climate Adaptation Failure**: Narrow genetic base vulnerable to new conditions
-- **Antitrust Investigation**: Regulators challenge seed industry concentration
-
 ### Cascading Effects
 - Traditional crop varieties extinct within generation
 - Farmers forced to purchase seeds annually

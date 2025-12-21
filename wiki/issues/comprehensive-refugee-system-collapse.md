@@ -33,24 +33,6 @@ The global refugee system—designed in 1951 for Cold War displacement and now h
 - **Secondary Migration Pressure**: Explodes when camp conditions become uninhabitable and refugees undertake ultra-dangerous irregular routes (Mediterranean deaths 2019-2024 = 25,000+, Sahara deaths estimated 1M+ undocumented)
 - **Political Legitimacy of Asylum**: Collapses when failure to protect creates refugee crises that destabilize receiving nations, enabling far-right political movements that promise border closure and refugee expulsion
 
-**Event Types:**
-
-1. **Camp Water Collapse Event**: UNHCR water purification systems fail due to fuel shortage; disease outbreak (cholera, typhoid) kills 500-5,000 in 2-8 week period; forces emergency evacuation, exodus to urban centers, or mass repatriation to unsafe origin countries
-
-2. **Donor Funding Crisis**: Major donors (US, EU, Japan, Canada, Australia) announce mid-year budget cuts citing debt crises or political shifts; UNHCR announces program cuts to 50% baseline (elimination of education, healthcare, cash assistance); forces triage decisions on which populations receive aid
-
-3. **Host Country Expulsion**: Host nation (Turkey, Uganda, Lebanon, Kenya, Jordan) announces refugee expulsion policy citing economic crisis, political pressure, or environmental strain; creates 2-10M person secondary migration wave toward other unstable borders
-
-4. **Protection System Breakdown**: Security situation in camp deteriorates; organized crime networks (human trafficking, sexual exploitation, drug markets) become dominant power; humanitarian staff withdraw citing safety; refugees lose all institutional protection and self-organize into vigilante protection groups
-
-5. **Asylum Processing Collapse**: Receiving nation asylum courts become administratively dysfunctional; waiting periods exceed 7-15 years; asylum seekers placed in indefinite detention, creating "asylum limbo" populations with no legal status, no work authorization, no deportation date (Greece: 100k+ in camps 2015-2024)
-
-6. **Climate Refugee Wave**: Simultaneous climate disasters in multiple regions (Sahel drought + Bangladesh floods + Horn of Africa collapse) create 50M+ person secondary displacement; exceeds all camp capacity by order of magnitude; forces choosing between rapid urbanization (creating slums) or rejection/militarized borders
-
-7. **Border Militarization Escalation**: Nations deploy military to prevent refugee border crossing; live fire incidents create humanitarian crises (Egypt-Sudan: 50k+ killed and displaced 2023-2024); regional war risks emerge when refugee flows cross international borders as military flashpoints
-
-8. **International Law Rejection**: Rich nations formally withdraw from 1951 Refugee Convention or redefine it to exclude climate/economic migrants; removes international accountability mechanism; enables collective expulsions and torture-adjacent detention without legal recourse
-
 **Cascading Effects:**
 
 - Triggers **Asylum System Breakdown** when UNHCR capacity reaches hard limit and processing entirely stops; forces choosing between illegal immigration, deportation, or prolonged asylum limbo (Greece example: 100k+ asylum seekers stuck 5-7+ years)

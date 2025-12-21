@@ -34,15 +34,6 @@ The stakes involve European stability and the precedent for regional separatism.
 - **Regional Identity**: +15 to +30 as movements strengthen cultural consciousness
 - **Social Cohesion (National)**: -15 to -25 from separatist conflicts
 
-**Event Types:**
-1. **Independence Referendum Victory**: Regional vote supports separation, -30 National Unity, trigger Constitutional Crisis
-2. **Central Government Suppression**: Police violence against referendum/protesters, -25 Democratic Legitimacy, +20 Separatist Support
-3. **Political Leader Prosecutions**: Independence advocates jailed, -20 Rule of Law Perception, +15 International Criticism
-4. **Brexit-Driven Scottish Referendum**: Scotland seeks EU return via independence, -35 UK Unity
-5. **EU Membership Ambiguity**: Uncertainty whether independent regions inherit/can join EU, -20 Economic Confidence
-6. **Catalonian Autonomy Rollback**: Spain revokes self-governance powers, -30 Regional Relations, +25 Independence Support
-7. **Negotiated Independence Path**: Rare example of peaceful separation process, +20 Democratic Legitimacy
-
 **Cascading Effects:**
 - Triggers **Brexit Economic Damage** amplification if Scotland leaves UK
 - Amplifies **Kurdish Independence Suppression** and other separatist movements globally

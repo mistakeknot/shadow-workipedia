@@ -68,44 +68,6 @@ Policy approaches bifurcate into incompatible paradigms. Housing First provides 
   - 25-30% of homeless have severe mental illness
   - Community mental health systems lack capacity for outreach, housing support
 
-### Event Types
-
-**Tent City Proliferation**
-- Trigger: Unsheltered homelessness increases >15% YoY + shelter capacity <60% of demand
-- Immediate: Encampments in parks, under highways, along rivers become permanent
-- Secondary: Resident backlash, business complaints, media focus on "livability crisis"
-- Affects: SocialStability -50, PublicHealth -40, PoliticalPressure +60
-
-**Housing First vs. Treatment First Battle**
-- Trigger: City council debates homeless policy approach OR major funding decision
-- Immediate: Advocacy groups mobilize, public testimony, ideological polarization
-- Secondary: Policy whiplash as administrations change, program instability
-- Affects: PoliticalPolarization +45, SocialCohesion -35, PolicyEffectiveness -40
-
-**Criminalization Ordinance Passage**
-- Trigger: Encampment crisis + business district pressure + political turnover
-- Immediate: Camping bans, vehicle dwelling prohibitions, anti-panhandling laws
-- Secondary: ACLU lawsuits, encampment sweeps, displacement to neighboring jurisdictions
-- Affects: LegalSystem -40, SocialStability -30, Homelessness +25 (visibility shifts)
-
-**Shelter Capacity Collapse**
-- Trigger: Winter weather + COVID outbreak + shelter capacity <50% of demand
-- Immediate: Overflow shelters activated, hypothermia deaths, emergency declarations
-- Secondary: National Guard deployment, hotel/motel conversions, FEMA requests
-- Affects: PublicHealth -60, SocialStability -55, InfrastructureCapacity -70
-
-**Hepatitis A / Communicable Disease Outbreak**
-- Trigger: Unsanitary encampment conditions + >100 cases in homeless population
-- Immediate: Public health emergency, vaccination campaigns, portable toilets/handwashing stations
-- Secondary: Encampment sweeps justified on health grounds, shelter quarantines
-- Affects: PublicHealth -65, SocialStability -45, LegalJustification +30 (for sweeps)
-
-**Homeless Service Worker Burnout Wave**
-- Trigger: >40% turnover in shelter staff, case managers, outreach workers
-- Immediate: Service quality declines, client-to-staff ratios worsen, programs close
-- Secondary: Nonprofit closures, government takeover of services, waiting lists extend
-- Affects: SocialServices -50, MentalHealthAccess -40, ShelterCapacity -35
-
 ### Cascading Effects
 
 **To Public Health Crisis**: Encampment sanitation failures create communicable disease outbreaks (Hep A, TB) that spread beyond homeless population into broader community.

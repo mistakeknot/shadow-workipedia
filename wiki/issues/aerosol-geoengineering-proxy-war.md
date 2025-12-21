@@ -10,6 +10,7 @@ economicImpact: 75
 socialImpact: 70
 affectedSystems: [Environment, Geopolitics, Technology, Economy]
 connections: [climate-refugee-floods, water-scarcity-wars, arctic-sovereignty-conflicts]
+caseStudyOf: geoengineering-deployment
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 ---
@@ -29,14 +30,6 @@ Stratospheric aerosol injection (SAI)—deliberately injecting reflective partic
 - **International Tensions**: Rise 2–5 points per unilateral SAI deployment; governance failure multiplies this by 1.5–2x
 - **Economic Inequality**: Increases as some nations access geoengineering tech while others suffer agricultural losses
 - **Research Credibility**: Declines 10–20 points per major unattributed climate shift blamed on SAI
-
-**Event Types:**
-1. **Unilateral SAI Deployment**: A major power or coalition (US, China, EU, India) injects stratospheric aerosols without international agreement; triggers diplomatic crisis and counter-deployments within 2–4 years
-2. **Termination Shock Coercion**: A geoengineering coalition threatens to halt SAI abruptly, forcing other nations to make political concessions (trade, military, territorial); weaponizes climate itself
-3. **Agricultural Disruption Cascade**: SAI deployment cools target region but shifts monsoons or jet streams, triggering crop failures in unexpected areas; cascades into 3–5 connected food crises
-4. **Attribution Failure**: Scientists cannot definitively link specific SAI to a specific power; blame-shifting and conspiracy theories metastasize; trust in climate science drops
-5. **Counter-Deployment Escalation**: Two or more powers deploy overlapping SAI campaigns in same region, creating unpredictable atmospheric effects and spiraling tensions
-6. **SAI Hardware Sabotage**: Military or covert action targets geoengineering aircraft/infrastructure; escalates to proxy warfare in neutral airspace
 
 **Cascading Effects:**
 - Triggers **Climate Refugee Floods** as altered precipitation and temperature displace agricultural populations

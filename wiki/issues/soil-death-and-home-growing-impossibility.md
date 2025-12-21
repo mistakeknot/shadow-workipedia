@@ -35,16 +35,6 @@ The broader implications extend beyond individual health. Urban agriculture and 
 - **Community Food Security**: -15 to -25
 - **Environmental Health Literacy**: -20 to -30
 
-### Event Types
-- **Contamination Discovery**: Soil testing reveals widespread urban lead/arsenic
-- **Home Garden Poisoning**: Family sickened by contaminated homegrown produce
-- **Legacy Pollution Exposure**: Industrial site contamination spreads to neighborhoods
-- **Raised Bed Movement**: Communities adopt expensive remediation strategies
-- **Soil Testing Initiative**: Public health campaign reveals extent of problem
-- **Remediation Costs Crisis**: Homeowners face $10,000+ cleanup bills
-- **Urban Agriculture Collapse**: Community gardens shut down due to contamination
-- **Legal Liability**: Lawsuits over undisclosed soil contamination in real estate
-
 ### Cascading Effects
 - Home food production abandoned despite food security needs
 - Urban agriculture initiatives fail due to contamination

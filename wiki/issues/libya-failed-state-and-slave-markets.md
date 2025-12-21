@@ -41,18 +41,6 @@ The intersection of state failure and slavery demonstrates how institutional col
 
 **International Attention & Pressure** (0-100): Libya receives minimal sustained attention (avg. 30-40) despite documented slavery markets. High attention (70+) enables targeted sanctions on traffickers, aid conditionality forcing reforms, and refugee resettlement pressure. Libya's low attention reflects geopolitical prioritization: peripheral to major powers, intervention costs exceed perceived benefits, slavery viewed as EU's border problem rather than humanitarian crisis.
 
-### Event Types
-
-**Slave Market Cycle Event** (Repeats 2-4 times annually when Criminal Network Capacity >65 AND State Capacity <25): Trafficking networks organize open-air markets in ungoverned zones, auctioning migrants for labor. Generates media exposure (+30-50 international concern when documented), trafficking efficiency surge, psychological trauma (PTSD rates 85%+), and paradoxically increases migration flows as desperate migrants continue attempting transit despite known risks.
-
-**Armed Group Trafficking Taxation Event** (Triggered when Armed Group Fragmentation >8 AND Criminal Network Capacity >60): Major militia integrates trafficking into revenue model, charging networks for safe passage (+$5-15M annually per group) and providing armed protection. Effect: Trafficking becomes militarized (+20-30 capacity), profitability funds weapons purchases perpetuating conflict. Extremely difficult to reverse once armed groups depend on trafficking revenue.
-
-**Migrant Death Toll Surge** (Triggers when Migration Pressure >70 AND Border Control <30): Mediterranean crossing becomes primary alternative to land transit. Each surge triggers European border panic, new smuggling route development, and temporary enforcement increases that dissipate within 6-12 months.
-
-**Geopolitical Intervention Crisis** (Triggered when State Capacity <15 AND International Attention >50): Powers enter competing proxy conflicts—Turkey, UAE, Egypt, France, USA, Russia all supporting different militias. Effect: Military aid flows increase (+$500M-2B annually), state capacity temporarily rises while fragmentation increases, civilian casualties spike, trafficking continues unabated. Historical pattern: 2015-2020 intervention cycles generated 100,000+ deaths with minimal progress on state capacity.
-
-**NGO/International Recovery Initiative** (Triggered when International Attention >60 AND International Commitment sustained 3+ years): Attempted anti-trafficking interventions reduce trafficking in localized areas by 10-20%. Most initiatives fail due to insecurity preventing operations, corruption undermining programs, and fundamental mismatch between intervention design (assumes functioning state) and reality (state absent). Cost: $100-500M; success rate: 15-25%.
-
 ### Cascading Effects
 
 **Amplifies Human Trafficking Networks by 80-120%**: Failed state + migration pressure creates perfect trafficking environment. Weak law enforcement (0% prosecution risk), ungoverned territory, armed group protection, and normalized violence creates victim compliance. Each point of state capacity lost correlates with +2-3 trafficking victims.

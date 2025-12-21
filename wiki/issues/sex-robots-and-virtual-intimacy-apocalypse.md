@@ -35,16 +35,6 @@ The societal implications are profound and underexplored. If significant percent
 - **Gender Relations**: -15 to -35 (increased conflict/divergence)
 - **Technology Dependency**: +30 to +50
 
-### Event Types
-- **Market Breakthrough**: Realistic AI companions become affordable ($2000-5000)
-- **Demographic Shock**: Birth rates in adopter demographics collapse
-- **Relationship Crisis**: Partnerships disrupted by AI companion use
-- **Addiction Syndrome**: Clinical dependency on synthetic intimacy emerges
-- **Gender Divergence**: One gender adopts technology disproportionately
-- **Regulatory Backlash**: Governments attempt to ban/restrict AI companions
-- **Normalization**: AI relationships achieve social acceptance
-- **Feedback Loop**: Relationship market dysfunction drives more adoption
-
 ### Cascading Effects
 - Human dating markets collapse in certain demographics
 - Birth rates accelerate decline in developed nations

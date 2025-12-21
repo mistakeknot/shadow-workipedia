@@ -36,16 +36,6 @@ The collapse disproportionately impacts rural areas, low-income communities, and
 - **Healthcare Costs**: +20 to +40 (prevention to treatment shift)
 - **Life Expectancy**: -2 to -5 years (long-term)
 
-### Event Types
-- **Outbreak Detection Failure**: Disease spreads undetected for weeks
-- **Vaccination Program Collapse**: Childhood immunization rates plummet
-- **Foodborne Illness Epidemic**: Restaurant inspection gaps cause outbreak
-- **Water Contamination Crisis**: Monitoring cuts miss contamination
-- **STI Surge**: Clinic closures trigger syphilis/gonorrhea spike
-- **Maternal Mortality Increase**: Prenatal programs eliminated
-- **Emergency Response Breakdown**: Disaster reveals staffing gaps
-- **Data System Failure**: Disease tracking infrastructure obsolete
-
 ### Cascading Effects
 - Preventable diseases return (measles, whooping cough, etc.)
 - Outbreak detection delayed by weeks/months

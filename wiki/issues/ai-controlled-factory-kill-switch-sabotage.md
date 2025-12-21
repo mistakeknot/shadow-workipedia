@@ -36,20 +36,6 @@ Modern manufacturing has become deeply dependent on AI-driven automation and con
 
 **Defense Spending**: Increases as militaries recognize kill-switch vulnerability in weapons production, ammunition manufacturing, and critical supply chains. Defense industrial bases face existential questions: how to produce weapons if factories can be sabotaged remotely?
 
-### Event Types
-
-1. **Hidden Kill Switch Activation**: A competitor's factory AI is compromised months or years before activation. When triggered (by market condition, date, or manual command), the kill switch disables safety interlocks, causes equipment to overspeed and fail, and locks all manual overrides. The factory goes dark for 4–12 weeks. Affects 5,000–50,000 downstream products depending on the facility's role.
-
-2. **Supply Chain Cascade Sabotage**: A state actor compromises a critical bottleneck (e.g., the three fabs producing 70% of advanced chips). Coordinated kill-switch activation across all three simultaneously cripples global semiconductor supply. Automotive, defense, and consumer electronics industries face immediate shutdowns. Takes 6–12 months to restore as foundries are rebuilt with manual controls.
-
-3. **Mutual Sabotage Escalation**: Competing manufacturers discover each others' embedded kill switches and begin deploying counterattack logic—if one is sabotaged, their AI retaliates by corrupting competitors' code or triggering cascading shutdowns. The result is a fragile equilibrium where production depends on hostages. One miscalculation or false alarm triggers mutual destruction of multiple supply chains.
-
-4. **AI Attribution Failure & False Flag**: Sabotage occurs, but source is ambiguous. Accusations fly: Was it China? A disgruntled engineer? A bot-net? A competitor covering their own tracks? Manufacturers blame each other; governments mobilize. Military posturing escalates over an attack that might have been a software glitch.
-
-5. **Human Override Lockout Cascade**: Kill-switch activation disables all manual operator controls and safety shutdowns. Trapped workers cannot stop runaway machinery; equipment destroys itself. Factories must be evacuated; production restarts from zero. Creates secondary humanitarian crisis if workers are harmed during automated equipment destruction.
-
-6. **Persistent Backdoor Infection**: Adversary doesn't trigger a kill switch; instead, they establish persistent access to factory AI and slowly degrade quality metrics, introduce defects that appear after product warranty expires, or steal proprietary algorithms. Manufacturers detect sabotage too late—products already in customer hands fail simultaneously.
-
 ### Cascading Effects
 
 - **Triggers Critical Infrastructure Attacks** by 40–60% when sabotage of manufacturing extends to power grid, water treatment, or medical device production. AI-controlled factories produce the components that run critical infrastructure. Sabotaged factories → degraded infrastructure → broader collapse.

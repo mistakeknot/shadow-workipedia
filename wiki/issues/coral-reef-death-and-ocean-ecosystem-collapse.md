@@ -12,16 +12,21 @@ affectedSystems: [Ocean Systems, Biodiversity, Food Production, Coastal Communit
 connections: []
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'CapacityStress', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'ResistanceBacklash', 'QueueBacklog']
-lastUpdated: 2025-11-24
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Coral Reef Death and Ocean Ecosystem Collapse
 
 ## Overview
 
-Coral reefs, the rainforests of the sea, are experiencing their most severe die-offs in Earth's history. Covering less than 0.1% of the ocean floor but supporting 25% of marine species, coral ecosystems are collapsing from multiple simultaneous pressures: ocean warming causes mass bleaching events where corals expel symbiotic algae and starve to death; ocean acidification from CO₂ absorption weakens coral skeletons and inhibits larvae settlement; overfishing removes herbivorous fish that control algae, causing reefs to transition from coral-dominated to algae-dominated wastelands; and coastal pollution introduces chemical stressors that further degrade resilience. The Great Barrier Reef has experienced five major bleaching events since 1998, with 2016-2017 killing 40-50% of coral cover. At current warming trajectories (1.5°C above pre-industrial), 70-90% of reefs will be functionally extinct by 2050. The collapse cascades through marine food webs: reef-dependent fish populations crash, destabilizing livelihoods for 500+ million people who depend on reef fisheries for food and income; tourism industries collapse in island nations; and coastal protection from storm surge disappears, leaving communities vulnerable to hurricanes and rising seas.
+Coral reefs are experiencing severe stress from ocean warming, acidification, overfishing, and pollution. Reefs cover less than 1% of the ocean floor but provide habitat for an estimated ~25% of marine species and support food, income, and coastal protection for hundreds of millions of people.[^epa_coral_25pct][^unep_coral_500m] As of 2025-12-19, NOAA Coral Reef Watch described an ongoing global coral bleaching event that began in early 2023; its Dec 2025 status report said 84.4% of the world’s reef area had experienced heat stress at Level 1 or higher from January 2023 to September 2025, with mass bleaching documented across 83 countries, territories, and economies.[^noaa_crw_2025]
+
+Risk scales primarily with warming level: the IPCC Special Report on 1.5°C projects coral reefs will decline 70–90% at 1.5°C warming and more than 99% at 2°C.[^ipcc_sr15_spm] Reef loss also removes natural coastal protection: a Nature Communications synthesis found coral reefs can dissipate ~97% of wave energy, reducing coastal flooding and storm damage.[^nature_wave_97]
 
 ## Game Mechanics
+
+*All numeric ranges below are simulation parameters (illustrative), not real-world estimates unless explicitly sourced.*
 
 **Parameter Effects:**
 
@@ -30,18 +35,6 @@ Coral reefs, the rainforests of the sea, are experiencing their most severe die-
 - **Herbivorous Fish Biomass**: Absence of parrotfish, surgeonfish, and other reef herbivores allows algae to overgrow corals. Below 50% of historical herbivore biomass, algal competition increases 300%, preventing coral recovery even in favorable conditions.
 - **Coastal Pollution Loading**: Nitrogen and phosphorus runoff stimulates algal blooms that shade corals and deplete oxygen. Pollution index >0.6 reduces coral growth rates by 40% and increases disease susceptibility by 35%.
 - **Recovery Window Duration**: Reefs require 5-10 years without thermal stress to recover to 50% of previous cover. Repeated bleaching events (occurring every 2-3 years vs. historical 20-30 year intervals) eliminate recovery opportunity.
-
-**Event Types:**
-
-1. **Mass Bleaching Event**: Ocean temperature anomaly exceeds critical threshold. Regional bleaching affects 30-60% of reef area. Choices: Declare climate emergency (triggers international coordination, -20% emissions, +10% mitigation spending) or prioritize economic growth (maintain status quo, face humanitarian costs in 3-5 years). Affects: reef health (-30% to -60%), tourism (-$2B annually), food security (-8-15% for island nations), public sentiment (+50% climate concern).
-
-2. **Reef Shift Regime**: Tipping point where algae outcompete coral. Transition is rapid (2-5 years once herbivore biomass falls below threshold). Reef shifts from coral-dominated to rubble or algae-dominated state. Cascades: Fish populations collapse (-70%), juvenile recruitment drops to near-zero, economic losses (-$4-8B tourism), food insecurity spikes in dependent regions.
-
-3. **Larval Recruitment Failure**: Acidification reaches critical threshold (Ωa < 3.5) or larvae fail to settle due to algal biofilm. No reproduction for 2-3 years. Effect: Even protected reefs cannot recover naturally; requires active intervention (coral gardening, larvae seeding) with <30% success rates.
-
-4. **Coastal Protection Loss**: Reef degradation removes wave-breaking function. Storm damage increases 200-400% during hurricane season. Single major hurricane causes $2-5B in damages to unprotected coastlines. Triggers migration of 100K+ people from vulnerable islands/atolls.
-
-5. **Reef-Dependent Fishery Collapse**: Cascading food web collapse removes 60-80% of commercial fish species in reef regions. Sudden loss of protein source for 500M+ people. Economic losses: $2-4B annually. Triggers humanitarian crisis in island nations and developing coastal regions.
 
 **Cascading Effects:**
 
@@ -174,5 +167,13 @@ The 1998 mass bleaching event (El Niño-driven) killed 16% of reefs globally in 
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-24
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/coral-reef-death-and-ocean-ecosystem-collapse.md)
+
+## Sources
+
+[^noaa_crw_2025]: https://coralreefwatch.noaa.gov/international-coordinating-committee/bleachingreport.php
+[^ipcc_sr15_spm]: https://www.ipcc.ch/sr15/chapter/spm/
+[^epa_coral_25pct]: https://www.epa.gov/coral-reefs/basic-information-about-coral-reefs
+[^unep_coral_500m]: https://www.unep.org/news-and-stories/story/why-should-we-save-coral-reefs
+[^nature_wave_97]: https://www.nature.com/articles/s41467-018-04568-z

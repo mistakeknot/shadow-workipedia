@@ -38,20 +38,6 @@ Public opinion on capital punishment has shifted dramatically: support among Ame
 
 - **Racial Justice Metrics**: Death row populations have ~42% Black representation despite Black Americans comprising ~13% of the U.S. population. Persistent racial disparities in sentencing and execution rates amplify **racial-justice-reckoning** by 5-10% whenever exonerations or high-profile cases surface systemic bias.
 
-**Event Types:**
-
-1. **Execution Botch / High-Profile Failure**: An execution goes critically wrong (lethal injection administered improperly, suffocation, electrocution malfunction), taking 45+ minutes. Triggers 8-12% temporary legitimacy loss, 5-8 point swing toward abolition in affected state, national media coverage drives abolitionist campaign momentum (+20-30% donor engagement). If >2 botches occur within 2 years, cascade triggers criminal justice legitimacy crisis.
-
-2. **DNA Exoneration / Death Row Clearing**: Post-conviction DNA evidence exonerates death row prisoner after 15+ years. Case receives national attention, abolitionist organizations mobilize, and similar cases are reopened. Triggers 4-6% increase in abolitionist sentiment, 20-35% increase in exoneration investigation funding, and 10-15% reduction in new death sentences in the state over following 18 months.
-
-3. **State Abolition Passage**: A retention state successfully legislates capital punishment abolition (achieved in 7 states 2007-2023). Creates institutional momentum: neighboring states experience 8-15% increase in abolitionist organizing capacity, interstate legal variance pressure increases, but also mobilizes retentionist opposition—they typically respond with renewed victim advocacy and heightened enforcement in remaining retention states (+5-10% execution rates in those states).
-
-4. **Interstate / International Legal Conflict**: European Union or trading partner threatens sanctions if U.S. state maintains capital punishment. Creates rare coalition: abolitionists gain institutional ally, retentionists rally around state sovereignty, tensions rise 12-20% in affected region. If escalated, trade impacts begin (-0.3-0.8% regional commerce), creating economic constituency for abolition.
-
-5. **Jury Nullification Wave**: Multiple juries in retention state refuse to impose death sentences despite prosecution requests, signaling public sentiment shift. Triggers 15-25% decline in death sentences imposed, but also energizes retentionist activism and "tough on crime" political campaigns (+10-15% in retention messaging).
-
-6. **Victim Advocacy Escalation**: High-profile victim families launch campaigns demanding executions, or conversely, victim families speak against capital punishment in their cases (rare but increasingly common). Drives polarization +8-12%, can swing public opinion by 3-5% in states with major victim advocacy campaigns, and amplifies emotional intensity of political conflict.
-
 **Cascading Effects:**
 
 - Triggers **criminal-justice-reform** efforts when execution botches exceed 2 within 24 months or exonerations reach 3+ in a single state

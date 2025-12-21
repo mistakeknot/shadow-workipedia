@@ -40,18 +40,6 @@ The region's instability threatens to: (1) produce mass displacement through eth
 
 **International Mediation Effectiveness** declines -40-60% as Russia blocks OSCE/UN involvement in its sphere of influence. Previous mediation attempts (OSCE Minsk Group 1992-2021) completely failed. Russia negotiates alone (2020 Trilateral Ceasefire Agreement), sidelining Western mediators and rendering international institutions ineffective.
 
-### Event Types
-
-**Nagorno-Karabakh Military Escalation** (40-50% annual probability): Azerbaijan military offensive triggers Armenian defense and international intervention calls. Precipitators include Azerbaijan nationalism surge, Turkish military support, perceived Armenian weakness, and questioned Russian security guarantees. Triggers +30-40% Armenian diaspora mobilization, +40-50% regional tension, 100,000+ refugee flows, -25% regional economic activity.
-
-**Georgia-Russia Military Confrontation** (20-30% probability during NATO tensions): Georgia attempts reassertion of South Ossetia or Abkhazia; Russia responds with military intervention (2008 precedent: 10-day war, 850+ deaths, 300,000 displaced). Triggers -50% regional stability, NATO credibility questions, and potential 200,000+ Georgian displacement.
-
-**Armenia-Russia Strategic Rupture** (25-35% probability): Armenia shifts toward Western alignment; Russia responds by reducing security guarantees and enabling Azerbaijan escalation. Armenia faces impossible choice between Russian security umbrella and Western integration, triggering -60% Armenian faith in Russian guarantee and +40% Azerbaijan confidence in military superiority.
-
-**Azerbaijani Territorial Expansion** (35-45% probability during high Turkish support): Azerbaijan achieves decisive victory, expels remaining Armenian population (ethnic cleansing scenario). Triggers +60-80% Armenian diaspora mobilization, -70% Armenian economic output, regional refugee crisis with 100,000-200,000 displacement, and international war crimes allegations.
-
-**Russian Military Base Threatened** (15-25% probability): Gyumri base (3,000-4,000 troops, nuclear-capable systems) threatened by Azerbaijan advances or Armenian instability. Russia escalates military presence, potentially using force against Azerbaijan, triggering +50% Russian military visibility and NATO concern regarding nuclear-capable systems in conflict zone.
-
 ### Cascading Effects
 
 **Comprehensive Refugee Crisis**: Mass Armenian displacement (100,000-200,000+) overwhelms Armenian absorption capacity, forcing secondary migration toward Iran (primary refuge), Lebanon diaspora routes, and European asylum seeking. Iran already hosts 1.8M Syrian refugees, creating 200,000+ additional population pressure.

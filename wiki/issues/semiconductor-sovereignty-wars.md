@@ -64,50 +64,6 @@ The collision of Taiwan's strategic importance, China's ambitions to reverse "th
 
 **Effect Chain**: Higher JIT increases economic damage from supply shock but also increases political pressure to prevent disruption. Nations holding buffer stocks are advantaged.
 
-### Event Types
-
-**TSMC Contingency Planning Escalation** (Probability: 15-30% annually, based on China military exercises)
-- Taiwan accelerates second-source fabs in US, Japan, Germany (Intel partnership, Samsung collaboration)
-- **Consequences**: Reduces Taiwan monopoly risk over 5-10 years but attracts Chinese cyber attacks on construction
-- **Social Impact**: Taiwanese diaspora becomes geopolitically valuable; brain drain accelerates
-- **Economic Impact**: Semiconductor equipment prices spike as multiple fabs simultaneously source ASML machines
-- **Cascading Effect**: Triggers "reshoring incentive" among allied nations, fragmenting global chip markets
-
-**Chinese Military Amphibious Exercise Simulation** (Probability: 25-40% annually)
-- 50,000-100,000 troops practice Taiwan beach landings near Fujian
-- **Consequences**: Increases Taiwan's defensive posture and Western military presence
-- **Psychological Effect**: Taiwanese evacuation planning accelerates, business confidence shaken
-- **Market Response**: Chip futures spike 5-15%, semiconductor equipment orders surge
-- **Escalation Path**: Can trigger mutual military buildups, arms race acceleration
-
-**Advanced Chip Export Control Tightening** (Probability: 20-35% triggered by Chinese security incidents)
-- US/allies block ASML sales, restrict EDA software, impose personnel screening
-- **Consequences**: Chinese fabs plateau at 28nm capability, forcing reliance on older nodes
-- **Chinese Response**: Bilateral relationships with non-allied nations (Iran, Russia, North Korea), counterfeiting networks
-- **Economic**: Chip prices stabilize for some products but innovation gaps widen
-- **Diplomatic**: ASML (Dutch company) pressured by US vs. Chinese economic retaliation threats
-
-**Espionage/IP Theft Discovery** (Probability: 30-50% annually, ongoing campaigns)
-- Chinese actors caught stealing TSMC process secrets, ASML schematics, Samsung proprietary methods
-- **Consequences**: Sanctions on Chinese companies, technology partnerships review, increased background checks
-- **Security Effect**: Isolated incidents trigger sweeping protocols affecting all talent mobility
-- **Economic**: Hiring freezes at Western fab companies, brain drain to Switzerland and Asia accelerates
-- **Cascading**: Fuels xenophobic hiring policies in Western tech, discriminating against Chinese diaspora
-
-**Strategic Semiconductor Stockpiling Drives** (Probability: 10-20% during geopolitical crises)
-- Nations/corporations hoard advanced chips for "national security," withdrawing from market
-- **Consequences**: Artificial supply shortages, hoarding premium, genuine supply pressure masked
-- **Economic**: Chip prices spike 30-80%, smaller companies starved of supplies, bankruptcies increase
-- **Cascading**: Triggers counter-hoarding by allied nations, global shortage panic, rationing discussions
-- **Recovery**: Expensive when hoards eventually released, market crashes, companies that invested in alternatives thrive
-
-**Breakthrough in Chinese Domestic Semiconductor Capability** (Probability: 5-15%, depends on investment/espionage)
-- SMIC achieves 14nm+ independently, Huawei launches new processor, Chinese fabs reach 7nm-capable design
-- **Consequences**: Reduces Taiwan's strategic monopoly, increases Chinese leverage in export control negotiations
-- **Geopolitical**: Taiwan's value shifts from absolute monopoly to "superior quality/reliability" premium
-- **Military**: China's war calculation shifts—fabs still needed but less desperately so, increases invasion incentive
-- **Cascading**: Western nations accelerate allied fab construction; China receives sanctions; trade war intensifies
-
 ### Cascading Effects
 
 **Supply Chain Fragmentation & Regional Blocs** (Triggered by strict export controls)

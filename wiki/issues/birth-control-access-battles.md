@@ -34,15 +34,6 @@ The stakes involve reproductive autonomy and health equity. When pharmacies refu
 - **Social Cohesion**: -10 to -20 as reproductive rights become contested terrain
 - **Abortion Rate**: +15 to +30 when contraception access declines
 
-**Event Types:**
-1. **Pharmacy Refusal Crisis**: Major chain allows blanket contraception refusals, -25 Reproductive Healthcare Access
-2. **Insurance Mandate Overturned**: Supreme Court strikes ACA contraception coverage requirement, -30 Healthcare Access
-3. **Emergency Contraception Restriction**: States reclassify Plan B as abortion, ban sales, -35 Reproductive Rights
-4. **Title X Defunding**: Federal family planning program loses funding, -20 Reproductive Healthcare Access
-5. **OTC Birth Control Approval**: FDA approves over-the-counter pills, +20 Access (but -5 if unaffordable without insurance)
-6. **College Campus Ban**: Public universities prohibited from providing contraception, -15 Youth Healthcare Access
-7. **IUD Access Collapse**: Insurance coverage eliminated for long-acting contraception, -25 Reproductive Healthcare
-
 **Cascading Effects:**
 - Triggers **Abortion Access Restrictions** pressure as contraception failures/unavailability increase demand
 - Amplifies **IVF and Fertility Treatment Costs** debates when reproductive healthcare politicized

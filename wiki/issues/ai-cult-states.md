@@ -49,20 +49,6 @@ These movements are particularly dangerous not because they involve small groups
 - **Democratic Norms (0-100)**: Measures institutional strength of democratic accountability. Lower values correlate with easier adoption of "meritocratic" governance models that exclude democratic input.
 - **Wealth Inequality (0-100)**: Measures concentration of economic power. Higher inequality amplifies influence of billionaire-funded movements and reduces countervailing power of democratic institutions.
 
-**Event Types:**
-
-1. **Alignment Cult Recruitment**: A major tech company funds a "research institute" exploring AI alignment, attracting both legitimate researchers and quasi-religious true believers. Public legitimacy increases; institutional capture accelerates.
-
-2. **Charter City Authorization**: Government approves a special economic zone to be governed primarily through algorithmic systems designed by tech entrepreneurs. Early implementations show efficiency gains (true) and reduced corruption (partly true due to reduced oversight). Democratic norms erode as a new governance alternative becomes available.
-
-3. **Longtermist Policy Capture**: A foundation funded by AI billionaires successfully convinces government to prioritize "existential risk mitigation" over immediate social needs. Resources shift; policy priorities become increasingly disconnected from democratic deliberation.
-
-4. **AI Priesthood Formation**: A university establishes an AI safety institute with industry funding, creating a clerical class of "alignment priests" whose authority on AI matters goes unquestioned. Theological disagreements become credentialed expertise disputes.
-
-5. **Algorithmic Governance Expansion**: A city implements algorithmic systems for resource allocation (permits, budget allocation, hiring). Initial efficiency gains lead to normalization; citizens lose intuitive understanding of how decisions are made.
-
-6. **Ideology Backlash**: Exposure of private funding connections, prediction failures, or evidence of capture triggers public skepticism. Religious participation drops; institutional trust in tech leadership declines temporarily.
-
 **Cascading Effects:**
 - High Tech Industry Influence + High Religious Participation → **Democratic Backsliding** accelerates as citizens defer to "expert" algorithmic systems
 - Algorithmic Governance Expansion → **Wealth Inequality** increases as systems designed by billionaires encode existing inequalities as "efficient"

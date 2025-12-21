@@ -30,13 +30,6 @@ Coordinated spread of false information creates epistemological crisis where com
 - **Election Acceptance**: Declines 85% (2000) → 60% (2020) → 35-40% (2040). Below 40% triggers dual government constitutional crisis, political violence escalates to 100+ incidents/year.
 - **Journalism Capacity**: Newspaper revenue $46B (2005) → $6B (2022) → $500M (2040). Investigative capacity 100% → 20% → 5%, local news deserts 500 → 1800 → 2500 counties (80% coverage).
 
-**Event Types:**
-1. **Pizzagate 2.0**: Armed conspiracy raid on false child trafficking claim. Triggers -3% media trust, +15% QAnon affiliation, +10 violence incidents/year.
-2. **5G Tower War**: Infrastructure sabotage on health conspiracy (77+ attacks baseline). Destroys $10M-$50M infrastructure, validates conspiracy narratives (+5% believer adoption).
-3. **Fact Checker Assassination**: Journalist killed for debunking false narratives. -30% fact-checking capacity from resignations, -5% media trust, chilling effect on corrections.
-4. **Deepfake Election Scandal**: AI-generated candidate confession goes viral 48h before election. Alters outcome, -8% media trust, detection lag 6-18 months means corrections arrive post-election.
-5. **Reality Exile Exodus**: Millions migrate to alt-tech platforms. Cross-cutting exposure falls below 3%, democratic deliberation becomes impossible, dual epistemic communities govern separately.
-
 **Cascading Effects:**
 - Triggers **Deepfake Reality Crisis** when AI quality crosses 0.90 threshold (visual/audio indistinguishable). Perfect deepfakes eliminate all visual evidence as truth anchor, accelerate epistemic collapse.
 - Amplifies **Social Media Addiction** via engagement optimization (outrage maximization 2-6× spread, infinite scroll, recommendation rabbit holes). Addictive design increases disinformation exposure hours/day.

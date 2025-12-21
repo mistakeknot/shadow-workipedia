@@ -40,18 +40,6 @@ As legalization spreads from West Coast boutique status to Middle America (Misso
 
 - **Criminal Justice Institutional Strain**: States with legalization experience 35-50% reduction in marijuana-related prosecutions within 2-3 years, creating institutional surplus in prosecutor offices and courtroom capacity. Prosecutorial discretion expands, creating inconsistency: legalization does not eliminate enforcement—it merely shifts discretionary power. Racial disparities often persist or increase as enforcement becomes selective rather than categorical.
 
-**Event Types:**
-
-1. **Federal Enforcement Surge**: DOJ undertakes crackdown in legalized state, prosecuting 500+ cannabis businesses federally despite state legality. Cascade effect: cultivation collapses locally by 40-60%, triggering price spikes, grey market expansion by 30-45%, and legal system overload (3,000+ federal cannabis cases backlog courts for 2-3 years). Interstate commerce destabilization occurs if enforcement crosses state lines into supply chains.
-
-2. **Legalization Domino**: Region achieves 5+ contiguous legalized states (e.g., Mid-Atlantic or Midwest tipping point). Triggers normalization in non-legalized border states (probability of neighboring legalization increases 35-50% within 18 months), dramatically accelerates federal-state conflict resolution pressure, and creates regional coordinated commerce systems independent of federal law.
-
-3. **Banking Breakthrough**: Federal regulators clarify Safe Banking Act, enabling 40-60% of unbanked cannabis businesses to access legitimate finance. Immediate consequence: tax compliance increases to 65-80%, grey market shrinks by 25-35%, economic activity formalizes, but regulatory capture risk increases (banks extracting 8-12% fees from cannabis businesses through compliance surcharges).
-
-4. **Expungement Cascade**: State implements automatic conviction expungement for legalization-era marijuana arrests; 150,000+ records cleared instantly. Triggered effect: employment recovery accelerates, wage recovery ($8,000-$15,000 over 3 years per individual), but political backlash in conservative regions increases federal-state tension by 15-22 percentage points.
-
-5. **Interstate Smuggling Detection Surge**: Law enforcement in prohibition states reports 200%+ increase in interstate cannabis trafficking (sourced from legalized states), triggering escalated border enforcement (0.5-1.2% of supply chain seized). Creates supply instability in legalized source states, grey market re-expansion, and political pressure for uniform policy.
-
 **Cascading Effects:**
 
 - Triggers **mass-incarceration-crisis** amplification when prosecution discretion increases by >25% in legalized states; racial disparities often persist despite decriminalization

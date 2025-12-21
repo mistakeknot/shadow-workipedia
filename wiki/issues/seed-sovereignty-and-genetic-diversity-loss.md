@@ -35,16 +35,6 @@ The strategic implications are profound. As climate zones shift, crops need trai
 - **Food Sovereignty**: -30 to -50
 - **Famine Risk**: +20 to +40
 
-### Event Types
-- **Genetic Bottleneck Crisis**: Disease exploits narrow genetic base, crop failure
-- **Seed Bank Failure**: Power outage/funding loss destroys stored genetic material
-- **Climate Adaptation Gap**: Existing varieties cannot survive changed conditions
-- **Wild Relative Extinction**: Species containing critical genes goes extinct
-- **Traditional Variety Loss**: Last farmers growing landrace abandon it
-- **Patent Lockdown**: IP restrictions prevent access to needed genetic traits
-- **Monoculture Collapse**: Single variety failure cascades through food system
-- **Germplasm Rescue**: Emergency collection of endangered varieties
-
 ### Cascading Effects
 - Crop yields collapse when environment changes
 - Disease outbreaks devastate genetically uniform fields

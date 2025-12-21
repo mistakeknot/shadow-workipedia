@@ -34,20 +34,6 @@ The arms race operates on multiple timescales. Parasites develop artemisinin res
 - **Tropical Morbidity**: Rises with resistance prevalence; malaria becomes endemic in populations that had near-elimination, driving economic collapse in agricultural and mining sectors dependent on seasonal workers.
 - **Climate Pressure**: Expands transmission zones northward and into highland areas; increases population at risk and creates new geographic frontiers for resistance evolution.
 
-**Event Types:**
-
-1. **Artemisinin Resistance Emergence**: A new *Plasmodium falciparum* strain with reduced artemisinin sensitivity emerges in a high-transmission zone (Southeast Asia, East Africa). Treatment failures spike; clinical alerts issued; existing ACT stockpiles become partially ineffective. Triggers urgent WHO guidelines updates and forces emergency use of untested drug combinations.
-
-2. **Pyrethroid-Resistant Mosquito Outbreak**: Dominant *Anopheles* population in a major transmission zone becomes resistant to pyrethroids; bed nets and indoor residual spraying lose effectiveness. Vector control programs collapse; transmission intensity surges; malaria cases increase 40-80% within one transmission season.
-
-3. **Multi-Drug-Resistant Parasite Spread**: A strain resistant to both artemisinin and partner drugs (lumefantrine, amodiaquine) emerges and spreads to neighboring countries. Forces use of salvage drugs (atovaquone-proguanil, quinine) that are expensive, poorly tolerated, and have lower efficacy. Healthcare costs skyrocket; treatment adherence drops; illness durations lengthen.
-
-4. **Treatment Failure Cluster**: A region experiences widespread malaria treatment failures with standard ACT regimens, indicating resistance prevalence has crossed a critical threshold (>10% failure rate). Public health crisis; loss of confidence in antimalarials; patients may abandon treatment or use counterfeit drugs; clinical outcomes deteriorate.
-
-5. **Antimalarial Breakthrough**: A new drug candidate (e.g., spiroindolone, artefenomel, novel compound) completes Phase III trials and enters WHO prequalification. Temporary boost to Antimalarial Effectiveness, but limited supply and high cost restrict access; resistance emergence timeline resets the clock for new mutation development.
-
-6. **Alternative Vector Control Success**: Discovery or development of new insecticide class or vector control method (e.g., gene drive mosquitoes, novel biological control) that bypasses resistance. Can reverse Vector Control Efficacy collapse, but introduces ecological uncertainty and public acceptance risk.
-
 **Cascading Effects:**
 
 - Triggers **Tropical Disease Resurgence** by enabling unrestricted malaria (and related parasites like dengue, sleeping sickness) transmission in previously controlled areas; entire regions destabilize.

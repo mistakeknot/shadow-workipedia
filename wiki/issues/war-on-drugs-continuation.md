@@ -41,14 +41,6 @@ The continuation of global drug prohibition policies will intensify all three ve
 - **Border Security Costs**: +30 (interdiction operations)
 - **Social Cohesion**: -25 (community disruption from enforcement)
 
-### Event Types
-- Fentanyl overdose spikes
-- Cartel territory wars
-- Prison overcrowding crises
-- Decriminalization reform movements
-- Drug trafficking interdiction operations
-- Treatment program defunding
-
 ## Cascading Effects
 
 The War on Drugs creates feedback loops with:

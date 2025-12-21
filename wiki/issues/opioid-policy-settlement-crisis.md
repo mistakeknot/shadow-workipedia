@@ -68,44 +68,6 @@ Fentanyl transforms the crisis from a pharmaceutical/heroin problem to a synthet
   - Drug courts, diversion programs underfunded despite evidence base
   - Incarceration for drug offenses persists despite treatment being more effective
 
-### Event Types
-
-**Fentanyl Wave Escalation**
-- Trigger: Fentanyl-involved overdoses exceed 70% of total opioid deaths
-- Immediate: Emergency declarations, naloxone distribution campaigns, media saturation
-- Secondary: Counterfeit pill deaths (fake Xanax, Percocet), cocaine contamination deaths
-- Affects: PublicHealth -80, SocialStability -65, ParentTrust -50 (teens at risk)
-
-**Opioid Settlement Fund Diversion**
-- Trigger: State/local government diverts >30% of settlement funds to non-addiction uses
-- Immediate: Advocacy group lawsuits, media investigations, public backlash
-- Secondary: Legislative mandates for fund tracking, clawback provisions, federal oversight
-- Affects: PublicTrust -55, TreatmentCapacity -40, LegalSystem +25 (accountability measures)
-
-**Treatment Capacity Collapse**
-- Trigger: Treatment waitlists >60 days + overdose deaths increasing >15% YoY
-- Immediate: Desperation among families, media stories of preventable deaths during waits
-- Secondary: Emergency treatment funding, telehealth MAT expansion, provider recruitment
-- Affects: PublicHealth -70, SocialStability -60, HealthcareSystem -65
-
-**Cartel Fentanyl Production Surge**
-- Trigger: Precursor chemical supply increases OR new synthesis methods simplify production
-- Immediate: Fentanyl purity/availability increases, prices drop, overdoses spike
-- Secondary: Law enforcement seizures rise but street supply unaffected, interdiction failure
-- Affects: PublicHealth -75, BorderSecurity -50, DrugSupply +60
-
-**Supervised Consumption Site Battle**
-- Trigger: City/state attempts to open supervised injection facility
-- Immediate: Federal prosecution threats, local opposition, NIMBY lawsuits
-- Secondary: If opened: overdose deaths near site plummet, but political backlash, closure threats
-- Affects: PublicHealth +40 (if opened) / -30 (if blocked), PoliticalPolarization +50
-
-**MAT Access Crisis**
-- Trigger: Buprenorphine provider shortages + regulatory barriers limit treatment capacity to <40% of need
-- Immediate: Patients unable to access MAT relapse to illicit opioids, overdose risk increases
-- Secondary: Telehealth MAT expansion, X-waiver elimination, pharmacy deserts in rural areas
-- Affects: TreatmentAccess -60, PublicHealth -50, HealthcareInequality +45
-
 ### Cascading Effects
 
 **To Homelessness Crisis**: Opioid addiction drives job loss, eviction, family estrangement, converting housed individuals to homelessness; encampments become open-air drug markets.

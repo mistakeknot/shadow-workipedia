@@ -11,7 +11,8 @@ socialImpact: 80
 affectedSystems: [Geopolitics, Civil Society, Security]
 connections: [democratic-backsliding]
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-25
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Arab Spring Aftermath and Counter-Revolution
@@ -20,7 +21,7 @@ lastUpdated: 2025-11-25
 
 The Arab Spring of 2010-2012 represented the most significant wave of pro-democracy mobilization in the Middle East and North Africa since decolonization. Beginning with Mohamed Bouazizi's self-immolation in Tunisia, protests spread virally across the region, toppling long-standing autocrats in Tunisia, Egypt, Libya, and Yemen while threatening regimes from Bahrain to Syria. A decade later, the counter-revolution has largely succeeded: of the major uprising countries, only Tunisia achieved democratic transition—and even that democracy collapsed with Kais Saied's 2021 power grab.
 
-The counter-revolutionary playbook proved devastatingly effective. Gulf monarchies, particularly Saudi Arabia and the UAE, deployed billions in financial support to authoritarian allies while crushing domestic dissent. Egypt's military establishment executed a textbook counter-revolution: allowing electoral democracy briefly, then using Muslim Brotherhood governance failures to justify a military coup that installed a regime more repressive than Mubarak's. Syria's Assad demonstrated that sufficient brutality, backed by Russian and Iranian intervention, could simply outlast protest movements. Libya and Yemen collapsed into civil wars that discredited the idea of revolutionary change.
+The counter-revolutionary playbook proved devastatingly effective. Gulf monarchies, particularly Saudi Arabia and the UAE, deployed billions in financial support to authoritarian allies while crushing domestic dissent. Egypt's military establishment executed a textbook counter-revolution: allowing electoral democracy briefly, then using Muslim Brotherhood governance failures to justify a military coup that installed a regime more repressive than Mubarak's. In Syria, the Assad government demonstrated that sufficient brutality—backed by Russian and Iranian intervention—could outlast early protest waves and survive years of civil war; the regime was later toppled in late 2024, shifting the Syria case into a post-authoritarian transition phase rather than a simple "regime survival" endpoint. [^reuters-syria-transition]
 
 The implications extend far beyond the region. The Arab Spring's failure has become a cautionary tale weaponized by authoritarians worldwide: democracy brings chaos, strongmen bring stability. This narrative, amplified by state media from Beijing to Moscow, shapes how populations globally evaluate the risks of political change.
 
@@ -35,18 +36,6 @@ The implications extend far beyond the region. The Arab Spring's failure has bec
 - **Civil Society Resilience** (0-100): Strength of independent organizations, professional associations, unions, and activist networks. Systematically targeted by counter-revolutionary forces. Below 30 makes sustained protest mobilization nearly impossible. Rebuilding requires 10-15 years of space for organizing.
 
 - **Protest Contagion Risk** (0-100): Likelihood that protests in one country spread regionally. Social media amplifies but also enables surveillance. Currently suppressed to 25 through preemptive repression, but economic crises can spike this to 60+ rapidly.
-
-**Event Types:**
-
-1. **Economic Crisis Protests**: Food price spikes, currency collapse, or unemployment surge triggers mass protests. Government faces choice: reform (rare), repress (common), or fall. Gulf states may intervene with emergency aid to preferred regimes. Protest Contagion Risk +20-30 for 6-12 months.
-
-2. **Military Coup**: Armed forces seize power, typically claiming to "restore stability" or "protect the revolution." International response divided—Western democracies condemn while regional authoritarians support. Civil Society Resilience crashes -30. Often followed by 5-10 years of intensified repression.
-
-3. **Counter-Revolutionary Intervention**: Gulf states deploy financial aid, weapons, or mercenaries to support allied regime against protests. Regime survival probability increases 40-60%. Regional Democracy Index -5. International criticism muted by energy dependence and arms sales relationships.
-
-4. **Civil War Onset**: Regime violence against protesters triggers armed resistance. External powers intervene on opposing sides. State institutions collapse. Refugee crisis affects neighboring countries. Recovery timeline: 15-30 years minimum. Examples: Syria, Libya, Yemen.
-
-5. **Democratic Backslide Event**: Elected government incrementally dismantles democratic institutions—independent judiciary, press freedom, electoral integrity. Often justified by security threats or economic emergency. Regional Democracy Index -8 to -15 per country affected.
 
 **Cascading Effects:**
 
@@ -126,5 +115,7 @@ The implications extend far beyond the region. The Arab Spring's failure has bec
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-25
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/arab-spring-aftermath-and-counter-revolution.md)
+
+[^reuters-syria-transition]: Reuters, “Syria's interim president Sharaa announces formation of legislative council” (reports transition context and Sharaa declared interim president; Jan 29, 2025). Accessed 2025-12-19. https://www.reuters.com/world/middle-east/syrias-interim-president-sharaa-announces-formation-legislative-council-2025-01-29/

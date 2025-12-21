@@ -11,12 +11,15 @@ socialImpact: 92
 affectedSystems: [International Security, Energy, Economy, NATO, Nuclear Risk]
 connections: []
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-24
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Ukraine Invasion and Forever War
 
 ## Overview
+
+As of 2025-12-19, Volodymyr Zelensky is president of Ukraine and Vladimir Putin is president of Russia. [^britannica-zelensky] [^britannica-putin]
 
 Russia's February 2022 invasion of Ukraine represents a critical inflection point in global security architecture, marking the largest European military conflict since World War II and the definitive end of the post-Cold War order. The initial expectation of rapid Russian victory evolved into a grinding war of attrition that has consumed hundreds of thousands of lives, fundamentally reshaped European geopolitics, and created cascading economic and energy disruptions across the global system.
 
@@ -58,38 +61,6 @@ What distinguishes this conflict from previous regional wars is its potential fo
 - Real-world battlefield testing of systems developed for Cold War scenarios
 - Ammunition manufacturing capacity strained globally
 - Drone and electronic warfare doctrine accelerated by 5-7 years versus pre-war projections
-
-### Event Types
-
-**Winter Mobilization Failures**
-- Conscription resistance increases during harsh winter months (probability: 35-45%)
-- Consequence: Force regeneration cycles extend, requiring 6-12 month rebuild periods
-- Cascading: Leads to increased atrocities as desperate units behave with reduced discipline
-
-**Energy Blackmail Escalation**
-- Routine targeting of power infrastructure and water systems (winter probability: 60%)
-- Humanitarian crisis episodes with thousands of civilian casualties from heating/medical system failure
-- Consequence: Western aid packages increase 15-20%, delaying other conflicts' resolution timelines
-
-**Nuclear Facility Accidents**
-- Occupied nuclear plant incidents (probability: 2-3% per quarter due to fire/mechanical failure)
-- Consequence: Temporary IAEA intervention crises, 24-48 hour global nuclear anxiety episodes
-- If accident occurs: 0.5-1% probability of radiological release affecting European populations
-
-**Weapons Supply Chain Exhaustion**
-- Rapid depletion of Cold War stockpiles forces new manufacturing (probability: increases 10% per year)
-- Consequence: Ammunition rationing, artillery rounds limited to 20-30 per day versus 200-300 pre-war
-- Forces tactical changes, advantage cycles shift based on supply availability
-
-**Defection and Command Chaos Events**
-- Russian command structure deterioration with rotating general casualties (probability: 15% quarterly)
-- Consequence: Command uncertainty periods lead to tactical retreats or reckless advances
-- Morale collapse events cascade through unit cohesion, creating 2-4 week chaos windows
-
-**Western Aid Fatigue Cycles**
-- Congressional/parliamentary opposition to aid packages increases during economic downturns (probability: 20% per recession quarter)
-- Consequence: Funding gaps create military disadvantage windows, tactical reversal probability increases
-- Leads to settlement pressure cycles where Ukraine forced into negotiation positions
 
 ### Cascading Effects
 
@@ -171,5 +142,10 @@ What distinguishes this conflict from previous regional wars is its potential fo
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-24
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/ukraine-invasion-and-forever-war.md)
+
+## Sources
+
+[^britannica-zelensky]: Encyclopaedia Britannica, “Volodymyr Zelensky | Biography, Facts, Presidency, & Russian Invasion of Ukraine.” Accessed 2025-12-19. https://www.britannica.com/biography/Volodymyr-Zelensky
+[^britannica-putin]: Encyclopaedia Britannica, “Vladimir Putin | Biography, KGB, Political Career, & Facts.” Accessed 2025-12-19. https://www.britannica.com/biography/Vladimir-Putin

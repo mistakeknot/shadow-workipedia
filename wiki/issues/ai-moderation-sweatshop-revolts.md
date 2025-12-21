@@ -31,15 +31,6 @@ Major technology platforms outsource content moderation to workers in Kenya, Phi
 - **Platform Operating Costs**: Remains artificially low through outsourcing; spikes during labor actions or compliance pressure; motivates automation investments
 - **Legal/Regulatory Exposure**: Increases with each documented health crisis; accelerates with coordinated worker filing and union certification efforts
 
-**Event Types:**
-
-1. **Worker PTSD Crisis**: Documented mental health deterioration reaches critical mass (suicides, psychotic breaks, hospitalization rates spike); triggers international media attention and health advocacy intervention
-2. **Moderation Strike/Boycott**: Workers coordinate across platforms/regions to withhold labor; disrupts AI training pipelines and content moderation timeliness
-3. **Platform Labor Investigation**: NGOs, journalists, or labor regulators conduct exposé on working conditions; reveals wage theft, safety violations, health negligence
-4. **Union Certification Drive**: Workers formally organize across contractors; platform refuses recognition, triggering legal escalation or public pressure campaigns
-5. **Worker Compensation Lawsuit**: Class action or legal claim for hazard pay, psychological injury, or wage theft; creates precedent and settlement pressure
-6. **Moderation Contractor Collapse**: Subcontracting firm faces bankruptcy or service failure due to worker exodus; forces platform to internalize or find expensive alternatives
-
 **Cascading Effects:**
 
 - Triggers **Mental Health Apocalypse** when widespread untreated PTSD in moderation workforce normalizes trauma exposure as acceptable working condition

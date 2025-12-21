@@ -48,15 +48,6 @@ This emerging divide poses existential challenges to meritocracy and democratic 
 - **Democratic Legitimacy**: Undermined by biological class divergence
 - **Ethical Norms**: Challenged by enhancement normalization
 
-### Event Types
-
-- **Gene Editing Scandal**: Illegal enhancement clinic exposed
-- **Enhancement Class Action**: Lawsuit challenges unequal genetic access
-- **Athletic Competition Crisis**: Enhanced athletes dominate competitions
-- **Educational Testing Upheaval**: Genetically advantaged students skew results
-- **Insurance Discrimination**: Genetic status affects coverage access
-- **International Enhancement Tourism**: Wealthy seek offshore genetic services
-
 ### Cascading Effects
 
 Genetic enhancement inequality creates compounding stratification:

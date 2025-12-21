@@ -35,16 +35,6 @@ The consequences cascade through democratic systems: corruption flourishes witho
 - **Democratic Quality**: -20 to -45
 - **Civic Engagement**: -15 to -25
 
-### Event Types
-- **Journalist Assassination**: High-profile murder creates international incident
-- **Lawfare Campaign**: Mass arrests of journalists on fabricated charges
-- **Newsroom Raid**: Police/security forces seize materials, arrest staff
-- **Media Ownership Consolidation**: Oligarchs acquire independent outlets
-- **Digital Blackout**: Internet shutdowns during protests or elections
-- **Surveillance Exposure**: Revelation of systematic journalist monitoring
-- **Economic Strangulation**: Advertising boycotts force outlet closures
-- **Exile Wave**: Prominent journalists flee country en masse
-
 ### Cascading Effects
 - Investigative reporting capacity collapses
 - Corruption scandals go unreported and unpunished

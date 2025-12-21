@@ -35,16 +35,6 @@ The competitive dynamics escalate as jurisdictions bid for remote workers throug
 - **Tax Compliance Complexity**: +30 to +50
 - **Cultural Displacement**: +15 to +30
 
-### Event Types
-- **Zoom Town Explosion**: Small city overwhelmed by remote worker influx
-- **Tax Base Collapse**: Major city loses high earners en masse
-- **Geographic Arbitrage Crackdown**: States pursue remote workers for taxes
-- **Digital Nomad Visa Crisis**: Countries revoke/restrict remote work visas
-- **Compensation Equity Lawsuit**: Workers sue over location-based pay cuts
-- **Infrastructure Failure**: Destination town utilities/services collapse
-- **Anti-Gentrification Backlash**: Locals organize against remote worker influx
-- **Interstate Tax War**: States compete aggressively for remote workers
-
 ### Cascading Effects
 - Urban cores hollow out (office, retail, service sectors collapse)
 - Rural broadband infrastructure becomes critical bottleneck

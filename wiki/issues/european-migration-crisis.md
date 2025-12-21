@@ -39,18 +39,6 @@ As of 2025, the crisis exists in three simultaneous dimensions: (1) external—r
 
 - **Labor Market Dynamics**: Paradoxically, Europe's aging economies need migrants to offset demographic decline (UN projects 20% EU population shrinkage by 2050), but political constraints prevent rational labor policy. Result: sustained labor shortages in healthcare, construction, agriculture coexist with high asylum seeker unemployment. Integration delays of 2-4 years cost European economies €40-60 billion annually in lost productivity.
 
-**Event Types:**
-
-1. **Mediterranean Surge Event**: Seasonal or geopolitical event (conflict in Syria, Turkey border opening, climate crisis in Sahel) drives 30,000+ arrivals in 2-4 week window. Overwhelms processing capacity in Greece, Italy, or Spain. Triggers: national government crisis, media spectacle, far-right mobilization spike (+4-7 points in 6 months), EU emergency summit. Cascade: if surge exceeds 50,000, second and third countries may close borders or invoke Article 27 Schengen suspension.
-
-2. **Asylum Directive Conflict**: EU attempts to enforce common asylum responsibility-sharing (Dublin III reform, new Pact on Migration and Asylum). Eastern member states refuse to participate, threatening EU legal system and budget mechanisms. Cascade: 4-8 month institutional deadlock, potential budget withholding, EU legitimacy decline (2-5 percentage points). Amplifies far-right narratives about "EU overreach."
-
-3. **Far-Right Electoral Breakthrough**: Far-right party wins significant vote share (>20%) in EU member state national elections, making migration control or Schengen exit core campaign platform. Triggers: government policy shift away from EU asylum harmonization, border wall construction, asylum processing cutbacks. Cascade: demonstrates migration salience to other EU governments, increases likelihood of additional right-wing electoral wins, creates "contagion effect" across border regions.
-
-4. **Integration Failure Crisis**: Refugee cohort's economic integration stalls (unemployment stays >25% after 3-5 years), creating visible underclass concentration in specific cities. Media cycles feature crimes by refugee individuals. Public concern spikes, far-right mobilization intensifies (+8-15 points). Triggers: policy hardening, reduced admission numbers, harsher asylum criteria. Cascade: integration failures compound as political backlash reduces support programs and employment access.
-
-5. **Schengen Collapse Event**: Multiple member states simultaneously suspend free movement, reinstating internal border controls citing security/migration concerns. Triggers: major attack by asylum seeker, visible migrant camp near border, far-right government taking office. Cascade: Schengen effectively dead as functioning system; creates economic costs (€15-30 billion estimated from reduced cross-border commerce), accelerates EU fragmentation, opens pathway for multi-year borders-up scenario.
-
 **Cascading Effects:**
 
 - Triggers **asylum-system-breakdown** when processing backlog exceeds 500,000 cases + member states refuse burden-sharing

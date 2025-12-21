@@ -58,33 +58,6 @@ This issue isn't primarily about privacy erosion in the abstract sense. It's abo
 - At 60+: Defense contracting undergoes massive consolidation; stealth-dependent firms go bankrupt
 - At 80+: GDP contraction in defense-dependent regions; millions of skilled workers face unemployment
 
-### Event Types
-
-**Quantum Sensor Tactical Deployment** (Probability: 15%, Occurs when deployment rate > 40)
-- Military uses quantum sensors to detect and destroy previously undetectable targets (submarines, bunkers, hidden weapons caches)
-- Consequence: Power asymmetries shift; weaker nations lose defensive advantages; conflict becomes more decisive
-- Follow-on: Conventional war becomes faster and more lethal; deterrence structures collapse
-
-**Bulk Decryption of Historical Communications** (Probability: 22%, Occurs when encryption vulnerability > 50)
-- Intelligence agencies retroactively decrypt decades of stored communications
-- Consequence: Historical secrets exposed; intelligence sources and methods revealed; diplomatic embarrassments surface
-- Follow-on: Trust in government communications collapses; adoption of analog communication methods; intelligence gathering becomes more difficult
-
-**Underground Bunker Obsolescence** (Probability: 18%, Occurs when sensor deployment > 60)
-- Governments realize traditional hardened bunkers no longer provide protection
-- Consequence: Massive construction projects abandoned; geopolitical hiding places disappear; leadership becomes more vulnerable
-- Follow-on: Assassination risks increase for top officials; decentralization of authority becomes necessary; power structures destabilize
-
-**Civilian Surveillance Expansion** (Probability: 25%, Occurs when social acceptance > 50)
-- Law enforcement and intelligence agencies expand quantum sensor networks into civilian infrastructure
-- Consequence: Total monitoring of population; privacy becomes extinct concept; dissent becomes extremely dangerous
-- Follow-on: Authoritarianism intensifies; freedom of movement ends; informant networks become ubiquitous
-
-**Quantum Sensor Arms Race Escalation** (Probability: 20%, Occurs when encryption strength diverges from sensor deployment)
-- Nations rapidly develop competing quantum sensor networks and defensive counter-quantum systems
-- Consequence: Massive defense spending; technology races accelerate; economic resources diverted from civilian needs
-- Follow-on: Regional powers attempt to match superpower capabilities; destabilization of technology-lagging regions
-
 ### Cascading Effects
 
 **Loss of Military Concealment → Doctrine Collapse**: Stealth technology becomes obsolete overnight. Submarine-based nuclear deterrence loses its foundation. Air forces with stealth-dependent doctrines must rebuild entirely. Nations without quantum sensors face strategic vulnerability. Power imbalances become stark and destabilizing.

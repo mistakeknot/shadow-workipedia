@@ -46,17 +46,6 @@ The consequences cascade across all domains of collective life. Without trusted 
 - **Economic Confidence**: -10 to -20 (reduced investment and cooperation)
 - **Authoritarian Risk**: +15 to +30 (demand for strongman solutions)
 
-### Event Types
-- Trust in major institutions falling below 30% across multiple sectors
-- Simultaneous scandals affecting government, media, business, and academia
-- Failure of major institutions during crisis (pandemic, financial crash, disaster)
-- Generational surveys showing youth trust at historic lows
-- Alternative institutions emerging to replace discredited mainstream ones
-- Conspiracy theories going mainstream as institutional explanations rejected
-- Elections where all candidates run as anti-establishment outsiders
-- Institutional reforms failing to restore public confidence
-- International comparisons showing trust decline across democracies
-
 ### Cascading Effects
 - **Governance Paralysis**: Cannot implement policy or coordinate on complex problems without public trust
 - **Expertise Rejection**: Science, medicine, academia dismissed as elite conspiracies

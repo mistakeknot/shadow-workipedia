@@ -48,15 +48,6 @@ Beyond the immediate injustice to detainees, Guantanamo's persistence corrodes A
 - **Security Effectiveness**: Questionable as facility generates radicalization
 - **Political Courage**: Absent as closure promises remain unfulfilled
 
-### Event Types
-
-- **Detainee Hunger Strike**: Prisoners protest conditions and indefinite detention
-- **Torture Report Release**: New documentation of interrogation abuses emerges
-- **Transfer Blocked**: Detainee cleared for release remains imprisoned by politics
-- **International Condemnation**: UN or allied nations denounce facility
-- **Closure Attempt Failure**: Presidential initiative to close facility collapses
-- **Legal Challenge Victory**: Court rules against detention practices
-
 ### Cascading Effects
 
 Guantanamo's persistence creates cascading legitimacy damage:

@@ -47,15 +47,6 @@ This stratification compounds over lifespans as neglected oral health leads to i
 - **Quality of Life**: Degraded for those unable to afford care
 - **Healthcare Costs**: Paradoxically higher from delayed treatment
 
-### Event Types
-
-- **Dental Crisis Emergency Room Surge**: Untreated infections flood ERs
-- **School Vision Screening Scandal**: Massive unmet need discovered
-- **Hearing Aid Cost Revolt**: Seniors organize against prohibitive pricing
-- **Insurance Coverage Expansion**: State mandates dental/vision/hearing inclusion
-- **Safety Net Clinic Collapse**: Free care providers overwhelmed
-- **Workplace Discrimination Case**: Vision/hearing impairment drives job loss
-
 ### Cascading Effects
 
 Essential care service gaps create compounding disadvantages:

@@ -30,14 +30,6 @@ Voter suppression has shifted from historical overt intimidation to legal-techni
 - **Institutional Trust**: Erodes when citizens perceive elections as rigged not through fraud but through explicit legal restrictions designed to exclude them
 - **Minority Political Power**: Collapses as suppression techniques target specific demographic strongholds, enabling minority rule through mathematical voter reduction
 
-### Event Types
-
-1. **Voter Roll Purges**: Election officials purge "inactive" voters using aggressive standards, disproportionately removing minority voters who move frequently, triggering election day provisioning problems and ballot rejection
-2. **Polling Place Consolidation**: Hundreds of polling places closed in minority areas under budget justifications, forcing voters to travel 20+ miles or wait 5+ hours, effectively creating voting poll tax
-3. **ID Law Implementation**: New voter ID requirements eliminate 5-10% of electorate without IDs, disproportionately affecting minorities, elderly, and students who lack "acceptable" forms of identification
-4. **Registration Deadline Acceleration**: Same-day registration eliminated, deadlines moved to 30 days pre-election, preventing campaigns from registering newly mobilized voters and lowering turnout by 2-4%
-5. **Provisional Ballot Rejection**: Partisan election officials aggressively reject provisional ballots on technicalities in close elections, overturning apparent defeats through administrative means
-
 ### Cascading Effects
 
 - Triggers **Election Denialism** when opposition loses through suppression but refuses to accept results as legitimate, claiming the election was stolen through ballot access manipulation

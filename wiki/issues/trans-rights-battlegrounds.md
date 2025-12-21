@@ -45,17 +45,6 @@ The consequences extend beyond the directly affected population. The issue serve
 - **State Capacity**: -5 to -10 (resources devoted to culture war enforcement)
 - **Migration**: +5 to +15 (people flee hostile jurisdictions)
 
-### Event Types
-- Legislation restricting bathroom access, sports participation, or identity documents
-- Bans on gender-affirming medical care for minors (or adults)
-- School policies requiring outing of transgender students to parents
-- Healthcare providers prosecuted for providing standard care
-- Hostile jurisdiction seeing exodus of LGBTQ+ residents and allies
-- Corporate boycotts or relocations due to anti-trans legislation
-- Violence or harassment targeting transgender individuals
-- Federal-state conflicts over transgender rights and protections
-- International criticism of rights restrictions
-
 ### Cascading Effects
 - **Civil Liberty Erosion**: Precedents established for government intrusion into medical decisions and identity
 - **Medical Exodus**: Healthcare providers flee hostile jurisdictions, reducing access to all care

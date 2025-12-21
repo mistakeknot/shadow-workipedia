@@ -38,18 +38,6 @@ The stakes extend beyond shipping lanes. The Arctic contains an estimated 13% of
 
 - **Arctic Council Functionality** (0-100): Dropped from 75 to 25 following 2022 Russia suspension. Functional council enables scientific cooperation, search-and-rescue coordination, and environmental protection. Dysfunction forces bilateral arrangements and increases accident/conflict risk.
 
-**Event Types:**
-
-1. **Territorial Claim Challenge**: Nation asserts expanded continental shelf claim or challenges another's exclusive economic zone. UN Commission on the Limits of the Continental Shelf adjudication takes 5-15 years. Military posturing increases regional tension +15. Unresolved claims deter resource investment.
-
-2. **Shipping Incident**: Vessel accident, grounding, or collision in contested waters. Rescue response reveals infrastructure gaps. Environmental damage (oil spill in pristine waters) triggers international outcry. Raises questions about regulatory authority. Insurance costs increase, temporarily reducing traffic 10-20%.
-
-3. **Military Confrontation**: Aircraft intercepts, naval shadowing, or submarine encounters escalate. Risk of miscalculation increases with frequency. Each incident raises NATO-Russia tensions regionally. Potential for Article 5 invocation if occurring near alliance territory.
-
-4. **Resource Discovery Announcement**: Major oil, gas, or mineral deposit confirmed in contested or ambiguous jurisdiction. Accelerates territorial disputes. Multiple nations claim development rights. Can trigger diplomatic crisis or, alternatively, joint development negotiations.
-
-5. **Indigenous Rights Victory**: Court ruling, treaty negotiation, or international pressure forces recognition of indigenous territorial/resource rights. Delays extractive projects 3-10 years. Establishes precedents affecting other Arctic development. Improves governance legitimacy long-term.
-
 **Cascading Effects:**
 
 - Triggers **Arctic Blue Ocean Event** acceleration when: Average Arctic summer ice extent drops below 1 million km² AND Northern Sea Route becomes navigable year-round AND military presence escalates beyond current baseline.

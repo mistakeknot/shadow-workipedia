@@ -38,18 +38,6 @@ The crisis intensifies as oil price volatility accelerates well abandonment rate
 
 - **Oil Industry Financial Stability** (-25 to +10 abandonment acceleration): Financial distress triggers wave abandonments as companies liquidate assets. Stability crises (bankruptcy waves) can increase annual orphaned well creation by 30-50%, overwhelming remediation capacity.
 
-### Event Types
-
-- **Well Integrity Failure** (5% annual probability per 100,000 active orphaned wells): Random deterioration causes uncontrolled methane venting or brine seepage into groundwater. Triggers water contamination events and emergency containment costs ($2-8M per incident). High-pressure failures can release equivalent of 10,000+ tons CO2 in single atmospheric burst.
-
-- **Cleanup Funding Crisis** (12% probability when government budget drops below 40% of estimated need): Remediation backlog exceeds closure capacity, creating multi-decade cleanup lag. Each year of delay costs approximately $500M in additional environmental damage and prevented health improvements. Triggers political pressure cascades.
-
-- **Uncontrolled Super-Leak Formation** (3% annual probability): Deteriorated wells develop explosive methane pressure systems that vent uncontrollably. Single super-leak sites can emit equivalent of 500,000 tons CO2/year. Specialized intervention teams booked for years, creating treatment delays of 18-36 months per site.
-
-- **Groundwater Contamination Discovery** (8% probability annually): Testing reveals aquifer pollution from well casing failures. Affects 10,000-100,000 residents per incident, triggering emergency bottled water programs and litigation waves. Single discovery can cost $30-150M in liability and remediation over 5-10 years.
-
-- **Industry Abandonment Wave** (15% probability during oil market crashes <$35/barrel): Producers abandon 50,000-200,000+ wells simultaneously to cut losses. Overwhelms government tracking systems and creates administrative chaos. Doubles annual cleanup backlog in spike years.
-
 ### Cascading Effects
 
 - **Methane Emissions → Climate Acceleration Loop**: Abandoned wells emit 15-30 million tons CO2-equivalent annually (current trajectory). Each unabated well continues 50-80 year emission cycle. Methane pulse reaches atmospheric peak within 7-10 years, triggering incremental climate tipping point impacts (permafrost melt, ocean disruption feedback). Creates 2-4x amplification of localized climate effects in oil-region downwind zones.

@@ -50,33 +50,6 @@ Natural disasters amplify the perpetual crisis: the 2010 earthquake killed 230,0
 - **Per 10-point security deterioration:** Remittance decline of 5-8% as diaspora reduces sending due to crime perception targeting diaspora family members
 - **Economic multiplier:** Every $100M reduction in remittances reduces local spending by $180-220M (high dependency multiplier); triggers additional 50,000-100,000 survival migrations
 
-### Event Types
-
-1. **Gang Territorial War Expansion Event** (Frequency: Quarterly, 60% probability)
-   - **Description:** Competing gang federations (G9, G-Flex, etc.) battle for control of additional territory, specifically targeting water systems, port access, or wealthy neighborhoods
-   - **Impact:** 150-300 direct combat deaths, 5,000-15,000 displacement, humanitarian corridor blockade (duration: 2-8 weeks), fuel/food supply chain disruption
-   - **Escalation cascade:** If two major gang federations clash simultaneously, additional 200,000-300,000 internally displaced within 30 days; international crisis declaration likely within 60 days
-
-2. **Cholera Epidemic Resurgence Event** (Frequency: 40-50% annual probability; triggered by: gang violence disrupting water/sanitation, humanitarian access decline, malnutrition spike)
-   - **Description:** Vibrio cholerae outbreak in densely populated gang-controlled areas lacking safe water (Port-au-Prince slums ~1.5M people in unsanitary conditions)
-   - **Impact:** 2,000-5,000 deaths in first 8 weeks if uncontrolled; 10,000-20,000 cases requiring hospitalization; humanitarian cost $50-100M emergency response; secondary migration surge as families flee infected zones
-   - **Mortality multiplier:** Each week of delayed international response increases case fatality rate by 0.5-1%; vaccination capacity severely limited (cold chain failures in gang-controlled zones)
-
-3. **Devastating Hurricane/Natural Disaster Event** (Frequency: 20-30% per hurricane season, June-November)
-   - **Description:** Major hurricane (Category 3-4) strikes Haiti; baseline vulnerability extremely high due to deforestation (98% of forests cleared), poor infrastructure, building code non-compliance
-   - **Impact:** Infrastructure damage $500M-2B; crop destruction 40-70% (agricultural zones); 500-2,000 deaths; 200,000-500,000 temporarily homeless; water system contamination (cholera risk spike); economic output decline 5-10% annually
-   - **Recovery timeline:** Historically 3-5+ years; current gang instability prevents recovery—areas rebuild only if gangs permit
-
-4. **State Collapse / Institutional Failure Event** (Frequency: 30-40% annually if state capacity <10%)
-   - **Description:** One or more government ministries cease functioning; capital city police partially abandon posts; government can no longer conduct elections, collect taxes, or maintain any service provision
-   - **Impact:** International intervention forces deployment (within 30-90 days if international will exists); temporary humanitarian escalation as gangs fill power vacuum; 500,000+ emigration attempts within 6 months; UN/OAS intervention discussions
-   - **Cascading:** Triggers potential for gang fragmentation into regional fiefdoms or unification under single leader with state-like governance structure (dual-power scenario)
-
-5. **Diaspora Surge / Refugee Crisis Event** (Frequency: 40-50% annually if gang violence >60% control)
-   - **Description:** Large-scale emigration attempts via boat (Dominican Republic, US), land routes (Panama, Colombia), or air (visa overstays); triggered by security deterioration, gang recruitment pressure, or natural disaster
-   - **Impact:** 10,000-50,000 monthly emigration attempts; maritime deaths 500-1,500 annually; US Coast Guard interceptions; regional strain on Dominican Republic (land border, 1M+ Haitian migrants), Jamaica, Bahamas
-   - **Secondary cascade:** Successful migration cohorts encourage additional attempts (network effects); each 50,000 emigrants represents ~0.4% of population losing productive capacity, further weakening economic base
-
 ### Cascading Effects
 
 - **Triggers Gang-State Capture** when gang control exceeds 50% AND state capacity falls below 25%: Gangs transition from criminal enterprises to de facto governance, extract taxation ("revolutionary tax"), run courts and justice systems, provide social services in controlled areas, establish parallel state institutions. Creates intractable political problem (gangs won't relinquish power short of military defeat)

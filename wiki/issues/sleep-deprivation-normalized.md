@@ -10,6 +10,7 @@ economicImpact: 6/10
 socialImpact: 8/10
 affectedSystems: [Health, Workplace, Education, Mental-Health, Productivity]
 connections: []
+caseStudyOf: sleep-debt-epidemic
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
 ---
@@ -34,16 +35,6 @@ The health consequences are catastrophic and underappreciated. Sleep deprivation
 - **Accident Risk**: +30 to +50 (workplace, traffic)
 - **Productivity** (Actual): -10 to -20 (despite cultural belief in opposite)
 - **Healthcare Costs**: +15 to +25
-
-### Event Types
-- **Mass Exhaustion**: Workplace accident cluster linked to sleep deprivation
-- **School Start Time Revolt**: Parents/students demand later schedules
-- **Sleep Health Crisis**: Public health campaign highlights costs
-- **Productivity Paradox**: Studies show sleep-deprived workers less productive
-- **Executive Collapse**: High-profile leader's health crisis linked to sleep debt
-- **Legal Liability**: Company sued over fatigue-related accident
-- **Technology Regulation**: Screen time/notification limits imposed
-- **Cultural Shift**: Sleep prioritization becomes status symbol
 
 ### Cascading Effects
 - Chronic disease rates accelerate

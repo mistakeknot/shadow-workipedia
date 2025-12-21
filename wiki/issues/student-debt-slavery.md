@@ -34,13 +34,6 @@ The United States student debt crisis represents a structural trap affecting 45 
 
 - **Financial Stress Index** (`society.financialStressIndex`): Rises sharply when debt burden >10% of income. Compounds with Public Service Loan Forgiveness denial rates (98% denied 2017-2019), wage garnishment (1.1M borrowers), and debt collection enforcement. At >0.85, triggers measurable increases in debt-related despair, suicide risk, substance abuse, and violent ideation. Medical/law school debt carries 4-5× baseline suicide risk; dental students show 6× higher suicide rates than age-matched population.
 
-**Event Types:**
-1. **University Burning**: Debtor movement strength >0.7 + generational resentment >0.75 → graduates torch campus when Biden forgiveness rejection channels rage into direct action
-2. **Suicide Graduation**: Financial stress >0.85 + despair >0.70 → mass suicide event as 5,000-6,500 annual debt-related deaths concentrate in ceremonial protest (medical/law school debt carries 4-5× baseline suicide risk)
-3. **Boomer Hunting**: Generational resentment >0.75 + cost ratio >12× → intergenerational violence when Gen Z pays 15× what Boomers paid for devalued degrees
-4. **Debt Strike Wave**: Movement strength 0.4 → 0.7 after Supreme Court rejection → 500k+ borrowers refuse payment in coordinated default (Corinthian Colleges 2015 model at scale)
-5. **PSLF Denial Backlash**: 98% denial rate (2017-2019) on Public Service Loan Forgiveness → mass protests as teachers/nurses discover technical disqualification after 10 years of payments
-
 **Cascading Effects:**
 
 - **Triggers AI Job Displacement Feedback Loop**: When credentialed workers can't recoup education costs, demand for credentials collapses. Reduced credential demand accelerates employer switching to AI systems. Borrowers left with $30k debt + $0 job prospect = permanent servitude. Creates vicious cycle: debt → credential worthlessness → job loss → default → financial instability → inability to reskill.

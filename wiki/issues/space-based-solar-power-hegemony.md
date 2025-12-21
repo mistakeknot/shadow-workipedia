@@ -38,20 +38,6 @@ The socioeconomic implications are staggering. SBSP success could eliminate ener
 
 - **Technological Advancement Rate** (+20 to +60): Governs overall SBSP progress. Rate below 30 means technical breakthroughs (high-efficiency rectennas, lightweight arrays) stall indefinitely; rate 50+ enables rapid iteration and unexpected capability jumps (dual-use weapons integration, long-range beam transmission).
 
-### Event Types
-
-- **Orbital Deployment Milestone** (Probability: 8-12% annually, 2038+): A major space power successfully deploys its first functional SBSP array, generating measurable power to ground receivers. Grants deploying nation +18 Energy Independence, +12 Technological Prestige, but triggers 15-25 point International Relations penalty for competitors. Probability increases 2% per year after first deployment until saturation at 4 competing systems.
-
-- **SBSP Interference Incident** (Probability: 4-8% annually, 2045+): Microwave/laser transmission from one orbital station interferes with communication satellites, weather systems, or scientific instruments of a competing nation. Risk increases with each additional operational system. Consequences: 12-18 point International Relations drop, potential for military response, temporary deactivation of interfering system (12-24 month penalty). Can escalate to direct orbital conflict.
-
-- **Launch Capacity Shortage** (Probability: 6-10% annually, 2040+): Heavy demand for SBSP component launches creates bottlenecks, delaying deployment programs 8-18 months. Nations with secure launch monopolies (SpaceX, Chinese systems, Arianespace) gain strategic advantage. Affects global space economy by +25-40% cost inflation for orbital construction materials. Triggers acceleration of reusable heavy-lift development.
-
-- **Orbital Real Estate Dispute** (Probability: 5-9% annually, 2043+): Multiple nations simultaneously claim optimal geostationary orbital positions (prime solar zones with direct receiver lines of sight). Triggers diplomatic crisis (18-32 point IR penalty), potential for placeholder satellite deployment to claim positions, or UN/international coordination framework. Unresolved disputes lock nations into suboptimal positions, reducing SBSP efficiency 15-25%.
-
-- **Technological Breakthrough: Dual-Use Weaponization** (Probability: 2-4% annually, 2045+): SBSP transmission systems are successfully weaponized, enabling targeting of military assets, critical infrastructure, or other orbital systems. Triggers immediate 25-40 point global IR spike, military buildups (+18-28 Military Expenditure), rapid development of orbital missile defense. Increases probability of orbital conflict 6-12 points. Creates strategic instability reminiscent of nuclear proliferation.
-
-- **Economic Displacement: Fossil Fuel Collapse** (Probability: 3-6% annually, 2048+): Successful SBSP deployment from 2+ competing systems saturates global markets with cheap orbital energy, causing rapid fossil fuel devaluation. Consequences: -35-50 Economic Impact for fossil fuel producers, +60-80 energy wealth redistribution to SBSP-capable nations, 15-25 point unemployment surge in coal/oil regions, potential for social unrest and regional conflict in dependent economies.
-
 ### Cascading Effects
 
 - **Energy Abundance → Economic Restructuring**: First-generation SBSP produces 5-8 GW per station. Two operational systems globally could supply 15% of world energy. This abundance collapses energy costs, triggers industrial relocation toward SBSP-dependent regions (near ground receivers), forces fossil fuel economy restructuring, and redirects trillions in energy spending to other sectors (estimated +$800B-2T global redistribution). Nations without SBSP face severe competitive disadvantage.

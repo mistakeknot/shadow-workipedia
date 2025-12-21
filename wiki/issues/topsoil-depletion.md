@@ -45,17 +45,6 @@ The consequences extend beyond agriculture. Eroded topsoil fills waterways with 
 - **Climate Resilience**: -10 to -20 (carbon release, reduced water retention)
 - **Input Costs**: +15 to +30 (require more fertilizer, irrigation)
 
-### Event Types
-- Agricultural regions experiencing crop failure due to soil exhaustion
-- Dust bowl conditions from wind erosion of degraded farmland
-- Water quality crisis from agricultural runoff and sedimentation
-- Food price spikes as yields decline in major producing regions
-- Farmland abandonment as soil becomes unproductive
-- Agricultural input costs rising faster than crop prices
-- Regenerative agriculture movements gaining traction
-- Government programs to address soil health crisis
-- Climate feedback loops as soil carbon is released
-
 ### Cascading Effects
 - **Food Crisis**: Declining yields cannot feed growing population, triggering shortages and price spikes
 - **Agricultural Collapse**: Heavily degraded regions abandon farming, concentrating production in fewer areas

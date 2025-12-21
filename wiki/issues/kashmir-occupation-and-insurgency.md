@@ -39,18 +39,6 @@ The nuclear dimension intensifies global concern: both nations possess nuclear w
 
 **Civilian Displacement**: Conflict cycles generate 50,000-200,000 internally displaced persons during acute phases. Major escalation could displace 500,000+, creating refugee pressure on Pakistan and triggering humanitarian crises.
 
-### Event Types
-
-**Major Terrorist Attack**: Precedent: Pulwama attack (February 2019, 40 paramilitary deaths) triggered Balakot airstrike and nuclear escalation risk. Effects: +50 civilian casualties, international attention spike, India security escalation (15-20% military deployment increase), Pakistan diplomatic crisis, counter-terror spiral. Probability: 30% quarterly when conditions elevated.
-
-**Military Crackdown Cycle**: Mass detentions (thousands detained), weeks-long curfews, communication shutdowns. Effects: Human rights collapse (-25-30%), civilian grievance spike, refugee flows (+30-50%), insurgent recruitment surge (+40-80%), economic contraction (-5-8% quarterly).
-
-**Cross-Border Military Escalation**: Precedent: 2001-02 standoff (2M+ troops mobilized), 2019 Balakot airstrike. Effects: Emergency mobilization ($2-5B+ costs), nuclear alert elevation, international intervention pressure, 10-15% probability of uncontrolled escalation. Duration: 2-6 months typically.
-
-**Constitutional Changes**: August 2019 Article 370 revocation stripped Kashmir's autonomy, bifurcated state, changed domicile laws enabling Hindu migration. Effects: Existential legitimacy crisis, separatism surge (+40-60% pro-independence polling), Pakistan-India tensions escalate, insurgency recruitment multiplies, moderate political movements collapse.
-
-**International Diplomatic Intervention**: UN statements, US/Chinese mediation efforts, human rights investigations. Effects: 15-25% de-escalation probability, confidence-building measures, but low historical success rate. India faces sanctions risk (-10% foreign direct investment).
-
 ### Cascading Effects
 
 - **Amplifies India-Pakistan Tensions**: +30-60% amplification when casualties exceed 200/quarter. Terrorist attacks trigger retaliatory cycles; nuclear dimension creates mutual deterrence but instability.

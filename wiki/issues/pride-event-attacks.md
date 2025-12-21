@@ -34,14 +34,6 @@ The cascading effects extend far beyond the event locations. Attacks generate na
 - **Religious Conservatism** (+25): Amplifies theological arguments against Pride events, increases mobilization of counter-protest movements, feeds extremist narrative pipeline
 - **Political Polarization** (+55): Weaponizes incident response, prevents unified security protocols, forces competing security frameworks by different jurisdictions
 
-### Event Types
-
-- **Mass Shooting** (15% annual probability, scales with extremism): Casualties 5-150, immediate global media attention, triggers mass radicalization on both sides within 48 hours, causes 2-3 year trauma spillover into mental health systems
-- **Vehicular Attack** (8% annual probability): Casualties 1-20, lower barrier to entry (no special training), moderate-to-high media impact, increases security barriers at all public events
-- **Explosive Device** (5% annual probability): Casualties 0-100 (depending on placement), forces nationwide bomb detection procurement, generates sustained terrorism anxiety, triggers emergency services training cascades
-- **Armed Counter-Protest Escalation** (22% annual probability): 0-5 direct casualties, high risk of accidental discharge, forces competing security protocols, creates public safety dilemma (protect both groups?), accelerates concealed carry normalization
-- **Coordinated Harassment/Doxxing Campaign** (35% annual probability): 0 direct casualties, 5-15% of targets experience physical assault, forces event organizers to operate in secrecy, reduces public knowledge of Pride event locations
-
 ### Cascading Effects
 
 - **Community Retreat → Reduced Visibility → Increased Extremist Confidence**: Each successful attack causes 15-25% of LGBTQ+ individuals to reduce public expression for 2-3 years. Reduced visibility embeds perception of weakness in extremist ideology. Extremist recruitment accelerates as ideology shifts from defensive to offensive positioning.

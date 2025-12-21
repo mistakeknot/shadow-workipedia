@@ -39,18 +39,6 @@ As of 2025, the supply chain ecosystem remains structurally brittle. Reshoring e
 
 - **Employment in Manufacturing**: Disruptions force temporary layoffs (weeks to months), creating wage pressure as rehiring occurs. Sustained disruptions (>90 days) trigger permanent losses of 2-5% manufacturing workforce as companies relocate or automate. Workforce turnover increases hiring and training costs by 15-25% post-recovery.
 
-**Event Types:**
-
-1. **Regional Supply Disruption**: A major supplier region (Taiwan semiconductor, Vietnamese textiles, Mexican automotive parts) experiences disruption lasting 30-60 days due to geopolitical crisis, natural disaster, port closure, or labor conflict. Triggers immediate supply shortage in dependent industries, forces production cuts of 10-20%, and increases customer lead times by 60-120 days. If disruption extends beyond 45 days, triggers demand for nearshoring and strategic inventory investment.
-
-2. **Cascading Supplier Failure**: When a Tier-1 supplier fails or cuts production, Tier-2 and Tier-3 suppliers downstream lose customers simultaneously. A single major supplier's closure (e.g., major automotive parts manufacturer) can trigger 15-25% production cuts across 3-5 dependent manufacturers within 2-3 weeks. Recovery requires 8-12 weeks; bankruptcy risk increases if supplier had <6 months working capital.
-
-3. **Geopolitical Supply Cut-Off**: Sanctions, tariffs, or hostile government action target specific supply source regions (Taiwan, Russia, Iran sanctions). Disruption can be permanent (not temporary) for affected supply chains. Triggers urgent reshoring/nearshoring investment, increases manufacturing costs permanently by 5-15%, and forces long-term supply chain redesign over 12-36 months.
-
-4. **Inventory Crisis Breakthrough**: Accumulated supply stress reaches breaking point when resilience investments have stalled and JIT dependencies remain unresolved. If multiple disruptions occur within 12 months, or if a single disruption lasts >120 days, supply chains enter "crisis cascade" mode: consumer price spikes accelerate, demand destruction accelerates, manufacturing employment drops 2-3%, and inflation remains elevated 18-24 months post-crisis.
-
-5. **Successful Reshoring Initiative**: Government incentives, private investment, or labor cost shifts trigger nearshoring of critical supply nodes (semiconductors, pharmaceuticals, rare earth elements). Builds resilience gradually: within 18 months, 10-15% of critical supply moves closer to major markets; within 36 months, 30-40% relocation possible. Increases manufacturing costs by 3-7% initially but reduces disruption risk by 50-70%.
-
 **Cascading Effects:**
 
 - Triggers **pandemic-disruption** when transportation hubs close or logistics workers face shortage; magnifies pandemic impact by 25-35% in supply-dependent sectors

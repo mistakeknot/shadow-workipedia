@@ -34,15 +34,6 @@ The stakes involve epidemic preparedness and societal trust in expertise. When C
 - **Disease Surveillance**: -15 to -25 when CDC data collection authority challenged
 - **Scientific Authority**: -20 to -30 as expert agencies lose legitimacy
 
-**Event Types:**
-1. **Court Strikes CDC Emergency Powers**: Judicial ruling limits agency authority, -30 Pandemic Preparedness
-2. **State Prohibition of CDC Guidance**: Legislature bans implementing federal health recommendations, -25 Public Health Capacity
-3. **Political Interference Scandal**: Administration pressures CDC to alter guidance, -30 Scientific Credibility
-4. **Talent Exodus**: Mass departures of career scientists from agency, -20 Institutional Capacity
-5. **Guidance Reversal Backlash**: Changing recommendations portrayed as incompetence, -15 Public Trust
-6. **Budget Cuts**: Congress slashes CDC funding, -25 Disease Surveillance
-7. **Outbreak Response Failure**: Weakened CDC unable to contain epidemic, -40 Public Health, trigger Health Crisis
-
 **Cascading Effects:**
 - Triggers **Pandemic Response Failures** when CDC lacks authority to coordinate national efforts
 - Amplifies **Vaccine Hesitancy Resurgence** as public health credibility erodes

@@ -33,14 +33,6 @@ The stakes involve fundamental social participation. When transit systems remain
 - **Infrastructure Quality**: -15 to -25 reflecting systematic accessibility gaps
 - **Public Trust in Institutions**: -5 to -15 when enforcement fails to ensure compliance
 
-**Event Types:**
-1. **Major Accessibility Lawsuit**: High-profile ADA case against major corporation, +10 Public Awareness, -20 Business Confidence
-2. **Transit System Inaccessibility Crisis**: Disability rights protest shuts down inadequate transit, -15 Infrastructure Quality
-3. **Digital Accessibility Mandate**: New regulations require WCAG compliance, -10 Innovation Rate (short-term), +15 Social Cohesion (long-term)
-4. **Enforcement Funding Collapse**: DOJ accessibility division budget cut, -25 Regulatory Effectiveness
-5. **Universal Design Victory**: Major city redesign demonstrates accessibility benefits all users, +20 Infrastructure Quality
-6. **Emergency System Inaccessibility Deaths**: Disabled people unable to evacuate/access emergency alerts, -30 Public Safety, trigger Civil Rights Crisis
-
 **Cascading Effects:**
 - Triggers **Disability Benefits Cliff** when inaccessibility forces reliance on benefits rather than employment
 - Amplifies **Healthcare Access Deserts** when medical facilities lack accessible features

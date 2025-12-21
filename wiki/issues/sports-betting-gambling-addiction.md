@@ -35,16 +35,6 @@ The consequences cascade through individuals, families, and communities. Problem
 - **Sports Integrity**: -15 to -30 (corruption risks)
 - **Addiction Treatment Capacity**: -30 to -50 (overwhelmed)
 
-### Event Types
-- **Suicide Cluster**: Multiple gambling-related suicides gain media attention
-- **Youth Addiction Crisis**: College/high school students gambling epidemic revealed
-- **Financial Ruin Cascade**: Mass defaults on gambling debts
-- **Match-Fixing Scandal**: Gambling interests corrupt athletic competition
-- **Regulatory Capture**: Industry influence prevents protection measures
-- **Advertising Saturation**: Children exposed to 10,000+ gambling ads annually
-- **Celebrity Reckoning**: Endorsers face backlash for promoting addiction
-- **Treatment System Collapse**: Addiction services overwhelmed by gambling cases
-
 ### Cascading Effects
 - Problem gambling rates reach 5%+ of adult population
 - Youth normalize gambling as routine sports engagement

@@ -34,17 +34,6 @@ The stigma associated with infestations creates additional harm. Children from i
 **Social Stigma**: +12% (visible marker of poverty)
 **Economic Opportunity**: -7% (job and housing discrimination)
 
-### Event Types
-
-**Bedbug Outbreak**: Infestation spreads through building or neighborhood
-**Tenant Lawsuit**: Legal action against negligent landlord
-**School Infestation**: Children bring pests home or to class
-**Pest Control Access Crisis**: Professional services unaffordable
-**Public Housing Infestation**: Government housing overwhelmed
-**Heat Treatment Subsidy**: Rare public program for remediation
-**Infestation Disclosure Law**: Policy requiring transparency
-**Pesticide Resistance Detected**: Treatment options diminish
-
 ### Cascading Effects
 
 Poor housing maintenance → Pest infestations establish → Professional treatment unaffordable → Chronic infestation persists → Health and mental impacts accumulate → Social stigma and isolation → Children affected at school → Housing and employment discrimination → Poverty trap deepens

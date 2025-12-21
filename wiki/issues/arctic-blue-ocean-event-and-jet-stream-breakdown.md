@@ -25,12 +25,6 @@ An ice-free Arctic summer, coupled with jet stream destabilization, creates casc
 - **Jet Stream Stability**: Reduced temperature gradient between Arctic and mid-latitudes weakens the polar front
 - **Extreme Weather Frequency**: Stationary weather systems (prolonged droughts, flooding, cold snaps) increase 3-5x
 
-**Event Types:**
-1. **Blue Ocean Event**: First ice-free Arctic summer (September) triggers global feedback acceleration
-2. **Polar Vortex Breakdown**: Stratospheric destabilization sends Arctic air masses southward to mid-latitudes
-3. **Ridiculously Resilient Ridge**: Persistent high-pressure system causes multi-month droughts and heat waves
-4. **Atmospheric River Cascade**: Enhanced moisture transport produces extreme precipitation events
-
 **Cascading Effects:**
 - Triggers **Climate Refugee Floods** when agricultural zones become uninhabitable
 - Triggers **Permafrost Methane Release** through positive feedback (warming → melting → methane → more warming)

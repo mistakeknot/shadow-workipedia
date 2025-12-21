@@ -68,44 +68,6 @@ Institutional investorsâ€”private equity firms, REITs, build-to-rent developersâ
   - Single-family zoning, environmental review, fees block new supply
   - Underbuilding of 3-5 million units nationally since 2008
 
-### Event Types
-
-**Housing Impossibility Threshold**
-- Trigger: Median home price exceeds 6x median income + rent >35% of median income
-- Immediate: Homeownership rates decline, rental demand surges, political backlash
-- Secondary: Exodus to lower-cost metros, workforce shortages in expensive cities
-- Affects: SocialMobility -70, WealthInequality +60, PoliticalInstability +50
-
-**Institutional Investor Buyout Wave**
-- Trigger: Private equity/REITs purchase >25% of homes in market segment (e.g., starter homes)
-- Immediate: First-time buyers outbid by all-cash offers, ownership conversion to rentals
-- Secondary: Rent increases via algorithmic pricing, "build-to-rent" subdivisions proliferate
-- Affects: Homeownership -50, WealthInequality +55, CorporatePower +45
-
-**NIMBY vs. YIMBY Zoning War**
-- Trigger: Upzoning proposal for transit-oriented, multifamily development
-- Immediate: Neighborhood opposition, public hearings, lawsuits, recall campaigns
-- Secondary: Proposal watered down or defeated, housing crisis persists
-- Affects: HousingSupply -40, PoliticalPolarization +45, GenerationalDivide +50
-
-**Foreclosure Wave / Housing Bubble Burst**
-- Trigger: Interest rate spike + job losses + ARM resets trigger 15%+ foreclosure rate
-- Immediate: Home prices decline 20-40%, equity wiped out, bank failures
-- Secondary: Institutional investors buy distressed assets, converting to rentals
-- Affects: Economy -65, WealthInequality +50, Homeownership -55
-
-**Generational Wealth Transfer Crisis**
-- Trigger: Boomer wealth concentration + housing unaffordability lock out Millennials/GenZ
-- Immediate: Only heirs can afford homes, non-heirs become permanent renters
-- Secondary: Hereditary landlord class emerges, meritocracy narrative collapses
-- Affects: SocialMobility -75, WealthInequality +70, GenerationalDivide +65
-
-**Workforce Housing Shortage**
-- Trigger: Essential workers (teachers, nurses, police) cannot afford to live in jurisdiction
-- Immediate: Recruitment/retention crisis, long commutes, service degradation
-- Secondary: Employer-subsidized housing, reverse commuting patterns, brain drain
-- Affects: PublicServices -50, Economy -40, SocialStability -35
-
 ### Cascading Effects
 
 **To Homelessness Crisis**: Evictions from unaffordable rentals, inability to re-enter market, convert housed individuals to homelessness faster than shelter systems can absorb.

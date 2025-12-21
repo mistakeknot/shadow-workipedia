@@ -11,16 +11,17 @@ socialImpact: 92
 affectedSystems: [Economy, Government, Healthcare, Migration]
 connections: [comprehensive-refugee-system-collapse]
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-24
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Venezuela Hyperinflation and Collapse
 
 ## Overview
 
-Venezuela's economic collapse represents one of the most severe currency crises in modern history, driven by a toxic combination of oil dependency, governance failure, and ideological rigidity. From 2013 to 2024, the nation experienced cumulative inflation exceeding 3,000,000%, transforming what was once Latin America's wealthiest nation into a humanitarian catastrophe. The Bolívars—once competitive with the US dollar—became worthless, with prices doubling every few weeks at the crisis peak. This wasn't merely economic failure; it was the systematic dismantling of institutions, coupled with the Maduro regime's authoritarian entrenchment through military control, food manipulation, and the suppression of democratic dissent.
+Venezuela's economic collapse represents one of the most severe currency crises in modern history, driven by a toxic combination of oil dependency, governance failure, and ideological rigidity. From 2013 to 2024, the nation experienced cumulative inflation exceeding 3,000,000%, transforming what was once Latin America's wealthiest nation into a humanitarian catastrophe. The Bolívars—once competitive with the US dollar—became worthless, with prices doubling every few weeks at the crisis peak. This wasn't merely economic failure; it was the systematic dismantling of institutions, coupled with the Maduro regime's authoritarian entrenchment through military control, food manipulation, and the suppression of democratic dissent. As of 2025-12-19, Nicolás Maduro is president of Venezuela. [^britannica-maduro]
 
-The collapse began with Hugo Chavez's petro-socialism (1999-2012), which nationalized oil assets while failing to maintain refineries or invest in economic diversification. When oil prices collapsed in 2014, the state lost its primary revenue source overnight. Rather than adjust, the Maduro government (2013-present) responded with currency controls, price caps, and monetary expansion—classic hyperinflation policies. The central bank expanded the money supply by over 1,000% in some years, directly driving the currency's collapse. By 2019, official inflation reached 65,374%; by 2023, cumulative inflation from 2016-2023 was measured at 281,949,000%.
+The collapse began with Hugo Chavez's petro-socialism (1999-2012), which nationalized oil assets while failing to maintain refineries or invest in economic diversification. When oil prices collapsed in 2014, the state lost its primary revenue source overnight. Rather than adjust, the Maduro government (from 2013) responded with currency controls, price caps, and monetary expansion—classic hyperinflation policies. The central bank expanded the money supply by over 1,000% in some years, directly driving the currency's collapse. By 2019, official inflation reached 65,374%; by 2023, cumulative inflation from 2016-2023 was measured at 281,949,000%.
 
 The human cost has been catastrophic: over 7.7 million Venezuelans (roughly 25% of the population) have fled as refugees since 2015, creating the largest refugee crisis in the Western Hemisphere. Those remaining face endemic shortages of food, medicine, and electricity. Malnutrition rates among children nearly quadrupled. The healthcare system—once the region's most advanced—collapsed entirely, with hospitals lacking antibiotics and basic surgical supplies. Life expectancy dropped by 3 years. What makes Venezuela's case uniquely instructive is that it's not a failure of external factors or natural disaster, but rather a textbook demonstration of how political systems can systematically destroy prosperity through policy choices.
 
@@ -42,23 +43,6 @@ The human cost has been catastrophic: over 7.7 million Venezuelans (roughly 25% 
 
 **Food Production Capacity** (Index 0-150):
 - Venezuela's pre-collapse agricultural output was 70% (food imports covered 30% of consumption). Land redistribution and price controls reduced capacity to 35% by 2015. At below 40, malnutrition emerges among vulnerable populations. Below 25, famine conditions spread. Each point below 50 triggers +1% poverty expansion monthly and healthcare system stress.
-
-### Event Types
-
-**Currency Collapse Cascade** (Probability: increases 3% monthly after inflation > 20%):
-- The currency loses 30-50% of value in a single week. Formal businesses shut down (inputs cost more than selling price). Strikes and political unrest spike. Social unrest increases by 15-25%. Real estate values (in USD equivalent) collapse 40-60%. Occurs roughly every 18-24 months in severe crisis phases.
-
-**Bank Run and Financial System Failure** (Probability: 2% monthly baseline, +5% per month of negative real interest rates):
-- Citizens and businesses rush to withdraw deposits. Banks freeze accounts (capital controls). Formal credit system seizes. Small business failures spike 25-30% within 2 months. GDP contracts additional 5-8%. Venezuela experienced partial financial freezes in 2013, 2015, 2018, and 2021.
-
-**Humanitarian Crisis Escalation** (Probability: 1% monthly + 3% per point of food capacity below 40):
-- Malnutrition, disease outbreaks, and child mortality rise sharply. Healthcare system stress reaches crisis. Refugee outflow increases 200-400% over next quarter. Public services deteriorate (water, electricity, sanitation). Regional stability affected as neighboring countries strain under refugee influx. This occurred in major waves: 2015-2016, 2017-2018, and 2019-2020.
-
-**Authoritarian Entrenchment** (Probability: 5% monthly when political opposition strengthens):
-- Government suppresses dissent through military mobilization, arrested activists, banned opposition parties. This paradoxically stabilizes the regime short-term (prevents immediate collapse) but locks in long-term stagnation. Opposition boycotts elections, reducing legitimacy. International sanctions increase. Brazil's 2018-2022 diplomatic engagement ended; US sanctions intensified 2017-2023.
-
-**Oil Smuggling and Black Market Expansion** (Probability: 2% monthly + 2% per currency control point above 70):
-- Regime loses control of crude exports (sold at 40-50% discount to avoid sanctions). Mining collectives and military factions control border regions and informal oil sales. This preserves some state revenue but reduces official foreign exchange earnings, worsening the fiscal crisis. Operates roughly 20-30% of oil export capacity by 2020.
 
 ### Cascading Effects
 
@@ -93,5 +77,9 @@ The human cost has been catastrophic: over 7.7 million Venezuelans (roughly 25% 
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-24
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/venezuela-hyperinflation-and-collapse.md)
+
+## Sources
+
+[^britannica-maduro]: Encyclopaedia Britannica, “Nicolás Maduro | Biography, Facts, & Presidency.” Accessed 2025-12-19. https://www.britannica.com/biography/Nicolas-Maduro

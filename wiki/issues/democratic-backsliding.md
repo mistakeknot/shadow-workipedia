@@ -34,38 +34,6 @@ Democratic backsliding represents the gradual erosion of democratic norms and in
 
 - **Institutional Trust**: Drops -20 to -30 points following high-visibility court capture or media suppression events. Each additional institutional capture adds -10 to -15 points. When Institutional Trust falls below 40, bureaucratic effectiveness declines by 25-40% due to talent flight and compliance issues. Below 25, governance legitimacy crisis triggers, with 60-75% of citizens viewing government as captured by authoritarian faction.
 
-**Event Types:**
-
-1. **Norm Violation Cascade** (Trigger: Executive power at 65+ with Judicial Independence <50)
-   - High-ranking ally convicted of corruption receives immediate presidential pardon
-   - Democratic Norms: -8 to -12 points as immunity precedent established
-   - Rule of Law: -15 to -22 points as impunity spreads to lower officials
-   - Outcome: 40-60% increase in executive branch ethics violations in following 2 years; mid-level officials cite precedent to justify own misconduct. Real-world parallel: Turkey post-2013 pardons enabling corruption cascade.
-
-2. **Opposition Persecution** (Trigger: Judicial Independence <45, Democratic Norms <55)
-   - Prosecutors file selective corruption charges against leading opposition figures
-   - Democratic Norms: -10 to -15 points as prosecutorial weaponization normalized
-   - Electoral Integrity: -8 to -12 points as opposition leadership faces disqualification
-   - Outcome: 25-40% of opposition candidates face spurious investigations; election competitiveness drops by 15-25 percentage points. Mirrors Poland's judiciary targeting opposition mayors (2018-2020).
-
-3. **Media Suppression** (Trigger: Press Freedom <50, Executive Power 60+)
-   - Tax audits and regulatory harassment target outlets critical of government; state advertising redirected exclusively to friendly media
-   - Press Freedom: -12 to -18 points as 15-25% of critical outlets close within 18 months
-   - Institutional Trust: -10 to -15 points as citizens recognize transparent censorship
-   - Outcome: Media ownership consolidates among government allies (65-80% market share); investigative journalism drops by 50-70%. Hungary's Orban achieved 80%+ pro-government media by 2018 using these exact tactics.
-
-4. **Judicial Capture** (Trigger: Constitutional Court vacancy with Executive Power 70+)
-   - Loyalist appointee confirmed despite opposition; immediately rules executive orders override legislative constraints
-   - Judicial Independence: -18 to -25 points as court becomes executive rubber stamp
-   - Democratic Norms: -12 to -18 points as checks and balances visibly collapse
-   - Outcome: Executive wins 85-95% of constitutional challenges; separation of powers effectively ends. Venezuela's Supreme Court post-2004 packing resulted in 100% executive victory rate on major cases.
-
-5. **Election Rigging** (Trigger: Electoral Integrity <60, Ruling Party controls redistricting)
-   - Extreme gerrymandering passed; opposition districts require 65-75% vote shares to win seats while ruling party wins seats with 45-50%
-   - Electoral Integrity: -15 to -20 points as structural bias locks in minority rule
-   - Democratic Norms: -10 to -15 points as electoral fairness abandoned
-   - Outcome: Ruling party secures legislative supermajority despite losing popular vote by 3-7 points; opposition paths to power via elections effectively closed. North Carolina's 2016 gerrymander achieved 10-3 Republican advantage despite near-50/50 vote split.
-
 **Cascading Effects:**
 - Triggers **Election Denialism** (+40% likelihood) when authoritarian parties normalize refusing to accept electoral defeats, citing fabricated fraud claims. Denial becomes reflexive when Electoral Integrity <45.
 - Amplifies **Gerrymandering Extremism** (+35% severity) by enabling safe districts where authoritarian candidates face no accountability from moderate voters; extremism index increases 25-40% in gerrymandered districts.

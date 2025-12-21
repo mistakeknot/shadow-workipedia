@@ -13,13 +13,14 @@ connections: []
 editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-25
+factualAsOf: 2025-12-19
 ---
 
 # Iran Nuclear Program and Revolution Cycles
 
 ## Overview
 
-Iran's nuclear program represents the convergence of three generational crises: nuclear weapons capability ambitions, sanctions-driven economic collapse, and periodic revolutionary upheaval that reshapes regime stability. The 2015 Joint Comprehensive Plan of Action (JCPOA) briefly constrained Iran's nuclear trajectory through inspections and enrichment limits; the 2018 US withdrawal triggered rapid Iranian re-escalation toward weapons-grade material production (currently 60%+ enrichment, with 2-6 month breakout potential to 90%+).
+Iran's nuclear program represents the convergence of three generational crises: nuclear weapons capability ambitions, sanctions-driven economic collapse, and periodic revolutionary upheaval that reshapes regime stability. The 2015 Joint Comprehensive Plan of Action (JCPOA) briefly constrained Iran's nuclear trajectory through inspections and enrichment limits; the 2018 US withdrawal triggered rapid Iranian re-escalation toward higher enrichment levels. By mid-2025, IAEA reporting described a large stockpile enriched up to 60% purity, with the IAEA subsequently unable to fully verify and inspect Iran’s nuclear materials amid the June 2025 Israel-Iran war and Iran’s reduced cooperation. [^ap-iaea-uranium-60]
 
 Iran's revolutionary cycles demonstrate how internal instability cascades into foreign policy volatility and proliferation acceleration: the 1979 Islamic Revolution, 2009 Green Movement, and 2022-2024 Mahsa Amini uprising each reshuffled power between hardliners prioritizing nuclear weapons as regime survival insurance and pragmatists seeking sanctions relief through negotiation. Successful Iranian nuclear breakout would trigger regional nuclear arms race (Saudi Arabia, UAE, Egypt), validate proliferation pathways globally, and create flash-points for great-power conflict. Conversely, domestic revolution could reverse nuclear trajectory if pragmatists gain power.
 
@@ -36,18 +37,6 @@ Iran's revolutionary cycles demonstrate how internal instability cascades into f
 **Nuclear Weapons Ambition Index**: Accelerates +35-60% when Iran perceives external military threats combined with domestic pressure requiring nationalist rally-around-flag effects. IRGC hardliners gain influence (+40-50%) during instability periods, pushing maximum nuclear advancement while pragmatists lose influence (-30-40%).
 
 **Israeli Military Threat Perception Index**: Escalates +50-80% as Iran approaches weapons capability. Israeli military doctrine publicly shifted toward "preventive war" narrative 2023-2024. Attack probability windows open 2025-2027 if Iran reaches 90%+ enrichment. Conventional strikes could delay program 3-5 years but not eliminate permanently.
-
-### Event Types
-
-**Iran Reaches 90% Uranium Enrichment** (45-55% probability 2025-2027): Crossing internationally-recognized weapons-grade threshold triggers immediate diplomatic crisis and UN emergency sessions. Israel military strike probability jumps to 55-70% within 12 months. Iranian proxy retaliation via Houthis, Hamas, Hezbollah coordinates with nuclear achievement for maximum deterrent effect. Regional war risk increases 40-60%.
-
-**Domestic Revolutionary Uprising Succeeds** (20-30% probability over 5-8 years): Major popular uprising achieves critical mass, security forces defect, regime collapses. New government signals nuclear negotiations resumption, enrichment reduction to <5%, inspections restored. Regional tension decreases -40-60%, Israeli threat perception normalizes. Probability depends on sustained protest momentum, military loyalty shifts, international support.
-
-**Israeli Military Strike on Nuclear Facilities** (35-45% probability 2025-2028 if 85%+ enrichment): Multi-day air campaign achieves 30-50% target destruction but not elimination. Iranian retaliation includes 100-300+ missiles at Israel, proxy attacks, potential Dimona reactor strikes. Israeli air defense intercepts 60-80%, but penetration causes 50-200+ casualties. Regional escalation involves Saudi/UAE air defense requests, US carrier deployment. Duration 7-30 days, oil prices spike +100-200%, program delayed 3-5 years.
-
-**Iran Achieves Functioning Nuclear Weapons** (15-25% probability 2030-2035): Completion of weapons program represents fundamental power shift. Regional nuclear arms race accelerates (Saudi Arabia, UAE, Egypt achieve weapons within 3-5 years). Non-proliferation treaty credibility collapses globally (-40-60%). Israeli strategic doctrine shifts to Samson Option credibility. Proliferation cascade triggers globally.
-
-**Massive Proxy Warfare Escalation** (40-50% during nuclear crises): Iran coordinates unprecedented Houthi Red Sea attacks, Hezbollah Lebanon escalations, PMU militia Iraq operations, synchronized with nuclear milestone announcements. Global shipping insurance costs spike +300-500%, oil prices surge +150-250%, multiple regional states request US military assistance simultaneously.
 
 ### Cascading Effects
 
@@ -116,5 +105,10 @@ Iran's revolutionary cycles demonstrate how internal instability cascades into f
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-25
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/iran-nuclear-program-and-revolution-cycles.md)
+
+## Sources
+
+[^ap-iaea-uranium-60]: Associated Press, “Iran increased stockpile of near weapons-grade uranium before Israeli attack, UN agency says” (IAEA report coverage, Sep 2025). Accessed 2025-12-19. https://apnews.com/article/c3ae6a8aae96d54355df73842916a324
+[^britannica-khamenei]: Encyclopaedia Britannica, “Ali Khamenei | Supreme Leader, Iran, Biography, & Facts.” Accessed 2025-12-19. https://www.britannica.com/biography/Ali-Khamenei

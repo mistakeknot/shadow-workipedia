@@ -31,17 +31,6 @@ Public transit systems across developed economies face an existential funding cr
 - **Urban Carbon Emissions**: Transit decline forces mode shifts from public to personal vehicles. Each 10% transit ridership loss increases transportation carbon emissions by 3-6% as transit trips convert to car trips or are eliminated entirely.
 - **Transit Workforce**: Service cuts and aging infrastructure create safety hazards that degrade operator morale. Operator shortages worsen service reliability, creating additional recruitment challenges in a vicious cycle.
 
-**Event Types:**
-1. **Major Service Cut** (High probability 40-60%): Transit agency announces elimination of 20-40% of routes and service hours. Immediate impacts: 25-35% ridership loss in affected corridors, 18-month lag before riders find alternatives. Triggers workforce layoffs and accelerates aging infrastructure deterioration.
-
-2. **Federal Transit Bailout** (Medium probability 20-35%): Emergency funding package provides 3-5 years of operational and capital funding. Prevents immediate collapse and allows service restoration. High political salience; requires crisis-level conditions (system closure threat, major safety incident, or severe equity impact).
-
-3. **Transit Infrastructure Failure** (Increasing probability from deferred maintenance): Major accident, derailment, or system shutdown from disrepair. Causes immediate service suspension (days to months for repairs). Triggers public safety crisis, potential federal investigation, and loss of remaining riders to alternatives.
-
-4. **Congestion Pricing Implementation** (Medium probability 15-30%): City implements congestion pricing in dense urban core, with revenues dedicated to transit expansion. Increases transit funding by 10-25%, improves service frequency, and drives ridership recovery in affected zones.
-
-5. **Transit Fare Elimination** (Low probability 10-15%, higher in crisis scenarios): Free public transit experiment funded by general taxes or congestion pricing. Immediate ridership surge of 15-40%, but requires new revenue sources to avoid accelerating service decline. Long-term success depends on concurrent funding commitment.
-
 **Cascading Effects:**
 - Triggers **Aging Infrastructure Cascade** when deferred maintenance reaches critical thresholds (below 50% funding) and infrastructure condition scores drop below 40%, creating compounding failure rates across system components.
 - Amplifies **Climate Goals Failure** by reversing modal shifts away from personal vehicles. Each percentage point of transit modal share loss represents 0.8-1.2% increase in transportation emissions, directly undermining regional carbon reduction targets.

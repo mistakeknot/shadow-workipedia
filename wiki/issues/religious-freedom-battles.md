@@ -63,43 +63,6 @@ This issue represents a civilizational fault line in pluralistic democracy: how 
 - Increases strategic litigation targeting civil rights protections
 - Sets precedent for broader exemption expansion
 
-### Event Types
-
-**Religious Exemption Litigation Cascade** (Probability: 18-24%)
-- High-profile case challenging civil rights law reaches appeals court
-- Success rate increases with Legal System Conservatism (+15 influence)
-- Triggers legislative attempts to codify exemption
-- Creates spillover effects to other service sectors
-- Consequence: -8 Civil Rights Enforcement, +12 Religious Exemption Doctrine Strength
-
-**Healthcare Denial Cluster** (Probability: 12-17%)
-- Multiple incidents of healthcare providers denying services based on religious beliefs
-- Affects: emergency care denials, reproductive healthcare, gender-affirming care, HIV treatment
-- Impacts both individual patients and systemic care gaps
-- Media coverage varies based on Public Polarization Index
-- Consequence: -4 Healthcare Quality, +6 Public Polarization, triggers civil rights response
-
-**Legislative Exemption Expansion** (Probability: 14-19%)
-- State or federal legislative bodies pass new or expanded religious exemption laws
-- Affects employment, education, healthcare, business services
-- Often includes broad "conscience" or "sincere belief" definitions
-- May include private right of action enabling litigation strategies
-- Consequence: +15 Religious Exemption Doctrine Strength, -10 Civil Rights Enforcement
-
-**Institutional Discrimination System** (Probability: 10-15%)
-- Religious institutions or faith-identified organizations systematize discriminatory practices
-- Creates coordinated denial of services, employment, or admission
-- May affect significant portions of regional populations if organization is major provider
-- Enforcement gaps emerge due to exemption protections
-- Consequence: +8 Religious Exemption Doctrine Strength, -6 affected communities' access to services
-
-**Civil Rights Counter-Movement** (Probability: 11-16%)
-- Public backlash or activist mobilization against religious exemptions
-- Boycotts, protests, legislation to restrict exemptions
-- Increases when incidents receive media attention
-- Creates political costs for exemption-expansive legislators
-- Consequence: +8 Civil Rights Enforcement, -5 Public Polarization in some regions
-
 ### Cascading Effects
 
 **Fragmented Civil Rights Architecture** → Religious exemptions vary dramatically across jurisdictions and sectors, creating a patchwork where identical discrimination is illegal in some regions/contexts and legally protected in others. LGBTQ+ people and other protected groups experience radically different treatment based on zip code, employer denomination, healthcare system affiliation, or service provider beliefs. This fragments legal coherence and makes national equal protection increasingly meaningless.

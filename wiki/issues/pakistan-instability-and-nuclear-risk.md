@@ -53,34 +53,6 @@ Economic collapse, demographic pressure, and climate-driven resource scarcity ar
 - Reduces decision-making time in crisis scenarios from 72 hours to 18 hours
 - Raises nuclear weapons deployment/alert status probability by 25% per unit
 
-### Event Types
-
-**Military Coup Attempt** (Trigger: Stability <45, Corruption >75)
-- Probability: 12-18% annually when conditions met
-- Duration: 2-8 weeks of institutional paralysis
-- Nuclear Consequence: Command authority unclear, increased accident risk, potential weapons movement for coup security
-- Secondary Effects: 25% increase in terrorist recruitment during chaos window
-
-**Terrorist Attack on Nuclear Facility** (Base probability: 2-4% annually)
-- Trigger escalation chain: Infiltration attempt → Security breach → Armed assault → Potential weapon compromise
-- Success likelihood depends on: Military professionalism, counter-terrorism effectiveness, facility security investment
-- Consequences: International intervention threat, internal security collapse, global nuclear alert escalation
-
-**India-Pakistan Military Escalation** (Trigger: Territorial incident, intelligence failure, or domestic political crisis)
-- Rapid escalation pathway: Conventional skirmish → Cross-border raid → Full border mobilization → Airspace incursion → Nuclear alert consideration
-- Duration compression: Modern communication and military readiness compress decision windows from days to hours
-- Nuclear Decision Point: Occurs within 18-36 hours of major escalation; influenced by military hardliners, domestic political pressure, and perceived existential threat
-
-**Economic Collapse Cascade** (Trigger: Currency crisis, debt default, or foreign aid withdrawal)
-- Probability: 15-25% over 5-year period when debt-to-GDP >100% and forex reserves <3 months
-- Timeline: Acute phase 4-12 weeks; chronic phase 2-3 years
-- Nuclear Consequence: Institutionalization breakdown, security force salary arrears, increased proliferation activity, military pressure to prove deterrent value
-
-**Insider Threat Maturation** (Probability: 3-6% annually for active plot development)
-- Requires: Terrorist network presence in military (High), radicalization vector active, security vulnerability identified
-- Scale: Individual weapon theft unlikely; coordinated unit seizure possible with external support
-- Timeline: 6-18 months from recruitment to potential action
-
 ### Cascading Effects
 
 **Military Coup → Nuclear Instability Chain**

@@ -36,18 +36,6 @@ By 2025, approximately 15 major U.S. cities have implemented partial or full aut
 
 - **Political Polarization**: Cities split between "tech-forward" factions (venture capital, tech workers, mobility startups) and "safety-first" coalitions (pedestrian advocates, insurance industries, residential neighborhoods). Partisan voting on AV regulations increases by 8-12 percentage points.
 
-**Event Types:**
-
-1. **Fatal Autonomous Vehicle Incident**: An AV is involved in a crash causing human death(s). Immediate consequences: investigation halts local testing, media coverage spikes safety concerns (+15-20% negative sentiment), incident creates $100M-$1B liability exposure for manufacturer. Cascade triggers if >2 fatal incidents in 12 months: mayor faces political pressure to ban AVs, neighboring cities adopt precautionary restrictions, insurance costs spike 5-15%.
-
-2. **City Autonomous Vehicle Ban**: Municipal government prohibits AV operations within jurisdiction or establishes strict permits (designated routes, geofenced zones, speed caps). Effects: displaced AV testing relocates to friendlier cities, manufacturer loses 2-4 months of operational data, creates competitive advantage for companies operating in fewer jurisdictions. If >3 major cities ban within 6 months, triggers national regulatory escalation.
-
-3. **Insurance Market Disruption**: Insurer declares force majeure on AV liability coverage or requires $50M+ self-insurance bonds before underwriting. Effect: AV operators face 6-12 month delays expanding service; some operators pause deployment and seek federal liability cap legislation. If multiple insurers withdraw, triggers funding crisis for mid-size AV companies.
-
-4. **Regulatory Framework Emerges**: State or federal government establishes clear liability allocation (manufacturer strict liability vs. owner negligence threshold vs. hybrid). Immediate effect: market clarity reduces uncertainty premiums 3-8%; AV expansion accelerates. Can destabilize previously favored companies if liability allocation favors competitors.
-
-5. **Infrastructure Damage Threshold Exceeded**: Cumulative AV-caused infrastructure damage (potholes, street damage, parking damage) reaches critical levels in over-deployed cities. Example: Phoenix reports $8M annual pavement damage from AV fleet concentrated on downtown streets. Triggers municipal cost-recovery actions, special AV permitting fees, or infrastructure-use taxes that increase operating costs 5-12%.
-
 **Cascading Effects:**
 
 - Triggers **transportation-aging-infrastructure-crisis** when AV fleet density exceeds 15% of street traffic + cumulative damage costs exceed municipal maintenance budgets

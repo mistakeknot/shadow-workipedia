@@ -36,20 +36,6 @@ The conflict escalates as demographic divergence accelerates. Countries with low
 - **Regional Demographics**: Population distribution shifts toward immigrant-receiving cities/regions while aging, low-growth regions experience depopulation. Net internal migration turns increasingly political as low-growth regions blame immigration for lost opportunity.
 - **Electoral Volatility**: Traditional voting blocs fragment as immigration overrides economic ideology. Swing regions become increasingly unstable, with 5-8 point swings between election cycles driven by immigration salience.
 
-**Event Types:**
-
-1. **Labor Shortage Crisis Trigger**: An industry (healthcare, agriculture, construction) reaches critical workforce deficit. Employers demand immigration increases to prevent service collapse, triggering political backlash and forcing choice between economic dysfunction or policy reversal.
-
-2. **Wage Competition Event**: Regional wage data shows clear wage suppression in specific sectors correlated with immigration levels. Workers mobilize politically, local politicians face "accountability moment," triggering restriction pressure.
-
-3. **Integration Failure Cluster**: Multiple highly-visible integration failures (crimes, benefit dependency, religious/cultural conflict) concentrate in same region within 6-month window. Media amplifies, triggering moral panic and hardening immigration restriction demand by 15-20 percentage points regionally.
-
-4. **Electoral Realignment**: Election results show immigration as dominant issue, with traditional coalition members switching sides. Center-left parties lose working-class support to far-right on immigration stance. Political system enters new equilibrium with lower trust in institutions.
-
-5. **Demographic Dependency Crisis**: Dependency ratio calculations show that without sustained immigration, working-age population cannot support retirees. Policy elites face dilemma: permit immigration politically dangerous but required economically, or accept economic decline/benefit cuts.
-
-6. **Brain Drain Acceleration**: Talent-abundant countries experience accelerating outmigration of young, educated workers seeking better opportunities abroad. Drives innovation decline and talent shortage in knowledge economy, reducing long-term competitiveness.
-
 **Cascading Effects:**
 
 - Triggers **Labor Shortage Crisis** when immigration restrictions reduce workforce growth below replacement rates + critical service demand remains unmet

@@ -42,24 +42,6 @@ A modern Carrington Event would trigger civilization-scale catastrophe. The 1859
 
 - **Critical Supply Chain Fragility** (0-100): Currently 80-90%. Global supply chains optimized for efficiency, not resilience. Without power: no manufacturing, no distribution, no food systems. Each day of grid outage causes 5-10% additional deaths in dependent regions.
 
-**Event Types:**
-
-1. **Solar Maximum Onset**: Sun enters heightened activity phase. Solar Activity Index +30-50 over 6-12 months. CME probability rises from 0.5-1% to 3-5% annually. Provides preparation window. Occurs every 11 years; next maximum ~2035-2036.
-
-2. **Major CME (Non-Direct Hit)**: Powerful CME strikes at oblique angle. G4-G5 storm affects high-latitude regions; damages transformers; causes outages lasting days to weeks. Localized damage, not civilization-scale. Probability: 5-8% annually.
-
-3. **Carrington-Class Direct Impact**: Head-on CME strike. Global damage within 8-12 hours. Transformers fail as voltages exceed 2-3x design limits. 60-90% of satellites disabled. GPS lost. Financial networks offline. Supply chains stop.
-
-   **Immediate effects (0-7 days):** 50-80% grid offline, hospitals lose power, food distribution collapses, fuel pumps non-functional. Deaths: 100K-1M from medical failures, accidents.
-
-   **Medium-term (1-4 weeks):** Transformer shortage bottleneck (300,000+ needed globally; manufacturing capacity 30,000/year). Starvation begins; disease outbreaks from contaminated water. Deaths: 10-50M globally.
-
-   **Long-term (1-5 years):** Manufacturing offline 12-24 months. Urban-to-rural migration. Failed states emerge. Deaths: 100M-1B depending on preparedness and social cohesion.
-
-4. **GPS Constellation Failure**: 60-80% of GPS satellites lost. Financial markets close (nanosecond timing required). Air traffic grounded. Maritime navigation compromised. Grid protection systems malfunction. Cellular networks lose synchronization.
-
-5. **Satellite Cascade (Kessler Syndrome)**: Post-storm, damaged satellites lose orbit maintenance, creating debris clouds that damage surviving satellites, creating more debris. 70-90% of constellation non-functional; 3-7 year recovery.
-
 **Cascading Effects:**
 
 - Triggers **Global Energy Crisis**: Grid Hardening <60 means energy availability crashes to 10-20% of normal for 12-24 months.

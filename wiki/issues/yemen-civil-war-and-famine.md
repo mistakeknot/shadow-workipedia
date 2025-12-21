@@ -43,15 +43,6 @@ The conflict has increasingly internationalized, transforming from a regional pr
 - **State Fragmentation**: +75 (parallel governments, territorial control disputes, institutional breakdown)
 - **Refugee/Migration Pressure**: +55 (internal displacement, cross-border flows to neighboring countries)
 
-### Event Types
-- Houthi drone and missile attacks on commercial shipping or Saudi oil infrastructure
-- UN famine emergency declarations or food crisis escalations
-- Coalition airstrikes on civilian targets triggering international criticism
-- Cholera outbreak reports and disease surge notifications
-- Peace negotiation attempts (often failing within months)
-- Port closures or blockade intensifications affecting aid delivery
-- Reports of war crimes or civilian massacres
-
 ## Cascading Effects
 
 Yemen's conflict connects to and amplifies multiple global crises:

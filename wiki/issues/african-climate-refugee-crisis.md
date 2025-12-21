@@ -11,28 +11,30 @@ socialImpact: 90
 affectedSystems: [Environment, Geopolitics, Civil Society, Agriculture]
 connections: [climate-refugee-floods, sahel-jihadist-insurgency, comprehensive-refugee-system-collapse]
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-25
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # African Climate Refugee Crisis
 
 ## Overview
 
-The African Climate Refugee Crisis represents one of the most severe humanitarian challenges facing the continent, driven by accelerating desertification, water scarcity, and agricultural collapse across the Sahel and East Africa. The Sahel region is experiencing desertification rates of 0.5-1% annually, while Lake Chad has shrunk by 90% since the 1960s—from 25,000 km² to 2,000 km²—displacing millions who depended on its fisheries and surrounding croplands.
+The African Climate Refugee Crisis represents one of the most severe humanitarian challenges facing the continent, driven by drought and rainfall variability, water scarcity, and climate-sensitive livelihoods under stress across the Sahel and East Africa. “Climate refugee” is also a legally ambiguous term; most climate-linked displacement is internal, and often interwoven with conflict and economic stressors.[^groundswell_2021]
 
-An estimated **17-20 million Africans** are currently displaced or at immediate risk of displacement due to climate factors. In the Horn of Africa alone, successive droughts (2015-2017, 2019-2020, 2022-2023) have triggered waves of mass migration, with Ethiopia, Kenya, and Somalia experiencing the worst impacts. The 2022-2023 drought affected over 30 million people and drove approximately 2-3 million internal displacements, with seasonal migrations becoming permanent as pastoral livelihoods collapse.
+Lake Chad is a commonly cited example of climate and governance fragility: it has fluctuated dramatically over decades, and is far smaller than in the 1960s, reducing fisheries and agricultural livelihoods for surrounding communities.[^nasa_lake_chad]
 
-The crisis cascades across three interconnected crises: *environmental collapse* (crop failures and livestock die-offs), *political instability* (resource competition fueling intercommunal violence), and *international migration pressure* (estimated 300,000+ Africans attempt Mediterranean crossings annually, with climate displacement as a primary driver). Each year without mitigation increases the likelihood of state-level food insecurity and uncontrollable migration waves by 8-12%.
+In the Horn of Africa, multi-year drought periods have produced acute humanitarian needs and displacement spikes, especially where conflict and high food prices interact with rainfall failure. Quantifying “climate displacement” precisely is difficult; however, IDMC reporting shows disaster-related internal displacement is large and recurring, including across Sub‑Saharan Africa.[^idmc_grid_2024]
+
+The crisis cascades across three interconnected crises: *environmental stress* (crop failures and livestock losses), *political instability* (resource competition and conflict), and *international migration pressure* (irregular routes become more attractive as local livelihoods fail and states tighten legal pathways).
 
 ## Game Mechanics
 
 ### Parameter Effects
 
+*All numeric ranges below are simulation parameters (illustrative), not real-world estimates unless explicitly sourced.*
+
 **Displacement Numbers** (Primary Driver):
-- **Baseline:** 17-20 million currently displaced/at-risk
-- **Per 1°C warming:** +2.5-3.2 million additional climate refugees by 2050
-- **Per point decline in rainfall index:** 150,000-250,000 internally displaced persons (IDPs) annually
-- **Cascading effect:** For every 1 million internal displacements, external migration pressure increases by 15-20%
+- **Baseline:** large recurring disaster-related internal displacement across Sub‑Saharan Africa; exact “climate” attribution is contested.[^idmc_grid_2024]
 
 **Food Security Index** (Vulnerability Amplifier):
 - **Below 40% (Crisis):** 5-8 million at risk of acute hunger annually
@@ -43,28 +45,6 @@ The crisis cascades across three interconnected crises: *environmental collapse*
 - **Per dispute over water/pasture:** Adds 50,000-100,000 violence-induced IDPs
 - **Intercommunal violence:** Estimated 100,000-150,000 deaths annually in pastoralist conflict zones
 - **Spillover effect:** Regional conflicts increase cross-border migration by 25-40%
-
-### Event Types
-
-1. **Sahel Mega-Drought Event** (Frequency: 3-5 year intervals, increasing to annually by 2040)
-   - Description: Consecutive seasons of sub-50mm rainfall in >70% of Sahel region (Mali, Mauritania, Niger, Senegal, Burkina Faso, Chad)
-   - Impact: 200,000-400,000 immediate displacement; crop yield -80%; livestock mortality -60%
-   - Duration: 18-36 months of cascading secondary impacts (malnutrition, disease, conflict)
-
-2. **Lake Chad Collapse Acceleration Event** (Already ongoing, terminal phase)
-   - Description: Water extraction and climate combine to reduce lake to <500 km² (current trajectory)
-   - Impact: 2.5 million direct dependencies affected; 90% of regional fishery collapse; 400,000+ displacements
-   - Multiplier: Destabilizes Cameroon, Nigeria, Niger, Chad governments' legitimacy in affected regions
-
-3. **Horn of Africa Climate Shock Cascade** (Frequency: Increasing to 60% probability every 3-5 years)
-   - Description: Synchronized drought across Ethiopia, Kenya, Somalia; reduces pastureland carrying capacity below sustainable minimum
-   - Impact: 1-2 million pastoral population loses livelihoods; 500,000-1 million migration attempts; humanitarian cost $2-5 billion annually
-   - Political consequence: Destabilizes Kenya and Ethiopia's food self-sufficiency; increases conflict with South Sudan refugee populations
-
-4. **Mediterranean Migration Crisis Surge** (Cascading from above events)
-   - Description: Climate displacement pressure + political destabilization combines with smuggling networks to create migration waves
-   - Impact: 300,000-500,000 attempted crossings annually; 3,000-5,000 deaths in Mediterranean; Western political backlash +30%
-   - Secondary: Triggers European border militarization; reduces humanitarian aid funding for root-cause interventions
 
 ### Cascading Effects
 
@@ -124,7 +104,12 @@ This crisis intersects with and amplifies:
 
 ---
 
+## Sources
+
+[^groundswell_2021]: https://www.worldbank.org/en/topic/climatechange/publication/groundswell-part-2-acting-on-internal-climate-migration
+[^idmc_grid_2024]: https://www.internal-displacement.org/global-report/grid2024/
+[^nasa_lake_chad]: https://earthobservatory.nasa.gov/world-of-change/LakeChad
+
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-25
-**Data Sources**: UN UNHCR, World Bank Climate Risk Assessment, FAO Sahel Analysis, International Organization for Migration (IOM)
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/african-climate-refugee-crisis.md)

@@ -40,18 +40,6 @@ Water stress begins when availability drops below 1,700 m³ per capita per year.
 - **Water Cost > 5% household income**: Triggers shutoff cascade affecting 15-25% of poor households
 - **Shutoffs affecting > 10% of population + Public Trust < 40**: 70% chance of violent protests within 2 years
 
-**Event Types:**
-
-1. **Privatization Proposals**: Government considers selling water utilities to private companies when fiscal pressure exceeds 65 points and corporate lobbying reaches 70+ influence. Probability increases by +8% per point of fiscal deficit above baseline. Outcome determines whether privatization succeeds (55% base chance modified by public trust level), partial privatization occurs (25% chance), or proposal fails due to public resistance (20% chance, requires Public Trust > 60).
-
-2. **Water Shutoffs**: Companies cut service to non-paying customers when bills exceed 8-12% of household income, triggering protests affecting 5,000-50,000 people. Each shutoff reduces Public Trust by -3 to -8 points and increases Social Unrest by +10-15%. If shutoffs affect more than 15% of a city's population, 60% chance of triggering "Water Rights Protest" event with potential for violent suppression.
-
-3. **Legal Challenges**: Communities sue for restoration of water rights when privatization has been active for 3+ years and affected population exceeds 100,000. Success rate: 25-40% depending on judicial independence (requires Judicial Independence > 55). Victory restores 40-60% of lost water access over 8-12 years but costs affected communities 12-18 million in legal fees.
-
-4. **Violent Conflicts**: Armed clashes over water access in scarcity regions when Water Availability drops below 500 m³/capita/year and Social Stability falls below 25. Casualty range: 50-2,500 deaths per conflict event. 30% chance of escalating to regional insurgency if military presence exceeds 70 points. Historical examples: 2024 Daraa water riots (Syria), 2019 Chennai water conflicts (India), 2018 Cape Town Day Zero tensions.
-
-5. **International Tensions**: Cross-border water disputes escalate to diplomatic crises when upstream nations reduce downstream flow by more than 20% during drought periods (Water Availability < 1,200 m³/capita/year). Probability of military posturing: 45% for minor disputes, 75% for disputes affecting > 20 million people. Examples: Egypt-Ethiopia GERD dispute (potential 25% reduction in Nile flow), India-Pakistan Indus Waters tensions, Turkey-Syria-Iraq Tigris-Euphrates conflicts.
-
 **Cascading Effects:**
 
 - Triggers **Climate Refugee Crisis** when water becomes unaffordable (> 10% household income) or unavailable (< 50 liters/person/day), displacing 2-8 million people per major city affected

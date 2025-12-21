@@ -34,17 +34,6 @@ The crisis exemplifies the profound lag between cause and effect in Earth system
 **Fishing Industry Revenue**: -13% (harvest declines)
 **Climate Feedback**: +8% (reduced ocean carbon absorption)
 
-### Event Types
-
-**Oyster Hatchery Failure**: Larval mortality reaches crisis levels
-**Coral Reef Declared Dying**: Major reef system in rapid decline
-**Pteropod Shell Dissolution Observed**: Food web foundation threatened
-**Fishing Season Cancelled**: Stock collapse attributed to acidification
-**Ocean Chemistry Threshold Crossed**: pH reaches critical level
-**Shellfish Industry Bankruptcy**: Acidification makes farming unviable
-**Marine Protected Area Fails**: Conservation ineffective against chemistry
-**Research Reveals Acceleration**: Acidification faster than projected
-
 ### Cascading Effects
 
 CO2 absorption → Ocean pH decline → Shell formation impaired → Larval mortality increases → Shellfish fisheries collapse → Coral reefs dissolve → Food web disruption → Fishing industries fail → Coastal food security threatened → Marine biodiversity crashes

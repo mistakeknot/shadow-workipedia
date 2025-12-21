@@ -11,7 +11,8 @@ socialImpact: 9/10
 affectedSystems: [Governance, Military, Energy, International-Relations]
 connections: [russia-demographic-winter]
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-27
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Post-Putin Succession Crisis
@@ -19,6 +20,8 @@ lastUpdated: 2025-11-27
 ## Overview
 
 The eventual transition from Vladimir Putin's extended rule in Russia presents unprecedented risks for global stability. With no clear successor, deeply entrenched power structures, and competing factions within the security services and oligarchy, Russia faces potential instability at a scale unseen since the Soviet collapse. The concentration of power in a personalist regime means that Putin's departure—whether through death, incapacitation, or political defeat—could trigger a chaotic succession struggle with global ramifications.
+
+As of 2025-12-19, Vladimir Putin is president of Russia. [^britannica-putin]
 
 The stakes extend far beyond Russia's borders. As a nuclear superpower with vast energy resources, significant military capabilities, and ongoing conflicts, a destabilized Russia could trigger regional conflicts, nuclear security concerns, energy market disruptions, and mass migration. The lack of institutional mechanisms for peaceful power transfer in an increasingly personalized authoritarian system creates a dangerous power vacuum scenario.
 
@@ -34,16 +37,6 @@ Historical precedents from the Soviet collapse, the Yugoslav wars, and other pos
 - **Economic Growth** (Russia): -15 to -35
 - **Civil Liberties**: -20 to +30 (depends on successor regime type)
 - **Regional Stability** (Eastern Europe/Central Asia): -30 to -50
-
-### Event Types
-- **Succession Struggle**: Competing factions vie for control, potential violence
-- **Nuclear Command Crisis**: Uncertainty over nuclear weapons authority
-- **Regional Conflict Escalation**: Neighbors exploit Russian weakness
-- **Energy Market Shock**: Oil/gas supply disruptions trigger global crisis
-- **Mass Migration**: Internal conflict drives refugee flows
-- **Oligarch Wars**: Business magnates mobilize private armies
-- **Separatist Movements**: Ethnic regions seek independence
-- **Military Coup**: Armed forces seize power to "restore order"
 
 ### Cascading Effects
 - Energy price spikes trigger global recession
@@ -76,4 +69,8 @@ Historical precedents from the Soviet collapse, the Yugoslav wars, and other pos
 
 ---
 
-*Shadow Workipedia is a living document of systemic risks. This article reflects known vulnerabilities as of 2025-11-27.*
+*Shadow Workipedia is a living document of systemic risks. This article reflects known vulnerabilities as of 2025-12-19.*
+
+## Sources
+
+[^britannica-putin]: Encyclopaedia Britannica, “Vladimir Putin | Biography, KGB, Political Career, & Facts.” Accessed 2025-12-19. https://www.britannica.com/biography/Vladimir-Putin

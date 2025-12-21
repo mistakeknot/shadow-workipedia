@@ -11,12 +11,15 @@ socialImpact: 82
 affectedSystems: [Government, NATO, Media, Judiciary, Economy]
 connections: []
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-24
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Turkey Erdogan Authoritarianism
 
 ## Overview
+
+As of 2025-12-19, Recep Tayyip Erdoğan is president of Turkey. [^britannica-erdogan]
 
 Turkey's descent into authoritarianism under President Recep Tayyip Erdogan represents one of the most significant democratic collapses in a NATO-member state since the Cold War. What began in 2002 as a reform-oriented Justice and Development Party (AKP) government has progressively consolidated power through constitutional amendments, institutional capture, and systematic suppression of opposition. The 2016 coup attempt provided the pretext for an unprecedented purge—over 130,000 public officials, military personnel, judges, teachers, and journalists were arrested or dismissed, often with minimal due process. This transformation fundamentally altered Turkey's domestic governance structure while simultaneously creating tensions with Western allies over human rights, the rule of law, and NATO operational cohesion.
 
@@ -37,18 +40,6 @@ The international ramifications extend far beyond Turkish borders. Turkey's pivo
 - **Kurdish Tension** (+12-20 points): Military operations against PKK/YPG, restrictions on HDP opposition party, and arrested Kurdish politicians increase this parameter. Spikes trigger refugee flows and regional destabilization, affecting NATO cohesion on Middle East policy.
 
 - **Economic Volatility** (+6-10 points): Unorthodox monetary policy, currency interventions, and investor flight from political uncertainty cause lira depreciation and inflation cycles. Above 65 points, unemployment spikes to 10-12%, destabilizing middle-class support for AKP.
-
-### Event Types
-
-- **Judicial Purge Events** (probability 0.08 annually): Mass dismissals or arrests of judges and prosecutors aligned with rule-of-law standards. Consequence: +8 Institutional Capture, -5 International Trust. High-impact when coordinated with constitutional amendments.
-
-- **Media Suppression Events** (probability 0.06 annually): Major critical outlet closure, arrest of editor/journalist, or ownership takeover by government-aligned business. Consequence: +12 Press Freedom Degradation, -4 Civic Participation, +3 Public Resentment.
-
-- **Opposition Crackdown Events** (probability 0.07 annually): High-profile opposition leader arrest, HDP closure attempts, or restriction of campaign activities. Consequence: +10 Polarization, +15 Public Resentment, -8 Democratic Legitimacy.
-
-- **Economic Crisis Events** (probability 0.09 annually): Currency crisis, central bank governance conflict, or major policy reversal drives inflation >20% or unemployment >12%. Consequence: +18 Economic Volatility, -20 Institutional Legitimacy, +25 Public Resentment.
-
-- **NATO Friction Events** (probability 0.05 annually): Turkey blocks NATO decision (Finland/Sweden expansion, Ukraine aid), arms deals with Russia/China, or defends Russian interests. Consequence: +8 International Tension, -10 Western Alliance Cohesion.
 
 ### Cascading Effects
 
@@ -81,5 +72,9 @@ The international ramifications extend far beyond Turkish borders. Turkey's pivo
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-24
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/turkey-erdogan-authoritarianism.md)
+
+## Sources
+
+[^britannica-erdogan]: Encyclopaedia Britannica, “Recep Tayyip Erdoğan | President, Protests, Religion, & Facts.” Accessed 2025-12-19. https://www.britannica.com/biography/Recep-Tayyip-Erdogan

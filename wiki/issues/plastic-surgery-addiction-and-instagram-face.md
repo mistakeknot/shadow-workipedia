@@ -34,17 +34,6 @@ The industry aggressively markets to younger demographics while downplaying risk
 **Medical Risks**: +8% (complications from elective procedures)
 **Cultural Beauty Diversity**: -14% (homogenization toward single standard)
 
-### Event Types
-
-**Teen Cosmetic Surgery Surge**: Procedures in under-18s increase dramatically
-**Botched Surgery Scandal**: High-profile complications revealed
-**Filter Dysmorphia Identified**: Psychological syndrome named
-**Procedure Addiction Recognized**: Serial surgery pattern documented
-**Influencer Transparency**: Celebrity reveals extent of modifications
-**Regulatory Reform Proposed**: Age limits or consent requirements
-**Complication Lawsuit**: Patient sues for undisclosed risks
-**Natural Beauty Movement**: Backlash against surgical modification culture
-
 ### Cascading Effects
 
 Social media filter use → Beauty standard distortion → Perceived flaws intensify → Cosmetic procedures sought → Temporary satisfaction → New flaws identified → More procedures → Addiction pattern emerges → Natural appearance rejected → Mental health impacts accumulate

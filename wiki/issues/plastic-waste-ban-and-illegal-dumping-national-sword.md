@@ -34,17 +34,6 @@ The crisis revealed the need for fundamental rethinking of plastic production an
 **Plastic Production Accountability**: +9% (forced rethinking)
 **Municipal Waste Costs**: +13% (no cheap export option)
 
-### Event Types
-
-**National Sword Policy Implemented**: China bans contaminated imports
-**Recycling Crisis Declared**: Municipal systems overwhelmed
-**Waste Redirected to Southeast Asia**: New dumping grounds emerge
-**Indonesia/Malaysia Ban Imports**: Domino effect of restrictions
-**Recycling Bales Accumulate**: Warehouses filled with unmarketable materials
-**Incineration Increases**: "Recycling" burned as waste
-**Illegal Dumping Exposed**: Waste contractors dispose improperly
-**Extended Producer Responsibility**: Laws make manufacturers responsible
-
 ### Cascading Effects
 
 China bans plastic imports → Western recycling systems collapse → Waste redirected to Southeast Asia → Those nations ban imports too → Recycling accumulates with no market → Incineration and landfill disposal increase → Plastic pollution accelerates → Recycling myth exposed → Pressure builds for production reduction

@@ -35,15 +35,6 @@ Gentrification operates as an invisible displacement mechanism—often framed as
 - **Local Economic Capacity**: Shifts from community-owned businesses to chain operations and absentee landlords; local wealth extraction increases
 - **Political Organizing Power**: Decreases as displacement scatters constituencies; vulnerable groups lose ability to advocate for resources and protections
 
-**Event Types:**
-
-1. **Transit Investment Gentrification**: New light rail, subway, or bus transit station announced; property speculation accelerates and longtime landlords sell to investor syndicates, triggering rapid displacement
-2. **Cultural Anchor Institution Arrival**: Museum, university expansion, or arts district designation attracts affluent professionals; neighborhood appeal spikes and displacement pressure intensifies
-3. **Eviction Wave**: Landlords implement mass evictions, often using minor lease violations or harassment; displaces 20-50% of residents within 12-24 months
-4. **School Demographic Flip**: Neighborhood schools shift from predominantly low-income to affluent; triggers self-selection as families with resources move in and poorer families are pushed out
-5. **Community Resistance Campaign**: Longtime residents organize to demand rent control, community land trusts, or affordable housing mandates; can slow but rarely stop displacement
-6. **Displacement Tipping Point**: When displacement exceeds critical threshold (40%+), remaining vulnerable residents lose critical mass for mutual aid and collective action; cascade acceleration begins
-
 **Cascading Effects:**
 
 - Triggers **Housing Affordability Crisis** when displacement spreads across multiple neighborhoods and displaces people into lower-income areas, creating urban poverty concentration

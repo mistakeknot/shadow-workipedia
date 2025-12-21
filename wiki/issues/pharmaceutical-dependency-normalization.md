@@ -34,17 +34,6 @@ The polypharmacy epidemic, particularly among the elderly, creates cascading com
 **Preventive Health Culture**: -10% (medication prioritized over lifestyle)
 **Drug Interaction Risks**: +14% (polypharmacy complications)
 
-### Event Types
-
-**Polypharmacy Study Released**: Research reveals extent of multiple prescriptions
-**Prescribing Cascade Identified**: Drug side effects drive more prescriptions
-**Direct-to-Consumer Ad Surge**: Pharmaceutical marketing intensifies
-**De-prescribing Initiative**: Attempt to reduce unnecessary medications
-**Drug Interaction Death**: Polypharmacy leads to fatal combination
-**Medication Non-Adherence Crisis**: Complexity defeats patient compliance
-**Pharmaceutical Dependency Recognized**: Cultural shift toward medication reliance
-**Insurance Favors Drugs**: Behavioral interventions not covered
-
 ### Cascading Effects
 
 Disease definition expansion → Pharmaceutical treatment normalized → Polypharmacy increases → Drug interactions multiply → Side effects require more drugs → Dependency deepens → Healthcare costs escalate → Preventive approaches neglected → Medication culture entrenched

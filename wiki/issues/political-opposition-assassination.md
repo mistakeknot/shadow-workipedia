@@ -38,18 +38,6 @@ The cascading effects extend far beyond individual deaths. Opposition movements 
 
 **Media Freedom Index** (-3 to -7 per assassination): Journalists and media organizations covering opposition activities face increased danger. Self-censorship expands. News organizations reduce coverage of opposition movements. International media outlets lose access to the country.
 
-### Event Types
-
-**Targeted Poisoning (25% probability)**: Opposition leader is poisoned with slow-acting nerve agent or radioactive substance. Initial symptoms appear like illness. Medical systems struggle to diagnose. Leader either dies or survives with severe neurological damage. Probability increases with: high authoritarian consolidation, low international oversight, previous successful poisoning operations.
-
-**Staged Accident (18% probability)**: Car crashes, plane disasters, falls from buildings. Designed with plausible deniability. Investigation is controlled by regime authorities who determine it was "mechanical failure" or "suicide." High-profile witnesses conveniently unavailable. Probability increases with: sophisticated intelligence apparatus, previous success, low media freedom.
-
-**Enforced Disappearance (22% probability)**: Opposition figure abducted, held incommunicado, either killed or emerges months later traumatized and politically neutralized. Creates maximum psychological impact on remaining opposition. Probability increases with: low civil society resilience, high intelligence power, weak international human rights monitoring.
-
-**Assassination in Exile (20% probability)**: Opposition leader living abroad is murdered by intelligence operatives or local proxies. Signals that geographical distance provides no safety. Creates severe international incident. Probability increases with: high state capacity, previous operations in foreign countries, low international justice mechanisms.
-
-**Public Murder with Impunity (15% probability)**: Killing occurs in public with obvious state involvement (security forces, government building, etc.). No investigation occurs. Regime openly claims the opposition figure was a threat. Signals complete state dominance. Probability increases with: very high authoritarian consolidation, complete media control, zero international leverage.
-
 ### Cascading Effects
 
 **Opposition Leadership Vacuum** (Probability: 70%): Assassination removes the single most competent, charismatic, or strategically important opposition leader. No pre-positioned successor exists. Movement fragments into competing factions. The vacuum either gets filled by a more radical faction (increasing civil conflict risk) or the movement collapses entirely.

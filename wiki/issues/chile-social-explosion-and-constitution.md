@@ -30,14 +30,6 @@ Chile's 2019 social explosion—triggered by a 3.75% metro fare increase on Octo
 - **Constitutional Legitimacy**: Erodes with each failed reform attempt; subsequent drafts face rising rejection rates as citizens lose faith in deliberative processes
 - **Center Political Viability**: Deteriorates as center-left governments fail to deliver transformative reform, fracturing coalitions and pushing voters toward ideological extremes
 
-**Event Types:**
-1. **Triggering Catalyst (Transport Fare, Utility Price, Service Cut)**: Minor policy adjustment ignites massive protest due to accumulated inequality rage; initial repression intensifies mobilization
-2. **Constitutional Convention Assembly**: Popular demand for radical institutional overhaul; drafting process becomes proxy war for competing ideologies (socialism vs free-market fundamentalism)
-3. **Constitutional Rejection Referendum**: Citizens reject draft due to perceived inadequacy or ideological capture; rejection undermines legitimacy of entire deliberative process
-4. **Pendulum Swing to Right**: Electoral rightward shift after repeated constitutional failures; conservative backlash against perceived socialist takeover attempts
-5. **Institutional Gridlock and Dysfunction**: Multiple failed constitutional processes leave formal governance weakened; informal power networks and regional strongmen gain influence
-6. **Intergenerational Fracture**: Young cohorts permanently alienated from institutions that failed to deliver pensions/services; structural disengagement from formal politics
-
 **Cascading Effects:**
 - Triggers **Democratic Backsliding** when conservative governments use popular demand for change to consolidate power and block further reform
 - Amplifies **Income Inequality and Wage Stagnation** by creating political barriers to progressive taxation and social spending increases

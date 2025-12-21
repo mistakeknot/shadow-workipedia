@@ -58,32 +58,6 @@ Pharmaceutical companies use AI to predict which drug compounds will prove toxic
 
 **Regulatory Capture Risk**: Medical device manufacturers lobby against meaningful FDA oversight, arguing that regulation will "stifle innovation." The result is approval of algorithms based on insufficient validation data, opacity around training datasets, and liability clauses that insulate manufacturers while leaving hospitals exposed.
 
-### Event Types
-
-**Level 1: Algorithmic Failure Detection**
-- Hospital discovers 5-15% of algorithmic recommendations contradict established protocols
-- Radiologists identify systematic false positives in screening systems
-- Pathologists notice algorithmic bias in tumor classification
-- Response varies: some hospitals immediately audit and revise; others suppress findings to avoid liability
-
-**Level 2: Cascade Failure Across Networks**
-- Hospitals using the same AI system discover coordinated failures
-- A training data bias affecting one vendor's product causes systematic misclassifications across 50+ hospitals
-- Patients treated based on incorrect algorithmic recommendations at multiple facilities before systematic error detected
-- Media coverage triggers patient concern about previous treatments
-
-**Level 3: Liability Crisis & Provider Collapse**
-- Lawsuits against hospitals and device manufacturers reveal known algorithmic failures
-- Insurance companies deny coverage for algorithmic failures, citing manufacturer liability
-- Hospitals face bankruptcy from uninsured liability; some cease operations
-- Physicians refuse to use AI systems due to liability concerns, creating workflow inefficiency
-
-**Level 4: Systemic Validation Failure**
-- FDA revokes approval for multiple AI diagnostic systems based on inadequate initial validation
-- Major pharmaceutical pipelines delayed due to loss of confidence in AI toxicity predictions
-- Hospitals restore 100% human verification workflows, eliminating efficiency gains
-- Trust in medical technology investment collapses
-
 ### Cascading Effects
 
 **Triggers Healthcare System Collapse** when:

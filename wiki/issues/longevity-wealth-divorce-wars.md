@@ -12,16 +12,19 @@ affectedSystems: [Legal Systems, Family Systems, Wealth Transfer, Economic Syste
 connections: [longevity-apartheid]
 editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'CapacityStress', 'ContagionPropagation', 'LegitimacyDynamics', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'QueueBacklog']
-lastUpdated: 2025-11-25
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Longevity Wealth Divorce Wars
 
 ## Overview
 
-As human lifespans extend to 100+ years through medical breakthroughs, marriages once expected to last 50 years now stretch to 70–80 years or more. The disconnect between historical divorce law (designed for 40-year marriages) and modern longevity creates catastrophic legal and economic conflicts. A couple married at 25, divorced at 60, faces 30+ years of alimony obligations—potentially paying a former spouse until death. Combined with vastly increased wealth accumulation over extended careers and complex multi-generational asset transfers, divorce becomes a multi-decade financial war, not a discrete event. Courts struggle to define fairness: Should a spouse receive lifelong support based on a 35-year marriage, or does post-retirement employment shift risk? As wealth-holders live longer, inheritance gets delayed for decades, creating a "blocked generational transfer" where adult children (now 60+) wait for parents (now 100+) to die. This collides with divorce: second marriages in late life, blended families, competing claims from multiple spouses and ex-spouses, and disputes over who inherits when the primary earner finally dies. The legal system fractures into incompatible regional regimes—some nations adopt "longevity-adjusted" settlements, others cling to lifetime support—creating divorce tourism and wealth-hiding schemes. Family structures destabilize as obligation chains become impossible to satisfy.
+As more people live into their 90s and 100s, marriages can span far longer than family-law norms were designed for. One widely documented symptom is “gray divorce” (divorce among people aged 50+), which has risen markedly in the U.S. since 1990.[^pew_gray_divorce] In a long-longevity world, the disconnect between historical divorce law (built around shorter retirements and shorter post-divorce support durations) and extended lifespans can create catastrophic legal and economic conflict. A couple married at 25 and divorced at 60 can plausibly face decades of support obligations. Combined with complex multi-generational asset transfers, divorce can become a prolonged financial war rather than a discrete event. Courts struggle to define fairness: should a spouse receive lifelong support based on a long marriage, or should post-retirement risk-sharing change? Longer lives can also delay inheritance, increasing family conflict over late-life remarriage, blended families, and contested claims on estates.[^paa_gray_divorce]
 
 ## Game Mechanics
+
+*All numeric ranges below are simulation parameters (illustrative), not real-world estimates unless explicitly sourced.*
 
 **Parameter Effects:**
 - **Family Stability**: Decreases 1–3 points per decade of extended marriage; increases 2–4 points when longevity-adjusted divorce law is adopted
@@ -31,22 +34,6 @@ As human lifespans extend to 100+ years through medical breakthroughs, marriages
 - **Intergenerational Mobility**: Decreases 0.5–1.5 points as inheritance-waiting blocks younger generations from capital accumulation
 - **Trust in Institutions**: Declines 1–2 points per headline case involving multi-decade disputes; public views marriage as legally risky
 - **Economic Growth**: Reduced 0.3–0.7% as dispute resolution costs, legal fees, and locked-up assets drain productivity
-
-**Event Types:**
-
-1. **Mega-Divorce Discovery Phase**: A high-net-worth couple (married 40+ years) initiates divorce at age 65+; assets total $500M+, spanning real estate, equity stakes, retirement funds, and trusts. Discovery phase alone lasts 5–8 years. Triggers legal standoff, asset freezes, and business dysfunction.
-
-2. **Alimony Indefiniteness Crisis**: Courts rule that a 60-year-old divorcee is entitled to lifelong spousal support (based on 35-year marriage), creating a 30+ year obligation for the ex-spouse. Sets precedent; thousands of similar cases flood courts. Triggers retroactive renegotiation demands.
-
-3. **Blended Family Inheritance Catastrophe**: A 95-year-old marries a 70-year-old widow; their combined estates involve three marriages, eight adult children, and competing claims. When one dies, chaos ensues: first-marriage children sue second-marriage spouse for elder abuse/undue influence; second-marriage spouse contests previous will. Case drags 10–15 years, consumes estate in legal fees.
-
-4. **Pension Rights Stripping**: A jurisdiction changes divorce law to eliminate automatic spousal pension rights, saving the state money but devastating ex-spouses (often women) who built no independent career during 50-year marriages. Triggers elder poverty crisis and social safety-net overload.
-
-5. **Divorce Tourism/Jurisdiction Shopping**: High-net-worth individuals file divorce in favorable jurisdictions (lenient alimony, asset division caps) rather than marriage location. Creates forum-shopping arms race; spouses flee to lock in favorable law. Spawns coordinated litigation across 3–5 countries.
-
-6. **Intergenerational Wealth Lock**: Adult children (ages 55–70) unable to inherit from centenarian parents remain dependent on aging parents' caprice. Creates pressure to commit elder abuse, undue influence, or even accelerate deaths. Inheritance finally occurs to children (now 75+), too late to fund retirement or pass to grandchildren.
-
-7. **Second-Marriage Trap**: Newly divorced/widowed elderly individuals cautious about remarriage; enter relationships without legal marriage to preserve assets for biological children. Creates legal limbo: informal partnerships without spousal protection, inheritance clarity, or healthcare decision-making authority. Triggers disputes and exploitation.
 
 **Cascading Effects:**
 - Triggers **Inheritance Crisis** when blocked generational transfers exceed 30 years; adult children face delayed capital access and face multi-decade alimony claims
@@ -145,15 +132,15 @@ As human lifespans extend to 100+ years through medical breakthroughs, marriages
 ## Technical Realism & Family Law Gaps
 
 **Why Divorce Law Breaks Under Longevity:**
-- Historical assumption: Marriages end at ~age 45–50, spousal support lasts 10–15 years
+- Historical assumption: shorter retirements and shorter post-divorce support durations
 - Modern reality: Marriages lasting 60–80 years; support obligations extending past both parties' deaths
 - Pension/retirement law designed for 20-year retirement; now must cover 50-year retirements while supporting ex-spouses
 - Asset valuation systems (business stakes, real estate, intellectual property) assume sale within 10–20 years; now held indefinitely
 
 **Intergenerational Wealth Delay Mechanics:**
-- Median age of inheritance expected to shift from 45–50 to 60–70 as parents live longer
-- Adult children (ages 55–75) waiting for parents (ages 95–115) to die; can't retire, can't invest, can't pass wealth to own children
-- Creates "blocked generation": grandchildren (ages 30–50) never receive inheritance; wealth gap widens as inheritance skips generations
+- Longer-lived parents can delay inheritance, increasing financial dependence and intra-family bargaining over care, guardianship, and estate planning
+- Adult children may postpone retirement or major investments while waiting for inheritance; conflicts intensify when late-life remarriage creates competing claims
+- Creates a “blocked generation” effect: wealth transfer arrives later in the lifecycle, widening gaps between families with/without assets and legal capacity
 
 **Governance Vacuum:**
 - Family law historically local/national; doesn't account for transnational asset holdings and jurisdiction shopping
@@ -190,14 +177,19 @@ As human lifespans extend to 100+ years through medical breakthroughs, marriages
 - Power dynamics in late-life remarriage skew toward women (longer life expectancy) but intersect with property control (men often control assets in traditional marriages)
 
 **Economic Systems**:
-- Dispute resolution costs ($100M–$1B+ per case) drain capital from productive investments
+- Dispute resolution costs can reach extremely large sums in high-net-worth cases, draining capital from productive investments
 - Legal certainty reduced; high-net-worth individuals invest less, hoard assets, move wealth offshore to hide it
 - Insurance industry (divorce insurance, inheritance insurance) emerges as major sector
+
+## Sources
+
+[^pew_gray_divorce]: https://www.pewresearch.org/short-reads/2025/02/11/for-americas-divorced-older-adults-gray-divorce-is-on-the-rise/
+[^paa_gray_divorce]: https://pmc.ncbi.nlm.nih.gov/articles/PMC8936155/
 
 ---
 
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-25
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/longevity-wealth-divorce-wars.md)

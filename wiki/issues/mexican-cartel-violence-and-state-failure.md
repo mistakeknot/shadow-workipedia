@@ -11,7 +11,8 @@ socialImpact: 88
 affectedSystems: [Law Enforcement, Government, Border Security, Economy, Healthcare]
 connections: [border-wall-politics, human-trafficking-networks]
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-24
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Mexican Cartel Violence and State Failure
@@ -21,6 +22,8 @@ lastUpdated: 2025-11-24
 Mexico faces an existential challenge to state sovereignty as drug trafficking organizations (DTOs) have evolved from smuggling enterprises into quasi-governmental entities controlling territory, security forces, and civilian populations. The major cartels—Sinaloa Cartel, Jalisco New Generation Cartel (CJNG), Gulf Cartel, and their splinter groups—operate with military-grade weaponry, intelligence networks rivaling government agencies, and command structures more sophisticated than some government ministries. These organizations have fragmented the nation into contested zones where cartel rules supersede state law, creating ungovernable regions spanning multiple states from the Pacific coast to the Gulf of Mexico.
 
 The Mexican government's struggle against cartels represents not merely a law enforcement challenge but a fundamental failure of state institutions to maintain monopoly on violence. Corruption permeates every level—federal police, military, local authorities, and judiciary—creating a system where cartel influence shapes policy, judicial outcomes, and resource allocation. This institutional capture extends beyond traditional bribery to include ideological alignment in some regions, where cartel control provides services (security, dispute resolution, employment) that citizens view as more reliable than government alternatives. The result is a hollowing-out of state capacity precisely where it is most needed, creating power vacuums that cartels systematically exploit.
+
+As of 2025-12-19, Claudia Sheinbaum is president of Mexico. [^britannica-sheinbaum]
 
 The violence associated with this competition and control is staggering: over 250,000 deaths attributed to drug-related violence since 2006, with annual homicide rates reaching levels comparable to active conflict zones. But body counts obscure the deeper catastrophe—the displacement of 10 million people since 2011, the psychological trauma of living under cartel rule, the brain drain of professionals fleeing violence, and the systematic destruction of communities that challenge criminal authority. Women and children face particular vulnerability to human trafficking networks integrated with cartel operations, while neighborhoods transform into surveillance states where informants and fear control behavior more effectively than any police presence.
 
@@ -37,18 +40,6 @@ The violence associated with this competition and control is staggering: over 25
 **Displacement Population Flows** (-6% local economic stability, +4% regional instability): Mass migration from cartel-controlled zones destabilizes receiving communities, strains resources, creates humanitarian crises, and generates political instability that cartels exploit. Displacement also concentrates vulnerable populations (traffickable youth, desperate workers) in urban areas where cartels have recruitment networks.
 
 **Military Resource Allocation** (+7% institutional integrity when prioritized, -12% civil services): Deploying military to combat cartels drains resources from institutional development, corruption-fighting infrastructure, and civilian governance. This creates the paradox where security responses undermine the state capacity needed for long-term stability.
-
-### Event Types
-
-**Cartel Territorial Expansion** (12% annual probability, +18% violence in region): Cartels systematically expand control through violence, infiltration, and intimidation. Events include takeovers of municipal governments, displacement of rival organizations, and establishment of checkpoints/taxation systems. Consequences: increased human rights violations, civilian displacement, and state legitimacy collapse in affected areas.
-
-**Judicial System Capture** (8% annual probability, +22% cartel impunity): Cartels compromise judges, prosecutors, and court systems through bribery, intimidation, or recruitment. Events include acquittals of major traffickers, dismissal of evidence, witness intimidation through judicial process. Consequence: erosion of rule of law and citizen belief in justice system, increasing cartel recruitment and compliance.
-
-**Military Defection and Training Transfer** (6% annual probability, +15% cartel capability): Military personnel defect to cartels bringing weapons, tactics, and intelligence. Events include Los Zetas–type operations where entire military units join criminal organizations. Consequence: cartel military sophistication increases, making them effective counterinsurgents against government forces.
-
-**Border Community Destabilization** (14% annual probability, +12% illegal migration, +8% US border pressure): Cartel violence and control creates migrant populations fleeing violence, generating humanitarian crises at US border. Events include mass displacement waves, trafficking network expansions, and caravan formations. Consequence: US political destabilization, humanitarian strain, and cartel resource consolidation.
-
-**Institutional Legitimacy Collapse** (7% annual probability, -25% local state capacity): Communities experiencing severe cartel violence lose faith in government protection. Events include citizens hiring private security, establishing vigilante groups, or accepting cartel authority for security provision. Consequence: state institutions become functionally irrelevant in affected regions, accelerating ungovernable zone expansion.
 
 ### Cascading Effects
 
@@ -83,5 +74,9 @@ The violence associated with this competition and control is staggering: over 25
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-24
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/mexican-cartel-violence-and-state-failure.md)
+
+## Sources
+
+[^britannica-sheinbaum]: Encyclopaedia Britannica, “Claudia Sheinbaum | Biography, Mexico, & Facts.” Accessed 2025-12-19. https://www.britannica.com/biography/Claudia-Sheinbaum

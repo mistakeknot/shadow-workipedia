@@ -36,24 +36,6 @@ The danger emerges from the intersection of sovereignty claims with resource geo
 - **Social Cohesion**: Declines 25-45 points as Land Back becomes flashpoint between indigenous communities, settlers, and extractive industries
 - **Economic Inequality**: Paradoxical effects—increases globally as wealthy nations resist reparations, but decreases locally where transfers succeed
 
-**Event Types:**
-
-1. **Major Treaty Reinterpretation**: Court rules century-old treaty systematically violated; indigenous nation gains territorial rights. Triggers property disruption, extraction delays, and legal cascades.
-
-2. **Sacred Site Purchase**: Indigenous coalition purchases critical land containing sacred sites or resources. Creates conflict over extraction rights and triggers injunction battles.
-
-3. **Occupation & Reclamation**: Community occupies ancestral lands, drawing international attention and government intervention. Successful occupations generate political pressure for formal recognition.
-
-4. **Land Co-Management Agreement**: Government agrees to joint management of public lands. Creates operational chaos as incompatible governance models conflict over extraction and environmental policy.
-
-5. **Reparations Framework**: Government or corporation agrees to monetary payments, land transfers, or revenue sharing. Sets precedent cascading to other groups; destabilizes regional markets.
-
-6. **Interstate Dispute Escalation**: Multiple governments claim overlapping lands; legal authorities conflict; enforcement becomes impossible. Can trigger armed standoffs and ungovernable territories.
-
-7. **Global Solidarity Cascade**: Claims in one region inspire simultaneous movements in other colonial territories. Creates perception of coordinated sovereignty movement; settler states face multilateral pressure.
-
-8. **Environmental Validation**: Studies prove indigenous management produces superior ecological outcomes. Creates political leverage: governments face pressure to accept Land Back as climate strategy.
-
 **Cascading Effects:**
 
 - Triggers **Indigenous Sovereignty** expansion as nations develop autonomous institutions, police forces, and judicial systems

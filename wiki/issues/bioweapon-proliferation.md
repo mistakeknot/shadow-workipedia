@@ -34,18 +34,6 @@ Bioweapon proliferation represents the accelerating spread of biological weapons
 
 - **Economic Biodefense Burden**: Major powers increase biodefense spending 2-3x (reaching $5-8B annually), straining health budgets. Pharmaceutical sector shifts 35-50% capacity toward antibiotic/antiviral stockpiling, reducing civilian drug development.
 
-**Event Types:**
-
-1. **State Program Advancement**: Intelligence confirms weaponization progress (gain-of-function enhancement, aerosol transmission modification, antibiotic-resistant strains). Triggers 15-20 point biosecurity drop, forces rival states to accelerate programs (security dilemma), and prompts preemptive strikes or sanctions costing $2-5B.
-
-2. **Non-State Capability Demonstration**: Lab-synthesized pathogen released intentionally or by accident; attribution unclear. If >100 casualties: forces global bioterrorism designation, triggers $20B+ emergency response, and accelerates dual-use research restrictions affecting legitimate science.
-
-3. **Synthetic Biology Access Expansion**: Publication of genome-editing kits, AI pathogen design tools, or open-source bioinformatics enables previously inaccessible actors. Biosecurity Index drops 20-25 points; non-state actor risk multiplier increases 2-3x; export control regimes implemented but 40% less effective.
-
-4. **BWC Treaty Collapse**: Major power withdraws (precedent: Soviet anthrax plant, Russian denials); inspection regime dismantled; verification gap expands. Trust Index plummets 35-45 points; bioweapon proliferation accelerates among remaining treaty signatories (+50% state program advancement rate).
-
-5. **Lab Accident Release**: Weaponized or dual-use pathogen escapes secure facility (e.g., Level-4 lab). If weaponized: catastrophic; if dual-use enhanced pathogen: triggers 500-5000 casualties, global panic, permanent distrust of research transparency; biosecurity index drops 30-40 points regardless of pathogen lethality.
-
 **Cascading Effects:**
 
 - Triggers **pandemic-preparedness-failure** when biosecurity index drops <35 + healthcare surge capacity <30%

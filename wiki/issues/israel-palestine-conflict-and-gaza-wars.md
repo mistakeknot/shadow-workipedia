@@ -13,13 +13,16 @@ connections: [comprehensive-refugee-system-collapse]
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'CapacityStress', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'QueueBacklog']
 lastUpdated: 2025-11-24
+factualAsOf: 2025-12-19
 ---
 
 # Israel-Palestine Conflict and Gaza Wars
 
 ## Overview
 
-The Israeli-Palestinian conflict represents one of the world's longest-running unresolved territorial disputes, rooted in competing national aspirations spanning over a century. The 2023-2024 Gaza War, triggered by the October 7, 2023 Hamas attack (1,200+ Israeli deaths, 240+ hostages) and subsequent Israeli military response, escalated into one of the most destructive conflicts in recent decades. As of late 2024, the conflict has resulted in estimated 186,000+ Palestinian deaths (per Lancet modeling), 2 million+ internally displaced persons, 80%+ of Gaza's population facing acute hunger, and near-total infrastructure collapse.
+The Israeli-Palestinian conflict represents one of the world's longest-running unresolved territorial disputes, rooted in competing national aspirations spanning over a century. The 2023-2024 Gaza War was triggered by Hamas’s October 7, 2023 attacks, in which about 1,200 people were killed in Israel and about 250 people were taken hostage, followed by an Israeli military campaign in Gaza. [^bbc-oct7] Reported deaths and humanitarian impacts in Gaza vary across sources and depend on definitions (direct vs. indirect mortality). A Lancet correspondence (July 2024) argued that total deaths could be substantially higher when indirect mortality is included, with one scenario projecting up to ~186,000 deaths. [^lancet-186k]
+
+As of 2025-12-19, Benjamin Netanyahu is prime minister of Israel. [^britannica-netanyahu]
 
 This conflict operates across multiple interconnected dimensions: territorial disputes over Gaza, West Bank, and East Jerusalem; Israeli security concerns versus Palestinian self-determination aspirations; regional power dynamics involving Iran, Turkey, Egypt, Jordan, and Gulf states; and increasing international polarization regarding international law and humanitarian rights. The conflict systematically disrupts Middle Eastern stability, triggers refugee crises, creates terrorism recruitment pipelines, destabilizes international law frameworks, and generates geopolitical realignment with major powers increasingly divided.
 
@@ -36,18 +39,6 @@ This conflict operates across multiple interconnected dimensions: territorial di
 **International Polarization Index**: Increases by 35-50% during active conflict. U.S.-Israel alignment strains trans-Atlantic relationships (European public opinion 60-75% critical during peak violence). Global South countries publicly criticize Israeli actions while Russia and China position as alternative partners. UN General Assembly voting patterns shift against Israel by 15-25 additional countries.
 
 **Terrorism Risk Index**: Increases by 40-60% among Palestinian militant organizations and 20-35% among regional groups (Hezbollah, Houthi attacks, ISIS recruitment). Each Israeli airstrike/civilian casualty event triggers secondary recruitment surges in refugee camps and diaspora communities. Risk sustained for 12-24 months post-major escalation.
-
-### Event Types
-
-1. **Major Military Escalation Events** (Trigger when Palestinian armed resistance >40% or Israeli operations ordered): October 7, 2023 model—1,200+ Israeli casualties, 240+ hostages, triggers immediate Israeli military mobilization. Israeli response: sustained air campaign (45,000+ strikes), ground invasion involving 360,000+ troops, creates humanitarian emergency within 72 hours. Generates 8,000-15,000 civilian casualties within first month.
-
-2. **Humanitarian Access Collapse Events** (Trigger when blockade sustained >4 game weeks): Food aid halts, water/sanitation systems destroyed, medical supply shortages. Israel permits only 10-20 humanitarian trucks daily (pre-war average 500+), triggering disease outbreaks, malnutrition spikes to 16%+, and 2.3 million at-risk population.
-
-3. **International Court/War Crimes Investigation Events** (Trigger quarterly probability 40%+ when civilian casualties >10,000): ICC launches investigation, UN establishes fact-finding mission. Creates cascading effects: reduces international law credibility by 10 points, triggers sanctions pressure, increases arms embargo probability by 30%, generates diaspora mobilization.
-
-4. **Regional Escalation Events** (Trigger when Gaza conflict duration >8 game weeks): Hezbollah engages Israeli forces (35-45% probability), Houthis escalate shipping attacks (20-30%), Iran direct involvement (10-15%). Triggers oil price spikes ($10-20/barrel), insurance costs surge, potential NATO involvement.
-
-5. **Diplomatic Ceasefire/Negotiation Events** (Trigger when major power intervention or humanitarian crisis reaches critical point): Ceasefire agreements typically last 7-42 days before renewed escalation. Triggers hostage releases, prisoner exchanges, temporary humanitarian aid influx. Failed ceasefires generate -40% credibility damage and decrease next negotiation success probability by 20-30%.
 
 ### Cascading Effects
 
@@ -107,9 +98,9 @@ This conflict operates across multiple interconnected dimensions: territorial di
 6. **U.S. Veto Power**: U.S. Security Council vetoes of ceasefire resolutions prevent UN-mandated solutions
 
 **October 7, 2023 Watershed:**
-- Hamas attack kills 1,200+ Israelis, takes 240+ hostages—largest single-day casualty event in Israeli history
+- Hamas attack kills about 1,200 people in Israel and takes about 250 hostages [^bbc-oct7]
 - Israeli response: 360,000+ troops deployed, 45,000+ airstrikes in first 45 days
-- Estimated 186,000+ Palestinian deaths by late 2024, 2+ million displaced
+- A Lancet correspondence (July 2024) argues indirect mortality could push total deaths substantially higher, with one scenario projecting up to ~186,000 deaths [^lancet-186k]
 - International divisions: U.S. supports Israeli response; Europe, Global South, UN criticize civilian toll
 
 ---
@@ -131,5 +122,11 @@ This conflict operates across multiple interconnected dimensions: territorial di
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-24
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/israel-palestine-conflict-and-gaza-wars.md)
+
+## Sources
+
+[^britannica-netanyahu]: Encyclopaedia Britannica, “Benjamin Netanyahu | Biography, Facts, & Wife.” Accessed 2025-12-19. https://www.britannica.com/biography/Benjamin-Netanyahu
+[^bbc-oct7]: BBC News, “Gaza war: What's happened in Gaza since 7 October 2023?” Accessed 2025-12-19. https://www.bbc.com/news/world-middle-east-67039975
+[^lancet-186k]: The Lancet, “Counting the dead in Gaza: difficult but essential” (Correspondence, July 2024). Accessed 2025-12-19. https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)01169-3/fulltext

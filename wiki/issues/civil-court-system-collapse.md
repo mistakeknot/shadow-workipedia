@@ -46,15 +46,6 @@ The crisis extends beyond case backlogs to fundamental questions about access to
 - **Consumer Protection**: Compromised by enforcement delays
 - **Business Confidence**: Mixed (helps large firms, hurts small businesses)
 
-### Event Types
-
-- **Small Claims Backlog Crisis**: Courts postpone hearings indefinitely
-- **Eviction Court Collapse**: Mass housing displacement as tenants lose by default
-- **Consumer Class Action Failures**: Corporate accountability cases abandoned
-- **Pro Se Litigant Disasters**: Unrepresented parties lose winnable cases
-- **Court Funding Cuts**: Further degradation of already strained system
-- **Digital Divide Lockouts**: Technology requirements exclude vulnerable populations
-
 ### Cascading Effects
 
 Court system collapse creates feedback loops affecting multiple domains:

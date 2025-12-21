@@ -37,22 +37,6 @@ The consequences ripple across rural America: heart attack victims arriving at h
 | **Rural Population Migration** | Each 5% population decline in a rural county increases hospital costs per patient by 6-8%; below 25,000 county population, most hospitals become unviable | Exponential decline below thresholds |
 | **Physician Loan Forgiveness Programs** | Loan forgiveness for rural practitioners reduces vacancy rates by 8-12% but only if housing/infrastructure investments support retention (without them, 6-month to 1-year washout) | ±3% vacancy rate |
 
-### Event Types
-
-**System Stress Events:**
-- **Acute Staffing Crisis** (15% probability annually): ER or surgical staff exodus due to burnout, creates temporary closure of services; can trigger 2-3 month operational chaos if multiple departments affected simultaneously
-- **Medicare Audit Penalties** (8% probability annually): Compliance failures in rural hospitals (understaffed compliance departments) result in 5-15% revenue clawbacks; disproportionately affects smaller hospitals
-- **Insurance Rate Shock** (12% probability annually): Major payer (often Medicare or state Medicaid) announces 8-12% payment cut effective next quarter; forces rapid cost-cutting or triggers closure discussions
-
-**Cascading Collapse Events:**
-- **Hospital Closure** (probability increases with financial stress index): Once closure occurs, 2-4 surrounding hospitals lose ~200-500 annual patients; survivors face 3-5 year adjustment period; some fail within 12-24 months
-- **Maternity Service Shutdown** (probability 35% within 5 years of hospital stress): Most vulnerable rural service; once closed, pregnant women travel average 45-90 minutes to delivery; increases complications and infant mortality by measurable percentages
-- **Emergency Department Downgrade** (probability 25% within 4 years): ER reduced to urgent care hours or transferred to neighboring hospital; response times increase 300-600%; trauma outcomes worsen significantly
-
-**Adaptation Events:**
-- **Successful Consolidation** (probability 40% if approached proactively): Rural hospital joins larger system, gains operational support and purchasing power; can stabilize margins 15-25%; may trigger layoffs of 10-15% of staff
-- **Telehealth Program Launch** (probability 60% if funding secured): Reduces specialist referrals by 12-18%, creates stable telemedicine revenue stream; takes 18-24 months to reach profitability
-
 ### Cascading Effects
 
 1. **Healthcare Workforce Exodus** → Rural hospital closure triggers immediate loss of 150-400 jobs; nurses/doctors leave for urban markets; towns lose second-largest employer and sustained 4-8% local economic contraction

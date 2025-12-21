@@ -40,20 +40,6 @@ Governance of Mars settlements remains deeply contested. Should they operate und
 
 - **Settlement Autonomy Pressure** (0-100): Reflects colonist desires for self-determination independent of Earth-based sponsors. High values (>70) drive independence movements and governance conflicts; low values allow paternalistic control from Earth.
 
-### Event Types
-
-- **Sovereignty Declaration** (Base probability: 2-4% annually after settlement reaches 500+ inhabitants): A settlement leadership unilaterally declares independence or establishes its own governance structure, rejecting Earth-based oversight. Consequences scale with settlement size and resource control. Can trigger diplomatic incidents, investment withdrawal, or competing counter-claims from other settlements.
-
-- **Resource Rights Dispute** (Base probability: 3-5% when multiple settlements within 500km): Two or more settlements claim overlapping rights to water ice, rare minerals, or strategic locations. May escalate to territorial disputes, restricted access to shared infrastructure, or sabotage if governance frameworks are weak.
-
-- **Corporate Secession Movement** (Base probability: 1-3% for corporate-run settlements with >1000 inhabitants): Workforce organizing for independence from corporate control, seeking either Earth-based governance or local democratic structures. Can destabilize settlement leadership and create operational disruptions.
-
-- **Governance Framework Proposal** (Base probability: 8-12% annually when settlements >5): An external actor (UN, regional alliance, corporate consortium) proposes a formal governance framework for Mars. Creates diplomatic negotiation phase where settlements either accept integration or resist with varying consequences.
-
-- **Supply Chain Embargo** (Base probability: 1-2% when settlements are in conflict): A settlement or Earth-based actor restricts vital supplies to rival settlements, using economic leverage as a sovereignty tool. Risk of humanitarian crisis if embargo is prolonged; high escalation potential.
-
-- **Technology Monopoly Crisis** (Base probability: 2-3% annually): Critical technology (water extraction, atmosphere processing, genetic research) concentrated in one settlement or corporate entity, creating dependency relationships that translate to political power and potential coercion.
-
 ### Cascading Effects
 
 - **Settlement Clustering**: Early settlements attract infrastructure investment and follow-on colonization. Clusters with 3+ settlements develop emergent governance structures (trading posts, shared resource management, defensive alliances) independent of Earth sponsorship.

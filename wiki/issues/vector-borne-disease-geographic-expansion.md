@@ -45,17 +45,6 @@ The consequences extend beyond direct disease burden. Vector-borne diseases impo
 - **Regional Habitability**: -5 to -15 (some areas become less livable)
 - **Inequality**: +10 to +15 (poor face greater exposure and less protection)
 
-### Event Types
-- Malaria outbreak in previously malaria-free temperate region
-- Dengue epidemic in major city outside traditional endemic zone
-- Tick-borne disease cluster in region with no historical cases
-- Disease transmission season extending by months due to warming
-- Vector populations establishing in higher altitudes or latitudes
-- Public health crisis as systems lack capacity for novel disease
-- Agricultural impacts from livestock disease vector expansion
-- Tourism collapse in region facing disease outbreak
-- Climate refugee flows from areas with intensified disease burden
-
 ### Cascading Effects
 - **Healthcare System Stress**: Unprepared systems overwhelmed by diseases they lack capacity to diagnose or treat
 - **Economic Disruption**: Healthcare costs, lost productivity, tourism decline impose major economic burden

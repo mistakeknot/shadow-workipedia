@@ -45,22 +45,6 @@ The crisis is uniquely destabilizing because glacier retreat is self-reinforcing
 - **Economic Inequality**: Increases as wealthy nations (China, India) invest in climate adaptation while downstream nations (Bangladesh, Nepal) face cascading shocks
 - **Urban Water Stress**: Critical in cities dependent on glacier-fed rivers (Delhi serving 30M people; Dhaka 20M; Kathmandu 3M); water rationing and conflicts within cities mirror interstate conflicts
 
-**Event Types:**
-
-1. **Catastrophic Glacier Outburst Flood (GLOFs)**: Rapid melting or glacial lake rupture releases billions of gallons of water and debris; destroys bridges, dams, and settlements downstream; kills 1,000–50,000 persons and displaces 500,000+; ripple effects destabilize entire river basins for months
-
-2. **Monsoon Amplification Cascade**: Weakened glacier-fed baseflow combines with intensified monsoons; creates 10–20 meter flood surges in Bengal delta and Mekong valley; simultaneous flooding of multiple countries strains relief coordination
-
-3. **Transboundary Water Crisis Escalation**: Pakistan faces 40% loss of Indus water; India threatens to withhold Ganges flows to support downstream Bangladesh; Myanmar cuts Mekong flows for dams; nations mobilize military along water borders
-
-4. **Agricultural Collapse Chain Reaction**: Ganges-Brahmaputra delta loses irrigation; wheat belt of Punjab fails; rice paddies of Bangladesh become salt-poisoned; food prices spike 150–250%; geopolitical shocks ripple through grain markets
-
-5. **Hydropower System Failure**: Cascade of dam collapses or low-water shutdowns; Bhutan, Nepal, and Tajikistan lose 60–80% of their primary electricity exports; economic shock forces energy rationing and industrial collapse
-
-6. **Glacial Lake Hazard Proliferation**: Thousands of unstable lakes form as glaciers retreat; continuous GLOF threat forces mass evacuation and economic evacuation of valleys; nations unable to monitor or stabilize all lakes simultaneously
-
-7. **Cross-Border Refugee Crisis**: 50–100 million climate refugees from flooded and drought zones attempt migration to less affected regions; Pakistan, Bangladesh, India clash at borders; regional destabilization spreads to Central Asia
-
 **Cascading Effects:**
 
 - Triggers **Water Scarcity Wars** in all downstream basins; India-Pakistan tensions over Indus reach critical threshold

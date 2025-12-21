@@ -33,14 +33,6 @@ This issue forces financial regulators to choose between maintaining clearinghou
 - **Liquidity in Funding Markets**: Access to overnight borrowing (repo markets, bank credit lines) collapses during stress; traders unable to post margin face forced liquidation at 10-30% discounts to fair value, accelerating price declines and triggering next wave of margin calls
 - **Physical Commodity Supply Chain Responsiveness**: Disruptions occur with 3-7 day lag as energy/agriculture producers halt shipments awaiting trading stability; storage facilities overflow, creating physical-financial disconnect where prices become detached from actual supply
 
-**Event Types:**
-
-1. **Sudden Margin Spike**: Price move triggers 50-200% increase in initial and variation margin requirements; traders must raise billions in collateral within 12-24 hours or face forced liquidation
-2. **Dealer Default Cascade**: One major counterparty fails margin calls, triggering immediate repricing of all related positions; clearinghouse absorbs loss and increases margin across remaining dealers (adds $50-500M per dealer default)
-3. **Liquidity Crunch Across Funding Markets**: Repo rates spike 200-500 bps as banks hoard cash; traders can't borrow for margin posts; fire sales accelerate as forced liquidation becomes inevitable
-4. **Clearinghouse Capital Exhaustion**: Accumulated losses from defaults exceed clearinghouse reserve buffers; regulators must inject capital or declare technical default, paralyzing derivatives trading
-5. **Physical Supply Disruption**: Hedging breakdown forces producers/consumers to halt operations; oil fields shut in, gas pipelines reduce flows, grain shipments frozen; creates 2-4 week lag before physical impact reaches consumers
-
 **Cascading Effects:**
 
 - Triggers **Financial Contagion** as margin spirals cross from commodity derivatives into equity and FX derivatives; concentrated dealer exposure means leverage works in reverse, amplifying losses across all asset classes as collateral calls ripple through financial system (2008 Lehman scenario: $600B+ in interconnected losses)

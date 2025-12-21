@@ -47,15 +47,6 @@ Technology promises solutions but often deepens inequalities. Automated captioni
 - **Civic Participation**: Reduced when public forums lack access
 - **Legal Rights**: Undermined by inadequate courtroom accommodations
 
-### Event Types
-
-- **Medical Misdiagnosis Crisis**: Communication failures lead to patient harm
-- **Educational Discrimination Lawsuit**: School system sued for inadequate accommodations
-- **Emergency Services Failure**: Deaf individual unable to access 911
-- **Interpreter Strike**: Service gaps highlight dependency on underpaid workforce
-- **Technology Accessibility Scandal**: Automated systems fail vulnerable users
-- **Voting Rights Challenge**: Polling places lack language/disability accommodations
-
 ### Cascading Effects
 
 Communication access gaps create compounding disadvantages:

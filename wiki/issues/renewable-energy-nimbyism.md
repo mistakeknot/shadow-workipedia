@@ -37,24 +37,6 @@ The deepest tragedy: renewable energy requires *less* total land use than contin
 - **Climate Mitigation Credibility**: Decays 25–40 points as gap widens between climate pledges and actual deployment
 - **Distributed Solar Adoption**: Declines 40–60% despite technical suitability due to homeowners' association restrictions
 
-### Event Types
-
-1. **High-Profile Wind Farm Veto**: Utility-scale wind farm passes environmental review after 5–7 years, then faces final opposition wave funded by fossil fuel interests. Project canceled after $80–150M spent; global emissions increase by 0.02–0.05%.
-
-2. **Transmission Line Corridor Stalemate**: Critical high-voltage transmission line faces county-by-county opposition demanding underground routing (3–5x cost increase) or alternate corridors. Final approval requires 12–15 years; project cost triples; renewable farms operate at 20–30% capacity.
-
-3. **Solar Farm Land-Use Conflict**: Agricultural region proposes converting marginal farmland to solar. County planning commission splits; project shelved. Land continues producing grain at 60% loss annually while solar potential (4–5 GWh/year) goes unharvested.
-
-4. **Rooftop Solar Association Ban**: Homeowners' association restricts solar to maintain "architectural integrity." Cumulative effect across thousands of neighborhoods: 400–600 MW of distributed solar capacity prevented.
-
-5. **Battery Storage Veto Cascade**: Grid-scale battery storage faces opposition due to scientifically unfounded explosion risk fears. Regulatory approval extends 6–8 years; continued reliance on gas peaker plants for backup power.
-
-6. **Environmental Justice Flip**: Renewable facility proposed in lower-income neighborhood faces opposition from environmental justice advocates demanding projects only in wealthy areas. Result: Clean energy built in suboptimal location with 15–25% lower capacity factor.
-
-7. **Offshore Wind Visual Impact Opposition**: Coastal communities demand offshore wind but oppose installations due to ocean views. Projects moved further offshore, doubling transmission losses; deployment delayed 8–12 years.
-
-8. **Zoning Reclassification Surprise**: Neighborhood campaigns to reclassify land to "preserve rural character"; renewable project no longer permitted; developer abandons $40M investment; site remains vacant.
-
 ### Cascading Effects
 
 - Triggers **Grid Instability** (30–50% amplification) when renewable generation cannot scale to displace fossil fuel baseload; aging natural gas plants operate beyond design life

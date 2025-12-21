@@ -34,14 +34,6 @@ The feedback loops between militarization and societal trust erosion are self-re
 - **Community Legitimacy** (-25): High militarization reduces perceived police legitimacy by up to 40% among affected populations, decreasing crime reporting by 30% and witness cooperation by 45%
 - **Civil Rights Violations** (+15): Militarized tactics increase unlawful searches, wrongful arrests, and excessive force incidents by 35%, generating legal settlements and eroding institutional accountability
 
-### Event Types
-
-- **SWAT Deployment Surge** (15% probability annually): Rapid expansion of SWAT teams and no-knock raid authorizations; increases tactical incidents by 45%, civilian injuries by 18%, and wrongful casualty risk by 8%
-- **Equipment Transfer Programs** (22% probability): 1033 Program transfers of military equipment including armored vehicles, automatic weapons, and riot gear; increases perceived militarization by 30%, community fear by 25%
-- **Protest Militarized Response** (35% probability during unrest): Police deploy full tactical gear, crowd control weapons, and surveillance systems against protests; generates confrontational dynamics, injuries, property damage, and media amplification of police violence
-- **High-Profile Police Killing** (12% probability annually): Militarized officer-involved shooting of unarmed civilian; triggers investigation disputes, trial delays, acquittals due to qualified immunity, and intensified community unrest
-- **Accountability Failure** (40% probability following incident): Officer involved in militarization-related incident is cleared, minimally disciplined, or acquitted; compounds community distrust, increases radicalization, and encourages further escalation by emboldened departments
-
 ### Cascading Effects
 
 - **Institutional Racism Amplification**: Militarization reinforces racial policing patterns; departments with higher military equipment correlate with 40% higher racial disparities in arrest and force rates

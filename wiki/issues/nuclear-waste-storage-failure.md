@@ -34,17 +34,6 @@ The storage crisis creates a perverse disincentive for nuclear power expansion w
 **Nuclear Industry Viability**: -9% (waste issue blocks growth)
 **Federal Budget**: -7% (litigation costs, storage obligations)
 
-### Event Types
-
-**Storage Container Failure**: Dry cask integrity compromised
-**Yucca Mountain Revival Proposed**: Political attempt to reopen repository
-**On-Site Storage Extended**: Temporary becomes indefinite
-**New Waste Disposal Site Proposed**: Community resistance inevitable
-**Spent Fuel Pool Accident**: Cooling system failure or breach
-**Decommissioning Blocked**: Waste prevents reactor site cleanup
-**International Storage Proposed**: Controversial export scheme
-**Climate Event Threatens Site**: Hurricane, flooding, or fire risk
-
 ### Cascading Effects
 
 Waste storage failure → Nuclear expansion halted → Climate goals harder to meet → Existing reactors can't decommission → On-site storage accumulates → Infrastructure risks multiply → Local communities bear indefinite hazard → Political trust erodes → Long-term planning capability questioned

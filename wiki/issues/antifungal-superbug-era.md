@@ -36,18 +36,6 @@ The vulnerability population is expanding rapidly: organ transplant recipients, 
 
 - **Agricultural Fungicide Dependency** (0-100): High values (70+) protect crop yields but accelerate environmental resistance development. Reducing dependency requires 15-20 year transition to resistant crop varieties, biological controls, and integrated pest management—politically difficult during food price spikes.
 
-**Event Types:**
-
-1. **Candida auris Hospital Outbreak**: Multi-drug resistant C. auris establishes in a major hospital system. 30-60% mortality rate among infected patients. Forces temporary closure of ICU/transplant wards. Healthcare costs +$50-200M per outbreak. Public Health Confidence -8, triggers infection control investment (+$500M-2B).
-
-2. **Pan-Resistant Strain Emergence**: A fungal strain emerges resistant to all available antifungal classes. Mortality approaches 90% for systemic infections. Triggers emergency WHO response, accelerates research funding (+$5-10B), but effective treatments 10-15 years away. Immunocompromised patients avoid hospitals, causing indirect mortality.
-
-3. **Agricultural Fungicide Ban Pressure**: Environmental/health advocates achieve restrictions on agricultural azole fungicides (which share mechanisms with medical antifungals). Crop yields decline 5-15% in affected regions. Food prices increase. Farmers resist; political backlash possible. Long-term: slows resistance development, preserving medical efficacy.
-
-4. **Antifungal Pipeline Breakthrough**: Novel antifungal mechanism discovered (olorofim-class or newer). Provides 10-15 year window before resistance develops. Antifungal Efficacy +20. However, distribution challenges mean developing world access lags 5-7 years, creating global equity tensions.
-
-5. **Climate-Driven Range Expansion**: Fungal pathogens previously limited to tropical regions establish in temperate zones. New populations exposed without acquired immunity or healthcare system experience. Regional mortality spikes. Requires rapid knowledge transfer and healthcare adaptation.
-
 **Cascading Effects:**
 
 - Triggers **Healthcare System Collapse** when: Antifungal Efficacy drops below 45 AND Immunocompromised Population exceeds 15% of total AND hospital capacity utilization exceeds 85%.

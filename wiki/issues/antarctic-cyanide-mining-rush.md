@@ -10,6 +10,7 @@ economicImpact: 70
 socialImpact: 55
 affectedSystems: [Environment, Geopolitics, Economy]
 connections: [arctic-sovereignty-conflicts, resource-extraction-conflicts]
+caseStudyOf: antarctic-treaty-expiration
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 ---
@@ -35,18 +36,6 @@ Several nations are already positioning for eventual extraction. China and Russi
 - **Environmental Contamination Risk** (0-100): Probability-weighted severity of potential contamination events. Cyanide extraction in Antarctic conditions creates extreme persistence—cold temperatures prevent chemical breakdown, isolation prevents remediation, and pristine ecosystems lack evolved resistance. Even small spills could contaminate vast areas permanently.
 
 - **Rare Earth Scarcity Index** (0-100): Global supply pressure for critical minerals. Above 70 dramatically increases political pressure to open new extraction frontiers including Antarctica. Currently at 55 and rising with energy transition demand. China's supply dominance amplifies pressure.
-
-**Event Types:**
-
-1. **Treaty Review Conference Called**: A consultative party formally requests protocol review before 2048. Triggers diplomatic crisis. Nations must declare positions on mineral extraction. Environmental groups mobilize globally. Treaty Integrity Index -15. Sets 5-10 year timeline for potential protocol modification.
-
-2. **Illegal Prospecting Discovery**: Evidence emerges that a nation conducted mineral surveys beyond permitted scientific research. International condemnation but unclear enforcement mechanisms. Other nations accelerate own covert programs. Treaty Integrity Index -10. Precedent for treaty erosion.
-
-3. **Infrastructure Accident**: Research station fire, fuel spill, or vessel grounding demonstrates environmental risks of increased Antarctic activity. Strengthens environmental protection arguments temporarily (+5 Treaty Integrity). But also reveals existing contamination from "scientific" activities, complicating narrative.
-
-4. **Rare Earth Crisis Trigger**: Supply disruption (China export restriction, mine failure, conflict) spikes rare earth prices 300%+. Creates "emergency" justification for Antarctic extraction consideration. Treaty Integrity Index -20. Political pressure overwhelms environmental arguments in resource-dependent nations.
-
-5. **Environmental Protection Victory**: Major nation reaffirms indefinite extraction ban or international court rules on treaty interpretation favoring protection. Treaty Integrity Index +15. Deters investment in extraction preparation. But may accelerate covert positioning by extraction proponents.
 
 **Cascading Effects:**
 

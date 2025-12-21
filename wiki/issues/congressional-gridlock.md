@@ -47,15 +47,6 @@ The gridlock extends beyond policy disputes to basic governance functions. Judic
 - **Social Trust**: Eroded by visible dysfunction
 - **Executive Power**: Expanded to fill legislative void
 
-### Event Types
-
-- **Government Shutdown Crisis**: Spending authority lapses amid partisan standoff
-- **Debt Ceiling Brinksmanship**: Economic chaos threatens over fiscal deadlock
-- **Filibuster Reform Battle**: Procedural rules become existential conflict
-- **Judicial Vacancy Crisis**: Courts undermanned by nomination blockades
-- **Emergency Powers Expansion**: Executive branch circumvents Congress
-- **Primary Challenge Purge**: Moderates eliminated for compromise attempts
-
 ### Cascading Effects
 
 Congressional gridlock creates systemic vulnerabilities:

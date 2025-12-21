@@ -48,15 +48,6 @@ The cultural conflicts intensify as evidence mounts about factory farming's harm
 - **Cultural Polarization**: Intensified by ethical conflicts over animal use
 - **Agricultural Economics**: Dominated by industrial consolidation
 
-### Event Types
-
-- **Undercover Investigation Scandal**: Factory farm conditions exposed
-- **Zoonotic Disease Outbreak**: CAFO serves as pathogen breeding ground
-- **Antibiotic Resistance Crisis**: Agricultural use drives treatment failures
-- **Environmental Disaster**: Waste lagoon breach poisons waterway
-- **Ag-Gag Law Challenge**: Free speech advocates contest documentation bans
-- **Alternative Protein Breakthrough**: Cultured meat achieves cost parity
-
 ### Cascading Effects
 
 Factory farming system creates multiple crises:

@@ -33,14 +33,6 @@ The stakes involve medical safety and healthcare system integrity. When states l
 - **Consumer Protection**: -15 to -25 as unproven claims and contaminated products proliferate
 - **Healthcare Costs**: +5 to +15 when insurance covers ineffective treatments
 
-**Event Types:**
-1. **Naturopath Prescribing Authority Granted**: State legislation expands scope of practice, -15 Healthcare Quality, -20 Medical Professional Opposition
-2. **Alternative Medicine Death Case**: High-profile preventable death from rejected conventional treatment, -25 Public Health, +30 Regulatory Pressure
-3. **Traditional Medicine Validation Claims**: Study purports to prove TCM efficacy, later retracted, -10 Scientific Credibility
-4. **Supplement Contamination Outbreak**: Heavy metals/undisclosed drugs in herbal products, -20 Consumer Protection
-5. **Insurance Coverage Expansion**: Major insurer adds acupuncture/chiropractic coverage, +15 Alternative Medicine Legitimacy
-6. **Anti-Vax Naturopath Movement**: Alternative practitioners fuel vaccine hesitancy, -30 Public Health, trigger Epidemic
-
 **Cascading Effects:**
 - Triggers **Pharmaceutical Pricing Crisis** backlash as patients seek cheaper alternatives to expensive drugs
 - Amplifies **Healthcare Access Deserts** when alternative practitioners present as primary care solution

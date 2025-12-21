@@ -32,15 +32,6 @@ For seventy years, the US dollar has functioned as the global reserve currency�
 - **Economic Inequality (Intra-National)**: Rises 2–4 points per major currency shift; import-dependent sectors face soaring costs, export sectors gain windfall revenues, creating internal political pressure
 - **Geopolitical Leverage**: Shifts from US/Western powers to commodity exporters and BRICS bloc; nations controlling energy, metals, or agricultural supply chains gain negotiation power
 
-**Event Types:**
-
-1. **Major De-Dollarization Wave**: A coalition of commodity exporters (OPEC+, BRICS, African Union members) collectively shift 10–20% of bilateral trade away from the dollar into yuan, rubles, or commodity-backed currencies; triggers panic dollar selling and capital flight from emerging markets
-2. **Commodity-Backed Currency Launch**: A regional bloc (BRICS, Gulf Cooperation Council, African Union) launches a reserve currency backed by gold, oil reserves, or commodity baskets; initial adoption slow but creates competing settlement system
-3. **Dollar Liquidity Crisis**: Rapid de-dollarization shrinks available dollar liquidity for international settlements; interbank lending rates spike, dollar debt becomes impossible to refinance, triggering corporate/sovereign defaults
-4. **Secondary Sanctions Retaliation**: US imposes sanctions on alternative-currency adopters (China, Russia, Iran, Gulf states); targeted nations accelerate de-dollarization and form parallel financial systems (CIPS, alternative SWIFT equivalents), fragmenting global financial infrastructure
-5. **Petrodollar Collapse**: Oil producers permanently switch to yuan, gold, or euro settlement; reduces demand for dollar reserves, triggering currency depreciation and imported inflation into US consumer prices
-6. **Commodity Currency Hyperinflation**: A commodity-backed currency (e.g., a gold-backed or oil-backed BRICS instrument) becomes debased by its issuing coalition's inflation; loses credibility, collapses, and destroys trust in commodity-backed alternatives; reshuffles which currencies dominate
-
 **Cascading Effects:**
 
 - Triggers **Sanctions Weaponization** as alternative currency systems create jurisdictions beyond US monetary control; nations previously vulnerable to SWIFT exclusion now have escape routes

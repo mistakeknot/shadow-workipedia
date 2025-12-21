@@ -38,18 +38,6 @@ The crisis manifests through multiple cascading failures: physical infrastructur
 
 - **Physical Health Deterioration**: Populations spending 40+ hours/week in VR experience 2.1x baseline rates of chronic pain syndromes, 1.8x vitamin D deficiency rates, and accelerated aging of vestibular and proprioceptive systems. Deconditioning creates 15-25% higher cardiovascular disease risk and 31-40% increased metabolic syndrome rates. Paradoxically, immersive fitness VR (gamified exercise environments) temporarily mitigates these effects by making physical movement rewarding, but withdrawal from fitness VR creates "exercise collapse" and rapid fitness loss when motivation systems fail.
 
-### Event Types
-
-1. **Neural Interface Capability Breakthrough**: New interface technology eliminates motion sickness, achieves full-body haptic feedback, or enables direct pain suppression. Triggers 5-8 point spike in adoption rates within 12 months as barrier-to-entry collapses. If breakthrough includes pain suppression + chronic disease management simulation (living pain-free in virtual space while physically debilitated), triggers healthcare system cascade: physical-world medical services lose 25-40% of patient engagement as populations opt for pain-free virtual existence instead of medical treatment.
-
-2. **Virtual Economy Hyperinflation/Collapse**: Asset valuations in major virtual worlds crash 60-80% due to oversupply of digital assets or platform policy changes. Triggers mass exodus of virtual-economy workers who lose primary income source. If cascade threshold exceeded (>40% of population dependent on virtual economy income), causes sudden workforce deficit in physical economies, supply chain disruptions, and 8-12% inflation in physical-world goods within 6 months.
-
-3. **Intergenerational Value System Conflict**: Children raised entirely in virtual worlds develop fundamentally incompatible value systems from parents: rejecting physical-world concepts of "productive work," family obligation, scarcity, and mortality. Triggers family dissolution events (25-35% of households with mixed virtual/physical-world members split within 18 months), education system rejection (40-60% of school-age populations opt for virtual academies instead), and cultural transmission failure.
-
-4. **Physical World Infrastructure Critical Failure**: Populations in high-exodus regions experience cascading infrastructure failures: water treatment system failure (reduced workforce participation), electrical grid instability (maintenance workforce collapse), or transportation system degradation. Creates "reality shock events" forcing populations back into physical world suddenly; 15-25% of forced populations experience severe anxiety/panic, triggering mental health system overload and potential violence when virtual-world-optimized populations encounter uncontrolled physical-world stimuli.
-
-5. **Regulatory Backlash & Neural Access Restriction**: Governments enact restrictions on neural interface availability, VR world access caps, or taxation of virtual economy income. Triggers 2-4 year underground market explosion and 12-18% increases in illegal neural interface adoption. If restrictions exceed 50% adoption barriers, sparks population unrest and generational conflict between populations who view virtual restriction as human rights violation versus those viewing VR exodus as societal collapse.
-
 ### Cascading Effects
 
 - Triggers **mental-health-apocalypse** when exodus populations exceed 35% + experience forced re-integration into physical world, generating 40-60% increases in acute anxiety/depression/psychosis in affected cohorts

@@ -11,14 +11,17 @@ socialImpact: 91
 affectedSystems: [Public Safety, Education, Mental Health, Media, Gun Industry]
 connections: [gun-rights-absolutism, mental-health-apocalypse]
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-24
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Mass Shooting Normalization
 
 ## Overview
 
-Mass shooting normalization represents the systematic desensitization of American society to gun violence through routinization, media saturation, and structural policy paralysis. What once triggered national emergency has become an expected recurring event, with mass casualty incidents now occurring at a frequency of roughly one per week according to Gun Violence Archive data. This normalization is not accidental—it reflects the intersection of weak institutional responses, cultural fragmentation, and perverse incentive structures where the emotional impact of violence has been normalized while systemic change remains politically impossible.
+Mass shooting normalization represents the systematic desensitization of American society to gun violence through routinization, media saturation, and structural policy paralysis. What once triggered national emergency has become an expected recurring event. This normalization is not accidental—it reflects the intersection of weak institutional responses, cultural fragmentation, and perverse incentive structures where the emotional impact of violence has been normalized while systemic change remains politically impossible.
+
+Mass-casualty gun violence frequency claims are definition-sensitive (e.g., “active shooter” vs. “mass shooting” vs. “mass casualty”). As a concrete, consistently-defined indicator, the FBI designated 24 shootings as “active shooter incidents” in 2024 (down from 48 in 2023). Treat “mass shooting” frequency as a model parameter to be calibrated per definition, rather than a single universally-true figure.
 
 The infrastructure supporting this normalization is now mature: active shooter drills in schools condition children to view periodic mass murder as a manageable operational problem rather than a preventable catastrophe. Media cycles report incidents with ritualized predictability—coverage spike, debate resume, partisan positions harden, no policy change, cycle repeats. Each incident slightly increases public acceptance that "this is just how America is," eroding the emotional and political pressure needed for structural reform. Trauma effects accumulate in communities that experience direct incidents, while diffuse trauma spreads through the broader population via news saturation and social media virality.
 
@@ -27,6 +30,8 @@ The result is a tragedy cascade: each shooting makes future shootings more psych
 ## Game Mechanics
 
 ### Parameter Effects
+
+*All numeric values below are simulation parameters (illustrative), not real-world estimates unless explicitly sourced.*
 
 **Gun Ownership Rate** (0-100): Each 10-point increase in gun ownership raises mass shooting incident probability by 6%. At 40%+ ownership, baseline incident rate doubles. Conversely, countries with <10% ownership effectively eliminate mass shooting risk (probability floor at <0.1%).
 
@@ -40,18 +45,6 @@ The result is a tragedy cascade: each shooting makes future shootings more psych
 
 **Public Acceptance Threshold** (0-100): Increases 0.5 points per 5 mass shootings once threshold reaches >30. Above 50, shooting incidents no longer trigger major protest movements. Above 70, incidents become routine news items. Above 85, policy discussion becomes nearly impossible as "Americans accept this as reality."
 
-### Event Types
-
-**Mass Casualty Incident** (Weekly baseline, variance ±40%): 4+ deaths in single incident. Base probability 1 in 7 days, modulated by gun ownership and media sensationalism. Triggers immediate 1-2 point increase in public acceptance, media coverage (4,000-8,000 mentions), and temporary political debate.
-
-**School Shooting Event** (Monthly baseline): Occurs in schools 20-30% of the time. Generates 2x intensity trauma effects in local education system, 30% increase in school security spending, 15-20 point activation spike in Education domain. Drives active shooter drill proliferation (currently >90% of US schools conduct drills).
-
-**Copycat Incident Chain** (Variable trigger): When media mentions exceed 5,000 in 2-week window, probability of secondary shooting increases 85%. Creates 1-3 additional incidents within 4 weeks. Copycat incidents typically target same venue type and often reference prior incident in perpetrator notes (60% of cases). Media sensation → inspiration → incident cycle creates recursive trauma.
-
-**Community Lockdown Event** (Monthly in high-incident areas): Triggered by either active incident or false alarm. Generates cascading disruption: 4-hour economic output loss in affected area (2-5% daily GDP impact), 8-12 points mental health system strain, school dismissal affecting 15,000-25,000 students per incident. False alarms now account for 15-20% of lockdown events, themselves creating trauma through repeated crisis simulation.
-
-**Survivor Community Trauma Cascade** (Persistent effect): Incidents generate acute trauma affecting 50-500 direct survivors and 5,000-50,000 community members. Trauma persists 18-36 months with compounding effects: 12-18% increase in depression diagnoses, 8-12% increase in substance abuse, 4-6% increase in suicide risk among survivor communities. Each repeat incident in same area multiplies effects by 1.5x.
-
 ### Cascading Effects
 
 **Mental Health System Strain → Crisis Capacity**: Each mass shooting overwhelms emergency mental health capacity by 200-400% for 3-6 weeks in affected region. This delays routine mental health services (already at capacity in most US metros), reducing treatability of other at-risk populations by 15-25%, which marginally increases suicide risk (+2-4% per incident in region).
@@ -62,7 +55,7 @@ The result is a tragedy cascade: each shooting makes future shootings more psych
 
 **Public Acceptance → Policy Immunity**: As public acceptance crosses thresholds, incident-driven policy windows collapse. 2000-2010: major shootings reliably triggered policy debates. 2010-2020: policy windows remained open but with decreased confidence in outcomes. 2020-2025: incidents now trigger minimal legislative response even when public support for specific measures (universal background checks) exceeds 85%. Public opinion has decoupled from policy, creating immunity to traditional reform pressure.
 
-**Economic Spillover → Healthcare Burden**: Direct costs of mass shootings (emergency care, long-term trauma treatment) average $280K-$500K per casualty. Multiply by 45,000+ annual gun deaths (including suicides) = $12.6-23 billion annual direct cost. Healthcare system burden increases 2-3% annually, reducing capacity for routine care and increasing national healthcare cost burden by 1-2% GDP annually.
+**Economic Spillover → Healthcare Burden**: Calibrate per-casualty emergency and long-term trauma costs as a simulation parameter; treat national total burden as an output of incident volume + injury severity + insurance coverage + long-term disability assumptions.
 
 **Incident Clustering → Community Destabilization**: Shootings show geographic clustering (5 major incidents in 4 years in same metro area generates permanent 8-12% local population out-migration, 15-25% increase in local property crime as disorder spreads, reduced school enrollment, business relocation). Community social fabric degrades through perceived disorder. Police militarization increases +40% in response to clustering, generating secondary effects on civil liberties.
 
@@ -72,18 +65,23 @@ The result is a tragedy cascade: each shooting makes future shootings more psych
 
 **Media Coverage Plateau Despite Incident Increase**: If media mentions for comparable incidents decline 30-50% year-over-year while incidents stay constant or increase, public attention is declining faster than event frequency. This signals acceptance threshold crossing and predicts policy window closure within 2-4 weeks.
 
-**School Drill Routinization Metrics**: Track percentage of schools conducting annual active shooter drills (currently 95%+), frequency of drills per year (increasing from 1-2 to 3-4), and age of children in youngest grades conducting drills. When drills occur monthly and children normalize them as "regular school operations," social acceptance has embedded at developmental level.
+**School Drill Routinization Metrics**: Track percentage of schools conducting active shooter drills, drill frequency per year, and the youngest grades participating. When drills become treated as routine operations, social acceptance and baseline anxiety can become embedded developmentally.
 
 **Gun Purchasing Spikes Around Incidents**: Historically, mass shootings triggered temporary gun sales increases (+15-25% in weeks following incident). If this pattern inverts or disappears, it signals shifting political environment. Currently, sales increases are flattening—potential sign of market saturation or political opinion shift. Monitor gun industry analyst reports for margin pressure on manufacturers.
 
-**Mental Health Crisis Metrics**: Track emergency psychiatric admission rates (currently 40-50% above 2010 levels), antidepressant prescription rates (up 35% in past decade), and substance abuse treatment wait times. When mental health system capacity drops below 80% due to incident-driven surges, system is approaching failure state where incident impact compounds.
+**Mental Health Crisis Metrics**: Track emergency psychiatric admission rates, antidepressant prescription rates, and substance abuse treatment wait times. When incident-driven surges materially reduce capacity for routine care, the system enters a compounding state where untreated needs amplify future risk.
 
 **Geographic Dispersion of Incidents**: If incidents shift from concentrated clusters (urban metros, schools) to more dispersed locations (rural areas, suburban strips), normalization has spread beyond traditional risk zones. This signals acceptance threshold crossing into previously-resistant communities.
+
+## Sources
+
+- FBI: “2024 Active Shooter Incidents in the United States” (press release + report) — https://www.fbi.gov/news/press-releases/fbi-releases-2024-active-shooter-incidents-in-the-united-states-report
+- Congressional Research Service (definitions + measurement caveats) — https://crsreports.congress.gov/product/pdf/IF/IF12621
 
 ---
 
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-24
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/mass-shooting-normalization.md)

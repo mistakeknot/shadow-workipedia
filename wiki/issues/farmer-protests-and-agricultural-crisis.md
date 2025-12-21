@@ -43,20 +43,6 @@ The convergence of these pressures is now creating a systemic crisis: farmers ar
 
 - **Climate Regulation Compliance**: Aggressive environmental regulations accelerate crisis by raising production costs 15-30%. However, removing regulations triggers 12-18 month agricultural degradation cycles (soil erosion, nitrogen runoff, pesticide resistance spread) that ultimately reduce long-term productivity 20-35%.
 
-**Event Types:**
-
-1. **Major Protest Mobilization**: 50,000+ farmers organize blockades of major agricultural distribution routes, ports, or government facilities. Supply chain disruption reduces availability of key commodities by 10-20%, triggering food price spikes and potential shortages. Cascade effect: if protests persist >4 weeks and involve 2+ neighboring countries, triggers supply-chain-disruption event.
-
-2. **Government Subsidy/Relief Package**: Government enacts emergency subsidy programs (direct income support, input cost reductions, regulatory waiver periods). Temporarily reduces farmer distress index by 15-25%, but creates fiscal burden (0.5-1.5% of annual budget) and delays structural reforms by 12-24 months.
-
-3. **Agricultural Producer Consolidation**: Large agribusiness corporations or investment funds acquire failing family farms at 30-40% below equity value. Consolidation increases yields per hectare 15-20% but reduces farmer count 10-15%, employment 8-12%, and local food system resilience. Triggers 4-8 point increase in rural populism as communities lose generational farms.
-
-4. **Supply Chain Breakdown**: Logistics failures (blockaded ports, collapsed distribution, farmer withholding) reduce delivered food supply below critical threshold. Supermarket shortages and panic buying occur, triggering 15-30% temporary price spikes. If breakdown persists >2 weeks, triggers food-security-crisis event with knock-on effects on vulnerable populations.
-
-5. **Cross-Border Coordination**: Farmer movements in 3+ countries coordinate actions (simultaneous blockades, price-fixing, supply agreements). Significantly amplifies disruption (15-25% supply reduction), triggers trade disputes (potential tariff barriers), and demonstrates rural political cohesion that influences subsequent electoral outcomes.
-
-6. **Farmer-Populist Electoral Victory**: Political party aligned with or dominated by farmer grievances wins regional or national election, implementing anti-regulation and pro-subsidy agricultural policies. Creates 6-12 month period of reduced regulatory compliance, potential EU/trade friction, and delays climate adaptation investments.
-
 **Cascading Effects:**
 
 - Triggers **agricultural-collapse** when farmer bankruptcy rate exceeds 8% annually + consolidation accelerates + younger generation exits farming entirely

@@ -46,17 +46,6 @@ The surveillance state undermines the foundations of free society in multiple wa
 - **State Capacity**: +10 to +20 (enhanced monitoring and control)
 - **Innovation**: -5 to -15 (brain drain from surveillance states)
 
-### Event Types
-- Deployment of citywide facial recognition camera networks
-- Mass collection of communications metadata or content
-- Social credit systems linking surveillance to access to services
-- Whistleblower revelations of illegal or secret surveillance programs
-- Court rulings expanding or limiting surveillance authorities
-- Integration of surveillance across government databases
-- Export of surveillance technology to authoritarian regimes
-- Hacking or leaking of surveillance databases
-- Use of surveillance data for political targeting
-
 ### Cascading Effects
 - **Authoritarian Consolidation**: Surveillance infrastructure enables permanent minority rule and suppression of opposition
 - **Chilling Effect**: Self-censorship and conformity replace free expression and association

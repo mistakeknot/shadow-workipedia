@@ -39,22 +39,6 @@ The eurozone debt crisis (2009-2015, with ongoing structural vulnerabilities) ex
 
 **Target Macro Stability Treaty (ESM) Activation**: ESM (European Stability Mechanism) conditionality triggers 2-4 year adjustment programs requiring pension cuts, wage reductions, labor market liberalization, and public asset sales. Programs create political crises: approval ratings collapse 15-25 points; opposition parties polarize 20-30 points; anti-European sentiment exceeds 40% within 18 months. Program success requires political stability that austerity destroys—creating paradox where medicine prevents cure.
 
-### Event Types
-
-**Debt Spiral Acceleration**: Government deficit exceeds 5-6% of GDP; bond spreads widen 30-50 basis points per month; refinancing costs rise 5-8 basis points monthly. Without fiscal consolidation, debt-to-GDP increases 3-5 percentage points annually. Triggers ECB intervention pressure within 6-12 months. Countries like Greece (deficit 15.7% in 2009) reached unsustainable refinancing costs within 4 quarters.
-
-**Banking Sector Crisis**: Banks holding 40-60% government bonds face mark-to-market losses as spreads widen. Capital ratios fall below regulatory thresholds (8-10%). Credit contraction begins: bank lending to businesses declines 10-20% annually; SME (small/medium enterprise) lending collapses 25-35%. Government forced to inject capital (consuming 5-8% of GDP in emergency funding), exploding fiscal deficit and triggering sovereign debt contagion.
-
-**Contagion Wave**: Crisis spreads from Greece (2010) → Ireland (banking collapse 2010) → Portugal (2011) → Spain (regional bank crisis 2012) → Italy (political uncertainty 2013). Each new country's spreads widen 100-200 basis points within 2-3 months of perceived crisis correlation. Systemic risk triggers: ECB must guarantee entire currency union by committing to unlimited bond purchases (Draghi's 2012 Outright Monetary Transactions program) or euro breakup risk becomes imminent.
-
-**Austerity Recession**: Government spending cuts 5-8% of GDP over 2-3 years trigger GDP contraction 2-4% annually. Multiplier effects amplify decline: each 1% spending cut reduces GDP 1.2-1.5% when multiplier >1.2 (typical during crises with high unemployment). Fiscal austerity deepens recession, making debt-to-GDP ratios worse despite spending cuts (because denominator shrinks faster than numerator). Greek GDP contracted 25% (2009-2015); unemployment peaked at 28%.
-
-**Political Upheaval**: Austerity's social costs trigger electoral punishment: governments imposing austerity are voted out within 18-24 months; new governments elect anti-austerity, anti-European parties. Spain's Podemos, Greece's Syriza, Italy's Five Star Movement all rose to power on bailout rejection platforms. Anti-European parties average 25-35% vote share in hard-hit countries. Euro breakup risk sentiment peaks when Syriza pledges to exit bailout program (January 2015 Greece referendum).
-
-**Youth Emigration Wave**: Unemployment exceeding 25% (especially youth exceeding 50%) triggers permanent emigration: Spain, Portugal, Greece, Italy lose 5-8% of working-age population (2010-2015) to Germany, UK, Scandinavia. Brain drain: highest-skilled workers leave first, reducing future growth capacity. Countries like Greece experienced net emigration of 400,000+ people (5% of population) during crisis years.
-
-**ECB Bond Market Intervention**: When spreads exceed 400-500 basis points and government refinancing risk becomes existential, ECB activates bond-purchasing programs (Securities Market Program 2010, Outright Monetary Transactions 2012, later Quantitative Easing 2015+). Programs require political conditionality (bailout acceptance) but eliminate imminent default risk. Market stability returns within 2-4 weeks of announcement, but austerity conditions remain, ensuring multi-year recession.
-
 ### Cascading Effects
 
 - **Triggers banking-crisis** when government debt above 100% coupled with bank holdings of 50%+ government bonds; mark-to-market losses force capital ratios below regulatory minimums (8%); capital injection requirements exceed available government fiscal space; banks enter insolvency within 18-24 months

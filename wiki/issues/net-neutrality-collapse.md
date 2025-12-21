@@ -34,14 +34,6 @@ This collapse extends beyond commercial disadvantage to fundamental information 
 - **Wealth Inequality** (12-22% increase): Two-tiered internet creates systematic advantages for capital-heavy businesses over innovation-based competitors
 - **Democratic Participation** (15-25% decrease): Reduced ability for grassroots movements and small organizations to reach constituencies
 
-### Event Types
-
-- **Fast Lane Pricing Surge** (35% probability): ISPs introduce premium service tiers costing $5-50K/month for guaranteed bandwidth; startup collapse, survivor consolidation
-- **Content Throttling Incidents** (28% probability): Documented cases of deliberate performance degradation for competing services; regulatory pressure, public backlash, negotiated settlements
-- **Small Business Exodus** (22% probability): Migration of small businesses away from ISP-controlled regions; concentration in unregulated markets, economic clustering
-- **Infrastructure Bypass Attempts** (18% probability): Private tech companies build alternative networks (mesh, satellite, municipal); regulatory battles, patent litigation
-- **Monopoly Deepening** (31% probability): ISPs block or degrade competitors' infrastructure; market share consolidation, antitrust cases, lobbying intensification
-
 ### Cascading Effects
 
 - **Small Business Failure** → **Job Loss** → **Economic Contraction**: Startup ecosystem collapses in ISP-dominated markets, reducing employment and economic dynamism

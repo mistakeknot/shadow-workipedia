@@ -34,15 +34,6 @@ The stakes involve both individual welfare and societal transformation. BCI disa
 - **Disability Support**: -15 to -25 when promised treatments fail or harm patients
 - **Inequality**: +10 to +20 if cognitive enhancement available only to wealthy
 
-**Event Types:**
-1. **Neural Implant Failure Wave**: Devices malfunction, causing seizures/paralysis/death, -40 Medical Device Safety, -30 Public Trust
-2. **BCI Hacking Incident**: Researcher demonstrates remote implant exploitation, -35 Cybersecurity, trigger Security Crisis
-3. **Company Bankruptcy Orphans Patients**: BCI manufacturer folds, leaving patients with unsupported implants, -30 Healthcare Trust
-4. **Software Bug Causes Deaths**: Update pushed to neural implants triggers fatal malfunctions, -40 Medical Device Safety
-5. **Thought Privacy Breach**: BCI data reveals inner thoughts, used for surveillance/prosecution, -35 Privacy, -25 Civil Liberties
-6. **Enhancement Inequality Scandal**: Cognitive BCIs available only to elites, +25 Inequality, trigger Class Conflict
-7. **Rushed Approval Disaster**: FDA fast-tracks unsafe device under pressure, subsequent failures, -30 Regulatory Credibility
-
 **Cascading Effects:**
 - Triggers **Medical Device Cybersecurity** crisis as neural implants prove hackable
 - Amplifies **AI Alignment Failures** when BCIs integrate with AI systems

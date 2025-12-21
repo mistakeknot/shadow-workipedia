@@ -30,13 +30,6 @@ Infinite scroll interfaces and algorithmic feed curation exploit dopamine reward
 - **Institutional Trust**: Erodes 0.6-1.2 points as platform recommendation algorithms prioritize engagement over accuracy, normalizing conspiracy content and eroding shared reality frameworks
 - **Economic Productivity**: Decreases 0.5-1.3 points per year when workplace attention fragmentation reaches critical mass, with each notification interruption requiring 23 minutes to restore focus
 
-**Event Types:**
-1. **TikTok Challenge Death Wave**: Viral dangerous challenge kills 8-15 teens in 72 hours, triggering parental panic and regulatory pressure (Mental Resilience -2, Public Concern +15)
-2. **Dopamine Desert**: Platform algorithm changes make non-addictive content invisible, forcing creators into engagement-bait or extinction (Innovation Capacity -1, Social Cohesion -1.5)
-3. **Infinite Scroll Intervention**: Class-action lawsuit reveals internal documents showing platforms A/B tested addiction features on minors (Institutional Trust -2, Economic Impact +40)
-4. **Digital Detox Mandate**: School district bans smartphones during school hours, triggering parent protests about emergency contact (Social Cohesion -1, Public Concern +8)
-5. **Attention Economy Collapse**: Major platform loses 40% user base to competitor offering chronological feeds, forcing industry-wide algorithm changes (Economic Productivity +0.5, Innovation Capacity +0.8)
-
 **Cascading Effects:**
 - Triggers **Mental Health Apocalypse** when teen depression rates exceed 25% in correlation with Instagram usage patterns, overwhelming psychiatric treatment capacity
 - Amplifies **Disinformation Plague** by creating echo chambers where algorithmic curation reinforces false beliefs through engagement optimization rather than accuracy

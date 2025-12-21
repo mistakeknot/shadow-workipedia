@@ -39,18 +39,6 @@ The 2020s geopolitical fragmentation is systematizing food weaponization into pe
 
 - **Regional Nutritional Security**: Deteriorates 20-35% in food-deficit regions within 6-12 months of sustained supply shock, with children <5 malnutrition rates rising 8-15% per year of shortage. Famine risk in sub-Saharan Africa increases 300%+ when multiple suppliers simultaneously restrict exports.
 
-**Event Types:**
-
-1. **Strategic Export Ban**: Major exporter (Russia, India, Ukraine, Brazil, Argentina) implements emergency export restriction to secure domestic supply or enforce geopolitical leverage. Affects 15-30% of global supply for affected commodity. Triggers cascading restrictions in next 3-6 months as other nations hoard (historical probability 65%+ when major exporter bans).
-
-2. **Blockade/Supply Route Closure**: Military conflict or sanctions close critical shipping corridors (Black Sea grain corridor 2022, Suez Canal disruptions 2021), instantly removing 10-25% of global exports from markets for 2-12 months. Creates price shocks (+50-70%) and forces alternate routing (+30-50% shipping cost increases).
-
-3. **Climate-Triggered Crop Failure**: Drought, flooding, or extreme weather eliminates 30-50% of harvest in major exporting region, forcing emergency export restrictions. 2010 Russian drought reduced wheat exports by 85% in 2-3 months; 2022 Pakistan floods destroyed 20% of harvest; Brazil droughts reduced coffee 40%.
-
-4. **Protectionist Shift**: Government reorients agricultural policy toward autarky/self-sufficiency, implementing long-term export quotas, subsidies for domestic production, and restrictions on land ownership by foreign entities. Removes 10-25% from global markets permanently as exports shift to domestic consumption.
-
-5. **Market Panic & Hoarding**: Exporters and grain traders anticipate supply shocks and accelerate purchase orders, creating artificial shortage before physical supply actually tightens. Panic buying can spike prices +30-60% in 2-4 weeks even if supply ultimately stabilizes.
-
 **Cascading Effects:**
 
 - Triggers **Global Hunger Crisis** when 3+ major exporters restrict supply simultaneously OR single exporter controls >15% global supply (Russia/Ukraine wheat duopoly 18% global supply). Food-deficit nations face acute malnutrition within 6-12 months, humanitarian crises intensify, political instability cascades through regions (Yemen, Afghanistan, Somalia are trigger-prone).

@@ -35,16 +35,6 @@ The constitutional crisis extends beyond individual injustice. When the state pr
 - **Racial Equity**: -20 to -35
 - **Mental Health** (Legal Professionals): -40 to -60
 
-### Event Types
-- **Mass Resignation**: Entire public defender office quits over conditions
-- **Caseload Crisis**: Defenders refuse new cases, courts forced to release defendants
-- **Wrongful Conviction Scandal**: Exonerations reveal systematic failures
-- **Strike Action**: Public defenders walk out demanding resources
-- **Court Shutdown**: Judges halt proceedings due to inadequate representation
-- **Lawsuit Against State**: Class action over denial of effective counsel
-- **Burnout Epidemic**: Mental health crisis among public defenders exposed
-- **Privatization Push**: Move to contract defense providers worsens quality
-
 ### Cascading Effects
 - Pretrial detention rates surge (defendants can't negotiate release)
 - Plea bargain coercion intensifies

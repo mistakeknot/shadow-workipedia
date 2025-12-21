@@ -38,18 +38,6 @@ The epidemic of hesitancy itself operates through self-reinforcing mechanisms: d
 
 - **Institutional Credibility** (0-100): Each point below 50 increases likelihood that any adverse vaccine event (however minor) generates 10-100x media amplification. Public Health Authority messaging effectiveness halved for every 20-point drop below 70.
 
-### Event Types
-
-- **Breakthrough Infection Cluster** (15% probability when vaccination <80%): A vaccinated individual develops symptomatic disease in area with <75% coverage. Media frames as "vaccine failure." Hesitancy sentiment +8-15 points. Medical distrust +5 points. Recovers slowly (3-6 months).
-
-- **Adverse Event Anecdote Viral Loop** (8% probability per turn at high social media amplification): Social media video of parent attributing child's medical condition to vaccine (causation unconfirmed) reaches 5-50M views. Hesitancy sentiment +10-20 points in affected region. Spreads to adjacent regions (50% probability per region per turn).
-
-- **Healthcare Provider Exodus** (10% probability when provider confidence <30 and social polarization high): 20-40% of vaccination-recommending physicians leave practice or retire early in affected region. Reduces vaccination capacity by 20-30%. Takes 2-3 years to recover through hiring and training.
-
-- **Disease Outbreak in Unvaccinated Population** (40-90% probability when coverage <70% in region, varies by disease): Measles, pertussis, or polio outbreak in cluster of unvaccinated children. 20-500 cases per outbreak (depends on disease R-naught). Initial surge in vaccination demand (+5 points) followed by blame-shifting narrative (-8-12 points) as media attributes failures to "system" rather than disease.
-
-- **Institutional Policy Reversal** (5-8% probability when political polarization high and media pressure sustained): Government reverses vaccine mandate policy, eliminates school immunization requirements, or defunds vaccination programs. Vaccination rate drops 5-15 percentage points. Takes 3-5 years to restore if policy reversed again.
-
 ### Cascading Effects
 
 - **Herd Immunity Threshold Collapse**: As vaccination rates fall below 80-95% (disease dependent), geographic clustering of unvaccinated children creates pockets where herd immunity is mathematically impossible. Disease transmission accelerates exponentially once threshold breached in any region. Effect multiplies if healthcare capacity is simultaneously strained.

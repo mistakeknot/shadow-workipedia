@@ -31,13 +31,6 @@ Military veterans die by suicide at rates dramatically exceeding the general pop
 - **Community Reintegration**: Veteran peer support groups, civilian mentorship, and inclusive communities reduce isolation and provide meaning-making frameworks for processing military experience.
 - **Firearms Access**: Among the general population, suicidal ideation is often non-lethal; firearm availability converts ideation into completed suicide. Veterans' familiarity with weapons and high ownership rates amplify lethality during crisis moments.
 
-**Event Types:**
-1. **Veteran Suicide Spike**: Department of Veterans Affairs releases new mortality statistics showing worsening crisis among specific service cohorts (Gulf War, Iraq/Afghanistan, Vietnam era). Media attention forces congressional action and public debate about adequacy of current interventions.
-2. **VA Reform Initiative**: Congress authorizes major funding expansion for VA mental health services, reducing wait times and expanding peer support programs. Implementation reveals persistent organizational barriers despite increased resources.
-3. **Veteran Support Program Expansion**: Nonprofit organizations or states launch innovative community-based programs (peer mentorship, employment training, reintegration housing). Early outcomes show promise but highlight need for national coordination.
-4. **High-Profile Veteran Death**: Death of prominent veteran, military leader, or celebrity highlights epidemic and catalyzes public awareness. Funeral coverage and tributes raise awareness but can increase suicide contagion among vulnerable population.
-5. **Firearms Safety Campaign**: Public health initiative promoting secure weapon storage, voluntary surrenders, or training on lethal means safety. Controversial within veteran communities but evidence supports reduction in completed suicides.
-
 **Cascading Effects:**
 - Triggers **Mental Health Apocalypse** when veteran mental health crisis exceeds civilian system capacity, forcing general population treatment delays and creating perception that mental health services are overwhelmed and ineffective.
 - Amplifies **Military Veteran Crisis** by concentrating suicide as leading cause of death among veterans, eroding national recruitment and retention, and forcing military culture to confront legacy of war.

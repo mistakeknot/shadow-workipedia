@@ -10,6 +10,7 @@ economicImpact: 55
 socialImpact: 88
 affectedSystems: [Housing, Cities, Healthcare, Criminal Justice, Economy]
 connections: [mental-health-apocalypse]
+caseStudyOf: homelessness-crisis
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
 ---
@@ -37,18 +38,6 @@ These tent cities have become politically paralyzed zones—simultaneously ackno
 **Income Inequality and Wage Stagnation** (Economy): Widening wage-to-housing-cost ratios create vulnerability populations. For every 5% increase in income inequality, tent city populations grow 12-15%. Conversely, minimum wage increases of $3-5/hour can reduce homelessness by 8-10% over 2 years as individuals transition out of encampments.
 
 **Urban Density and Real Estate Speculation** (Cities): High property speculation and gentrification accelerate encampment growth by displacing low-income residents. Cities with rapid property value appreciation (>8% annually) experience 18-25% faster homeless population growth than cities with stable housing markets.
-
-### Event Types
-
-**Encampment Outbreak (70% probability)**: A spontaneous gathering of 50-200 homeless individuals establishes a new encampment in a public space (park, underpass, abandoned lot). Initial city response determines escalation path: rapid clearance (triggers relocation cascade), managed services (stabilizes population at location), or inaction (encampment grows 15-30% monthly). Affects public health indicators, local business sentiment, and political capital.
-
-**Sweep and Displacement (60% probability)**: City enforcement conducts coordinated encampment clearance, arresting 10-50 individuals and confiscating belongings. Immediate effect: encampment disperses to 3-4 nearby locations. Secondary effects: increased arrests (criminal justice system load), scattered individuals lose case management connections, rebound growth accelerates 40-60% over 6 months. Rarely reduces overall homeless count.
-
-**Tent City Stabilization Initiative (35% probability)**: City partners with nonprofits to implement managed encampment with services (hygiene, food, case management, healthcare). Over 12-24 months, 20-40% of population transitions to housing or treatment. Reduces visible homelessness by 30-50% in that location but requires $2M-5M annual investment. Creates political tension between compassion-oriented and quality-of-life constituencies.
-
-**Disease Outbreak (45% probability)**: Crowded encampment conditions trigger communicable disease (tuberculosis, hepatitis A, typhoid). Initial outbreak infects 15-40 encampment residents, spreads to broader homeless population and adjacent neighborhoods. Healthcare system burden increases 20-30%. Public pressure spikes for both encampment clearance and permanent housing solutions.
-
-**Business District Defection (40% probability)**: Retail businesses and service sector employers in tent city zones relocate to avoid customer decline and employee safety concerns. Short-term economic impact: 10-25% revenue loss for remaining businesses. Medium-term: reduced tax revenue, reduced employment opportunities for low-skill workers, accelerates neighborhood decline and homelessness concentration.
 
 ### Cascading Effects
 

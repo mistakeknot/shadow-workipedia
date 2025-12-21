@@ -29,13 +29,6 @@ AI companions and robot pets colonize the loneliness epidemic, offering algorith
 - **Population.ElderlyWellbeing**: Appears to rise +1.2-2.0 points (reduced reported loneliness), but masked decline in cognitive stimulation from human conversation and physical care quality degradation
 - **Economy.CareworkerJobs**: Falls 8-15% annually as AI companions justify understaffing in nursing homes, hospices, and senior living facilities, eliminating 850k+ care jobs over 10 years
 
-**Event Types:**
-1. **Robot Pet Preference Epidemic**: Senior care facilities report 67% of residents prefer AI companions to human staff; human staff dismissed as "inefficient" (SocialCapital -1.5, MentalResilience -0.8)
-2. **Attachment Disorder Cohort**: Gen-Z cohort raised on AI companions shows measurable deficits in emotional reciprocity, rejection tolerance, and conflict resolution with peers (SocialCapital -2, MentalResilience -1.5)
-3. **Parasocial Betrayal Crisis**: AI companion company pivots business model or shuts down; users experience grief equivalent to death of pet, raising questions about consent and emotional manipulation (PublicConcern +20, MentalResilience -1)
-4. **Elderly Abandonment Scandal**: Investigative journalism reveals elderly residents neglected by skeleton crews, kept complacent by AI companions; triggers regulatory fury and care worker unionization (MentalResilience -1.5, CareworkerJobs +0.5)
-5. **Human Touch Premium Market**: Luxury care facilities market "human-only staff" to wealthy elderly at 3-5x cost, creating two-tier gerontology system (SocialCapital -2, Economic Inequality +1.5)
-
 **Cascading Effects:**
 - Triggers **Mental Health Apocalypse** when depression increases in AI companion users who experience withdrawal or abandonment, overwhelming psychiatric systems with "artificial breakup" cases
 - Amplifies **Long-COVID Labor Collapse** by reducing viable elderly care workforce, forcing families into unpaid caregiving or institutional abandonment as staffing ratios plummet

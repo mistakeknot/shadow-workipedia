@@ -11,14 +11,15 @@ socialImpact: 89
 affectedSystems: [Environment, Politics, Economy, Civil Society, Geopolitics]
 connections: [democratic-backsliding]
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-25
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Brazil Bolsonaro and Amazon Destruction
 
 ## Overview
 
-The presidency of Jair Bolsonaro (2019-2022) marked the most aggressive assault on Amazon rainforest protections in recent Brazilian history, accelerating deforestation and indigenous dispossession at unprecedented rates. Bolsonaro campaigned on opening the Amazon to extractive industries—mining, logging, and cattle ranching—framing environmental protection as an obstacle to Brazilian economic sovereignty and development. Upon taking office, he systematically dismantled environmental enforcement agencies, slashed funding for INPE (the national forest monitoring institute) by 95%, and appointed agriculture-friendly ministers to critical environmental positions.
+The presidency of Jair Bolsonaro (2019-2022) marked the most aggressive assault on Amazon rainforest protections in recent Brazilian history, accelerating deforestation and indigenous dispossession at unprecedented rates. [^britannica-bolsonaro] Bolsonaro campaigned on opening the Amazon to extractive industries—mining, logging, and cattle ranching—framing environmental protection as an obstacle to Brazilian economic sovereignty and development. Upon taking office, he systematically dismantled environmental enforcement agencies, slashed funding for INPE (the national forest monitoring institute) by 95%, and appointed agriculture-friendly ministers to critical environmental positions.
 
 The consequences manifested across multiple dimensions simultaneously. Deforestation accelerated from 10,129 km² in 2018 to 13,235 km² in 2021—a 30% increase despite being a "green" campaign promise. By 2023-2024, annual deforestation rates oscillated between 10,000-12,000 km², representing sustained destruction of 27-33 million trees annually. The Amazon tipped from a net carbon sink to a net carbon source around 2020, releasing an estimated 20% more carbon than it absorbs—a critical climate tipping point reversal that accelerates global warming by approximately 0.1°C over coming decades.
 
@@ -43,24 +44,6 @@ The political damage extended beyond environmental policy. Democratic institutio
 **Agribusiness Expansion Power**: Soy and cattle production in deforested zones increases by 40-60%. Each deforested hectare immediately converts to pasture (~60%) or crop production (~40%), locking in economic incentives for continued deforestation. Brazilian GDP growth tied to agribusiness increases by 0.5-1.5% during high deforestation years, creating political pressure to maintain destructive policies despite international criticism.
 
 **International Credibility & Trade Pressure**: Brazil faces mounting EU trade restrictions (-15-25% to bilateral trade depending on deforestation thresholds), potential Mercosur complications, and climate-dependent agricultural pressures. Rainforest-dependent agricultural markets (cocoa, brazil nuts, acai) face 20-40% declines as forest loss reduces wild species availability and watershed reliability. Carbon-border adjustment mechanisms could cost Brazilian exporters $2-5 billion annually.
-
-### Event Types
-
-1. **Bolsonaro Election Victory & Environmental Rollback** (2019): Immediate firing of environmental agency heads, budget cuts to INPE (-95%), appointment of agribusiness-friendly minister to agriculture ministry. Deforestation rates jump +30% within first year. Media coverage spike around "environmental apocalypse," triggering international NGO mobilization. Affects international relations (-15% credibility with climate-focused nations).
-
-2. **Illegal Mining Invasion of Indigenous Territories** (Triggered quarterly when indigenous rights enforcement <30%): Gold miners infiltrate Yanomami, Kayapó, and other territories (each event: 2,000-5,000 miners arrive). Triggers malaria epidemics (+200-400 cases/month in affected regions), mercury contamination of water supplies, cultural conflicts. Generates 100-500 indigenous casualties/conflicts per surge event. Cascades to health crisis if medical response inadequate.
-
-3. **Amazon Deforestation Accelerations** (Quarterly, triggered by agribusiness expansion or enforcement weakness): Logging companies and ranchers conduct rapid clearing operations (each event: 2,000-3,000 km² cleared). Synchronized with seasonal dry periods (July-September) for maximum efficiency. Each event releases 500+ million tons CO2, contributes to carbon concentration and fire risk. If consecutive accelerations occur (probability 60% per quarter), forest fragmentation compounds biodiversity losses.
-
-4. **Amazon Fire Seasons** (Annual, triggered when forest stress >50% or drought conditions active): 2019-2020 fires burned 20,000+ km², released 200-300 million tons CO2, killed 3 billion+ animals, destroyed indigenous villages. Each major fire season event: 5,000-10,000 km² burned, 100+ million tons CO2, 50-200 indigenous casualties, 200,000+ animals killed. Smoke spreads to neighboring countries (Venezuela, Peru, Bolivia), triggering air quality crises and diplomatic tensions.
-
-5. **Constitutional & Democratic Crisis** (Triggered when political stability <40%): Bolsonaro's 2022 election defeat triggered militias, court-storming (Jan. 8 Brasília attacks, 2023), and constitutional challenges. Creates gridlock preventing immediate policy reversal despite new administration. Each crisis event: -20% to democratic governance index, +30% extremist activity, -15% international relations with democracies. Can persist for 3-6 game years even after Bolsonaro loses power.
-
-6. **Indigenous Land Rights Legal Battles** (Quarterly events, probability 70%): Supreme Court cases decide indigenous territory demarcation, mining permits, and constitutional amendments. Each ruling cascades to policy implementation with 3-6 month delays. Victories for indigenous rights reduce subsequent mining infiltration by 20-40% but trigger agribusiness/military backlash (-20% political stability). Defeats accelerate invasions (+200-300% increase in mining/logging activity).
-
-7. **International Trade & Climate Sanctions** (Triggered when deforestation >11,000 km²/year and pressure from EU/US >60%): EU excludes Brazilian products from carbon-border adjustment mechanisms, bilateral trade restrictions apply. Each sanction event: -$1-2 billion export impact for Brazil, -10-15% bilateral trade volume. Creates political pressure from agribusiness to reverse environmental policies or triggers economic contraction (-0.5-1% GDP growth penalty).
-
-8. **Climate Tipping Point: Amazon Carbon Sink Collapse** (Triggered when Amazon forest loss >17% and carbon release >50 million tons/year): Amazon permanently transitions from carbon sink to carbon source. Marks irreversible climate feedback loop where forest dieback becomes self-reinforcing. Affects Global Carbon Concentration parameter permanently (+0.2 ppm/year additional contribution from Amazon alone). Cascades to Comprehensive Climate Cascade Failure with acceleration by 2-4 years.
 
 ### Cascading Effects
 
@@ -208,5 +191,9 @@ The political damage extended beyond environmental policy. Democratic institutio
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-25
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/brazil-bolsonaro-and-amazon-destruction.md)
+
+## Sources
+
+[^britannica-bolsonaro]: Encyclopaedia Britannica, “Jair Bolsonaro | Biography, Presidency, & Facts.” Accessed 2025-12-19. https://www.britannica.com/biography/Jair-Bolsonaro

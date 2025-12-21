@@ -34,17 +34,6 @@ The environmental and economic consequences are catastrophic. Resources extracte
 **Product Durability**: -15% (engineered failure points)
 **Circular Economy Progress**: -13% (repair blocked, linear model locked in)
 
-### Event Types
-
-**Right to Repair Law Passed**: Legislation mandates repair access
-**Product Lifespan Study Released**: Research exposes planned obsolescence
-**Manufacturer Sued for Obsolescence**: Legal challenge to designed failure
-**Repair Shop Shutdown**: Manufacturer blocks independent repair
-**E-Waste Crisis Declared**: Disposal capacity overwhelmed
-**Battery Replacement Denied**: Glued-in component forces device disposal
-**Software Update Bricks Devices**: Planned obsolescence through code
-**Extended Producer Responsibility**: Law makes manufacturers responsible for waste
-
 ### Cascading Effects
 
 Planned obsolescence design → Product lifespan shortened → Replacement purchases increase → E-waste generation surges → Resource depletion accelerates → Manufacturing emissions rise → Landfills overflow → Circular economy progress blocked → Environmental degradation intensifies

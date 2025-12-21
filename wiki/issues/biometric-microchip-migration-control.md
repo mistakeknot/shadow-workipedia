@@ -29,13 +29,6 @@ Nations deploy subcutaneous microchips embedded with biometric identifiers, loca
 - **Medical Privacy Violations**: Rises +45-65% as implants record health data (glucose, heart rate, stress hormones) sold to insurers, employers, and governments; discriminatory pricing and employment blacklists follow, creating shadow credit scores based on biological status
 - **International Relations Tension**: Deteriorates ±30-40% with democratic nations, UN bodies, and human rights organizations denouncing the practice; authoritarian coalition gains diplomatic cohesion around shared surveillance infrastructure, fragmenting global governance
 
-**Event Types:**
-1. **Implant Rejection Crisis**: 15-25% failure rate at 18-36 month mark triggers mass surgical removal campaigns; infections and sepsis in 3-8% of failed implants cause 50-200+ deaths per million refugees; scandal forces government resignation and compensation lawsuits exceeding $500M
-2. **Underground Network Explosion**: Biometric evasion industry emerges—illegal implant removers, spoofing devices, and forged movement records—creating parallel shadow economy with 20-35% of implanted population participating in some form of circumvention
-3. **Discriminatory Enforcement Cascade**: AI-driven movement prediction uses implant data to deny employment, housing, and services to "high-risk" patterns; refugee access to jobs drops 40-60%, forcing economic desperation and crime increase of +25-40% in monitored populations
-4. **Medical Data Breach**: Implant database compromised by state actors or criminal syndicates; biometric identity theft enables 100,000-500,000+ fraudulent crossings, insurance fraud, and coordinated impersonation attacks that undermine the entire system's credibility
-5. **Mass Defection and Border Collapse**: Population flight exceeds border patrol capacity when implant surveillance extends beyond refugees to general populations; neighboring nations overwhelmed with undocumented migrants, triggering regional conflict and humanitarian crisis
-
 **Cascading Effects:**
 - Triggers **Digital Surveillance State Expansion** when government success with microchip migration control creates precedent for implanting prisoners, criminals, dissidents, and ultimately "security-risk" minorities; surveillance normalized to point where non-compliance becomes criminalizable, enabling creeping totalitarianism
 - Amplifies **Refugee Crisis Cascade** as implant surveillance disproportionately targets vulnerable populations while leaving wealthy migrants untracked; resource competition intensifies when documented refugee labor becomes unemployable, pushing populations toward shanty towns and informal economies that destabilize regional stability

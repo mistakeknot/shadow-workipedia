@@ -38,20 +38,6 @@ This crisis extends beyond simple extinction risk. It represents the unraveling 
 
 - **Conservation Funding** (-0.18 divergence per funding tier increase): Adequate funding enables genetic monitoring, managed breeding exchanges, and habitat corridors. Underfunding locks populations into isolation cycles.
 
-### Event Types
-
-- **Critical Population Bottleneck** (12% probability, -15 genetic diversity): An isolated population drops below minimum viable size due to disease, drought, or predation surge. Requires emergency intervention or faces permanent genetic crippling.
-
-- **Adaptive Divergence Milestone** (8% probability, +1 new subspecies): A fragmented population becomes reproductively isolated through accumulated differences. Once separate, managing reintroduction becomes exponentially more difficult and risky.
-
-- **Genetic Rescue Breakthrough** (6% probability, +10% diversity recovery): Controlled breeding between divergent populations succeeds, introducing beneficial genetic variation. Success depends on precise timing and population health.
-
-- **Inbreeding Depression Cascade** (10% probability, -20% fertility/immune function): An isolated population's genetic problems compound—reduced reproduction, immunodeficiency, developmental abnormalities spread through the remaining population.
-
-- **Habitat Corridor Establishment** (7% probability, gene flow restoration): A new or restored migration corridor opens, allowing some gene flow between isolated populations. Effects take 3-5 years to manifest but can halt divergence trends.
-
-- **Irreversible Divergence Point** (5% probability, permanent species split): Accumulated genetic differences make reintroduction of one population to another's habitat impossible without triggering sterile offspring or aggressive incompatibility.
-
 ### Cascading Effects
 
 - **Habitat Fragmentation → Biodiversity Collapse**: Each 15% increase in species divergence across an ecosystem increases extinction risk by 8%, as locally-adapted populations become less resilient to ecosystem-wide shocks.

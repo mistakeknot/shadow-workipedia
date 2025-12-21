@@ -41,24 +41,6 @@ Cascading effects produce systemic instability: civilian casualties create recru
 
 **Militant Recruitment Pool Expansion**: Growth in extremist recruitment driven by civilian drone casualties. Baseline 5-15% of recruitment attributable to strikes. Advanced normalization sees +30-100% following high-casualty incidents, with drone strikes becoming primary recruitment tool.
 
-### Event Types
-
-**Signature Strike Authorization Threshold**: Command authorizes strikes targeting behavioral patterns. Consequences: targeting scope expands 2-5x, civilian casualties increase 50-200%, accountability collapses, recruitment accelerates +30-50%.
-
-**Civilian Casualty Event**: Single strike kills 20+ civilians (wedding, funeral, marketplace). Survivor testimony conflicts with official narrative showing institutional credibility collapse. Creates recruitment spike and family radicalization.
-
-**Accountability Mechanism Failure**: Investigation reveals targeting violations but responsible personnel face no consequences. Communicates that accountability mechanisms are non-functional, eliminating casualty prevention incentives.
-
-**Sovereignty Violation Precedent Expansion**: Strikes in non-war territories face no diplomatic consequences. Other states cite precedent to justify extra-territorial strikes. International law becomes advisory rather than binding.
-
-**Drone Proliferation Threshold**: Critical mass of states (Russia, China, Iran, Turkey, Pakistan, Israel, Saudi Arabia) acquire capability citing US precedent. Unilateral strike programs multiply 5-10x globally.
-
-**Recruitment Cascade**: Civilian casualties create recruitment pool faster than strikes eliminate combatants (5-20 civilians per strike, 10+ strikes monthly). Militant group size increases despite heavy casualties as each strike creates more recruits than it eliminates.
-
-**International Law Collapse Event**: Multiple major powers conduct simultaneous unilateral programs while UN Security Council and ICC prove powerless. Sovereignty becomes advisory and gray zone between war and peace normalizes.
-
-**Democratic Constraint Erosion**: Legislative oversight systematically eliminated through classification, access denial, and executive delegation. Strike programs expand unconstrained by public opinion or democratic debate.
-
 ### Cascading Effects
 
 - **Triggers Autonomous Weapons Proliferation by +100-250%** as normalized signature strikes demonstrate advantages of removing humans from targeting decisions, setting precedent for fully autonomous systems.

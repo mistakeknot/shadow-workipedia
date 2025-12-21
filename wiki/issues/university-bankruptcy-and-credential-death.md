@@ -45,17 +45,6 @@ The consequences extend far beyond education. Student debt enslaves entire gener
 - **Regional Inequality**: +10 to +20 (college towns collapse)
 - **Credentialism**: +10 to +20 (degree inflation continues despite devaluation)
 
-### Event Types
-- Wave of university bankruptcies and closures
-- Student loan default rates exceeding 20%
-- Enrollment collapse at regional public universities
-- Employers dropping degree requirements for major job categories
-- Alternative credentials (bootcamps, certificates) gaining labor market acceptance
-- States cutting higher education funding forcing tuition increases
-- University town economic crisis as major employer closes
-- Generational shift away from college enrollment
-- Student debt forgiveness programs (or their failure)
-
 ### Cascading Effects
 - **Debt Crisis**: Trillions in student loans default, triggering financial system stress
 - **Regional Collapse**: College towns lose economic anchor, spiral into decline

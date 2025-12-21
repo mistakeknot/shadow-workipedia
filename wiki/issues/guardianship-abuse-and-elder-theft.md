@@ -34,17 +34,6 @@ The legal framework surrounding guardianship was designed for an era of informal
 **Social Inequality**: +11% (wealth transfer from vulnerable to industry)
 **Corruption Perception**: +13% (legal theft normalized)
 
-### Event Types
-
-**Guardianship Scandal**: High-profile case exposes systematic abuse patterns
-**Estate Looting Exposed**: Investigative journalism reveals guardian theft
-**Family Intervention Blocked**: Court denies family access to vulnerable elder
-**Unnecessary Institutionalization**: Guardian moves ward to maximize fees
-**Asset Liquidation**: Home and savings drained by guardianship costs
-**Reform Legislation Introduced**: State attempts guardianship oversight
-**Victim Dies in Isolation**: Elder dies separated from family by guardian
-**Guardian Criminal Prosecution**: Rare case where abuse leads to charges
-
 ### Cascading Effects
 
 Elder exploitation → Family bankruptcy (legal fees fighting guardianship) → Healthcare system burden (unnecessary institutionalization) → Inheritance loss (wealth transferred from families to industry) → Trust collapse (fear of aging and vulnerability) → Legal system delegitimization (courts seen as complicit)

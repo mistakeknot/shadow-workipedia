@@ -42,22 +42,6 @@ The "disintegration risk" is not theoretical. Scenario modeling suggests 15-25% 
 
 - **Security & Defense Integration**: Brexit's removal of UK from EU's Defense Fund and reduced NATO-EU coordination increased military spending divergence by 12-18 percentage points across members. NATO interoperability increased costs by 8-15% through duplicated systems and reduced standardization.
 
-**Event Types:**
-
-1. **Trade Friction Crisis**: A supply chain disruption (customs delays, tariff escalations, or regulatory divergence) triggers 15-25% price increases for key commodity or automotive sector. If sustained >6 months, triggers manufacturer relocation and reduces trade corridor strength by 25-40%. Cascade: if disruption affects >3 sectors simultaneously, triggers **supply-chain-disruption** event chain.
-
-2. **Northern Ireland Protocol Crisis**: UK-EU disputes over the protocol escalate to unilateral action (suspension of customs checks, unilateral treaty modifications). Triggers 10-15% probability of Good Friday Agreement destabilization. If escalates to cross-border economic sanctions, reduces Ireland-UK trade by 30-50% and triggers **nationalist-movements-surge** in Northern Ireland political dynamics.
-
-3. **EU Populist Government Ascendancy**: Anti-integration party gains control of major EU economy (Italy, Hungary, Poland, France secondary rank). New government pursues EU confrontation strategy, reduces EU cooperation by 20-30 percentage points, and increases probability of additional member defection by 15-25% within 18 months.
-
-4. **Regional Economic Collapse in Leave-Voting Area**: Unemployment in UK Midlands or industrial region exceeds 8%; real wages decline 5-8% below national average. Triggers 12-18 percentage point increase in local political extremism, radical electoral shifts, and potential demand for regional renegotiation with London authority. Similar dynamics in rural France, eastern Germany amplify anti-EU sentiment.
-
-5. **Eurozone Fragmentation Trigger**: Economic divergence between core eurozone (Germany, France) and periphery (Italy, Spain, Greece) exceeds critical threshold (interest rate spreads >200 basis points on 10-year bonds). Triggers existential euro-skepticism in affected countries, increases probability of euro exit proposals by 20-35%, and strengthens populist demands for currency sovereignty.
-
-6. **Youth Outmigration Peak**: Net migration of under-35 population from UK or EU country exceeds 3% annually for 2 consecutive years. Indicates structural economic weakness, triggers regional demographic collapse narratives, and amplifies populist messaging about national decline and "lost generations."
-
-7. **Scottish Independence or Irish Reunification Movement Surge**: Brexit creates precedent for sub-national exit. Scottish independence polling increases above 50% durably; Irish reunification polling (North and South combined) exceeds 45%. Each represents potential 10-20% reduction in UK/EU structural stability and triggers cascading sovereignty renegotiation demands from other regions.
-
 **Cascading Effects:**
 
 - Triggers **nationalist-movements-surge** when UK-EU trade friction exceeds 40% + Northern Ireland protocol disputes escalate

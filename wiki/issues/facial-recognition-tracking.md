@@ -48,15 +48,6 @@ The technology carries profound risks beyond privacy violations: algorithmic bia
 - **State Power**: Dramatically expanded through tracking capacity
 - **Social Trust**: Degraded by surveillance normalization
 
-### Event Types
-
-- **False Arrest Scandal**: Facial recognition error drives wrongful detention
-- **Authoritarian Crackdown**: Government uses tracking to suppress dissent
-- **Database Breach**: Biometric data exposed to criminals or foreign actors
-- **Bias Discrimination Lawsuit**: Minority groups challenge error rates
-- **Ban Victory**: Jurisdiction prohibits government facial recognition use
-- **Corporate Tracking Exposure**: Retailer surveillance practices revealed
-
 ### Cascading Effects
 
 Facial recognition deployment creates cascading consequences:

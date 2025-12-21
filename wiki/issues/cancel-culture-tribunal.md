@@ -31,15 +31,6 @@ Cancel culture represents a form of social mob justice conducted through social 
 - **Economic Productivity**: Decreases 0.4-1.2 points through distraction by crisis management, legal fees, lost talent to resignation waves, and institutional paralysis during cancellation cycles
 - **Rule of Law**: Erodes 0.5-1.5 points as mob judgment supersedes judicial process, creating shadow legal systems where social media algorithms become the supreme court
 
-**Event Types:**
-1. **Viral Pileup**: 48-hour coordinated campaign reaches 500K+ angry posts demanding someone's removal from office; media amplifies; institution caves to pressure within days (Social Cohesion -2, Institutional Trust -1.5, Public Concern +20)
-2. **Career Annihilation**: Previously unknown old tweet surfaces; algorithm surfaces it to 2M+ people; person receives death threats; employers distance; speaking engagements cancelled; rebuilding takes 3+ years if possible (Free Speech Sentiment -2, Economic Productivity -1, Innovation Capacity -0.8)
-3. **Chilling Effect Wave**: Series of disproportionate cancellations over minor infractions creates self-censorship cascade across institutions; public discourse becomes homogenized; dissenting voices go underground (Rule of Law -1.5, Social Cohesion -1.2, Innovation Capacity -1)
-4. **Institutional Capitulation**: CEO fires employee within hours to "preserve company values" without investigation; employees lose faith in due process; trust in institutional fairness collapses (Institutional Trust -2.5, Free Speech Sentiment -1.5)
-5. **Backlash Hardening**: Public reaction to perceived unfairness of cancellations polarizes population into "cancel culture warriors" vs "cancel culture victims"; both sides radicalize; moderate center disappears (Social Cohesion -2.5, Polarization Index +15)
-6. **Redemption Theatre**: Cancelled individual makes public apology, attends sensitivity training, donates to activist causes; reinstated after 6-12 months; cycle begins again with different person (Institutional Trust -1, cynicism metric +18)
-7. **Accountability Vacuum**: Powerful actors insulated by institutional position withstand cancel campaigns through legal threats and PR; lower-status individuals face annihilation for identical behavior; injustice paradox deepens (Social Cohesion -1.8, Free Speech Sentiment -1.2)
-
 **Cascading Effects:**
 - Triggers **Polarization Spiral** when cancel campaigns become partisan tools, with opposing factions weaponizing outrage to destroy ideological enemies rather than address underlying harms
 - Amplifies **Disinformation Plague** by creating incentive structures where unverified accusations spread faster than fact-checking, since the pile-on occurs before investigation

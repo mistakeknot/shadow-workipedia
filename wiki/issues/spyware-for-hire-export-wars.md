@@ -38,18 +38,6 @@ This creates cascading systemic threats. Journalists self-censor due to document
 
 - **Civil Society Documentation Capability (+1 to accountability pressure; -1 to regime operational security)**: Forensic analysis capacity of NGOs like Amnesty International, Access Now, and Citizen Lab creates delayed but cumulative reputational damage. Regimes adapt by using older versions or recruiting less-skilled operators to avoid detectable signatures.
 
-### Event Types
-
-- **Spyware Deployment Against Opposition Leader (15% annual probability)**: Government purchases new spyware license and immediately targets main opposition party leadership. Results: 40% odds operational security breach leads to international incident; 35% odds successful intelligence gathering destabilizes opposition campaign; 25% odds public revelation triggers sanctions threat.
-
-- **Journalist Targeting and Murder (8% annual probability)**: Spyware deployed against investigative journalist, enabling government actors to locate, monitor, and eventually eliminate target. Results: massive international outcry, press freedom indices collapse in region, 60% probability triggers sanctions discussion, other journalists flee country in 50% of cases.
-
-- **Civil Society Tool Proliferation (22% annual probability)**: Spyware source code leaks or is obtained through secondary market. Spreads to criminal organizations, corporate espionage networks, and militia groups. Results: civil liberties organizations lose operational security, 70% probability leads to corporate espionage escalation, democratic institutions in developed nations become vulnerable.
-
-- **Export Control Enforcement Action (12% annual probability)**: Democratic government imposes sanctions, revokes export licenses, or initiates criminal prosecution of spyware company executives. Results: 45% probability creates market disruption but also pressure on allied nations to circumvent controls; 40% probability triggers retaliatory targeting of that nation's journalists/activists by regimes; 30% probability strengthens global coalition for stronger controls.
-
-- **Commercial Spyware Auction at Dark Market (18% annual probability)**: Non-state actors acquire spyware capabilities through theft or broker sale. Results: criminal cartels gain sophisticated targeting capability, 65% probability leads to kidnapping/extortion of high-value targets, terrorism risk increases, law enforcement loses ability to correlate investigative activities.
-
 ### Cascading Effects
 
 - **Surveillance-Driven Opposition Collapse**: Spyware enables targeting of entire opposition political infrastructure. As opposition operatives are arrested or killed based on intercepted communications, party loses organizational capacity. In 40% of cases creates conditions for regime consolidation; in 20% creates reverse radicalization toward violence.

@@ -35,15 +35,6 @@ The stakes involve democratic survival and fundamental rights. When religious id
 - **Educational Quality**: -15 to -30 from religious curriculum mandates
 - **Women's Rights**: -20 to -35 with theology-based legal restrictions
 
-**Event Types:**
-1. **Christian Nation Declaration**: Federal/state legislation officially establishes Christian status, -45 Democracy, -40 Civil Liberties
-2. **Mandatory Religious Instruction**: Public schools required to teach Bible/Christian doctrine, -30 Church-State Separation
-3. **Religious Exemption Expansion**: Businesses can discriminate based on Christian beliefs, -35 Minority Rights
-4. **Theocratic Judicial Capture**: Supreme Court rulings privilege Christian nationalism, -40 Constitutional Governance
-5. **Secular Organization Persecution**: Non-religious/progressive groups lose tax status/face legal harassment, -30 Civil Liberties
-6. **Religious Test for Office**: Formal or informal requirements that officials be Christian, -50 Democracy
-7. **Violence as Spiritual Warfare**: Christian nationalist terrorism justified as religious duty, -45 Public Safety, trigger Extremism Crisis
-
 **Cascading Effects:**
 - Triggers **Abortion Access Restrictions** as theology-based bans enacted nationwide
 - Amplifies **Book Banning Campaigns** targeting secular/diverse perspectives in education

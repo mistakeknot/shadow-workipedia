@@ -36,16 +36,6 @@ The crisis disproportionately affects low-income women and women of color, who h
 
 - **Female Labor Force Participation**: Economic analysis indicates 0.8-1.2% reduction in female workforce participation in restrictive states due to unintended pregnancies and reduced access to family planning services.
 
-**Event Types:**
-
-1. **State Ban Enactment**: Trigger laws and new abortion bans eliminate access in a state, forcing immediate provider exodus and patient displacement. Cascade triggers if >5 states ban within 6 months: healthcare system stress intensifies, interstate migration accelerates.
-
-2. **Successful Ballot Initiative**: Voters in a state approve abortion access protections (occurred in Michigan, Ohio, Colorado, Nevada). Reverses local healthcare provider losses, increases access corridor capacity, and regionally de-escalates polarization by 2-3 percentage points.
-
-3. **Healthcare Provider Crisis**: Provider shortage exceeds critical threshold in restrictive region. Remaining clinics face 6-12 month wait times, forcing more patients into interstate travel, which triggers demand surge in neighboring states and increases complications from delayed care.
-
-4. **Interstate Enforcement Action**: One state attempts to prosecute women or providers from other states under "abortion trafficking" laws. Creates constitutional conflict, increases legal costs by $5-15 million annually for affected states, and triggers 8-12 percentage point increases in partisan healthcare polarization.
-
 **Cascading Effects:**
 
 - Triggers **global-healthcare-workforce-exodus** when provider shortages exceed 40% in region + patients delayed >3 months

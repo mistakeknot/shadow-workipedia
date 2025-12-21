@@ -64,44 +64,6 @@ Chronic underfunding compounds acute crises. Most jurisdictions maintain morgue 
   - Small funeral homes bankrupted by crisis costs, delayed payments
   - Corporate consolidators acquire distressed assets, raise prices
 
-### Event Types
-
-**Morgue Capacity Crisis**
-- Trigger: Death rate exceeds 150% of morgue capacity for >7 days
-- Immediate: Deploy refrigerated trucks, commandeer ice rinks
-- Secondary: Hospital EDs hold bodies, impacting patient care
-- Affects: PublicHealth -30, SocialStability -40, InfrastructureCapacity -50
-
-**Cremation Backlog Emergency**
-- Trigger: Cremation queue exceeds 14 days + high death rate sustained
-- Immediate: 24/7 crematorium operations, emergency permits for new facilities
-- Secondary: Air quality violations, community protests over emissions
-- Affects: Environment -25, PublicHealth -20, SocialStability -35
-
-**Funeral Home Consolidation Wave**
-- Trigger: >30% of local funeral homes financially distressed during/after crisis
-- Immediate: Corporate buyouts, service price increases 40-80%
-- Secondary: Rural areas lose local providers, cultural funeral traditions disrupted
-- Affects: Economy -25, SocialStability -30, CulturalCohesion -40
-
-**Mass Burial Site Activation**
-- Trigger: Combined morgue + cremation capacity <50% of death rate for >21 days
-- Immediate: Hart Island-style mass burial, temporary burial permits
-- Secondary: Permanent mass grave sites, future exhumation controversies
-- Affects: SocialStability -60, PublicHealth -35, PoliticalLegitimacy -45
-
-**Death Care Worker Shortage**
-- Trigger: >40% of morgue/funeral staff ill, quarantined, or resigned during crisis
-- Immediate: National Guard deployment, emergency licensing waivers
-- Secondary: Untrained workers cause dignity violations, processing errors
-- Affects: PublicHealth -30, SocialStability -50, WorkforceAvailability -40
-
-**Body Identification Backlog**
-- Trigger: Medical examiner capacity <60% of death investigation demand for >14 days
-- Immediate: Families cannot claim bodies, DNA backlogs extend months
-- Secondary: Insurance claim delays, estate settlements frozen, grief prolonged
-- Affects: SocialStability -45, LegalSystem -35, Economy -20
-
 ### Cascading Effects
 
 **To Healthcare System Collapse**: Morgue overflow forces hospitals to hold bodies in EDs, surgical suites, reducing treatment capacity during peak crisis demand.

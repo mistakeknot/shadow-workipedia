@@ -41,22 +41,6 @@ The consequences compound across generations. Criminal records reduce employment
 
 **Community Stability Index**: Strength of informal social institutions. 5%+ disenfranchisement = 20-30% reduction in civic participation (community organizations, school boards, neighborhood associations). Weakened informal social control accelerates decline.
 
-### Event Types
-
-1. **Disenfranchisement Expansion Policy**: Broadening felony definitions or extending disenfranchisement beyond release. Effects: +5-15% disenfranchised population, -8 Democratic Representation Quality, -12 Political Legitimacy, +5-10 Racial Inequality (if enforcement disproportionate). Long-term: reduced political resistance creates cascading expansion.
-
-2. **Mass Incarceration Surge**: War on drugs, mandatory minimums increase incarceration. +2-5 percentage points disenfranchised per 50K new incarcerations. Triggers: +15-20% radicalization risk, -15-20% civic participation, political alienation cascades.
-
-3. **Vote Restoration Movement**: Civil society campaigns for restoration. Outcomes depend on framing: "rehabilitation" = 45-55% support; "criminals regaining power" = 60-70% opposition. Success: +8-15 Rehabilitation Sentiment, +10-15 Political Legitimacy, +5-10 Democratic Representation. Failure reinforces voicelessness.
-
-4. **Concentrated Disenfranchisement Threshold**: Neighborhood reaches >10% disenfranchised (e.g., New Orleans pre-Katrina 11-13% for Black populations). Triggers: Political Legitimacy Collapse, -25-35% Community Stability, Representation Gap where officials ignore majority preferences. Risk: movements questioning democratic legitimacy.
-
-5. **Racial Justice Awakening**: Public awareness of racial disparities triggers moral reframing. State response determines outcome: equalization efforts gain legitimacy (-5-10 racial inequality); defending disparities deepens crisis (-15-25 political legitimacy, increased polarization).
-
-6. **Rehabilitation Sentiment Collapse**: High-profile crimes by released prisoners + political messaging shifts narrative to permanent exclusion. Results: +30-50% support for harsher policies, vote restoration campaigns fail, -15-25 Political Legitimacy.
-
-7. **Second Chances Reintegration Program**: Systematic vote restoration, expungement, employment/housing support. Success: +15-25 Rehabilitation Sentiment, +8-12 Community Stability, -5-8 Racial Inequality, -10-15% recidivism. Durability depends on sustained funding.
-
 ### Cascading Effects
 
 - **Triggers Racial Justice Reckoning (+150-250%)**: Visible disparities create pressure for equity reforms. Expanding disenfranchisement amplifies racial dimension, intensifying reckoning.

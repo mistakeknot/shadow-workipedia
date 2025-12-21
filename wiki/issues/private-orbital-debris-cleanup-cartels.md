@@ -36,22 +36,6 @@ Unlike nuclear weapons with clear deterrence frameworks, debris cartels operate 
 - **Telecommunications Service Reliability**: Declines 20-40 points in regions dependent on satellite Internet as debris damage forces constellation withdrawal; rural connectivity collapses
 - **Space Law Legitimacy**: Collapses 30-50 points as cartels enforce de facto orbital property rights without legal basis; UN Outer Space Treaty becomes advisory; legal chaos enables cartel coercion
 
-### Event Types
-
-**Cartel Formation**: Two or more debris removal companies merge or establish monopolistic control over critical orbital lanes. Surviving companies establish pricing tiers, access quotas, and exclusion mechanisms. Cartels announce "Service Area Maps" claiming exclusive cleanup rights with no legal basis but enforced through technical denial.
-
-**Satellite Operator Extortion**: Cartels demand "orbital access fees" from constellation operators. Operators refusing payment face deliberate neglect; collision risk spikes to 3-5x baseline; operators forced to abandon orbits or pay. Fees escalate 15-25% annually.
-
-**Deliberate Debris Creation**: Cartels deliberately create debris near competitor orbits by fragmenting inactive payloads or collisioning non-essential objects. Appears as "accidental collision"; competitors' constellations damaged; insurance pools collapse; operators forced to accept cartel terms.
-
-**Military-Cartel Alignment**: Major military powers establish preferential partnerships with dominant debris removal cartels. Military satellite operators receive priority cleanup access; rivals face delays and higher pricing. Dual-use technology (debris capture arms also effective at satellite capture/sabotage) militarizes debris removal infrastructure.
-
-**Polar Orbit Crisis**: Critical polar orbits for climate monitoring, communications, early warning systems, and surveillance become congested. Cartel controls removal capacity; charges extortionate fees or denies access. Nations lose real-time climate data; surveillance gaps create strategic instability; non-aligned nations cannot maintain independent polar constellations.
-
-**Cascading Denial-of-Service**: Cartels systematically deny debris removal to regions used by rival powers. Collision rate accelerates; secondary debris creates expanding danger; operators lose satellites; constellations fail; critical services collapse in geopolitically sensitive regions.
-
-**Space Law Breakdown**: Cartels enforce de facto orbital property claims with no international legal basis. Competing removal operators physically obstructed from "claimed" orbital regions. UN unable to establish dispute resolution; nations begin militarizing space to protect orbital access.
-
 ### Cascading Effects
 
 - Triggers **Kessler Syndrome Risk** when cartel-induced debris accumulation accelerates uncontrolled collision cascades; LEO becomes unusable for 20-50 years

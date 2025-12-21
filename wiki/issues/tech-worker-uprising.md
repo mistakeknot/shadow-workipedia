@@ -34,18 +34,6 @@ This uprising contains multiple fault lines: white-collar engineers organizing a
 - **Political Polarization**: Increases as tech labor becomes visible as a working-class constituency; splits traditional pro-business conservative positions from pro-capital libertarian ideology; energizes broader labor movement and cross-sector solidarity
 - **Engineering Brain Drain**: Accelerates as workers leave tech for non-tech industries, nonprofits, or independent work; creates recruitment crisis especially for "ethics" roles (AI safety, responsible AI) that require technical credibility but are first to be cut during contractions
 
-### Event Types
-
-1. **Major Tech Company Unionization Drive**: Google, Amazon, Apple, or Meta engineering/warehouse division initiates formal union certification campaign; triggers counter-mobilization by management (union-busting, aggressive messaging); results in dramatic vote showing 30-40% support, insufficient for certification but demonstrating latent organizing potential
-
-2. **Layoff-Triggered Mass Walkout**: Company announces layoffs; workers stage coordinated walkout over insufficient severance, lack of warning, or ethical concerns about deployed systems; creates cascading walkouts across other tech companies as solidarity spreads
-
-3. **Ethical Uprising Over Weapons/Surveillance**: Workers discover their labor is being used for government surveillance, military systems, or authoritarian regimes; trigger public petition, then escalate to sick-outs and work refusal; management forced to divest or rebrand projects
-
-4. **Cross-Sector Tech Labor Coalition**: Warehouse workers, engineers, moderators, and data annotators coordinate demands across companies; launch industry-wide strategy to exploit supply chain dependencies and interconnected systems; raises stakes and visibility
-
-5. **Tech Worker Strike Over Wages/Equity**: Organized group of engineers or specialists withhold labor demanding equity compensation reform, end of stock buyback programs, or across-the-board wage increases; even short strikes create disruptions in AI training or cloud infrastructure
-
 ### Cascading Effects
 
 - Triggers **Union Resurgence** as tech labor victories create organizational templates and demonstrate viability of workplace organizing in previously "unorganizable" sectors; revives union culture among younger workers and white-collar professions

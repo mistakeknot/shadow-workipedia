@@ -34,17 +34,6 @@ The human cost appears in stories of patients dying from insulin rationing, fami
 **Trust in Healthcare System**: -13% (anger over price gouging)
 **Government Healthcare Spending**: +15% (Medicare/Medicaid drug costs)
 
-### Event Types
-
-**Price Hike Scandal**: Drug price increased 500%+ overnight
-**Insulin Rationing Death**: Diabetic dies cutting doses to afford medication
-**Generic Competition Blocked**: Pay-for-delay scandal exposed
-**Drug Price Negotiation Proposed**: Legislative attempt to allow Medicare negotiation
-**Patent Abuse Revealed**: Minor changes extend monopoly decades
-**Pharma CEO Congressional Testimony**: Public anger over pricing
-**Drug Importation Scheme**: Desperate patients buy from Canada
-**Essential Medication Shortage**: Monopoly manufacturer cuts supply
-
 ### Cascading Effects
 
 Patent monopoly → No generic competition → Price gouging enabled → Patients ration medications → Health outcomes deteriorate → Healthcare costs surge → Insurance premiums rise → Political pressure builds → Reform attempts blocked by lobbying → Cycle continues

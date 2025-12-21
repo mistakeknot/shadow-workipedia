@@ -36,16 +36,6 @@ Civilization's dependence on space is near-total. GPS enables precision targetin
 
 - **Economic Dependence on Space Infrastructure** (0-100): The fraction of global economic activity enabled by satellites (communications, GPS-positioning, weather prediction, financial transactions). Low dependence (0-20) means economy functions partially without space. Medium dependence (40-60) causes 15-30% economic disruption per week of satellite loss. High dependence (80+) causes near-total economic collapse within days of losing critical satellite constellations. GDP damage scales as (Dependence × Satellite Loss Fraction)^1.5, creating non-linear catastrophic outcomes.
 
-### Event Types
-
-1. **Kinetic Orbital Attack**: A nation conducts an ASAT attack against an adversary's satellite. Clear attribution triggers immediate military crisis (+40 International Tension). Ambiguous attribution triggers panic and escalation spirals. Impact: $50B-$200B in direct economic losses, military command-and-control degradation 20-40%, ASAT Proliferation +8-12. May trigger conventional military escalation.
-
-2. **Debris-Triggered Cascade Event**: Collision generates 100-300 debris fragments. Space Debris Accumulation +15-25. Each subsequent collision has 3-7% higher probability per 10 points of debris accumulation. Impact: 1-3 additional collisions within 6-12 months. Satellite loss accelerates exponentially if cascade reaches critical density.
-
-3. **Space Domain Awareness Breakdown**: During crisis, nations' ability to track satellites and attribute attacks collapses. Space Domain Awareness drops 30-50 points. Nations cannot distinguish accidents from deliberate attacks. Escalation spirals as worst-case assumptions drive decisions. Increases probability of unintended escalation by 50-80%.
-
-4. **Kessler Syndrome Critical Threshold**: Space Debris Accumulation exceeds 75. Cascade collisions become self-perpetuating—each collision triggers 1-3 additional collisions within months. Orbital band unusable for 10-25 years. 50% of satellites in affected band destroyed within 2 years. Cannot be reversed, only managed through active debris removal.
-
 ### Cascading Effects
 
 - **Critical Infrastructure Vulnerability**: ASAT attacks disrupt GPS, communications, or weather satellites. Each satellite lost causes +8-15% infrastructure disruption.

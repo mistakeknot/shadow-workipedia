@@ -29,13 +29,6 @@ Criminal enterprises weaponize encryption to hold hospitals, cities, schools, an
 - **Cyber Insurance Premiums**: Explode +300-400% (2020-2022) when loss ratios exceed 100%, triggering coverage withdrawal cascades as major insurers like AXA and Lloyd's exit ransomware coverage
 - **Critical Infrastructure Vulnerability**: Increases as attackers preferentially target sectors with highest payment rates (hospitals 65%, cities 35%, enterprises 55%), creating feedback loop where willingness to pay drives more sophisticated attacks
 
-**Event Types:**
-1. **Hospital Chain Lockout**: Emergency department diversions cause 5-20 excess deaths per major attack; 560+ US hospital attacks (2016-2022) = ~5,600 cumulative deaths via delayed care, ambulance rerouting, and offline patient monitoring systems
-2. **City Government Paralysis**: Baltimore loses $18M recovering from $76k ransom demand (2019), freezing property sales, 911 systems, water billing for 3+ months while negotiations stall and political pressure to pay intensifies
-3. **Supply Chain Cascade**: Kaseya REvil attack (July 2021) exploits managed service provider software update to encrypt 1,500 downstream businesses simultaneously, demonstrating how single $70M ransom demand can paralyze entire industries
-4. **Cyber Insurance Market Collapse**: Loss ratios >100% sustained for 2+ years force premium increases (+92% Q4 2021, +74% Q1 2022), triggering coverage caps, retroactive exclusions, and market exits that leave organizations uninsurable
-5. **Nation-State Escalation**: US threatens kinetic retaliation against Russian data centers hosting REvil/Conti operations after Colonial Pipeline attack (May 2021) creates gas shortages for 50M people, crossing gray-zone threshold where criminal attacks blur into acts of war
-
 **Cascading Effects:**
 - Triggers **Critical Infrastructure Attacks** when ransomware gangs target the same SCADA/ICS vulnerabilities as nation-state actors, weaponizing hospitals, pipelines, and utilities with overlapping attack surfaces and shared exploitation timelines (EternalBlue patched March 2017 → WannaCry exploited May 2017, proving 60-365 day patch lag creates persistent attack windows)
 - Amplifies **State-Sponsored Hacking Epidemic** through tool leakage, as NSA's EternalBlue exploit stolen by Shadow Brokers enables WannaCry (300k computers, $4B damage), while Russian intelligence services provide safe haven for REvil/Conti gangs earning $100M+ annually in exchange for targeting Western infrastructure

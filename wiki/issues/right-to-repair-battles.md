@@ -35,16 +35,6 @@ The consequences cascade through economics, environment, and autonomy. Consumers
 - **Monopoly Power** (Manufacturers): +25 to +40
 - **Environmental Sustainability**: -20 to -35
 
-### Event Types
-- **Tractor Lockdown**: Farmers cannot repair equipment during harvest
-- **Medical Device Crisis**: Hospital forced to discard functional machines
-- **Smartphone Bricking**: Software update disables third-party repaired phones
-- **Right to Repair Victory**: State passes comprehensive repair law
-- **IP Lawsuit Wave**: Manufacturers sue repair shops under DMCA
-- **Repair Manual Leak**: Internal documents released to public
-- **Planned Obsolescence Scandal**: Intentional design failures exposed
-- **Manufacturer Monopoly Abuse**: Repair prices revealed as 80%+ markup
-
 ### Cascading Effects
 - Independent repair businesses close en masse
 - Consumer electronics replaced rather than fixed

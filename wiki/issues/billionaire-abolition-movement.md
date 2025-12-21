@@ -36,18 +36,6 @@ The movement encompasses grassroots activists, economists, labor unions, and pol
 
 - **Class Consciousness**: Movement growth accelerates polarization between working/middle class and ultra-wealthy, increasing class-conflict scores by 10-20 points and triggering labor radicalization events.
 
-**Event Types:**
-
-1. **Wealth Cap Legislation Passed**: A country enacts mandatory wealth caps (e.g., $1-5 billion maximum). Triggers capital flight, billionaire relocation, international tax treaty negotiations. Reduces political capture locally by 15-35% but sparks corporate lobbying counteroffensive.
-
-2. **Billionaire Flight Crisis**: Capital flight exceeds critical threshold (>40% of billionaire wealth exits in <12 months). Triggers labor market disruption, investment drought in domestic economy, and reduced tax revenue—offsetting gains from successful taxation.
-
-3. **Movement Mass Action**: Protests/strikes coordinated by abolition movement exceed 5 million participants globally. Forces political concessions (wealth tax proposals, regulatory investigations), increases public support by 12-18%, but risks violent state/billionaire-funded counteraction.
-
-4. **Billionaire Media Blitz**: Billionaire-owned media launches aggressive counter-campaign framing abolition as economic suicide. Reduces public support by 15-25%, increases political resistance, and fragments movement coalition.
-
-5. **Tax Haven Treaty Collapse**: International tax cooperation fails; countries compete to offer billionaire-friendly jurisdictions. Capital flight accelerates, tax revenue plummets 30-50%, and wealth inequality rebounds sharply.
-
 **Cascading Effects:**
 
 - Triggers **democratic-backsliding** when political capture exceeds 75%; billionaires fund authoritarian movements to preserve wealth

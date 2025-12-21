@@ -10,6 +10,7 @@ economicImpact: 84
 socialImpact: 81
 affectedSystems: [Agriculture, Biodiversity, Food Production, Ecosystem Services]
 connections: [global-pollinator-extinction-pulse]
+caseStudyOf: global-pollinator-extinction-pulse
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-25
@@ -45,20 +46,6 @@ No single cause can be addressed in isolation—pesticide bans without habitat r
 - **Pest Population** (0-100): Increases 150-300% as natural enemies (parasitoid wasps, predatory beetles) collapse with overall insect biomass. Creates feedback loop: pest explosion → increased pesticide use → accelerated pollinator extinction → worse pest explosion.
 
 - **Ecosystem Service Loss** (0-100): Accelerates non-linearly. 50% biomass loss = 40% service loss; 75% biomass loss = 85% service loss; below 20% biomass = 98% service loss. Includes pollination, pest control, nutrient cycling, and water filtration.
-
-**Event Types:**
-
-1. **Regional Pollination Crisis**: Pollinator biomass drops below 50% in agriculturally critical region, triggering 20-40% yield collapse in single growing season. Food prices spike +40-80%; governments declare agricultural emergency; trade restrictions follow.
-
-2. **Neonicotinoid Regulatory Trap**: Governments ban pesticides but lack alternative pest control infrastructure; pests explode; farmers demand emergency exemptions; pesticides return; pollinators re-collapse. Cycle repeats 2-4 times, each iteration deepening ecosystem damage.
-
-3. **Manual Pollination Impossibility**: Nation attempts hand-pollination for critical crop. Labor shortage acute; wage competition drives costs to $50-80/hour; cost per unit exceeds market value by 8-12x; project abandoned; production collapses.
-
-4. **Ecosystem Trophic Cascade**: Insect collapse triggers bird population crash 45-65% within 2-3 years. Remaining birds shift to granivory, eliminating seed production. Forest regeneration fails; carbon sequestration declines 30-50%.
-
-5. **Agricultural Monoculture Dual Crisis**: Regions maximizing yield efficiency face simultaneous pollinator collapse AND pest explosion as natural enemies collapse. No single mitigation works; diversification requires 10-15 year transition.
-
-6. **Crop Specialization Collapse**: Regions dependent on single pollinator-dependent crop (almonds California: 80% global supply; vanilla Madagascar: 99% global supply) face 70-95% production collapse as pollinator biomass falls below 40%.
 
 **Cascading Effects:**
 

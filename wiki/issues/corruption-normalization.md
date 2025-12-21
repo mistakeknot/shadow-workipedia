@@ -12,7 +12,8 @@ affectedSystems: [Government, Legal Systems, Economic Systems, Democratic Instit
 connections: []
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash']
-lastUpdated: 2025-11-24
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Corruption Normalization
@@ -24,6 +25,8 @@ Corruption Normalization is the systematic erosion of institutional accountabili
 The process operates through several interlocking mechanisms: elite capture of regulatory bodies, selective enforcement of laws (criminality reserved for political opponents while powerful actors face immunity), normalization of nepotism and patronage networks, institutionalization of informal power structures alongside formal government, and wholesale elimination of institutional checks (inspector generals fired, legislative oversight committees neutered, judicial independence compromised). What distinguishes normalization from occasional corruption is institutional-level persistence: corruption becomes embedded in organizational culture, expected by participants, and self-perpetuating through institutional incentives.
 
 The cascading effect is devastating: once corruption becomes systemic and normalized, the cost of reversing it becomes catastrophic. Reestablishing accountability requires simultaneously dismantling entrenched power networks, prosecuting compromised officials, reconstructing rule-of-law institutions, and restoring public trust—a multi-decade challenge even in wealthy nations with strong democratic institutions. For weaker states and developing economies, corruption normalization often becomes a one-way ratchet, advancing toward kleptocracy (government-by-theft) with no obvious reversal mechanism short of state collapse and reconstruction.
+
+Leader and office-holder references in examples should be interpreted as of `factualAsOf` in the article frontmatter.
 
 ## Game Mechanics
 
@@ -42,24 +45,6 @@ The cascading effect is devastating: once corruption becomes systemic and normal
 **Regulatory Selectivity Index**: Measures disparity in law enforcement: are laws enforced equally or selectively? Perfect equality: same laws apply to all. Selective: political opponents face aggressive prosecution; regime allies face no enforcement. As normalization progresses: selectivity increases from 1.5x enforcement disparity (early corruption) to 5-10x+ (advanced normalization: opposition figures prosecuted for violations that pass unpunished for regime allies). This creates two-tier legal system.
 
 **Informal Power Structure Parallel**: Measures extent to which real decisions occur outside formal government institutions. Baseline: 10-20% of power exercised informally. As normalization progresses: 40-60% of decisions made in informal oligarch councils, backroom deals, family meetings rather than formal government. This creates parallel government structure that actual government must serve.
-
-### Event Types
-
-1. **Corruption Revelation & Selective Justice**: Major corruption case exposed (embezzlement, bribery, nepotistic contract award). If accountability intact (>50% accountability index): case triggers investigation, prosecution, conviction; consequences: official removal, reputational damage, minor trust decline (-3-5%). If accountability weak (<30%): case investigated but charges dropped; prosecutor reassigned; investigation files disappear; consequences: public outrage, trust decline (-10-15%), radicalization risk (+10-15% for anti-establishment movements), sets precedent that elite corruption faces no consequences.
-
-2. **Institutional Purge Event**: Government dismisses/removes accountability-focused officials (inspector generals, prosecutors, judges pursuing corruption cases). Immediate impact: cases dropped, investigations halted, corrupt networks emboldened. Triggers: judicial independence decline (-15-25%), public trust decline (-20-30%), elite enrichment rate increase (+30-50% as corrupt actors accelerate looting pre-consequence period). Can trigger: opposition mobilization, protest movements, international sanctions risk.
-
-3. **Two-Tier Justice Threshold**: System reaches point where enforcement disparity becomes undeniable (opposition figures face prosecution; regime allies face immunity for identical violations). Triggers institutional-level legitimacy crisis: courts seen as political tools rather than impartial institutions; legal system loses deterrent effect (corrupt actors see justice as political risk, not legal risk). Consequences: public trust decline (-40-60%), institutional effectiveness decline (-30-40%), elite embezzlement acceleration (+50-100% as actors exploit perceived immunity).
-
-4. **Patronage Saturation Event**: Government positions become predominantly filled through connection networks rather than merit. Triggers: administrative competence decline (-20-40% as incompetent appointees make poor decisions), corruption acceleration (+40-80% as patronage networks prioritize mutual enrichment over institutional mission), institutional atrophy (procedures not followed, best practices ignored, organizational learning blocked).
-
-5. **Public Trust Collapse**: Public trust falls below 30% (majority believes government is criminal enterprise serving elites). Triggers: reduced tax compliance (-10-20% voluntary compliance, shift to informal economy), reduced rule-of-law cooperation (citizens see formal legal system as corrupt, turn to alternatives), political radicalization (+20-30%), potential mass protest movements or secessionist movements, government faces delegitimization crisis.
-
-6. **Regulatory Capture Complete**: Agencies tasked with regulating industries become captured (staff hired from/returning to regulated industries; agency budgets depend on regulated actors). Triggers: regulatory effectiveness near-zero (industries enforce own "regulations"), corruption acceleration in regulated sectors (+100-200%), public safety risks (environmental, financial, consumer safety regulations ignored).
-
-7. **Parallel Government Institutionalization**: Informal power structures become more powerful/stable than formal government; oligarch councils/family networks make actual decisions; formal government becomes facade. Triggers: formal government effectiveness decline (-40-60% as decisions made elsewhere), institutional disintegration (formal procedures increasingly ignored), elite enrichment acceleration (+100%+ as power concentrated among smaller oligarch group).
-
-8. **International Sanctions/Accountability Pressure**: External actors (other governments, international courts, sanctions regimes) respond to corruption normalization. Can reduce: elite enrichment capacity (-20-40% as international financial access restricted), but can also trigger: regime consolidation (closing borders to capital flight, accelerating domestic financial extraction), public resentment toward external pressure (strengthening regime support among nationalist populations).
 
 ### Cascading Effects
 
@@ -207,5 +192,10 @@ The cascading effect is devastating: once corruption becomes systemic and normal
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-24
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/corruption-normalization.md)
+
+## Sources
+
+[^ti-cpi]: Transparency International, “Corruption Perceptions Index” (methodology and country index). Accessed 2025-12-19. https://www.transparency.org/en/cpi
+[^wgi]: World Bank, “Worldwide Governance Indicators (WGI)” (rule of law / control of corruption indicators). Accessed 2025-12-19. https://info.worldbank.org/governance/wgi/

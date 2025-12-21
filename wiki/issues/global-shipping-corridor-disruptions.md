@@ -39,18 +39,6 @@ As of 2025, the systemic risk is amplified by structural vulnerability: the conc
 
 - **Regional Supply Chain Resilience**: Economies dependent on specific corridors experience disproportionate effects. East Asian exporters (15-30% of trade via Suez), Latin American economies (20-35% of trade via Panama), Middle Eastern energy exporters (40-60% via Strait of Hormuz), and Mediterranean importers (70%+ via Suez) face supply shocks that trigger inventory depletion within 4-8 weeks and manufacturing slowdown within 6-12 weeks.
 
-**Event Types:**
-
-1. **Geopolitical Corridor Closure**: Military conflict, terrorism, or state action closes a major corridor temporarily (4-16 weeks). Suez closure adds 18-25% to Europe-Asia routing; complete closure triggers 15-25% trade reduction. Cascades if closure >8 weeks: insurance costs increase permanently, shipping companies invest in alternative routes, and normalized trade flow doesn't recover for 6-12 months post-reopening due to route inertia.
-
-2. **Infrastructure Degradation Cascade**: Environmental stress (drought affecting Panama Canal water levels, sea-level rise affecting port access, extreme weather damaging port infrastructure) permanently reduces chokepoint capacity by 15-35%. Panama Canal water level drops trigger phased lane closures affecting 3-8 million TEU annually; cannot be reversed by events (represents structural vulnerability). Triggers broader logistics cost index increases as rerouting becomes permanent necessity.
-
-3. **Piracy/Hybrid Threat Escalation**: Non-state actors or insurgent groups conduct coordinated attacks on shipping corridor, requiring convoy operations, insurance increases, and rerouting of vulnerable cargo. Attacks on 5+ vessels within 4 weeks trigger 12-18% corridor cost surcharge and 25-40% shipper avoidance of corridor; insurance premiums increase 200-400% for affected route. De-escalates when >2 weeks without major incidents.
-
-4. **Supply Chain Bottleneck Breach**: Port queue times exceed critical threshold (>100 days to berth, or >50% capacity utilization 30+ days consecutively), triggering inventory depletion in dependent regions. Cascades into manufacturing shutdowns within 4-8 weeks, labor disruptions in port cities, and demand destruction in sectors dependent on timely supply (automotive, electronics, pharmaceuticals). Can trigger simultaneous crises if >2 major ports affected.
-
-5. **Shipping Cost Shock Transmission**: Cumulative corridor disruptions drive shipping costs above historical peak plus 50% (i.e., >$10,000 per container on affected routes vs. historical $2,000-4,000). At this threshold, low-margin commodity trades become uneconomical; suppliers and retailers absorb costs or reduce volumes. Triggers 5-15% increases in import-price inflation within 8-12 weeks.
-
 **Cascading Effects:**
 
 - Triggers **just-in-time-supply-chain-collapse** intensification when >2 chokepoints experience disruption simultaneously or shipping costs exceed $8,000/container

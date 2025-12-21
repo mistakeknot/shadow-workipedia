@@ -39,18 +39,6 @@ The public health impact is substantial. Studies indicate that 40-65% of women v
 
 - **Religious/Ideological Influence on Healthcare**: 75-85% of CPCs explicitly operate under religious ideological frameworks while claiming secular medical authority. This creates 3-4 percentage point increases in faith-based healthcare policies at state level, conflating religious beliefs with medical evidence.
 
-**Event Types:**
-
-1. **CPC Deceptive Marketing Escalation**: State experiences coordinated CPC marketing surge using clinic-mimic identities (similar names, medical aesthetics). Consequence: 2,500-4,500 additional women diverted from medical care annually per state. Cascade triggers if CPC-to-clinic ratio exceeds 4:1: healthcare system information pathways become unreliable, prompting 3-6 month investigations by state medical boards with limited enforcement authority.
-
-2. **Ultrasound-Delay Tactic Adoption**: CPC network begins performing ultrasounds without clinical protocols, explicitly to delay abortion decisions past state gestational limits. Effect: 15-25% of patients experience procedural time extension beyond desired gestational age. Triggers healthcare system stress event if >2,000 patients delayed per quarter in state.
-
-3. **Misinformation Campaign Amplification**: CPCs partner with social media networks to distribute breast cancer/infertility falsehoods at scale. Measurable outcome: 35-50% of women surveyed cannot distinguish CPC claims from medical consensus. Amplifies healthcare-misinformation crisis by 18-25%.
-
-4. **Regulatory Capture Attempt**: State CPC network funds legislators to prevent CPC regulation or mandate informed consent disclosures. If successful: CPCs gain legal immunity from false advertising laws, misinformation scaling increases 40-60%, and women's healthcare autonomy declines 10-15% measurably.
-
-5. **Healthcare Provider Coordination Crisis**: Legitimate clinics discover CPC network has systematized patient theft through deceptive referral arrangements. Remaining reproductive healthcare providers withdraw from regions with >10:1 CPC-to-clinic ratios due to patient poaching and reputational damage.
-
 **Cascading Effects:**
 
 - Triggers **healthcare-misinformation** amplification by 20-35% through coordinated false claims about abortion risks, contraception, and STI transmission

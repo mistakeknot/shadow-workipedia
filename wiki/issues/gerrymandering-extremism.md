@@ -39,18 +39,6 @@ The political consequences cascade throughout the system. Primary elections in s
 
 - **Minority Political Power**: Gerrymandering systematically reduces minority political power by 15-35%, particularly for African American and Latino voters whose neighborhoods are deliberately fragmented through cracking or concentrated through packing.
 
-**Event Types:**
-
-1. **Map Enactment (Post-Redistricting)**: Following decennial census, a state legislature enacts an extreme gerrymander that creates safe seats and eliminates competitive districts. Immediately increases polarization by 8-12 points and reduces electoral accountability by 40%. Triggers cascading effects to democratic-backsliding. If >8 states enact extreme gerrymanders simultaneously: national legislative dysfunction reaches critical threshold, triggering 2-3 year gridlock period.
-
-2. **Court Challenge and Reversal**: State or federal court strikes down gerrymander as unconstitutional on partisan gerrymandering grounds (occurs 15-25% of time across judicial contexts). Creates interim competitive map, temporarily reduces polarization by 6-9 points, increases election competitiveness by 25-40%. Triggers defensive legislation in gerrymandered-advantaged party to pass new partisan maps.
-
-3. **Extreme Primary Victory**: In gerrymandered safe seat, an extreme primary candidate defeats moderate incumbent through ideological purity challenge. Candidate shows 15-20 point increases in partisan voting, reduces bipartisan collaboration, amplifies legislative polarization. If cascades to >15 seats per cycle: institutional dysfunction reaches critical level, legislative effectiveness declines 30-40%.
-
-4. **Voting Rights Act Provision Application**: Section 2 of the Voting Rights Act is invoked to challenge maps that dilute minority voting power through cracking/packing. Creates legal obligation to redraw districts, temporarily increasing minority political representation by 12-18%. Triggers partisan conflict over remedial maps, often resulting in extended litigation consuming state resources.
-
-5. **Independent Redistricting Commission Establishment**: State voters or legislature authorize independent commission to draw maps outside partisan control. Reduces extreme partisan skew by 40-60%, increases electoral competitiveness to near-parity levels, reduces polarization by 8-15 points. Amplifies democratic legitimacy by 20-30%.
-
 **Cascading Effects:**
 
 - Triggers **democratic-backsliding** by 18-28% through elimination of electoral accountability and normalization of predetermined outcomes

@@ -35,18 +35,6 @@ Autonomous weapons systems—military platforms that can select and engage targe
 
 - **International Humanitarian Law Integrity**: Autonomous weapons challenge fundamental principles of proportionality and distinction. Widespread deployment erodes respect for IHL and enables norm-violating actors to justify similar violations.
 
-**Event Types:**
-
-1. **Autonomous Strike Incident**: A deployed autonomous weapon system causes significant unintended casualties or targets protected persons (hospitals, schools, religious sites). This event triggers international outrage, humanitarian investigations, and diplomatic crises.
-
-2. **Killer Robot Ban Treaty**: Nations negotiate a partial or comprehensive ban on autonomous weapons. Effectiveness depends on verification mechanisms and participation from major military powers—incomplete treaties increase arms race pressures.
-
-3. **AI Weapons Race Escalation**: A major power announces breakthrough in autonomous targeting AI. Competing nations accelerate their own programs, leading to reduced testing standards and increased risk of deployment errors.
-
-4. **Accountability Crisis**: A military operation using autonomous weapons results in mass civilian deaths. Courts and international bodies struggle to assign responsibility, creating precedent that future operators can evade accountability.
-
-5. **Non-State Actor Acquisition**: Terrorist groups, regional militias, or rogue state proxies obtain autonomous or semi-autonomous weapons. This diffuses the technology beyond international oversight and increases risk of unpredictable deployments.
-
 **Cascading Effects:**
 
 - Triggers **Great Power Rivalry Redux** when autonomous weapons development becomes a prestige measure and strategic advantage indicator

@@ -33,16 +33,6 @@ The Atlantic Meridional Overturning Circulation (AMOC)—the ocean conveyor belt
 - **Energy Demand**: European heating demand increases 40–60% (offset partly by reduced cooling demand in southern regions)
 - **International Tensions**: Rise 3–7 points as European agricultural collapse drives migration and commodity shortages
 
-**Event Types:**
-1. **Greenland Melt Acceleration**: Summer temperatures in Greenland cross 18–22°C threshold; ice sheet melting accelerates to 500–1000 Gt/year (vs. 280 Gt/year baseline); freshwater pulse reaches North Atlantic within 2–3 years
-2. **AMOC Weakening Cascade**: AMOC strength drops 20–30% within 5–8 years; Gulf Stream slows visibly; ocean heat transport collapses
-3. **European Cooling Paradox Onset**: Europe experiences -3°C to -5°C temperature drop despite global warming; public confusion and climate denial spike; political backlash against climate action
-4. **North Atlantic Fisheries Collapse**: Atlantic cod, herring, and deep-sea species migrate or die as upwelling zones shift; fishing industry in Iceland, Norway, Ireland loses 60%+ of catches; coastal economies collapse
-5. **UK/Scandinavian Agricultural Crisis**: Growing seasons shorten 3–4 weeks; grain yields fall 30–50%; previously marginal lands become unsuitable; food imports surge
-6. **Atlantic Methane Release Event**: Destabilized methane hydrates in shallow shelf regions release 10–50 Gt of methane (equivalent to 5–25 years of industrial emissions) in 2–5 years; rapid warming spike
-7. **Transatlantic Supply Chain Disruption**: Weakened Gulf Stream disrupts weather patterns over Atlantic shipping lanes; increased storm severity, fog, and ice accumulation raise transport costs 40–80%
-8. **European Energy Crisis**: Winter heating demand surges; combined with agricultural collapse and trade disruption, energy prices spike 2–3x; energy poverty affects 100+ million
-
 **Cascading Effects:**
 - Triggers **European Climate Destabilization** as UK and Scandinavia cool while Mediterranean desertifies simultaneously
 - Amplifies **Agricultural Collapse** by 50–80% in grain-belt regions (UK, Poland, Ukraine, northern France)

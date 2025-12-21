@@ -11,7 +11,8 @@ socialImpact: 92
 affectedSystems: [Religious Communities, Government, International Relations, Human Rights]
 connections: [modi-hindu-nationalism-and-bjp-dominance, myanmar-coup-and-rohingya-genocide]
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-25
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Muslim Persecution and Communal Violence
@@ -34,28 +35,12 @@ The global convergence of right-wing nationalism, majoritarian democracy capture
 - **Regional Stability (0-100)**: Destabilizes with each million-person displacement; refugee-saturated countries face economic strain and political instability
 - **Radicalization & Extremism (0-100)**: Increases 30-60 points during major persecution campaigns; young Muslims witnessing state violence become recruitment base for armed groups
 
-**Event Types:**
-
-1. **Communal Pogrom**: Organized mobs attack Muslim neighborhoods over 1-7 days; 100s-1,000s killed; perpetrated by vigilante groups with security force complicity. Gujarat 2002 (1,000-2,000 killed), Mumbai 1992-93 (900+ killed). When state provides tacit support, death tolls scale to 5,000-10,000.
-
-2. **Discriminatory Legal Framework**: Laws specifically targeting Muslims—citizenship stripping (India's CAA), residence bans (Kashmir lockdown), religious practice restrictions. Establishes legal preconditions for violence by signaling Muslims are enemies of the state.
-
-3. **Mass Displacement**: Coordinated violence forces population flight—700,000+ Rohingya to Bangladesh (2017-present), 1-3 million Uyghurs in detention camps (China). Creates regional refugee crises and may continue until religious homogeneity achieved.
-
-4. **Detention Complex**: Mass imprisonment at scale—China's 1-3 million Uyghurs in "re-education camps," preventive detention without trial. Disrupts families economically, creates psychological trauma, increases radicalization.
-
-5. **Cultural Erasure**: Systematic suppression of Islamic practice—China bans Qur'an memorization, India restricts mosque construction. Creates cultural trauma and prevents religious transmission across generations.
-
-6. **Refugee-Driven Regional Instability**: 1-5 million displaced Muslims create humanitarian crises; receiving countries face economic strain, disease, extremism recruitment in camps.
-
-7. **International Intervention Failure**: UN documentation without enforcement; economic sanctions ineffective against authoritarian regimes; establishes that genocide can proceed without serious cost.
-
 **Cascading Effects:**
 - Triggers **Rising Global Islamophobia** as news of Asian persecution reaches Western audiences; counterintuitively energizes Islamophobic movements claiming civilizational threat
 - Amplifies **Refugee Crises** as ethnic cleansing creates millions of displaced; neighboring countries (Bangladesh, Pakistan, Turkey) reach saturation, close borders
 - Triggers **Radicalization** as youth witnessing state violence join ISIS, Al-Qaeda; creates 10-30 year tail of terrorism
 - Reinforces **Democratic Backsliding** when elected governments consolidate power by scapegoating minorities; successful persecution of Muslims creates template for targeting others
-- Destabilizes **International Relations** as Muslim-majority countries demand action; China/Russia protect perpetrators at UN Security Council
+- Destabilizes **International Relations** as Muslim-majority countries demand action; international responses are often constrained by great-power politics and limited enforcement capacity
 
 ## Warning Signs
 
@@ -76,7 +61,7 @@ The global convergence of right-wing nationalism, majoritarian democracy capture
 ## Historical Context
 
 **Myanmar Rohingya Genocide (2017-present):**
-Military "clearance operations" in Rakhine State displaced 700,000+ Rohingya to Bangladesh in single wave. Total 1.7 million displaced. Army used artillery and aerial bombardment against civilians. Bangladesh refugee camps now hold 900,000+; conditions deteriorating. ICC indictments issued but Myanmar junta protected by China/Russia veto at UN.
+Military "clearance operations" in Rakhine State displaced 700,000+ Rohingya to Bangladesh in single wave. Total 1.7 million displaced. Bangladesh hosts over 1 million Rohingya refugees (registered), and conditions have deteriorated.[^rohingya_unhcr] The ICC opened an investigation in 2019; in 2024 the Prosecutor requested an arrest warrant for Min Aung Hlaing, illustrating accountability efforts amid enforcement constraints.[^icc_rohingya_warrant_request_2024]
 
 **China Uyghur Detention (2017-present):**
 1-3 million Uyghurs detained in "re-education camps." Forced labor, sterilization programs, Qur'an ban, Uyghur language instruction prohibited. Entire Xinjiang region under mass surveillance. Birth rates collapsed 30-50%. International sanctions imposed but China uses economic leverage to prevent coordinated enforcement. Goal: demographic replacement making Uyghurs minority in own region within 20 years.
@@ -95,7 +80,13 @@ Western democracies see 50-100% increases in anti-Muslim hate crimes. Right-wing
 
 **International Relations**: Creates religious/civilizational blocs. Refugee crises destabilize neighbors; border tensions increase. UN Security Council permanent members (China, Russia) protect perpetrators. Diaspora communities become flashpoints; countries with large Muslim populations demand action but fail to force enforcement.
 
-**Human Rights & Accountability**: ICC indictments become symbolic without enforcement. Perpetrators never face justice; victims never receive restitution. Survivor populations develop intergenerational trauma; PTSD, depression, suicide rates spike.
+**Human Rights & Accountability**: ICC investigations and warrants can be slow to translate into accountability without arrests. Perpetrators often evade justice; victims rarely receive restitution. Survivor populations develop intergenerational trauma; PTSD, depression, suicide rates spike.
+
+## Sources
+
+[^rohingya_unhcr]: https://www.unhcr.org/us/emergencies/rohingya-emergency
+[^icc_rohingya_warrant_request_2024]: https://www.icc-cpi.int/news/icc-prosecutor-karim-aa-khan-kc-requests-arrest-warrant-min-aung-hlaing-alleged
+[^ohchr_xinjiang_2022_pdf]: https://www.ohchr.org/sites/default/files/documents/countries/2022-08-31/22-08-31-final-assesment.pdf
 
 **Refugee Systems**: Receiving countries reach saturation; camps become indefinite; humanitarian conditions collapse. Border enforcement militarizes; sea routes patrolled. Economic burden destabilizes governance; anti-refugee movements gain power.
 
@@ -104,5 +95,5 @@ Western democracies see 50-100% increases in anti-Muslim hate crimes. Right-wing
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-25
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/muslim-persecution-and-communal-violence.md)

@@ -41,20 +41,6 @@ The disability cascades compound systemic vulnerabilities. Workers losing employ
 
 - **Social Stability**: Decreases as despair deepens among young to middle-aged cohorts forced into permanent disability. Suicide rates among disabled workers increase 2.5-3.5x in severe Long COVID regions.
 
-**Event Types:**
-
-1. **Mass Workforce Exit**: A sector experiences 5%+ employment loss within 6-12 months due to Long COVID-related departures. Healthcare systems declare workforce emergencies; wages spike for remaining workers, but quality of care deteriorates. If impact exceeds 8%: cascades into Healthcare System Strain and service closure threats.
-
-2. **Disability Claims Tsunami**: State disability insurance fund receives unprecedented application volume (3-5x baseline). Processing backlogs exceed 18 months; applicants exhaust savings waiting for benefits determination. Creates homelessness spike and secondary health crises.
-
-3. **Sector Staffing Collapse**: Critical sector (education, healthcare, transportation) falls below minimum viable staffing. Schools close, hospitals reduce operating capacity, transit service interruptions. Cascades into Pandemic Aftermath amplification.
-
-4. **Long COVID Discrimination Wave**: Employers implement hiring discrimination against Long COVID survivors and anyone with "post-viral syndrome" history. Legal challenges mount; disability accommodations are systematically denied. Creates secondary economic collapse for affected cohorts.
-
-5. **Disability Insurance Insolvency Crisis**: State workers' compensation or SSDI fund reaches bankruptcy threshold. Federal intervention required; massive cost-shifting to state budgets. Cuts to other programs inevitable; creates political crisis.
-
-6. **Labor Shortage Wage Spiral**: Employer competition for remaining healthy workers drives wage inflation (8-15% annually) in affected sectors. Cost pressures trigger service price inflation and employer bankruptcies. Inflation cascades to broader economy.
-
 **Cascading Effects:**
 
 - Triggers **Healthcare System Strain** when provider disability exceeds 12% of workforce in a region, reducing system capacity exactly when Long COVID patients need most care

@@ -36,15 +36,6 @@ Political divisions deepen the impasse: the United States banned federal funding
 - **Institutional Accountability**: Declines as oversight bodies face conflicting mandates (advance research vs. prevent misuse); regulatory capture by industry accelerates decline by 1.5–2x
 - **Public Health Funding**: Becomes contested; redirects from pandemic preparedness to damage control when GOF incidents occur; efficiency drops 20–40%
 
-**Event Types:**
-1. **Dual-Use Publication**: A prestigious journal publishes GOF methodology or enhanced pathogen sequence data; triggers international protests, journal retraction or self-censorship agreements, and nation-state intelligence collection
-2. **Regulatory Reclassification**: A government agency redefines what counts as "gain-of-function" to permit previously banned research; appears as regulatory victory to researchers but erodes public trust by 10–20 points
-3. **Funding Loophole Exploitation**: Scientists route GOF research through commercial biotech firms, foreign universities, or military labs to circumvent civilian oversight; risk increases as regulatory capture deepens
-4. **Lab Accident (Minor)**: Contained breach of an enhanced pathogen in a research facility; investigation reveals inadequate biosafety protocols; triggers international incident and temporary research moratoriums
-5. **Whistleblower Revelation**: An inside researcher or administrator exposes undisclosed GOF programs, hidden funding streams, or safety violations; creates media firestorm and demands for oversight overhaul
-6. **Nation-State Weaponization**: Intelligence agencies discover hostile nation conducting unsanctioned GOF research for bioweapon development; military escalation and biological arms race dynamics begin
-7. **Convergence of Controversy and Accident**: Major GOF controversy (e.g., debate over moratorium) coincides with a real or suspected lab leak; creates perfect information environment for blame-shifting and geopolitical conflict
-
 **Cascading Effects:**
 - Triggers **Lab-Leak Controversy** when GOF research becomes public or accident occurs; blame-shifting paralyzes investigation
 - Amplifies **Pandemic Preparedness** credibility crisis when GOF methods prove essential for vaccine design but are politically unavailable

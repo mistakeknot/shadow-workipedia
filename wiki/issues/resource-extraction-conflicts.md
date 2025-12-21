@@ -34,14 +34,6 @@ This crisis is accelerating as global energy transitions and technological advan
 - **Community Consultation** (0-100): Below 50, extraction projects proceed without meaningful indigenous consent; this drives resistance movements that escalate to armed conflict with 19% probability annually.
 - **Extractive Industry Revenue Dependency** (0-100): Values above 65 create structural vulnerability where governments prioritize extraction over regulation; increases corruption by 24 points and reduces willingness to enforce environmental protections.
 
-### Event Types
-
-- **Forced Displacement Event** (8% annual probability, increased by low indigenous rights): 5,000-50,000 individuals forcibly relocated; generates 40-point indigenous grievance surge, 35% increase in local conflict probability, 60-point reputation damage for government.
-- **Community Resistance Escalation** (12% annual probability): Peaceful protests transform into armed resistance; causes $2-8B economic disruption, 30% reduction in extraction efficiency, potential international attention and sanctions.
-- **Environmental Catastrophe** (6% annual probability, accelerated by low enforcement): Tailings dam failure, water table contamination, or deforestation reaches critical mass; causes 80-point environmental damage, 50,000+ displacement, 15-year remediation timeline.
-- **Activist Assassination** (7% annual probability in high-conflict zones): Murder of environmental or indigenous leader; generates international condemnation (-50 diplomatic relations), 90-point local grievance spike, potential criminal investigation and corporate liability.
-- **Supply Chain Exposure** (10% annual probability): International investigation reveals labor abuses, human trafficking, or conflict minerals in supply chain; causes 60-point corporate reputation damage, consumer boycotts (-$500M-2B revenue), potential legal sanctions.
-
 ### Cascading Effects
 
 - **Extraction triggering indigenous mobilization**: Resource project approval → indigenous rights reduction (15 points) → cultural identity threats → regional conflict escalation (+18% likelihood) → destabilization spreading to adjacent regions (contagion radius ~300km).

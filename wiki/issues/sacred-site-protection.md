@@ -40,18 +40,6 @@ The amplifying cycle proves particularly damaging: development threatens sacred 
 
 **Economic Pressure to Develop** (-20 to -40 sacred site protection): Mining profits, energy sector lobbying, infrastructure construction timelines, and development-dependent government budgets create powerful incentives to override cultural protection. Each doubling of commodity prices typically reduces protection by 8-12 points.
 
-### Event Types
-
-**Development Threat (35% probability)**: Mining company, pipeline operator, dam builder, or highway planner proposes project that would directly impact known sacred site. Triggers: Economic upswing, resource scarcity, infrastructure urgency. Effects: Immediate protection crisis, community mobilization begins, national/international media attention likely.
-
-**Desecration & Destruction (12% probability)**: Project proceeds without consent or despite legal protection—sacred structures damaged, burial sites disturbed, ceremonial grounds contaminated. Triggers: Weak enforcement, corruption, enforcement agency insufficiently resourced. Effects: Immediate cultural trauma, legal battles, international incident, spiritual/psychological harm lasting years, knowledge loss if elders pass before transmission.
-
-**Legal/Political Victory (18% probability)**: Court rules in favor of protection, government agency enforces existing law, corporation withdraws under pressure. Triggers: Strong legal case, international attention, political vulnerability, organized resistance. Effects: Temporary respite (5-15 years usually), strengthens legal precedent, boosts indigenous sovereignty momentum, but underlying threats remain.
-
-**Cultural Transmission Disruption (22% probability)**: Sacred ceremonies cannot occur due to access restrictions or spiritual contamination; younger generations unable to learn traditional practices from elders. Triggers: Ongoing occupation, environmental degradation, diaspora pressure. Effects: Delayed but profound cultural loss, intergenerational trauma, knowledge extinction risk increases.
-
-**Tourism & Commodification (15% probability)**: Sacred sites opened to commercial tourism without community control—sacred practices turned into spectacle, spiritual spaces become commercial attractions. Triggers: Government revenue pressure, corporate tourism operators, accessibility improvements. Effects: Spiritual degradation, cultural appropriation, revenue capture externally, gradual erosion of sanctity.
-
 ### Cascading Effects
 
 **Development → Cultural Erasure**: When sacred sites are destroyed or made inaccessible, ceremonial practices cease. Knowledge held by elders cannot be transmitted effectively. Within one generation, entire spiritual traditions may be lost. This cascades into loss of ecological knowledge embedded in traditional practices (medicinal plants, seasonal timing, land stewardship).

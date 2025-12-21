@@ -11,14 +11,15 @@ socialImpact: 88
 affectedSystems: [Criminal Justice, Human Rights, Government, Communities, International Relations]
 connections: []
 editedBy: Shadow Work Team
-lastUpdated: 2025-11-25
+lastUpdated: 2025-12-19
+factualAsOf: 2025-12-19
 ---
 
 # Philippines Duterte Drug War
 
 ## Overview
 
-When Rodrigo Duterte assumed the Philippine presidency in June 2016, he launched what would become one of the deadliest drug campaigns in modern history, promising to eliminate drugs from Philippine society within six months. Between 2016 and 2022, the campaign claimed an estimated 30,000-47,000 lives, making it proportionally deadlier than many conventional armed conflicts. The vast majority of victims were poor urban residents killed in extrajudicial summary executions by police units and state-sanctioned vigilante groups, often with minimal investigation or evidence. The killings created a culture of impunity where police officers faced virtually no prosecution, despite mountains of documentary evidence of unlawful executions. Families were left without recourse or compensation, and the International Criminal Court launched a preliminary examination into crimes against humanity. The drug war shattered public trust in institutions, normalized state violence, and transformed the Philippines from a democracy with imperfect institutions into a state where citizens feared rather than relied on law enforcement.
+When Rodrigo Duterte assumed the Philippine presidency in June 2016, he launched what would become one of the deadliest drug campaigns in modern history, promising to eliminate drugs from Philippine society within six months. [^britannica-duterte] Estimates of killings linked to the campaign vary widely; Human Rights Watch summarizes a broad range of estimates (from the thousands to the tens of thousands) and documents systemic patterns of police violence and impunity. [^hrw-duterte-drug-war] The vast majority of victims were poor urban residents killed in extrajudicial summary executions by police units and state-sanctioned vigilante groups, often with minimal investigation or evidence. The killings created a culture of impunity where police officers faced virtually no prosecution, despite extensive documentary evidence of unlawful executions. Families were left without recourse or compensation, and the International Criminal Court opened an investigation into alleged crimes against humanity tied to the drug war. [^icc-philippines-drug-war]
 
 The campaign's brutality extended beyond direct killings. Thousands of detentions occurred without proper investigation, torture became a documented policing tactic, and entire communities were surveilled and raided based on informants who received bounties. The collapse of judicial process meant that accused individuals had few protections—many were killed before trial, and those imprisoned rarely received fair proceedings. The social fabric of poor neighborhoods fractured as neighbors informed on neighbors for rewards, as children witnessed police executions in their communities, and as families grappled with both the loss of loved ones and the broader psychological trauma of living in a state-sanctioned killing environment. The drug war's violence also destabilized crime dynamics: instead of eliminating drugs, the campaign created power vacuums filled by more ruthless syndicates, military-linked trafficking networks, and gang violence that continues to plague the nation. Years after the campaign's formal end under President Marcos Jr., the Philippines struggles with the institutional damage, the impunity structures that remain entrenched, the international isolation that resulted from documented human rights abuses, and the fundamental loss of faith in state protection that empowers future authoritarians.
 
@@ -31,14 +32,6 @@ The campaign's brutality extended beyond direct killings. Thousands of detention
 - **Institutional Corruption (+58%)**: Police units develop protection rackets tied to drug trade, military commanders extract payment from trafficking operations, and judges can be bribed to either prosecute innocents or dismiss cases against connected criminals.
 - **Community Cohesion (-65%)**: Neighborhoods fracture along informant/accused lines; extended family networks break apart; migration accelerates as residents flee high-violence zones; inter-generational trauma manifests in mental health crises.
 - **International Standing (-80%)**: Diplomatic isolation from Western allies increases; human rights investigations trigger sanctions and restricted aid; criminal investigations of officials create legal jeopardy for international travel and financial flows.
-
-### Event Types
-
-- **Police Raid Execution (35% monthly probability)**: Police units conduct night raids on suspected drug dens, resulting in staged shootouts where suspects are killed without evidence collection or witness testimony. Weapons are planted, families are denied access to bodies, and cases are closed as "nanlaban" (fought back). Generates minimal investigation; creates 15-200 immediate deaths per event depending on scale.
-- **Vigilante Massacre (8% monthly probability)**: State-aligned death squads or militant groups conduct mass killings in poor neighborhoods, targeting individuals on drug war watch lists or settling personal scores under the guise of drug enforcement. Kills occur in front of witnesses who refuse to report due to fear. 50-500 deaths per event; zero prosecutions.
-- **Judicial Impunity Decision (12% monthly probability)**: A court dismisses a case against a police officer for insufficient evidence or procedural grounds, despite eyewitness testimony or physical evidence of extrajudicial killing. Alternatively, a judge convicts an innocent person based on uncorroborated police testimony. Reinforces institutional impunity.
-- **Family Separation Event (22% monthly probability)**: Entire families flee to other regions or countries to escape police persecution; children are permanently separated from extended family; communities lose working-age members and remittance income. Triggers long-term economic and social deterioration in origin communities.
-- **Impunity Structure Entrenchment (18% monthly probability)**: Police unions, military factions, and political networks create formal protection structures for officers under investigation; shared legal defense funds appear; prosecutors receive threats; witnesses disappear. Makes future accountability structurally impossible.
 
 ### Cascading Effects
 
@@ -62,5 +55,11 @@ The campaign's brutality extended beyond direct killings. Thousands of detention
 *Connected issues and related systems are automatically populated from the graph.*
 
 **Contributors**: Shadow Work Team
-**Last Updated**: 2025-11-25
+**Last Updated**: 2025-12-19
 **Edit on GitHub**: [Suggest changes](https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/issues/philippines-duterte-drug-war.md)
+
+## Sources
+
+[^britannica-duterte]: Encyclopaedia Britannica, “Rodrigo Duterte | Biography, Presidency, & Facts.” Accessed 2025-12-19. https://www.britannica.com/biography/Rodrigo-Duterte
+[^hrw-duterte-drug-war]: Human Rights Watch, “Philippines: Duterte’s ‘Drug War’ Claims Thousands of Lives” (Mar 2, 2017). Accessed 2025-12-19. https://www.hrw.org/news/2017/03/02/philippines-dutertes-drug-war-claims-thousands-lives
+[^icc-philippines-drug-war]: International Criminal Court, Situation in the Republic of the Philippines (case page). Accessed 2025-12-19. https://www.icc-cpi.int/philippines

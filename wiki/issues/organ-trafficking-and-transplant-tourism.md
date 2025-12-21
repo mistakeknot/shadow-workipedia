@@ -34,17 +34,6 @@ The health consequences for sellers are severe and lasting. Many experience chro
 **Public Health**: -7% (sellers experience lasting harm)
 **Trust in Medical Institutions**: -8% (complicity in exploitation)
 
-### Event Types
-
-**Trafficking Ring Exposed**: International network revealed
-**Transplant Tourism Destination Raided**: Hospital shutdown
-**Organ Seller Dies**: Post-surgery complications prove fatal
-**Corruption Scandal**: Officials taking bribes revealed
-**Recipient Prosecution**: Rare case where buyer faces charges
-**Reform Legislation Proposed**: Attempts to increase legal supply
-**Broker Arrested**: Rare successful prosecution
-**Victim Advocacy Campaign**: Exploited sellers organize
-
 ### Cascading Effects
 
 Organ shortage → Black market emerges → Brokers exploit poor → Surgeons profit from unethical transplants → Corruption enables operations → Sellers experience health crisis → Inequality deepens → Medical ethics undermined → International trafficking networks strengthen

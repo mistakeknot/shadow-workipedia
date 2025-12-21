@@ -38,18 +38,6 @@ Secondary cascades amplify the initial crisis. A meltdown or serious accident at
 
 - **Grid Resilience** (Inverse): Concentrated nuclear dependence (70%+ in France, 65%+ in Belgium) means nuclear loss creates cascading grid failures. Loss of a major plant during high-demand season can trigger 8-15 hour rolling blackouts affecting 15-40 million people.
 
-### Event Types
-
-- **Cooling System Degradation Event** (35% annual probability, escalating with climate stress): Unexpected failure or severe reduction in cooling capacity due to algal blooms, extremely high water temperatures, or corrosion in heat exchangers. Triggers emergency power reduction, extends plant downtime by 2-8 weeks, and forces load-shedding to backup systems.
-
-- **Seismic or Extreme Weather Cascade** (12% annual probability, rising with climate volatility): Earthquake or extreme weather event (flooding, high winds) damages non-redundant backup systems or switchyard infrastructure. Creates situations where primary AND backup systems are compromised, requiring emergency government intervention to prevent meltdown.
-
-- **Maintenance Discovery Crisis** (8% annual probability, rising with plant age): Routine inspection reveals critical corrosion, cracking, or degradation in pressure vessels, piping, or containment structures. Forces immediate shutdown for repairs lasting 4-12 weeks, with substantial risk of discovering secondary issues during inspection.
-
-- **Multi-Site Regional Crisis** (5% annual probability, rapid escalation during compound disasters): Two or more plants in the same region experience simultaneous failures during a heat wave, flooding, or other regional event. Overwhelms national emergency response capacity and destabilizes entire grids.
-
-- **Regulatory Failure Event** (3% annual probability): Inspection bodies fail to detect critical safety issues, or political pressure forces licensing decisions against safety recommendations. Becomes apparent only when catastrophic failures occur, shredding public confidence and triggering hasty policy decisions.
-
 ### Cascading Effects
 
 - **Grid Destabilization (Immediate)**: Loss of nuclear capacity during high-demand periods (summer heat waves, winter cold snaps) forces rapid ramping of fossil fuel plants and renewable curtailment. If loss exceeds 20-30% of regional capacity, rolling blackouts begin within 4-6 hours. Hospitals, water treatment, data centers, and communications systems fail in sequence.

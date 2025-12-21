@@ -34,15 +34,6 @@ The stakes involve fundamental rights and economic mobility. When driver's licen
 - **Incarceration Rate**: +10 to +20 from contempt/warrant arrests
 - **Employment Rate**: -5 to -15 as license suspensions and jail time cost jobs
 
-**Event Types:**
-1. **Debtors' Prison Scandal**: Journalism exposes mass incarceration for unpaid fees, -25 Public Trust, +30 Reform Pressure
-2. **Municipal Revenue Crisis**: City budget depends on fines/fees, escalates enforcement, +20 Criminalization, -15 Social Cohesion
-3. **Private Debt Collector Abuse**: Company systematically jails debtors via contempt, -20 Consumer Protection
-4. **License Suspension Wave**: Hundreds of thousands lose licenses for unpaid debt, -15 Employment, -20 Economic Mobility
-5. **Bankruptcy Filing Barrier**: Fees increase, excluding poorest debtors, +15 Debt Burden, -10 Economic Relief Access
-6. **Child Support Incarceration Cycle**: Non-custodial parents jailed repeatedly for arrears, -25 Family Stability
-7. **Court Fee Inflation**: Jurisdictions raise fees to fund operations, +20 Criminalization Pressure
-
 **Cascading Effects:**
 - Triggers **Cash Bail as Debtors' Prison** when fee debt leads to inability to post bail
 - Amplifies **Medical Debt Crisis** as hospital judgments lead to wage garnishment and contempt

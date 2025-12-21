@@ -41,13 +41,6 @@ The human consequences would be staggering. A 3-meter sea level rise would flood
 - **Insurance Markets**: -60 (coastal property uninsurable)
 - **Climate Migration Pressure**: +75 (hundreds of millions displaced)
 
-### Event Types
-- Major glacier calving events (Thwaites, Pine Island break-up)
-- Accelerated ice sheet flow measurements (satellite confirmation)
-- Coastal city emergency declarations (adaptation/retreat planning)
-- Mass coastal property value collapses (market repricing)
-- International disputes over climate refugee resettlement
-
 ## Cascading Effects
 
 Antarctic ice collapse triggers:

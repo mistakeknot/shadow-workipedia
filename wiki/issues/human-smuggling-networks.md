@@ -33,27 +33,6 @@ Human smuggling has become a sophisticated, multi-billion dollar criminal enterp
 - **Criminal Network Integration (0–100)**: Increases 10–25 points as smugglers progressively integrate with drug cartels, arms traffickers, and money laundering operations; smuggling becomes just one profit center in larger organized crime ecosystem
 - **Border Militarization (spending, $B/year)**: Correlates with smuggler sophistication and cartel integration; countries spending $5B+ annually on border military develop equally sophisticated counter-strategies; arms race dynamic with zero equilibrium point
 
-**Event Types:**
-1. **Mass Drowning/Disaster Events**: Overloaded vessels, desert crossings with inadequate water, or intentional sabotage by smugglers collecting insurance create 50–500 simultaneous deaths. Mediterranean, Mexico-US border, and Sahara crossings each produce 100–1,000 deaths annually. Triggers media firestorms, demands for border tightening, which increases smuggler prices and desperation, which triggers more disaster cycles.
-
-2. **Smuggler Network Consolidation**: Competing smuggling gangs merge, splinter, or wage open conflicts as cartels gain control; network structures shift from decentralized cell-based to hierarchical cartel control. Creates temporary turmoil with turf warfare, then increased efficiency and higher prices as winners achieve monopoly power in regional corridors.
-
-3. **Trafficking Merger Crisis**: Smuggling networks merge with human trafficking operations; distinction between smuggling (consensual transportation, though exploitative) and trafficking (forced labor, sexual slavery) collapses. Migrants who paid for "transportation" discover debt, documents confiscated, route into brothels or forced labor camps. Volumes of sexual/labor trafficking increase 100–300% as smugglers realize trafficking margins exceed smuggling.
-
-4. **Border Official Complicity Exposures**: Coordinated arrests of border officials, port workers, document forgers, or police reveal systematic corruption infrastructure enabling smuggling; typically 15–40% of border staff on smuggler payroll in high-volume corridors. Exposure triggers purges, restructuring, but cannot eliminate root cause (low wages, high smuggler bribes). New officials replace purged ones; corruption resumes within 6–18 months.
-
-5. **Asylum Collapse + Smuggling Spike**: Legal asylum pathways close (quota exhaustion, eligibility tightening, processing failures) triggering 50–200% surge in smuggler volumes within 3–6 months. Sudden demand overwhelms supply; prices spike 30–100%; smugglers lower safety standards to increase throughput; mortality rates accelerate.
-
-6. **Cartel-Migrant Extortion Loops**: Cartels holding migrant families hostage in transit hubs demand additional payments; initial smuggler fees ($5k–$20k) become down-payment for ongoing extraction. Families, friends, and employers in destination countries make repeated ransom payments ($500–$5,000 per payment) to prevent murders, sexual assault, or work camp assignment.
-
-7. **Border Militarization Escalation**: Nations deploy military forces to borders in response to smuggling volumes; military rules of engagement enable lethal force against suspected smugglers or migrants. Creates 10–100+ deaths per year in militarized zones; migration routes shift toward even more dangerous terrain; smuggler integration with insurgent/militant groups increases as armed protection becomes necessary service component.
-
-8. **Document Fraud & Identity Proliferation**: Smuggler networks produce counterfeit travel documents, asylum credentials, and identity papers; 20–50% of smuggled migrants use forged documents. Creates downstream enforcement nightmares as destination countries discover fake credentials; retroactive deportations trigger re-smuggling cycles; criminal identities accumulated across borders become enforcement impossibility.
-
-9. **Remittance Dependency Inversion**: Communities in origin countries become economically dependent on migrant remittances sent after arriving via smugglers; as smuggling debt consumes 30–60% of remittances, origin communities' economies paradoxically depend on exploitation of emigrants. Reduces political pressure on destination countries to address root causes (war, poverty) of displacement.
-
-10. **Organ Harvesting & Medical Exploitation**: Most extreme trafficking variant; smugglers operating in regions with wealthy transplant markets harvest organs from debt-trapped migrants; $50k–$200k per organ enables multiple extraction before death. Creates permanent mortality surges in smuggling routes and establishes organized crime integration with medical systems.
-
 **Cascading Effects:**
 - Triggers **Migration Crisis** exponentially; smuggling routes become primary migration infrastructure, normalizing criminal intermediation; destination countries unable to distinguish smuggled migrants from other arrivals, creating policy paralysis
 - Amplifies **Organized Crime Expansion** as smuggling networks integrate horizontally with drug trafficking, arms dealing, and money laundering; cartels use smuggling routes for drug distribution and arms transport; human trafficking becomes profit center in broader criminal enterprise
@@ -74,7 +53,6 @@ Human smuggling has become a sophisticated, multi-billion dollar criminal enterp
 - **Asylum-Negative Political Rhetoric + Policy Tightening**: When major destination countries adopt restrictive asylum policies (quota cuts >20%, criteria tightening, processing slowdowns), smuggler recruitment accelerates within 1–3 months; desperation overwhelms risk perception
 - **Remittance Dependency in Origin Countries**: When 30%+ of GDP in origin countries comes from migrant remittances, and smuggling debt consumes 30%+ of remittances, indicates systemic economic dependence on migration pathway exploitation
 - **Document Fraud Detection Rates Spike**: When destination countries report 25%+ increase in fake credential detections, indicates smuggling networks upscaling document forgery capabilities; suggests network professionalization and cartel integration
-
 
 ---
 

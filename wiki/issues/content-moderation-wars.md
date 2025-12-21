@@ -48,15 +48,6 @@ The wars extend beyond operational challenges to fundamental questions about pow
 - **Information Quality**: Compromised by inconsistent enforcement
 - **Regulatory Pressure**: Increased as governments intervene
 
-### Event Types
-
-- **Deplatforming Controversy**: High-profile account removal sparks political crisis
-- **Moderator Whistleblower Scandal**: Working conditions and bias allegations exposed
-- **Government Moderation Mandate**: State requires content removal or access restriction
-- **Viral Misinformation Failure**: Harmful content spreads before detection
-- **Mass User Exodus**: Community migrates over moderation disputes
-- **Advertiser Boycott**: Brands flee over content adjacency concerns
-
 ### Cascading Effects
 
 Content moderation conflicts create broader instability:

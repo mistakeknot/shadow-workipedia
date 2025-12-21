@@ -10,6 +10,7 @@ economicImpact: 58
 socialImpact: 79
 affectedSystems: [Housing, Healthcare, Social Services, Urban Systems]
 connections: [homelessness-criminalization, mental-health-apocalypse, housing-affordability-crisis]
+caseStudyOf: homelessness-crisis
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'LegitimacyDynamics', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration']
 lastUpdated: 2025-11-24
@@ -42,20 +43,6 @@ This policy gridlock consumes $47 billion annually in fragmented spending across
 - **Substance.ActiveDependenceRate**: Treatment First outperforms when active dependency exceeds 75%. Housing First works better below 60% active use. Current rates are 70-75%, creating policy zone of maximum uncertainty and contested evidence.
 
 - **Urban.NIMBYResistance**: Both strategies vulnerable but Housing First faces neighborhood opposition 3x more intensely (visible street interaction + congregate sober housing creates local mobilization). Treatment First benefits from institutional opacity—facilities less visible to voters. NIMBY activation triggers zoning battles, political delays, 12-24 month placement freezes, and escalates client crisis cycling.
-
-**Event Types:**
-
-1. **Housing First Saturation Crisis**: Policy framework fully Housing First + housing stock <6,000 per 100k homeless + psychosis prevalence >35% = shortage of appropriate housing units drives placement queue backlog >18 months. Street population ages in place without housing, co-occurring disorders intensify, mortality risk rises 40-60%. Triggers provider burnout as staff manage intractable placement failures. Cascades into homelessness criminalization if housing failures exceed 25%.
-
-2. **Treatment First Institutional Overflow**: Policy framework Treatment First + institutional treatment capacity exceeds available census + active dependency >70% = mandatory holding periods exceed 6 months, waiting lists exceed 2,000 in metro areas. Program costs increase 200-300% while outcomes decline (clients spend productive recovery window in queue). High recidivism triggers calls for incarceration-based treatment (criminal justice pipeline).
-
-3. **Policy Whipsaw**: Government switches policy framework mid-campaign (Housing First ↔ Treatment First). All funding mechanisms reorient within 18-36 months. NGO providers face program closure and staff reductions. Client populations fall between frameworks—those expecting housing get treatment, vice versa. Outcomes collapse for 3-5 years during transition. Triggers 15-25% increase in street population, 30% decline in program retention, and 2x increase in mortality.
-
-4. **Housing First Neighborhood Rebellion**: Visible street encampments + congregate housing for substance users triggers NIMBY mobilization. City council votes to defund Housing First programs (occurred Portland OR 2023, San Francisco 2024). Clients housed during uptick now face mass eviction as city scales back. Creates political backlash toward "tough on homelessness" criminalizing policies. Amplifies homelessness-criminalization feedback loop.
-
-5. **Treatment First Demand Shock**: Untreated population reaches critical mass (15%+ of metro homeless untreated psychotic) + severe housing shortage = Treatment First becomes default policy. But institutional capacity insufficient for severe cohort. Long-term residential treatment becomes primary intervention (requiring 18-36 months continuity). Costs balloon from $35-50k/person/year (Housing First) to $70-120k/person/year. Provokes budget crises and de facto abandonment of lowest-function cohort to street survival.
-
-6. **Evidence Collision**: Major quasi-experimental study published comparing Housing First vs Treatment First cohorts from same city. If Housing First shows superior cost-effectiveness + outcomes, Treatment First jurisdictions face immediate political pressure to reallocate funds. Triggers implementation scrambles, housing development acceleration, rapid provider retooling. Political disruption peaks when evidence contradicts incumbent leadership ideology (red state adopting Housing First or blue city embracing Treatment First).
 
 **Cascading Effects:**
 

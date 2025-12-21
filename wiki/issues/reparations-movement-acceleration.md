@@ -36,18 +36,6 @@ Municipalities have begun implementing localized reparations programs: Evanston,
 
 - **Housing Market Access**: Reparations-funded down payment assistance and community development in redlined neighborhoods increases homeownership rates for Black families by 2-4 percentage points within 5-year implementation window, reducing homeownership gap from 28-30 percentage points to 24-26 points. Housing appreciation effects vary by region (2-5% additional annual appreciation in gentrifying neighborhoods, versus -1-2% in economically declining regions).
 
-**Event Types:**
-
-1. **HR 40 Commission Establishment**: Congress passes commission to study and develop reparations proposals. Establishes formal framework, allocates $10-50 million for research and community engagement, triggers 12-18 month analysis period. Amplifies reparations discourse by 25-35% media share, increases public awareness from 45% to 72%, creates legislative pathway for follow-up bills.
-
-2. **Municipal Reparations Program Launch**: City council votes to fund local reparations (cash payments, community development, business grants). Typical allocation $2-15 million. Triggers media attention, becomes policy template for 3-5 other municipalities within 12-24 months. Creates implementation learning curve: initial disbursement delays 40-60% below planned timelines, operational costs 15-25% higher than budgeted.
-
-3. **Court-Ordered Reparations**: Judicial ruling finds historical discrimination unconstitutional, mandates specific remedies (occurred in California education funding cases, potentially applicable to reparations). Creates immediate legal precedent, forces 2-5 other jurisdictions to revisit reparations policies, increases federal reparations likelihood by 8-12 percentage points.
-
-4. **Reparations Backlash Campaign**: Opposition organizing funds "taxpayers' rights" ballot measures to defund reparations programs (occurred in California 2022 Prop 209 precedent debate). Decreases reparations program approval by 12-18 percentage points in contested regions, extends implementation timelines by 2-4 years, triggers defunding or reversal of 40-60% of smaller programs.
-
-5. **Economic Impact Report**: Major study documents reparations' multiplier effects on regional economies (anticipated: $10-15 billion GDP impact per $1 billion invested). Increases reparations support by 4-8 percentage points among undecided voters, creates 2-3 year legislative momentum window, but also triggers intensity increase in opposition organizing.
-
 **Cascading Effects:**
 
 - Triggers **racial-wealth-gap** reduction when federal reparations implemented + homeownership assistance funds distributed

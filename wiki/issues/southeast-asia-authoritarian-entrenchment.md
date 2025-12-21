@@ -38,18 +38,6 @@ This entrenchment matters globally. Southeast Asia contains 700 million people, 
 
 **International Isolation** (+6% per point): Paradoxically, international isolation from Western democracies drives authoritarian regimes closer to fellow autocracies (China, Russia), deepening structural alignment and reducing leverage for democratic reform pressure.
 
-### Event Types
-
-**Judicial Coup** (15% annually, conditional on State Capacity >70): Constitutional courts or judiciaries co-opted by executive branch use legal mechanisms to eliminate opposition, invalidate elections, or rewrite electoral rules. Appears procedurally legitimate while destroying substantive democracy. Example: Thailand's Constitutional Court dissolving opposition parties.
-
-**Media Crackdown** (22% annually, conditional on Media Freedom <40): Regimes arrest journalists, shut down news outlets, implement digital surveillance of online platforms, and criminalize "disinformation." Typically justified through national security language. Reduces information flow about regime corruption and rights abuses by 35-55%.
-
-**Opposition Decapitation** (18% annually, conditional on Political Opposition >60): Key opposition leaders arrested on fabricated charges, exiled, or killed; political parties dissolved; candidates barred from running. Each occurrence reduces organized opposition capacity by 40-65% and suppresses public political expression.
-
-**Civil Unrest Spike** (12% annually, conditional on repression level >75): Paradoxically, excessive repression can trigger mass mobilization. These events occur randomly when grievances exceed repression capacity, creating 3-8 month periods of elevated social instability before regime response recalibrates.
-
-**ASEAN Solidarity Deflection** (25% annually): When international pressure mounts on individual regimes, ASEAN's non-interference norm enables collective protection. International condemnation is absorbed through regional diplomatic statements affirming sovereignty, producing zero policy change domestically.
-
 ### Cascading Effects
 
 **Minority Suppression**: Authoritarian entrenchment enables systematic discrimination and violence against ethnic and religious minorities who lack political voice to defend themselves. Correlates with 35% increase in documented hate crimes and communal violence. Myanmar's Rohingya genocide occurred under authoritarian military rule.

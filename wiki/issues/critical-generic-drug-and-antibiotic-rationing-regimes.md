@@ -41,20 +41,6 @@ The COVID-era pandemic exposed these vulnerabilities catastrophically. During pe
 
 - **Economic Productivity**: Decreases 5-15% during active rationing as infected patients remain unable to work, absenteeism spikes from untreated infections, and surgical delays prevent elective procedures. Each month of rationing extends recovery period by additional 2-4 weeks.
 
-**Event Types:**
-
-1. **Manufacturing Disruption Cascade**: Single factory closure (FDA action, contamination, fire, geopolitical sanctions) triggers API shortage for 1-8 pharmaceutical products simultaneously. Propagates globally in 45-90 days as distributor inventory depletes. If closure extends >60 days, hospitals must activate rationing protocols within 30 days of stock depletion.
-
-2. **Rationing Protocol Activation**: Government mandates allocation algorithms assigning medications to hospitals by bed count, ICU patients, pediatric priority, geriatric deprioritization. Once activated, clinical decisions transfer from physicians to bureaucrats—hospitals lose prescribing autonomy. Lasts minimum 8-16 weeks even after supply restoration due to restocking timelines.
-
-3. **Black Market Emergence**: Unverified suppliers, counterfeit drugs, substandard APIs flood markets when rationing exceeds 4-6 weeks. Counterfeit antibiotic prevalence reaches 15-25% in affected regions, creating clinical uncertainty (medication failure attributed to resistance vs. counterfeit, delaying diagnosis). Counterfeit exposure causes 2-5% additional mortality among users due to active harm compounds.
-
-4. **Resistance Selection Event**: Patients self-medicating at subtherapeutic doses during rationing (60-90 days) create selection pressure. Documented resistant organism prevalence increases 8-15% for 6-12 months post-rationing, requiring broader spectrum antibiotics for future infections (second-line agents, carbapenems) and escalating infection severity.
-
-5. **Secondary Infection Crisis**: Post-surgical wound infections, aspiration pneumonia in hospitalized patients, and urinary tract infections spike 25-40% when antibiotics are unavailable for preventive/early intervention use. Extends average hospitalization 5-10 days, creates sudden bed occupation surge (40-60% above baseline), and forces postponement of elective procedures by 3-8 weeks.
-
-6. **Supply Chain Restructuring**: Government mandates domestic manufacturing investment, strategic reserves, or supply chain diversification after rationing crisis ends. Costs $500M-$2B per country for manufacturing infrastructure, takes 3-5 years to achieve independence, but reduces future rationing probability by 40-60%.
-
 **Cascading Effects:**
 
 - Triggers **antibiotic-resistance-crisis** when subtherapeutic dosing during rationing (60-90 days) creates resistant organism prevalence increases of 8-15% lasting 12-24 months; compounds if multiple rationing episodes occur within 3-year window

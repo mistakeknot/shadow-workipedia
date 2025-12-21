@@ -40,20 +40,6 @@ The distinction between "banditry" (criminal) and "terrorism" (political) increa
 
 - **Regional Economic Output** (0-100): Collapsed 50-80% in conflict zones. Agricultural output down 60-80%; 2-3 million cattle lost to raiding; trade disrupted; poverty rate 70%+. Recovery timeline: 15-20+ years post-conflict.
 
-**Event Types:**
-
-1. **Mass Kidnapping Campaign**: Armed units attack schools, abduct 50-400+ students. Triggers international attention (briefly), regional trauma, parental withdrawal from schools, education collapse. Captured girls forced into sexual slavery, indoctrination, some become suicide bombers.
-
-2. **Kidnapping-for-Ransom Epidemic**: Bandit groups target buses, schools, communities. 20-100+ victims per incident; ransom negotiations via phone; families liquidate savings. Perpetrators operate like businesses with scouts, hostage camps, "customer relationships."
-
-3. **Military Counter-Insurgency with Civilian Casualties**: Nigerian military offensives employ air strikes, ground assaults in populated areas. Estimated 3-5 civilian deaths per militant killed. Amnesty International documents 1,000-3,000 annual civilian deaths from security forces. Brutality drives recruitment to armed groups.
-
-4. **School Closures Cascade**: Insecurity forces government preemptive closures, parental withdrawal, infrastructure destruction, teacher exodus. Gender impact severe: girls 40-60% enrollment collapse. Long-term: regional 20-30 year educational gap, workforce skill deficit, perpetuated recruitment vulnerability.
-
-5. **Organizational Fragmentation**: Boko Haram factionalization creates multiple competing groups (ISWAP, splinter groups). Paradoxically increases violence as factions compete through attacks to prove credentials. Requires military to divide attention.
-
-6. **Humanitarian Access Denial**: Armed groups restrict aid access through taxation, political leverage, supply theft. Result: 40%+ acute malnutrition in controlled areas; child mortality 10-15x baseline; cholera/measles outbreaks.
-
 **Cascading Effects:**
 
 - Triggers **Education System Collapse**: Teacher exodus (-40-60%); students miss developmental windows (7-8 year gap not recoverable); gender education gap institutionalized; regional human capital permanently reduced.

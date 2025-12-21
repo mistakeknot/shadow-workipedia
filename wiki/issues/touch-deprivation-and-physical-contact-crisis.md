@@ -44,17 +44,6 @@ This crisis reflects broader patterns of social atomization and the medicalizati
 - **Child Development**: -10 to -20 (attachment and developmental issues)
 - **Elderly Wellbeing**: -15 to -25 (accelerated decline)
 
-### Event Types
-- Research revealing widespread touch deprivation in population
-- Pandemic-era social distancing becoming permanent norm
-- Workplace policies eliminating all physical contact
-- Elderly care institutions scandal over lack of human touch
-- Child development crisis linked to touch deficit
-- Commodification of touch through paid cuddling services
-- Cultural shift away from greeting hugs or handshakes
-- Mental health impacts of touch starvation becoming recognized
-- Generational differences in comfort with physical contact
-
 ### Cascading Effects
 - **Mental Health Crisis**: Touch deprivation contributes to depression and anxiety epidemic
 - **Social Skill Atrophy**: Populations become increasingly uncomfortable with normal human contact

@@ -38,18 +38,6 @@ The combination of military dictatorship, ethnic warfare, and refugee displaceme
 
 - **International Isolation** (+28 points per turn): Coup and genocide documentation isolates Myanmar diplomatically, reduces aid flows, complicates regional partnerships, and pushes the country toward dependency on China for economic and military support.
 
-### Event Types
-
-- **Military Crackdowns** (probability 0.35 per quarter): Security forces conduct mass arrests, extrajudicial killings, and torture of opposition figures, activists, and ethnic minorities. Triggers massive protest waves and armed resistance escalation. Consequence: +100 Authoritarianism, +80 Ethnic Tension, -200 State Legitimacy.
-
-- **Refugee Camp Crises** (probability 0.28 per quarter): Disease outbreaks (cholera, dengue), malnutrition spikes, gang violence, or trafficking networks surge in Bangladesh camps. Overwhelming humanitarian response capacity. Consequence: +90 Refugee Pressure, +75 International Pressure, -500 humanitarian metrics.
-
-- **Armed Insurgency Expansion** (probability 0.42 per quarter): Military defeats in border regions, defections from Tatmadaw, coordination between ethnic armed organizations (EAOs) against central government. Civil war intensifies beyond Rohingya zones. Consequence: +110 Regional Instability, +85 Ethnic Tension, +70 Refugee Pressure.
-
-- **Genocide Documentation and ICC Actions** (probability 0.15 per year): Human rights organizations, UN investigators, or International Criminal Court provide definitive evidence of genocide. Triggers international pressure for intervention, sanctions, or military action. Consequence: +120 International Pressure, ±150 Geopolitical Realignment (toward China or Western coalition).
-
-- **Economic Collapse Cascades** (probability 0.38 per quarter): Currency crisis, bank runs, complete breakdown of supply chains, hyperinflation. Triggers mass migration of working-age population abroad. Consequence: +140 Economic Collapse, +95 Refugee Pressure, +75 State Fragmentation.
-
 ### Cascading Effects
 
 - **Genocide → Refugee Camps → Disease Outbreaks → Regional Instability**: Mass displacement from Myanmar creates overcrowded camps in Bangladesh with inadequate sanitation. Poor conditions enable rapid disease transmission (cholera R₀~1.5-2.0, dengue vector breeding in stagnant water). Health crises trigger Bangladesh border closures, Thailand/Malaysia pushback operations, and regional diplomatic tensions.

@@ -26,10 +26,6 @@ Brief 2-3 sentence summary of the issue. What is it? Why does it matter? What te
 - **Parameter Name**: How it changes and under what conditions
 - **Parameter Name**: How it changes and under what conditions
 
-**Event Types:**
-1. **Event Name**: Brief description of what triggers it and consequences
-2. **Event Name**: Brief description of what triggers it and consequences
-
 **Cascading Effects:**
 - Triggers **Related Issue** when [condition]
 - Amplifies **Related Issue** by [mechanism]
