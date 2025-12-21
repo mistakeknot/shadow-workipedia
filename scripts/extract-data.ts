@@ -1,7 +1,7 @@
 import { writeFileSync, readFileSync, existsSync, readdirSync } from 'fs';
 import { join } from 'path';
 import * as yaml from 'yaml';
-import type { GraphData, GraphNode, GraphEdge, IssueCategory, IssueUrgency, CommunityInfo, PrincipleInfo, DataFlowInfo, PrimitiveName } from '../src/types';
+import type { GraphData, GraphNode, GraphEdge, IssueCategory, IssueUrgency, CommunityInfo, PrincipleInfo, DataFlowInfo, PrimitiveName, IssueEvent } from '../src/types';
 import { parseSystemWalkTracker, getSystemWalkData } from './parse-system-walks';
 import { loadWikiContent, getWikiArticle, type WikiArticle } from './parse-wiki';
 
@@ -37,6 +37,12 @@ interface RawIssue {
   peakYears?: string;
   crisisExamples?: string[];
   evolutionPaths?: string[];
+}
+
+interface IssueRedirectIndex {
+  issueIdRedirects: Map<string, string>; // alias/merged-id -> canonical-id
+  canonicalAliases: Map<string, string[]>; // canonical-id -> aliases[]
+  deprecatedIssueIds: Set<string>; // issue ids with mergedInto
 }
 
 function parseIssueCatalog(multiCategoryData: Map<string, IssueCategory[]>): RawIssue[] {
@@ -495,6 +501,88 @@ function systemToNode(system: ConnectivitySystem): GraphNode {
   };
 }
 
+function loadIssueRedirectIndex(): IssueRedirectIndex {
+  const issueIdRedirects = new Map<string, string>();
+  const canonicalAliases = new Map<string, string[]>();
+  const deprecatedIssueIds = new Set<string>();
+
+  if (!existsSync(YAML_DATA_DIR)) {
+    console.warn('⚠️  YAML data directory not found, returning empty redirect index');
+    return { issueIdRedirects, canonicalAliases, deprecatedIssueIds };
+  }
+
+  const yamlFiles = readdirSync(YAML_DATA_DIR).filter(f => f.endsWith('.yaml') && !f.startsWith('_'));
+
+  for (const file of yamlFiles) {
+    try {
+      const content = readFileSync(join(YAML_DATA_DIR, file), 'utf-8');
+      const data = yaml.parse(content);
+
+      const id = typeof data?.id === 'string' ? data.id.trim() : '';
+      if (!id) continue;
+
+      const mergedInto = typeof data?.mergedInto === 'string' ? data.mergedInto.trim() : '';
+      if (mergedInto && mergedInto !== id) {
+        deprecatedIssueIds.add(id);
+        // Deprecated id redirects to canonical
+        issueIdRedirects.set(id, mergedInto);
+      }
+
+      if (Array.isArray(data?.aliases)) {
+        const aliases = data.aliases
+          .filter((a: any) => typeof a === 'string')
+          .map((a: string) => a.trim())
+          .filter((a: string) => a.length > 0 && a !== id);
+
+        if (aliases.length > 0) {
+          canonicalAliases.set(id, Array.from(new Set(aliases)));
+        }
+
+        for (const alias of aliases) {
+          // First-wins; collisions are better handled in `pnpm data:validate`
+          if (!issueIdRedirects.has(alias)) {
+            issueIdRedirects.set(alias, id);
+          }
+        }
+      }
+    } catch (err) {
+      console.warn(`⚠️  Error parsing redirects from ${file}:`, err);
+    }
+  }
+
+  // Add a second pass: if an issue is deprecated (mergedInto) and no explicit alias
+  // points to the canonical, ensure the deprecated ID resolves deterministically.
+  for (const deprecatedId of deprecatedIssueIds) {
+    const canonical = issueIdRedirects.get(deprecatedId);
+    if (canonical && canonical !== deprecatedId) {
+      issueIdRedirects.set(deprecatedId, canonical);
+    }
+  }
+
+  console.log(
+    `🔁 Loaded issue redirects: ${issueIdRedirects.size} redirect keys, ${deprecatedIssueIds.size} merged issues`
+  );
+
+  return { issueIdRedirects, canonicalAliases, deprecatedIssueIds };
+}
+
+function resolveIssueId(id: string, redirects: Map<string, string>): string {
+  let current = id;
+  const visited = new Set<string>();
+  for (let i = 0; i < 25; i++) {
+    const next = redirects.get(current);
+    if (!next || next === current) return current;
+    if (visited.has(current)) {
+      console.warn(`⚠️  Redirect cycle detected for '${id}' (stuck at '${current}')`);
+      return current;
+    }
+    visited.add(current);
+    current = next;
+  }
+  console.warn(`⚠️  Redirect chain too deep for '${id}', last='${current}'`);
+  return current;
+}
+
 function loadCuratedConnections(): Map<string, Array<{targetId: string, relationshipType: string, strength: number}>> {
   const connectionMap = new Map<string, Array<{targetId: string, relationshipType: string, strength: number}>>();
 
@@ -527,7 +615,51 @@ function loadCuratedConnections(): Map<string, Array<{targetId: string, relation
   return connectionMap;
 }
 
-function extractIssueEdges(issues: RawIssue[], wikiSlugs?: Set<string>): GraphEdge[] {
+/**
+ * Load events from YAML issue files
+ * Returns a map of issue ID to array of events
+ */
+function loadIssueEvents(): Map<string, IssueEvent[]> {
+  const eventsMap = new Map<string, IssueEvent[]>();
+
+  if (!existsSync(YAML_DATA_DIR)) {
+    console.warn('⚠️  YAML data directory not found, returning empty events map');
+    return eventsMap;
+  }
+
+  const yamlFiles = readdirSync(YAML_DATA_DIR).filter(f => f.endsWith('.yaml') && !f.startsWith('_'));
+
+  for (const file of yamlFiles) {
+    try {
+      const content = readFileSync(join(YAML_DATA_DIR, file), 'utf-8');
+      const data = yaml.parse(content);
+
+      if (data.id && data.events && Array.isArray(data.events) && data.events.length > 0) {
+        const events: IssueEvent[] = data.events
+          .filter((e: any) => e.id && e.name && e.description)
+          .map((e: any) => ({
+            id: e.id,
+            name: e.name,
+            description: e.description.trim()
+          }));
+
+        if (events.length > 0) {
+          eventsMap.set(data.id, events);
+        }
+      }
+    } catch (err) {
+      // Silently skip malformed files
+    }
+  }
+
+  return eventsMap;
+}
+
+function extractIssueEdges(
+  issues: RawIssue[],
+  wikiSlugs: Set<string> | undefined,
+  resolve: (id: string) => string
+): GraphEdge[] {
   const edges: GraphEdge[] = [];
 
   // Load curated human-reviewed connections
@@ -547,15 +679,19 @@ function extractIssueEdges(issues: RawIssue[], wikiSlugs?: Set<string>): GraphEd
     }
 
     for (const conn of connections) {
+      const canonicalTarget = resolve(conn.targetId);
+
       // Verify target exists in wiki articles (or catalog as fallback)
-      if (!validTargets.has(conn.targetId)) {
-        console.warn(`⚠️  Target issue "${conn.targetId}" not found for "${issue.id}"`);
+      if (!validTargets.has(canonicalTarget)) {
+        console.warn(`⚠️  Target issue "${conn.targetId}" (→ "${canonicalTarget}") not found for "${issue.id}"`);
         continue;
       }
 
+      if (canonicalTarget === issue.id) continue;
+
       edges.push({
         source: issue.id,
-        target: conn.targetId,
+        target: canonicalTarget,
         type: 'issue-issue',
         strength: conn.strength || 0.5,
         label: conn.relationshipType,
@@ -803,6 +939,17 @@ function buildSwNumberToSlugMap(): Map<string, string> {
     return map;
   }
 
+  const setMapping = (num: string, slug: string, overwrite = false) => {
+    if (!num || !slug) return;
+    if (overwrite || !map.has(num)) {
+      map.set(num, slug);
+    }
+    const normalized = num.replace(/^0+/, '') || '0';
+    if (normalized !== num && (overwrite || !map.has(normalized))) {
+      map.set(normalized, slug);
+    }
+  };
+
   const files = readdirSync(archDir).filter(f => f.endsWith('-ARCHITECTURE.md'));
 
   for (const file of files) {
@@ -810,12 +957,117 @@ function buildSwNumberToSlugMap(): Map<string, string> {
     const match = file.match(/^(\d+[a-z]?)-(.+)-ARCHITECTURE\.md$/);
     if (match) {
       const [, num, slug] = match;
-      // Store both with and without leading zeros for flexible matching
-      map.set(num, slug);
-      // Also store normalized version (e.g., "01" → "1" for matching "SW#1")
-      const normalized = String(parseInt(num, 10));
-      if (normalized !== num) {
-        map.set(normalized, slug);
+      // Prefer ARCHITECTURE filename mappings (canonical for hub systems)
+      setMapping(num, slug);
+    }
+  }
+
+  // Hub systems (SW#01-13) are system nodes, not issue nodes.
+  // Map them to the system IDs used in the explorer graph.
+  const hubSystemSlugToNodeId: Record<string, string> = {
+    climate: 'climate',
+    technology: 'technology',
+    diplomacy: 'diplomacy',
+    economy: 'economy',
+    population: 'population',
+    pandemic: 'pandemic',
+    'water-conflict-unified': 'resources',
+    infrastructure: 'infrastructure',
+    education: 'education',
+    politics: 'politics',
+    culture: 'culture',
+    institutions: 'institutions',
+  };
+
+  for (const [num, slug] of map.entries()) {
+    // Match SW#01-13 without letter suffix.
+    if (/^(0[1-9]|1[0-3])$/.test(num)) {
+      const systemId = hubSystemSlugToNodeId[slug];
+      if (systemId) {
+        setMapping(num, systemId, true);
+      }
+    }
+  }
+
+  // Non-hub systems referenced by System Walk numbers (used by data flows).
+  // These are systems in the explorer graph (CONNECTIVITY-INDEX), not issues.
+  const systemWalkNumberToSystemNodeId: Record<string, string> = {
+    '15': 'public-finance',
+    '16': 'institutions-legal-evidence',
+  };
+  for (const [num, systemId] of Object.entries(systemWalkNumberToSystemNodeId)) {
+    setMapping(num, systemId, true);
+  }
+
+  // If ISSUE-CATALOG includes a system-walk number that corresponds to a fully-architected issue,
+  // prefer the catalog-derived issue slug (it matches wiki/YAML IDs more often than filename slugs).
+  // We *only* apply this when the line indicates "Complete architecture" to avoid collisions with
+  // completion-order annotations that aren't stable identifiers.
+  const issueCatalogPath = join(PARENT_REPO, 'docs/technical/simulation-systems/ISSUE-CATALOG.md');
+  if (existsSync(issueCatalogPath)) {
+    try {
+      const content = readFileSync(issueCatalogPath, 'utf-8');
+      const lines = content.split('\n');
+      let currentIssueId: string | null = null;
+
+      for (const rawLine of lines) {
+        const line = rawLine.trim();
+
+        if (line.startsWith('##### ')) {
+          const name = line.substring(6).trim();
+          const id = name
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-|-$/g, '');
+          currentIssueId = id;
+          continue;
+        }
+
+        if (!currentIssueId) continue;
+
+        if (/system walk #/i.test(line) && /complete architecture/i.test(line)) {
+          const m = line.match(/System Walk #(\d+[a-z]?)/i);
+          if (m) {
+            setMapping(m[1], currentIssueId, true);
+          }
+        }
+      }
+    } catch {
+      // Ignore parse failures
+    }
+  }
+
+  // Also include YAML issue mappings (covers issues without ARCHITECTURE files)
+  // `number` can be integer, "SW#081", or "081" depending on file.
+  if (existsSync(YAML_DATA_DIR)) {
+    const yamlFiles = readdirSync(YAML_DATA_DIR).filter(f => f.endsWith('.yaml') && !f.startsWith('_'));
+    for (const file of yamlFiles) {
+      try {
+        const doc = yaml.parse(readFileSync(join(YAML_DATA_DIR, file), 'utf-8'));
+        const slug = doc?.id;
+        const rawNumber = doc?.number;
+        if (typeof slug !== 'string' || slug.trim().length === 0) continue;
+
+        let num: string | null = null;
+        if (typeof rawNumber === 'number') {
+          num = String(rawNumber);
+        } else if (typeof rawNumber === 'string') {
+          const swMatch = rawNumber.match(/^SW#(\d+[a-z]?)$/i);
+          if (swMatch) {
+            num = swMatch[1];
+          } else {
+            const plainMatch = rawNumber.match(/^(\d+[a-z]?)$/i);
+            if (plainMatch) {
+              num = plainMatch[1];
+            }
+          }
+        }
+
+        if (num) {
+          setMapping(num, slug);
+        }
+      } catch {
+        // Skip malformed YAML
       }
     }
   }
@@ -823,7 +1075,7 @@ function buildSwNumberToSlugMap(): Map<string, string> {
   return map;
 }
 
-function loadDataFlows(): { dataFlows: DataFlowInfo[]; edges: GraphEdge[] } {
+function loadDataFlows(resolveIssueIdForEdges?: (id: string) => string): { dataFlows: DataFlowInfo[]; edges: GraphEdge[] } {
   if (!existsSync(DATA_FLOWS_FILE)) {
     console.warn('⚠️  Data flows file not found. Run extract-principles.ts first.');
     return { dataFlows: [], edges: [] };
@@ -875,9 +1127,17 @@ function loadDataFlows(): { dataFlows: DataFlowInfo[]; edges: GraphEdge[] } {
       });
 
       // Create directed edge with proper slug IDs
+      const resolvedSource = resolveIssueIdForEdges ? resolveIssueIdForEdges(sourceSlug) : sourceSlug;
+      const resolvedTarget = resolveIssueIdForEdges ? resolveIssueIdForEdges(targetSlug) : targetSlug;
+
+      if (resolvedSource === resolvedTarget) {
+        skippedCount++;
+        continue;
+      }
+
       edges.push({
-        source: sourceSlug,
-        target: targetSlug,
+        source: resolvedSource,
+        target: resolvedTarget,
         type: 'data-flow',
         strength: 0.4,
         directed: true,
@@ -887,7 +1147,7 @@ function loadDataFlows(): { dataFlows: DataFlowInfo[]; edges: GraphEdge[] } {
     }
 
     if (skippedCount > 0) {
-      console.log(`  ⚠️  Skipped ${skippedCount} flows with unmapped SW# references`);
+      console.log(`  ⚠️  Skipped ${skippedCount} flows (unmapped SW# or collapsed to self after canonicalization)`);
     }
   }
 
@@ -1055,13 +1315,21 @@ async function main() {
   const { principles, nodes: principleNodes, edges: principleEdges } = loadPrinciplesData();
   console.log(`🔬 Loaded ${principles.length} design principles with ${principleEdges.length} edges`);
 
+  // Load redirects/aliases from YAML (used to canonicalize targets and avoid duplicate nodes)
+  const issueRedirectIndex = loadIssueRedirectIndex();
+  const resolveIssue = (id: string) => resolveIssueId(id, issueRedirectIndex.issueIdRedirects);
+
   // Load data flows (from extract-principles.ts output)
-  const { dataFlows, edges: dataFlowEdges } = loadDataFlows();
+  const { dataFlows, edges: dataFlowEdges } = loadDataFlows(resolveIssue);
   console.log(`🔗 Loaded ${dataFlows.length} data flow connections`);
 
   // Load primitives mapping
   const primitivesMapping = loadPrimitivesMapping();
   console.log(`🧩 Loaded ${primitivesMapping.size} issue-primitive mappings`);
+
+  // Load events from YAML files
+  const issueEvents = loadIssueEvents();
+  console.log(`📅 Loaded events for ${issueEvents.size} issues`);
 
   // Build slug-to-issue-number map from ARCHITECTURE filenames
   const slugToNumberMap = buildSlugToIssueNumberMap();
@@ -1072,7 +1340,32 @@ async function main() {
 
   // Load wiki content early to get valid slugs for connection validation
   const wikiContent = loadWikiContent();
-  const wikiIssueSlugs = new Set(wikiContent.issues.keys());
+  const caseStudyIssueSlugs = new Set<string>();
+  const mergedIssueSlugs = new Set<string>();
+  for (const [id, article] of wikiContent.issues) {
+    const caseStudyOf = article.frontmatter?.caseStudyOf;
+    if (typeof caseStudyOf === 'string' && caseStudyOf.trim().length > 0) {
+      caseStudyIssueSlugs.add(id);
+    }
+    if (issueRedirectIndex.deprecatedIssueIds.has(id)) {
+      mergedIssueSlugs.add(id);
+    }
+  }
+
+  const wikiIssueSlugsAll = new Set(wikiContent.issues.keys());
+  const wikiIssueSlugs = new Set<string>();
+  for (const id of wikiContent.issues.keys()) {
+    if (!caseStudyIssueSlugs.has(id) && !mergedIssueSlugs.has(id)) {
+      wikiIssueSlugs.add(id);
+    }
+  }
+
+  if (caseStudyIssueSlugs.size > 0) {
+    console.log(`🧾 Loaded ${caseStudyIssueSlugs.size} case-study issue articles (excluded from graph nodes)`);
+  }
+  if (mergedIssueSlugs.size > 0) {
+    console.log(`🧭 Loaded ${mergedIssueSlugs.size} merged/redirect issue articles (excluded from graph nodes)`);
+  }
   console.log(`📚 Loaded ${wikiIssueSlugs.size} wiki issue slugs for connection validation`);
 
   // Extract issues
@@ -1080,8 +1373,9 @@ async function main() {
   console.log(`📋 Found ${allRawIssues.length} issues in catalog`);
 
   // Filter out archived issues (those that don't have active wiki articles)
+  // Also exclude case-study/merged articles: visible in wiki, but not separate graph nodes.
   const rawIssues = allRawIssues.filter(issue => wikiIssueSlugs.has(issue.id));
-  const archivedCount = allRawIssues.length - rawIssues.length;
+  const archivedCount = allRawIssues.filter(issue => !wikiIssueSlugsAll.has(issue.id)).length;
   if (archivedCount > 0) {
     console.log(`📦 Skipping ${archivedCount} archived issues (wiki articles in archive)`);
   }
@@ -1093,7 +1387,7 @@ async function main() {
   const catalogIds = new Set(rawIssues.map(i => i.id));
   const wikiOnlyArticles: WikiArticle[] = [];
   for (const [id, article] of wikiContent.issues) {
-    if (!catalogIds.has(id)) {
+    if (!catalogIds.has(id) && !caseStudyIssueSlugs.has(id) && !mergedIssueSlugs.has(id)) {
       wikiOnlyArticles.push(article);
     }
   }
@@ -1147,7 +1441,7 @@ async function main() {
   console.log('🔗 Extracting connections...');
 
   // 1. Issue-to-issue edges (validate against wiki slugs)
-  const issueEdges = extractIssueEdges(rawIssues, wikiIssueSlugs);
+  const issueEdges = extractIssueEdges(rawIssues, wikiIssueSlugs, resolveIssue);
   console.log(`  - ${issueEdges.length} issue-issue edges`);
   edges.push(...issueEdges);
 
@@ -1159,10 +1453,11 @@ async function main() {
     const yamlConnections = curatedConnections.get(article.id);
     if (yamlConnections && yamlConnections.length > 0) {
       for (const conn of yamlConnections) {
-        if (wikiIssueSlugs.has(conn.targetId) && conn.targetId !== article.id) {
+        const canonicalTarget = resolveIssue(conn.targetId);
+        if (wikiIssueSlugs.has(canonicalTarget) && canonicalTarget !== article.id) {
           edges.push({
             source: article.id,
-            target: conn.targetId,
+            target: canonicalTarget,
             type: 'issue-issue',
             strength: conn.strength || 0.5,
             label: conn.relationshipType,
@@ -1176,10 +1471,12 @@ async function main() {
       const connections = article.frontmatter.connections;
       if (Array.isArray(connections)) {
         for (const targetId of connections) {
-          if (typeof targetId === 'string' && wikiIssueSlugs.has(targetId) && targetId !== article.id) {
+          if (typeof targetId !== 'string') continue;
+          const canonicalTarget = resolveIssue(targetId);
+          if (wikiIssueSlugs.has(canonicalTarget) && canonicalTarget !== article.id) {
             edges.push({
               source: article.id,
-              target: targetId,
+              target: canonicalTarget,
               type: 'issue-issue',
               strength: 0.5,
               bidirectional: true,
@@ -1237,11 +1534,48 @@ async function main() {
   // 4. Data flow edges (directed flows between issues and/or systems)
   // Allow data flows between any valid nodes (issues or systems)
   const allNodeIds = new Set(nodes.map(n => n.id));
-  const validDataFlowEdges = dataFlowEdges.filter(
-    e => allNodeIds.has(e.source) && allNodeIds.has(e.target) && e.source !== e.target
+
+  // Build case study → parent map so flows that reference case studies attach to the canonical issue node.
+  const caseStudyToParent = new Map<string, string>();
+  for (const [id, article] of wikiContent.issues) {
+    const parent = article.frontmatter?.caseStudyOf;
+    if (typeof parent === 'string' && parent.trim().length > 0) {
+      caseStudyToParent.set(id, parent.trim());
+    }
+  }
+
+  const canonicalizeFlowEndpoint = (id: string): string => {
+    const parent = caseStudyToParent.get(id);
+    if (parent) return parent;
+    return resolveIssue(id);
+  };
+
+  // Canonicalize endpoints, dedupe, then validate.
+  const canonicalizedDataFlowEdges: GraphEdge[] = [];
+  const seenFlowEdges = new Set<string>();
+  let skippedInvalidFlowNodes = 0;
+
+  for (const edge of dataFlowEdges) {
+    const source = canonicalizeFlowEndpoint(edge.source);
+    const target = canonicalizeFlowEndpoint(edge.target);
+    if (source === target) continue;
+
+    const key = `${source}->${target}:${edge.flowDirection || ''}`;
+    if (seenFlowEdges.has(key)) continue;
+    seenFlowEdges.add(key);
+
+    if (!allNodeIds.has(source) || !allNodeIds.has(target)) {
+      skippedInvalidFlowNodes++;
+      continue;
+    }
+
+    canonicalizedDataFlowEdges.push({ ...edge, source, target });
+  }
+
+  edges.push(...canonicalizedDataFlowEdges);
+  console.log(
+    `  - ${canonicalizedDataFlowEdges.length} data-flow edges (${skippedInvalidFlowNodes} skipped - invalid node)`
   );
-  edges.push(...validDataFlowEdges);
-  console.log(`  - ${validDataFlowEdges.length} data-flow edges (${dataFlowEdges.length - validDataFlowEdges.length} skipped - invalid node)`);
 
   // Process wiki articles (already loaded earlier for connection validation)
   console.log('📚 Processing wiki articles...');
@@ -1250,7 +1584,16 @@ async function main() {
   const wikiArticles: Record<string, WikiArticle> = {};
 
   // First, add all wiki articles (even those without matching catalog nodes)
+  // Attach events to issue articles
+  let issuesWithEvents = 0;
+  let totalEvents = 0;
   for (const [id, article] of wikiContent.issues) {
+    const events = issueEvents.get(id);
+    if (events && events.length > 0) {
+      article.events = events;
+      issuesWithEvents++;
+      totalEvents += events.length;
+    }
     wikiArticles[id] = article;
   }
   for (const [id, article] of wikiContent.systems) {
@@ -1262,6 +1605,7 @@ async function main() {
   for (const [id, article] of wikiContent.primitives) {
     wikiArticles[id] = article;
   }
+  console.log(`  - ${issuesWithEvents} issues with ${totalEvents} events attached`);
 
   // Then, attach wiki article metadata to matching nodes
   for (const node of nodes) {
@@ -1297,6 +1641,14 @@ async function main() {
     communities, // Include community metadata
     principles: principles.length > 0 ? principles : undefined,
     dataFlows: dataFlows.length > 0 ? dataFlows : undefined,
+    issueIdRedirects:
+      issueRedirectIndex.issueIdRedirects.size > 0
+        ? Object.fromEntries(issueRedirectIndex.issueIdRedirects.entries())
+        : undefined,
+    canonicalIssueAliases:
+      issueRedirectIndex.canonicalAliases.size > 0
+        ? Object.fromEntries(issueRedirectIndex.canonicalAliases.entries())
+        : undefined,
     metadata: {
       generatedAt: new Date().toISOString(),
       issueCount: nodes.filter(n => n.type === 'issue').length,

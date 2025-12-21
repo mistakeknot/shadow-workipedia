@@ -119,51 +119,84 @@ function extractDataFlowsFromFile(filePath: string): DataFlow[] {
   const fileName = basename(filePath);
 
   // Extract system number from filename
-  const systemMatch = fileName.match(/^(\d+)/);
+  const systemMatch = fileName.match(/^(\d+[a-z]?)/i);
   const sourceSystem = systemMatch ? `SW#${systemMatch[1]}` : fileName;
 
-  // Pattern for "READS FROM:" sections
-  const readsPattern = /READS\s+FROM[:\s]+([^\n]+)/gi;
-  let match;
-  while ((match = readsPattern.exec(content)) !== null) {
-    const targets = match[1].split(/[,;]/).map(s => s.trim()).filter(Boolean);
-    for (const target of targets) {
-      const systemRef = target.match(/(?:SW)?#?(\d+)/);
-      if (systemRef) {
-        dataFlows.push({
-          source: `SW#${systemRef[1]}`,
-          target: sourceSystem,
-          data: [],
-          direction: 'reads',
-        });
+  const extractRefs = (text: string): string[] => {
+    // Require an explicit "#" marker to avoid false positives on years/quantities.
+    const refs = new Set<string>();
+    const refPattern = /(?:SW\s*)?#\s*(\d+[a-z]?)/gi;
+    for (const m of text.matchAll(refPattern)) {
+      refs.add(`SW#${m[1]}`);
+    }
+    return [...refs];
+  };
+
+  // Parse READS FROM / WRITES TO sections (often formatted as headings with bullet lists)
+  const lines = content.split('\n');
+  let mode: 'reads' | 'writes' | null = null;
+
+  const isHeaderLine = (line: string) => /^\s*#{2,6}\s+/.test(line) || /^\s*\*\*.+\*\*\s*:?\s*$/.test(line);
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line) continue;
+
+    const readsHeader = /READS\s+FROM/i.test(line);
+    const writesHeader = /WRITES\s+TO/i.test(line);
+
+    if (readsHeader && isHeaderLine(line)) {
+      mode = 'reads';
+      // Some files inline refs on the same line (e.g., "**READS FROM**: SW#04, SW#05")
+      for (const ref of extractRefs(line)) {
+        dataFlows.push({ source: ref, target: sourceSystem, data: [], direction: 'reads' });
+      }
+      continue;
+    }
+
+    if (writesHeader && isHeaderLine(line)) {
+      mode = 'writes';
+      for (const ref of extractRefs(line)) {
+        dataFlows.push({ source: sourceSystem, target: ref, data: [], direction: 'writes' });
+      }
+      continue;
+    }
+
+    // Stop section when a new heading begins (and it's not another reads/writes header)
+    if (mode && /^\s*#{2,6}\s+/.test(line) && !readsHeader && !writesHeader) {
+      mode = null;
+    }
+
+    if (mode && (/^\s*[-*]\s+/.test(rawLine) || /^\s*\d+\.\s+/.test(rawLine))) {
+      const refs = extractRefs(rawLine);
+      for (const ref of refs) {
+        if (mode === 'reads') {
+          dataFlows.push({ source: ref, target: sourceSystem, data: [], direction: 'reads' });
+        } else {
+          dataFlows.push({ source: sourceSystem, target: ref, data: [], direction: 'writes' });
+        }
       }
     }
   }
 
-  // Pattern for "WRITES TO:" sections
-  const writesPattern = /WRITES\s+TO[:\s]+([^\n]+)/gi;
-  while ((match = writesPattern.exec(content)) !== null) {
-    const targets = match[1].split(/[,;]/).map(s => s.trim()).filter(Boolean);
-    for (const target of targets) {
-      const systemRef = target.match(/(?:SW)?#?(\d+)/);
-      if (systemRef) {
-        dataFlows.push({
-          source: sourceSystem,
-          target: `SW#${systemRef[1]}`,
-          data: [],
-          direction: 'writes',
-        });
-      }
-    }
+  // Extract explicit arrow relationships.
+  // 1) Two-sided: "SW#12 → SW#55" (source is explicit)
+  const explicitArrow = /(?:SW\s*)?#\s*(\d+[a-z]?)\s*(?:→|──►|--►)\s*(?:SW\s*)?#\s*(\d+[a-z]?)/gi;
+  for (const m of content.matchAll(explicitArrow)) {
+    dataFlows.push({
+      source: `SW#${m[1]}`,
+      target: `SW#${m[2]}`,
+      data: [],
+      direction: 'writes',
+    });
   }
 
-  // Also extract from Integration Flow ASCII diagrams
-  // Pattern: "→ SW#NN" or "──► SW#NN"
-  const flowArrowPattern = /(?:→|──►|--►)\s*(?:SW)?#?(\d+)/gi;
-  while ((match = flowArrowPattern.exec(content)) !== null) {
+  // 2) One-sided: "→ SW#63" (implicit source is this file's system)
+  const implicitArrow = /(?:→|──►|--►)\s*(?:SW\s*)?#\s*(\d+[a-z]?)/gi;
+  for (const m of content.matchAll(implicitArrow)) {
     dataFlows.push({
       source: sourceSystem,
-      target: `SW#${match[1]}`,
+      target: `SW#${m[1]}`,
       data: [],
       direction: 'writes',
     });
@@ -212,9 +245,11 @@ Extracted from ${sourceLink} at line ${principle.lineNumber}.
 
 async function main() {
   console.log('🔍 Extracting Design Principles from System Walk 2.0 docs...\n');
+  const args = new Set(process.argv.slice(2));
+  const flowsOnly = args.has('--flows-only');
 
   // Create output directories
-  if (!existsSync(PRINCIPLES_OUTPUT_DIR)) {
+  if (!flowsOnly && !existsSync(PRINCIPLES_OUTPUT_DIR)) {
     mkdirSync(PRINCIPLES_OUTPUT_DIR, { recursive: true });
   }
 
@@ -247,10 +282,10 @@ async function main() {
   const allDataFlows: DataFlow[] = [];
 
   for (const file of archFiles) {
-    const principles = extractPrinciplesFromFile(file);
+    const principles = flowsOnly ? [] : extractPrinciplesFromFile(file);
     const dataFlows = extractDataFlowsFromFile(file);
 
-    if (principles.length > 0) {
+    if (!flowsOnly && principles.length > 0) {
       console.log(`  ✅ ${basename(file)}: ${principles.length} principles`);
     }
 
@@ -272,21 +307,25 @@ async function main() {
 
   console.log(`\n📊 Extraction Summary:`);
   console.log(`   - Files processed: ${archFiles.length}`);
-  console.log(`   - Principles found: ${allPrinciples.length} (${uniquePrinciples.length} unique)`);
+  if (!flowsOnly) {
+    console.log(`   - Principles found: ${allPrinciples.length} (${uniquePrinciples.length} unique)`);
+  }
   console.log(`   - Data flows found: ${allDataFlows.length}`);
 
-  // Generate principle articles
-  console.log(`\n📝 Generating principle articles...`);
-  let articlesWritten = 0;
+  if (!flowsOnly) {
+    // Generate principle articles
+    console.log(`\n📝 Generating principle articles...`);
+    let articlesWritten = 0;
 
-  for (const principle of uniquePrinciples) {
-    const articleContent = generatePrincipleArticle(principle);
-    const articlePath = join(PRINCIPLES_OUTPUT_DIR, `${principle.id}.md`);
-    writeFileSync(articlePath, articleContent);
-    articlesWritten++;
+    for (const principle of uniquePrinciples) {
+      const articleContent = generatePrincipleArticle(principle);
+      const articlePath = join(PRINCIPLES_OUTPUT_DIR, `${principle.id}.md`);
+      writeFileSync(articlePath, articleContent);
+      articlesWritten++;
+    }
+
+    console.log(`   - Wrote ${articlesWritten} article files to wiki/principles/`);
   }
-
-  console.log(`   - Wrote ${articlesWritten} article files to wiki/principles/`);
 
   // Write data flows JSON
   const dataFlowsData = {
@@ -302,21 +341,23 @@ async function main() {
   writeFileSync(DATA_FLOWS_OUTPUT, JSON.stringify(dataFlowsData, null, 2));
   console.log(`   - Wrote data flows to data/system-data-flows.json`);
 
-  // Write principles index
-  const principlesIndex = {
-    generatedAt: new Date().toISOString(),
-    count: uniquePrinciples.length,
-    principles: uniquePrinciples.map(p => ({
-      id: p.id,
-      name: p.name,
-      system: p.sourceSystem,
-      sourceFile: p.sourceFile,
-      thresholdCount: p.thresholds.length,
-    })),
-  };
+  if (!flowsOnly) {
+    // Write principles index
+    const principlesIndex = {
+      generatedAt: new Date().toISOString(),
+      count: uniquePrinciples.length,
+      principles: uniquePrinciples.map(p => ({
+        id: p.id,
+        name: p.name,
+        system: p.sourceSystem,
+        sourceFile: p.sourceFile,
+        thresholdCount: p.thresholds.length,
+      })),
+    };
 
-  writeFileSync(join(dataDir, 'principles-index.json'), JSON.stringify(principlesIndex, null, 2));
-  console.log(`   - Wrote principles index to data/principles-index.json`);
+    writeFileSync(join(dataDir, 'principles-index.json'), JSON.stringify(principlesIndex, null, 2));
+    console.log(`   - Wrote principles index to data/principles-index.json`);
+  }
 
   console.log(`\n✅ Done!`);
 }

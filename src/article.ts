@@ -12,6 +12,80 @@ function formatDate(dateStr: string): string {
   }
 }
 
+function getCaseStudyParentId(article: WikiArticle): string | null {
+  const raw = article.frontmatter?.caseStudyOf;
+  if (typeof raw !== 'string') return null;
+  const trimmed = raw.trim();
+  return trimmed.length > 0 ? trimmed : null;
+}
+
+function resolveIssueId(id: string, data: GraphData): string {
+  const redirects = data.issueIdRedirects;
+  if (!redirects) return id;
+
+  let current = id;
+  const visited = new Set<string>();
+  for (let i = 0; i < 25; i++) {
+    const next = redirects[current];
+    if (!next || next === current) return current;
+    if (visited.has(current)) return current;
+    visited.add(current);
+    current = next;
+  }
+  return current;
+}
+
+function getRedirectTargetId(article: WikiArticle, data: GraphData): string | null {
+  if (article.type !== 'issue') return null;
+  const resolved = resolveIssueId(article.id, data);
+  return resolved !== article.id ? resolved : null;
+}
+
+function findCaseStudiesForIssue(issueId: string, data: GraphData): WikiArticle[] {
+  const articles = data.articles ? Object.values(data.articles) : [];
+  return articles
+    .filter(a => a.type === 'issue' && getCaseStudyParentId(a) === issueId)
+    .sort((a, b) => a.title.localeCompare(b.title));
+}
+
+function renderCaseStudyParentBanner(article: WikiArticle, data: GraphData): string {
+  const parentId = getCaseStudyParentId(article);
+  if (!parentId) return '';
+
+  const parentTitle =
+    data.articles?.[parentId]?.title ??
+    data.nodes.find(n => n.id === parentId)?.label ??
+    parentId;
+
+  return `
+    <div class="case-study-banner">
+      <span class="case-study-badge">Case Study</span>
+      <span class="case-study-of">of</span>
+      <a class="case-study-parent-link" href="#/wiki/${parentId}">${parentTitle}</a>
+    </div>
+  `;
+}
+
+function renderRedirectBanner(article: WikiArticle, data: GraphData): string {
+  const targetId = getRedirectTargetId(article, data);
+  if (!targetId) return '';
+
+  const targetTitle =
+    data.articles?.[targetId]?.title ??
+    data.nodes.find(n => n.id === targetId)?.label ??
+    targetId;
+
+  const badge = typeof article.frontmatter?.mergedInto === 'string' ? 'Merged' : 'Redirect';
+
+  return `
+    <div class="redirect-banner">
+      <span class="redirect-badge">${badge}</span>
+      <span class="redirect-of">to</span>
+      <a class="redirect-target-link" href="#/wiki/${targetId}">${targetTitle}</a>
+    </div>
+  `;
+}
+
 export type ViewType = 'graph' | 'table' | 'wiki' | 'communities';
 export type RouteType =
   | { kind: 'view'; view: ViewType }
@@ -126,8 +200,9 @@ export class ArticleRouter {
  * Render a wiki article as HTML
  */
 export function renderArticleView(article: WikiArticle, data: GraphData): string {
-  // Find the node for additional metadata
-  const node = data.nodes.find(n => n.id === article.id);
+  // Find the node for additional metadata (redirect issues to canonical nodes)
+  const effectiveNodeId = article.type === 'issue' ? resolveIssueId(article.id, data) : article.id;
+  const node = data.nodes.find(n => n.id === effectiveNodeId);
 
   return `
     <div class="article-view">
@@ -141,6 +216,9 @@ export function renderArticleView(article: WikiArticle, data: GraphData): string
           ${article.lastUpdated ? `<span class="article-updated">Updated ${formatDate(article.lastUpdated)}</span>` : ''}
         </div>
       </div>
+
+      ${renderCaseStudyParentBanner(article, data)}
+      ${renderRedirectBanner(article, data)}
 
       <article class="article-content">
         ${article.html}
@@ -165,8 +243,9 @@ export function renderArticleView(article: WikiArticle, data: GraphData): string
  * Render wiki article content for the sidebar view (no back button)
  */
 export function renderWikiArticleContent(article: WikiArticle, data: GraphData): string {
-  // Find the node for additional metadata
-  const node = data.nodes.find(n => n.id === article.id);
+  // Find the node for additional metadata (redirect issues to canonical nodes)
+  const effectiveNodeId = article.type === 'issue' ? resolveIssueId(article.id, data) : article.id;
+  const node = data.nodes.find(n => n.id === effectiveNodeId);
 
   return `
     <div class="wiki-article-view">
@@ -177,6 +256,9 @@ export function renderWikiArticleContent(article: WikiArticle, data: GraphData):
           ${article.lastUpdated ? `<span class="article-updated">Updated ${formatDate(article.lastUpdated)}</span>` : ''}
         </div>
       </div>
+
+      ${renderCaseStudyParentBanner(article, data)}
+      ${renderRedirectBanner(article, data)}
 
       <article class="article-content">
         ${article.html}
@@ -218,6 +300,8 @@ function renderRelatedContent(node: any, data: GraphData): string {
   const connectedIssues = connectedNodes.filter(n => n.type === 'issue');
   const connectedSystems = connectedNodes.filter(n => n.type === 'system');
 
+  const caseStudies = node.type === 'issue' ? findCaseStudiesForIssue(node.id, data) : [];
+
   // Find principles for this issue (match sourceFile to issue id)
   const relatedPrinciples = node.type === 'issue' && data.principles
     ? data.principles.filter(p => {
@@ -241,6 +325,20 @@ function renderRelatedContent(node: any, data: GraphData): string {
             ${relatedPrinciples.map(p => `
               <a href="#/wiki/${p.id}" class="related-link has-article principle-link">
                 ${p.name}
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${caseStudies.length > 0 ? `
+        <div class="related-section case-studies-section">
+          <h3>Case Studies (${caseStudies.length})</h3>
+          <div class="related-links">
+            ${caseStudies.map(a => `
+              <a href="#/wiki/${a.id}" class="related-link has-article">
+                ${a.title}
+                <span class="article-indicator">📄</span>
               </a>
             `).join('')}
           </div>

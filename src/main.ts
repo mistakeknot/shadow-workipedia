@@ -210,6 +210,15 @@ function renderPanelRelatedContent(node: SimNode, data: GraphData): string {
     return n?.type === 'system';
   });
 
+  const caseStudies = node.type === 'issue' && data.articles
+    ? Object.values(data.articles)
+        .filter(a => {
+          const parent = a.frontmatter?.caseStudyOf;
+          return a.type === 'issue' && typeof parent === 'string' && parent.trim() === node.id;
+        })
+        .sort((a, b) => a.title.localeCompare(b.title))
+    : [];
+
   return `
     <div class="related-content">
       <h2>Related Content</h2>
@@ -222,6 +231,19 @@ function renderPanelRelatedContent(node: SimNode, data: GraphData): string {
               <div class="connection-item" data-node-id="${conn.id}">
                 <span class="connection-name">${conn.label}</span>
               </div>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${caseStudies.length > 0 ? `
+        <div class="related-section">
+          <h3>Case Studies (${caseStudies.length})</h3>
+          <div class="connections">
+            ${caseStudies.map(a => `
+              <a class="connection-item" href="#/wiki/${a.id}">
+                <span class="connection-name">${a.title}</span>
+              </a>
             `).join('')}
           </div>
         </div>
@@ -287,6 +309,22 @@ async function main() {
   console.log(`📊 Loaded ${data.metadata.issueCount} issues, ${data.metadata.systemCount} systems`);
   if (data.metadata.articleCount) {
     console.log(`📚 ${data.metadata.articleCount} wiki articles available`);
+  }
+
+  function resolveIssueId(id: string): string {
+    const redirects = data.issueIdRedirects;
+    if (!redirects) return id;
+
+    let current = id;
+    const visited = new Set<string>();
+    for (let i = 0; i < 25; i++) {
+      const next = redirects[current];
+      if (!next || next === current) return current;
+      if (visited.has(current)) return current;
+      visited.add(current);
+      current = next;
+    }
+    return current;
   }
 
   // Hide loading indicator
@@ -422,6 +460,14 @@ async function main() {
       showView(route.view);
     } else if (route.kind === 'article') {
       // Both issue and system articles show in wiki view with sidebar
+      if (route.type === 'issue') {
+        const resolved = resolveIssueId(route.slug);
+        if ((!data.articles || !data.articles[route.slug]) && resolved !== route.slug && data.articles?.[resolved]) {
+          window.location.hash = `#/wiki/${resolved}`;
+          return;
+        }
+      }
+
       selectedWikiArticle = route.slug;
       showView('wiki');
       // Re-render to update selection and article content
@@ -1740,7 +1786,27 @@ async function main() {
     // Don't auto-select - show welcome message when on #/wiki
 
     // Group by type
-    const issueArticles = articles.filter(a => a.type === 'issue');
+    const issueArticlesAll = articles.filter(a => a.type === 'issue');
+    const caseStudyArticles = issueArticlesAll.filter(a => {
+      const parent = a.frontmatter?.caseStudyOf;
+      return typeof parent === 'string' && parent.trim().length > 0;
+    });
+    const redirectArticles = issueArticlesAll.filter(a => {
+      const parent = a.frontmatter?.caseStudyOf;
+      if (typeof parent === 'string' && parent.trim().length > 0) return false;
+      const redirects = data.issueIdRedirects;
+      if (!redirects) return false;
+      const direct = redirects[a.id];
+      return typeof direct === 'string' && direct.trim().length > 0 && resolveIssueId(a.id) !== a.id;
+    });
+    const issueArticles = issueArticlesAll.filter(a => {
+      const parent = a.frontmatter?.caseStudyOf;
+      if (typeof parent === 'string' && parent.trim().length > 0) return false;
+      const redirects = data.issueIdRedirects;
+      if (!redirects) return true;
+      const direct = redirects[a.id];
+      return !(typeof direct === 'string' && direct.trim().length > 0 && resolveIssueId(a.id) !== a.id);
+    });
     // Filter out subsystems (those with parentheses) to show only main systems
     const systemArticles = articles.filter(a => a.type === 'system' && !a.title.includes('('));
     const principleArticles = articles.filter(a => a.type === 'principle');
@@ -1774,6 +1840,24 @@ async function main() {
           <h3>Issues (${issueArticles.length})</h3>
           <div class="wiki-sidebar-list">
             ${issueArticles.map(renderSidebarItem).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${caseStudyArticles.length > 0 ? `
+        <div class="wiki-sidebar-section">
+          <h3>Case Studies (${caseStudyArticles.length})</h3>
+          <div class="wiki-sidebar-list">
+            ${caseStudyArticles.map(renderSidebarItem).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${redirectArticles.length > 0 ? `
+        <div class="wiki-sidebar-section">
+          <h3>Redirects (${redirectArticles.length})</h3>
+          <div class="wiki-sidebar-list">
+            ${redirectArticles.map(renderSidebarItem).join('')}
           </div>
         </div>
       ` : ''}
@@ -1842,6 +1926,8 @@ async function main() {
 
           <div class="wiki-sections">
             ${renderCollapsibleSection('Issues', issueArticles, 'issues-section')}
+            ${renderCollapsibleSection('Case Studies', caseStudyArticles, 'issues-section')}
+            ${renderCollapsibleSection('Redirects', redirectArticles, 'issues-section')}
             ${renderCollapsibleSection('Systems', systemArticles, 'systems-section')}
             ${renderCollapsibleSection('Principles', principleArticles, 'principles-section')}
             ${renderCollapsibleSection('Primitives', primitiveArticles, 'primitives-section')}

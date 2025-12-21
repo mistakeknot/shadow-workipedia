@@ -105,6 +105,12 @@ export interface GraphEdge {
   flowDirection?: 'reads' | 'writes'; // For data-flow edges
 }
 
+export interface IssueEvent {
+  id: string;
+  name: string;
+  description: string;
+}
+
 export interface WikiArticle {
   id: string;
   title: string;
@@ -114,6 +120,7 @@ export interface WikiArticle {
   html: string;
   wordCount: number;
   lastUpdated: string;
+  events?: IssueEvent[];
 }
 
 export interface CommunityInfo {
@@ -150,6 +157,8 @@ export interface GraphData {
   communities?: Record<number, CommunityInfo>;
   principles?: PrincipleInfo[];       // Extracted design principles
   dataFlows?: DataFlowInfo[];         // System-to-system data flows
+  issueIdRedirects?: Record<string, string>;      // alias/merged-id -> canonical issue id
+  canonicalIssueAliases?: Record<string, string[]>; // canonical issue id -> aliases[]
   metadata: {
     generatedAt: string;
     issueCount: number;
