@@ -1379,40 +1379,103 @@ async function main() {
     }
 
     // Draw edges
-    for (const link of graph.getLinks()) {
-      // Skip edges where either endpoint isn't currently visible (filters + view toggles)
-      if (!visibleNodeIds.has(link.source.id) || !visibleNodeIds.has(link.target.id)) continue;
+    const links = graph.getLinks();
+    const k = currentTransform.k;
 
-      // Skip data-flow edges if not enabled
-      const isDataFlow = link.type === 'data-flow';
-      if (isDataFlow && !showDataFlows) continue;
+    // Batch draw normal edges (canvas is much faster with fewer stroke() calls)
+    {
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.15)';
+      ctx.lineWidth = 1 / k;
+      ctx.beginPath();
+      let drewAny = false;
+      for (const link of links) {
+        if (link.type === 'data-flow') continue;
+        if (!visibleNodeIds.has(link.source.id) || !visibleNodeIds.has(link.target.id)) continue;
 
-      const isConnected = selectedNode &&
-        (link.source.id === selectedNode.id || link.target.id === selectedNode.id);
+        const isConnected = selectedNode &&
+          (link.source.id === selectedNode.id || link.target.id === selectedNode.id);
+        if (isConnected) continue;
 
-      // Different styling for data flow edges
-      if (isDataFlow) {
-        ctx.strokeStyle = isConnected
-          ? 'rgba(245, 158, 11, 0.9)'  // Amber for data flows
-          : 'rgba(245, 158, 11, 0.25)';
-        ctx.lineWidth = (isConnected ? 2.5 : 1.5) / currentTransform.k;
-      } else {
-        ctx.strokeStyle = isConnected
-          ? 'rgba(148, 163, 184, 0.8)'
-          : 'rgba(148, 163, 184, 0.15)';
-        ctx.lineWidth = (isConnected ? 2 : 1) / currentTransform.k;
+        ctx.moveTo(link.source.x!, link.source.y!);
+        ctx.lineTo(link.target.x!, link.target.y!);
+        drewAny = true;
+      }
+      if (drewAny) ctx.stroke();
+    }
+
+    if (selectedNode) {
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.8)';
+      ctx.lineWidth = 2 / k;
+      ctx.beginPath();
+      let drewAny = false;
+      for (const link of links) {
+        if (link.type === 'data-flow') continue;
+        if (!visibleNodeIds.has(link.source.id) || !visibleNodeIds.has(link.target.id)) continue;
+
+        const isConnected =
+          link.source.id === selectedNode.id || link.target.id === selectedNode.id;
+        if (!isConnected) continue;
+
+        ctx.moveTo(link.source.x!, link.source.y!);
+        ctx.lineTo(link.target.x!, link.target.y!);
+        drewAny = true;
+      }
+      if (drewAny) ctx.stroke();
+    }
+
+    // Data flow edges (smaller set, but still batch strokes)
+    if (showDataFlows) {
+      ctx.strokeStyle = 'rgba(245, 158, 11, 0.25)';
+      ctx.lineWidth = 1.5 / k;
+      ctx.beginPath();
+      let drewAny = false;
+      for (const link of links) {
+        if (link.type !== 'data-flow') continue;
+        if (!visibleNodeIds.has(link.source.id) || !visibleNodeIds.has(link.target.id)) continue;
+
+        const isConnected = selectedNode &&
+          (link.source.id === selectedNode.id || link.target.id === selectedNode.id);
+        if (isConnected) continue;
+
+        ctx.moveTo(link.source.x!, link.source.y!);
+        ctx.lineTo(link.target.x!, link.target.y!);
+        drewAny = true;
+      }
+      if (drewAny) ctx.stroke();
+
+      if (selectedNode) {
+        ctx.strokeStyle = 'rgba(245, 158, 11, 0.9)';
+        ctx.lineWidth = 2.5 / k;
+        ctx.beginPath();
+        drewAny = false;
+        for (const link of links) {
+          if (link.type !== 'data-flow') continue;
+          if (!visibleNodeIds.has(link.source.id) || !visibleNodeIds.has(link.target.id)) continue;
+
+          const isConnected =
+            link.source.id === selectedNode.id || link.target.id === selectedNode.id;
+          if (!isConnected) continue;
+
+          ctx.moveTo(link.source.x!, link.source.y!);
+          ctx.lineTo(link.target.x!, link.target.y!);
+          drewAny = true;
+        }
+        if (drewAny) ctx.stroke();
       }
 
-      ctx.beginPath();
-      ctx.moveTo(link.source.x!, link.source.y!);
-      ctx.lineTo(link.target.x!, link.target.y!);
-      ctx.stroke();
+      // Arrowheads for directed data flows
+      for (const link of links) {
+        if (link.type !== 'data-flow' || !link.directed) continue;
+        if (!visibleNodeIds.has(link.source.id) || !visibleNodeIds.has(link.target.id)) continue;
 
-      // Draw arrowhead for directed edges (data flows)
-      if (isDataFlow && link.directed) {
-        ctx.fillStyle = ctx.strokeStyle;
+        const isConnected = selectedNode &&
+          (link.source.id === selectedNode.id || link.target.id === selectedNode.id);
+        ctx.fillStyle = isConnected
+          ? 'rgba(245, 158, 11, 0.9)'
+          : 'rgba(245, 158, 11, 0.25)';
+
         const targetSize = link.target.size || 8;
-        const arrowSize = Math.max(6, 10 / currentTransform.k);
+        const arrowSize = Math.max(6, 10 / k);
         drawArrow(
           ctx,
           link.source.x!,
