@@ -2684,8 +2684,16 @@ async function main() {
       return;
     }
 
-    // Convert communities to array and sort by size (descending)
-    const communities = Object.values(data.communities).sort((a, b) => b.size - a.size);
+    // Convert communities to array and sort alphabetically by label (case-insensitive)
+    const communities = Object.values(data.communities).sort((a, b) => {
+      const al = (a.label || '').toLowerCase();
+      const bl = (b.label || '').toLowerCase();
+      const cmp = al.localeCompare(bl);
+      if (cmp !== 0) return cmp;
+      // Tie-breakers: larger first, then stable by id
+      if (b.size !== a.size) return b.size - a.size;
+      return a.id - b.id;
+    });
 
     // Compute issue counts per community from actual graph nodes (more reliable than metadata size)
     const communityIssueCounts = new Map<number, number>();
