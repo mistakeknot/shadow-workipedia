@@ -392,6 +392,7 @@ async function main() {
     // View toggles and category filters are only relevant for graph view
     const viewModeToggles = document.getElementById('view-mode-toggles');
     const categoryFilters = document.getElementById('category-filters');
+    const clusterToggle = document.getElementById('cluster-toggle');
 
     if (view === 'graph') {
       tabGraph?.classList.add('active');
@@ -402,6 +403,7 @@ async function main() {
       // Show view toggles and category filters for graph
       if (viewModeToggles) viewModeToggles.style.display = '';
       if (categoryFilters) categoryFilters.style.display = '';
+      if (clusterToggle) clusterToggle.style.display = '';
     } else if (view === 'table') {
       tabTable?.classList.add('active');
       graphView?.classList.add('hidden');
@@ -411,6 +413,7 @@ async function main() {
       // Show view toggles and category filters for table
       if (viewModeToggles) viewModeToggles.style.display = '';
       if (categoryFilters) categoryFilters.style.display = '';
+      if (clusterToggle) clusterToggle.style.display = '';
       renderTable();
     } else if (view === 'wiki') {
       tabWiki?.classList.add('active');
@@ -421,6 +424,7 @@ async function main() {
       // Hide all filters for wiki
       if (viewModeToggles) viewModeToggles.style.display = 'none';
       if (categoryFilters) categoryFilters.style.display = 'none';
+      if (clusterToggle) clusterToggle.style.display = 'none';
       if (renderWikiList) renderWikiList();
     } else if (view === 'communities') {
       tabCommunities?.classList.add('active');
@@ -431,6 +435,7 @@ async function main() {
       // Hide all filters for communities
       if (viewModeToggles) viewModeToggles.style.display = 'none';
       if (categoryFilters) categoryFilters.style.display = 'none';
+      if (clusterToggle) clusterToggle.style.display = 'none';
       if (renderCommunitiesList) renderCommunitiesList();
     }
   }
