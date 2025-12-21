@@ -102,6 +102,13 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
             <span class="article-word-count">${article.wordCount.toLocaleString()} words</span>
           </div>
         </div>
+        <button
+          class="read-article-btn"
+          data-wiki-article-id="${article.id}"
+          data-wiki-article-type="${article.type}"
+        >
+          Open in Wiki
+        </button>
         <article class="article-content">
           ${article.html}
         </article>
@@ -128,6 +135,14 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
         <span class="badge urgency-${node.urgency?.toLowerCase()}">${node.urgency}</span>
       </div>
       <p class="description">${node.description || 'No description available.'}</p>
+
+      <button
+        class="read-article-btn"
+        data-wiki-article-id="${node.id}"
+        data-wiki-article-type="issue"
+      >
+        Open in Wiki
+      </button>
 
       ${node.affectedSystems && node.affectedSystems.length > 0 ? `
         <h3>Affected Systems</h3>
@@ -671,19 +686,23 @@ async function main() {
       });
     });
 
-    // Handle read article button clicks (navigate to wiki view)
-    const readArticleBtn = panelContent.querySelector('.read-article-btn[data-wiki-article-id]');
-    if (readArticleBtn) {
-      readArticleBtn.addEventListener('click', () => {
-        const articleId = readArticleBtn.getAttribute('data-wiki-article-id');
-        if (articleId && data.articles && data.articles[articleId]) {
-          detailPanel.classList.add('hidden');
-          setSelectedNode(null);
-          // Navigate to the wiki article (updates URL)
-          router.navigateToArticle('issue', articleId);
-        }
+    // Handle read/open-in-wiki button clicks (navigate to wiki view)
+    const readArticleBtns = panelContent.querySelectorAll('.read-article-btn[data-wiki-article-id]');
+    readArticleBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const articleId = btn.getAttribute('data-wiki-article-id');
+        if (!articleId) return;
+
+        const explicitType = btn.getAttribute('data-wiki-article-type') as ('issue' | 'system' | 'principle' | null);
+        const inferredType = data.articles?.[articleId]?.type as ('issue' | 'system' | 'principle' | undefined);
+        const type = explicitType || inferredType || 'issue';
+
+        detailPanel.classList.add('hidden');
+        setSelectedNode(null);
+        // Navigate to the wiki article (updates URL)
+        router.navigateToArticle(type, articleId);
       });
-    }
+    });
 
     // Handle system badge clicks
     const systemBadges = panelContent.querySelectorAll('.clickable-badge[data-system-id]');
