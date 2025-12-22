@@ -17,7 +17,7 @@ mechanics:
   - mechanic--algorithmic-amplification--algorithmic-amplification
   - mechanic--asymmetric-arms-race--asymmetric-arms-race
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--civildisobedience--civildisobedience
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--disparate-impact--disparate-impact

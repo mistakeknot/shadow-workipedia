@@ -33,11 +33,11 @@ mechanics:
   - mechanic--disparate-impact--disparate-impact
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
 ---
 
 # Teacher Shortage Catastrophe

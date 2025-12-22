@@ -16,8 +16,7 @@ factualAsOf: 2025-12-19
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # African Climate Refugee Crisis

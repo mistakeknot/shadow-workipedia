@@ -13,12 +13,11 @@ connections: [seed-sovereignty-and-genetic-diversity-loss, global-fertilizer-sho
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
 mechanics:
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--dual-use-dilemma--dual-use-dilemma
-  - mechanic--geographic-concentration--geographic-concentration
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Staple Crop Blight Wave

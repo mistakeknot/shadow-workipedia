@@ -35,8 +35,8 @@ mechanics:
   - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--tipping-point--tipping-point
+  - mechanic--lock-in--lock-in
+  - mechanic--threshold--threshold
 ---
 
 # Surveillance State Expansion

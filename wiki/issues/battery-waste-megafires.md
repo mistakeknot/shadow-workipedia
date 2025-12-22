@@ -15,7 +15,7 @@ primitives: ['ThresholdCascade', 'LegitimacyDynamics', 'FeedbackLoop', 'Resource
 lastUpdated: 2025-11-25
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 

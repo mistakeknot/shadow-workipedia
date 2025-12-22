@@ -14,14 +14,12 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-12-19
 factualAsOf: 2025-12-19
 mechanics:
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--disparate-impact--disparate-impact
-  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--feedback-loop--feedback-loop
   - mechanic--just-in-time-fragility--just-in-time-fragility
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # European Energy Shock and Heating Crisis

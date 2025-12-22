@@ -17,7 +17,7 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
 ---
 
 # Democratic Backsliding

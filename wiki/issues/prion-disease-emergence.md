@@ -32,11 +32,10 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
 ---
 

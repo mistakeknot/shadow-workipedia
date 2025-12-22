@@ -36,12 +36,12 @@ mechanics:
   - mechanic--asymmetric-arms-race--asymmetric-arms-race
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Internet Routing Collapse

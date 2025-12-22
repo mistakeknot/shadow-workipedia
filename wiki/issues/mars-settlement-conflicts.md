@@ -14,20 +14,17 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--civildisobedience--civildisobedience
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--disparate-impact--disparate-impact
-  - mechanic--geographic-concentration--geographic-concentration
   - mechanic--governance-vacuum--governance-vacuum
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--lock-in-effect--lock-in-effect
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--private-equity-extraction--private-equity-extraction
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 

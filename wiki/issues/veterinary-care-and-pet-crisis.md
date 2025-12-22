@@ -29,10 +29,9 @@ mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--disparate-impact--disparate-impact
-  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--path-dependency--path-dependency-lock-in
   - mechanic--private-equity-extraction--private-equity-extraction
 ---
 

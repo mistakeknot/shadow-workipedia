@@ -20,14 +20,14 @@ mechanics:
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--private-equity-extraction--private-equity-extraction
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Southeast Asia Authoritarian Entrenchment

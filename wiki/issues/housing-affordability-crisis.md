@@ -32,7 +32,7 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
 mechanics:
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--disparate-impact--disparate-impact
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
 ---

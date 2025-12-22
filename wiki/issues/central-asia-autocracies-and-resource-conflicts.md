@@ -15,12 +15,11 @@ lastUpdated: 2025-11-25
 mechanics:
   - mechanic--black-market-emergence--black-market-emergence
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--geographic-concentration--geographic-concentration
   - mechanic--governance-vacuum--governance-vacuum
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--threshold--confidencethreshold
+  - mechanic--lock-in--lock-in
+  - mechanic--threshold--threshold
 ---
 
 # Central Asia Autocracies and Resource Conflicts

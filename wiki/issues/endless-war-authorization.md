@@ -17,11 +17,10 @@ lastUpdated: 2025-12-19
 factualAsOf: 2025-12-19
 mechanics:
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--lock-in--lock-in
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Endless War Authorization

@@ -15,25 +15,23 @@ lastUpdated: 2025-11-24
 mechanics:
   - mechanic--algorithmic-amplification--algorithmic-amplification
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--civildisobedience--civildisobedience
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--private-equity-extraction--private-equity-extraction
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
   - mechanic--regulatory-fragmentation--regulatory-fragmentation
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Renewable Energy NIMBYism

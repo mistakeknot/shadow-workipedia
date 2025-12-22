@@ -19,7 +19,7 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Algorithmic Eviction and Debt Courts

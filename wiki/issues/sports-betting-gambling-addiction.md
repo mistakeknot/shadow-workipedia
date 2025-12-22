@@ -18,7 +18,7 @@ mechanics:
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--disparate-impact--disparate-impact
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects

@@ -20,13 +20,13 @@ mechanics:
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--lock-in--lock-in
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Union Busting Epidemic

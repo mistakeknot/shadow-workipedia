@@ -32,8 +32,7 @@ mechanics:
   - mechanic--externality--externality-pricing
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--lock-in--lock-in
 ---
 
 # E-Waste and Toxic Tech Graveyards

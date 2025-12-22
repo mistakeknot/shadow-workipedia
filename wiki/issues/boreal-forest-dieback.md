@@ -39,8 +39,7 @@ mechanics:
   - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--irreversible--water-extraction-irreversibility
   - mechanic--just-in-time-fragility--just-in-time-fragility
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Boreal Forest Dieback

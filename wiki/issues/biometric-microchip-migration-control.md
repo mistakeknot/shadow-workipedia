@@ -22,13 +22,13 @@ mechanics:
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--irreversible--water-extraction-irreversibility
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
   - mechanic--prisoners-dilemma--prisoners-dilemma
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 

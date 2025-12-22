@@ -21,16 +21,15 @@ mechanics:
   - mechanic--externality--externality-pricing
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--lock-in--lock-in
   - mechanic--network-effect--network-effects
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Orphaned Oil Wells and Methane Super-Leak Crisis

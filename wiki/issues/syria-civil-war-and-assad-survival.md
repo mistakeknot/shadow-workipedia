@@ -21,9 +21,9 @@ mechanics:
   - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--regulatory-fragmentation--regulatory-fragmentation
 ---
 

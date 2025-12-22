@@ -20,8 +20,8 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--irreversible--water-extraction-irreversibility
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--threshold--confidencethreshold
+  - mechanic--lock-in--lock-in
+  - mechanic--threshold--threshold
 ---
 
 # China Demographic Collapse

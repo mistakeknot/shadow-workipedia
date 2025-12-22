@@ -14,12 +14,10 @@ editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'CapacityStress', 'ContagionPropagation', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog', 'AdaptiveResistance']
 lastUpdated: 2025-11-24
 mechanics:
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--geographic-concentration--geographic-concentration
   - mechanic--network-effect--network-effects
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--prisoners-dilemma--prisoners-dilemma
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
 ---

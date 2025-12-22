@@ -21,16 +21,16 @@ mechanics:
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--private-equity-extraction--private-equity-extraction
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Resource Extraction Conflicts

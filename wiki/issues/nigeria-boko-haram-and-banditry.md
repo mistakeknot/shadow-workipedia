@@ -20,11 +20,11 @@ mechanics:
   - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--tipping-point--tipping-point
+  - mechanic--lock-in--lock-in
+  - mechanic--threshold--threshold
 ---
 
 # Nigeria Boko Haram and Banditry

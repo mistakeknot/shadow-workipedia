@@ -17,7 +17,7 @@ mechanics:
   - mechanic--duration--duration
   - mechanic--feedback-loop--feedback-loop
   - mechanic--it-track--it-tracks
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 

@@ -17,7 +17,7 @@ mechanics:
   - mechanic--age-selective-mobility--age-selective-mobility
   - mechanic--algorithmic-amplification--algorithmic-amplification
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--civildisobedience--civildisobedience
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
@@ -26,7 +26,7 @@ mechanics:
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 

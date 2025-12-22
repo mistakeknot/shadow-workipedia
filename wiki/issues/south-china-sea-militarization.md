@@ -16,7 +16,7 @@ mechanics:
   - mechanic--algorithmic-amplification--algorithmic-amplification
   - mechanic--asymmetric-arms-race--asymmetric-arms-race
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--civildisobedience--civildisobedience
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--dual-use-dilemma--dual-use-dilemma
@@ -24,10 +24,9 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--first-strike-advantage--first-strike-advantage
-  - mechanic--geographic-concentration--geographic-concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 

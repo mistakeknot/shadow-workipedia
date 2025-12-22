@@ -21,16 +21,14 @@ mechanics:
   - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--governance-vacuum--governance-vacuum
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--lock-in--lock-in
   - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
   - mechanic--prisoners-dilemma--prisoners-dilemma
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Sahel Jihadist Insurgency

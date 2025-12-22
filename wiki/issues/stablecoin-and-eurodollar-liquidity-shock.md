@@ -14,7 +14,7 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
@@ -23,7 +23,7 @@ mechanics:
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
 ---
 

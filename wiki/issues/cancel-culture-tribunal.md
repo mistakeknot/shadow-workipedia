@@ -20,7 +20,7 @@ mechanics:
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--network-effect--network-effects
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Cancel Culture Tribunal

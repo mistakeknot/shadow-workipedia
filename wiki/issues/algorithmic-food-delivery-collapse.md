@@ -20,8 +20,8 @@ mechanics:
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--threshold--confidencethreshold
+  - mechanic--lock-in--lock-in
+  - mechanic--threshold--threshold
 ---
 
 # Algorithmic Food Delivery Collapse

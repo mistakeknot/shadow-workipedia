@@ -19,13 +19,12 @@ mechanics:
   - mechanic--civildisobedience--civildisobedience
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--irreversible--water-extraction-irreversibility
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--moral-hazard--moral-hazard-from-coverage
   - mechanic--network-effect--network-effects
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 

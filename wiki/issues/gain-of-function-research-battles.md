@@ -26,7 +26,7 @@ mechanics:
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Gain-of-Function Research Battles

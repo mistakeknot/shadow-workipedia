@@ -34,7 +34,7 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
 ---
 
 # Utility Shutoffs as Social Control

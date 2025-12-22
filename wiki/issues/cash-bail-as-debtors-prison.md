@@ -13,7 +13,7 @@ connections: [bankruptcy-criminalization, mass-incarceration-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
 mechanics:
-  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral

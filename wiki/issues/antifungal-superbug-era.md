@@ -20,11 +20,11 @@ mechanics:
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--tipping-point--tipping-point
+  - mechanic--lock-in--lock-in
+  - mechanic--threshold--threshold
   - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 

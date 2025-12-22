@@ -18,7 +18,7 @@ mechanics:
   - mechanic--moral-hazard--moral-hazard-from-coverage
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
 ---
 
 # Ransomware Pandemic

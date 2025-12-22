@@ -33,7 +33,7 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--prisoners-dilemma--prisoners-dilemma
 ---
 

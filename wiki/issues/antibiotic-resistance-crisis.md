@@ -17,7 +17,7 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--tragedy-of-common--tragedy-of-commons
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Antibiotic Resistance Crisis

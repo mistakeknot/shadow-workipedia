@@ -37,7 +37,7 @@ mechanics:
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Death Infrastructure Collapse

@@ -26,7 +26,7 @@ lastUpdated: 2025-11-27
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--dual-use-dilemma--dual-use-dilemma
-  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral

@@ -30,7 +30,7 @@ mechanics:
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Congressional Gridlock

@@ -14,18 +14,16 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--disparate-impact--disparate-impact
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
   - mechanic--regulatory-fragmentation--regulatory-fragmentation
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Carrington-Class Solar Storm

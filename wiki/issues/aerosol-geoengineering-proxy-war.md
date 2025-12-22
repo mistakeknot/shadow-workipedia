@@ -16,7 +16,7 @@ lastUpdated: 2025-11-25
 mechanics:
   - mechanic--prisoners-dilemma--prisoners-dilemma
   - mechanic--governance-vacuum--governance-vacuum
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--feedback-loop--feedback-loop
 ---
 

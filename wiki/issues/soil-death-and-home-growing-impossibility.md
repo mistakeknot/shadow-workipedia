@@ -19,11 +19,11 @@ mechanics:
   - mechanic--externality--externality-pricing
   - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--first-strike-advantage--first-strike-advantage
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
 ---
 
 # Soil Death and Home Growing Impossibility

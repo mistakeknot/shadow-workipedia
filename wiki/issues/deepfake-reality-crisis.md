@@ -27,9 +27,8 @@ mechanics:
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--lock-in--lock-in
+  - mechanic--threshold--threshold
 ---
 
 # Deepfake Reality Crisis

@@ -18,7 +18,7 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--network-effect--network-effects
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # AI Moderation Sweatshop Revolts

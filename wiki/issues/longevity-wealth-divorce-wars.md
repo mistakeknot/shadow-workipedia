@@ -26,11 +26,10 @@ mechanics:
   - mechanic--irreversible--water-extraction-irreversibility
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
   - mechanic--regulatory-fragmentation--regulatory-fragmentation
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 

@@ -19,12 +19,12 @@ mechanics:
   - mechanic--disparate-impact--disparate-impact
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
   - mechanic--regulatory-fragmentation--regulatory-fragmentation

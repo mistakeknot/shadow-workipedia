@@ -16,9 +16,8 @@ mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--civildisobedience--civildisobedience
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--lock-in-effect--lock-in-effect
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--threshold--confidencethreshold
+  - mechanic--lock-in--lock-in
+  - mechanic--threshold--threshold
 ---
 
 # Chile Social Explosion and Constitutional Crisis

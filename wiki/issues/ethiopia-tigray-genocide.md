@@ -18,7 +18,7 @@ mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--feedback-loop--feedback-loop
   - mechanic--governance-vacuum--governance-vacuum
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
   - mechanic--enforcement-paradox--enforcement-paradox
 ---

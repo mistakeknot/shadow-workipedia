@@ -18,10 +18,9 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--network-effect--network-effects
-  - mechanic--lock-in-effect--lock-in-effect
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
 ---
 
 # AI Clinical Automation Catastrophe

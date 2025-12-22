@@ -40,7 +40,7 @@ mechanics:
   - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--network-effect--network-effects
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Nanotechnology Catastrophe

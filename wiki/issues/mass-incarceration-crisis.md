@@ -13,7 +13,7 @@ connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
 mechanics:
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 

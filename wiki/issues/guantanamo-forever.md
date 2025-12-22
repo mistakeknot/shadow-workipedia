@@ -32,10 +32,10 @@ mechanics:
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--prisoners-dilemma--prisoners-dilemma
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Guantanamo Forever

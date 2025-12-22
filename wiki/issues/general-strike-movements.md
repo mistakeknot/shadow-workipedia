@@ -18,7 +18,7 @@ mechanics:
   - mechanic--feedbackloop--feedbackloops
   - mechanic--ready--ready
   - mechanic--supply-chain--supply-chain-dependencies
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 

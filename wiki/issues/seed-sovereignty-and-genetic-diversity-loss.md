@@ -14,15 +14,14 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--civildisobedience--civildisobedience
   - mechanic--disparate-impact--disparate-impact
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
   - mechanic--irreversible--water-extraction-irreversibility
   - mechanic--just-in-time-fragility--just-in-time-fragility
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--tipping-point--tipping-point
+  - mechanic--lock-in--lock-in
+  - mechanic--threshold--threshold
 ---
 
 # Seed Sovereignty and Genetic Diversity Loss

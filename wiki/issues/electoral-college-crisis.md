@@ -15,12 +15,10 @@ primitives: ['TrustErosion', 'DeathSpiral', 'ThresholdCascade', 'ContagionPropag
 lastUpdated: 2025-11-25
 mechanics:
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--geographic-concentration--geographic-concentration
-  - mechanic--lock-in-effect--lock-in-effect
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--concentration--concentration
+  - mechanic--lock-in--lock-in
   - mechanic--prisoners-dilemma--prisoners-dilemma
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
 ---
 

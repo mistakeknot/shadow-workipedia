@@ -23,7 +23,7 @@ mechanics:
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--private-equity-extraction--private-equity-extraction
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Brain Drain Global South to North

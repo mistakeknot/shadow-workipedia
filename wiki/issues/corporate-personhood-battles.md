@@ -22,7 +22,7 @@ mechanics:
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
   - mechanic--first-strike-advantage--first-strike-advantage
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--irreversible--water-extraction-irreversibility
   - mechanic--labor-exploitation--labor-exploitation
@@ -30,7 +30,7 @@ mechanics:
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
   - mechanic--regulatory-fragmentation--regulatory-fragmentation
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 

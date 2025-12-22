@@ -30,7 +30,7 @@ mechanics:
   - mechanic--network-effect--network-effects
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 

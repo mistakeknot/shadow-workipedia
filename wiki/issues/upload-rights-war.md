@@ -21,7 +21,7 @@ mechanics:
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
   - mechanic--regulatory-arbitrage--regulatory-arbitrage

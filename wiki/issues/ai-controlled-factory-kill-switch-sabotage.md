@@ -14,7 +14,7 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--asymmetric-arms-race--asymmetric-arms-race
   - mechanic--information-asymmetry--information-asymmetry

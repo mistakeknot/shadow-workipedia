@@ -29,7 +29,7 @@ lastUpdated: 2025-12-21
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--moral-hazard--moral-hazard-from-coverage
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents

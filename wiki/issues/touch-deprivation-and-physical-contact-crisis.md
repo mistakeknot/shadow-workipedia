@@ -28,7 +28,7 @@ mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
 ---
 
 # Touch Deprivation and Physical Contact Crisis

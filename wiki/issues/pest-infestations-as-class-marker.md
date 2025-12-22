@@ -14,9 +14,9 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
 mechanics:
   - mechanic--disparate-impact--disparate-impact
-  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
 ---
 
 # Pest Infestations as Class Marker

@@ -30,7 +30,7 @@ mechanics:
   - mechanic--ghyben-herzberg-amplification--ghyben-herzberg-amplification
   - mechanic--irreversible--water-extraction-irreversibility
   - mechanic--prisoners-dilemma--prisoners-dilemma
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 

@@ -17,12 +17,12 @@ mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--disparate-impact--disparate-impact
   - mechanic--dual-use-dilemma--dual-use-dilemma
-  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Bankruptcy Criminalization

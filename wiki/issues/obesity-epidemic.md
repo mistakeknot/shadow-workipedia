@@ -14,14 +14,14 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
 mechanics:
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--disparate-impact--disparate-impact
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
   - mechanic--externality--externality-pricing
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
 ---
 
 # Obesity Epidemic

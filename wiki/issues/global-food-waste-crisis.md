@@ -38,7 +38,7 @@ lastUpdated: 2025-12-17
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--irreversible--water-extraction-irreversibility
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--network-effect--network-effects

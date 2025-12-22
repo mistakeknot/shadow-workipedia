@@ -30,7 +30,7 @@ mechanics:
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--irreversible--water-extraction-irreversibility
 ---
 

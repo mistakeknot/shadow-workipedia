@@ -35,8 +35,7 @@ lastUpdated: 2025-12-16
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--first-strike-advantage--first-strike-advantage
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--feedback-loop--feedback-loop
 ---
 

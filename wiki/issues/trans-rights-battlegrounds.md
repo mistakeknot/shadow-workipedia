@@ -34,7 +34,7 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
   - mechanic--regulatory-fragmentation--regulatory-fragmentation
 ---

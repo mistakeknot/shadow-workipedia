@@ -15,11 +15,10 @@ lastUpdated: 2025-11-25
 mechanics:
   - mechanic--adverse-selection--adverse-selection-in-cyber-insurance
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--concentration--concentration
 ---
 
 # Climate Insurance Collapse and Managed Retreat Wars

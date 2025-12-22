@@ -17,18 +17,17 @@ mechanics:
   - mechanic--asymmetric-arms-race--asymmetric-arms-race
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--demographic-momentum--demographic-momentum
-  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--irreversible--water-extraction-irreversibility
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--nash-equilibrium--nash-equilibrium
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
   - mechanic--private-equity-extraction--private-equity-extraction
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 

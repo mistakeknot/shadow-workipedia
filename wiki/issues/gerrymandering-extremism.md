@@ -16,7 +16,7 @@ lastUpdated: 2025-11-25
 mechanics:
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--lock-in--lock-in
 ---
 
 # Gerrymandering Extremism

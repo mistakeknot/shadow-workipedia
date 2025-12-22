@@ -35,11 +35,10 @@ connections:
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
 mechanics:
-  - mechanic--chokepoint-concentration--chokepoint-concentration
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--irreversible--water-extraction-irreversibility
   - mechanic--just-in-time-fragility--just-in-time-fragility
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--tragedy-of-common--tragedy-of-commons
   - mechanic--cascade--epistomological-collapse-cascade
 ---

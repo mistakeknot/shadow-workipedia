@@ -37,8 +37,8 @@ mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--feedback-loop--feedback-loop
   - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--tipping-point--tipping-point
+  - mechanic--lock-in--lock-in
+  - mechanic--threshold--threshold
 ---
 
 # AI Model Collapse and Data Degradation

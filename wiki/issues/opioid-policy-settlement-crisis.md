@@ -36,10 +36,10 @@ mechanics:
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--lock-in--lock-in
   - mechanic--moral-hazard--moral-hazard-from-coverage
   - mechanic--network-effect--network-effects
   - mechanic--regulatory-arbitrage--regulatory-arbitrage

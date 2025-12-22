@@ -18,14 +18,12 @@ mechanics:
   - mechanic--historical-parallel--historical-parallel
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--irreversible--water-extraction-irreversibility
-  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--lock-in--lock-in
   - mechanic--moral-hazard--moral-hazard-from-coverage
   - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
   - mechanic--prisoners-dilemma--prisoners-dilemma
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--tragedy-of-common--tragedy-of-commons
   - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---

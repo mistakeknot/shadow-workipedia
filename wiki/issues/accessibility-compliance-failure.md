@@ -16,7 +16,7 @@ mechanics:
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--regulatory-fragmentation--regulatory-fragmentation
   - mechanic--disparate-impact--disparate-impact
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
 ---
 
 # Accessibility Compliance Failure

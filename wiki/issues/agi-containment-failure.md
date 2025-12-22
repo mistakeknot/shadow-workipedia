@@ -17,9 +17,8 @@ mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--feedback-loop--feedback-loop
   - mechanic--information-asymmetry--information-asymmetry
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--lock-in--lock-in
+  - mechanic--threshold--threshold
   - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--first-strike-advantage--first-strike-advantage
 ---

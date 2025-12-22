@@ -38,9 +38,9 @@ mechanics:
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--externality--externality-pricing
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Microplastic Bioaccumulation Crisis

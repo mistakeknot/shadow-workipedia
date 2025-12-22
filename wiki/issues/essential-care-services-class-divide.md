@@ -27,7 +27,7 @@ lastUpdated: 2025-11-27
 mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--disparate-impact--disparate-impact
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--market-failure--geographic-market-failure
   - mechanic--externality--externality-pricing
 ---

@@ -31,12 +31,12 @@ mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--civildisobedience--civildisobedience
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # War on Terror Endless Wars

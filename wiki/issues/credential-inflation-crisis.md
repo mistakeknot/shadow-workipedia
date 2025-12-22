@@ -27,7 +27,7 @@ lastUpdated: 2025-11-27
 mechanics:
   - mechanic--asymmetric-arms-race--asymmetric-arms-race
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--feedback-loop--feedback-loop
   - mechanic--labor-exploitation--labor-exploitation
 ---

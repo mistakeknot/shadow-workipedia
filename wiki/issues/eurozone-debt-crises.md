@@ -18,9 +18,8 @@ mechanics:
   - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--moral-hazard--moral-hazard-from-coverage
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--lock-in--lock-in
+  - mechanic--threshold--threshold
   - mechanic--prisoners-dilemma--prisoners-dilemma
 ---
 

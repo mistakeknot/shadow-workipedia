@@ -15,12 +15,11 @@ lastUpdated: 2025-11-25
 mechanics:
   - mechanic--algorithmic-amplification--algorithmic-amplification
   - mechanic--network-effect--network-effects
-  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--lock-in--lock-in
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--enforcement-paradox--enforcement-paradox
-  - mechanic--path-dependency--path-dependency-lock-in
   - mechanic--feedback-loop--feedback-loop
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--regulatory-fragmentation--regulatory-fragmentation

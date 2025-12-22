@@ -27,7 +27,7 @@ mechanics:
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
   - mechanic--regulatory-fragmentation--regulatory-fragmentation
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Consciousness Property Battles

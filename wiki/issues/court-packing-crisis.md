@@ -22,7 +22,7 @@ mechanics:
   - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Court Packing Crisis

@@ -19,7 +19,7 @@ mechanics:
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--prisoners-dilemma--prisoners-dilemma
   - mechanic--regulatory-arbitrage--regulatory-arbitrage

@@ -16,8 +16,8 @@ mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--civildisobedience--civildisobedience
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--geographic-concentration--geographic-concentration
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--concentration--concentration
+  - mechanic--lock-in--lock-in
 ---
 
 # Catalonia and Scottish Independence

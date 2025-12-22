@@ -19,7 +19,7 @@ mechanics:
   - mechanic--disparate-impact--disparate-impact
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--network-effect--network-effects
   - mechanic--regulatory-fragmentation--regulatory-fragmentation

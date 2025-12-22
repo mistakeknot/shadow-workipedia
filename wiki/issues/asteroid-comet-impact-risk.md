@@ -40,7 +40,7 @@ mechanics:
   - mechanic--disparate-impact--disparate-impact
   - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
+  - mechanic--concentration--concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects

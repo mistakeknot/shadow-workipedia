@@ -20,8 +20,7 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--labor-exploitation--labor-exploitation
-  - mechanic--lock-in-effect--lock-in-effect
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
 ---
 
 # Brain-Computer Interface Disasters

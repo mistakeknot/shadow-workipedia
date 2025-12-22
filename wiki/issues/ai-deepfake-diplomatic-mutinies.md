@@ -15,8 +15,7 @@ lastUpdated: 2025-11-25
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--information-asymmetry--information-asymmetry
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--paranoia-equilibrium--paranoia-equilibrium
 ---
 

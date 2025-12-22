@@ -20,7 +20,7 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
 ---
 
 # Central America Migration Caravans

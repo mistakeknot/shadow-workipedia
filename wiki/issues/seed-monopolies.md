@@ -17,11 +17,10 @@ mechanics:
   - mechanic--demographic-momentum--demographic-momentum
   - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
-  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--concentration--concentration
+  - mechanic--lock-in--lock-in
   - mechanic--moral-hazard--moral-hazard-from-coverage
   - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
 ---
 
 # Seed Monopolies

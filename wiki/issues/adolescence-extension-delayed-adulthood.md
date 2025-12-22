@@ -29,8 +29,7 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-12-21
 mechanics:
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--economic-lock-in--economic-lock-in
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
 ---
 
 # Adolescence Extension & Delayed Adulthood

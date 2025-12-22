@@ -15,7 +15,7 @@ lastUpdated: 2025-11-27
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--demographic-momentum--demographic-momentum
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
 ---
 
 # Pharmaceutical Dependency Normalization

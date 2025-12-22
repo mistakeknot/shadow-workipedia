@@ -36,12 +36,12 @@ mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--civildisobedience--civildisobedience
   - mechanic--demographic-momentum--demographic-momentum
-  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--labor-exploitation--labor-exploitation
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--prisoners-dilemma--prisoners-dilemma
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Generational Warfare

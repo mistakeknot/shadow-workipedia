@@ -13,10 +13,9 @@ connections: [climate-refugee-floods, water-scarcity-wars]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 mechanics:
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--threshold--confidencethreshold
 ---
 
 # Atlantic Overturning Collapse Risk (AMOC)

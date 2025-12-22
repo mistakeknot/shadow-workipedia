@@ -13,9 +13,9 @@ connections: [agi-containment-failure, autonomous-weapons-proliferation, ai-job-
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 mechanics:
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--dual-use-dilemma--dual-use-dilemma
 ---
 

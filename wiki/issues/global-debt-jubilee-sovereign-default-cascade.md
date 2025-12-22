@@ -35,11 +35,10 @@ mechanics:
   - mechanic--feedback-loop--feedback-loop
   - mechanic--historical-parallel--historical-parallel
   - mechanic--outcome--outcome
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in--lock-in
   - mechanic--power-balance-determinant--power-balance-determinant
   - mechanic--state--state
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 

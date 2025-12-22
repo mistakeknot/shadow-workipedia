@@ -13,7 +13,7 @@ connections: [semiconductor-sovereignty-wars, ai-alignment-crisis, state-sponsor
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 mechanics:
-  - mechanic--chokepoint-concentration--chokepoint-concentration
+  - mechanic--concentration--concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--asymmetric-arms-race--asymmetric-arms-race
   - mechanic--prisoners-dilemma--prisoners-dilemma

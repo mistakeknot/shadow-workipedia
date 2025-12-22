@@ -19,7 +19,7 @@ mechanics:
   - mechanic--historical-calibration--historical-calibration
   - mechanic--historical-grounding--historical-grounding
   - mechanic--model--model
-  - mechanic--threshold--confidencethreshold
+  - mechanic--threshold--threshold
   - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 

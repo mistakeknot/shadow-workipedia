@@ -23,8 +23,7 @@ mechanics:
   - mechanic--lobbying--lobbying-intensity-response
   - mechanic--regulatory-arbitrage--regulatory-arbitrage
   - mechanic--regulatory-fragmentation--regulatory-fragmentation
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
 ---
 
 # Marijuana Legalization Patchwork

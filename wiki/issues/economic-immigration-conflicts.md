@@ -17,8 +17,7 @@ mechanics:
   - mechanic--disparate-impact--disparate-impact
   - mechanic--feedback-loop--feedback-loop
   - mechanic--prisoners-dilemma--prisoners-dilemma
-  - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
+  - mechanic--threshold--threshold
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
 ---
 
