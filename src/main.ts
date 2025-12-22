@@ -2397,6 +2397,26 @@ async function main() {
   // Wiki sidebar and article rendering
   const wikiSidebar = document.getElementById('wiki-sidebar');
 
+  const WIKI_SIDEBAR_SECTION_STATE_KEY = 'wikiSidebarSectionOpenState:v1';
+  const loadWikiSidebarSectionState = (): Record<string, boolean> => {
+    try {
+      const raw = localStorage.getItem(WIKI_SIDEBAR_SECTION_STATE_KEY);
+      if (!raw) return {};
+      const parsed = JSON.parse(raw) as unknown;
+      if (!parsed || typeof parsed !== 'object') return {};
+      return parsed as Record<string, boolean>;
+    } catch {
+      return {};
+    }
+  };
+  const saveWikiSidebarSectionState = (state: Record<string, boolean>) => {
+    try {
+      localStorage.setItem(WIKI_SIDEBAR_SECTION_STATE_KEY, JSON.stringify(state));
+    } catch {
+      // ignore
+    }
+  };
+
   renderWikiList = function() {
     if (!data.articles || Object.keys(data.articles).length === 0) {
       wikiSidebarContent.innerHTML = `<div class="wiki-empty-sidebar">No articles yet</div>`;
@@ -2460,6 +2480,22 @@ async function main() {
       </div>
     `;
 
+    const sectionState = loadWikiSidebarSectionState();
+    const renderSidebarSection = (title: string, key: string, items: typeof articles) => {
+      if (items.length === 0) return '';
+      const isOpen = sectionState[key] ?? true;
+      return `
+        <details class="wiki-sidebar-section" data-section-key="${key}" ${isOpen ? 'open' : ''}>
+          <summary class="wiki-sidebar-section-summary">
+            <h3>${title} (${items.length})</h3>
+          </summary>
+          <div class="wiki-sidebar-list">
+            ${items.map(renderSidebarItem).join('')}
+          </div>
+        </details>
+      `;
+    };
+
     // Mobile expand button (shown only when collapsed)
     const expandButton = selectedWikiArticle
       ? `<button class="wiki-sidebar-expand" id="wiki-sidebar-expand-btn">Browse all articles</button>`
@@ -2467,68 +2503,13 @@ async function main() {
 
     const sidebarHtml = `
       ${expandButton}
-      ${issueArticles.length > 0 ? `
-        <div class="wiki-sidebar-section">
-          <h3>Issues (${issueArticles.length})</h3>
-          <div class="wiki-sidebar-list">
-            ${issueArticles.map(renderSidebarItem).join('')}
-          </div>
-        </div>
-      ` : ''}
-
-      ${caseStudyArticles.length > 0 ? `
-        <div class="wiki-sidebar-section">
-          <h3>Case Studies (${caseStudyArticles.length})</h3>
-          <div class="wiki-sidebar-list">
-            ${caseStudyArticles.map(renderSidebarItem).join('')}
-          </div>
-        </div>
-      ` : ''}
-
-      ${redirectArticles.length > 0 ? `
-        <div class="wiki-sidebar-section">
-          <h3>Redirects (${redirectArticles.length})</h3>
-          <div class="wiki-sidebar-list">
-            ${redirectArticles.map(renderSidebarItem).join('')}
-          </div>
-        </div>
-      ` : ''}
-
-      ${systemArticles.length > 0 ? `
-        <div class="wiki-sidebar-section">
-          <h3>Systems (${systemArticles.length})</h3>
-          <div class="wiki-sidebar-list">
-            ${systemArticles.map(renderSidebarItem).join('')}
-          </div>
-        </div>
-      ` : ''}
-
-      ${principleArticles.length > 0 ? `
-        <div class="wiki-sidebar-section">
-          <h3>Principles (${principleArticles.length})</h3>
-          <div class="wiki-sidebar-list">
-            ${principleArticles.map(renderSidebarItem).join('')}
-          </div>
-        </div>
-      ` : ''}
-
-      ${primitiveArticles.length > 0 ? `
-        <div class="wiki-sidebar-section">
-          <h3>Primitives (${primitiveArticles.length})</h3>
-          <div class="wiki-sidebar-list">
-            ${primitiveArticles.map(renderSidebarItem).join('')}
-          </div>
-        </div>
-      ` : ''}
-
-      ${mechanicArticles.length > 0 ? `
-        <div class="wiki-sidebar-section">
-          <h3>Mechanics (${mechanicArticles.length})</h3>
-          <div class="wiki-sidebar-list">
-            ${mechanicArticles.map(renderSidebarItem).join('')}
-          </div>
-        </div>
-      ` : ''}
+      ${renderSidebarSection('Issues', 'issues', issueArticles)}
+      ${renderSidebarSection('Case Studies', 'case-studies', caseStudyArticles)}
+      ${renderSidebarSection('Redirects', 'redirects', redirectArticles)}
+      ${renderSidebarSection('Systems', 'systems', systemArticles)}
+      ${renderSidebarSection('Principles', 'principles', principleArticles)}
+      ${renderSidebarSection('Primitives', 'primitives', primitiveArticles)}
+      ${renderSidebarSection('Mechanics', 'mechanics', mechanicArticles)}
     `;
 
     wikiSidebarContent.innerHTML = sidebarHtml;
@@ -2587,6 +2568,17 @@ async function main() {
           // Navigate via router to update URL
           router.navigateToArticle(article.type as 'issue' | 'system' | 'principle' | 'primitive' | 'mechanic', articleId);
         }
+      });
+    });
+
+    // Persist collapsible section state
+    wikiSidebarContent.querySelectorAll<HTMLDetailsElement>('.wiki-sidebar-section').forEach(section => {
+      section.addEventListener('toggle', () => {
+        const key = section.getAttribute('data-section-key');
+        if (!key) return;
+        const next = loadWikiSidebarSectionState();
+        next[key] = section.open;
+        saveWikiSidebarSectionState(next);
       });
     });
 
