@@ -12,6 +12,7 @@ affectedSystems: [Government, Military, Refugees, International Relations, Human
 connections: [muslim-persecution-and-communal-violence]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Myanmar Coup and Rohingya Genocide

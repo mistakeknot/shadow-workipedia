@@ -32,6 +32,7 @@ connections:
   - universal-basic-income-trials
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Meaning Crisis

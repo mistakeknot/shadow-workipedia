@@ -29,6 +29,7 @@ connections:
   - grief-support-systems
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Death Technology Ethics Crisis

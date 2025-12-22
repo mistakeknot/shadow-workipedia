@@ -12,6 +12,7 @@ affectedSystems: [Environment, Public Health, Climate, Government Finance, Energ
 connections: [oil-industry-death-throes]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Orphaned Oil Wells and Methane Super-Leak Crisis

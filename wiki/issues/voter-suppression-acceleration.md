@@ -12,6 +12,7 @@ affectedSystems: [Democracy, Elections, Civil Rights, Government]
 connections: [democratic-backsliding,election-denialism]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Voter Suppression Acceleration

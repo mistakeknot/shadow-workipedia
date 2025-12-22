@@ -12,6 +12,10 @@ affectedSystems: [Energy Grid, Public Health, Environment, Emergency Services, E
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics:
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--model--model
+  - mechanic--threshold--confidencethreshold
 ---
 
 # Nuclear Plant Crisis Cascade

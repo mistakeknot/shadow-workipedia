@@ -12,6 +12,10 @@ affectedSystems: [Civil Liberties, International Relations, Technology Industry,
 connections: [surveillance-state-expansion,political-opposition-assassination]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics:
+  - mechanic--irreversible--water-extraction-irreversibility
+  - mechanic--name--name
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # Spyware-for-Hire Export Wars

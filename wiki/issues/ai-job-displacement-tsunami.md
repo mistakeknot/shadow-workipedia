@@ -13,6 +13,7 @@ connections: [gig-economy-serfdom, student-debt-slavery, mental-health-apocalyps
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'LegitimacyDynamics', 'FeedbackLoop', 'PolicyContagion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # AI Job Displacement Tsunami

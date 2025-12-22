@@ -35,6 +35,7 @@ connections:
   - space-weaponization-and-orbital-conflict
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
+mechanics: []
 ---
 
 # Asteroid/Comet Impact Risk

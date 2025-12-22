@@ -13,6 +13,7 @@ connections: [housing-affordability-crisis]
 editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'LegitimacyDynamics', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Gentrification Displacement

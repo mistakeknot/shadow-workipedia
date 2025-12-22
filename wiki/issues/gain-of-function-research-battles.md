@@ -13,6 +13,7 @@ connections: [bioweapon-proliferation]
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'CaptureConcentration', 'ResistanceBacklash', 'AdaptiveResistance']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Gain-of-Function Research Battles

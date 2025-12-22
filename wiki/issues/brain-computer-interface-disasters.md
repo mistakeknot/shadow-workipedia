@@ -12,6 +12,7 @@ affectedSystems: [Healthcare, Technology, Security, Ethics, Regulation]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Brain-Computer Interface Disasters

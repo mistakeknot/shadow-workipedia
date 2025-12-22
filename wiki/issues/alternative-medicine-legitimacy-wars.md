@@ -12,6 +12,7 @@ affectedSystems: [Healthcare, Regulatory, Education, Consumer Protection]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Alternative Medicine Legitimacy Wars

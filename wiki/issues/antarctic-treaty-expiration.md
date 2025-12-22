@@ -12,6 +12,7 @@ affectedSystems: [International Security, Environment, Extractive Industries, Cl
 connections: [arctic-sovereignty-conflicts, resource-extraction-conflicts, deep-sea-mining-rush-and-pacific-sovereignty-fight, west-antarctic-ice-cliff-collapse, asteroid-mining-rights-wars]
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
+mechanics: []
 ---
 
 # Antarctic Treaty Expiration Crisis

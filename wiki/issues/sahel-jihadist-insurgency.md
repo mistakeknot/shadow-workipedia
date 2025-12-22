@@ -12,6 +12,7 @@ affectedSystems: [Security, Government, Migration, Economy, International Relati
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Sahel Jihadist Insurgency

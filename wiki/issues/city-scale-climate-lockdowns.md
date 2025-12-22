@@ -12,6 +12,7 @@ affectedSystems: [Environment, Health, Economy, Politics, Civil Society, Infrast
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # City-Scale Climate Lockdowns

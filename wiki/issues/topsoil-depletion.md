@@ -25,6 +25,7 @@ connections:
   - rural-decline
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Topsoil Depletion

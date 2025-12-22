@@ -27,6 +27,7 @@ connections:
   - fertility-collapse-crisis
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-21
+mechanics: []
 ---
 
 # Adolescence Extension & Delayed Adulthood

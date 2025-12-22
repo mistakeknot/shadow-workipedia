@@ -13,6 +13,7 @@ connections: [just-in-time-supply-chain-collapse]
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'FeedbackLoop', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Global Trade Finance Gridlock

@@ -23,6 +23,7 @@ connections:
   - wealth-inequality
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Civil Court System Collapse

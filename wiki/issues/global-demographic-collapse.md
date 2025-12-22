@@ -28,6 +28,13 @@ connections:
   - global-healthcare-workforce-exodus
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-21
+mechanics:
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--irreversible--water-extraction-irreversibility
+  - mechanic--key-insight-for-player--key-insight-for-players
+  - mechanic--threshold--confidencethreshold
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # Global Demographic Collapse & Population Implosion Crisis

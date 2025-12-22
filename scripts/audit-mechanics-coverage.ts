@@ -1,154 +1,108 @@
 import { existsSync, readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
+import matter from 'gray-matter';
 import * as yaml from 'yaml';
-
-type CommunityMechanic = {
-  pattern: string;
-  mechanic: string;
-  count: number;
-  percentage: number;
-  issues: string[];
-};
-
-type CommunitiesWithMechanics = {
-  communities: Array<{
-    id: number;
-    members: Array<{ id: string; title: string; number?: string }>;
-    sharedMechanics: CommunityMechanic[];
-  }>;
-};
 
 function main() {
   const repoRoot = process.cwd();
   const parentRepo = join(repoRoot, '..');
 
-  const mechanicsPath = join(parentRepo, 'data/generated/analysis/communities-with-mechanics.json');
   const yamlDir = join(parentRepo, 'data/issues');
+  const wikiIssuesDir = join(repoRoot, 'wiki', 'issues');
+  const wikiMechanicsDir = join(repoRoot, 'wiki', 'mechanics');
 
-  if (!existsSync(mechanicsPath)) {
-    console.error(`❌ Missing mechanics source: ${mechanicsPath}`);
-    process.exit(1);
-  }
   if (!existsSync(yamlDir)) {
     console.error(`❌ Missing issues dir: ${yamlDir}`);
     process.exit(1);
   }
-
-  const mechanicsData = JSON.parse(readFileSync(mechanicsPath, 'utf8')) as CommunitiesWithMechanics;
-
-  // Load all YAML issue ids
-  const issueFiles = readdirSync(yamlDir).filter((f) => f.endsWith('.yml') || f.endsWith('.yaml'));
+  if (!existsSync(wikiIssuesDir)) {
+    console.error(`❌ Missing wiki issues dir: ${wikiIssuesDir}`);
+    process.exit(1);
+  }
+  if (!existsSync(wikiMechanicsDir)) {
+    console.error(`❌ Missing wiki mechanics dir: ${wikiMechanicsDir}`);
+    process.exit(1);
+  }
 
   const yamlIssueIds: string[] = [];
-  for (const f of issueFiles) {
-    const doc = yaml.parse(readFileSync(join(yamlDir, f), 'utf8')) as any;
-    if (doc?.id && typeof doc.id === 'string') {
-      yamlIssueIds.push(doc.id);
-    }
+  for (const file of readdirSync(yamlDir)) {
+    if (!((file.endsWith('.yml') || file.endsWith('.yaml')) && !file.startsWith('_'))) continue;
+    const doc = yaml.parse(readFileSync(join(yamlDir, file), 'utf8')) as any;
+    if (doc?.id && typeof doc.id === 'string') yamlIssueIds.push(doc.id.trim());
   }
-  yamlIssueIds.sort();
+  yamlIssueIds.sort((a, b) => a.localeCompare(b));
 
-  // Build issue -> community membership from communities file
-  const issueToCommunityId = new Map<string, number>();
-  const issueTitle = new Map<string, string>();
-  for (const c of mechanicsData.communities || []) {
-    for (const m of c.members || []) {
-      issueToCommunityId.set(m.id, c.id);
-      if (m.title) issueTitle.set(m.id, m.title);
-    }
-  }
-
-  // Build issue -> mechanics list from sharedMechanics.issues
-  const issueMechanics = new Map<string, Array<{ pattern: string; mechanic: string }>>();
-  const uniqueMechanics = new Map<string, { pattern: string; mechanic: string; issueCount: number }>();
-
-  for (const c of mechanicsData.communities || []) {
-    for (const m of c.sharedMechanics || []) {
-      const key = `${m.pattern}||${m.mechanic}`;
-      if (!uniqueMechanics.has(key)) {
-        uniqueMechanics.set(key, { pattern: m.pattern, mechanic: m.mechanic, issueCount: 0 });
-      }
-
-      const issues = Array.isArray(m.issues) ? m.issues : [];
-      for (const id of issues) {
-        if (!issueMechanics.has(id)) issueMechanics.set(id, []);
-        issueMechanics.get(id)!.push({ pattern: m.pattern, mechanic: m.mechanic });
-      }
-    }
-  }
-
-  for (const [key, rec] of uniqueMechanics) {
-    const count = Array.from(issueMechanics.entries()).filter(([_, list]) =>
-      list.some((x) => `${x.pattern}||${x.mechanic}` === key)
-    ).length;
-    rec.issueCount = count;
-  }
-
-  // Audit coverage across all YAML issues
-  const noCommunity: string[] = [];
-  const inCommunityNoMechanics: string[] = [];
-  const hasMechanics: string[] = [];
-
-  for (const id of yamlIssueIds) {
-    const communityId = issueToCommunityId.get(id);
-    const mech = issueMechanics.get(id) || [];
-    if (communityId === undefined) {
-      noCommunity.push(id);
-    } else if (mech.length === 0) {
-      inCommunityNoMechanics.push(id);
-    } else {
-      hasMechanics.push(id);
-    }
-  }
-
-  const mechanicsSorted = Array.from(uniqueMechanics.values()).sort((a, b) =>
-    b.issueCount - a.issueCount || a.pattern.localeCompare(b.pattern) || a.mechanic.localeCompare(b.mechanic)
+  const mechanicPageIds = new Set(
+    readdirSync(wikiMechanicsDir)
+      .filter(f => f.endsWith('.md') && !f.includes('_TEMPLATE'))
+      .map(f => f.replace(/\.md$/, ''))
   );
 
-  console.log('🧪 Mechanics coverage audit');
-  console.log('--------------------------');
+  const issueMechanics = new Map<string, string[]>();
+  const unknownMechanics = new Map<string, string[]>(); // issueId -> ids not found as mechanic pages
+  const issuesMissingWiki: string[] = [];
+
+  for (const issueId of yamlIssueIds) {
+    const filePath = join(wikiIssuesDir, `${issueId}.md`);
+    if (!existsSync(filePath)) {
+      issuesMissingWiki.push(issueId);
+      continue;
+    }
+
+    const raw = readFileSync(filePath, 'utf8');
+    const parsed = matter(raw);
+    const list = Array.isArray((parsed.data as any)?.mechanics) ? (parsed.data as any).mechanics : [];
+    const ids = Array.isArray(list)
+      ? list.filter((v: unknown): v is string => typeof v === 'string').map(v => v.trim()).filter(Boolean)
+      : [];
+
+    const uniques = Array.from(new Set(ids)).sort((a, b) => a.localeCompare(b));
+    issueMechanics.set(issueId, uniques);
+
+    const unknown = uniques.filter(id => !mechanicPageIds.has(id));
+    if (unknown.length > 0) unknownMechanics.set(issueId, unknown);
+  }
+
+  const hasAny = Array.from(issueMechanics.entries()).filter(([, ids]) => ids.length > 0).map(([id]) => id);
+  const hasNone = Array.from(issueMechanics.entries()).filter(([, ids]) => ids.length === 0).map(([id]) => id);
+
+  const mechanicUsage = new Map<string, number>();
+  for (const ids of issueMechanics.values()) {
+    for (const id of ids) mechanicUsage.set(id, (mechanicUsage.get(id) ?? 0) + 1);
+  }
+
+  const topMechanics = Array.from(mechanicUsage.entries())
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, 15);
+
+  console.log('🧪 Issue mechanics coverage audit (wiki frontmatter)');
+  console.log('-----------------------------------------------');
   console.log(`YAML issues: ${yamlIssueIds.length}`);
-  console.log(`Issues with community assignment: ${yamlIssueIds.length - noCommunity.length}`);
-  console.log(`Issues with ≥1 mechanic (from sharedMechanics): ${hasMechanics.length}`);
-  console.log(`Issues in a community but with 0 mechanics: ${inCommunityNoMechanics.length}`);
-  console.log(`Issues with no community assignment: ${noCommunity.length}`);
-  console.log('');
-  console.log(`Unique mechanics (pattern+mechanic): ${mechanicsSorted.length}`);
+  console.log(`Missing wiki pages: ${issuesMissingWiki.length}`);
+  console.log(`Issues with ≥1 mechanic: ${hasAny.length}`);
+  console.log(`Issues with 0 mechanics: ${hasNone.length}`);
+  console.log(`Unique mechanic page ids referenced: ${mechanicUsage.size}`);
+  console.log(`Unknown mechanic ids referenced (no page): ${unknownMechanics.size}`);
   console.log('');
 
-  console.log('Top mechanics by issue coverage:');
-  for (const m of mechanicsSorted.slice(0, 12)) {
-    console.log(`- ${m.pattern} :: ${m.mechanic}  (${m.issueCount} issues)`);
+  console.log('Top mechanics by issue usage:');
+  for (const [id, count] of topMechanics) {
+    console.log(`- ${id}  (${count} issues)`);
   }
 
-  console.log('');
-  if (inCommunityNoMechanics.length > 0) {
-    console.log('Issues in a community but with 0 mechanics (first 40):');
-    for (const id of inCommunityNoMechanics.slice(0, 40)) {
-      const title = issueTitle.get(id) || id;
-      const communityId = issueToCommunityId.get(id);
-      console.log(`- ${id}  (${title})  community-${communityId}`);
-    }
-    if (inCommunityNoMechanics.length > 40) {
-      console.log(`…and ${inCommunityNoMechanics.length - 40} more`);
-    }
+  if (unknownMechanics.size > 0) {
     console.log('');
+    console.log('Issues referencing unknown mechanic ids (first 25):');
+    for (const [issueId, ids] of Array.from(unknownMechanics.entries()).slice(0, 25)) {
+      console.log(`- ${issueId}: ${ids.join(', ')}`);
+    }
   }
 
-  if (noCommunity.length > 0) {
-    console.log('Issues with no community assignment (first 40):');
-    for (const id of noCommunity.slice(0, 40)) {
-      console.log(`- ${id}`);
-    }
-    if (noCommunity.length > 40) {
-      console.log(`…and ${noCommunity.length - 40} more`);
-    }
-    console.log('');
-  }
-
-  console.log('Next step if you want “all mechanics” per issue:');
-  console.log('- The current source file only contains *top shared* mechanics per community (max ~14), so many issues will legitimately show 0 mechanics.');
-  console.log('- To fill gaps we need either (a) upstream export of per-issue mechanics, or (b) re-run the upstream extractor with a larger cutoff / full list, then regenerate mechanic pages.');
+  console.log('');
+  console.log('Issues with 0 mechanics (first 40):');
+  for (const id of hasNone.slice(0, 40)) console.log(`- ${id}`);
+  if (hasNone.length > 40) console.log(`…and ${hasNone.length - 40} more`);
 }
 
 main();
+

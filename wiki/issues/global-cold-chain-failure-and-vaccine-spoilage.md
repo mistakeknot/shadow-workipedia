@@ -12,6 +12,7 @@ affectedSystems: [Healthcare Distribution, Food Systems, Logistics Networks, Cli
 connections: [just-in-time-supply-chain-collapse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Global Cold-Chain Failure and Vaccine Spoilage

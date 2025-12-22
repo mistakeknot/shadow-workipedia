@@ -12,6 +12,7 @@ affectedSystems: [Infrastructure, Water Systems, Cities, Economy]
 connections: [water-scarcity-wars]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Urban Groundwater Subsidence Emergencies

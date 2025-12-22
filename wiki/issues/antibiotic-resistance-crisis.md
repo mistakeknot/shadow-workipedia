@@ -13,6 +13,7 @@ connections: [pandemic-response-wars, global-healthcare-workforce-exodus]
 editedBy: Shadow Work Contributors
 primitives: ['ThresholdCascade', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Antibiotic Resistance Crisis

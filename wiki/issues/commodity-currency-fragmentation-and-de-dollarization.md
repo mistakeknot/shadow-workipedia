@@ -12,6 +12,7 @@ affectedSystems: [Global Trade, Financial Markets, Monetary Systems, Geopolitics
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Commodity Currency Fragmentation and De-Dollarization

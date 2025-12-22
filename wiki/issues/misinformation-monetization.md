@@ -12,6 +12,7 @@ affectedSystems: [Technology, Media, Economics, Culture, Politics]
 connections: [disinformation-plague, social-media-addiction-crisis, deepfake-reality-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Misinformation Monetization

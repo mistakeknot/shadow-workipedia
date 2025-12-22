@@ -26,6 +26,15 @@ connections:
   - ai-clinical-automation-catastrophe
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-21
+mechanics:
+  - mechanic--111c--111c
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--feedbackloop--feedbackloops
+  - mechanic--id--id
+  - mechanic--name--name
+  - mechanic--threshold--confidencethreshold
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # Iatrogenic Medical Harms

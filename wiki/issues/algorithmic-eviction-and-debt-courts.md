@@ -12,6 +12,7 @@ affectedSystems: [Civil Society, Economy, Politics]
 connections: [homelessness-criminalization]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Algorithmic Eviction and Debt Courts

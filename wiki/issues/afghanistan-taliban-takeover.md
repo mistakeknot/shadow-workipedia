@@ -13,6 +13,7 @@ connections: [comprehensive-refugee-system-collapse, democratic-backsliding]
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-19
 factualAsOf: 2025-12-19
+mechanics: []
 ---
 
 # Afghanistan Taliban Takeover

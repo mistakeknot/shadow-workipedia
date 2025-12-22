@@ -12,6 +12,7 @@ affectedSystems: [Relationships, Demographics, Mental-Health, Technology, Cultur
 connections: [ai-alignment-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Sex Robots and Virtual Intimacy Apocalypse

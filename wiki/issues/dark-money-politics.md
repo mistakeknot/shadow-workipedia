@@ -13,6 +13,7 @@ connections: [corporate-personhood-battles, corruption-normalization, billionair
 editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'ContagionPropagation', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Dark Money Politics

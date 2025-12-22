@@ -33,6 +33,7 @@ connections:
   - ai-compute-resource-wars
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # AI Model Collapse and Data Degradation

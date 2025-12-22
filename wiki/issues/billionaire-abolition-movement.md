@@ -12,6 +12,7 @@ affectedSystems: [Economy, Politics, Civil Society]
 connections: [democratic-backsliding]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Billionaire Abolition Movement

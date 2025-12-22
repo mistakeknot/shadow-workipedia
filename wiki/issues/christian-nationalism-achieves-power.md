@@ -12,6 +12,7 @@ affectedSystems: [Democracy, Civil Liberties, Legal System, Education, Social Co
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Christian Nationalism Achieves Power

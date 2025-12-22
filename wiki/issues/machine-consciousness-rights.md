@@ -12,6 +12,22 @@ affectedSystems: [AI Development, Legal Systems, Labor Markets, Philosophy of Mi
 connections: [ai-alignment-crisis, ai-job-displacement-tsunami, algorithmic-governance-proliferation]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics:
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--historical-parallel--historical-parallel
+  - mechanic--information-asymmetry--information-asymmetry
+  - mechanic--irreversible--water-extraction-irreversibility
+  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--moral-hazard--moral-hazard-from-coverage
+  - mechanic--network-effect--network-effects
+  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--prisoners-dilemma--prisoners-dilemma
+  - mechanic--regulatory-capture--regulatory-capture-by-incumbents
+  - mechanic--threshold--confidencethreshold
+  - mechanic--tipping-point--tipping-point
+  - mechanic--tragedy-of-common--tragedy-of-commons
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # Machine Consciousness Rights

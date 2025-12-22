@@ -13,6 +13,7 @@ connections: [disinformation-plague, long-covid-labor-collapse, vaccine-hesitanc
 editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'CapacityStress', 'ContagionPropagation', 'FeedbackLoop', 'PolicyContagion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Pandemic Response Wars

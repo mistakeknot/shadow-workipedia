@@ -12,6 +12,7 @@ affectedSystems: [Public Health, Healthcare, Media, Politics]
 connections: [disinformation-plague, pandemic-response-wars, trust-collapse-across-all-institutions]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Vaccine Hesitancy Epidemic

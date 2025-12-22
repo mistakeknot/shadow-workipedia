@@ -13,6 +13,7 @@ connections: [climate-refugee-floods, border-wall-politics]
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'PolicyContagion', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Asylum System Breakdown

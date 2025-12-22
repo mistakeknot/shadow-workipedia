@@ -12,6 +12,7 @@ affectedSystems: [economy, environment, politics, culture]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Post-Growth Economics

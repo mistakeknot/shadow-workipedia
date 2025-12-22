@@ -13,6 +13,7 @@ connections: [ai-job-displacement-tsunami, global-healthcare-workforce-exodus, s
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'DeathSpiral', 'ThresholdCascade', 'LegitimacyDynamics', 'FeedbackLoop', 'CaptureConcentration', 'ResistanceBacklash']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Gig Economy Serfdom

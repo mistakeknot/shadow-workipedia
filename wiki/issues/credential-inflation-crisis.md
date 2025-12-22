@@ -24,6 +24,7 @@ connections:
   - wage-stagnation
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Credential Inflation Crisis

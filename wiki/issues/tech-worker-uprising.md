@@ -12,6 +12,7 @@ affectedSystems: [Technology Industry, Labor Relations, Politics, Economy]
 connections: [gig-economy-serfdom,ai-job-displacement-tsunami]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Tech Worker Uprising

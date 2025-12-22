@@ -33,6 +33,7 @@ connections:
   - critical-infrastructure-attacks
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Physical Infrastructure Decay Cascade

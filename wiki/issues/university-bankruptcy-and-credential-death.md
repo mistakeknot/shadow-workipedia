@@ -25,6 +25,7 @@ connections:
   - intergenerational-mobility
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # University Bankruptcy and Credential Death

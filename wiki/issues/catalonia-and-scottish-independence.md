@@ -12,6 +12,7 @@ affectedSystems: [Political Stability, Economic Integration, National Identity, 
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Catalonia and Scottish Independence

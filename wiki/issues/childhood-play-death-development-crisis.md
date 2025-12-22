@@ -24,6 +24,7 @@ connections:
   - pandemic-learning-loss-and-skills-crash-generation
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-21
+mechanics: []
 ---
 
 # Childhood Play Death & Development Crisis

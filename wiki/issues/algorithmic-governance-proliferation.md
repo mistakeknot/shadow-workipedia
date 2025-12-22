@@ -12,6 +12,7 @@ affectedSystems: [Politics, Technology, Civil Society]
 connections: [democratic-backsliding, social-credit-system-expansion, ai-alignment-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Algorithmic Governance Proliferation

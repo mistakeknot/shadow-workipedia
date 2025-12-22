@@ -12,6 +12,7 @@ affectedSystems: [energy, environment, public-safety, infrastructure]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Nuclear Waste Storage Failure

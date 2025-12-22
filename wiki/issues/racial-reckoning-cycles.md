@@ -12,6 +12,7 @@ affectedSystems: [Criminal Justice, Politics, Media, Civil Society, Economy]
 connections: [mass-incarceration-crisis,police-militarization-escalation]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Racial Reckoning Cycles

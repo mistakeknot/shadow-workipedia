@@ -25,6 +25,7 @@ connections:
   - work-life-balance
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Four-Day Week Movements

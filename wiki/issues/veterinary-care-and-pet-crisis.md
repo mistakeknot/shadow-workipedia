@@ -24,6 +24,7 @@ connections:
   - consumer-debt
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Veterinary Care and Pet Crisis

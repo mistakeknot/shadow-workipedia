@@ -13,6 +13,13 @@ connections: [bioweapon-proliferation, gain-of-function-research-battles, pandem
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-19
 factualAsOf: 2025-12-19
+mechanics:
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--investigation-obstruction--investigation-obstruction
+  - mechanic--irreversible--water-extraction-irreversibility
+  - mechanic--threshold--confidencethreshold
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # AI-Generated Synthetic Biolab Leaks

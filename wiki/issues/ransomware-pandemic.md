@@ -12,6 +12,12 @@ affectedSystems: [Technology, Economy, Institutions (Policing), Healthcare]
 connections: [state-sponsored-hacking-epidemic, critical-infrastructure-attacks, stablecoin-and-eurodollar-liquidity-shock, ai-controlled-factory-kill-switch-sabotage]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics:
+  - mechanic--blocker--blockers
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--consequence--consequences
+  - mechanic--economic-impact--economic-impact
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # Ransomware Pandemic

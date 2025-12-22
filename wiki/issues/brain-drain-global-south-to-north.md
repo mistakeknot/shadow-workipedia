@@ -12,6 +12,7 @@ affectedSystems: [Global Economy, Education, Healthcare, Innovation, Development
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Brain Drain Global South to North

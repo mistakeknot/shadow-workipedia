@@ -13,6 +13,11 @@ connections: [social-media-addiction-crisis, ai-job-displacement-tsunami, cancel
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics:
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--supply-chain--supply-chain-dependencies
+  - mechanic--threshold--confidencethreshold
 ---
 
 # Mental Health Apocalypse

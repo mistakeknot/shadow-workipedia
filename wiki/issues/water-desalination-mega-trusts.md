@@ -12,6 +12,14 @@ affectedSystems: [Water Systems, Energy Infrastructure, Corporate Power, Geopoli
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics:
+  - mechanic--42d--42d
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--duration--duration
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--it-track--it-tracks
+  - mechanic--threshold--confidencethreshold
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # Water Desalination Mega-Trusts

@@ -13,6 +13,7 @@ connections: [deepfake-reality-crisis, ransomware-pandemic, disinformation-plagu
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-19
 factualAsOf: 2025-12-19
+mechanics: []
 ---
 
 # AI Voice Clone Fraud Meltdowns

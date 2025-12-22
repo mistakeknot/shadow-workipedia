@@ -12,6 +12,18 @@ affectedSystems: [Economy, Technology, Civil Society, Labor]
 connections: [gig-economy-serfdom, mental-health-apocalypse, platform-power-abuse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics:
+  - mechanic--adverse-selection--adverse-selection-in-cyber-insurance
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--externality--externality-pricing
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--information-asymmetry--information-asymmetry
+  - mechanic--moral-hazard--moral-hazard-from-coverage
+  - mechanic--network-effect--network-effects
+  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--threshold--confidencethreshold
+  - mechanic--tipping-point--tipping-point
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # AI Moderation Sweatshop Revolts

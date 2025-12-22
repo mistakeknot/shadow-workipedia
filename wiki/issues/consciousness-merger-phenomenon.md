@@ -13,6 +13,7 @@ connections: []
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'ResourceDepletion', 'ExodusMigration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Consciousness Merger Phenomenon

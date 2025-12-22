@@ -12,6 +12,7 @@ affectedSystems: [Technology, Ethics, Legal Systems, Philosophy]
 connections: [ai-alignment-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Universe Forking Rights

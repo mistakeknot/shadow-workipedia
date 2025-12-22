@@ -12,6 +12,7 @@ affectedSystems: [Agriculture, Environment, Food-Security, Urban-Planning, Publi
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Soil Death and Home Growing Impossibility

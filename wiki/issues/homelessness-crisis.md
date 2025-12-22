@@ -30,6 +30,7 @@ connections:
   - affordable-housing-shortage
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Homelessness Crisis

@@ -12,6 +12,7 @@ affectedSystems: [education, economy, workforce, social-mobility]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Pandemic Learning Loss and Skills Crash Generation

@@ -12,6 +12,7 @@ affectedSystems: [Healthcare, Technology, Culture, Population (Cohorts)]
 connections: [mental-health-apocalypse, social-media-addiction-crisis, ai-job-displacement-tsunami, long-covid-labor-collapse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Automated Companion Replacements

@@ -12,6 +12,7 @@ affectedSystems: [Regional Security, State Governance, Humanitarian, Internation
 connections: [comprehensive-refugee-system-collapse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Iraq Invasion Aftermath and Sectarian Collapse

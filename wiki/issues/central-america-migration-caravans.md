@@ -13,6 +13,7 @@ connections: [asylum-system-breakdown, border-wall-politics, climate-refugee-flo
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'ResistanceBacklash']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Central America Migration Caravans

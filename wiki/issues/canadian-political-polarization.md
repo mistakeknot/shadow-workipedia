@@ -13,6 +13,7 @@ connections: [democratic-backsliding]
 editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'ResourceDepletion', 'CaptureConcentration', 'ResistanceBacklash']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Canadian Political Polarization

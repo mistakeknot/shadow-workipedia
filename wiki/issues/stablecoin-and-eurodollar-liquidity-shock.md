@@ -12,6 +12,7 @@ affectedSystems: [Financial Markets, Banking, International Trade, Monetary Poli
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Stablecoin and Eurodollar Liquidity Shock

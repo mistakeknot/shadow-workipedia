@@ -12,6 +12,8 @@ affectedSystems: [Technology, Economy, Geopolitics, Energy, Security]
 connections: [semiconductor-sovereignty-wars, ai-alignment-crisis, state-sponsored-hacking-epidemic, just-in-time-supply-chain-collapse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics:
+  - mechanic--alert--alert
 ---
 
 # AI Compute Resource Wars

@@ -13,6 +13,7 @@ connections: [supreme-court-legitimacy-crisis, democratic-backsliding]
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog', 'AdaptiveResistance']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Court Packing Crisis

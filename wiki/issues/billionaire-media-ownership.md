@@ -13,6 +13,7 @@ connections: [democratic-backsliding, election-denialism, ai-deepfake-diplomatic
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'ContagionPropagation', 'LegitimacyDynamics', 'CaptureConcentration', 'QueueBacklog']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Billionaire Media Ownership

@@ -12,6 +12,7 @@ affectedSystems: [Labor Market, Education, Family Structure, Gender Equality, Ec
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Childcare Affordability Catastrophe

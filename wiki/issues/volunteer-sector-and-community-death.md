@@ -24,6 +24,7 @@ connections:
   - trust-collapse-across-all-institutions
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Volunteer Sector and Community Death

@@ -31,6 +31,7 @@ connections:
   - billionaire-media-ownership
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Corporate Sovereignty and Neo-Feudalism

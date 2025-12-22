@@ -12,6 +12,7 @@ affectedSystems: [International Security, Nuclear Proliferation, Regional Stabil
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # North Korea Nuclear Crisis

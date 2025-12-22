@@ -13,6 +13,7 @@ connections: [disinformation-plague, ai-deepfake-diplomatic-mutinies, ai-voice-c
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'DeathSpiral', 'ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Deepfake Reality Crisis

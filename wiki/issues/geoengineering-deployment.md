@@ -12,6 +12,7 @@ affectedSystems: [Climate Systems, International Relations, Agriculture, Governa
 connections: [aerosol-geoengineering-proxy-war]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Geoengineering Deployment

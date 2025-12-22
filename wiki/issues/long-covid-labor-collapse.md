@@ -13,6 +13,7 @@ connections: []
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Long COVID Labor Collapse

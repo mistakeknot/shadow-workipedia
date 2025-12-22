@@ -14,6 +14,7 @@ editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'CapacityStress', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-12-19
 factualAsOf: 2025-12-19
+mechanics: []
 ---
 
 # Coral Reef Death and Ocean Ecosystem Collapse

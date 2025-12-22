@@ -30,6 +30,7 @@ connections:
   - zoning-reform
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Housing Affordability Crisis

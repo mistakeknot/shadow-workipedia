@@ -14,6 +14,7 @@ editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'CapacityStress', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'QueueBacklog']
 lastUpdated: 2025-11-24
 factualAsOf: 2025-12-19
+mechanics: []
 ---
 
 # Israel-Palestine Conflict and Gaza Wars

@@ -12,6 +12,7 @@ affectedSystems: [Legal Systems, Family Structure, Civil Rights, Political Polar
 connections: [supreme-court-legitimacy-crisis, abortion-access-crisis, democratic-backsliding]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Marriage Equality Reversal Fears

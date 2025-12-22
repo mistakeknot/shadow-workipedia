@@ -12,6 +12,7 @@ affectedSystems: [Privacy, Surveillance, Military, Intelligence, Civil Liberties
 connections: [surveillance-state-expansion,quantum-computing-encryption-collapse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Quantum Sensor Total Recall

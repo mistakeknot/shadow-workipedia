@@ -36,6 +36,7 @@ connections:
   - global-cold-chain-failure-and-vaccine-spoilage
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
+mechanics: []
 ---
 
 # Engineered Pandemic (Disease X)

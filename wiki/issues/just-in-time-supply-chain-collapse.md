@@ -13,6 +13,7 @@ connections: [just-in-time-supply-chain-collapse]
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Just-in-Time Supply Chain Collapse

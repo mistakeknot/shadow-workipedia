@@ -13,6 +13,7 @@ connections: [climate-refugee-floods]
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'CapacityStress', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Permafrost Methane Release

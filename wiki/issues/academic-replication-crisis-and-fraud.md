@@ -12,6 +12,7 @@ affectedSystems: [Education, Healthcare, Technology, Policy]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Academic Replication Crisis and Fraud

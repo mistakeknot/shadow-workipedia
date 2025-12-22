@@ -12,6 +12,9 @@ affectedSystems: [criminal-justice, inequality, healthcare, labor-market, politi
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics:
+  - mechanic--threshold--confidencethreshold
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # Mass Incarceration Crisis

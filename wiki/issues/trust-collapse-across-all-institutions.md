@@ -26,6 +26,7 @@ connections:
   - conspiracy-theory-mainstreaming
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Trust Collapse Across All Institutions

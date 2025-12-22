@@ -13,6 +13,7 @@ connections: []
 editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'CapacityStress', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'QueueBacklog']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # CRISPR Regulation Wars

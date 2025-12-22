@@ -12,6 +12,7 @@ affectedSystems: [Geopolitics, Security, Institutions]
 connections: [balkans-instability-and-fragmentation-risk, democratic-backsliding]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Caucasus Wars and Frozen Conflicts

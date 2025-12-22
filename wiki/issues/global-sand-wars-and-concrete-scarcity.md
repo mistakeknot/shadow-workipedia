@@ -12,6 +12,7 @@ affectedSystems: [Construction, Resource Extraction, Infrastructure, Coastal Sys
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Global Sand Wars and Concrete Scarcity

@@ -32,6 +32,7 @@ connections:
   - distant-water-fleet-wars-and-fishery-collapse
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Microplastic Bioaccumulation Crisis

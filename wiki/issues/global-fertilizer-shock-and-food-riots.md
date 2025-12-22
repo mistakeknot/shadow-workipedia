@@ -12,6 +12,7 @@ affectedSystems: [Agriculture, Food Production, Social Stability, Global Trade]
 connections: [food-export-weaponization]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Global Fertilizer Shock and Food Riots

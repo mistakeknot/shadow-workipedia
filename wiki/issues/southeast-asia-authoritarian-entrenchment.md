@@ -12,6 +12,7 @@ affectedSystems: [Government, Civil Society, Media, International Relations]
 connections: [democratic-backsliding]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Southeast Asia Authoritarian Entrenchment

@@ -13,6 +13,7 @@ connections: []
 editedBy: Shadow Work Team
 primitives: ['CapacityStress', 'LegitimacyDynamics', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Public Transit Death Spiral

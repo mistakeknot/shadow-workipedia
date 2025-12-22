@@ -14,6 +14,7 @@ editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'CapacityStress', 'ContagionPropagation', 'LegitimacyDynamics', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'QueueBacklog']
 lastUpdated: 2025-12-19
 factualAsOf: 2025-12-19
+mechanics: []
 ---
 
 # Longevity Wealth Divorce Wars

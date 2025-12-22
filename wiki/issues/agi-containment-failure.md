@@ -12,6 +12,25 @@ affectedSystems: [Technology, Security, Economy, Governance]
 connections: [ai-alignment-crisis, autonomous-weapons-proliferation, state-sponsored-hacking-epidemic]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics:
+  - mechanic--adverse-selection--adverse-selection-in-cyber-insurance
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--eventtype--eventtype
+  - mechanic--example--example
+  - mechanic--externality--externality-pricing
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--from-129b--from-129b
+  - mechanic--information-asymmetry--information-asymmetry
+  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--moral-hazard--moral-hazard-from-coverage
+  - mechanic--network-effect--network-effects
+  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--prisoners-dilemma--prisoners-dilemma
+  - mechanic--regulatory-capture--regulatory-capture-by-incumbents
+  - mechanic--threshold--confidencethreshold
+  - mechanic--tipping-point--tipping-point
+  - mechanic--tragedy-of-common--tragedy-of-commons
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # AGI Containment Failure

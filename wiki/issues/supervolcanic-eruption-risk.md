@@ -35,6 +35,7 @@ connections:
   - staple-crop-blight-wave
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
+mechanics: []
 ---
 
 # Supervolcanic Eruption Risk

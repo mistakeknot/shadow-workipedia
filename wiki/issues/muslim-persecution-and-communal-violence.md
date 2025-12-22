@@ -13,6 +13,7 @@ connections: [modi-hindu-nationalism-and-bjp-dominance, myanmar-coup-and-rohingy
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-19
 factualAsOf: 2025-12-19
+mechanics: []
 ---
 
 # Muslim Persecution and Communal Violence

@@ -13,6 +13,13 @@ connections: []
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics:
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--feedbackloop--feedbackloops
+  - mechanic--ready--ready
+  - mechanic--supply-chain--supply-chain-dependencies
+  - mechanic--threshold--confidencethreshold
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # General Strike Movements

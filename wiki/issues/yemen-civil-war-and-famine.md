@@ -23,6 +23,7 @@ connections:
 editedBy: Shadow Work Team
 primitives: ['ContagionPropagation', 'LegitimacyDynamics', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 ## Overview

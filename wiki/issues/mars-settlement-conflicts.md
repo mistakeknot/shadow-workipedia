@@ -12,6 +12,7 @@ affectedSystems: [Space Industry, International Relations, Resource Extraction, 
 connections: [asteroid-mining-rights-wars, billionaire-media-ownership]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Mars Settlement Conflicts

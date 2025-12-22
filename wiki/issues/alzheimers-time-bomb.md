@@ -12,6 +12,7 @@ affectedSystems: [Healthcare, Social Services, Economy, Family Structure]
 connections: [global-healthcare-workforce-exodus]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Alzheimer's Time Bomb

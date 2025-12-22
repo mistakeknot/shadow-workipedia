@@ -30,6 +30,7 @@ connections:
   - amazon-rainforest-dieback
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Gene Drive Ecological Cascades

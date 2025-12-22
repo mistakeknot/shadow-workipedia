@@ -12,6 +12,7 @@ affectedSystems: [Healthcare Systems, Financial Systems, Civil Society, Legal Sy
 connections: [medical-bankruptcy-epidemic, global-healthcare-workforce-exodus]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Medical Debt Vigilantism and Refusal Networks

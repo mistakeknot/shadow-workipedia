@@ -33,6 +33,7 @@ connections:
   - forever-chemical-contamination-crisis
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
+mechanics: []
 ---
 
 # Fertility Collapse Crisis

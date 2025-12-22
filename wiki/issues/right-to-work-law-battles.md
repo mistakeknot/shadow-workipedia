@@ -12,6 +12,7 @@ affectedSystems: [Labor Markets, Politics, Economy, Inequality]
 connections: [gig-economy-serfdom]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Right-to-Work Law Battles

@@ -12,6 +12,7 @@ affectedSystems: [Law Enforcement, Justice System, Economy, Civil Society]
 connections: [mass-incarceration-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Civil Asset Forfeiture Crisis

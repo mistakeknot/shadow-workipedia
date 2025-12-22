@@ -12,6 +12,7 @@ affectedSystems: [healthcare, pharmaceutical-industry, culture, mental-health]
 connections: [mental-health-apocalypse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Pharmaceutical Dependency Normalization

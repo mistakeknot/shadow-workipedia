@@ -12,6 +12,7 @@ affectedSystems: [Politics, Technology, International Relations, Healthcare]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Biometric Microchip Migration Control

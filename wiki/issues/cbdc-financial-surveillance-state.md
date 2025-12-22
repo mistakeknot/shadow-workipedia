@@ -34,6 +34,7 @@ connections:
   - splinternet-and-data-localization-wars
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # CBDC Financial Surveillance State

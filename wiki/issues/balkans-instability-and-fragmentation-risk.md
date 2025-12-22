@@ -12,6 +12,7 @@ affectedSystems: [Geopolitics, Security, Civil Society]
 connections: [democratic-backsliding]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Balkans Instability and Fragmentation Risk

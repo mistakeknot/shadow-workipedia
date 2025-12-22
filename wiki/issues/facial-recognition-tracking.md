@@ -25,6 +25,7 @@ connections:
   - digital-authoritarianism
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Facial Recognition Tracking

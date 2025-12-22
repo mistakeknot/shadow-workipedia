@@ -12,6 +12,7 @@ affectedSystems: [Environment, Agriculture, Infrastructure]
 connections: [climate-refugee-floods, permafrost-methane-release, arctic-sovereignty-conflicts]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Arctic Blue Ocean Event and Jet Stream Breakdown

@@ -32,6 +32,7 @@ connections:
   - climate-insurance-collapse-and-managed-retreat-wars
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Boreal Forest Dieback

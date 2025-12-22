@@ -12,6 +12,7 @@
     "generate:mechanics": "tsx scripts/generate-mechanics-wiki.ts",
     "normalize:mechanics": "tsx scripts/normalize-mechanics-wiki.ts",
     "audit:mechanics": "tsx scripts/audit-mechanics-coverage.ts",
+    "backfill:issue-mechanics": "tsx scripts/backfill-issue-mechanics.ts",
     "typecheck": "tsc --noEmit",
     "prepare": "husky || true"
   },

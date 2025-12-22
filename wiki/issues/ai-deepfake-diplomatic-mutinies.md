@@ -12,6 +12,12 @@ affectedSystems: [Geopolitics, Security, Technology, Institutions]
 connections: [deepfake-reality-crisis, disinformation-plague, state-sponsored-hacking-epidemic]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics:
+  - mechanic--international--international
+  - mechanic--network-effect--network-effects
+  - mechanic--threshold--confidencethreshold
+  - mechanic--tipping-point--tipping-point
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # AI Deepfake Diplomatic Mutinies

@@ -12,6 +12,7 @@ affectedSystems: [Space Industry, Telecommunications, Military, Global Trade]
 connections: [space-militarization]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Private Orbital Debris Cleanup Cartels

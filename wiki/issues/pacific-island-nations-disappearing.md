@@ -12,6 +12,7 @@ affectedSystems: [Climate, Sovereignty, Culture, International Law, Migration]
 connections: [climate-refugee-floods,deep-sea-mining-rush-and-pacific-sovereignty-fight]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Pacific Island Nations Disappearing

@@ -12,6 +12,7 @@ affectedSystems: [Economy, Infrastructure, Civil Society]
 connections: [gig-economy-serfdom]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Algorithmic Food Delivery Collapse

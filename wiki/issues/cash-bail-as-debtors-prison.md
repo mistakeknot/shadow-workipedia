@@ -12,6 +12,7 @@ affectedSystems: [Criminal Justice, Legal System, Economic Opportunity, Civil Ri
 connections: [bankruptcy-criminalization, mass-incarceration-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Cash Bail as Debtors' Prison

@@ -13,6 +13,7 @@ connections: []
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'ThresholdCascade', 'LegitimacyDynamics', 'ResourceDepletion', 'CaptureConcentration', 'QueueBacklog']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Lithium Refinery Air-Toxics Rebellion

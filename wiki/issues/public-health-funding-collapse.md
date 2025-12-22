@@ -12,6 +12,7 @@ affectedSystems: [Health, Emergency-Response, Disease-Surveillance, Community-Se
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Public Health Funding Collapse

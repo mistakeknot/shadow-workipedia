@@ -32,6 +32,7 @@ connections:
   - student-debt-slavery
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Generational Warfare

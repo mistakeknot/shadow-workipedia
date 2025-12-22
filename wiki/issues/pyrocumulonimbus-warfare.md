@@ -12,6 +12,15 @@ affectedSystems: [Military, Environment, Agriculture, Public Health, Infrastruct
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics:
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--core-mechanic--core-mechanics
+  - mechanic--feedback--feedback
+  - mechanic--historical-calibration--historical-calibration
+  - mechanic--historical-grounding--historical-grounding
+  - mechanic--model--model
+  - mechanic--threshold--confidencethreshold
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # Pyrocumulonimbus Warfare

@@ -12,6 +12,7 @@ affectedSystems: [Government Finance, Racial Justice, Politics, Economy]
 connections: [racial-reckoning-cycles]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Reparations Movement Acceleration

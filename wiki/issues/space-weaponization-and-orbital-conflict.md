@@ -12,6 +12,7 @@ affectedSystems: [Military, Communications, GPS, Economy, Infrastructure]
 connections: [space-militarization]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Space Weaponization and Orbital Conflict

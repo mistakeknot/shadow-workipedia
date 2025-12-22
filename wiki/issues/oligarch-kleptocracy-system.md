@@ -12,6 +12,7 @@ affectedSystems: [Government, Financial Systems, Real Estate, Democracy, Media]
 connections: [dark-money-politics,corruption-normalization]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Oligarch Kleptocracy System

@@ -12,6 +12,7 @@ affectedSystems: [health, food, economic, social]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Obesity Epidemic

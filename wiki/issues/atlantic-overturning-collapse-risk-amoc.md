@@ -12,6 +12,7 @@ affectedSystems: [Environment, Agriculture, Economy, Geopolitics, Infrastructure
 connections: [climate-refugee-floods, water-scarcity-wars]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Atlantic Overturning Collapse Risk (AMOC)

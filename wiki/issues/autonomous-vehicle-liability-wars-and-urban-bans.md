@@ -12,6 +12,7 @@ affectedSystems: [Transportation, Insurance, Urban Planning, Legal System]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Autonomous Vehicle Liability Wars and Urban Bans

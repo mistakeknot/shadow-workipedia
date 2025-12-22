@@ -12,6 +12,7 @@ affectedSystems: [Legal System, Civil Rights, Business, Healthcare, Education]
 connections: [marriage-equality-reversal-fears, abortion-access-crisis, supreme-court-legitimacy-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Religious Freedom Battles

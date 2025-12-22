@@ -13,6 +13,7 @@ connections: []
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'DeathSpiral', 'ThresholdCascade', 'CapacityStress', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog', 'AdaptiveResistance']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Cybernetic Rejection Syndrome

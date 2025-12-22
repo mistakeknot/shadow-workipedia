@@ -12,6 +12,7 @@ affectedSystems: [Health, Technology, Economy]
 connections: [ai-alignment-crisis, global-healthcare-workforce-exodus, insurance-death-panels]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # AI Clinical Automation Catastrophe

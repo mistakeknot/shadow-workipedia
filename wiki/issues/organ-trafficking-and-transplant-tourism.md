@@ -12,6 +12,7 @@ affectedSystems: [healthcare, criminal-justice, international-law, ethics]
 connections: [corruption-normalization]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Organ Trafficking and Transplant Tourism

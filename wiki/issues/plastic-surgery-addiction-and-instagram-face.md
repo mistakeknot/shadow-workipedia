@@ -12,6 +12,7 @@ affectedSystems: [mental-health, beauty-industry, social-media, culture]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Plastic Surgery Addiction and Instagram Face

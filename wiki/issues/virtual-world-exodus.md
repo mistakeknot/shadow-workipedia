@@ -12,6 +12,7 @@ affectedSystems: [Society, Economy, Mental Health, Labor Markets, Education, Con
 connections: [social-media-addiction-crisis,mental-health-apocalypse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Virtual World Exodus

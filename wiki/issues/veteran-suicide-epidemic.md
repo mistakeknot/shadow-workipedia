@@ -13,6 +13,7 @@ connections: [mental-health-apocalypse,global-healthcare-workforce-exodus]
 editedBy: Shadow Work Team
 primitives: ['LegitimacyDynamics', 'FeedbackLoop', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Veteran Suicide Epidemic

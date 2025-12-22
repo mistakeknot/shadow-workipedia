@@ -12,6 +12,7 @@ affectedSystems: [finance, legal, poverty, consumer-protection]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Payday Lending and Predatory Finance Normalization

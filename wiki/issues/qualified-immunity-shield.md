@@ -12,6 +12,7 @@ affectedSystems: [Judiciary, Law Enforcement, Civil Rights, Government]
 connections: [police-militarization-escalation,mass-incarceration-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Qualified Immunity Shield

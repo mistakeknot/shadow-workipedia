@@ -30,6 +30,7 @@ connections:
   - global-fertilizer-shock-and-food-riots
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Prion Disease Emergence

@@ -12,6 +12,7 @@ affectedSystems: [Public Health, Federal Governance, Scientific Authority, State
 connections: [public-health-funding-collapse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # CDC Authority Battles

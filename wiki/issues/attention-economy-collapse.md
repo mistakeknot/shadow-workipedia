@@ -32,6 +32,7 @@ connections:
   - deepfake-reality-crisis
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Attention Economy Collapse

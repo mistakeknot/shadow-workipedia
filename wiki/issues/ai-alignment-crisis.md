@@ -12,6 +12,7 @@ affectedSystems: [Technology, Security, Civil Society]
 connections: [agi-containment-failure, autonomous-weapons-proliferation, ai-job-displacement-tsunami]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # AI Alignment Crisis

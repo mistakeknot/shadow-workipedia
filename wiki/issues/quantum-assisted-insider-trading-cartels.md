@@ -12,6 +12,7 @@ affectedSystems: [Financial Markets, Technology, Regulation, Wealth Distribution
 connections: [quantum-computing-encryption-collapse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Quantum-Assisted Insider Trading Cartels

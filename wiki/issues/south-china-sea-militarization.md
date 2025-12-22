@@ -12,6 +12,7 @@ affectedSystems: [International Security, Trade Routes, Regional Stability, Mili
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # South China Sea Militarization

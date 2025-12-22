@@ -12,6 +12,7 @@ affectedSystems: [Mental-Health, Consumer-Finance, Sports, Addiction-Services, Y
 connections: [mental-health-apocalypse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Sports Betting Gambling Addiction

@@ -25,6 +25,7 @@ connections:
   - free-speech-absolutism
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Content Moderation Wars

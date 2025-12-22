@@ -12,6 +12,7 @@ affectedSystems: [State Governance, Humanitarian Systems, Regional Security, Mig
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Haiti Perpetual Catastrophe

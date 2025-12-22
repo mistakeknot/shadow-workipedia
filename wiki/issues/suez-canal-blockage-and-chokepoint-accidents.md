@@ -12,6 +12,7 @@ affectedSystems: [Global Trade, Supply Chain, Energy, Manufacturing]
 connections: [just-in-time-supply-chain-collapse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Suez Canal Blockage and Chokepoint Accidents

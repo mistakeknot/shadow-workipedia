@@ -13,6 +13,7 @@ connections: []
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'ContagionPropagation', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Eurozone Debt Crises

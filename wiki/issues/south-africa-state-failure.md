@@ -12,6 +12,7 @@ affectedSystems: [Government, Economy, Infrastructure, Society, Energy]
 connections: [corruption-normalization]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # South Africa State Failure

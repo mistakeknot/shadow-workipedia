@@ -12,6 +12,7 @@ affectedSystems: [Civil Rights, Public Safety, LGBTQ+ Communities, Law Enforceme
 connections: [marriage-equality-reversal-fears]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Pride Event Attacks

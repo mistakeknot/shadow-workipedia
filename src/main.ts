@@ -2023,18 +2023,18 @@ async function main() {
         if (typeof article.frontmatter?.mechanic === 'string') subtitleParts.push(article.frontmatter.mechanic);
         const subtitle = subtitleParts.length > 0 ? subtitleParts.join(' • ') : 'Mechanic';
 
-        items.push({
-          kind: 'mechanic',
-          id: article.id,
-          title: article.title,
-          subtitle,
-          rightHint: 'mechanic',
-          group: 'Mechanics',
-          searchText: `${article.title} ${article.id} ${subtitle}`.toLowerCase(),
-          run: () => router.navigateToArticle('issue', article.id),
-        });
-      }
-    }
+	        items.push({
+	          kind: 'mechanic',
+	          id: article.id,
+	          title: article.title,
+	          subtitle,
+	          rightHint: 'mechanic',
+	          group: 'Mechanics',
+	          searchText: `${article.title} ${article.id} ${subtitle}`.toLowerCase(),
+	          run: () => router.navigateToArticle('mechanic', article.id),
+	        });
+	      }
+	    }
 
     // Communities
     if (data.communities) {

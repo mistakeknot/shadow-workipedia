@@ -12,6 +12,7 @@ affectedSystems: [Economy, Security, Infrastructure]
 connections: [critical-infrastructure-attacks, state-sponsored-hacking-epidemic, just-in-time-supply-chain-collapse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # AI-Controlled Factory Kill Switch Sabotage

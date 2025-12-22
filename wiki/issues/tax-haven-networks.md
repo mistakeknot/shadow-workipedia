@@ -25,6 +25,7 @@ connections:
   - trust-collapse-across-all-institutions
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Tax Haven Networks

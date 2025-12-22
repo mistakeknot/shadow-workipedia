@@ -12,6 +12,7 @@ affectedSystems: [Cybersecurity, Financial Systems, Communications, Government, 
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Quantum Computing Encryption Collapse

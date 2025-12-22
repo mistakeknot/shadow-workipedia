@@ -30,6 +30,7 @@ connections:
   - criminal-justice-reform
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Opioid Policy & Settlement Crisis

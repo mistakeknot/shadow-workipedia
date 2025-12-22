@@ -61,58 +61,47 @@ function mechanicPageId(pattern: string, mechanic: string): string {
 
 type IssueMechanic = {
   id: string;
-  pattern: string;
-  mechanic: string;
-  count: number;
-  percentage: number;
+  title: string;
 };
 
 function findMechanicsForIssue(issueId: string, data: GraphData): IssueMechanic[] {
-  const communities = data.communities ? Object.values(data.communities) : [];
-  const byId = new Map<string, IssueMechanic>();
+  const issueArticle = data.articles?.[issueId];
+  const raw = issueArticle?.frontmatter?.mechanics;
+  const ids = Array.isArray(raw)
+    ? raw.filter((v: unknown): v is string => typeof v === 'string').map(v => v.trim()).filter(Boolean)
+    : [];
 
-  for (const community of communities) {
-    const shared = (community as any).sharedMechanics as Array<any> | undefined;
-    if (!Array.isArray(shared)) continue;
+  const uniques = Array.from(new Set(ids));
+  const items = uniques.map(id => {
+    const article = data.articles?.[id];
+    const title = article?.type === 'mechanic' ? article.title : id;
+    return { id, title };
+  });
 
-    for (const m of shared) {
-      if (!m || typeof m.pattern !== 'string' || typeof m.mechanic !== 'string') continue;
-      const issues = Array.isArray(m.issues) ? m.issues : [];
-      if (!issues.includes(issueId)) continue;
-
-      const id = mechanicPageId(m.pattern, m.mechanic);
-      if (!byId.has(id)) {
-        byId.set(id, {
-          id,
-          pattern: m.pattern,
-          mechanic: m.mechanic,
-          count: typeof m.count === 'number' ? m.count : 0,
-          percentage: typeof m.percentage === 'number' ? m.percentage : 0,
-        });
-      }
-    }
-  }
-
-  return Array.from(byId.values()).sort((a, b) =>
-    a.pattern.localeCompare(b.pattern) || a.mechanic.localeCompare(b.mechanic)
-  );
+  return items.sort((a, b) => a.title.localeCompare(b.title));
 }
 
 function renderIssueMechanicsSection(issueId: string, data: GraphData): string {
+  const issueArticle = data.articles?.[issueId];
+  const hasMechanicsKey = Boolean(issueArticle && Object.prototype.hasOwnProperty.call(issueArticle.frontmatter ?? {}, 'mechanics'));
   const mechanics = findMechanicsForIssue(issueId, data);
-  if (mechanics.length === 0) return '';
+  if (mechanics.length === 0 && !hasMechanicsKey) return '';
 
   return `
     <div class="related-section mechanics-section">
       <h3>Mechanics (${mechanics.length})</h3>
-      <div class="related-links">
-        ${mechanics.map(m => `
-          <a href="#/wiki/${m.id}" class="related-link has-article">
-            ${m.mechanic}
-            <span class="article-indicator">📄</span>
-          </a>
-        `).join('')}
-      </div>
+      ${mechanics.length > 0 ? `
+        <div class="related-links">
+          ${mechanics.map(m => `
+            <a href="#/wiki/${m.id}" class="related-link has-article">
+              ${m.title}
+              <span class="article-indicator">📄</span>
+            </a>
+          `).join('')}
+        </div>
+      ` : `
+        <p class="related-empty">No mechanics tagged yet.</p>
+      `}
     </div>
   `;
 }
@@ -122,24 +111,38 @@ function renderMechanicRelatedContent(article: WikiArticle, data: GraphData): st
   const mechanic = typeof article.frontmatter?.mechanic === 'string' ? article.frontmatter.mechanic : '';
   if (!pattern || !mechanic) return '';
 
+  const currentMechanicId = article.id;
+
   const communities = data.communities ? Object.values(data.communities) : [];
   const matchingCommunities: Array<{ id: number; label: string; issues: string[] }> = [];
-  const issueSet = new Set<string>();
+  const sharedIssueSet = new Set<string>();
 
   for (const c of communities) {
     const shared = (c as any).sharedMechanics as Array<any> | undefined;
     if (!Array.isArray(shared)) continue;
-    const match = shared.find(m => m?.pattern === pattern && m?.mechanic === mechanic);
+    const match = shared.find(m => m && typeof m.pattern === 'string' && typeof m.mechanic === 'string' && mechanicPageId(m.pattern, m.mechanic) === currentMechanicId);
     if (!match) continue;
 
     const cid = (c as any).id as number;
     const label = (c as any).label as string;
     const issues = Array.isArray(match.issues) ? match.issues : [];
-    for (const id of issues) issueSet.add(id);
+    for (const id of issues) sharedIssueSet.add(id);
     matchingCommunities.push({ id: cid, label, issues });
   }
 
-  const issues = Array.from(issueSet)
+  const taggedIssueSet = new Set<string>();
+  if (data.articles) {
+    for (const a of Object.values(data.articles)) {
+      if (a.type !== 'issue') continue;
+      const list = Array.isArray(a.frontmatter?.mechanics) ? a.frontmatter.mechanics : [];
+      if (!Array.isArray(list)) continue;
+      if (list.some((v: unknown) => typeof v === 'string' && v.trim() === currentMechanicId)) {
+        taggedIssueSet.add(a.id);
+      }
+    }
+  }
+
+  const issues = Array.from(new Set([...sharedIssueSet, ...taggedIssueSet]))
     .map(id => ({
       id,
       title: data.articles?.[id]?.title ?? data.nodes.find(n => n.id === id)?.label ?? id,

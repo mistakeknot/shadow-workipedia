@@ -12,6 +12,7 @@ affectedSystems: [Global Trade, Biodiversity Systems, Technology Innovation, Gov
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Deep-Sea Mining Rush and Pacific Sovereignty Fight

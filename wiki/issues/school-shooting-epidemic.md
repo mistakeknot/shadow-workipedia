@@ -12,6 +12,7 @@ affectedSystems: [Education, Public Safety, Mental Health, Gun Industry, Policy]
 connections: [mass-shooting-normalization, gun-rights-absolutism, mental-health-apocalypse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # School Shooting Epidemic

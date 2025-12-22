@@ -13,6 +13,7 @@ connections: [critical-infrastructure-attacks, just-in-time-supply-chain-collaps
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'ThresholdCascade', 'LegitimacyDynamics', 'ExodusMigration', 'CaptureConcentration', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # GNSS Spoofing and Positioning Trust Collapse

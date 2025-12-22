@@ -12,6 +12,7 @@ affectedSystems: [marine-ecosystems, food-supply, fishing-industry, coastal-econ
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Ocean Acidification Food Quality Crisis

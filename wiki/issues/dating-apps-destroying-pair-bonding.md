@@ -24,6 +24,7 @@ connections:
   - technology-addiction
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Dating Apps Destroying Pair Bonding

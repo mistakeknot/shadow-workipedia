@@ -12,6 +12,7 @@ affectedSystems: [Agriculture, Food Production, Global Trade, Social Stability]
 connections: [seed-sovereignty-and-genetic-diversity-loss, global-fertilizer-shock-and-food-riots, food-export-weaponization, global-pollinator-extinction-pulse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
+mechanics: []
 ---
 
 # Staple Crop Blight Wave

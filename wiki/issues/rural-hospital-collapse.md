@@ -12,6 +12,7 @@ affectedSystems: [Healthcare, Rural Communities, Economy, Emergency Services]
 connections: [global-healthcare-workforce-exodus]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Rural Hospital Collapse

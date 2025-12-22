@@ -25,6 +25,7 @@ connections:
   - community-wealth-building
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Worker Cooperatives Movement

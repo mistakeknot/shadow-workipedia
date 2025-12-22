@@ -12,6 +12,7 @@ affectedSystems: [Indigenous Communities, Environment, Economy, Government, Indu
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Resource Extraction Conflicts

@@ -12,6 +12,7 @@ affectedSystems: [Indigenous Rights, Land Use, Cultural Heritage, Development, G
 connections: [resource-extraction-conflicts]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Sacred Site Protection

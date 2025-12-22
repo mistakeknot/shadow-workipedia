@@ -12,6 +12,7 @@ affectedSystems: [Climate, Real Estate, Finance, Infrastructure, Population, Pol
 connections: [climate-insurance-collapse-and-managed-retreat-wars, climate-refugee-floods, pacific-island-nations-disappearing, west-antarctic-ice-cliff-collapse, global-sand-wars-and-concrete-scarcity, housing-affordability-crisis, homelessness-crisis, atlantic-overturning-collapse-risk-amoc]
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
+mechanics: []
 ---
 
 # Sea-Level / Coastal Retreat Spiral

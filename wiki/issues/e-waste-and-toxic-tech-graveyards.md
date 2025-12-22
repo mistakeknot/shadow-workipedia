@@ -25,6 +25,7 @@ connections:
   - heavy-metal-contamination
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # E-Waste and Toxic Tech Graveyards

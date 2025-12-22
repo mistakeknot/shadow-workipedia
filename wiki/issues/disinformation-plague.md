@@ -13,6 +13,10 @@ connections: [deepfake-reality-crisis, social-media-addiction-crisis, pandemic-r
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'DeathSpiral', 'ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ExodusMigration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics:
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--irreversible--water-extraction-irreversibility
+  - mechanic--regulatory-capture--regulatory-capture-by-incumbents
 ---
 
 # Disinformation Plague

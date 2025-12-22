@@ -12,6 +12,7 @@ affectedSystems: [Health, Workplace, Education, Productivity]
 connections: [mental-health-apocalypse, gig-economy-serfdom, attention-economy-collapse, obesity-epidemic]
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
+mechanics: []
 ---
 
 # Sleep Debt Epidemic

@@ -12,6 +12,7 @@ affectedSystems: [Internet Infrastructure, International Relations, Trade, Intel
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Seafloor Data Cable Nationalization Wars

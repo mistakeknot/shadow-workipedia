@@ -12,6 +12,7 @@ affectedSystems: [Demographics, Economics, Military, Healthcare, Labor-Markets]
 connections: [post-putin-succession-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Russia Demographic Winter

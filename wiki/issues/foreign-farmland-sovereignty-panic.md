@@ -25,6 +25,7 @@ connections:
   - strategic-resource-control
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Foreign Farmland Sovereignty Panic

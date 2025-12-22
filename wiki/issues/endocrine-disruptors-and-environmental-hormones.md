@@ -24,6 +24,7 @@ connections:
   - environmental-health
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Endocrine Disruptors and Environmental Hormones

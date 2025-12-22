@@ -12,6 +12,7 @@ affectedSystems: [Government, Education, Agriculture, Security Forces, Displacem
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Nigeria Boko Haram and Banditry

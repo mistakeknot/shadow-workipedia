@@ -32,6 +32,7 @@ connections:
   - gnss-spoofing-and-positioning-trust-collapse
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Internet Routing Collapse

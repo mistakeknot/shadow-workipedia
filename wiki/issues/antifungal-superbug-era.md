@@ -12,6 +12,7 @@ affectedSystems: [Health, Agriculture, Economy]
 connections: [antibiotic-resistance-crisis, pandemic-response-wars, global-healthcare-workforce-exodus]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Antifungal Superbug Era

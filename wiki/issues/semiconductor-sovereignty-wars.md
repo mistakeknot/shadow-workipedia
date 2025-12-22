@@ -12,6 +12,7 @@ affectedSystems: [Technology Industry, Trade, National Security, Manufacturing]
 connections: [just-in-time-supply-chain-collapse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Semiconductor Sovereignty Wars

@@ -13,6 +13,7 @@ connections: []
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'ThresholdCascade', 'CapacityStress', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Don't Say Gay / School Censorship

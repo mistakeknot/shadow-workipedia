@@ -12,6 +12,7 @@ affectedSystems: [Politics, Economy, Institutions, Society]
 connections: [democratic-backsliding]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Chile Social Explosion and Constitutional Crisis

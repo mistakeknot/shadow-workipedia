@@ -12,6 +12,7 @@ affectedSystems: [Housing, Consumer-Finance, Economic-Inequality, Credit-Systems
 connections: [housing-affordability-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Rent-to-Own Poverty Traps

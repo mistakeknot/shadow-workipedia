@@ -13,6 +13,7 @@ connections: [abortion-access-crisis]
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'CapacityStress', 'ContagionPropagation', 'LegitimacyDynamics', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Fertility Tracking Surveillance Markets

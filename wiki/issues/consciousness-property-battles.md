@@ -12,6 +12,7 @@ affectedSystems: [Legal Systems, Technology Systems, Privacy Systems, Economic S
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Consciousness Property Battles

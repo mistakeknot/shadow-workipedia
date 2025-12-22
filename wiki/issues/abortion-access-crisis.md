@@ -12,6 +12,7 @@ affectedSystems: [Health, Politics, Civil Society]
 connections: [democratic-backsliding, global-healthcare-workforce-exodus, voter-suppression-acceleration]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Abortion Access Crisis

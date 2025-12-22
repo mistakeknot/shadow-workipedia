@@ -25,6 +25,7 @@ connections:
   - ecosystem-disruption
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Vector-Borne Disease Geographic Expansion

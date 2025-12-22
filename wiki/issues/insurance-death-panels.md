@@ -13,6 +13,7 @@ connections: [global-healthcare-workforce-exodus]
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'ResourceDepletion', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog', 'AdaptiveResistance']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Insurance Death Panels

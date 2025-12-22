@@ -12,6 +12,7 @@ affectedSystems: [Healthcare, Manufacturing, Trade, National Security, Pharmaceu
 connections: [just-in-time-supply-chain-collapse,global-healthcare-workforce-exodus,pandemic-response-wars]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Pharmaceutical Ingredient Dependency Crisis

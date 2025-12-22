@@ -22,6 +22,7 @@ connections:
   - constitutional-crisis
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Supreme Court Legitimacy Crisis

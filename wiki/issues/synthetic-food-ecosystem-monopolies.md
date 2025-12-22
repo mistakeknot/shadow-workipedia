@@ -12,6 +12,7 @@ affectedSystems: [Agriculture, Food Systems, Economy, Technology]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Synthetic Food Ecosystem Monopolies

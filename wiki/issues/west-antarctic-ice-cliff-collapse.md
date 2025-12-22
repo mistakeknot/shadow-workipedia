@@ -23,6 +23,17 @@ connections:
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'ContagionPropagation', 'LegitimacyDynamics', 'CaptureConcentration', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics:
+  - mechanic--2024--2024
+  - mechanic--64--64
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--equilibrium--equilibrium
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--ghyben-herzberg-amplification--ghyben-herzberg-amplification
+  - mechanic--irreversible--water-extraction-irreversibility
+  - mechanic--prisoners-dilemma--prisoners-dilemma
+  - mechanic--threshold--confidencethreshold
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 ## Overview

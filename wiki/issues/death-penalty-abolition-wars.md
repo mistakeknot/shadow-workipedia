@@ -12,6 +12,7 @@ affectedSystems: [Criminal Justice, Legal Systems, Human Rights, Political Syste
 connections: [mass-incarceration-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Death Penalty Abolition Wars

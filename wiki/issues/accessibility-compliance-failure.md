@@ -12,6 +12,7 @@ affectedSystems: [Infrastructure, Employment, Education, Technology]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Accessibility Compliance Failure

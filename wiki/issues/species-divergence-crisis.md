@@ -12,6 +12,7 @@ affectedSystems: [Ecosystems, Agriculture, Conservation, Scientific Research]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Species Divergence Crisis

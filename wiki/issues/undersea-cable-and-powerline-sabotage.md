@@ -12,6 +12,7 @@ affectedSystems: [Communications, Energy, Critical Infrastructure, National Secu
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Undersea Cable and Powerline Sabotage

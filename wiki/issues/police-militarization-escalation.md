@@ -12,6 +12,7 @@ affectedSystems: [Law Enforcement, Civil Rights, Communities, Government, Milita
 connections: [mass-incarceration-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Police Militarization Escalation

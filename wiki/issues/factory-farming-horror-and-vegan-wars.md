@@ -25,6 +25,7 @@ connections:
   - environmental-degradation
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Factory Farming Horror and Vegan Wars

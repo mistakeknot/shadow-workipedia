@@ -12,6 +12,7 @@ affectedSystems: [legal, finance, healthcare, family]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Guardianship Abuse and Elder Theft

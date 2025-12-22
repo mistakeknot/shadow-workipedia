@@ -12,6 +12,7 @@ affectedSystems: [Financial, Security, Technology, Legal, Civil Liberties]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Biometric Identity Breach and Digital ID Collapse

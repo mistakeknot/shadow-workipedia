@@ -12,6 +12,7 @@ affectedSystems: [Healthcare, Social Structure, Labor, Ethics, Regulation]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Artificial Wombs and Gestation Outsourcing

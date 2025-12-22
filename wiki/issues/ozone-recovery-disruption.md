@@ -33,6 +33,7 @@ connections:
   - endocrine-disruptors-and-environmental-hormones
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
+mechanics: []
 ---
 
 # Ozone Recovery Disruption

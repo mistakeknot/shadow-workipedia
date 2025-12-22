@@ -12,6 +12,7 @@ affectedSystems: [Technology, Economy, Infrastructure, Energy, Security, Communi
 connections: [just-in-time-supply-chain-collapse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Carrington-Class Solar Storm

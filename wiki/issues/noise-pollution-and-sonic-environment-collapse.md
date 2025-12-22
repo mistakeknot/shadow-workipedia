@@ -12,6 +12,7 @@ affectedSystems: [health, urban-planning, transportation, industrial]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Noise Pollution and Sonic Environment Collapse

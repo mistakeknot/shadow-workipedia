@@ -12,6 +12,7 @@ affectedSystems: [Internet Infrastructure, Telecommunications, Small Business, M
 connections: [billionaire-media-ownership]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Net Neutrality Collapse

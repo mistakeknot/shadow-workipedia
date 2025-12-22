@@ -13,6 +13,7 @@ connections: [crispr-regulation-wars]
 editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'ContagionPropagation', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Genetic Caste Formation

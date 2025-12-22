@@ -12,6 +12,7 @@ affectedSystems: [Economy, Real Estate, Insurance, Climate, Politics, Infrastruc
 connections: [climate-refugee-floods]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Climate Insurance Collapse and Managed Retreat Wars

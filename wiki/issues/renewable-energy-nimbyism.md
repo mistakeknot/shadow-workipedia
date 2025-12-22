@@ -12,6 +12,7 @@ affectedSystems: [Energy Grid, Land Use, Climate Policy, Local Government]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Renewable Energy NIMBYism

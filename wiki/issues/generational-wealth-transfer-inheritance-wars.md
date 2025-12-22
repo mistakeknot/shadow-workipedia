@@ -26,6 +26,7 @@ connections:
   - global-tax-system-breakdown
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-21
+mechanics: []
 ---
 
 # Generational Wealth Transfer & Inheritance Wars

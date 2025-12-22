@@ -31,6 +31,7 @@ connections:
   - rural-hospital-collapse
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Global Tax System Breakdown

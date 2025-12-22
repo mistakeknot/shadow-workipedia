@@ -12,6 +12,7 @@ affectedSystems: [Labor Markets, Corporate Power, Politics, Economy, Institution
 connections: [gig-economy-serfdom]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Union Busting Epidemic

@@ -12,6 +12,7 @@ affectedSystems: [housing, public-health, social-class, urban-environment]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Pest Infestations as Class Marker

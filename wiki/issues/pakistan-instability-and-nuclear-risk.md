@@ -12,6 +12,7 @@ affectedSystems: [Nuclear Security, Regional Stability, Government, Military, Ec
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Pakistan Instability and Nuclear Risk

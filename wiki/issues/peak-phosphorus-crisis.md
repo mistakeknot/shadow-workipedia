@@ -34,6 +34,7 @@ connections:
   - resource-extraction-conflicts
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
+mechanics: []
 ---
 
 # Peak Phosphorus Crisis

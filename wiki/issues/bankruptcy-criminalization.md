@@ -12,6 +12,7 @@ affectedSystems: [Legal System, Criminal Justice, Economic Opportunity, Civil Ri
 connections: [cash-bail-as-debtors-prison]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Bankruptcy Criminalization

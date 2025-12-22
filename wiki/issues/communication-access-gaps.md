@@ -24,6 +24,7 @@ connections:
   - education-inequality
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Communication Access Gaps

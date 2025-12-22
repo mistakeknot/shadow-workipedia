@@ -34,6 +34,7 @@ connections:
   - general-strike-movements
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
+mechanics: []
 ---
 
 # Global Pension Underfunding Crisis

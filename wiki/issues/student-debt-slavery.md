@@ -12,6 +12,7 @@ affectedSystems: [financial-system, education-system, labor-market, housing-mark
 connections: [ai-job-displacement-tsunami,gig-economy-serfdom,billionaire-abolition-movement]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Student Debt Slavery

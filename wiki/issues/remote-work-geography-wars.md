@@ -12,6 +12,7 @@ affectedSystems: [Labor-Markets, Housing, Urban-Planning, Tax-Revenue, Real-Esta
 connections: [housing-affordability-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Remote Work Geography Wars

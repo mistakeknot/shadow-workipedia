@@ -12,6 +12,7 @@ affectedSystems: [Criminal Justice, State Governance, Healthcare, Commerce]
 connections: [mass-incarceration-crisis, felon-disenfranchisement]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Marijuana Legalization Patchwork

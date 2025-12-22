@@ -12,6 +12,7 @@ affectedSystems: [Technology, Economy, Geopolitics, Infrastructure]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Asteroid Mining Rights Wars

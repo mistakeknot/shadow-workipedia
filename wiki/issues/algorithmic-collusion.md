@@ -31,6 +31,7 @@ connections:
   - democratic-backsliding
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Algorithmic Collusion and Market Manipulation

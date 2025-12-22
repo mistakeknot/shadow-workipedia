@@ -12,6 +12,7 @@ affectedSystems: [Democracy, International Relations, Civil Society, Media, Huma
 connections: [democratic-backsliding]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Political Opposition Assassination

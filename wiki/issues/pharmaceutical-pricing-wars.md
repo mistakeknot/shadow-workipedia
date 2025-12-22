@@ -12,6 +12,7 @@ affectedSystems: [healthcare, economy, regulation, insurance]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Pharmaceutical Pricing Wars

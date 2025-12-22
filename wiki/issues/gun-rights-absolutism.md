@@ -13,6 +13,7 @@ connections: [canadian-political-polarization]
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Gun Rights Absolutism

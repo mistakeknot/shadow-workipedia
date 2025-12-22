@@ -12,6 +12,7 @@ affectedSystems: [Geopolitics, Security, Economy]
 connections: [resource-extraction-conflicts]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Arctic Sovereignty Conflicts

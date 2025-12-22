@@ -12,6 +12,7 @@ affectedSystems: [Economy, Pensions, Healthcare, Labor Markets, Politics]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Southern Europe Demographic Collapse

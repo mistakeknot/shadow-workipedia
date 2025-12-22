@@ -12,6 +12,7 @@ affectedSystems: [Consumer-Rights, Manufacturing, E-Waste, Intellectual-Property
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Right to Repair Battles

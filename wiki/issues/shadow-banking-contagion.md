@@ -32,6 +32,7 @@ connections:
   - commercial-real-estate-doom-loop-and-downtown-collapse
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
+mechanics: []
 ---
 
 # Shadow Banking Contagion

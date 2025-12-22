@@ -12,6 +12,7 @@ affectedSystems: [Internet, Trade, Technology Industry, Government, Privacy]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Splinternet and Data Localization Wars

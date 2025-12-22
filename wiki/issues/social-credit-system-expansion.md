@@ -12,6 +12,7 @@ affectedSystems: [Government, Civil Liberties, Technology, Society, Economy]
 connections: [surveillance-state-expansion,algorithmic-governance-proliferation]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Social Credit System Expansion

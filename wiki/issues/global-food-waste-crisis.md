@@ -35,6 +35,7 @@ connections:
   - water-scarcity-wars
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-17
+mechanics: []
 ---
 
 # Global Food Waste Crisis

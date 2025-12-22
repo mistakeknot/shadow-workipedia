@@ -12,6 +12,7 @@ affectedSystems: [Justice, Civil-Rights, Economic-Inequality]
 connections: [mass-incarceration-crisis]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Public Defender System Collapse

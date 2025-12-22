@@ -14,6 +14,7 @@ editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-25
 factualAsOf: 2025-12-19
+mechanics: []
 ---
 
 # Iran Nuclear Program and Revolution Cycles

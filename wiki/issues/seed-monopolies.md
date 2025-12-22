@@ -12,6 +12,7 @@ affectedSystems: [Agriculture, Food-Security, Biodiversity, Intellectual-Propert
 connections: [seed-sovereignty-and-genetic-diversity-loss]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Seed Monopolies

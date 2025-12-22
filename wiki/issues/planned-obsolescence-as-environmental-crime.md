@@ -12,6 +12,7 @@ affectedSystems: [manufacturing, environment, consumer-rights, economy]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Planned Obsolescence as Environmental Crime

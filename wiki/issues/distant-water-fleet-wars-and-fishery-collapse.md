@@ -12,6 +12,7 @@ affectedSystems: [Ocean Systems, Food Production, Marine Biodiversity, Internati
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Distant-Water Fleet Wars and Fishery Collapse

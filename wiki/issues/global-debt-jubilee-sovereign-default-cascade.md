@@ -27,6 +27,20 @@ connections:
   - global-tax-system-breakdown
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-21
+mechanics:
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--duration--duration
+  - mechanic--equilibrium--equilibrium
+  - mechanic--eventtype--eventtype
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--historical-parallel--historical-parallel
+  - mechanic--outcome--outcome
+  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--power-balance-determinant--power-balance-determinant
+  - mechanic--state--state
+  - mechanic--threshold--confidencethreshold
+  - mechanic--tipping-point--tipping-point
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # Global Debt Jubilee Movements & Sovereign Default Cascade

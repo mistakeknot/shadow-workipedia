@@ -13,6 +13,7 @@ connections: [critical-infrastructure-attacks]
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'DeathSpiral', 'ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog', 'AdaptiveResistance']
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Grid-Level Copper Theft and Critical Mineral Looting

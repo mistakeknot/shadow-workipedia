@@ -13,6 +13,7 @@ connections: [resource-extraction-conflicts]
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'FeedbackLoop', 'ResourceDepletion', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Land Back Movements

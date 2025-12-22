@@ -12,6 +12,7 @@ affectedSystems: [Marine Ecosystems, Fishing Industry, Coastal Communities, Food
 connections: [distant-water-fleet-wars-and-fishery-collapse]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Oceanic Dead-Zone Refugees

@@ -12,6 +12,15 @@ affectedSystems: [Civil Society, Politics, Technology]
 connections: [ai-alignment-crisis, democratic-backsliding, disinformation-plague]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics:
+  - mechanic--algorithmic-amplification--algorithmic-amplification
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--irreversible--water-extraction-irreversibility
+  - mechanic--multi-factor-vulnerability--multi-factor-vulnerability
+  - mechanic--supplychain--supplychains
+  - mechanic--threshold--confidencethreshold
+  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
 ---
 
 # AI Cult States

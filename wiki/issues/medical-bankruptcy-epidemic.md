@@ -12,6 +12,7 @@ affectedSystems: [Healthcare Systems, Financial Systems, Labor Markets, Family S
 connections: [insurance-death-panels, medical-debt-vigilantism-and-refusal-networks]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Medical Bankruptcy Epidemic

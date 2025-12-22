@@ -24,6 +24,7 @@ connections:
   - family-structure-breakdown
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Touch Deprivation and Physical Contact Crisis

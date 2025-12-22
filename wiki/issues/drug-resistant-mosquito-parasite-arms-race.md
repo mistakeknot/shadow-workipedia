@@ -13,6 +13,7 @@ connections: [antibiotic-resistance-crisis]
 editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'DeathSpiral', 'ThresholdCascade', 'CapacityStress', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog', 'AdaptiveResistance']
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Drug-Resistant Mosquito/Parasite Arms Race

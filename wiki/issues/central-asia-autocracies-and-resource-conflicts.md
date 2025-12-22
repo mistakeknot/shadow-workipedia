@@ -12,6 +12,7 @@ affectedSystems: [Politics, Economics, Environment, Institutions (International 
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Central Asia Autocracies and Resource Conflicts

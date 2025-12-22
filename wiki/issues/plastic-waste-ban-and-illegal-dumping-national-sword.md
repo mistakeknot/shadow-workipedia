@@ -12,6 +12,7 @@ affectedSystems: [waste-management, international-trade, environment, recycling]
 connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Plastic Waste Ban and Illegal Dumping (National Sword)

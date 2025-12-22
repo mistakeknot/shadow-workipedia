@@ -12,6 +12,7 @@ affectedSystems: [Human Rights, International Relations, Trade, Technology]
 connections: [surveillance-state-expansion]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Uyghur Genocide

@@ -12,6 +12,7 @@ affectedSystems: [Digital Economy, Democracy, Media, Small Business, Innovation]
 connections: [billionaire-media-ownership, disinformation-plague, algorithmic-governance-proliferation]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics: []
 ---
 
 # Platform Power Abuse

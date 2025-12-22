@@ -12,6 +12,7 @@ affectedSystems: [Energy, Space Industry, International Relations, Economy]
 connections: [space-militarization]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics: []
 ---
 
 # Space-Based Solar Power Hegemony

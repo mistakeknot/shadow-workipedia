@@ -13,6 +13,7 @@ connections: [climate-refugee-floods, sahel-jihadist-insurgency, comprehensive-r
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-19
 factualAsOf: 2025-12-19
+mechanics: []
 ---
 
 # African Climate Refugee Crisis

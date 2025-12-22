@@ -25,6 +25,7 @@ connections:
   - war-on-terror-legacy
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
+mechanics: []
 ---
 
 # Guantanamo Forever
