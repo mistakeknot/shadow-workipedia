@@ -478,12 +478,20 @@ async function main() {
         selectedCommunity = null;
       }
       showView(route.view);
-    } else if (route.kind === 'article') {
-      // Both issue and system articles show in wiki view with sidebar
-      if (route.type === 'issue') {
-        const resolved = resolveIssueId(route.slug);
-        if ((!data.articles || !data.articles[route.slug]) && resolved !== route.slug && data.articles?.[resolved]) {
-          window.location.hash = `#/wiki/${resolved}`;
+	    } else if (route.kind === 'article') {
+	      // Handle wiki-level redirects/merges for any article type.
+	      const current = data.articles?.[route.slug];
+	      const mergedInto = typeof current?.frontmatter?.mergedInto === 'string' ? current.frontmatter.mergedInto.trim() : '';
+	      if (mergedInto && data.articles?.[mergedInto]) {
+	        window.location.hash = `#/wiki/${mergedInto}`;
+	        return;
+	      }
+
+	      // Both issue and system articles show in wiki view with sidebar
+	      if (route.type === 'issue') {
+	        const resolved = resolveIssueId(route.slug);
+	        if ((!data.articles || !data.articles[route.slug]) && resolved !== route.slug && data.articles?.[resolved]) {
+	          window.location.hash = `#/wiki/${resolved}`;
           return;
         }
       }
@@ -2018,6 +2026,9 @@ async function main() {
     if (data.articles) {
       for (const article of Object.values(data.articles)) {
         if (article.type !== 'mechanic') continue;
+        if (article.frontmatter?.hidden === true) continue;
+        const mergedInto = typeof article.frontmatter?.mergedInto === 'string' ? article.frontmatter.mergedInto.trim() : '';
+        if (mergedInto) continue;
         const subtitleParts: string[] = [];
         if (typeof article.frontmatter?.pattern === 'string') subtitleParts.push(article.frontmatter.pattern);
         if (typeof article.frontmatter?.mechanic === 'string') subtitleParts.push(article.frontmatter.mechanic);
@@ -2417,8 +2428,8 @@ async function main() {
     }
   };
 
-  renderWikiList = function() {
-    if (!data.articles || Object.keys(data.articles).length === 0) {
+	  renderWikiList = function() {
+	    if (!data.articles || Object.keys(data.articles).length === 0) {
       wikiSidebarContent.innerHTML = `<div class="wiki-empty-sidebar">No articles yet</div>`;
       wikiArticleContent.innerHTML = `
         <div class="wiki-welcome">
@@ -2429,10 +2440,15 @@ async function main() {
       return;
     }
 
-    // Convert articles to array and sort by title
-    const articles = Object.values(data.articles).sort((a, b) =>
-      a.title.localeCompare(b.title)
-    );
+	    // Convert articles to array and sort by title
+	    const articles = Object.values(data.articles).sort((a, b) =>
+	      a.title.localeCompare(b.title)
+	    );
+
+	    const isHiddenArticle = (article: typeof articles[number]) =>
+	      article.frontmatter?.hidden === true;
+	    const isMergedArticle = (article: typeof articles[number]) =>
+	      typeof article.frontmatter?.mergedInto === 'string' && article.frontmatter.mergedInto.trim().length > 0;
 
     // Don't auto-select - show welcome message when on #/wiki
 
@@ -2458,11 +2474,20 @@ async function main() {
       const direct = redirects[a.id];
       return !(typeof direct === 'string' && direct.trim().length > 0 && resolveIssueId(a.id) !== a.id);
     });
-    // Filter out subsystems (those with parentheses) to show only main systems
-    const systemArticles = articles.filter(a => a.type === 'system' && !a.title.includes('('));
-    const principleArticles = articles.filter(a => a.type === 'principle');
-    const primitiveArticles = articles.filter(a => a.type === 'primitive');
-    const mechanicArticles = articles.filter(a => a.type === 'mechanic');
+	    // Filter out subsystems (those with parentheses) to show only main systems
+	    const systemArticles = articles.filter(a =>
+	      a.type === 'system' &&
+	      !a.title.includes('(') &&
+	      !isHiddenArticle(a) &&
+	      !isMergedArticle(a)
+	    );
+	    const principleArticles = articles.filter(a => a.type === 'principle');
+	    const primitiveArticles = articles.filter(a => a.type === 'primitive');
+	    const mechanicArticles = articles.filter(a =>
+	      a.type === 'mechanic' &&
+	      !isHiddenArticle(a) &&
+	      !isMergedArticle(a)
+	    );
 
     // Mobile: collapse sidebar when an article is selected
     if (wikiSidebar) {

@@ -19,7 +19,6 @@ mechanics:
   - mechanic--example--example
   - mechanic--externality--externality-pricing
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--from-129b--from-129b
   - mechanic--information-asymmetry--information-asymmetry
   - mechanic--lock-in-effect--lock-in-effect
   - mechanic--moral-hazard--moral-hazard-from-coverage

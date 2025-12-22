@@ -3,6 +3,7 @@ id: mechanic--42d--42d
 title: 42d (42d)
 pattern: 42d
 mechanic: 42d
+hidden: true
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-22
 ---

@@ -60,6 +60,17 @@ function mechanicId(pattern: string, mechanic: string): string {
   return `mechanic--${p}--${m}`;
 }
 
+function isArtifactMechanicId(id: string): boolean {
+  const parts = id.split('--');
+  const patternSlug = parts[1] ?? '';
+  const mechanicSlug = parts.slice(2).join('--');
+
+  const isNumericish = (s: string) => /^\d+[a-z]?$/.test(s) || /^\d{4}s?$/.test(s);
+  const isFromRef = (s: string) => s.startsWith('from-');
+
+  return isNumericish(patternSlug) || isNumericish(mechanicSlug) || isFromRef(patternSlug) || isFromRef(mechanicSlug);
+}
+
 function formatDate(date: Date): string {
   return date.toISOString().slice(0, 10);
 }
@@ -104,12 +115,14 @@ function main() {
 
     const patternSlug = slugify(pattern);
     const title = `${titleizeMechanic(mechanic)} (${patternSlug})`;
+    const hidden = isArtifactMechanicId(id);
 
     const content = `---\n` +
       `id: ${id}\n` +
       `title: ${title}\n` +
       `pattern: ${pattern}\n` +
       `mechanic: ${mechanic}\n` +
+      (hidden ? `hidden: true\n` : '') +
       `editedBy: Shadow Work Team\n` +
       `lastUpdated: ${today}\n` +
       `---\n\n` +

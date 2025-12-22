@@ -27,7 +27,6 @@ connections:
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-21
 mechanics:
-  - mechanic--111c--111c
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--feedback-loop--feedback-loop
   - mechanic--feedbackloop--feedbackloops

@@ -3,6 +3,7 @@ id: mechanic--from-115c--from-115c
 title: From 115c (from-115c)
 pattern: from 115c
 mechanic: From 115c
+hidden: true
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-22
 ---

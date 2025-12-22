@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import * as yaml from 'yaml';
+import matter from 'gray-matter';
 
 type SubsystemsIndex = {
   patterns?: Array<{
@@ -91,7 +92,99 @@ function normalizeExistingMechanics(raw: unknown): string[] {
   return out;
 }
 
-function upsertMechanicsFrontmatter(fileText: string, mechanicIds: string[]): string {
+function extractMechanicsFromFrontmatterText(fmText: string): string[] {
+  const out: string[] = [];
+
+  // Inline list: mechanics: [a, b]
+  const inlineMatches = fmText.matchAll(/^mechanics:\s*\[([^\]]*)\]\s*$/gm);
+  for (const m of inlineMatches) {
+    const inner = (m[1] ?? '').trim();
+    if (!inner) continue;
+    for (const part of inner.split(',')) {
+      const cleaned = part.trim().replace(/^['"]|['"]$/g, '');
+      if (cleaned) out.push(cleaned);
+    }
+  }
+
+  // Block list:
+  // mechanics:
+  //   - id
+  //   - id
+  const blockMatches = fmText.matchAll(/^mechanics:\s*\n((?:[ \t]*-\s*[^\n]*\n)+)/gm);
+  for (const m of blockMatches) {
+    const block = m[1] ?? '';
+    for (const line of block.split('\n')) {
+      const mm = line.match(/^\s*-\s*(.+)\s*$/);
+      if (!mm) continue;
+      const cleaned = mm[1].trim().replace(/^['"]|['"]$/g, '');
+      if (cleaned) out.push(cleaned);
+    }
+  }
+
+  return Array.from(new Set(out.map(s => s.trim()).filter(Boolean)));
+}
+
+type MechanicRedirectIndex = {
+  redirects: Map<string, string>;
+  hidden: Set<string>;
+};
+
+function loadMechanicRedirectIndex(repoRoot: string): MechanicRedirectIndex {
+  const redirects = new Map<string, string>();
+  const hidden = new Set<string>();
+
+  const dir = join(repoRoot, 'wiki', 'mechanics');
+  if (!existsSync(dir)) return { redirects, hidden };
+
+  const files = readdirSync(dir).filter(f => f.endsWith('.md') && !f.includes('_TEMPLATE'));
+  for (const file of files) {
+    const raw = readFileSync(join(dir, file), 'utf8');
+    const parsed = matter(raw);
+    const fm = parsed.data as Record<string, any>;
+    const id = typeof fm.id === 'string' ? fm.id.trim() : '';
+    if (!id) continue;
+
+    if (fm.hidden === true) hidden.add(id);
+
+    const mergedInto = typeof fm.mergedInto === 'string' ? fm.mergedInto.trim() : '';
+    if (mergedInto) redirects.set(id, mergedInto);
+  }
+
+  // Ensure redirects resolve transitively.
+  for (const [from] of redirects) {
+    let current = from;
+    const visited = new Set<string>();
+    for (let i = 0; i < 25; i++) {
+      const next = redirects.get(current);
+      if (!next || next === current) break;
+      if (visited.has(current)) break;
+      visited.add(current);
+      current = next;
+    }
+    if (current !== from) redirects.set(from, current);
+  }
+
+  return { redirects, hidden };
+}
+
+function canonicalizeMechanicId(id: string, redirects: Map<string, string>): string {
+  let current = id;
+  const visited = new Set<string>();
+  for (let i = 0; i < 25; i++) {
+    const next = redirects.get(current);
+    if (!next || next === current) return current;
+    if (visited.has(current)) return current;
+    visited.add(current);
+    current = next;
+  }
+  return current;
+}
+
+function upsertMechanicsFrontmatter(
+  fileText: string,
+  derivedMechanicIds: string[],
+  redirectIndex: MechanicRedirectIndex
+): string {
   if (!fileText.startsWith('---\n')) return fileText;
 
   const endIdx = fileText.indexOf('\n---', 4);
@@ -101,27 +194,27 @@ function upsertMechanicsFrontmatter(fileText: string, mechanicIds: string[]): st
   const fmEnd = endIdx + 1; // include trailing newline before '---'
   const fmText = fileText.slice(fmStart, fmEnd);
 
-  const parsed = yaml.parse(fmText) as any;
-  const existing = normalizeExistingMechanics(parsed?.mechanics);
+  const existingRaw = extractMechanicsFromFrontmatterText(fmText);
 
-  const merged = Array.from(new Set([...existing, ...mechanicIds])).sort((a, b) => a.localeCompare(b));
+  const canonicalExisting = existingRaw
+    .map(id => canonicalizeMechanicId(id, redirectIndex.redirects))
+    .filter(id => !redirectIndex.hidden.has(id));
+
+  const canonicalDerived = derivedMechanicIds
+    .map(id => canonicalizeMechanicId(id, redirectIndex.redirects))
+    .filter(id => !redirectIndex.hidden.has(id));
+
+  const merged = Array.from(new Set([...canonicalExisting, ...canonicalDerived])).sort((a, b) => a.localeCompare(b));
   const block = buildMechanicsBlock(merged);
 
-  const hasExistingKey = /^\s*mechanics:\s*$/m.test(fmText);
+  // Remove *all* existing mechanics keys (inline or block) to prevent duplicates.
   let nextFmText = fmText;
+  nextFmText = nextFmText.replace(/^mechanics:\s*\[[^\n]*\]\s*$/gm, '');
+  nextFmText = nextFmText.replace(/^mechanics:\s*\n(?:[ \t]*-\s*[^\n]*\n)*/gm, '');
 
-  if (hasExistingKey) {
-    // Replace existing mechanics block (mechanics: plus any following list items)
-    nextFmText = nextFmText.replace(
-      /^mechanics:\s*\n(?:[ \t]*-\s*[^\n]*\n)*/m,
-      `${block}\n`
-    );
-  } else {
-    // Insert mechanics block right before the closing delimiter.
-    // Ensure frontmatter ends with a newline.
-    const trimmed = nextFmText.endsWith('\n') ? nextFmText : `${nextFmText}\n`;
-    nextFmText = `${trimmed}${block}\n`;
-  }
+  // Trim trailing whitespace/extra blank lines, then append a single canonical block.
+  nextFmText = nextFmText.replace(/\s+$/g, '');
+  nextFmText = `${nextFmText}\n${block}\n`;
 
   if (nextFmText === fmText) return fileText;
   return `${fileText.slice(0, fmStart)}${nextFmText}${fileText.slice(fmEnd)}`;
@@ -139,6 +232,7 @@ function main() {
 
   const yamlIssueIds = loadYamlIssueIds(parentRepo);
   const derived = loadDerivedMechanics(parentRepo, yamlIssueIds);
+  const redirectIndex = loadMechanicRedirectIndex(repoRoot);
 
   let updated = 0;
   let skipped = 0;
@@ -153,7 +247,7 @@ function main() {
 
     const raw = readFileSync(filePath, 'utf8');
     const derivedList = Array.from(derived.get(issueId) || []).sort((a, b) => a.localeCompare(b));
-    const next = upsertMechanicsFrontmatter(raw, derivedList);
+    const next = upsertMechanicsFrontmatter(raw, derivedList, redirectIndex);
     if (next === raw) {
       skipped++;
       continue;

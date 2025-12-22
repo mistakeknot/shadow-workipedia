@@ -26,6 +26,77 @@ const CATEGORY_COLORS: Record<IssueCategory, string> = {
   Infrastructure: '#6366f1',
 };
 
+const CANONICAL_SYSTEMS = [
+  'Civil Conflict',
+  'Climate',
+  'Culture',
+  'Diplomacy',
+  'Economy',
+  'Education',
+  'Geography',
+  'Healthcare',
+  'Homelessness Crisis Response',
+  'Infrastructure',
+  'Institutions',
+  'International Organizations',
+  'Media',
+  'Military',
+  'Pandemic',
+  'Philanthropic Foundations',
+  'Politics',
+  'Population',
+  'Public Finance',
+  'Resources',
+  'Technology',
+  'Trade',
+] as const;
+
+type CanonicalSystem = typeof CANONICAL_SYSTEMS[number];
+
+const SYSTEM_ALIASES: Record<string, CanonicalSystem> = {
+  // Common abbreviation in legacy content
+  'international orgs': 'International Organizations',
+  'international org': 'International Organizations',
+  // Canonical itself (case-insensitive match handles it too, but keep explicit)
+  'international organizations': 'International Organizations',
+} as const;
+
+const CANONICAL_SYSTEM_BY_LOWER = new Map<string, CanonicalSystem>(
+  CANONICAL_SYSTEMS.map(s => [s.toLowerCase(), s])
+);
+
+function canonicalizeSystemLabel(raw: unknown): CanonicalSystem | null {
+  if (typeof raw !== 'string') return null;
+  const trimmed = raw.trim().replace(/\s+/g, ' ');
+  if (!trimmed) return null;
+
+  const base = trimmed.includes('(') ? trimmed.split('(')[0].trim() : trimmed;
+  const lower = base.toLowerCase();
+
+  const alias = SYSTEM_ALIASES[lower];
+  if (alias) return alias;
+
+  const direct = CANONICAL_SYSTEM_BY_LOWER.get(lower);
+  if (direct) return direct;
+
+  return null;
+}
+
+function normalizeAffectedSystems(rawSystems: unknown): CanonicalSystem[] {
+  const list = Array.isArray(rawSystems) ? rawSystems : (rawSystems ? [rawSystems] : []);
+  const out: CanonicalSystem[] = [];
+  const seen = new Set<string>();
+  for (const item of list) {
+    const canonical = canonicalizeSystemLabel(item);
+    if (!canonical) continue;
+    const key = canonical.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(canonical);
+  }
+  return out;
+}
+
 interface RawIssue {
   id: string;
   name: string;
@@ -316,6 +387,8 @@ function issueToNode(
   const wikiArticle = wikiIssueArticles.get(issue.id);
   const fm = wikiArticle?.frontmatter ?? {};
 
+  const affectedSystems = normalizeAffectedSystems(curatedMappings.get(issue.id) || []);
+
   return {
     id: issue.id,
     type: 'issue',
@@ -327,7 +400,7 @@ function issueToNode(
     publicConcern: normalizePercentLike(fm.publicConcern, 70),
     economicImpact: normalizePercentLike(fm.economicImpact, 60),
     socialImpact: normalizePercentLike(fm.socialImpact, 60),
-    affectedSystems: curatedMappings.get(issue.id) || [],
+    affectedSystems,
     primitives,
     triggerConditions: issue.triggerConditions,
     peakYears: issue.peakYears,
@@ -388,6 +461,7 @@ function wikiArticleToNode(
   if (affectedSystems.length === 0 && fm.affectedSystems) {
     affectedSystems = Array.isArray(fm.affectedSystems) ? fm.affectedSystems : [fm.affectedSystems];
   }
+  const normalizedAffectedSystems = normalizeAffectedSystems(affectedSystems);
 
   // Get actual issue number from slug-to-number map, fallback to frontmatter number
   const realIssueNumber = slugToNumberMap.get(article.id) ?? (fm.number ? parseInt(fm.number, 10) : null);
@@ -413,7 +487,7 @@ function wikiArticleToNode(
     publicConcern,
     economicImpact,
     socialImpact,
-    affectedSystems,
+    affectedSystems: normalizedAffectedSystems,
     primitives,
     systemWalk,
     hasArticle: true,
@@ -432,6 +506,12 @@ interface ConnectivityData {
   systems: ConnectivitySystem[];
   edges: Array<{ source: string; target: string; implementation: string; phase: string }>;
 }
+
+type CanonicalConnectivityData = {
+  systems: Array<{ name: CanonicalSystem; connections: number }>;
+  // Preserve implementation/phase as a best-effort label; multiple edges will be merged.
+  edges: Array<{ source: CanonicalSystem; target: CanonicalSystem; label: string; strength: number }>;
+};
 
 function parseSystemsFromConnectivity(): ConnectivityData {
   const connectivityPath = join(PARENT_REPO, 'docs/technical/simulation-systems/CONNECTIVITY-INDEX.json');
@@ -510,6 +590,73 @@ function systemToNode(system: ConnectivitySystem): GraphNode {
     color: systemColor,
     size,
   };
+}
+
+function canonicalizeConnectivityData(raw: ConnectivityData): CanonicalConnectivityData {
+  const systemConnections = new Map<CanonicalSystem, number>();
+
+  for (const s of raw.systems) {
+    const canonical = canonicalizeSystemLabel(s.name);
+    if (!canonical) {
+      console.warn(`⚠️  Unknown system in connectivity index (skipping): ${s.name}`);
+      continue;
+    }
+    systemConnections.set(canonical, (systemConnections.get(canonical) || 0) + (s.connections || 0));
+  }
+
+  // Ensure all canonical systems exist as nodes (even if 0 connections),
+  // so issue mappings can't accidentally create orphan names.
+  for (const s of CANONICAL_SYSTEMS) {
+    if (!systemConnections.has(s)) systemConnections.set(s, 0);
+  }
+
+  const strengthForLabel = (label: string): number => {
+    // Match the old behavior: "Live" > "Partial" > other
+    if (label.startsWith('Live')) return 0.8;
+    if (label.startsWith('Partial')) return 0.5;
+    return 0.3;
+  };
+
+  // Merge system-to-system edges after canonicalization to reduce clutter.
+  const edgeAgg = new Map<string, { source: CanonicalSystem; target: CanonicalSystem; bestLabel: string; bestStrength: number; count: number }>();
+
+  for (const e of raw.edges) {
+    const source = canonicalizeSystemLabel(e.source);
+    const target = canonicalizeSystemLabel(e.target);
+    if (!source || !target) continue;
+    if (source === target) continue;
+
+    const a = source < target ? source : target;
+    const b = source < target ? target : source;
+    const key = `${a}||${b}`;
+    const label = `${e.implementation} (${e.phase})`;
+    const strength = strengthForLabel(e.implementation);
+
+    const existing = edgeAgg.get(key);
+    if (!existing) {
+      edgeAgg.set(key, { source: a, target: b, bestLabel: label, bestStrength: strength, count: 1 });
+      continue;
+    }
+
+    existing.count += 1;
+    if (strength > existing.bestStrength) {
+      existing.bestStrength = strength;
+      existing.bestLabel = label;
+    }
+  }
+
+  const edges = Array.from(edgeAgg.values()).map(e => ({
+    source: e.source,
+    target: e.target,
+    label: e.count > 1 ? `${e.bestLabel} +${e.count - 1}` : e.bestLabel,
+    strength: e.bestStrength,
+  }));
+
+  const systems = Array.from(systemConnections.entries())
+    .map(([name, connections]) => ({ name, connections }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  return { systems, edges };
 }
 
 function loadIssueRedirectIndex(): IssueRedirectIndex {
@@ -729,7 +876,8 @@ function loadCuratedMappings(): Map<string, string[]> {
 
   if (data.mappings && Array.isArray(data.mappings)) {
     for (const mapping of data.mappings) {
-      mappingMap.set(mapping.issueId, mapping.systems);
+      const normalized = normalizeAffectedSystems(mapping.systems);
+      mappingMap.set(mapping.issueId, normalized);
     }
   }
 
@@ -1415,8 +1563,9 @@ async function main() {
   }
 
   // Extract systems as nodes
-  const connectivityData = parseSystemsFromConnectivity();
-  console.log(`🎯 Found ${connectivityData.systems.length} systems`);
+  const rawConnectivityData = parseSystemsFromConnectivity();
+  const connectivityData = canonicalizeConnectivityData(rawConnectivityData);
+  console.log(`🎯 Found ${rawConnectivityData.systems.length} systems (collapsed to ${connectivityData.systems.length} canonical systems)`);
 
   const systemNodes = connectivityData.systems.map(system => systemToNode(system));
   nodes.push(...systemNodes);
@@ -1504,7 +1653,7 @@ async function main() {
     console.log(`  - ${wikiOnlyEdgeCount} issue-issue edges from wiki-only articles`);
   }
 
-  // 2. System-to-system edges
+  // 2. System-to-system edges (canonicalized + merged)
   for (const edge of connectivityData.edges) {
     const sourceId = systemIdMap.get(edge.source);
     const targetId = systemIdMap.get(edge.target);
@@ -1514,8 +1663,8 @@ async function main() {
         source: sourceId,
         target: targetId,
         type: 'system-system',
-        strength: edge.implementation === 'Live' ? 0.8 : edge.implementation === 'Partial' ? 0.5 : 0.3,
-        label: `${edge.implementation} (${edge.phase})`,
+        strength: edge.strength,
+        label: edge.label,
         bidirectional: true,
       });
     }

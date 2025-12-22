@@ -3,6 +3,8 @@ id: international-orgs
 title: International Orgs
 domain: Simulation
 relatedSystems: []
+mergedInto: international-organizations
+hidden: true
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 ---

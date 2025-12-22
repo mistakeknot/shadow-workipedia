@@ -3,6 +3,7 @@ id: mechanic--10--10
 title: 10 (10)
 pattern: 10
 mechanic: 10
+hidden: true
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-22
 ---

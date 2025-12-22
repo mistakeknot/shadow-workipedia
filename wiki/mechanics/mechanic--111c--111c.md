@@ -3,6 +3,7 @@ id: mechanic--111c--111c
 title: 111c (111c)
 pattern: 111c
 mechanic: 111c
+hidden: true
 editedBy: Shadow Work Team
 lastUpdated: 2025-12-22
 ---

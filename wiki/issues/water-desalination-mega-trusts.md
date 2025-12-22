@@ -13,7 +13,6 @@ connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
 mechanics:
-  - mechanic--42d--42d
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--duration--duration
   - mechanic--feedback-loop--feedback-loop
