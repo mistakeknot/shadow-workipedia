@@ -14,8 +14,12 @@ editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'ContagionPropagation', 'FeedbackLoop', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog', 'AdaptiveResistance']
 lastUpdated: 2025-11-24
 mechanics:
-  - mechanic--civildisobedience--civildisobedience
-  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
+  - mechanic--disparate-impact--disparate-impact
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--prisoners-dilemma--prisoners-dilemma
+  - mechanic--threshold--confidencethreshold
+  - mechanic--tipping-point--tipping-point
+  - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
 ---
 
 # Economic Immigration Conflicts

@@ -13,29 +13,17 @@ connections: [billionaire-media-ownership, disinformation-plague, algorithmic-go
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 mechanics:
-  - mechanic--age-selective-mobility--age-selective-mobility
   - mechanic--algorithmic-amplification--algorithmic-amplification
-  - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--civildisobedience--civildisobedience
-  - mechanic--demographic-momentum--demographic-momentum
-  - mechanic--disparate-impact--disparate-impact
-  - mechanic--dual-use-dilemma--dual-use-dilemma
-  - mechanic--enforcement-paradox--enforcement-paradox
-  - mechanic--feedback-loop--feedback-loop
-  - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
-  - mechanic--information-asymmetry--information-asymmetry
-  - mechanic--labor-exploitation--labor-exploitation
-  - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--lock-in-effect--lock-in-effect
   - mechanic--network-effect--network-effects
-  - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--private-equity-extraction--private-equity-extraction
-  - mechanic--regulatory-arbitrage--regulatory-arbitrage
+  - mechanic--lock-in-effect--lock-in-effect
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
+  - mechanic--lobbying--lobbying-intensity-response
+  - mechanic--information-asymmetry--information-asymmetry
+  - mechanic--enforcement-paradox--enforcement-paradox
+  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--labor-exploitation--labor-exploitation
   - mechanic--regulatory-fragmentation--regulatory-fragmentation
-  - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 
 # Platform Power Abuse

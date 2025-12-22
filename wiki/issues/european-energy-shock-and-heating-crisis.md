@@ -14,28 +14,14 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-12-19
 factualAsOf: 2025-12-19
 mechanics:
-  - mechanic--algorithmic-amplification--algorithmic-amplification
-  - mechanic--asymmetric-arms-race--asymmetric-arms-race
-  - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--chokepoint-concentration--chokepoint-concentration
-  - mechanic--civildisobedience--civildisobedience
-  - mechanic--demographic-momentum--demographic-momentum
   - mechanic--disparate-impact--disparate-impact
-  - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--economic-lock-in--economic-lock-in
-  - mechanic--externality--externality-pricing
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
-  - mechanic--irreversible--water-extraction-irreversibility
   - mechanic--just-in-time-fragility--just-in-time-fragility
-  - mechanic--labor-exploitation--labor-exploitation
-  - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--lock-in-effect--lock-in-effect
   - mechanic--path-dependency--path-dependency-lock-in
   - mechanic--threshold--confidencethreshold
   - mechanic--tipping-point--tipping-point
-  - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 
 # European Energy Shock and Heating Crisis

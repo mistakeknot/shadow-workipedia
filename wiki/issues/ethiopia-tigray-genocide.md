@@ -15,22 +15,12 @@ primitives: ['ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', '
 lastUpdated: 2025-12-19
 factualAsOf: 2025-12-19
 mechanics:
-  - mechanic--asymmetric-arms-race--asymmetric-arms-race
-  - mechanic--black-market-emergence--black-market-emergence
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--civildisobedience--civildisobedience
-  - mechanic--demographic-momentum--demographic-momentum
-  - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
   - mechanic--governance-vacuum--governance-vacuum
-  - mechanic--irreversible--water-extraction-irreversibility
-  - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
   - mechanic--threshold--confidencethreshold
-  - mechanic--tragedy-of-common--tragedy-of-commons
+  - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
+  - mechanic--enforcement-paradox--enforcement-paradox
 ---
 
 # Ethiopia Tigray Genocide

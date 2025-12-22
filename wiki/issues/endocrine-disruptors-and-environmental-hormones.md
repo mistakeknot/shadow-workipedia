@@ -25,17 +25,13 @@ connections:
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
 mechanics:
-  - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--civildisobedience--civildisobedience
-  - mechanic--demographic-momentum--demographic-momentum
   - mechanic--externality--externality-pricing
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--just-in-time-fragility--just-in-time-fragility
+  - mechanic--information-asymmetry--information-asymmetry
   - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--network-effect--network-effects
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
   - mechanic--threshold--confidencethreshold
+  - mechanic--irreversible--water-extraction-irreversibility
 ---
 
 # Endocrine Disruptors and Environmental Hormones

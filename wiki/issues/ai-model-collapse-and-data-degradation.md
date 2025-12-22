@@ -35,13 +35,10 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-12-16
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--demographic-momentum--demographic-momentum
-  - mechanic--externality--externality-pricing
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--information-asymmetry--information-asymmetry
   - mechanic--network-effect--network-effects
-  - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
+  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--tipping-point--tipping-point
 ---
 
 # AI Model Collapse and Data Degradation

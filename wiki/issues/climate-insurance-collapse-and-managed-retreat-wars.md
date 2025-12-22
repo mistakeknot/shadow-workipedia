@@ -14,21 +14,12 @@ editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 mechanics:
   - mechanic--adverse-selection--adverse-selection-in-cyber-insurance
-  - mechanic--algorithmic-amplification--algorithmic-amplification
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
-  - mechanic--civildisobedience--civildisobedience
-  - mechanic--demographic-momentum--demographic-momentum
-  - mechanic--disparate-impact--disparate-impact
   - mechanic--economic-lock-in--economic-lock-in
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--geographic-concentration--geographic-concentration
-  - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--network-effect--network-effects
-  - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
   - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--private-equity-extraction--private-equity-extraction
 ---
 
 # Climate Insurance Collapse and Managed Retreat Wars

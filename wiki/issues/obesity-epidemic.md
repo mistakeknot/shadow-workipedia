@@ -13,15 +13,15 @@ connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
 mechanics:
-  - mechanic--asymmetric-arms-race--asymmetric-arms-race
-  - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
-  - mechanic--demographic-momentum--demographic-momentum
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--threshold--confidencethreshold
   - mechanic--disparate-impact--disparate-impact
-  - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--geographic-concentration--geographic-concentration
-  - mechanic--labor-exploitation--labor-exploitation
   - mechanic--lobbying--lobbying-intensity-response
+  - mechanic--regulatory-capture--regulatory-capture-by-incumbents
+  - mechanic--externality--externality-pricing
+  - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
+  - mechanic--path-dependency--path-dependency-lock-in
 ---
 
 # Obesity Epidemic

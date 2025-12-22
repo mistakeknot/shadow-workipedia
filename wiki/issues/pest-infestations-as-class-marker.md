@@ -13,12 +13,10 @@ connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
 mechanics:
-  - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
-  - mechanic--civildisobedience--civildisobedience
+  - mechanic--disparate-impact--disparate-impact
   - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--feedback-loop--feedback-loop
   - mechanic--geographic-concentration--geographic-concentration
-  - mechanic--just-in-time-fragility--just-in-time-fragility
 ---
 
 # Pest Infestations as Class Marker

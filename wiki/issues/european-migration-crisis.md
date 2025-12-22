@@ -14,24 +14,14 @@ editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'CapacityStress', 'ContagionPropagation', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog', 'AdaptiveResistance']
 lastUpdated: 2025-11-24
 mechanics:
-  - mechanic--age-selective-mobility--age-selective-mobility
-  - mechanic--asymmetric-arms-race--asymmetric-arms-race
-  - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--chokepoint-concentration--chokepoint-concentration
-  - mechanic--civildisobedience--civildisobedience
-  - mechanic--demographic-momentum--demographic-momentum
-  - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--geographic-concentration--geographic-concentration
-  - mechanic--irreversible--water-extraction-irreversibility
-  - mechanic--just-in-time-fragility--just-in-time-fragility
-  - mechanic--lobbying--lobbying-intensity-response
   - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
   - mechanic--threshold--confidencethreshold
   - mechanic--tipping-point--tipping-point
-  - mechanic--tragedy-of-common--tragedy-of-commons
+  - mechanic--prisoners-dilemma--prisoners-dilemma
+  - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
 ---
 
 # European Migration Crisis

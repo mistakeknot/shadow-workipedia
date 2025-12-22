@@ -25,11 +25,11 @@ connections:
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
 mechanics:
-  - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--demographic-momentum--demographic-momentum
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--labor-exploitation--labor-exploitation
+  - mechanic--disparate-impact--disparate-impact
   - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--market-failure--geographic-market-failure
+  - mechanic--externality--externality-pricing
 ---
 
 # Essential Care Services Class Divide

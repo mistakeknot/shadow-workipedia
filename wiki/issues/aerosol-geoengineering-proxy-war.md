@@ -13,6 +13,11 @@ connections: [climate-refugee-floods, water-scarcity-wars, arctic-sovereignty-co
 caseStudyOf: geoengineering-deployment
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
+mechanics:
+  - mechanic--prisoners-dilemma--prisoners-dilemma
+  - mechanic--governance-vacuum--governance-vacuum
+  - mechanic--tipping-point--tipping-point
+  - mechanic--feedback-loop--feedback-loop
 ---
 
 # Aerosol Geoengineering Proxy War

@@ -14,21 +14,14 @@ editedBy: Shadow Work Team
 primitives: ['TrustErosion', 'DeathSpiral', 'ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'CaptureConcentration', 'QueueBacklog']
 lastUpdated: 2025-11-25
 mechanics:
-  - mechanic--asymmetric-arms-race--asymmetric-arms-race
-  - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--demographic-momentum--demographic-momentum
-  - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
   - mechanic--geographic-concentration--geographic-concentration
-  - mechanic--information-asymmetry--information-asymmetry
-  - mechanic--irreversible--water-extraction-irreversibility
-  - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--network-effect--network-effects
+  - mechanic--lock-in-effect--lock-in-effect
   - mechanic--path-dependency--path-dependency-lock-in
   - mechanic--prisoners-dilemma--prisoners-dilemma
   - mechanic--threshold--confidencethreshold
   - mechanic--tipping-point--tipping-point
-  - mechanic--tragedy-of-common--tragedy-of-commons
+  - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
 ---
 
 # Electoral College Crisis

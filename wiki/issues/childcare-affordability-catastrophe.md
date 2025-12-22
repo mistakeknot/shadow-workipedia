@@ -13,17 +13,11 @@ connections: []
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-27
 mechanics:
-  - mechanic--age-selective-mobility--age-selective-mobility
-  - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--demographic-momentum--demographic-momentum
   - mechanic--disparate-impact--disparate-impact
   - mechanic--feedback-loop--feedback-loop
   - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--just-in-time-fragility--just-in-time-fragility
   - mechanic--labor-exploitation--labor-exploitation
-  - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--tipping-point--tipping-point
+  - mechanic--market-failure--geographic-market-failure
 ---
 
 # Childcare Affordability Catastrophe

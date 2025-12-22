@@ -13,9 +13,15 @@ connections: [surveillance-state-expansion,political-opposition-assassination]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
 mechanics:
-  - mechanic--irreversible--water-extraction-irreversibility
-  - mechanic--name--name
-  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
+  - mechanic--asymmetric-arms-race--asymmetric-arms-race
+  - mechanic--dual-use-dilemma--dual-use-dilemma
+  - mechanic--enforcement-paradox--enforcement-paradox
+  - mechanic--first-strike-advantage--first-strike-advantage
+  - mechanic--information-asymmetry--information-asymmetry
+  - mechanic--network-effect--network-effects
+  - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
+  - mechanic--regulatory-arbitrage--regulatory-arbitrage
+  - mechanic--regulatory-fragmentation--regulatory-fragmentation
 ---
 
 # Spyware-for-Hire Export Wars

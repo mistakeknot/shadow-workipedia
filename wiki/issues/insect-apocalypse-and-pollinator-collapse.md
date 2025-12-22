@@ -14,6 +14,17 @@ caseStudyOf: global-pollinator-extinction-pulse
 editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'ContagionPropagation', 'LegitimacyDynamics', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-25
+mechanics:
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--threshold--confidencethreshold
+  - mechanic--tipping-point--tipping-point
+  - mechanic--tragedy-of-common--tragedy-of-commons
+  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--irreversible--water-extraction-irreversibility
+  - mechanic--regulatory-capture--regulatory-capture-by-incumbents
+  - mechanic--economic-lock-in--economic-lock-in
+  - mechanic--enforcement-paradox--enforcement-paradox
 ---
 
 # Insect Apocalypse and Pollinator Collapse

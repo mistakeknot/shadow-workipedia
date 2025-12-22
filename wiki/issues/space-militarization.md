@@ -13,6 +13,13 @@ connections: [space-weaponization-and-orbital-conflict]
 caseStudyOf: space-weaponization-and-orbital-conflict
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
+mechanics:
+  - mechanic--asymmetric-arms-race--asymmetric-arms-race
+  - mechanic--dual-use-dilemma--dual-use-dilemma
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--first-strike-advantage--first-strike-advantage
+  - mechanic--prisoners-dilemma--prisoners-dilemma
+  - mechanic--tragedy-of-common--tragedy-of-commons
 ---
 
 # Space Militarization

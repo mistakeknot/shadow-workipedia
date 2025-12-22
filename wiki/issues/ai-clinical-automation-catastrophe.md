@@ -13,18 +13,15 @@ connections: [ai-alignment-crisis, global-healthcare-workforce-exodus, insurance
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 mechanics:
-  - mechanic--age-selective-mobility--age-selective-mobility
   - mechanic--algorithmic-amplification--algorithmic-amplification
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--chokepoint-concentration--chokepoint-concentration
-  - mechanic--demographic-momentum--demographic-momentum
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--financial-death-spiral--financial-death-spiral
   - mechanic--information-asymmetry--information-asymmetry
-  - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--network-effect--network-effects
   - mechanic--regulatory-capture--regulatory-capture-by-incumbents
   - mechanic--threshold--confidencethreshold
+  - mechanic--network-effect--network-effects
+  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--path-dependency--path-dependency-lock-in
 ---
 
 # AI Clinical Automation Catastrophe

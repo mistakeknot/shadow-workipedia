@@ -40,14 +40,11 @@ mechanics:
   - mechanic--algorithmic-amplification--algorithmic-amplification
   - mechanic--asymmetric-arms-race--asymmetric-arms-race
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--civildisobedience--civildisobedience
   - mechanic--dual-use-dilemma--dual-use-dilemma
-  - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
   - mechanic--just-in-time-fragility--just-in-time-fragility
-  - mechanic--labor-exploitation--labor-exploitation
   - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--information-asymmetry--information-asymmetry
+  - mechanic--governance-vacuum--governance-vacuum
 ---
 
 # Engineered Pandemic (Disease X)

@@ -15,6 +15,13 @@ editedBy: Shadow Work Team
 primitives: ['DeathSpiral', 'ThresholdCascade', 'ContagionPropagation', 'FeedbackLoop', 'ResourceDepletion', 'ExodusMigration', 'CaptureConcentration', 'ResistanceBacklash']
 lastUpdated: 2025-12-19
 factualAsOf: 2025-12-19
+mechanics:
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--lock-in-effect--lock-in-effect
+  - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
+  - mechanic--regulatory-capture--regulatory-capture-by-incumbents
+  - mechanic--threshold--confidencethreshold
 ---
 
 # Endless War Authorization

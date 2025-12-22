@@ -13,11 +13,12 @@ connections: [state-sponsored-hacking-epidemic, critical-infrastructure-attacks,
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-24
 mechanics:
-  - mechanic--blocker--blockers
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--consequence--consequences
-  - mechanic--economic-impact--economic-impact
-  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
+  - mechanic--asymmetric-arms-race--asymmetric-arms-race
+  - mechanic--moral-hazard--moral-hazard-from-coverage
+  - mechanic--feedback-loop--feedback-loop
+  - mechanic--financial-death-spiral--financial-death-spiral
+  - mechanic--chokepoint-concentration--chokepoint-concentration
 ---
 
 # Ransomware Pandemic

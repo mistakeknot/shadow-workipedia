@@ -16,10 +16,9 @@ factualAsOf: 2025-12-19
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--investigation-obstruction--investigation-obstruction
-  - mechanic--irreversible--water-extraction-irreversibility
-  - mechanic--threshold--confidencethreshold
-  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
+  - mechanic--dual-use-dilemma--dual-use-dilemma
+  - mechanic--information-asymmetry--information-asymmetry
+  - mechanic--governance-vacuum--governance-vacuum
 ---
 
 # AI-Generated Synthetic Biolab Leaks

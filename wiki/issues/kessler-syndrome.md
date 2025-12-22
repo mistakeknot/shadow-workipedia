@@ -15,9 +15,11 @@ lastUpdated: 2025-12-16
 mechanics:
   - mechanic--asymmetric-arms-race--asymmetric-arms-race
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--demographic-momentum--demographic-momentum
   - mechanic--dual-use-dilemma--dual-use-dilemma
-  - mechanic--financial-death-spiral--financial-death-spiral
+  - mechanic--threshold--confidencethreshold
+  - mechanic--tipping-point--tipping-point
+  - mechanic--tragedy-of-common--tragedy-of-commons
+  - mechanic--network-effect--network-effects
 ---
 
 # Kessler Syndrome

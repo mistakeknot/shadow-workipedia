@@ -14,24 +14,13 @@ editedBy: Shadow Work Team
 primitives: ['ThresholdCascade', 'LegitimacyDynamics', 'FeedbackLoop', 'ExodusMigration', 'ResistanceBacklash', 'QueueBacklog']
 lastUpdated: 2025-11-25
 mechanics:
-  - mechanic--age-selective-mobility--age-selective-mobility
   - mechanic--algorithmic-amplification--algorithmic-amplification
-  - mechanic--asymmetric-arms-race--asymmetric-arms-race
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--civildisobedience--civildisobedience
-  - mechanic--demographic-momentum--demographic-momentum
-  - mechanic--disparate-impact--disparate-impact
-  - mechanic--dual-use-dilemma--dual-use-dilemma
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--first-strike-advantage--first-strike-advantage
   - mechanic--information-asymmetry--information-asymmetry
-  - mechanic--lobbying--lobbying-intensity-response
-  - mechanic--moral-hazard--moral-hazard-from-coverage
   - mechanic--network-effect--network-effects
-  - mechanic--path-dependency--path-dependency-lock-in
+  - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
   - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
 ---
 
 # Cancel Culture Tribunal

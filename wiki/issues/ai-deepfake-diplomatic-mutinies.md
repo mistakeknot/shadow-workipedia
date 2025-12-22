@@ -13,11 +13,11 @@ connections: [deepfake-reality-crisis, disinformation-plague, state-sponsored-ha
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 mechanics:
-  - mechanic--international--international
-  - mechanic--network-effect--network-effects
+  - mechanic--cascade--epistomological-collapse-cascade
+  - mechanic--information-asymmetry--information-asymmetry
   - mechanic--threshold--confidencethreshold
   - mechanic--tipping-point--tipping-point
-  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
+  - mechanic--paranoia-equilibrium--paranoia-equilibrium
 ---
 
 # AI Deepfake Diplomatic Mutinies

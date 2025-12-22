@@ -13,24 +13,12 @@ connections: [democratic-backsliding]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 mechanics:
-  - mechanic--algorithmic-amplification--algorithmic-amplification
-  - mechanic--asymmetric-arms-race--asymmetric-arms-race
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--civildisobedience--civildisobedience
-  - mechanic--demographic-momentum--demographic-momentum
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--financial-death-spiral--financial-death-spiral
-  - mechanic--geographic-concentration--geographic-concentration
-  - mechanic--irreversible--water-extraction-irreversibility
-  - mechanic--just-in-time-fragility--just-in-time-fragility
-  - mechanic--labor-exploitation--labor-exploitation
-  - mechanic--lobbying--lobbying-intensity-response
   - mechanic--lock-in-effect--lock-in-effect
-  - mechanic--network-effect--network-effects
   - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--regulatory-fragmentation--regulatory-fragmentation
   - mechanic--threshold--confidencethreshold
-  - mechanic--tipping-point--tipping-point
 ---
 
 # Chile Social Explosion and Constitutional Crisis

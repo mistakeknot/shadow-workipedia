@@ -29,11 +29,10 @@ lastUpdated: 2025-12-21
 mechanics:
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--feedbackloop--feedbackloops
-  - mechanic--id--id
-  - mechanic--name--name
   - mechanic--threshold--confidencethreshold
-  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
+  - mechanic--information-asymmetry--information-asymmetry
+  - mechanic--moral-hazard--moral-hazard-from-coverage
+  - mechanic--regulatory-capture--regulatory-capture-by-incumbents
 ---
 
 # Iatrogenic Medical Harms

@@ -16,11 +16,8 @@ mechanics:
   - mechanic--algorithmic-amplification--algorithmic-amplification
   - mechanic--cascade--epistomological-collapse-cascade
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--irreversible--water-extraction-irreversibility
-  - mechanic--multi-factor-vulnerability--multi-factor-vulnerability
-  - mechanic--supplychain--supplychains
-  - mechanic--threshold--confidencethreshold
-  - mechanic--trigger--cyber-capabilities-trigger-arms-races-similar-to-nuclear-weapons
+  - mechanic--network-effect--network-effects
+  - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
 ---
 
 # AI Cult States

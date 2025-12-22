@@ -13,21 +13,12 @@ connections: [homelessness-criminalization]
 editedBy: Shadow Work Team
 lastUpdated: 2025-11-25
 mechanics:
-  - mechanic--adverse-selection--adverse-selection-in-cyber-insurance
   - mechanic--algorithmic-amplification--algorithmic-amplification
   - mechanic--cascade--epistomological-collapse-cascade
-  - mechanic--demographic-momentum--demographic-momentum
   - mechanic--disparate-impact--disparate-impact
-  - mechanic--economic-lock-in--economic-lock-in
-  - mechanic--enforcement-paradox--enforcement-paradox
   - mechanic--feedback-loop--feedback-loop
-  - mechanic--geographic-concentration--geographic-concentration
   - mechanic--information-asymmetry--information-asymmetry
-  - mechanic--just-in-time-fragility--just-in-time-fragility
-  - mechanic--network-effect--network-effects
   - mechanic--norm-erosion-dynamic--norm-erosion-dynamics
-  - mechanic--path-dependency--path-dependency-lock-in
-  - mechanic--regulatory-arbitrage--regulatory-arbitrage
   - mechanic--tipping-point--tipping-point
 ---
 
