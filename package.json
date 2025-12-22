@@ -11,6 +11,7 @@
     "extract-data": "node --import tsx scripts/extract-data.ts",
     "generate:mechanics": "node --import tsx scripts/generate-mechanics-wiki.ts",
     "normalize:mechanics": "node --import tsx scripts/normalize-mechanics-wiki.ts",
+    "fill:mechanics": "node --import tsx scripts/fill-mechanics-wiki.ts",
     "audit:mechanics": "node --import tsx scripts/audit-mechanics-coverage.ts",
     "backfill:issue-mechanics": "node --import tsx scripts/backfill-issue-mechanics.ts",
     "typecheck": "tsc --noEmit",
