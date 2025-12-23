@@ -21,8 +21,12 @@ shadow-workipedia/
 │   ├── style.css          # Styles
 │   └── types.ts           # TypeScript interfaces
 ├── wiki/
-│   ├── issues/            # 255 issue wiki articles (*.md)
-│   └── systems/           # 34 system wiki articles (*.md)
+│   ├── issues/            # 367 issue wiki articles (*.md)
+│   ├── systems/           # 34 system wiki articles (*.md)
+│   ├── mechanics/         # 39 mechanic wiki articles (*.md)
+│   ├── primitives/        # 14 primitive wiki articles (*.md)
+│   ├── principles/        # 1118 principle wiki articles (*.md)
+│   └── communities/       # 23 community wiki articles (*.md)
 ├── index.html             # Single-page app entry
 └── CLAUDE.md              # Claude-specific guidance
 ```
@@ -46,7 +50,9 @@ pnpm build:full      # Extract data + build
 ```
 
 ### 3. Wiki Article Format
-All wiki articles in `wiki/issues/` and `wiki/systems/` follow this structure:
+
+#### Issue Articles (`wiki/issues/`)
+All issue wiki articles follow this structure:
 
 ```markdown
 ---
@@ -85,6 +91,52 @@ lastUpdated: YYYY-MM-DD
 ## Warning Signs
 [Real-world indicators...]
 ```
+
+#### Mechanic Articles (`wiki/mechanics/`)
+Mechanics describe causal structure patterns - HOW issues perpetuate themselves:
+
+```markdown
+---
+id: mechanic--{pattern}--{slug}
+title: Mechanic Name (pattern)
+pattern: pattern-name
+mechanic: Mechanic Name
+editedBy: Shadow Work Team
+lastUpdated: YYYY-MM-DD
+---
+# Mechanic Name
+
+## Overview
+[One-line definition of the mechanic]
+
+## How it works
+- **State/Resource:** What state or resource is affected
+- **Drivers:** What causes this dynamic
+- **Outcomes:** What results from this dynamic
+
+## In the simulation
+- **Signals:** Observable indicators in game
+- **Levers:** Player actions that can influence this
+- **Failure modes:** Ways intervention can backfire
+
+## Notes
+[Additional context, real-world examples]
+
+## References (System Walk occurrences)
+[Auto-generated list of issues using this mechanic]
+```
+
+**Current mechanics (39 total):**
+- adverse-selection, arms-race, brain-drain, capacity-erosion, cascade
+- collective-action-problem, concentration, contagion, credibility-trap
+- demographic-transition, dependency, deterrence-failure, escalation
+- externality, feedback-loop, free-rider, institutional-capture
+- irreversibility, legitimacy-crisis, lock-in, lobbying, market-failure
+- misaligned-incentives, moral-hazard, normalization, path-dependency
+- polarization, power-vacuum, principal-agent, race-to-bottom
+- regime-shift, regulatory-capture, rent-seeking, resource-curse
+- stochastic-shock, substitution-effect, threshold, tragedy-of-commons
+- vicious-cycle
 
 ### 4. GitHub Edit Links
 Wiki articles include an "Edit on GitHub" link at the bottom. The filename in the URL **must match** the actual file name exactly:
@@ -138,8 +190,12 @@ pnpm preview         # Preview production build (localhost:4173)
 - `style.css` - All styles (no CSS modules)
 
 ### Wiki Content (`wiki/`)
-- `wiki/issues/` - 255 markdown files for global issues
+- `wiki/issues/` - 367 markdown files for global issues
 - `wiki/systems/` - 34 markdown files for simulation systems
+- `wiki/mechanics/` - 39 markdown files for causal patterns
+- `wiki/primitives/` - 14 markdown files for simulation primitives
+- `wiki/principles/` - 1118 markdown files for design principles
+- `wiki/communities/` - 23 markdown files for issue communities
 - File names use kebab-case matching the `id` field in frontmatter
 
 ## Common Tasks
