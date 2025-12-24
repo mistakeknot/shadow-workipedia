@@ -47,6 +47,94 @@ function downloadJson(filename: string, value: unknown) {
   URL.revokeObjectURL(url);
 }
 
+function toTitleCaseWords(input: string): string {
+  const normalized = input
+    .trim()
+    .replace(/[_]+/g, ' ')
+    .replace(/\s+/g, ' ');
+  if (!normalized) return normalized;
+
+  const words = normalized.split(' ');
+  const mapped = words.map((word) => {
+    const w = word.toLowerCase();
+    if (w === 'tv') return 'TV';
+    if (w === 'ai') return 'AI';
+    if (w === 'opsec') return 'OPSEC';
+    if (w === 'df') return 'DF';
+    if (w === 'r&d') return 'R&D';
+    if (w === 'sci' || w === 'sci-fi' || w === 'scifi') return 'Sci-Fi';
+    return w.charAt(0).toUpperCase() + w.slice(1);
+  });
+
+  // If we normalized sci-fi into two tokens ("Sci" "Fi"), stitch it back.
+  return mapped.join(' ').replace(/\bSci Fi\b/g, 'Sci-Fi');
+}
+
+function humanizeAgentForExport(agent: GeneratedAgent): unknown {
+  const platformDiet: Record<string, number> = {};
+  for (const [k, v] of Object.entries(agent.preferences.media.platformDiet)) {
+    platformDiet[toTitleCaseWords(k)] = v;
+  }
+
+  return {
+    ...agent,
+    identity: {
+      ...agent.identity,
+      tierBand: toTitleCaseWords(agent.identity.tierBand),
+      roleSeedTags: agent.identity.roleSeedTags.map(toTitleCaseWords),
+    },
+    appearance: {
+      ...agent.appearance,
+      heightBand: toTitleCaseWords(agent.appearance.heightBand),
+      buildTag: toTitleCaseWords(agent.appearance.buildTag),
+      hair: {
+        color: toTitleCaseWords(agent.appearance.hair.color),
+        texture: toTitleCaseWords(agent.appearance.hair.texture),
+      },
+      eyes: { color: toTitleCaseWords(agent.appearance.eyes.color) },
+      voiceTag: toTitleCaseWords(agent.appearance.voiceTag),
+      distinguishingMarks: agent.appearance.distinguishingMarks.map(toTitleCaseWords),
+    },
+    preferences: {
+      ...agent.preferences,
+      food: {
+        ...agent.preferences.food,
+        comfortFoods: agent.preferences.food.comfortFoods.map(toTitleCaseWords),
+        dislikes: agent.preferences.food.dislikes.map(toTitleCaseWords),
+        restrictions: agent.preferences.food.restrictions.map(toTitleCaseWords),
+        ritualDrink: toTitleCaseWords(agent.preferences.food.ritualDrink),
+      },
+      media: {
+        ...agent.preferences.media,
+        platformDiet,
+        genreTopK: agent.preferences.media.genreTopK.map(toTitleCaseWords),
+      },
+      fashion: {
+        ...agent.preferences.fashion,
+        styleTags: agent.preferences.fashion.styleTags.map(toTitleCaseWords),
+      },
+    },
+    routines: {
+      ...agent.routines,
+      chronotype: toTitleCaseWords(agent.routines.chronotype),
+      recoveryRituals: agent.routines.recoveryRituals.map(toTitleCaseWords),
+    },
+    vices: agent.vices.map(v => ({
+      ...v,
+      vice: toTitleCaseWords(v.vice),
+      severity: toTitleCaseWords(v.severity),
+      triggers: v.triggers.map(toTitleCaseWords),
+    })),
+    logistics: {
+      identityKit: agent.logistics.identityKit.map(i => ({
+        ...i,
+        item: toTitleCaseWords(i.item),
+        security: toTitleCaseWords(i.security),
+      })),
+    },
+  };
+}
+
 async function copyJsonToClipboard(value: unknown): Promise<boolean> {
   const text = JSON.stringify(value, null, 2);
   try {
@@ -436,12 +524,12 @@ export function initializeAgentsView(container: HTMLElement) {
 
     btnExport?.addEventListener('click', () => {
       if (!activeAgent) return;
-      downloadJson(`agent-${activeAgent.id}.json`, activeAgent);
+      downloadJson(`agent-${activeAgent.id}.json`, humanizeAgentForExport(activeAgent));
     });
 
     btnCopyJson?.addEventListener('click', async () => {
       if (!activeAgent) return;
-      const ok = await copyJsonToClipboard(activeAgent);
+      const ok = await copyJsonToClipboard(humanizeAgentForExport(activeAgent));
       if (!ok) {
         // Last-resort UX without bringing in toast infra.
         alert('Could not copy JSON to clipboard (browser blocked clipboard access).');
