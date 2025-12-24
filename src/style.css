@@ -1650,14 +1650,14 @@ body {
    Wiki View
    ============================================ */
 
-#wiki-view, #communities-view {
+#wiki-view {
   flex: 1;
   display: flex;
   overflow: hidden;
   background: #0f172a;
 }
 
-#wiki-sidebar, #communities-sidebar {
+#wiki-sidebar {
   width: 280px;
   flex-shrink: 0;
   overflow-y: auto;
@@ -1665,7 +1665,7 @@ body {
   background: rgba(15, 23, 42, 0.5);
 }
 
-#wiki-sidebar-content, #communities-sidebar-content {
+#wiki-sidebar-content {
   padding: 1rem;
 }
 
@@ -1674,21 +1674,20 @@ body {
   display: none;
 }
 
-#wiki-main, #communities-main {
+#wiki-main {
   flex: 1;
   overflow-y: auto;
   padding: 0;
 }
 
-#wiki-article-content, #communities-article-content {
+#wiki-article-content {
   max-width: 800px;
   margin: 0 auto;
   padding: 1.5rem 2rem;
 }
 
 /* Wiki index page (no article selected) - use full width */
-#wiki-article-content:has(.wiki-welcome-full),
-#communities-article-content:has(.wiki-welcome-full) {
+#wiki-article-content:has(.wiki-welcome-full) {
   max-width: 100%;
   padding: 1.5rem 3rem;
 }

@@ -350,32 +350,29 @@ async function main() {
   const graphView = document.getElementById('graph-view');
   const tableView = document.getElementById('table-view');
   const wikiView = document.getElementById('wiki-view');
-  const wikiSidebarContent = document.getElementById('wiki-sidebar-content');
-  const wikiArticleContent = document.getElementById('wiki-article-content');
-  const communitiesView = document.getElementById('communities-view');
-  const communitiesSidebarContent = document.getElementById('communities-sidebar-content');
-  const communitiesArticleContent = document.getElementById('communities-article-content');
-  const articleView = document.getElementById('article-view');
-  const articleContainer = document.getElementById('article-container');
-  const header = document.getElementById('header');
-  const tabNav = document.getElementById('tab-nav');
-  const filterBar = document.getElementById('filter-bar');
+	  const wikiSidebarContent = document.getElementById('wiki-sidebar-content');
+	  const wikiArticleContent = document.getElementById('wiki-article-content');
+	  const articleView = document.getElementById('article-view');
+	  const articleContainer = document.getElementById('article-container');
+	  const header = document.getElementById('header');
+	  const tabNav = document.getElementById('tab-nav');
+	  const filterBar = document.getElementById('filter-bar');
 
-  if (!graphView || !tableView || !wikiView || !wikiSidebarContent || !wikiArticleContent || !communitiesView || !communitiesSidebarContent || !communitiesArticleContent || !articleView || !articleContainer) {
-    throw new Error('Required view elements not found');
-  }
+	  if (!graphView || !tableView || !wikiView || !wikiSidebarContent || !wikiArticleContent || !articleView || !articleContainer) {
+	    throw new Error('Required view elements not found');
+	  }
 
-  // Track selected wiki article
-  let selectedWikiArticle: string | null = null;
-  let selectedCommunity: string | null = null;
+	  // Track selected wiki article
+	  let selectedWikiArticle: string | null = null;
+	  let selectedCommunity: string | null = null;
+	  let wikiSection: 'articles' | 'communities' = 'articles';
 
-  // View state (needed early for router initialization)
-  let currentView: 'graph' | 'table' | 'wiki' | 'communities' = 'graph';
+	  // View state (needed early for router initialization)
+	  let currentView: 'graph' | 'table' | 'wiki' | 'communities' = 'graph';
 
-  // Forward declare render functions (implemented later)
-  let renderTable: () => void;
-  let renderWikiList: () => void;
-  let renderCommunitiesList: () => void;
+	  // Forward declare render functions (implemented later)
+	  let renderTable: () => void;
+	  let renderWikiList: () => void;
 
   // Store router reference for navigation
   let router: ArticleRouter;
@@ -388,72 +385,56 @@ async function main() {
     const tooltipEl = document.getElementById('tooltip');
     if (tooltipEl) tooltipEl.classList.add('hidden');
 
-    // Update tab active states
-    const tabGraph = document.getElementById('tab-graph');
-    const tabTable = document.getElementById('tab-table');
-    const tabWiki = document.getElementById('tab-wiki');
-    const tabCommunities = document.getElementById('tab-communities');
+	    // Update tab active states
+	    const tabGraph = document.getElementById('tab-graph');
+	    const tabTable = document.getElementById('tab-table');
+	    const tabWiki = document.getElementById('tab-wiki');
 
-    tabGraph?.classList.remove('active');
-    tabTable?.classList.remove('active');
-    tabWiki?.classList.remove('active');
-    tabCommunities?.classList.remove('active');
+	    tabGraph?.classList.remove('active');
+	    tabTable?.classList.remove('active');
+	    tabWiki?.classList.remove('active');
 
-    articleView?.classList.add('hidden');
-    if (header) header.classList.remove('hidden');
-    if (tabNav) tabNav.classList.remove('hidden');
-    if (filterBar) filterBar.classList.remove('hidden');
+	    articleView?.classList.add('hidden');
+	    if (header) header.classList.remove('hidden');
+	    if (tabNav) tabNav.classList.remove('hidden');
+	    if (filterBar) filterBar.classList.remove('hidden');
 
     // View toggles and category filters are only relevant for graph view
     const viewModeToggles = document.getElementById('view-mode-toggles');
     const categoryFilters = document.getElementById('category-filters');
     const clusterToggle = document.getElementById('cluster-toggle');
 
-    if (view === 'graph') {
-      tabGraph?.classList.add('active');
-      graphView?.classList.remove('hidden');
-      tableView?.classList.add('hidden');
-      wikiView?.classList.add('hidden');
-      communitiesView?.classList.add('hidden');
-      // Show view toggles and category filters for graph
-      if (viewModeToggles) viewModeToggles.style.display = '';
-      if (categoryFilters) categoryFilters.style.display = '';
-      if (clusterToggle) clusterToggle.style.display = '';
-    } else if (view === 'table') {
-      tabTable?.classList.add('active');
-      graphView?.classList.add('hidden');
-      tableView?.classList.remove('hidden');
-      wikiView?.classList.add('hidden');
-      communitiesView?.classList.add('hidden');
-      // Show view toggles and category filters for table
-      if (viewModeToggles) viewModeToggles.style.display = '';
-      if (categoryFilters) categoryFilters.style.display = '';
-      if (clusterToggle) clusterToggle.style.display = '';
-      renderTable();
-    } else if (view === 'wiki') {
-      tabWiki?.classList.add('active');
-      graphView?.classList.add('hidden');
-      tableView?.classList.add('hidden');
-      wikiView?.classList.remove('hidden');
-      communitiesView?.classList.add('hidden');
-      // Hide all filters for wiki
-      if (viewModeToggles) viewModeToggles.style.display = 'none';
-      if (categoryFilters) categoryFilters.style.display = 'none';
-      if (clusterToggle) clusterToggle.style.display = 'none';
-      if (renderWikiList) renderWikiList();
-    } else if (view === 'communities') {
-      tabCommunities?.classList.add('active');
-      graphView?.classList.add('hidden');
-      tableView?.classList.add('hidden');
-      wikiView?.classList.add('hidden');
-      communitiesView?.classList.remove('hidden');
-      // Hide all filters for communities
-      if (viewModeToggles) viewModeToggles.style.display = 'none';
-      if (categoryFilters) categoryFilters.style.display = 'none';
-      if (clusterToggle) clusterToggle.style.display = 'none';
-      if (renderCommunitiesList) renderCommunitiesList();
-    }
-  }
+	    if (view === 'graph') {
+	      tabGraph?.classList.add('active');
+	      graphView?.classList.remove('hidden');
+	      tableView?.classList.add('hidden');
+	      wikiView?.classList.add('hidden');
+	      // Show view toggles and category filters for graph
+	      if (viewModeToggles) viewModeToggles.style.display = '';
+	      if (categoryFilters) categoryFilters.style.display = '';
+	      if (clusterToggle) clusterToggle.style.display = '';
+	    } else if (view === 'table') {
+	      tabTable?.classList.add('active');
+	      graphView?.classList.add('hidden');
+	      tableView?.classList.remove('hidden');
+	      wikiView?.classList.add('hidden');
+	      // Show view toggles and category filters for table
+	      if (viewModeToggles) viewModeToggles.style.display = '';
+	      if (categoryFilters) categoryFilters.style.display = '';
+	      if (clusterToggle) clusterToggle.style.display = '';
+	      renderTable();
+	    } else if (view === 'wiki' || view === 'communities') {
+	      tabWiki?.classList.add('active');
+	      graphView?.classList.add('hidden');
+	      tableView?.classList.add('hidden');
+	      wikiView?.classList.remove('hidden');
+	      // Hide all filters for wiki (including communities, which renders inside wiki)
+	      if (viewModeToggles) viewModeToggles.style.display = 'none';
+	      if (categoryFilters) categoryFilters.style.display = 'none';
+	      if (clusterToggle) clusterToggle.style.display = 'none';
+	      if (renderWikiList) renderWikiList();
+	    }
+	  }
 
   // Initialize article router (side effects only - registers hash change listener)
   router = new ArticleRouter((route: RouteType) => {
@@ -467,18 +448,21 @@ async function main() {
       return;
     }
 
-    if (route.kind === 'view') {
-      // View route - show the appropriate view
-      // Clear selected wiki article when navigating to wiki list (not an article)
-      if (route.view === 'wiki') {
-        selectedWikiArticle = null;
-      }
-      // Clear selected community when navigating to communities list
-      if (route.view === 'communities') {
-        selectedCommunity = null;
-      }
-      showView(route.view);
-	    } else if (route.kind === 'article') {
+	    if (route.kind === 'view') {
+	      // View route - show the appropriate view
+	      // Clear selected wiki article when navigating to wiki list (not an article)
+	      if (route.view === 'wiki') {
+	        selectedWikiArticle = null;
+	        selectedCommunity = null;
+	        wikiSection = 'articles';
+	      }
+	      if (route.view === 'communities') {
+	        selectedCommunity = null;
+	        selectedWikiArticle = null;
+	        wikiSection = 'communities';
+	      }
+	      showView(route.view);
+		    } else if (route.kind === 'article') {
 	      // Handle wiki-level redirects/merges for any article type.
 	      const current = data.articles?.[route.slug];
 	      const mergedInto = typeof current?.frontmatter?.mergedInto === 'string' ? current.frontmatter.mergedInto.trim() : '';
@@ -496,18 +480,21 @@ async function main() {
         }
       }
 
-      selectedWikiArticle = route.slug;
-      showView('wiki');
-      // Re-render to update selection and article content
-      if (renderWikiList) renderWikiList();
-    } else if (route.kind === 'community') {
-      // Community articles show in communities view with sidebar
-      selectedCommunity = route.slug;
-      showView('communities');
-      // Re-render to update selection and article content
-      if (renderCommunitiesList) renderCommunitiesList();
-    }
-  });
+	      selectedWikiArticle = route.slug;
+	      selectedCommunity = null;
+	      wikiSection = 'articles';
+	      showView('wiki');
+	      // Re-render to update selection and article content
+	      if (renderWikiList) renderWikiList();
+	    } else if (route.kind === 'community') {
+	      selectedCommunity = route.slug;
+	      selectedWikiArticle = null;
+	      wikiSection = 'communities';
+	      showView('communities');
+	      // Re-render to update selection and article content
+	      if (renderWikiList) renderWikiList();
+	    }
+	  });
 
   // Get canvas
   const canvas = document.getElementById('graph-canvas') as HTMLCanvasElement;
@@ -1682,19 +1669,18 @@ async function main() {
     });
   }
 
-  // Set up tab navigation
-  const tabGraph = document.getElementById('tab-graph') as HTMLButtonElement;
-  const tabTable = document.getElementById('tab-table') as HTMLButtonElement;
-  const tabWiki = document.getElementById('tab-wiki') as HTMLButtonElement;
-  const tabCommunities = document.getElementById('tab-communities') as HTMLButtonElement;
-  const tableContainer = document.getElementById('table-container') as HTMLDivElement;
+	  // Set up tab navigation
+	  const tabGraph = document.getElementById('tab-graph') as HTMLButtonElement;
+	  const tabTable = document.getElementById('tab-table') as HTMLButtonElement;
+	  const tabWiki = document.getElementById('tab-wiki') as HTMLButtonElement;
+	  const tableContainer = document.getElementById('table-container') as HTMLDivElement;
 
   // Tab clicks navigate via router (which updates URL and calls showView)
   tabGraph.addEventListener('click', () => router.navigateToView('graph'));
   tabTable.addEventListener('click', () => router.navigateToView('table'));
-  tabWiki.addEventListener('click', () => {
-    // If a node is selected, navigate to its wiki article
-    if (selectedNode) {
+	  tabWiki.addEventListener('click', () => {
+	    // If a node is selected, navigate to its wiki article
+	    if (selectedNode) {
       const nodeId = selectedNode.id;
       const nodeType = selectedNode.type;
       // Clear selection and close detail panel
@@ -1705,10 +1691,8 @@ async function main() {
       router.navigateToArticle(nodeType, nodeId);
     } else {
       router.navigateToView('wiki');
-    }
-  });
-
-  tabCommunities.addEventListener('click', () => router.navigateToView('communities'));
+	    }
+	  });
 
   // Command palette (Cmd+K / Ctrl+K)
   type PaletteKind = 'command' | 'node' | 'case-study' | 'community' | 'mechanic';
@@ -1735,12 +1719,12 @@ async function main() {
     return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
   }
 
-  // Header tab shortcuts: 1/2/3/4 => Graph/Table/Wiki/Communities
-  document.addEventListener('keydown', (e) => {
-    if (e.defaultPrevented) return;
-    if (e.metaKey || e.ctrlKey || e.altKey) return;
-    if (isEditableTarget(document.activeElement)) return;
-    if (paletteOverlay && !paletteOverlay.classList.contains('hidden')) return;
+	  // Header tab shortcuts: 1/2/3 => Graph/Table/Wiki (4 still opens communities inside wiki)
+	  document.addEventListener('keydown', (e) => {
+	    if (e.defaultPrevented) return;
+	    if (e.metaKey || e.ctrlKey || e.altKey) return;
+	    if (isEditableTarget(document.activeElement)) return;
+	    if (paletteOverlay && !paletteOverlay.classList.contains('hidden')) return;
 
     if (e.key === '1') {
       e.preventDefault();
@@ -1748,14 +1732,14 @@ async function main() {
     } else if (e.key === '2') {
       e.preventDefault();
       router.navigateToView('table');
-    } else if (e.key === '3') {
-      e.preventDefault();
-      router.navigateToView('wiki');
-    } else if (e.key === '4') {
-      e.preventDefault();
-      router.navigateToView('communities');
-    }
-  });
+	    } else if (e.key === '3') {
+	      e.preventDefault();
+	      router.navigateToView('wiki');
+	    } else if (e.key === '4') {
+	      e.preventDefault();
+	      router.navigateToView('communities');
+	    }
+	  });
 
   const viewToggleButtons = {
     showIssuesBtn: document.getElementById('show-issues-btn') as HTMLButtonElement | null,
@@ -2482,73 +2466,246 @@ async function main() {
 	      !isMergedArticle(a)
 	    );
 	    const principleArticles = articles.filter(a => a.type === 'principle');
-	    const primitiveArticles = articles.filter(a => a.type === 'primitive');
-	    const mechanicArticles = articles.filter(a =>
-	      a.type === 'mechanic' &&
-	      !isHiddenArticle(a) &&
-	      !isMergedArticle(a)
-	    );
+		    const primitiveArticles = articles.filter(a => a.type === 'primitive');
+		    const mechanicArticles = articles.filter(a =>
+		      a.type === 'mechanic' &&
+		      !isHiddenArticle(a) &&
+		      !isMergedArticle(a)
+		    );
 
-    // Mobile: collapse sidebar when an article is selected
-    if (wikiSidebar) {
-      if (selectedWikiArticle) {
-        wikiSidebar.classList.add('collapsed');
-      } else {
-        wikiSidebar.classList.remove('collapsed');
-      }
-    }
+	    const communitiesRaw = data.communities ? Object.values(data.communities) : [];
+	    const communities = communitiesRaw.slice().sort((a, b) => {
+	      const al = (a.label || '').toLowerCase();
+	      const bl = (b.label || '').toLowerCase();
+	      const cmp = al.localeCompare(bl);
+	      if (cmp !== 0) return cmp;
+	      if (b.size !== a.size) return b.size - a.size;
+	      return a.id - b.id;
+	    });
+	    const communityIssueCounts = new Map<number, number>();
+	    for (const node of data.nodes) {
+	      if (node.type !== 'issue') continue;
+	      if (node.communityId === undefined) continue;
+	      communityIssueCounts.set(node.communityId, (communityIssueCounts.get(node.communityId) || 0) + 1);
+	    }
 
-    // Render sidebar
-    const renderSidebarItem = (article: typeof articles[0]) => `
-      <div class="wiki-sidebar-item${selectedWikiArticle === article.id ? ' active' : ''}" data-article-id="${article.id}">
-        ${article.title}
-      </div>
-    `;
+	    // Mobile: collapse sidebar when an article or community is selected
+	    if (wikiSidebar) {
+	      if (selectedWikiArticle || selectedCommunity) {
+	        wikiSidebar.classList.add('collapsed');
+	      } else {
+	        wikiSidebar.classList.remove('collapsed');
+	      }
+	    }
 
-    const sectionState = loadWikiSidebarSectionState();
-    const renderSidebarSection = (title: string, key: string, items: typeof articles) => {
-      if (items.length === 0) return '';
-      const isOpen = sectionState[key] ?? true;
-      return `
+	    // Render sidebar
+	    const renderArticleSidebarItem = (article: typeof articles[0]) => `
+	      <div class="wiki-sidebar-item${selectedWikiArticle === article.id ? ' active' : ''}" data-article-id="${article.id}">
+	        ${article.title}
+	      </div>
+	    `;
+	    const renderCommunitySidebarItem = (community: (typeof communities)[number]) => {
+	      const slug = `community-${community.id}`;
+	      const count = communityIssueCounts.get(community.id) ?? community.size ?? 0;
+	      return `
+	        <div class="wiki-sidebar-item${selectedCommunity === slug ? ' active' : ''}" data-community-slug="${slug}">
+	          ${community.label || `Community ${community.id}`} (${count})
+	        </div>
+	      `;
+	    };
+
+	    const sectionState = loadWikiSidebarSectionState();
+	    const renderSidebarSection = (title: string, key: string, items: typeof articles) => {
+	      if (items.length === 0) return '';
+	      const isOpen = sectionState[key] ?? true;
+	      return `
         <details class="wiki-sidebar-section" data-section-key="${key}" ${isOpen ? 'open' : ''}>
           <summary class="wiki-sidebar-section-summary">
             <h3>${title} (${items.length})</h3>
           </summary>
-          <div class="wiki-sidebar-list">
-            ${items.map(renderSidebarItem).join('')}
-          </div>
-        </details>
-      `;
-    };
+	          <div class="wiki-sidebar-list">
+	            ${items.map(renderArticleSidebarItem).join('')}
+	          </div>
+	        </details>
+	      `;
+	    };
+	    const renderCommunitiesSidebarSection = (title: string, key: string, items: typeof communities) => {
+	      if (items.length === 0) return '';
+	      const isOpen = sectionState[key] ?? true;
+	      return `
+	        <details class="wiki-sidebar-section" data-section-key="${key}" ${isOpen ? 'open' : ''}>
+	          <summary class="wiki-sidebar-section-summary">
+	            <h3>${title} (${items.length})</h3>
+	          </summary>
+	          <div class="wiki-sidebar-list">
+	            ${items.map(renderCommunitySidebarItem).join('')}
+	          </div>
+	        </details>
+	      `;
+	    };
 
-    // Mobile expand button (shown only when collapsed)
-    const expandButton = selectedWikiArticle
-      ? `<button class="wiki-sidebar-expand" id="wiki-sidebar-expand-btn">Browse all articles</button>`
-      : '';
+	    // Mobile expand button (shown only when collapsed)
+	    const expandButton = (selectedWikiArticle || selectedCommunity)
+	      ? `<button class="wiki-sidebar-expand" id="wiki-sidebar-expand-btn">Browse all content</button>`
+	      : '';
 
-    const sidebarHtml = `
-      ${expandButton}
-      ${renderSidebarSection('Issues', 'issues', issueArticles)}
-      ${renderSidebarSection('Case Studies', 'case-studies', caseStudyArticles)}
-      ${renderSidebarSection('Redirects', 'redirects', redirectArticles)}
-      ${renderSidebarSection('Systems', 'systems', systemArticles)}
-      ${renderSidebarSection('Principles', 'principles', principleArticles)}
-      ${renderSidebarSection('Primitives', 'primitives', primitiveArticles)}
-      ${renderSidebarSection('Mechanics', 'mechanics', mechanicArticles)}
-    `;
+	    const sidebarHtml = `
+	      ${expandButton}
+	      ${renderSidebarSection('Issues', 'issues', issueArticles)}
+	      ${renderSidebarSection('Case Studies', 'case-studies', caseStudyArticles)}
+	      ${renderSidebarSection('Redirects', 'redirects', redirectArticles)}
+	      ${renderSidebarSection('Systems', 'systems', systemArticles)}
+	      ${renderSidebarSection('Principles', 'principles', principleArticles)}
+	      ${renderSidebarSection('Primitives', 'primitives', primitiveArticles)}
+	      ${renderSidebarSection('Mechanics', 'mechanics', mechanicArticles)}
+	      ${renderCommunitiesSidebarSection('Communities', 'communities', communities)}
+	    `;
 
     wikiSidebarContent.innerHTML = sidebarHtml;
 
-    // Render article content or welcome message with collapsible lists
-    if (selectedWikiArticle && data.articles[selectedWikiArticle]) {
-      const article = data.articles[selectedWikiArticle];
-      wikiArticleContent.innerHTML = renderWikiArticleContent(article, data);
-      // Reset scroll position when switching articles
-      wikiArticleContent.scrollTop = 0;
-    } else {
-      // Render collapsible sections for the main wiki page
-      const renderCollapsibleSection = (title: string, items: typeof articles, typeClass: string) => {
-        if (items.length === 0) return '';
+	    function renderCommunityDetailHtml(slug: string): string {
+	      const match = slug.match(/^community-(\d+)$/);
+	      const id = match ? Number(match[1]) : NaN;
+	      if (!Number.isFinite(id)) {
+	        return `
+	          <div class="wiki-welcome">
+	            <h2>Community</h2>
+	            <p class="wiki-welcome-subtitle">Invalid community id: ${slug}</p>
+	          </div>
+	        `;
+	      }
+
+	      const info = (data.communities as Record<number, CommunityInfo> | undefined)?.[id];
+	      const issues = data.nodes
+	        .filter(n => n.type === 'issue' && n.communityId === id)
+	        .sort((a, b) => a.label.localeCompare(b.label));
+
+	      const INITIAL_SHOW = 30;
+	      const hasMore = issues.length > INITIAL_SHOW;
+
+	      const slugify = (value: string) =>
+	        value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+	      const mechanicPageId = (pattern: string, mechanic: string) =>
+	        `mechanic--${slugify(pattern)}--${slugify(mechanic)}`;
+
+	      const shared = (info?.sharedMechanics || [])
+	        .slice()
+	        .sort((a, b) => (b.count ?? 0) - (a.count ?? 0))
+	        .slice(0, 12);
+
+	      return `
+	        <div class="wiki-welcome">
+	          <h2 style="display:flex; align-items:center; gap:0.6rem;">
+	            <span style="width: 12px; height: 12px; border-radius: 50%; background: ${getCommunityColor(id)}; display:inline-block;"></span>
+	            ${info?.label ?? `Community ${id}`}
+	          </h2>
+	          <p class="wiki-welcome-subtitle">${issues.length} issues</p>
+	          ${info ? `
+	            <div style="display:flex; gap:1rem; flex-wrap:wrap; color:#94a3b8; font-size:0.85rem; margin-top:0.25rem;">
+	              <span>Top category: <strong style="color:#e2e8f0; font-weight:600;">${info.topCategory}</strong></span>
+	              <span>Mechanic score: <strong style="color:#e2e8f0; font-weight:600;">${info.mechanicScore}</strong></span>
+	            </div>
+	          ` : ''}
+	          ${shared.length > 0 ? `
+	            <div style="margin-top:0.9rem;">
+	              <h3 style="margin:0 0 0.5rem 0; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em; font-size:0.75rem;">Shared mechanics</h3>
+	              <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+	                ${shared.map(m => `
+	                  <a
+	                    class="badge related-link"
+	                    href="#/wiki/${mechanicPageId(m.pattern, m.mechanic)}"
+	                    style="text-decoration:none; background: rgba(148,163,184,0.12); border: 1px solid rgba(148,163,184,0.18); color:#cbd5e1;"
+	                    title="${m.pattern} • ${m.count} issues"
+	                  >
+	                    ${m.mechanic}
+	                  </a>
+	                `).join('')}
+	              </div>
+	            </div>
+	          ` : ''}
+	        </div>
+
+	        <div class="related-content">
+	          <h2>Issues</h2>
+	          <div class="related-links">
+	            ${issues.slice(0, INITIAL_SHOW).map(n => `
+	              <a
+	                href="#/wiki/${n.id}"
+	                class="related-link ${n.hasArticle ? 'has-article' : ''}"
+	              >
+	                ${n.label}
+	                ${n.hasArticle ? '<span class="article-indicator">📄</span>' : ''}
+	              </a>
+	            `).join('')}
+	            ${hasMore ? `
+	              <div class="related-links-overflow" data-expanded="false">
+	                ${issues.slice(INITIAL_SHOW).map(n => `
+	                  <a
+	                    href="#/wiki/${n.id}"
+	                    class="related-link ${n.hasArticle ? 'has-article' : ''}"
+	                  >
+	                    ${n.label}
+	                    ${n.hasArticle ? '<span class="article-indicator">📄</span>' : ''}
+	                  </a>
+	                `).join('')}
+	              </div>
+	              <button class="expand-toggle" data-target="issues" data-expanded="false">
+	                <span class="expand-text">+${issues.length - INITIAL_SHOW} more</span>
+	                <span class="collapse-text">Show less</span>
+	              </button>
+	            ` : ''}
+	          </div>
+	        </div>
+	      `;
+	    }
+
+	    const renderCommunityCollapsibleSection = (title: string, items: typeof communities) => {
+	      if (items.length === 0) return '';
+	      return `
+	        <details class="wiki-collapsible-section communities-section" open>
+	          <summary>
+	            <span class="section-title">${title}</span>
+	            <span class="section-count">${items.length}</span>
+	          </summary>
+	          <div class="wiki-article-grid">
+	            ${items.map(c => {
+	              const slug = `community-${c.id}`;
+	              const count = communityIssueCounts.get(c.id) ?? c.size ?? 0;
+	              return `
+	                <a href="#/communities/${slug}" class="wiki-article-card">
+	                  <span class="article-title">${c.label || `Community ${c.id}`}</span>
+	                  <span style="color:#94a3b8; font-size:0.8rem; margin-top:0.2rem; display:block;">${count} issues</span>
+	                </a>
+	              `;
+	            }).join('')}
+	          </div>
+	        </details>
+	      `;
+	    };
+
+	    // Render article content / community content / welcome message
+	    if (selectedCommunity) {
+	      wikiArticleContent.innerHTML = renderCommunityDetailHtml(selectedCommunity);
+	      wikiArticleContent.scrollTop = 0;
+	    } else if (selectedWikiArticle && data.articles[selectedWikiArticle]) {
+	      const article = data.articles[selectedWikiArticle];
+	      wikiArticleContent.innerHTML = renderWikiArticleContent(article, data);
+	      // Reset scroll position when switching articles
+	      wikiArticleContent.scrollTop = 0;
+	    } else if (wikiSection === 'communities') {
+	      wikiArticleContent.innerHTML = `
+	        <div class="wiki-welcome-full">
+	          <h1>Issue Communities</h1>
+	          <p class="wiki-welcome-subtitle">${communities.length} communities detected via Louvain algorithm</p>
+	          <div class="wiki-sections">
+	            ${renderCommunityCollapsibleSection('Communities', communities)}
+	          </div>
+	        </div>
+	      `;
+	    } else {
+	      // Render collapsible sections for the main wiki page
+	      const renderCollapsibleSection = (title: string, items: typeof articles, typeClass: string) => {
+	        if (items.length === 0) return '';
         return `
           <details class="wiki-collapsible-section ${typeClass}" open>
             <summary>
@@ -2571,30 +2728,37 @@ async function main() {
           <h1>Shadow Workipedia</h1>
           <p class="wiki-welcome-subtitle">${articles.length} articles documenting global challenges and systemic risks</p>
 
-          <div class="wiki-sections">
-            ${renderCollapsibleSection('Issues', issueArticles, 'issues-section')}
-            ${renderCollapsibleSection('Case Studies', caseStudyArticles, 'issues-section')}
-            ${renderCollapsibleSection('Redirects', redirectArticles, 'issues-section')}
-            ${renderCollapsibleSection('Systems', systemArticles, 'systems-section')}
-            ${renderCollapsibleSection('Principles', principleArticles, 'principles-section')}
-            ${renderCollapsibleSection('Primitives', primitiveArticles, 'primitives-section')}
-            ${renderCollapsibleSection('Mechanics', mechanicArticles, 'mechanics-section')}
-          </div>
-        </div>
-      `;
-    }
+	          <div class="wiki-sections">
+	            ${renderCollapsibleSection('Issues', issueArticles, 'issues-section')}
+	            ${renderCollapsibleSection('Case Studies', caseStudyArticles, 'issues-section')}
+	            ${renderCollapsibleSection('Redirects', redirectArticles, 'issues-section')}
+	            ${renderCollapsibleSection('Systems', systemArticles, 'systems-section')}
+	            ${renderCollapsibleSection('Principles', principleArticles, 'principles-section')}
+	            ${renderCollapsibleSection('Primitives', primitiveArticles, 'primitives-section')}
+	            ${renderCollapsibleSection('Mechanics', mechanicArticles, 'mechanics-section')}
+	            ${renderCommunityCollapsibleSection('Communities', communities)}
+	          </div>
+	        </div>
+	      `;
+	    }
 
-    // Attach click handlers to sidebar items
-    wikiSidebarContent.querySelectorAll('.wiki-sidebar-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const articleId = item.getAttribute('data-article-id');
-        if (articleId && data.articles && data.articles[articleId]) {
-          const article = data.articles[articleId];
-          // Navigate via router to update URL
-          router.navigateToArticle(article.type as 'issue' | 'system' | 'principle' | 'primitive' | 'mechanic', articleId);
-        }
-      });
-    });
+	    // Attach click handlers to sidebar items
+	    wikiSidebarContent.querySelectorAll('.wiki-sidebar-item').forEach(item => {
+	      item.addEventListener('click', () => {
+	        const articleId = item.getAttribute('data-article-id');
+	        if (articleId && data.articles && data.articles[articleId]) {
+	          const article = data.articles[articleId];
+	          // Navigate via router to update URL
+	          router.navigateToArticle(article.type as 'issue' | 'system' | 'principle' | 'primitive' | 'mechanic', articleId);
+	          return;
+	        }
+
+	        const communitySlug = item.getAttribute('data-community-slug');
+	        if (communitySlug) {
+	          router.navigateToCommunity(communitySlug);
+	        }
+	      });
+	    });
 
     // Persist collapsible section state
     wikiSidebarContent.querySelectorAll<HTMLDetailsElement>('.wiki-sidebar-section').forEach(section => {
@@ -2715,278 +2879,30 @@ async function main() {
     });
 
     // Attach click handlers to expand toggle buttons
-    wikiArticleContent.querySelectorAll('.expand-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const isExpanded = button.getAttribute('data-expanded') === 'true';
-        const overflow = button.previousElementSibling as HTMLElement;
+	    wikiArticleContent.querySelectorAll('.expand-toggle').forEach(button => {
+	      button.addEventListener('click', () => {
+	        const isExpanded = button.getAttribute('data-expanded') === 'true';
+	        const overflow = button.previousElementSibling as HTMLElement;
 
-        if (overflow && overflow.classList.contains('related-links-overflow')) {
-          overflow.setAttribute('data-expanded', String(!isExpanded));
-          button.setAttribute('data-expanded', String(!isExpanded));
-        }
-      });
-    });
-  }
+	        if (overflow && overflow.classList.contains('related-links-overflow')) {
+	          overflow.setAttribute('data-expanded', String(!isExpanded));
+	          button.setAttribute('data-expanded', String(!isExpanded));
+	        }
+	      });
+	    });
+	  }
 
-  // Communities sidebar and article rendering
-  const communitiesSidebar = document.getElementById('communities-sidebar');
-
-  renderCommunitiesList = function() {
-    const communitiesArticle = communitiesArticleContent as HTMLDivElement;
-    const communitiesSidebarEl = communitiesSidebarContent as HTMLDivElement;
-
-    if (!data.communities || Object.keys(data.communities).length === 0) {
-      communitiesSidebarEl.innerHTML = `<div class="wiki-empty-sidebar">No communities detected</div>`;
-      communitiesArticle.innerHTML = `
-        <div class="wiki-welcome">
-          <h2>Community Detection</h2>
-          <p>Community data will appear here after analysis.</p>
-        </div>
-      `;
-      return;
-    }
-
-    // Convert communities to array and sort alphabetically by label (case-insensitive)
-    const communities = Object.values(data.communities).sort((a, b) => {
-      const al = (a.label || '').toLowerCase();
-      const bl = (b.label || '').toLowerCase();
-      const cmp = al.localeCompare(bl);
-      if (cmp !== 0) return cmp;
-      // Tie-breakers: larger first, then stable by id
-      if (b.size !== a.size) return b.size - a.size;
-      return a.id - b.id;
-    });
-
-    // Compute issue counts per community from actual graph nodes (more reliable than metadata size)
-    const communityIssueCounts = new Map<number, number>();
-    for (const node of data.nodes) {
-      if (node.type !== 'issue') continue;
-      if (node.communityId === undefined) continue;
-      communityIssueCounts.set(node.communityId, (communityIssueCounts.get(node.communityId) || 0) + 1);
-    }
-
-    // Mobile: collapse sidebar when a community is selected
-    if (communitiesSidebar) {
-      if (selectedCommunity) {
-        communitiesSidebar.classList.add('collapsed');
-      } else {
-        communitiesSidebar.classList.remove('collapsed');
-      }
-    }
-
-    // Render sidebar
-    const renderSidebarItem = (community: typeof communities[0]) => {
-      const communitySlug = `community-${community.id}`;
-      return `
-        <div class="wiki-sidebar-item${selectedCommunity === communitySlug ? ' active' : ''}" data-community-slug="${communitySlug}">
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <div style="width: 12px; height: 12px; border-radius: 50%; background: ${getCommunityColor(community.id)}; flex-shrink: 0;"></div>
-            <div style="flex: 1; min-width: 0;">
-              <div style="font-weight: 600; font-size: 0.85rem; line-height: 1.3;">${community.label}</div>
-              <div style="font-size: 0.75rem; color: #94a3b8;">${communityIssueCounts.get(community.id) || 0} issues</div>
-            </div>
-          </div>
-        </div>
-      `;
-    };
-
-    // Mobile expand button (shown only when collapsed)
-    const expandButton = selectedCommunity
-      ? `<button class="wiki-sidebar-expand" id="communities-sidebar-expand-btn">Browse all communities</button>`
-      : '';
-
-    const sidebarHtml = `
-      ${expandButton}
-      <div class="wiki-sidebar-section">
-        <h3>Communities (${communities.length})</h3>
-        <div class="wiki-sidebar-list">
-          ${communities.map(renderSidebarItem).join('')}
-        </div>
-      </div>
-    `;
-
-    communitiesSidebarEl.innerHTML = sidebarHtml;
-
-    function renderCommunityDetail(slug: string) {
-      const match = slug.match(/^community-(\d+)$/);
-      const id = match ? Number(match[1]) : NaN;
-      if (!Number.isFinite(id)) {
-        communitiesArticle.innerHTML = `
-          <div class="wiki-welcome">
-            <h2>Community</h2>
-            <p class="wiki-welcome-subtitle">Invalid community id: ${slug}</p>
-          </div>
-        `;
-        return;
-      }
-
-      const info = (data.communities as Record<number, CommunityInfo>)[id];
-      const issues = data.nodes
-        .filter(n => n.type === 'issue' && n.communityId === id)
-        .sort((a, b) => a.label.localeCompare(b.label));
-
-      const INITIAL_SHOW = 30;
-      const hasMore = issues.length > INITIAL_SHOW;
-
-      const slugify = (value: string) =>
-        value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-      const mechanicPageId = (pattern: string, mechanic: string) =>
-        `mechanic--${slugify(pattern)}--${slugify(mechanic)}`;
-
-      const shared = (info?.sharedMechanics || [])
-        .slice()
-        .sort((a, b) => (b.count ?? 0) - (a.count ?? 0))
-        .slice(0, 12);
-
-      communitiesArticle.innerHTML = `
-        <div class="wiki-welcome">
-          <h2 style="display:flex; align-items:center; gap:0.6rem;">
-            <span style="width: 12px; height: 12px; border-radius: 50%; background: ${getCommunityColor(id)}; display:inline-block;"></span>
-            ${info?.label ?? `Community ${id}`}
-          </h2>
-          <p class="wiki-welcome-subtitle">${issues.length} issues</p>
-          ${info ? `
-            <div style="display:flex; gap:1rem; flex-wrap:wrap; color:#94a3b8; font-size:0.85rem; margin-top:0.25rem;">
-              <span>Top category: <strong style="color:#e2e8f0; font-weight:600;">${info.topCategory}</strong></span>
-              <span>Mechanic score: <strong style="color:#e2e8f0; font-weight:600;">${info.mechanicScore}</strong></span>
-            </div>
-          ` : ''}
-          ${shared.length > 0 ? `
-            <div style="margin-top:0.9rem;">
-              <h3 style="margin:0 0 0.5rem 0; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em; font-size:0.75rem;">Shared mechanics</h3>
-              <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
-                ${shared.map(m => `
-                  <a
-                    class="badge related-link"
-                    href="#/wiki/${mechanicPageId(m.pattern, m.mechanic)}"
-                    style="text-decoration:none; background: rgba(148,163,184,0.12); border: 1px solid rgba(148,163,184,0.18); color:#cbd5e1;"
-                    title="${m.pattern} • ${m.count} issues"
-                  >
-                    ${m.mechanic}
-                  </a>
-                `).join('')}
-              </div>
-            </div>
-          ` : ''}
-        </div>
-
-        <div class="related-content">
-          <h2>Issues</h2>
-          <div class="related-links">
-            ${issues.slice(0, INITIAL_SHOW).map(n => `
-              <a
-                href="#/wiki/${n.id}"
-                class="related-link ${n.hasArticle ? 'has-article' : ''}"
-              >
-                ${n.label}
-                ${n.hasArticle ? '<span class="article-indicator">📄</span>' : ''}
-              </a>
-            `).join('')}
-            ${hasMore ? `
-              <div class="related-links-overflow" data-expanded="false">
-                ${issues.slice(INITIAL_SHOW).map(n => `
-                  <a
-                    href="#/wiki/${n.id}"
-                    class="related-link ${n.hasArticle ? 'has-article' : ''}"
-                  >
-                    ${n.label}
-                    ${n.hasArticle ? '<span class="article-indicator">📄</span>' : ''}
-                  </a>
-                `).join('')}
-              </div>
-              <button class="expand-toggle" data-target="issues" data-expanded="false">
-                <span class="expand-text">+${issues.length - INITIAL_SHOW} more</span>
-                <span class="collapse-text">Show less</span>
-              </button>
-            ` : ''}
-          </div>
-        </div>
-      `;
-      communitiesArticle.scrollTop = 0;
-    }
-
-    if (!selectedCommunity) {
-      communitiesArticle.innerHTML = `
-        <div class="wiki-welcome">
-          <h2>Issue Communities</h2>
-          <p class="wiki-welcome-subtitle">${communities.length} communities detected via Louvain algorithm</p>
-          <p>Select a community from the sidebar to explore its issues and shared mechanics.</p>
-        </div>
-      `;
-    } else {
-      renderCommunityDetail(selectedCommunity);
-    }
-
-    // Attach click handlers to sidebar items
-    communitiesSidebarEl.querySelectorAll('.wiki-sidebar-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const communitySlug = item.getAttribute('data-community-slug');
-        if (communitySlug) {
-          // Navigate via router to update URL
-          router.navigateToCommunity(communitySlug);
-        }
-      });
-    });
-
-    // Attach click handler to expand button (mobile: expand collapsed sidebar)
-    const expandBtn = document.getElementById('communities-sidebar-expand-btn');
-    if (expandBtn && communitiesSidebar) {
-      expandBtn.addEventListener('click', () => {
-        communitiesSidebar.classList.remove('collapsed');
-      });
-    }
-
-    // Attach click handlers to related content links (navigate within communities or to wiki)
-    communitiesArticle.querySelectorAll('.related-link').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        if (!href) return;
-
-        // Community links: #/communities/community-N
-        const communityMatch = href.match(/^#\/communities\/(community-\d+)$/);
-        if (communityMatch) {
-          router.navigateToCommunity(communityMatch[1]);
-          return;
-        }
-
-        // Wiki links: #/wiki/slug
-        const wikiMatch = href.match(/^#\/wiki\/([a-z0-9-]+)$/);
-        if (wikiMatch) {
-          const articleId = wikiMatch[1];
-          if (data.articles && data.articles[articleId]) {
-            const article = data.articles[articleId];
-            router.navigateToArticle(article.type as 'issue' | 'system' | 'principle' | 'primitive' | 'mechanic', articleId);
-          }
-        }
-      });
-    });
-
-    // Attach click handlers to expand toggle buttons
-    communitiesArticle.querySelectorAll('.expand-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const isExpanded = button.getAttribute('data-expanded') === 'true';
-        const overflow = button.previousElementSibling as HTMLElement;
-
-        if (overflow && overflow.classList.contains('related-links-overflow')) {
-          overflow.setAttribute('data-expanded', String(!isExpanded));
-          button.setAttribute('data-expanded', String(!isExpanded));
-        }
-      });
-    });
-  }
-
-  // Re-trigger initial route handling now that all functions are defined
-  const currentRoute = router.getCurrentRoute();
-  if (currentRoute?.kind === 'article' && currentRoute.type === 'issue') {
-    renderWikiList();
-  } else if (currentRoute?.kind === 'view' && currentRoute.view === 'wiki') {
-    renderWikiList();
-  } else if (currentRoute?.kind === 'community') {
-    renderCommunitiesList();
-  } else if (currentRoute?.kind === 'view' && currentRoute.view === 'communities') {
-    renderCommunitiesList();
-  }
+	  // Re-trigger initial route handling now that all functions are defined
+	  const currentRoute = router.getCurrentRoute();
+	  if (currentRoute?.kind === 'article' && currentRoute.type === 'issue') {
+	    renderWikiList();
+	  } else if (currentRoute?.kind === 'view' && currentRoute.view === 'wiki') {
+	    renderWikiList();
+	  } else if (currentRoute?.kind === 'community') {
+	    renderWikiList();
+	  } else if (currentRoute?.kind === 'view' && currentRoute.view === 'communities') {
+	    renderWikiList();
+	  }
 }
 
 main().catch(console.error);
