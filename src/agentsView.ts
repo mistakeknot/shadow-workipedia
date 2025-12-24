@@ -181,7 +181,7 @@ function renderGauge(label: string, value01k: number): string {
     <div class="agent-gauge">
       <div class="agent-gauge-row">
         <span class="agent-gauge-label">${escapeHtml(label)}</span>
-        <span class="agent-gauge-value">${escapeHtml(formatBand5(value01k))}</span>
+        <span class="agent-gauge-value">${escapeHtml(toTitleCaseWords(formatBand5(value01k)))}</span>
       </div>
       <div class="agent-gauge-bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100">
         <div class="agent-gauge-fill" style="width:${pct}%"></div>
@@ -190,22 +190,28 @@ function renderGauge(label: string, value01k: number): string {
   `;
 }
 
+function humanizeSkillKey(key: string): string {
+  // camelCase -> space words; preserves existing snake/space tags via toTitleCaseWords.
+  const spaced = key.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
+  return toTitleCaseWords(spaced);
+}
+
 function renderAgent(agent: GeneratedAgent): string {
   const apt = agent.capabilities.aptitudes;
   const skills = agent.capabilities.skills;
 
   const platformDiet = Object.entries(agent.preferences.media.platformDiet)
-    .map(([k, v]) => `<li><span class="kv-k">${escapeHtml(k)}</span><span class="kv-v">${escapeHtml(formatFixed01k(v))}</span></li>`)
+    .map(([k, v]) => `<li><span class="kv-k">${escapeHtml(toTitleCaseWords(k))}</span><span class="kv-v">${escapeHtml(formatFixed01k(v))}</span></li>`)
     .join('');
 
-  const roleTags = agent.identity.roleSeedTags.map(t => `<span class="pill">${escapeHtml(t)}</span>`).join('');
+  const roleTags = agent.identity.roleSeedTags.map(t => `<span class="pill">${escapeHtml(toTitleCaseWords(t))}</span>`).join('');
   const langTags = agent.identity.languages.map(t => `<span class="pill pill-muted">${escapeHtml(t)}</span>`).join('');
 
   const skillRows = Object.entries(skills)
     .map(([k, v]) => `
       <div class="agent-skill-row">
-        <div class="agent-skill-name">${escapeHtml(k)}</div>
-        <div class="agent-skill-band">${escapeHtml(formatBand5(v.value))}</div>
+        <div class="agent-skill-name">${escapeHtml(humanizeSkillKey(k))}</div>
+        <div class="agent-skill-band">${escapeHtml(toTitleCaseWords(formatBand5(v.value)))}</div>
         <div class="agent-skill-pct">${escapeHtml(formatFixed01k(v.value))}</div>
       </div>
     `)
@@ -219,7 +225,7 @@ function renderAgent(agent: GeneratedAgent): string {
           <div class="agent-meta">
             <span class="agent-meta-item">Seed: <code>${escapeHtml(agent.seed)}</code></span>
             <span class="agent-meta-item">Born: ${escapeHtml(String(agent.identity.birthYear))}</span>
-            <span class="agent-meta-item">Tier: ${escapeHtml(agent.identity.tierBand)}</span>
+            <span class="agent-meta-item">Tier: ${escapeHtml(toTitleCaseWords(agent.identity.tierBand))}</span>
             <span class="agent-meta-item">Culture: ${escapeHtml(agent.identity.homeCulture)}</span>
           </div>
           <div class="agent-pill-row">${roleTags} ${langTags}</div>
@@ -257,12 +263,12 @@ function renderAgent(agent: GeneratedAgent): string {
         <section class="agent-card">
           <h3>Preferences</h3>
           <div class="agent-kv">
-            <div class="kv-row"><span class="kv-k">Comfort foods</span><span class="kv-v">${escapeHtml(agent.preferences.food.comfortFoods.join(', '))}</span></div>
-            <div class="kv-row"><span class="kv-k">Dislikes</span><span class="kv-v">${escapeHtml(agent.preferences.food.dislikes.join(', '))}</span></div>
-            <div class="kv-row"><span class="kv-k">Restrictions</span><span class="kv-v">${escapeHtml(agent.preferences.food.restrictions.join(', ') || '—')}</span></div>
-            <div class="kv-row"><span class="kv-k">Ritual drink</span><span class="kv-v">${escapeHtml(agent.preferences.food.ritualDrink)}</span></div>
-            <div class="kv-row"><span class="kv-k">Genres</span><span class="kv-v">${escapeHtml(agent.preferences.media.genreTopK.join(', '))}</span></div>
-            <div class="kv-row"><span class="kv-k">Style</span><span class="kv-v">${escapeHtml(agent.preferences.fashion.styleTags.join(', '))}</span></div>
+            <div class="kv-row"><span class="kv-k">Comfort foods</span><span class="kv-v">${escapeHtml(agent.preferences.food.comfortFoods.map(toTitleCaseWords).join(', '))}</span></div>
+            <div class="kv-row"><span class="kv-k">Dislikes</span><span class="kv-v">${escapeHtml(agent.preferences.food.dislikes.map(toTitleCaseWords).join(', '))}</span></div>
+            <div class="kv-row"><span class="kv-k">Restrictions</span><span class="kv-v">${escapeHtml(agent.preferences.food.restrictions.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+            <div class="kv-row"><span class="kv-k">Ritual drink</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.ritualDrink))}</span></div>
+            <div class="kv-row"><span class="kv-k">Genres</span><span class="kv-v">${escapeHtml(agent.preferences.media.genreTopK.map(toTitleCaseWords).join(', '))}</span></div>
+            <div class="kv-row"><span class="kv-k">Style</span><span class="kv-v">${escapeHtml(agent.preferences.fashion.styleTags.map(toTitleCaseWords).join(', '))}</span></div>
           </div>
         </section>
 
@@ -279,21 +285,21 @@ function renderAgent(agent: GeneratedAgent): string {
         <section class="agent-card">
           <h3>Routines</h3>
           <div class="agent-kv">
-            <div class="kv-row"><span class="kv-k">Chronotype</span><span class="kv-v">${escapeHtml(agent.routines.chronotype)}</span></div>
+            <div class="kv-row"><span class="kv-k">Chronotype</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.routines.chronotype))}</span></div>
             <div class="kv-row"><span class="kv-k">Sleep</span><span class="kv-v">${escapeHtml(agent.routines.sleepWindow)}</span></div>
-            <div class="kv-row"><span class="kv-k">Recovery rituals</span><span class="kv-v">${escapeHtml(agent.routines.recoveryRituals.join(', '))}</span></div>
+            <div class="kv-row"><span class="kv-k">Recovery rituals</span><span class="kv-v">${escapeHtml(agent.routines.recoveryRituals.map(toTitleCaseWords).join(', '))}</span></div>
           </div>
         </section>
 
         <section class="agent-card">
           <h3>Appearance</h3>
           <div class="agent-kv">
-            <div class="kv-row"><span class="kv-k">Height</span><span class="kv-v">${escapeHtml(agent.appearance.heightBand)}</span></div>
-            <div class="kv-row"><span class="kv-k">Build</span><span class="kv-v">${escapeHtml(agent.appearance.buildTag)}</span></div>
-            <div class="kv-row"><span class="kv-k">Hair</span><span class="kv-v">${escapeHtml(`${agent.appearance.hair.color}, ${agent.appearance.hair.texture}`)}</span></div>
-            <div class="kv-row"><span class="kv-k">Eyes</span><span class="kv-v">${escapeHtml(agent.appearance.eyes.color)}</span></div>
-            <div class="kv-row"><span class="kv-k">Voice</span><span class="kv-v">${escapeHtml(agent.appearance.voiceTag)}</span></div>
-            <div class="kv-row"><span class="kv-k">Marks</span><span class="kv-v">${escapeHtml(agent.appearance.distinguishingMarks.join(', ') || '—')}</span></div>
+            <div class="kv-row"><span class="kv-k">Height</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.appearance.heightBand))}</span></div>
+            <div class="kv-row"><span class="kv-k">Build</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.appearance.buildTag))}</span></div>
+            <div class="kv-row"><span class="kv-k">Hair</span><span class="kv-v">${escapeHtml(`${toTitleCaseWords(agent.appearance.hair.color)}, ${toTitleCaseWords(agent.appearance.hair.texture)}`)}</span></div>
+            <div class="kv-row"><span class="kv-k">Eyes</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.appearance.eyes.color))}</span></div>
+            <div class="kv-row"><span class="kv-k">Voice</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.appearance.voiceTag))}</span></div>
+            <div class="kv-row"><span class="kv-k">Marks</span><span class="kv-v">${escapeHtml(agent.appearance.distinguishingMarks.map(toTitleCaseWords).join(', ') || '—')}</span></div>
           </div>
         </section>
 
@@ -302,9 +308,9 @@ function renderAgent(agent: GeneratedAgent): string {
           ${agent.vices.length
             ? agent.vices.map(v => `
               <div class="agent-vice-row">
-                <span class="pill">${escapeHtml(v.vice)}</span>
-                <span class="pill pill-muted">${escapeHtml(v.severity)}</span>
-                <span class="agent-vice-triggers">${escapeHtml(v.triggers.join(', '))}</span>
+                <span class="pill">${escapeHtml(toTitleCaseWords(v.vice))}</span>
+                <span class="pill pill-muted">${escapeHtml(toTitleCaseWords(v.severity))}</span>
+                <span class="agent-vice-triggers">${escapeHtml(v.triggers.map(toTitleCaseWords).join(', '))}</span>
               </div>
             `).join('')
             : `<div class="agent-muted">None</div>`}
@@ -315,8 +321,8 @@ function renderAgent(agent: GeneratedAgent): string {
           <div class="agent-kv">
             ${agent.logistics.identityKit.map(i => `
               <div class="kv-row">
-                <span class="kv-k">${escapeHtml(i.item)}</span>
-                <span class="kv-v">${escapeHtml(i.security)}${i.compromised ? ' (compromised)' : ''}</span>
+                <span class="kv-k">${escapeHtml(toTitleCaseWords(i.item))}</span>
+                <span class="kv-v">${escapeHtml(toTitleCaseWords(i.security))}${i.compromised ? ' (compromised)' : ''}</span>
               </div>
             `).join('')}
           </div>
@@ -387,7 +393,7 @@ export function initializeAgentsView(container: HTMLElement) {
                   <label class="agents-label">
                     Tier
                     <select id="agents-tier" class="agents-input">
-                      ${(['elite','middle','mass'] as const).map(t => `<option value="${t}" ${t === tierBand ? 'selected' : ''}>${t}</option>`).join('')}
+                      ${(['elite','middle','mass'] as const).map(t => `<option value="${t}" ${t === tierBand ? 'selected' : ''}>${escapeHtml(toTitleCaseWords(t))}</option>`).join('')}
                     </select>
                   </label>
                   <label class="agents-label">
@@ -400,7 +406,7 @@ export function initializeAgentsView(container: HTMLElement) {
                     Role seeds
                     <div class="agents-chips" id="agents-role-chips">
                       ${['operative','analyst','diplomat','organizer','technocrat','security','media','logistics'].map(tag => `
-                        <button type="button" class="chip ${overrideRoleTags.includes(tag) ? 'active' : ''}" data-role="${escapeHtml(tag)}">${escapeHtml(tag)}</button>
+                        <button type="button" class="chip ${overrideRoleTags.includes(tag) ? 'active' : ''}" data-role="${escapeHtml(tag)}">${escapeHtml(toTitleCaseWords(tag))}</button>
                       `).join('')}
                     </div>
                   </div>
