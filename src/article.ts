@@ -55,6 +55,13 @@ function slugify(value: string): string {
     .replace(/^-|-$/g, '');
 }
 
+function toKebabFromCamel(value: string): string {
+  return value
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .replace(/([A-Z])([A-Z][a-z])/g, '$1-$2')
+    .toLowerCase();
+}
+
 function mechanicPageId(pattern: string, mechanic: string): string {
   return `mechanic--${slugify(pattern)}--${slugify(mechanic)}`;
 }
@@ -106,6 +113,48 @@ function renderIssueMechanicsSection(issueId: string, data: GraphData): string {
   `;
 }
 
+type IssuePrimitive = {
+  id: string;
+  title: string;
+};
+
+function findPrimitivesForIssue(issueId: string, data: GraphData): IssuePrimitive[] {
+  const node = data.nodes.find(n => n.type === 'issue' && n.id === issueId);
+  const primitives = Array.isArray((node as any)?.primitives) ? (node as any).primitives as string[] : [];
+  const uniqueIds = Array.from(new Set(primitives.map(p => toKebabFromCamel(p))));
+
+  const items = uniqueIds.map(id => {
+    const article = data.articles?.[id];
+    const title = article?.type === 'primitive' ? article.title : id;
+    return { id, title };
+  });
+
+  return items.sort((a, b) => a.title.localeCompare(b.title));
+}
+
+function renderIssuePrimitivesSection(issueId: string, data: GraphData): string {
+  const node = data.nodes.find(n => n.type === 'issue' && n.id === issueId);
+  const hasPrimitives = Array.isArray((node as any)?.primitives) && (node as any).primitives.length > 0;
+  if (!hasPrimitives) return '';
+
+  const primitives = findPrimitivesForIssue(issueId, data);
+  if (primitives.length === 0) return '';
+
+  return `
+    <div class="related-section primitives-section">
+      <h3>Simulation Primitives (${primitives.length})</h3>
+      <div class="related-links">
+        ${primitives.map(p => `
+          <a href="#/wiki/${p.id}" class="related-link ${data.articles?.[p.id] ? 'has-article' : ''}">
+            ${p.title}
+            ${data.articles?.[p.id] ? '<span class="article-indicator">📄</span>' : ''}
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
 function renderMechanicRelatedContent(article: WikiArticle, data: GraphData): string {
   const pattern = typeof article.frontmatter?.pattern === 'string' ? article.frontmatter.pattern : '';
   const mechanic = typeof article.frontmatter?.mechanic === 'string' ? article.frontmatter.mechanic : '';
@@ -150,6 +199,26 @@ function renderMechanicRelatedContent(article: WikiArticle, data: GraphData): st
     }))
     .sort((a, b) => a.title.localeCompare(b.title));
 
+  const primitiveCounts = new Map<string, number>();
+  for (const issueId of issues.map(i => i.id)) {
+    const node = data.nodes.find(n => n.type === 'issue' && n.id === issueId);
+    const primitives = Array.isArray((node as any)?.primitives) ? (node as any).primitives as string[] : [];
+    for (const p of primitives) {
+      const pid = toKebabFromCamel(p);
+      primitiveCounts.set(pid, (primitiveCounts.get(pid) || 0) + 1);
+    }
+  }
+
+  const topPrimitives = Array.from(primitiveCounts.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 12)
+    .map(([id, count]) => ({
+      id,
+      title: data.articles?.[id]?.title ?? id,
+      count,
+      hasArticle: Boolean(data.articles?.[id]),
+    }));
+
   const INITIAL_SHOW = 30;
   const hasMore = issues.length > INITIAL_SHOW;
 
@@ -168,6 +237,153 @@ function renderMechanicRelatedContent(article: WikiArticle, data: GraphData): st
                   ${c.label}
                 </a>
               `).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${topPrimitives.length > 0 ? `
+        <div class="related-section primitives-section">
+          <h3>Common Primitives (${primitiveCounts.size})</h3>
+          <div class="related-links">
+            ${topPrimitives.map(p => `
+              <a
+                href="#/wiki/${p.id}"
+                class="related-link ${p.hasArticle ? 'has-article' : ''}"
+                title="Appears in ${p.count} issues tagged with this mechanic"
+              >
+                ${p.title}
+                <span style="color:#94a3b8; font-size:0.8rem;">(${p.count})</span>
+                ${p.hasArticle ? '<span class="article-indicator">📄</span>' : ''}
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${issues.length > 0 ? `
+        <div class="related-section" data-section="issues">
+          <h3>Issues (${issues.length})</h3>
+          <div class="related-links">
+            ${issues.slice(0, INITIAL_SHOW).map(n => `
+              <a
+                href="#/wiki/${n.id}"
+                class="related-link ${n.hasArticle ? 'has-article' : ''}"
+              >
+                ${n.title}
+                ${n.hasArticle ? '<span class="article-indicator">📄</span>' : ''}
+              </a>
+            `).join('')}
+            ${hasMore ? `
+              <div class="related-links-overflow" data-expanded="false">
+                ${issues.slice(INITIAL_SHOW).map(n => `
+                  <a
+                    href="#/wiki/${n.id}"
+                    class="related-link ${n.hasArticle ? 'has-article' : ''}"
+                  >
+                    ${n.title}
+                    ${n.hasArticle ? '<span class="article-indicator">📄</span>' : ''}
+                  </a>
+                `).join('')}
+              </div>
+              <button class="expand-toggle" data-target="issues">
+                <span class="expand-text">+${issues.length - INITIAL_SHOW} more</span>
+                <span class="collapse-text">Show less</span>
+              </button>
+            ` : ''}
+          </div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function renderPrimitiveRelatedContent(article: WikiArticle, data: GraphData): string {
+  if (article.type !== 'primitive') return '';
+
+  const issues = data.nodes
+    .filter(n => n.type === 'issue')
+    .filter(n => Array.isArray((n as any).primitives) && ((n as any).primitives as string[]).some(p => toKebabFromCamel(p) === article.id))
+    .map(n => ({
+      id: n.id,
+      title: data.articles?.[n.id]?.title ?? n.label ?? n.id,
+      hasArticle: Boolean(data.articles?.[n.id]),
+    }))
+    .sort((a, b) => a.title.localeCompare(b.title));
+
+  const mechanicsCounts = new Map<string, number>();
+  for (const issue of issues) {
+    const list = Array.isArray(data.articles?.[issue.id]?.frontmatter?.mechanics)
+      ? data.articles?.[issue.id]?.frontmatter?.mechanics as unknown[]
+      : [];
+    for (const raw of list) {
+      if (typeof raw !== 'string') continue;
+      const id = raw.trim();
+      if (!id) continue;
+      mechanicsCounts.set(id, (mechanicsCounts.get(id) || 0) + 1);
+    }
+  }
+
+  const topMechanics = Array.from(mechanicsCounts.entries())
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 12)
+    .map(([id, count]) => ({
+      id,
+      title: data.articles?.[id]?.title ?? id,
+      count,
+      hasArticle: Boolean(data.articles?.[id]),
+    }));
+
+  const relatedPrimitives = Array.isArray(article.frontmatter?.related_primitives)
+    ? (article.frontmatter.related_primitives as unknown[])
+        .filter((v: unknown): v is string => typeof v === 'string')
+        .map(v => v.trim())
+        .filter(Boolean)
+    : [];
+
+  const uniqueRelatedPrimitives = Array.from(new Set(relatedPrimitives))
+    .map(id => ({
+      id,
+      title: data.articles?.[id]?.title ?? id,
+      hasArticle: Boolean(data.articles?.[id]),
+    }))
+    .sort((a, b) => a.title.localeCompare(b.title));
+
+  const INITIAL_SHOW = 30;
+  const hasMore = issues.length > INITIAL_SHOW;
+
+  return `
+    <div class="related-content">
+      <h2>In the Simulation</h2>
+
+      ${topMechanics.length > 0 ? `
+        <div class="related-section mechanics-section">
+          <h3>Common Mechanics (${mechanicsCounts.size})</h3>
+          <div class="related-links">
+            ${topMechanics.map(m => `
+              <a
+                href="#/wiki/${m.id}"
+                class="related-link ${m.hasArticle ? 'has-article' : ''}"
+                title="Appears on ${m.count} issues using this primitive"
+              >
+                ${m.title}
+                <span style="color:#94a3b8; font-size:0.8rem;">(${m.count})</span>
+                ${m.hasArticle ? '<span class="article-indicator">📄</span>' : ''}
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      ` : ''}
+
+      ${uniqueRelatedPrimitives.length > 0 ? `
+        <div class="related-section primitives-section">
+          <h3>Related Primitives (${uniqueRelatedPrimitives.length})</h3>
+          <div class="related-links">
+            ${uniqueRelatedPrimitives.map(p => `
+              <a href="#/wiki/${p.id}" class="related-link ${p.hasArticle ? 'has-article' : ''}">
+                ${p.title}
+                ${p.hasArticle ? '<span class="article-indicator">📄</span>' : ''}
+              </a>
+            `).join('')}
           </div>
         </div>
       ` : ''}
@@ -385,7 +601,11 @@ export function renderArticleView(article: WikiArticle, data: GraphData): string
         ${article.html}
       </article>
 
-      ${article.type === 'mechanic' ? renderMechanicRelatedContent(article, data) : (node ? renderRelatedContent(node, data) : '')}
+      ${article.type === 'mechanic'
+        ? renderMechanicRelatedContent(article, data)
+        : article.type === 'primitive'
+          ? renderPrimitiveRelatedContent(article, data)
+          : (node ? renderRelatedContent(node, data) : '')}
 
       <div class="article-footer">
         <a
@@ -425,7 +645,11 @@ export function renderWikiArticleContent(article: WikiArticle, data: GraphData):
         ${article.html}
       </article>
 
-      ${article.type === 'mechanic' ? renderMechanicRelatedContent(article, data) : (node ? renderRelatedContent(node, data) : '')}
+      ${article.type === 'mechanic'
+        ? renderMechanicRelatedContent(article, data)
+        : article.type === 'primitive'
+          ? renderPrimitiveRelatedContent(article, data)
+          : (node ? renderRelatedContent(node, data) : '')}
 
       <div class="article-footer">
         <a
@@ -463,6 +687,7 @@ function renderRelatedContent(node: any, data: GraphData): string {
 
   const caseStudies = node.type === 'issue' ? findCaseStudiesForIssue(node.id, data) : [];
   const mechanicsSection = node.type === 'issue' ? renderIssueMechanicsSection(node.id, data) : '';
+  const primitivesSection = node.type === 'issue' ? renderIssuePrimitivesSection(node.id, data) : '';
 
   // Find principles for this issue (match sourceFile to issue id)
   const relatedPrinciples = node.type === 'issue' && data.principles
@@ -494,6 +719,7 @@ function renderRelatedContent(node: any, data: GraphData): string {
       ` : ''}
 
       ${mechanicsSection}
+      ${primitivesSection}
 
       ${caseStudies.length > 0 ? `
         <div class="related-section case-studies-section">
