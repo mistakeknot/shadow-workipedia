@@ -114,7 +114,7 @@ export interface IssueEvent {
 export interface WikiArticle {
   id: string;
   title: string;
-  type: 'issue' | 'system' | 'principle' | 'primitive' | 'mechanic';
+  type: 'issue' | 'system' | 'principle' | 'primitive' | 'mechanic' | 'countryIndex' | 'country' | 'vocabIndex' | 'vocabList' | 'vocabItem';
   frontmatter: Record<string, any>;
   content: string;
   html: string;

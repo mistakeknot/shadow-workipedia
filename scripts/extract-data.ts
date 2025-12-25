@@ -1,6 +1,8 @@
+import { createHash } from 'crypto';
 import { writeFileSync, readFileSync, existsSync, readdirSync } from 'fs';
 import { join } from 'path';
 import * as yaml from 'yaml';
+import { marked } from 'marked';
 import type { GraphData, GraphNode, GraphEdge, IssueCategory, IssueUrgency, CommunityInfo, PrincipleInfo, DataFlowInfo, PrimitiveName, IssueEvent } from '../src/types';
 import { parseSystemWalkTracker, getSystemWalkData } from './parse-system-walks';
 import { loadWikiContent, getWikiArticle, type WikiArticle } from './parse-wiki';
@@ -147,6 +149,355 @@ function normalizeAffectedSystems(rawSystems: unknown): CanonicalSystem[] {
     out.push(canonical);
   }
   return out;
+}
+
+function stableHash8(input: string): string {
+  return createHash('sha1').update(input).digest('hex').slice(0, 8);
+}
+
+function titleCaseWords(raw: string): string {
+  return raw
+    .split(/\s+/g)
+    .filter(Boolean)
+    .map(word => word.slice(0, 1).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+function humanizeKey(raw: string): string {
+  const withSpaces = raw
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/[-_]+/g, ' ')
+    .trim();
+  return titleCaseWords(withSpaces);
+}
+
+function slugify(raw: string): string {
+  const normalized = raw
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+  const slug = normalized
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-+/g, '-');
+  return slug || stableHash8(raw);
+}
+
+function buildGeneratedWikiArticle(input: {
+  id: string;
+  title: string;
+  type: WikiArticle['type'];
+  frontmatter: Record<string, any>;
+  contentMd: string;
+  lastUpdated?: string;
+}): WikiArticle {
+  const content = input.contentMd.trim() + '\n';
+  const html = marked.parse(content) as string;
+  const wordCount = content.split(/\s+/).filter(Boolean).length;
+  return {
+    id: input.id,
+    title: input.title,
+    type: input.type,
+    frontmatter: input.frontmatter,
+    content,
+    html,
+    wordCount,
+    lastUpdated: input.lastUpdated || new Date().toISOString().split('T')[0]!,
+  };
+}
+
+type StringListVocab = { path: string; items: string[] };
+
+function collectStringLists(root: unknown): StringListVocab[] {
+  const out: StringListVocab[] = [];
+
+  const skipTopKeys = new Set(['version', 'cultureProfiles', 'microCultureProfiles']);
+
+  const walk = (value: unknown, pathParts: string[]) => {
+    if (Array.isArray(value)) {
+      if (value.length > 0 && value.every(v => typeof v === 'string')) {
+        out.push({ path: pathParts.join('.'), items: value as string[] });
+      }
+      return;
+    }
+
+    if (!value || typeof value !== 'object') return;
+    for (const [key, next] of Object.entries(value as Record<string, unknown>)) {
+      if (pathParts.length === 0 && skipTopKeys.has(key)) continue;
+      walk(next, [...pathParts, key]);
+    }
+  };
+
+  walk(root, []);
+  return out;
+}
+
+function generateCountryWikiArticles(): Record<string, WikiArticle> {
+  if (!existsSync(SHADOW_COUNTRY_MAP_INPUT_PATH)) return {};
+  const raw = readFileSync(SHADOW_COUNTRY_MAP_INPUT_PATH, 'utf-8');
+  const entries = JSON.parse(raw) as Array<{ real: string; shadow: string; iso3: string; continent?: string; population?: number }>;
+
+  const byContinent = new Map<string, Array<(typeof entries)[number]>>();
+  for (const entry of entries) {
+    const continent = typeof entry.continent === 'string' && entry.continent.trim() ? entry.continent.trim() : 'Unknown';
+    const bucket = byContinent.get(continent) ?? [];
+    bucket.push(entry);
+    byContinent.set(continent, bucket);
+  }
+
+  for (const bucket of byContinent.values()) {
+    bucket.sort((a, b) => (a.shadow || '').localeCompare(b.shadow || '') || (a.iso3 || '').localeCompare(b.iso3 || ''));
+  }
+
+  const continents = Array.from(byContinent.keys()).sort((a, b) => a.localeCompare(b));
+
+  const countryIndexMd = [
+    `This is a generated reference view of Shadow Work countries.`,
+    ``,
+    `- Source: \`data/country-shadow-map.json\``,
+    ``,
+    `## Continents`,
+    ...continents.flatMap(continent => {
+      const bucket = byContinent.get(continent) ?? [];
+      return [
+        ``,
+        `### ${continent} (${bucket.length})`,
+        ...bucket.map(entry => {
+          const iso3 = String(entry.iso3 || '').trim();
+          const id = `country-${slugify(iso3)}`;
+          const shadow = String(entry.shadow || '').trim() || iso3;
+          return `- [${shadow} (${iso3})](#/wiki/${id})`;
+        }),
+      ];
+    }),
+    ``,
+  ].join('\n');
+
+  const articles: Record<string, WikiArticle> = {};
+
+  articles['countries'] = buildGeneratedWikiArticle({
+    id: 'countries',
+    title: 'Countries',
+    type: 'countryIndex',
+    frontmatter: {
+      id: 'countries',
+      title: 'Countries',
+      generated: true,
+      sourceRepo: 'vibeguider/shadow-work',
+      sourcePath: 'data/country-shadow-map.json',
+      lastUpdated: new Date().toISOString().split('T')[0],
+    },
+    contentMd: countryIndexMd,
+  });
+
+  for (const entry of entries) {
+    const iso3 = String(entry.iso3 || '').trim();
+    if (!iso3) continue;
+
+    const id = `country-${slugify(iso3)}`;
+    const shadow = String(entry.shadow || '').trim() || iso3;
+    const real = String(entry.real || '').trim() || '';
+    const continent = typeof entry.continent === 'string' ? entry.continent.trim() : '';
+    const population = typeof entry.population === 'number' && Number.isFinite(entry.population) ? entry.population : null;
+
+    const md = [
+      `## Overview`,
+      ``,
+      `- **Shadow name:** ${shadow}`,
+      real ? `- **Real-world name:** ${titleCaseWords(real.toLowerCase())}` : `- **Real-world name:** —`,
+      `- **ISO3:** ${iso3}`,
+      continent ? `- **Continent:** ${continent}` : `- **Continent:** —`,
+      population !== null ? `- **Population:** ${population.toLocaleString()}` : `- **Population:** —`,
+      ``,
+      `## Links`,
+      `- [All countries](#/wiki/countries)`,
+      ``,
+      `---`,
+      ``,
+      `Generated from \`data/country-shadow-map.json\`.`,
+      ``,
+    ].join('\n');
+
+    articles[id] = buildGeneratedWikiArticle({
+      id,
+      title: shadow,
+      type: 'country',
+      frontmatter: {
+        id,
+        title: shadow,
+        generated: true,
+        iso3,
+        shadow,
+        real,
+        continent: continent || undefined,
+        population: population ?? undefined,
+        sourceRepo: 'vibeguider/shadow-work',
+        sourcePath: 'data/country-shadow-map.json',
+        lastUpdated: new Date().toISOString().split('T')[0],
+      },
+      contentMd: md,
+    });
+  }
+
+  return articles;
+}
+
+function generateAgentVocabWikiArticles(): Record<string, WikiArticle> {
+  if (!existsSync(AGENT_VOCAB_INPUT_PATH)) return {};
+  const raw = readFileSync(AGENT_VOCAB_INPUT_PATH, 'utf-8');
+  const vocab = JSON.parse(raw) as unknown;
+
+  const lists = collectStringLists(vocab)
+    .filter(l => l.path && l.items.length > 0)
+    .sort((a, b) => a.path.localeCompare(b.path));
+
+  const listArticles: Record<string, WikiArticle> = {};
+  const itemArticles: Record<string, WikiArticle> = {};
+
+  const listIdByPath = new Map<string, string>();
+  for (const list of lists) {
+    const listId = `vocab-list-${slugify(list.path)}`;
+    listIdByPath.set(list.path, listId);
+
+    const leafLabel = humanizeKey(list.path.split('.').slice(-1)[0] || list.path);
+    const title = `Vocab: ${leafLabel}`;
+
+    const uniqueItems: string[] = [];
+    const seen = new Set<string>();
+    for (const item of list.items) {
+      if (typeof item !== 'string') continue;
+      const trimmed = item.trim();
+      if (!trimmed) continue;
+      if (seen.has(trimmed)) continue;
+      seen.add(trimmed);
+      uniqueItems.push(trimmed);
+    }
+
+    const md = [
+      `- **Path:** \`${list.path}\``,
+      `- **Items:** ${uniqueItems.length}`,
+      ``,
+      `## Items`,
+      ``,
+      ...uniqueItems.map(item => {
+        const itemSlugBase = `${list.path}::${item}`;
+        const itemId = `vocab-item-${slugify(list.path)}-${slugify(item)}-${stableHash8(itemSlugBase)}`;
+        return `- [${item}](#/wiki/${itemId})`;
+      }),
+      ``,
+      `---`,
+      ``,
+      `Generated from \`data/agent-generation/v1/vocab.json\`.`,
+      ``,
+    ].join('\n');
+
+    listArticles[listId] = buildGeneratedWikiArticle({
+      id: listId,
+      title,
+      type: 'vocabList',
+      frontmatter: {
+        id: listId,
+        title,
+        generated: true,
+        path: list.path,
+        itemCount: uniqueItems.length,
+        sourceRepo: 'vibeguider/shadow-work',
+        sourcePath: 'data/agent-generation/v1/vocab.json',
+        lastUpdated: new Date().toISOString().split('T')[0],
+      },
+      contentMd: md,
+    });
+
+    for (const item of uniqueItems) {
+      const itemSlugBase = `${list.path}::${item}`;
+      const itemId = `vocab-item-${slugify(list.path)}-${slugify(item)}-${stableHash8(itemSlugBase)}`;
+      const itemTitle = `${item} — ${leafLabel}`;
+      const mdItem = [
+        `## Value`,
+        ``,
+        `\`${item}\``,
+        ``,
+        `## Belongs to`,
+        `- [${title}](#/wiki/${listId})`,
+        ``,
+        `- **Path:** \`${list.path}\``,
+        ``,
+        `---`,
+        ``,
+        `Generated from \`data/agent-generation/v1/vocab.json\`.`,
+        ``,
+      ].join('\n');
+
+      itemArticles[itemId] = buildGeneratedWikiArticle({
+        id: itemId,
+        title: itemTitle,
+        type: 'vocabItem',
+        frontmatter: {
+          id: itemId,
+          title: itemTitle,
+          generated: true,
+          value: item,
+          listPath: list.path,
+          listId,
+          sourceRepo: 'vibeguider/shadow-work',
+          sourcePath: 'data/agent-generation/v1/vocab.json',
+          lastUpdated: new Date().toISOString().split('T')[0],
+        },
+        contentMd: mdItem,
+      });
+    }
+  }
+
+  const byTop = new Map<string, Array<{ path: string; listId: string; title: string }>>();
+  for (const [path, listId] of listIdByPath.entries()) {
+    const top = path.split('.')[0] || 'root';
+    const leafLabel = humanizeKey(path.split('.').slice(-1)[0] || path);
+    const title = `Vocab: ${leafLabel}`;
+    const bucket = byTop.get(top) ?? [];
+    bucket.push({ path, listId, title });
+    byTop.set(top, bucket);
+  }
+  for (const bucket of byTop.values()) {
+    bucket.sort((a, b) => a.path.localeCompare(b.path));
+  }
+
+  const vocabIndexMd = [
+    `This is a generated index of the agent generation vocabulary lists and items.`,
+    ``,
+    `- Source: \`data/agent-generation/v1/vocab.json\``,
+    ``,
+    `## Vocab Lists`,
+    ...Array.from(byTop.keys()).sort().flatMap(top => {
+      const bucket = byTop.get(top) ?? [];
+      return [
+        ``,
+        `### ${humanizeKey(top)} (${bucket.length})`,
+        ...bucket.map(x => `- [${x.title.replace(/^Vocab:\\s*/, '')}](#/wiki/${x.listId})`),
+      ];
+    }),
+    ``,
+  ].join('\n');
+
+  const vocabIndex = buildGeneratedWikiArticle({
+    id: 'agent-vocab-v1',
+    title: 'Agent Vocabulary (v1)',
+    type: 'vocabIndex',
+    frontmatter: {
+      id: 'agent-vocab-v1',
+      title: 'Agent Vocabulary (v1)',
+      generated: true,
+      sourceRepo: 'vibeguider/shadow-work',
+      sourcePath: 'data/agent-generation/v1/vocab.json',
+      lastUpdated: new Date().toISOString().split('T')[0],
+    },
+    contentMd: vocabIndexMd,
+  });
+
+  return {
+    'agent-vocab-v1': vocabIndex,
+    ...listArticles,
+    ...itemArticles,
+  };
 }
 
 interface RawIssue {
@@ -1824,6 +2175,13 @@ async function main() {
     wikiArticles[id] = article;
   }
   for (const [id, article] of wikiContent.mechanics) {
+    wikiArticles[id] = article;
+  }
+  // Generated reference articles (countries + agent vocab)
+  for (const [id, article] of Object.entries(generateCountryWikiArticles())) {
+    wikiArticles[id] = article;
+  }
+  for (const [id, article] of Object.entries(generateAgentVocabWikiArticles())) {
     wikiArticles[id] = article;
   }
   console.log(`  - ${issuesWithEvents} issues with ${totalEvents} events attached`);

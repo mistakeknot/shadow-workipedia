@@ -95,6 +95,8 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
   // If node has a wiki article, show the article content
   if (node.hasArticle && data.articles && data.articles[node.id]) {
     const article = data.articles[node.id];
+    const fileBackedTypes: Array<typeof article.type> = ['issue', 'system', 'principle', 'primitive', 'mechanic'];
+    const isFileBacked = fileBackedTypes.includes(article.type);
     return `
       <div class="panel-article-view">
         <div class="panel-article-header">
@@ -115,13 +117,15 @@ function renderDetailPanel(node: SimNode, data: GraphData): string {
         </article>
         ${renderPanelRelatedContent(node, data)}
         <div class="article-footer">
-          <a
-            href="https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/${article.type}s/${article.id}.md"
-            target="_blank"
-            class="edit-link"
-          >
-            📝 Edit this article on GitHub
-          </a>
+          ${isFileBacked ? `
+            <a
+              href="https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/${article.type}s/${article.id}.md"
+              target="_blank"
+              class="edit-link"
+            >
+              📝 Edit this article on GitHub
+            </a>
+          ` : ''}
         </div>
       </div>
     `;
@@ -2543,6 +2547,9 @@ async function main() {
 		      !isHiddenArticle(a) &&
 		      !isMergedArticle(a)
 		    );
+	    const countryIndexArticles = articles.filter(a => a.type === 'countryIndex');
+	    const vocabIndexArticles = articles.filter(a => a.type === 'vocabIndex');
+	    const vocabListArticles = articles.filter(a => a.type === 'vocabList');
 
 	    const communitiesRaw = data.communities ? Object.values(data.communities) : [];
 	    const communities = communitiesRaw.slice().sort((a, b) => {
@@ -2637,6 +2644,9 @@ async function main() {
 	      ${renderSidebarSection('Principles', 'principles', principleArticles)}
 	      ${renderSidebarSection('Primitives', 'primitives', primitiveArticles)}
 	      ${renderSidebarSection('Mechanics', 'mechanics', mechanicArticles)}
+	      ${renderSidebarSection('Countries', 'countries', countryIndexArticles)}
+	      ${renderSidebarSection('Vocab', 'vocab', vocabIndexArticles)}
+	      ${renderSidebarSection('Vocab Lists', 'vocab-lists', vocabListArticles)}
 	      ${renderCommunitiesSidebarSection('Communities', 'communities', communities)}
 	    `;
 
@@ -3066,6 +3076,9 @@ async function main() {
 	            ${renderCollapsibleSection('Principles', principleArticles, 'principles-section')}
 	            ${renderCollapsibleSection('Primitives', primitiveArticles, 'primitives-section')}
 	            ${renderCollapsibleSection('Mechanics', mechanicArticles, 'mechanics-section')}
+	            ${renderCollapsibleSection('Countries', countryIndexArticles, 'countries-section')}
+	            ${renderCollapsibleSection('Vocab', vocabIndexArticles, 'vocab-section')}
+	            ${renderCollapsibleSection('Vocab Lists', vocabListArticles, 'vocab-section')}
 	            ${renderCommunityCollapsibleSection('Communities', communities)}
 	          </div>
 	        </div>
@@ -3079,7 +3092,7 @@ async function main() {
 	        if (articleId && data.articles && data.articles[articleId]) {
 	          const article = data.articles[articleId];
 	          // Navigate via router to update URL
-	          router.navigateToArticle(article.type as 'issue' | 'system' | 'principle' | 'primitive' | 'mechanic', articleId);
+	          router.navigateToArticle(article.type, articleId);
 	          return;
 	        }
 
@@ -3163,7 +3176,7 @@ async function main() {
           const articleId = wikiMatch[1];
           const article = data.articles?.[articleId];
           if (article) {
-            router.navigateToArticle(article.type as 'issue' | 'system' | 'principle' | 'primitive' | 'mechanic', articleId);
+            router.navigateToArticle(article.type, articleId);
             return;
           }
 

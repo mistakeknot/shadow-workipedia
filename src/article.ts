@@ -466,7 +466,7 @@ function renderRedirectBanner(article: WikiArticle, data: GraphData): string {
 export type ViewType = 'graph' | 'table' | 'wiki' | 'agents' | 'communities';
 export type RouteType =
   | { kind: 'view'; view: ViewType }
-  | { kind: 'article'; type: 'issue' | 'system' | 'principle' | 'primitive' | 'mechanic'; slug: string }
+  | { kind: 'article'; type: WikiArticle['type']; slug: string }
   | { kind: 'community'; slug: string }
   | null;
 
@@ -554,7 +554,7 @@ export class ArticleRouter {
     this.navigateToView('graph');
   }
 
-  navigateToArticle(_type: 'issue' | 'system' | 'principle' | 'primitive' | 'mechanic', slug: string) {
+  navigateToArticle(_type: WikiArticle['type'], slug: string) {
     // Use #/wiki/slug for issues, systems, and principles (wiki view with sidebar)
     window.location.hash = `#/wiki/${slug}`;
   }
@@ -615,13 +615,7 @@ export function renderArticleView(article: WikiArticle, data: GraphData): string
           : (node ? renderRelatedContent(node, data) : '')}
 
       <div class="article-footer">
-        <a
-          href="https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/${article.type}s/${article.id}.md"
-          target="_blank"
-          class="edit-link"
-        >
-          📝 Edit this article on GitHub
-        </a>
+        ${renderEditOrSourceLink(article)}
       </div>
     </div>
   `;
@@ -659,16 +653,46 @@ export function renderWikiArticleContent(article: WikiArticle, data: GraphData):
           : (node ? renderRelatedContent(node, data) : '')}
 
       <div class="article-footer">
-        <a
-          href="https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/${article.type}s/${article.id}.md"
-          target="_blank"
-          class="edit-link"
-        >
-          📝 Edit this article on GitHub
-        </a>
+        ${renderEditOrSourceLink(article)}
       </div>
     </div>
   `;
+}
+
+function renderEditOrSourceLink(article: WikiArticle): string {
+  const fileBackedTypes: WikiArticle['type'][] = ['issue', 'system', 'principle', 'primitive', 'mechanic'];
+  const isFileBacked = fileBackedTypes.includes(article.type);
+  if (isFileBacked) {
+    return `
+      <a
+        href="https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/${article.type}s/${article.id}.md"
+        target="_blank"
+        class="edit-link"
+      >
+        📝 Edit this article on GitHub
+      </a>
+    `;
+  }
+
+  const sourceRepo = typeof article.frontmatter?.sourceRepo === 'string' ? article.frontmatter.sourceRepo.trim() : '';
+  const sourcePath = typeof article.frontmatter?.sourcePath === 'string' ? article.frontmatter.sourcePath.trim() : '';
+  const sourceLabel = sourceRepo && sourcePath ? `${sourceRepo}:${sourcePath}` : (sourcePath || 'Shadow Work data');
+
+  return `
+    <div class="generated-article-note">
+      <span class="generated-badge">Generated</span>
+      <span class="generated-source">${escapeHtml(sourceLabel)}</span>
+    </div>
+  `;
+}
+
+function escapeHtml(input: string): string {
+  return input
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 /**

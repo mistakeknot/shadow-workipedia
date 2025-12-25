@@ -6,7 +6,7 @@ import { marked } from 'marked';
 export interface WikiArticle {
   id: string;
   title: string;
-  type: 'issue' | 'system' | 'principle' | 'primitive' | 'mechanic';
+  type: 'issue' | 'system' | 'principle' | 'primitive' | 'mechanic' | 'countryIndex' | 'country' | 'vocabIndex' | 'vocabList' | 'vocabItem';
   frontmatter: Record<string, any>;
   content: string;
   html: string;
@@ -26,7 +26,7 @@ function humanizeWikiId(id: string): string {
   const trimmed = id.trim();
   if (!trimmed) return '';
 
-  const prefixed = trimmed.match(/^(mechanic|issue|system|principle|primitive|community)--(.+?)--(.+)$/);
+  const prefixed = trimmed.match(/^(mechanic|issue|system|principle|primitive|community|country|vocab|vocabList|vocabItem)--(.+?)--(.+)$/);
   if (prefixed && prefixed[2] === prefixed[3]) {
     return titleCaseWords(prefixed[2].replace(/[-_]+/g, ' '));
   }
