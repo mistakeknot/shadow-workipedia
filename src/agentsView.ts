@@ -120,6 +120,19 @@ function toTitleCaseWords(input: string): string {
   return mapped.join(' ').replace(/\bSci Fi\b/g, 'Sci-Fi');
 }
 
+function displayLanguageCode(codeRaw: string): string {
+  const code = codeRaw.trim().toLowerCase();
+  if (!code) return codeRaw;
+  // Prefer Intl when available; fall back to code.
+  try {
+    const dn = new Intl.DisplayNames(['en'], { type: 'language' });
+    const name = dn.of(code);
+    return name ? toTitleCaseWords(name) : code.toUpperCase();
+  } catch {
+    return code.toUpperCase();
+  }
+}
+
 function humanizeAgentForExport(agent: GeneratedAgent, shadowByIso3?: ReadonlyMap<string, { shadow: string; continent?: string }>): unknown {
   const { generationTrace: _generationTrace, ...agentWithoutTrace } = agent;
   const platformDiet: Record<string, number> = {};
@@ -143,6 +156,12 @@ function humanizeAgentForExport(agent: GeneratedAgent, shadowByIso3?: ReadonlyMa
       educationTrackTag: toTitleCaseWords(agent.identity.educationTrackTag),
       careerTrackTag: toTitleCaseWords(agent.identity.careerTrackTag),
       redLines: agent.identity.redLines.map(toTitleCaseWords),
+      languages: agent.identity.languages.map(displayLanguageCode),
+      languageProficiencies: agent.identity.languageProficiencies.map(lp => ({
+        ...lp,
+        language: displayLanguageCode(lp.language),
+        proficiencyBand: toTitleCaseWords(lp.proficiencyBand),
+      })),
     },
     appearance: {
       ...agent.appearance,
@@ -301,7 +320,7 @@ function renderAgent(agent: GeneratedAgent, shadowByIso3: ReadonlyMap<string, { 
     .join('');
 
   const roleTags = agent.identity.roleSeedTags.map(t => `<span class="pill">${escapeHtml(toTitleCaseWords(t))}</span>`).join('');
-  const langTags = agent.identity.languages.map(t => `<span class="pill pill-muted">${escapeHtml(t)}</span>`).join('');
+  const langTags = agent.identity.languages.map(t => `<span class="pill pill-muted">${escapeHtml(displayLanguageCode(t))}</span>`).join('');
 
   const skillRows = Object.entries(skills)
     .map(([k, v]) => `
@@ -344,7 +363,7 @@ function renderAgent(agent: GeneratedAgent, shadowByIso3: ReadonlyMap<string, { 
         <section class="agent-card">
           <h3>Identity</h3>
           <div class="agent-kv">
-            <div class="kv-row"><span class="kv-k">Languages</span><span class="kv-v">${escapeHtml(agent.identity.languageProficiencies.map(lp => `${lp.language} (${toTitleCaseWords(lp.proficiencyBand)})`).join(', '))}</span></div>
+            <div class="kv-row"><span class="kv-k">Languages</span><span class="kv-v">${escapeHtml(agent.identity.languageProficiencies.map(lp => `${displayLanguageCode(lp.language)} (${toTitleCaseWords(lp.proficiencyBand)})`).join(', '))}</span></div>
             <div class="kv-row"><span class="kv-k">Education</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.educationTrackTag))}</span></div>
             <div class="kv-row"><span class="kv-k">Career</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.careerTrackTag))}</span></div>
             <div class="kv-row"><span class="kv-k">Mobility</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.mobilityTag))}</span></div>

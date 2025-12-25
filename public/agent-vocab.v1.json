@@ -162,37 +162,37 @@
       "Zhang"
     ],
     "languages": [
-      "English",
-      "Spanish",
-      "French",
-      "Arabic",
-      "Hindi",
-      "Mandarin",
-      "Russian",
-      "Portuguese",
-      "Japanese",
-      "Swahili",
-      "Turkish",
-      "German",
-      "Korean",
-      "Italian",
-      "Dutch",
-      "Polish",
-      "Ukrainian",
-      "Greek",
-      "Hebrew",
-      "Persian",
-      "Urdu",
-      "Bengali",
-      "Tamil",
-      "Vietnamese",
-      "Thai",
-      "Indonesian",
-      "Malay",
-      "Tagalog",
-      "Hausa",
-      "Yoruba",
-      "Amharic"
+      "en",
+      "es",
+      "fr",
+      "ar",
+      "hi",
+      "zh",
+      "ru",
+      "pt",
+      "ja",
+      "sw",
+      "tr",
+      "de",
+      "ko",
+      "it",
+      "nl",
+      "pl",
+      "uk",
+      "el",
+      "he",
+      "fa",
+      "ur",
+      "bn",
+      "ta",
+      "vi",
+      "th",
+      "id",
+      "ms",
+      "tl",
+      "ha",
+      "yo",
+      "am"
     ],
     "educationTracks": [
       "secondary",
@@ -517,7 +517,7 @@
       "identity": {
         "firstNames": ["Carlos", "Maria", "Ana", "Luis", "Camila", "Diego", "Valentina", "Isabella", "Jordan", "Maya", "Ethan", "Aaliyah", "Santiago", "Lucia"],
         "lastNames": ["Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Wilson", "Taylor", "Anderson", "Martinez", "Rodriguez", "Hernandez", "Lopez", "Gonzalez"],
-        "languages": ["English", "Spanish", "Portuguese", "French"]
+        "languages": ["en", "es", "pt", "fr"]
       },
       "preferences": {
         "food": {
@@ -533,7 +533,7 @@
       "identity": {
         "firstNames": ["Luca", "Elena", "Marta", "Jakub", "Katarina", "Sven", "Freja", "Nikolai", "Ines", "Theo", "Amelie", "Sofia", "Rafael", "Anya"],
         "lastNames": ["Rossi", "Bianchi", "Dubois", "Moretti", "Fischer", "Kowalski", "Popov", "Novak", "Papadopoulos", "Nowak", "Schmidt", "Garcia"],
-        "languages": ["English", "French", "German", "Italian", "Polish", "Dutch", "Greek", "Russian", "Spanish"]
+        "languages": ["en", "fr", "de", "it", "pl", "nl", "el", "ru", "es"]
       },
       "preferences": {
         "food": {
@@ -549,7 +549,7 @@
       "identity": {
         "firstNames": ["Omar", "Fatima", "Youssef", "Aisha", "Karim", "Layla", "Hassan", "Nour", "Zain", "Mariam", "Samir", "Rana"],
         "lastNames": ["Haddad", "Ibrahim", "Al-Farsi", "Al-Masri", "El-Sayed", "Hosseini", "Farah", "Khalil", "Nasser"],
-        "languages": ["Arabic", "French", "English", "Turkish", "Persian", "Hebrew"]
+        "languages": ["ar", "fr", "en", "tr", "fa", "he"]
       },
       "preferences": {
         "food": {
@@ -565,7 +565,7 @@
       "identity": {
         "firstNames": ["Amara", "Imani", "Zuri", "Kofi", "Kwame", "Ayo", "Nia", "Tari", "Chinedu", "Sade", "Binta", "Zola"],
         "lastNames": ["Mensah", "Okoye", "Okafor", "Adeyemi", "Ndlovu", "Dlamini", "Kamau", "Diallo", "Traore", "Abebe"],
-        "languages": ["English", "French", "Swahili", "Hausa", "Yoruba", "Amharic", "Arabic", "Portuguese"]
+        "languages": ["en", "fr", "sw", "ha", "yo", "am", "ar", "pt"]
       },
       "preferences": {
         "food": {
@@ -581,7 +581,7 @@
       "identity": {
         "firstNames": ["Arjun", "Ananya", "Rahul", "Neha", "Ravi", "Sana", "Ayesha", "Imran", "Sanjay", "Meera", "Priya", "Dev"],
         "lastNames": ["Patel", "Singh", "Sharma", "Gupta", "Chowdhury", "Iyer", "Khan", "Roy", "Das"],
-        "languages": ["Hindi", "Urdu", "Bengali", "Tamil", "English"]
+        "languages": ["hi", "ur", "bn", "ta", "en"]
       },
       "preferences": {
         "food": {
@@ -597,7 +597,7 @@
       "identity": {
         "firstNames": ["Wei", "Mei", "Jun", "Hana", "Haruto", "Yuna", "Min", "Sora", "Jin", "Kei", "Mai", "Rin"],
         "lastNames": ["Wang", "Zhang", "Liu", "Chen", "Tanaka", "Suzuki", "Sato", "Park", "Kim", "Lee", "Nguyen"],
-        "languages": ["Mandarin", "Japanese", "Korean", "English", "Vietnamese"]
+        "languages": ["zh", "ja", "ko", "en", "vi"]
       },
       "preferences": {
         "food": {
@@ -613,7 +613,7 @@
       "identity": {
         "firstNames": ["Aroha", "Manaia", "Tane", "Moana", "Kiri", "Hine", "Olivia", "Jack", "Noah", "Ava", "Isla"],
         "lastNames": ["Ngata", "Te Rangi", "Brown", "Wilson", "Taylor", "Thompson", "Anderson"],
-        "languages": ["English"]
+        "languages": ["en"]
       },
       "preferences": {
         "food": {

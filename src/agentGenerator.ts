@@ -1343,15 +1343,15 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   };
 
   const arabicMass01 = (() => {
-    const home = (homeLangEnv01k?.Arabic ?? 0) / 1000;
-    const citizenship = citizenshipLangEnv01k ? (citizenshipLangEnv01k.Arabic ?? 0) / 1000 : 0;
-    const current = currentLangEnv01k ? (currentLangEnv01k.Arabic ?? 0) / 1000 : 0;
+    const home = (homeLangEnv01k?.ar ?? 0) / 1000;
+    const citizenship = citizenshipLangEnv01k ? (citizenshipLangEnv01k.ar ?? 0) / 1000 : 0;
+    const current = currentLangEnv01k ? (currentLangEnv01k.ar ?? 0) / 1000 : 0;
     return clamp01(home + 0.35 * cosmo01 * citizenship + 0.45 * cosmo01 * current, 0);
   })();
   const hebrewMass01 = (() => {
-    const home = (homeLangEnv01k?.Hebrew ?? 0) / 1000;
-    const citizenship = citizenshipLangEnv01k ? (citizenshipLangEnv01k.Hebrew ?? 0) / 1000 : 0;
-    const current = currentLangEnv01k ? (currentLangEnv01k.Hebrew ?? 0) / 1000 : 0;
+    const home = (homeLangEnv01k?.he ?? 0) / 1000;
+    const citizenship = citizenshipLangEnv01k ? (citizenshipLangEnv01k.he ?? 0) / 1000 : 0;
+    const current = currentLangEnv01k ? (currentLangEnv01k.he ?? 0) / 1000 : 0;
     return clamp01(home + 0.35 * cosmo01 * citizenship + 0.45 * cosmo01 * current, 0);
   })();
 
