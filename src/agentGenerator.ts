@@ -20,6 +20,21 @@ export type AgentPriorsV1 = {
           cohortBucketStartYear: number;
           indicators?: Record<string, unknown>;
           languages01k?: Record<string, Fixed>;
+          foodEnvironment01k?: Partial<
+            Record<
+              | 'meat'
+              | 'dairy'
+              | 'seafood'
+              | 'spice'
+              | 'sweets'
+              | 'friedOily'
+              | 'caffeine'
+              | 'streetFood'
+              | 'fineDining'
+              | 'plantForward',
+              Fixed
+            >
+          >;
           appearance?: { heightBandWeights01k?: Partial<Record<HeightBand, Fixed>> };
           mediaEnvironment01k?: Partial<Record<'print' | 'radio' | 'tv' | 'social' | 'closed', Fixed>>;
           educationTrackWeights?: Record<string, number>;
@@ -411,18 +426,70 @@ function uniqueStrings(items: readonly string[]): string[] {
   return out;
 }
 
-function pickWeightedFromPools(rng: Rng, primary: readonly string[], fallback: readonly string[], primaryWeight: number): string {
-  const usePrimary = primary.length > 0 && rng.next01() < primaryWeight;
-  const pool = usePrimary ? primary : fallback;
-  return rng.pick(pool);
-}
-
 function pickKHybrid(rng: Rng, primary: readonly string[], fallback: readonly string[], k: number, primaryCount: number): string[] {
   const primaryK = Math.max(0, Math.min(k, primaryCount));
   const fallbackK = Math.max(0, k - primaryK);
   const a = primary.length ? rng.pickK(primary, primaryK) : [];
   const b = fallback.length ? rng.pickK(fallback, fallbackK) : [];
   return uniqueStrings([...a, ...b]).slice(0, k);
+}
+
+type FoodEnvAxis =
+  | 'meat'
+  | 'dairy'
+  | 'seafood'
+  | 'spice'
+  | 'sweets'
+  | 'friedOily'
+  | 'caffeine'
+  | 'streetFood'
+  | 'fineDining'
+  | 'plantForward';
+
+type FoodEnv01k = Record<FoodEnvAxis, Fixed>;
+
+const FOOD_ENV_AXES: readonly FoodEnvAxis[] = [
+  'meat',
+  'dairy',
+  'seafood',
+  'spice',
+  'sweets',
+  'friedOily',
+  'caffeine',
+  'streetFood',
+  'fineDining',
+  'plantForward',
+];
+
+function normalizeFoodEnv01k(env: Partial<Record<FoodEnvAxis, Fixed>> | null | undefined): FoodEnv01k | null {
+  if (!env || typeof env !== 'object') return null;
+  let hasAny = false;
+  const out: Record<string, Fixed> = {};
+  for (const axis of FOOD_ENV_AXES) {
+    const v = Number(env[axis]);
+    if (Number.isFinite(v)) {
+      hasAny = true;
+      out[axis] = clampFixed01k(v);
+    } else {
+      out[axis] = 500;
+    }
+  }
+  return hasAny ? (out as FoodEnv01k) : null;
+}
+
+function mixFoodEnv01k(parts: Array<{ env: FoodEnv01k; weight: number }>): FoodEnv01k {
+  const cleaned = parts.map(p => ({ env: p.env, weight: Number.isFinite(p.weight) ? Math.max(0, p.weight) : 0 })).filter(p => p.weight > 0);
+  if (!cleaned.length) {
+    return Object.fromEntries(FOOD_ENV_AXES.map(a => [a, 500])) as FoodEnv01k;
+  }
+  const total = cleaned.reduce((s, p) => s + p.weight, 0);
+  const out: Record<string, Fixed> = {};
+  for (const axis of FOOD_ENV_AXES) {
+    let acc = 0;
+    for (const p of cleaned) acc += (p.env[axis] / 1000) * p.weight;
+    out[axis] = clampFixed01k((acc / total) * 1000);
+  }
+  return out as FoodEnv01k;
 }
 
 function deriveCultureFromShadowContinent(continent: string | undefined): string {
@@ -1228,17 +1295,231 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   if (!vocab.preferences.food.restrictions.length) throw new Error('Agent vocab missing: preferences.food.restrictions');
   if (!vocab.preferences.food.ritualDrinks.length) throw new Error('Agent vocab missing: preferences.food.ritualDrinks');
 
+  const getFoodEnv01k = (iso3: string): FoodEnv01k | null => {
+    const bucket = input.priors?.countries?.[iso3]?.buckets?.[String(cohortBucketStartYear)];
+    return normalizeFoodEnv01k(bucket?.foodEnvironment01k as Partial<Record<FoodEnvAxis, Fixed>> | null | undefined);
+  };
+  const homeFoodEnv01k = getFoodEnv01k(homeCountryIso3);
+  const citizenshipFoodEnv01k = citizenshipCountryIso3 !== homeCountryIso3 ? getFoodEnv01k(citizenshipCountryIso3) : null;
+  const currentFoodEnv01k = currentCountryIso3 !== homeCountryIso3 ? getFoodEnv01k(currentCountryIso3) : null;
+
+  const foodEnv01k = homeFoodEnv01k
+    ? mixFoodEnv01k([
+        { env: homeFoodEnv01k, weight: 1 },
+        ...(citizenshipFoodEnv01k ? [{ env: citizenshipFoodEnv01k, weight: 0.10 + 0.25 * cosmo01 }] : []),
+        ...(currentFoodEnv01k ? [{ env: currentFoodEnv01k, weight: 0.15 + 0.35 * cosmo01 + (abroad ? 0.15 : 0) }] : []),
+      ])
+    : null;
+
+  const topAxes = (env: FoodEnv01k | null) =>
+    env
+      ? [...FOOD_ENV_AXES]
+          .map(axis => ({ axis, value01k: env[axis] }))
+          .sort((a, b) => b.value01k - a.value01k)
+          .slice(0, 5)
+      : null;
+  if (trace) {
+    trace.derived.foodEnv = {
+      home: topAxes(homeFoodEnv01k),
+      citizenship: topAxes(citizenshipFoodEnv01k),
+      current: topAxes(currentFoodEnv01k),
+      blended: topAxes(foodEnv01k),
+    };
+  }
+
+  const axis01 = (axis: FoodEnvAxis, fallback: number) => (foodEnv01k ? foodEnv01k[axis] / 1000 : fallback);
+
   const cultureComfort = uniqueStrings(culture?.preferences?.food?.comfortFoods ?? []);
-  const comfortFoods = cultureComfort.length && prefsRng.next01() < foodPrimaryWeight
-    ? pickKHybrid(prefsRng, cultureComfort, vocab.preferences.food.comfortFoods, 2, 1)
-    : prefsRng.pickK(vocab.preferences.food.comfortFoods, 2);
-  const dislikes = prefsRng.pickK(vocab.preferences.food.dislikes, prefsRng.int(1, 3));
-  const restrictions = prefsRng.pickK(vocab.preferences.food.restrictions, prefsRng.int(0, 1));
   const cultureDrinks = uniqueStrings(culture?.preferences?.food?.ritualDrinks ?? []);
-  const ritualDrink = cultureDrinks.length
-    ? pickWeightedFromPools(prefsRng, cultureDrinks, vocab.preferences.food.ritualDrinks, foodPrimaryWeight)
-    : prefsRng.pick(vocab.preferences.food.ritualDrinks);
-  traceSet(trace, 'preferences.food', { comfortFoods, dislikes, restrictions, ritualDrink }, { method: 'hybridPickK', dependsOn: { facet: 'preferences', foodPrimaryWeight, cultureComfortPoolSize: cultureComfort.length, cultureDrinksPoolSize: cultureDrinks.length } });
+
+  const allRestrictionsPool = uniqueStrings(vocab.preferences.food.restrictions);
+  let restrictions: string[] = [];
+  const forcedRestrictions: Array<{ restriction: string; reason: string }> = [];
+  const ensureRestriction = (restriction: string, reason: string) => {
+    if (!restriction.trim()) return;
+    if (restrictions.includes(restriction)) return;
+    restrictions.push(restriction);
+    forcedRestrictions.push({ restriction, reason });
+  };
+
+  const arabicMass01 = (() => {
+    const home = (homeLangEnv01k?.Arabic ?? 0) / 1000;
+    const citizenship = citizenshipLangEnv01k ? (citizenshipLangEnv01k.Arabic ?? 0) / 1000 : 0;
+    const current = currentLangEnv01k ? (currentLangEnv01k.Arabic ?? 0) / 1000 : 0;
+    return clamp01(home + 0.35 * cosmo01 * citizenship + 0.45 * cosmo01 * current, 0);
+  })();
+  const hebrewMass01 = (() => {
+    const home = (homeLangEnv01k?.Hebrew ?? 0) / 1000;
+    const citizenship = citizenshipLangEnv01k ? (citizenshipLangEnv01k.Hebrew ?? 0) / 1000 : 0;
+    const current = currentLangEnv01k ? (currentLangEnv01k.Hebrew ?? 0) / 1000 : 0;
+    return clamp01(home + 0.35 * cosmo01 * citizenship + 0.45 * cosmo01 * current, 0);
+  })();
+
+  const restrictionWeight = (restriction: string): number => {
+    const r = restriction.toLowerCase();
+    let w = 1;
+    if (r === 'vegetarian') w += 2.2 * axis01('plantForward', 0.45) - 1.5 * axis01('meat', 0.45);
+    if (r === 'pescatarian') w += 1.4 * axis01('seafood', 0.35) - 0.9 * axis01('meat', 0.45);
+    if (r === 'low sugar') w += 0.8 + 1.4 * (1 - axis01('sweets', 0.45));
+    if (r === 'low sodium') w += 0.9 + 0.6 * (1 - axis01('friedOily', 0.45));
+    if (r === 'halal') w += 0.6 + 2.8 * arabicMass01;
+    if (r === 'kosher') w += 0.6 + 2.8 * hebrewMass01;
+    if (r === 'no alcohol') w += 0.7 + 0.6 * (1 - viceTendency);
+    if (r === 'lactose-sensitive') w += 0.4 + 0.6 * (1 - axis01('dairy', 0.45));
+    if (r === 'gluten-sensitive') w += 0.4 + 0.4 * (1 - axis01('streetFood', 0.45));
+    if (r === 'nut allergy') w += 0.3;
+    if (r === 'shellfish allergy') w += 0.3;
+    return Math.max(0.05, w);
+  };
+
+  const baseRestrictionCount = prefsRng.int(0, 1);
+  restrictions = allRestrictionsPool.length
+    ? weightedPickKUnique(
+        prefsRng,
+        allRestrictionsPool.map(item => ({ item, weight: restrictionWeight(item) })),
+        baseRestrictionCount,
+      )
+    : [];
+
+  // Enforce health/allergy → restriction consistency (vocab-aligned when possible).
+  if (allergyTags.includes('nuts')) ensureRestriction('nut allergy', 'allergy:nuts');
+  if (allergyTags.includes('dairy')) ensureRestriction('lactose-sensitive', 'allergy:dairy');
+  if (allergyTags.includes('gluten')) ensureRestriction('gluten-sensitive', 'allergy:gluten');
+  if (allergyTags.includes('shellfish')) ensureRestriction('shellfish allergy', 'allergy:shellfish');
+  if (chronicConditionTags.includes('hypertension')) ensureRestriction('low sodium', 'chronic:hypertension');
+
+  restrictions = uniqueStrings(restrictions).filter(r => allRestrictionsPool.includes(r) || forcedRestrictions.some(f => f.restriction === r));
+
+  const hasRestriction = (r: string) => restrictions.includes(r);
+  const likelyGluten = (s: string) => /\b(noodle|flatbread|dumpling|pastr(y|ies)|bread|sandwich)\b/i.test(s);
+  const likelyDairy = (s: string) => /\b(dairy|cheese|cocoa|dessert|pastr(y|ies))\b/i.test(s);
+  const likelyMeat = (s: string) => /\b(meat|meats|grilled)\b/i.test(s);
+  const likelySeafood = (s: string) => /\b(seafood|raw fish)\b/i.test(s);
+
+  const comfortPool = uniqueStrings([...cultureComfort, ...vocab.preferences.food.comfortFoods]);
+  const comfortWeight = (item: string): number => {
+    const s = item.toLowerCase();
+    let w = 1;
+    if (cultureComfort.includes(item)) w += 0.9 + 1.8 * foodPrimaryWeight;
+    if (foodEnv01k) {
+      if (s.includes('street')) w += 2.2 * axis01('streetFood', 0.5);
+      if (s.includes('fine')) w += 2.2 * axis01('fineDining', 0.5);
+      if (s.includes('spicy')) w += 2.2 * axis01('spice', 0.5);
+      if (s.includes('dessert') || s.includes('pastr')) w += 2.1 * axis01('sweets', 0.5);
+      if (s.includes('late-night') || s.includes('snack')) w += 1.2 * axis01('friedOily', 0.5) + 0.8 * axis01('streetFood', 0.5);
+      if (s.includes('seafood')) w += 2.0 * axis01('seafood', 0.4);
+      if (s.includes('meat') || s.includes('grilled')) w += 2.0 * axis01('meat', 0.4);
+      if (s.includes('vegetarian') || s.includes('salad')) w += 1.8 * axis01('plantForward', 0.4);
+    }
+
+    // Restrictions/health: avoid direct contradictions where possible.
+    if (hasRestriction('vegetarian') && likelyMeat(item)) w *= 0.15;
+    if (hasRestriction('pescatarian') && likelyMeat(item)) w *= 0.35;
+    if ((hasRestriction('lactose-sensitive') || allergyTags.includes('dairy')) && likelyDairy(item)) w *= 0.25;
+    if ((hasRestriction('gluten-sensitive') || allergyTags.includes('gluten')) && likelyGluten(item)) w *= 0.25;
+    if ((hasRestriction('shellfish allergy') || allergyTags.includes('shellfish')) && likelySeafood(item)) w *= 0.35;
+    if (hasRestriction('low sugar') && (s.includes('dessert') || s.includes('pastr'))) w *= 0.35;
+    return Math.max(0.05, w);
+  };
+  const comfortFoods = weightedPickKUnique(prefsRng, comfortPool.map(item => ({ item, weight: comfortWeight(item) })), 2);
+
+  const drinkPool = uniqueStrings([...cultureDrinks, ...vocab.preferences.food.ritualDrinks]);
+  const drinkWeight = (drink: string): number => {
+    const s = drink.toLowerCase();
+    let w = 1;
+    if (cultureDrinks.includes(drink)) w += 0.9 + 1.8 * foodPrimaryWeight;
+
+    const caffeinated = s.includes('coffee') || s.includes('espresso') || s.includes('mate');
+    const teaish = s.includes('tea');
+    const sweetish = s.includes('cocoa');
+    const hydrating = s.includes('water') || s.includes('seltzer');
+
+    if (foodEnv01k) {
+      if (caffeinated) w += 2.2 * axis01('caffeine', 0.5);
+      if (teaish) w += 1.2 * (0.6 + 0.4 * axis01('caffeine', 0.4));
+      if (sweetish) w += 1.2 * axis01('sweets', 0.5);
+      if (hydrating) w += 0.7 + 0.8 * (1 - axis01('caffeine', 0.45));
+    }
+
+    // Health consistency: insomnia/migraine usually pushes away from caffeine.
+    if (caffeinated && chronicConditionTags.includes('insomnia')) w *= 0.25;
+    if (caffeinated && chronicConditionTags.includes('migraine')) w *= 0.55;
+    if (hasRestriction('low sugar') && sweetish) w *= 0.35;
+    return Math.max(0.05, w);
+  };
+  const ritualDrink = weightedPickKUnique(prefsRng, drinkPool.map(item => ({ item, weight: drinkWeight(item) })), 1)[0]!;
+
+  const dislikePool = uniqueStrings(vocab.preferences.food.dislikes);
+  const dislikeWeight = (item: string): number => {
+    const s = item.toLowerCase();
+    let w = 1;
+    if ((hasRestriction('lactose-sensitive') || allergyTags.includes('dairy')) && s.includes('dairy')) w += 5;
+    if (hasRestriction('low sugar') && (s.includes('sweet') || s.includes('sweet drinks'))) w += 3;
+    if (hasRestriction('low sodium') && s.includes('salty')) w += 3;
+    if ((hasRestriction('shellfish allergy') || allergyTags.includes('shellfish')) && s.includes('raw fish')) w += 3;
+    if ((hasRestriction('vegetarian') || hasRestriction('pescatarian')) && s.includes('red meat')) w += 1.5;
+    if (foodEnv01k && s.includes('very spicy')) w += 1.6 * axis01('spice', 0.5);
+    if (foodEnv01k && s.includes('oily')) w += 1.4 * axis01('friedOily', 0.5);
+    if (foodEnv01k && s.includes('carbonated')) w += 0.8 * (1 - axis01('sweets', 0.5));
+    return Math.max(0.05, w);
+  };
+  let dislikes = dislikePool.length
+    ? weightedPickKUnique(prefsRng, dislikePool.map(item => ({ item, weight: dislikeWeight(item) })), prefsRng.int(1, 3))
+    : [];
+
+  const forcedDislikes: Array<{ dislike: string; reason: string }> = [];
+  const ensureDislike = (dislike: string, reason: string) => {
+    if (!dislikePool.includes(dislike)) return;
+    if (dislikes.includes(dislike)) return;
+    dislikes.push(dislike);
+    forcedDislikes.push({ dislike, reason });
+  };
+
+  if (allergyTags.includes('dairy')) ensureDislike('dairy', 'allergy:dairy');
+  if (allergyTags.includes('shellfish')) ensureDislike('raw fish', 'allergy:shellfish');
+  if (chronicConditionTags.includes('hypertension')) ensureDislike('very salty', 'chronic:hypertension');
+  dislikes = uniqueStrings(dislikes).slice(0, 3);
+
+  const incompatibleComfort = (item: string): boolean => {
+    if (hasRestriction('vegetarian') && likelyMeat(item)) return true;
+    if ((hasRestriction('lactose-sensitive') || allergyTags.includes('dairy')) && likelyDairy(item)) return true;
+    if ((hasRestriction('gluten-sensitive') || allergyTags.includes('gluten')) && likelyGluten(item)) return true;
+    if ((hasRestriction('shellfish allergy') || allergyTags.includes('shellfish')) && likelySeafood(item)) return true;
+    return false;
+  };
+
+  const fixupRng = makeRng(facetSeed(seed, 'preferences_food_fixup'));
+  const fixups: Array<{ removed: string; replacement: string | null }> = [];
+  const replacementPool = comfortPool.filter(c => !incompatibleComfort(c));
+  const replaceIfNeeded = () => {
+    for (let i = 0; i < comfortFoods.length; i++) {
+      const cur = comfortFoods[i]!;
+      if (!incompatibleComfort(cur)) continue;
+      const candidates = replacementPool.filter(c => !comfortFoods.includes(c));
+      const replacement = candidates.length ? candidates[fixupRng.int(0, candidates.length - 1)]! : null;
+      fixups.push({ removed: cur, replacement });
+      if (replacement) comfortFoods[i] = replacement;
+    }
+  };
+  replaceIfNeeded();
+
+  traceSet(
+    trace,
+    'preferences.food',
+    { comfortFoods, dislikes, restrictions, ritualDrink },
+    {
+      method: 'env+consistency',
+      dependsOn: {
+        facet: 'preferences',
+        foodPrimaryWeight,
+        cultureComfortPoolSize: cultureComfort.length,
+        cultureDrinksPoolSize: cultureDrinks.length,
+        forcedRestrictions,
+        forcedDislikes,
+        fixups,
+      },
+    },
+  );
 
   if (!vocab.preferences.media.genres.length) throw new Error('Agent vocab missing: preferences.media.genres');
   if (!vocab.preferences.media.platforms.length) throw new Error('Agent vocab missing: preferences.media.platforms');

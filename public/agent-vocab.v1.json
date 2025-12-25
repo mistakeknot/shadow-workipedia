@@ -375,12 +375,13 @@
         "vegetarian",
         "pescatarian",
         "no alcohol",
-        "lactose-sensitive",
-        "gluten-sensitive",
-        "nut allergy",
-        "low sodium",
-        "low sugar"
-      ],
+    "lactose-sensitive",
+    "gluten-sensitive",
+    "nut allergy",
+    "shellfish allergy",
+    "low sodium",
+    "low sugar"
+  ],
       "ritualDrinks": [
         "tea",
         "coffee",
