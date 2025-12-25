@@ -6,6 +6,30 @@ export type Fixed = number; // fixed-point int, typically 0..1000
 
 export type HeightBand = 'very_short' | 'short' | 'average' | 'tall' | 'very_tall';
 
+export type AgentPriorsV1 = {
+  version: 1;
+  generatedAtIso: string;
+  buckets: number[];
+  countries: Record<
+    string,
+    {
+      iso3: string;
+      buckets: Record<
+        string,
+        {
+          cohortBucketStartYear: number;
+          indicators?: Record<string, unknown>;
+          appearance?: { heightBandWeights01k?: Partial<Record<HeightBand, Fixed>> };
+          mediaEnvironment01k?: Partial<Record<'print' | 'radio' | 'tv' | 'social' | 'closed', Fixed>>;
+          educationTrackWeights?: Record<string, number>;
+          careerTrackWeights?: Record<string, number>;
+          mobility01k?: Partial<Record<'passportAccess' | 'travelFrequency', Fixed>>;
+        }
+      >;
+    }
+  >;
+};
+
 type CultureProfileV1 = {
   weights?: {
     namesPrimaryWeight?: number;
@@ -233,6 +257,7 @@ export type GeneratedAgent = {
 export type GenerateAgentInput = {
   vocab: AgentVocabV1;
   countries: { iso3: string; shadow: string; continent?: string }[];
+  priors?: AgentPriorsV1;
   seed: string;
   birthYear?: number;
   tierBand?: TierBand;
@@ -543,6 +568,17 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   const homeCulture = deriveCultureFromShadowContinent(origin.continent);
   traceSet(trace, 'identity.homeCountryIso3', homeCountryIso3, { method: 'pick', dependsOn: { facet: 'origin', poolSize: validCountries.length, continent: origin.continent ?? null } });
   traceSet(trace, 'identity.homeCulture', homeCulture, { method: 'deriveCultureFromShadowContinent', dependsOn: { continent: origin.continent ?? null } });
+
+  const cohortBucketStartYear = Math.floor(birthYear / 10) * 10;
+  const countryPriorsBucket = input.priors?.countries?.[homeCountryIso3]?.buckets?.[String(cohortBucketStartYear)];
+  if (trace) {
+    trace.derived.countryPriors = {
+      homeCountryIso3,
+      cohortBucketStartYear,
+      hasPriors: !!countryPriorsBucket,
+      indicators: countryPriorsBucket?.indicators ?? null,
+    };
+  }
   const roleSeedTags = (input.roleSeedTags?.length ? input.roleSeedTags : base.pickK(vocab.identity.roleSeedTags, 2))
     .slice(0, 4);
   traceSet(trace, 'identity.roleSeedTags', roleSeedTags, { method: input.roleSeedTags?.length ? 'override' : 'rng', dependsOn: { facet: 'base', poolSize: vocab.identity.roleSeedTags.length } });
@@ -627,6 +663,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       if (inst01 < 0.35 && ['ngo', 'journalism', 'corporate-ops', 'academia'].includes(t)) w += 1.7;
       if (risk01 > 0.65 && ['intelligence', 'military', 'politics'].includes(t)) w += 1.3;
       if (roleNudgedCareer === t) w += 3.0;
+      const env = countryPriorsBucket?.careerTrackWeights?.[t];
+      if (typeof env === 'number' && Number.isFinite(env) && env > 0) w *= env;
       return { item: t, weight: w };
     });
     const picked = weightedPick(identityRng, weights);
@@ -648,6 +686,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       if (careerTrackTag === 'military' && t === 'military-academy') w += 3.0;
       if (careerTrackTag === 'civil-service' && t === 'civil-service-track') w += 2.4;
       if (inst01 > 0.65 && ['graduate', 'civil-service-track'].includes(t)) w += 1.2;
+      const env = countryPriorsBucket?.educationTrackWeights?.[t];
+      if (typeof env === 'number' && Number.isFinite(env) && env > 0) w *= env;
       return { item: t, weight: w };
     });
     const picked = weightedPick(identityRng, weights);
@@ -718,7 +758,13 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   if (!vocab.appearance.eyeColors.length) throw new Error('Agent vocab missing: appearance.eyeColors');
   if (!vocab.appearance.voiceTags.length) throw new Error('Agent vocab missing: appearance.voiceTags');
 
-  const heightBand = appearanceRng.pick(vocab.appearance.heightBands as readonly HeightBand[]);
+  const heightBand = (() => {
+    const pool = vocab.appearance.heightBands as readonly HeightBand[];
+    const priors = countryPriorsBucket?.appearance?.heightBandWeights01k;
+    if (!priors) return appearanceRng.pick(pool);
+    const weights = pool.map((b) => ({ item: b, weight: Number(priors[b] ?? 0) || 0 }));
+    return weightedPick(appearanceRng, weights) as HeightBand;
+  })();
   const buildTag = appearanceRng.pick(vocab.appearance.buildTags);
   const hair = { color: appearanceRng.pick(vocab.appearance.hairColors), texture: appearanceRng.pick(vocab.appearance.hairTextures) };
   const eyes = { color: appearanceRng.pick(vocab.appearance.eyeColors) };
@@ -857,23 +903,31 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     return weightedPick(mobilityRng, weights);
   })();
 
-  const passportScore = clampFixed01k(
+  const passportModelScoreRaw = clampFixed01k(
     (tierBand === 'elite' ? 160 : tierBand === 'mass' ? -80 : 0) +
       520 * cosmo01 +
       480 * inst01 +
       mobilityRng.int(0, 1000) * 0.25,
   );
+  const passportEnv = countryPriorsBucket?.mobility01k?.passportAccess;
+  const passportScore = passportEnv != null
+    ? clampFixed01k(0.45 * passportEnv + 0.55 * passportModelScoreRaw)
+    : passportModelScoreRaw;
   const passportAccessBand = band5From01k(passportScore);
 
-  const travelScore = clampFixed01k(
+  const travelModelScoreRaw = clampFixed01k(
     650 * cosmo01 +
       220 * public01 +
       (roleSeedTags.includes('diplomat') ? 220 : 0) +
       (roleSeedTags.includes('operative') ? 140 : 0) +
       mobilityRng.int(0, 1000) * 0.20,
   );
+  const travelEnv = countryPriorsBucket?.mobility01k?.travelFrequency;
+  const travelScore = travelEnv != null
+    ? clampFixed01k(0.50 * travelEnv + 0.50 * travelModelScoreRaw)
+    : travelModelScoreRaw;
   const travelFrequencyBand = band5From01k(travelScore);
-  traceSet(trace, 'mobility', { mobilityTag, passportAccessBand, travelFrequencyBand }, { method: 'weightedPick+formula', dependsOn: { facet: 'mobility', tierBand, cosmo01, inst01, public01, roleSeedTags } });
+  traceSet(trace, 'mobility', { mobilityTag, passportAccessBand, travelFrequencyBand }, { method: 'weightedPick+env+formula', dependsOn: { facet: 'mobility', tierBand, cosmo01, inst01, public01, roleSeedTags, passportEnv: passportEnv ?? null, travelEnv: travelEnv ?? null } });
 
   traceFacet(trace, seed, 'skills');
   const skillRng = makeRng(facetSeed(seed, 'skills'));
@@ -1125,19 +1179,25 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   traceSet(trace, 'preferences.media.genreTopK', genreTopK, { method: 'hybridPickK', dependsOn: { facet: 'preferences', mediaPrimaryWeight, cultureGenrePoolSize: cultureGenres.length, globalGenrePoolSize: vocab.preferences.media.genres.length } });
   const platformDietRaw = vocab.preferences.media.platforms.map((p) => {
     const key = p.toLowerCase();
+    const envBase = (() => {
+      const env = countryPriorsBucket?.mediaEnvironment01k;
+      if (!env) return 200;
+      const v = env[key as 'print' | 'radio' | 'tv' | 'social' | 'closed'];
+      return typeof v === 'number' && Number.isFinite(v) ? v : 200;
+    })();
     let bias = 0;
     if (key === 'closed') bias += Math.round(70 * opsec01);
     if (key === 'social') bias += Math.round(65 * public01) - Math.round(40 * opsec01);
     if (key === 'tv') bias += Math.round(30 * public01);
     if (key === 'print') bias += Math.round(45 * inst01);
     if (key === 'radio') bias += Math.round(30 * inst01);
-    const w = Math.max(1, prefsRng.int(1, 100) + bias);
-    return { p, w };
+    const w = Math.max(1, Math.round(envBase * 0.9) + prefsRng.int(0, 220) + bias * 6);
+    return { p, w, envBase };
   });
   const totalW = platformDietRaw.reduce((s, x) => s + x.w, 0);
   const platformDiet: Record<string, Fixed> = Object.fromEntries(platformDietRaw.map(({ p, w }) => [p, clampInt((w / totalW) * 1000, 0, 1000)]));
-  if (trace) trace.derived.platformDietRaw = platformDietRaw;
-  traceSet(trace, 'preferences.media.platformDiet', platformDiet, { method: 'weightedNormalize', dependsOn: { facet: 'preferences', public01, opsec01, inst01 } });
+  if (trace) trace.derived.platformDietRaw = platformDietRaw.map(({ p, w, envBase }) => ({ p, w, envBase }));
+  traceSet(trace, 'preferences.media.platformDiet', platformDiet, { method: 'env+weightedNormalize', dependsOn: { facet: 'preferences', public01, opsec01, inst01, env: countryPriorsBucket?.mediaEnvironment01k ?? null } });
 
   // Media/cognition traits should correlate with attention, OPSEC, and publicness.
   const attentionResilience = clampFixed01k(

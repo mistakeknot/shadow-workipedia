@@ -1,4 +1,4 @@
-import { formatBand5, formatFixed01k, generateAgent, randomSeedString, type AgentVocabV1, type GeneratedAgent, type TierBand } from './agentGenerator';
+import { formatBand5, formatFixed01k, generateAgent, randomSeedString, type AgentPriorsV1, type AgentVocabV1, type GeneratedAgent, type TierBand } from './agentGenerator';
 
 type RosterItem = {
   id: string;
@@ -11,6 +11,7 @@ type RosterItem = {
 const ROSTER_STORAGE_KEY = 'swp.agents.roster.v1';
 
 let agentVocabPromise: Promise<AgentVocabV1> | null = null;
+let agentPriorsPromise: Promise<AgentPriorsV1> | null = null;
 let shadowCountryMapPromise: Promise<Array<{ real: string; shadow: string; iso3?: string; continent?: string }>> | null = null;
 
 function getAgentVocabV1(): Promise<AgentVocabV1> {
@@ -25,6 +26,20 @@ function getAgentVocabV1(): Promise<AgentVocabV1> {
     return parsed as AgentVocabV1;
   })();
   return agentVocabPromise;
+}
+
+function getAgentPriorsV1(): Promise<AgentPriorsV1> {
+  if (agentPriorsPromise) return agentPriorsPromise;
+  agentPriorsPromise = (async () => {
+    const res = await fetch('agent-priors.v1.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Failed to load agent priors (${res.status})`);
+    const parsed = (await res.json()) as unknown;
+    if (!parsed || typeof parsed !== 'object') throw new Error('Agent priors JSON is not an object');
+    const version = (parsed as { version?: unknown }).version;
+    if (version !== 1) throw new Error(`Unsupported agent priors version: ${String(version)}`);
+    return parsed as AgentPriorsV1;
+  })();
+  return agentPriorsPromise;
 }
 
 function getShadowCountryMap(): Promise<Array<{ real: string; shadow: string; iso3?: string; continent?: string }>> {
@@ -475,6 +490,8 @@ export function initializeAgentsView(container: HTMLElement) {
   let activeAgent: GeneratedAgent | null = null;
   let agentVocab: AgentVocabV1 | null = null;
   let agentVocabError: string | null = null;
+  let agentPriors: AgentPriorsV1 | null = null;
+  let agentPriorsError: string | null = null;
   let shadowCountries: Array<{ shadow: string; iso3: string; continent?: string }> | null = null;
   let shadowCountriesError: string | null = null;
   let shadowByIso3 = new Map<string, { shadow: string; continent?: string }>();
@@ -492,14 +509,14 @@ export function initializeAgentsView(container: HTMLElement) {
   }
 
   const maybeInitAgent = () => {
-    if (!agentVocab || !shadowCountries) return;
+    if (!agentVocab || !shadowCountries || !agentPriors) return;
 
     if (pendingHashSeed) {
-      activeAgent = generateAgent({ seed: pendingHashSeed, vocab: agentVocab, countries: shadowCountries, includeTrace: true });
+      activeAgent = generateAgent({ seed: pendingHashSeed, vocab: agentVocab, countries: shadowCountries, priors: agentPriors, includeTrace: true });
       seedDraft = activeAgent.seed;
       pendingHashSeed = null;
     } else if (!activeAgent) {
-      activeAgent = generateAgent({ seed: seedDraft, vocab: agentVocab, countries: shadowCountries, includeTrace: true });
+      activeAgent = generateAgent({ seed: seedDraft, vocab: agentVocab, countries: shadowCountries, priors: agentPriors, includeTrace: true });
       seedDraft = activeAgent.seed;
     }
   };
@@ -514,6 +531,19 @@ export function initializeAgentsView(container: HTMLElement) {
     .catch((err: unknown) => {
       agentVocab = null;
       agentVocabError = err instanceof Error ? err.message : String(err);
+      render();
+    });
+
+  void getAgentPriorsV1()
+    .then((p) => {
+      agentPriors = p;
+      agentPriorsError = null;
+      maybeInitAgent();
+      render();
+    })
+    .catch((err: unknown) => {
+      agentPriors = null;
+      agentPriorsError = err instanceof Error ? err.message : String(err);
       render();
     });
 
@@ -552,6 +582,10 @@ export function initializeAgentsView(container: HTMLElement) {
     else if (agentVocabError) hintLines.push('Vocabulary missing — run `pnpm extract-data` in `shadow-workipedia`.');
     else hintLines.push('Loading vocabulary…');
 
+    if (agentPriors) hintLines.push('Priors loaded.');
+    else if (agentPriorsError) hintLines.push('Priors missing — run `pnpm extract-data` in `shadow-workipedia`.');
+    else hintLines.push('Loading priors…');
+
     if (shadowCountries) hintLines.push('Country map loaded.');
     else if (shadowCountriesError) hintLines.push('Country map missing — run `pnpm extract-data` in `shadow-workipedia`.');
     else hintLines.push('Loading country map…');
@@ -573,8 +607,8 @@ export function initializeAgentsView(container: HTMLElement) {
                 <input id="agents-seed" class="agents-input" type="text" value="${escapeHtml(seedDraft)}" spellcheck="false" />
               </label>
             <div class="agents-btn-row">
-              <button id="agents-random" class="agents-btn" ${agentVocab && shadowCountries ? '' : 'disabled'}>Random</button>
-              <button id="agents-generate" class="agents-btn primary" ${agentVocab && shadowCountries ? '' : 'disabled'}>Generate</button>
+              <button id="agents-random" class="agents-btn" ${agentVocab && agentPriors && shadowCountries ? '' : 'disabled'}>Random</button>
+              <button id="agents-generate" class="agents-btn primary" ${agentVocab && agentPriors && shadowCountries ? '' : 'disabled'}>Generate</button>
               <button id="agents-save" class="agents-btn primary" ${activeAgent ? '' : 'disabled'}>Save</button>
               <button id="agents-export" class="agents-btn">Export JSON</button>
               <button id="agents-copy-json" class="agents-btn">Copy JSON</button>
@@ -676,7 +710,7 @@ export function initializeAgentsView(container: HTMLElement) {
     });
 
     btnRandom?.addEventListener('click', () => {
-      if (!agentVocab || !shadowCountries) return;
+      if (!agentVocab || !agentPriors || !shadowCountries) return;
       const seed = randomSeedString();
       if (seedEl) seedEl.value = seed;
       seedDraft = seed;
@@ -685,17 +719,18 @@ export function initializeAgentsView(container: HTMLElement) {
             seed,
             vocab: agentVocab,
             countries: shadowCountries,
+            priors: agentPriors,
             birthYear: Number(birthYearEl?.value || birthYear),
             tierBand: (tierEl?.value as TierBand) ?? tierBand,
             roleSeedTags: overrideRoleTags,
             includeTrace: true,
           })
-        : generateAgent({ seed, vocab: agentVocab, countries: shadowCountries, includeTrace: true });
+        : generateAgent({ seed, vocab: agentVocab, countries: shadowCountries, priors: agentPriors, includeTrace: true });
       render();
     });
 
     btnGenerate?.addEventListener('click', () => {
-      if (!agentVocab || !shadowCountries) return;
+      if (!agentVocab || !agentPriors || !shadowCountries) return;
       const seed = (seedEl?.value ?? '').trim();
       if (!seed) return;
       seedDraft = seed;
@@ -704,12 +739,13 @@ export function initializeAgentsView(container: HTMLElement) {
             seed,
             vocab: agentVocab,
             countries: shadowCountries,
+            priors: agentPriors,
             birthYear: Number(birthYearEl?.value || birthYear),
             tierBand: (tierEl?.value as TierBand) ?? tierBand,
             roleSeedTags: overrideRoleTags,
             includeTrace: true,
           })
-        : generateAgent({ seed, vocab: agentVocab, countries: shadowCountries, includeTrace: true });
+        : generateAgent({ seed, vocab: agentVocab, countries: shadowCountries, priors: agentPriors, includeTrace: true });
       render();
     });
 
@@ -781,8 +817,8 @@ export function initializeAgentsView(container: HTMLElement) {
         selectedRosterId = found.id;
         seedDraft = found.seed;
         pendingHashSeed = null;
-        activeAgent = agentVocab && shadowCountries
-          ? generateAgent({ seed: seedDraft, vocab: agentVocab, countries: shadowCountries, includeTrace: true })
+        activeAgent = agentVocab && agentPriors && shadowCountries
+          ? generateAgent({ seed: seedDraft, vocab: agentVocab, countries: shadowCountries, priors: agentPriors, includeTrace: true })
           : null;
         render();
       });
@@ -798,8 +834,8 @@ export function initializeAgentsView(container: HTMLElement) {
           selectedRosterId = roster[0]?.id ?? null;
           const next = selectedRosterId ? roster.find(x => x.id === selectedRosterId) : null;
           seedDraft = next?.seed ?? seedDraft;
-          activeAgent = next && agentVocab && shadowCountries
-            ? generateAgent({ seed: seedDraft, vocab: agentVocab, countries: shadowCountries, includeTrace: true })
+          activeAgent = next && agentVocab && agentPriors && shadowCountries
+            ? generateAgent({ seed: seedDraft, vocab: agentVocab, countries: shadowCountries, priors: agentPriors, includeTrace: true })
             : null;
         }
         saveRoster(roster);
@@ -814,7 +850,7 @@ export function initializeAgentsView(container: HTMLElement) {
     if (seed) {
       selectedRosterId = null;
       seedDraft = seed;
-      if (agentVocab && shadowCountries) activeAgent = generateAgent({ seed, vocab: agentVocab, countries: shadowCountries, includeTrace: true });
+      if (agentVocab && agentPriors && shadowCountries) activeAgent = generateAgent({ seed, vocab: agentVocab, countries: shadowCountries, priors: agentPriors, includeTrace: true });
       else pendingHashSeed = seed;
       render();
     }
