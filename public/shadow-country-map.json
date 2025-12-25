@@ -1,0 +1,1632 @@
+[
+  {
+    "real": "ARUBA",
+    "shadow": "Oranjewal",
+    "iso3": "ABW",
+    "continent": "Athar",
+    "population": 107624
+  },
+  {
+    "real": "AFGHANISTAN",
+    "shadow": "Khorassanid",
+    "iso3": "AFG",
+    "continent": "Solis",
+    "population": 42647492
+  },
+  {
+    "real": "ANGOLA",
+    "shadow": "Ndongolar",
+    "iso3": "AGO",
+    "continent": "Mero",
+    "population": 37885849
+  },
+  {
+    "real": "ALBANIA",
+    "shadow": "Shkypereth",
+    "iso3": "ALB",
+    "continent": "Hesper",
+    "population": 2714617
+  },
+  {
+    "real": "ANDORRA",
+    "shadow": "Urghellia",
+    "iso3": "AND",
+    "continent": "Hesper",
+    "population": 81938
+  },
+  {
+    "real": "UAE",
+    "shadow": "Julfar",
+    "iso3": "ARE",
+    "continent": "Aram",
+    "population": 10876981
+  },
+  {
+    "real": "ARGENTINA",
+    "shadow": "Rioplatense",
+    "iso3": "ARG",
+    "continent": "Verd",
+    "population": 45696159
+  },
+  {
+    "real": "ARMENIA",
+    "shadow": "Haykadzor",
+    "iso3": "ARM",
+    "continent": "Solis",
+    "population": 3033500
+  },
+  {
+    "real": "ANTIGUA_AND_BARBUDA",
+    "shadow": "Waladli",
+    "iso3": "ATG",
+    "continent": "Athar",
+    "population": 93772
+  },
+  {
+    "real": "AUSTRALIA",
+    "shadow": "Gondwanari",
+    "iso3": "AUS",
+    "continent": "Pelag",
+    "population": 27204809
+  },
+  {
+    "real": "AUSTRIA",
+    "shadow": "Vindobre",
+    "iso3": "AUT",
+    "aliases": [
+      "AUSTRIA_HUNGARY"
+    ],
+    "continent": "Athar",
+    "population": 9178482
+  },
+  {
+    "real": "AZERBAIJAN",
+    "shadow": "Adurbadagan",
+    "iso3": "AZE",
+    "continent": "Solis",
+    "population": 10202850
+  },
+  {
+    "real": "BURUNDI",
+    "shadow": "Gitegost",
+    "iso3": "BDI",
+    "continent": "Mero",
+    "population": 14047786
+  },
+  {
+    "real": "BELGIUM",
+    "shadow": "Brabantine",
+    "iso3": "BEL",
+    "continent": "Athar",
+    "population": 11876844
+  },
+  {
+    "real": "BENIN",
+    "shadow": "Abomeyx",
+    "iso3": "BEN",
+    "continent": "Mero",
+    "population": 14462724
+  },
+  {
+    "real": "BURKINA_FASO",
+    "shadow": "Ouagadou",
+    "iso3": "BFA",
+    "continent": "Mero",
+    "population": 23548781
+  },
+  {
+    "real": "BANGLADESH",
+    "shadow": "Padmavari",
+    "iso3": "BGD",
+    "continent": "Solis",
+    "population": 173562364
+  },
+  {
+    "real": "BULGARIA",
+    "shadow": "Thrakya",
+    "iso3": "BGR",
+    "continent": "Hesper",
+    "population": 6444366
+  },
+  {
+    "real": "BAHRAIN",
+    "shadow": "Dilmunak",
+    "iso3": "BHR",
+    "continent": "Aram",
+    "population": 1588670
+  },
+  {
+    "real": "BAHAMAS",
+    "shadow": "Lukayani",
+    "iso3": "BHS",
+    "continent": "Athar",
+    "population": 401283
+  },
+  {
+    "real": "BOSNIA",
+    "shadow": "Vrhobozna",
+    "iso3": "BIH",
+    "aliases": [
+      "BOSNIA_AND_HERZEGOVINA"
+    ],
+    "continent": "Athar",
+    "population": 3164253
+  },
+  {
+    "real": "BELARUS",
+    "shadow": "Kryviche",
+    "iso3": "BLR",
+    "continent": "Hesper",
+    "population": 9133712
+  },
+  {
+    "real": "BELIZE",
+    "shadow": "Lamanai",
+    "iso3": "BLZ",
+    "continent": "Athar",
+    "population": 417072
+  },
+  {
+    "real": "BERMUDA",
+    "shadow": "Sargossea",
+    "iso3": "BMU",
+    "continent": "Athar",
+    "population": 64636
+  },
+  {
+    "real": "BOLIVIA",
+    "shadow": "Qullasuyu",
+    "iso3": "BOL",
+    "continent": "Verd",
+    "population": 12413315
+  },
+  {
+    "real": "BRAZIL",
+    "shadow": "Ibirajara",
+    "iso3": "BRA",
+    "continent": "Verd",
+    "population": 211998573
+  },
+  {
+    "real": "BARBADOS",
+    "shadow": "Ichirougan",
+    "iso3": "BRB",
+    "continent": "Athar",
+    "population": 282467
+  },
+  {
+    "real": "BRUNEI",
+    "shadow": "Seribarakh",
+    "iso3": "BRN",
+    "continent": "Solis",
+    "population": 462721
+  },
+  {
+    "real": "BHUTAN",
+    "shadow": "Drukpan",
+    "iso3": "BTN",
+    "continent": "Solis",
+    "population": 791524
+  },
+  {
+    "real": "BOTSWANA",
+    "shadow": "Khoisandir",
+    "iso3": "BWA",
+    "continent": "Mero",
+    "population": 2521139
+  },
+  {
+    "real": "CENTRAL_AFRICAN_REPUBLIC",
+    "shadow": "Bandari",
+    "iso3": "CAF",
+    "continent": "Mero",
+    "population": 5330690
+  },
+  {
+    "real": "CANADA",
+    "shadow": "Rupertine",
+    "iso3": "CAN",
+    "continent": "Athar",
+    "population": 41288599
+  },
+  {
+    "real": "SWITZERLAND",
+    "shadow": "Gotthardia",
+    "iso3": "CHE",
+    "continent": "Hesper",
+    "population": 9034102
+  },
+  {
+    "real": "CHILE",
+    "shadow": "Mapuchine",
+    "iso3": "CHL",
+    "continent": "Verd",
+    "population": 19764771
+  },
+  {
+    "real": "CHINA",
+    "shadow": "Tianlong",
+    "iso3": "CHN",
+    "continent": "Solis",
+    "population": 1408975000
+  },
+  {
+    "real": "IVORY_COAST",
+    "shadow": "Yamouskor",
+    "iso3": "CIV",
+    "continent": "Mero",
+    "population": 31934230
+  },
+  {
+    "real": "CAMEROON",
+    "shadow": "Bakassiya",
+    "iso3": "CMR",
+    "continent": "Mero",
+    "population": 29123744
+  },
+  {
+    "real": "DEMOCRATIC_REPUBLIC_OF_CONGO",
+    "shadow": "Nzadi",
+    "iso3": "COD",
+    "aliases": [
+      "DRC",
+      "ZAIRE",
+      "BELGIAN_CONGO"
+    ],
+    "continent": "Athar",
+    "population": 109276265
+  },
+  {
+    "real": "CONGO",
+    "shadow": "Kouiloune",
+    "iso3": "COG",
+    "aliases": [
+      "REPUBLIC_OF_CONGO",
+      "CONGO_BRAZZAVILLE"
+    ],
+    "continent": "Mero",
+    "population": 6332961
+  },
+  {
+    "real": "COLOMBIA",
+    "shadow": "Kholdomar",
+    "iso3": "COL",
+    "continent": "Verd",
+    "population": 52886363
+  },
+  {
+    "real": "COMOROS",
+    "shadow": "Ngazidja",
+    "iso3": "COM",
+    "continent": "Mero",
+    "population": 866628
+  },
+  {
+    "real": "CAPE_VERDE",
+    "shadow": "Barlaventi",
+    "iso3": "CPV",
+    "continent": "Mero",
+    "population": 524877
+  },
+  {
+    "real": "COSTA_RICA",
+    "shadow": "Guanakost",
+    "iso3": "CRI",
+    "continent": "Athar",
+    "population": 5129910
+  },
+  {
+    "real": "CUBA",
+    "shadow": "Azucaran",
+    "iso3": "CUB",
+    "continent": "Athar",
+    "population": 10979783
+  },
+  {
+    "real": "CURACAO",
+    "shadow": "Willemskade",
+    "iso3": "CUW",
+    "continent": "Athar",
+    "population": 155900
+  },
+  {
+    "real": "CAYMAN_ISLANDS",
+    "shadow": "Bodhenisle",
+    "iso3": "CYM",
+    "continent": "Athar",
+    "population": 74457
+  },
+  {
+    "real": "CYPRUS",
+    "shadow": "Kitionyx",
+    "iso3": "CYP",
+    "continent": "Hesper",
+    "population": 1358282
+  },
+  {
+    "real": "CZECH_REPUBLIC",
+    "shadow": "Premysl",
+    "iso3": "CZE",
+    "aliases": [
+      "CZECHOSLOVAKIA"
+    ],
+    "continent": "Athar",
+    "population": 10882164
+  },
+  {
+    "real": "GERMANY",
+    "shadow": "Teutmark",
+    "iso3": "DEU",
+    "aliases": [
+      "EAST_GERMANY",
+      "WEST_GERMANY",
+      "GDR"
+    ],
+    "continent": "Hesper",
+    "population": 83510950
+  },
+  {
+    "real": "DJIBOUTI",
+    "shadow": "Danakaliya",
+    "iso3": "DJI",
+    "continent": "Mero",
+    "population": 1168722
+  },
+  {
+    "real": "DOMINICA",
+    "shadow": "Waitukubuli",
+    "iso3": "DMA",
+    "continent": "Athar",
+    "population": 66205
+  },
+  {
+    "real": "DENMARK",
+    "shadow": "Skagenvik",
+    "iso3": "DNK",
+    "continent": "Hesper",
+    "population": 5976992
+  },
+  {
+    "real": "DOMINICAN_REPUBLIC",
+    "shadow": "Quisqueya",
+    "iso3": "DOM",
+    "continent": "Athar",
+    "population": 11427557
+  },
+  {
+    "real": "ALGERIA",
+    "shadow": "Numidya",
+    "iso3": "DZA",
+    "continent": "Mero",
+    "population": 46814308
+  },
+  {
+    "real": "ECUADOR",
+    "shadow": "Quitumbara",
+    "iso3": "ECU",
+    "continent": "Verd",
+    "population": 18135478
+  },
+  {
+    "real": "EGYPT",
+    "shadow": "Deshretine",
+    "iso3": "EGY",
+    "continent": "Mero",
+    "population": 116538258
+  },
+  {
+    "real": "ERITREA",
+    "shadow": "MedriBahri",
+    "iso3": "ERI",
+    "continent": "Mero",
+    "population": 3535603
+  },
+  {
+    "real": "SPAIN",
+    "shadow": "Castillar",
+    "iso3": "ESP",
+    "continent": "Hesper",
+    "population": 48807137
+  },
+  {
+    "real": "ESTONIA",
+    "shadow": "Virumaar",
+    "iso3": "EST",
+    "continent": "Hesper",
+    "population": 1371986
+  },
+  {
+    "real": "ETHIOPIA",
+    "shadow": "Zagwene",
+    "iso3": "ETH",
+    "continent": "Mero",
+    "population": 132059767
+  },
+  {
+    "real": "FINLAND",
+    "shadow": "Pohjanmaa",
+    "iso3": "FIN",
+    "continent": "Hesper",
+    "population": 5637214
+  },
+  {
+    "real": "FIJI",
+    "shadow": "Vunivadra",
+    "iso3": "FJI",
+    "continent": "Pelag",
+    "population": 928784
+  },
+  {
+    "real": "FALKLAND_ISLANDS",
+    "shadow": "Sebaldinor",
+    "iso3": "FLK",
+    "continent": "Verd",
+    "population": 3500
+  },
+  {
+    "real": "FRANCE",
+    "shadow": "Gallicene",
+    "iso3": "FRA",
+    "aliases": [
+      "VICHY_FRANCE"
+    ],
+    "continent": "Hesper",
+    "population": 68516699
+  },
+  {
+    "real": "FAROE_ISLANDS",
+    "shadow": "Streymoth",
+    "iso3": "FRO",
+    "continent": "Hesper",
+    "population": 54719
+  },
+  {
+    "real": "MICRONESIA",
+    "shadow": "Saudeleurian",
+    "iso3": "FSM",
+    "continent": "Pelag",
+    "population": 113160
+  },
+  {
+    "real": "GABON",
+    "shadow": "Ogooue",
+    "iso3": "GAB",
+    "continent": "Athar",
+    "population": 2538952
+  },
+  {
+    "real": "BRITAIN",
+    "shadow": "Alvion",
+    "iso3": "GBR",
+    "aliases": [
+      "UK",
+      "UNITED_KINGDOM"
+    ],
+    "continent": "Hesper",
+    "population": 69226000
+  },
+  {
+    "real": "GEORGIA",
+    "shadow": "Kartvebi",
+    "iso3": "GEO",
+    "continent": "Solis",
+    "population": 3673850
+  },
+  {
+    "real": "GHANA",
+    "shadow": "Adanseran",
+    "iso3": "GHA",
+    "continent": "Mero",
+    "population": 34427414
+  },
+  {
+    "real": "GUINEA",
+    "shadow": "Foutadja",
+    "iso3": "GIN",
+    "continent": "Mero",
+    "population": 14754785
+  },
+  {
+    "real": "GUADELOUPE",
+    "shadow": "Karukerani",
+    "iso3": "GLP",
+    "continent": "Athar",
+    "population": 400000
+  },
+  {
+    "real": "GAMBIA",
+    "shadow": "Kombostani",
+    "iso3": "GMB",
+    "continent": "Mero",
+    "population": 2759988
+  },
+  {
+    "real": "GUINEA_BISSAU",
+    "shadow": "Gabuenzi",
+    "iso3": "GNB",
+    "continent": "Mero",
+    "population": 2201352
+  },
+  {
+    "real": "EQUATORIAL_GUINEA",
+    "shadow": "Ekukanamiri",
+    "iso3": "GNQ",
+    "continent": "Mero",
+    "population": 1892516
+  },
+  {
+    "real": "GREECE",
+    "shadow": "Helladyx",
+    "iso3": "GRC",
+    "continent": "Hesper",
+    "population": 10388805
+  },
+  {
+    "real": "GRENADA",
+    "shadow": "Concepcionade",
+    "iso3": "GRD",
+    "continent": "Athar",
+    "population": 117207
+  },
+  {
+    "real": "GREENLAND",
+    "shadow": "Kalaallit",
+    "iso3": "GRL",
+    "continent": "Hesper",
+    "population": 56836
+  },
+  {
+    "real": "GUATEMALA",
+    "shadow": "Kicheval",
+    "iso3": "GTM",
+    "continent": "Athar",
+    "population": 18406359
+  },
+  {
+    "real": "GUAM",
+    "shadow": "Hagatnari",
+    "iso3": "GUM",
+    "continent": "Pelag",
+    "population": 167777
+  },
+  {
+    "real": "GUYANA",
+    "shadow": "Essequebo",
+    "iso3": "GUY",
+    "continent": "Verd",
+    "population": 831087
+  },
+  {
+    "real": "HONG_KONG",
+    "shadow": "Xianghai",
+    "iso3": "HKG",
+    "continent": "Solis",
+    "population": 7524100
+  },
+  {
+    "real": "HONDURAS",
+    "shadow": "Lempira",
+    "iso3": "HND",
+    "continent": "Athar",
+    "population": 10825703
+  },
+  {
+    "real": "CROATIA",
+    "shadow": "Ilyricum",
+    "iso3": "HRV",
+    "continent": "Athar",
+    "population": 3866300
+  },
+  {
+    "real": "HAITI",
+    "shadow": "Kiskeyade",
+    "iso3": "HTI",
+    "continent": "Athar",
+    "population": 11772557
+  },
+  {
+    "real": "HUNGARY",
+    "shadow": "Madjarska",
+    "iso3": "HUN",
+    "continent": "Hesper",
+    "population": 9562314
+  },
+  {
+    "real": "DUTCH_EAST_INDIES",
+    "shadow": "Nusantari",
+    "iso3": "IDN",
+    "aliases": [
+      "INDONESIA"
+    ],
+    "continent": "Solis",
+    "population": 283487931
+  },
+  {
+    "real": "INDIA",
+    "shadow": "Bharatvani",
+    "iso3": "IND",
+    "aliases": [
+      "BRITISH_INDIA",
+      "BHARAT"
+    ],
+    "continent": "Athar",
+    "population": 1450935791
+  },
+  {
+    "real": "IRELAND",
+    "shadow": "Hibern",
+    "iso3": "IRL",
+    "continent": "Hesper",
+    "population": 5380257
+  },
+  {
+    "real": "IRAN",
+    "shadow": "Parsagad",
+    "iso3": "IRN",
+    "continent": "Aram",
+    "population": 91567738
+  },
+  {
+    "real": "IRAQ",
+    "shadow": "Uruzad",
+    "iso3": "IRQ",
+    "continent": "Aram",
+    "population": 46042015
+  },
+  {
+    "real": "ICELAND",
+    "shadow": "Snaeland",
+    "iso3": "ISL",
+    "continent": "Hesper",
+    "population": 404610
+  },
+  {
+    "real": "ISRAEL",
+    "shadow": "Kedareth",
+    "iso3": "ISR",
+    "continent": "Aram",
+    "population": 9974400
+  },
+  {
+    "real": "ITALY",
+    "shadow": "Vespery",
+    "iso3": "ITA",
+    "continent": "Hesper",
+    "population": 58986023
+  },
+  {
+    "real": "JAMAICA",
+    "shadow": "Liguanesk",
+    "iso3": "JAM",
+    "continent": "Athar",
+    "population": 2839175
+  },
+  {
+    "real": "JORDAN",
+    "shadow": "Nabatara",
+    "iso3": "JOR",
+    "continent": "Aram",
+    "population": 11552876
+  },
+  {
+    "real": "JAPAN",
+    "shadow": "Kamikura",
+    "iso3": "JPN",
+    "continent": "Solis",
+    "population": 123975371
+  },
+  {
+    "real": "KAZAKHSTAN",
+    "shadow": "Deshqipchaq",
+    "iso3": "KAZ",
+    "continent": "Solis",
+    "population": 20592571
+  },
+  {
+    "real": "KENYA",
+    "shadow": "Pwanite",
+    "iso3": "KEN",
+    "continent": "Mero",
+    "population": 56432944
+  },
+  {
+    "real": "KYRGYZSTAN",
+    "shadow": "Suyabek",
+    "iso3": "KGZ",
+    "continent": "Solis",
+    "population": 7224614
+  },
+  {
+    "real": "CAMBODIA",
+    "shadow": "Kambujadesh",
+    "iso3": "KHM",
+    "continent": "Solis",
+    "population": 17638801
+  },
+  {
+    "real": "KIRIBATI",
+    "shadow": "Tarawak",
+    "iso3": "KIR",
+    "continent": "Pelag",
+    "population": 134518
+  },
+  {
+    "real": "SAINT_KITTS_AND_NEVIS",
+    "shadow": "Liamuiga",
+    "iso3": "KNA",
+    "continent": "Athar",
+    "population": 46843
+  },
+  {
+    "real": "SOUTH_KOREA",
+    "shadow": "Haedong",
+    "iso3": "KOR",
+    "continent": "Solis",
+    "population": 51751065
+  },
+  {
+    "real": "KUWAIT",
+    "shadow": "Kailesh",
+    "iso3": "KWT",
+    "continent": "Aram",
+    "population": 4973861
+  },
+  {
+    "real": "LAOS",
+    "shadow": "Muanglao",
+    "iso3": "LAO",
+    "continent": "Solis",
+    "population": 7769819
+  },
+  {
+    "real": "LEBANON",
+    "shadow": "Cedrane",
+    "iso3": "LBN",
+    "continent": "Aram",
+    "population": 5805962
+  },
+  {
+    "real": "LIBERIA",
+    "shadow": "Malaguettia",
+    "iso3": "LBR",
+    "continent": "Mero",
+    "population": 5612817
+  },
+  {
+    "real": "LIBYA",
+    "shadow": "Syrtican",
+    "iso3": "LBY",
+    "continent": "Mero",
+    "population": 7381023
+  },
+  {
+    "real": "SAINT_LUCIA",
+    "shadow": "Hewanorra",
+    "iso3": "LCA",
+    "continent": "Athar",
+    "population": 179744
+  },
+  {
+    "real": "LIECHTENSTEIN",
+    "shadow": "Vadutzya",
+    "iso3": "LIE",
+    "continent": "Hesper",
+    "population": 40197
+  },
+  {
+    "real": "SRI_LANKA",
+    "shadow": "Serendivi",
+    "iso3": "LKA",
+    "continent": "Solis",
+    "population": 21916000
+  },
+  {
+    "real": "LESOTHO",
+    "shadow": "Thababosiya",
+    "iso3": "LSO",
+    "continent": "Mero",
+    "population": 2337423
+  },
+  {
+    "real": "LITHUANIA",
+    "shadow": "Gedimyn",
+    "iso3": "LTU",
+    "continent": "Hesper",
+    "population": 2888055
+  },
+  {
+    "real": "LUXEMBOURG",
+    "shadow": "Lutzilbourg",
+    "iso3": "LUX",
+    "continent": "Hesper",
+    "population": 677717
+  },
+  {
+    "real": "LATVIA",
+    "shadow": "Vendla",
+    "iso3": "LVA",
+    "continent": "Hesper",
+    "population": 1862441
+  },
+  {
+    "real": "MACAU",
+    "shadow": "Haojinkai",
+    "iso3": "MAC",
+    "continent": "Solis",
+    "population": 687000
+  },
+  {
+    "real": "MOROCCO",
+    "shadow": "Mauretane",
+    "iso3": "MAR",
+    "continent": "Mero",
+    "population": 38081173
+  },
+  {
+    "real": "MONACO",
+    "shadow": "Grimaldine",
+    "iso3": "MCO",
+    "continent": "Hesper",
+    "population": 38631
+  },
+  {
+    "real": "MOLDOVA",
+    "shadow": "Tyragithae",
+    "iso3": "MDA",
+    "continent": "Hesper",
+    "population": 2389275
+  },
+  {
+    "real": "MADAGASCAR",
+    "shadow": "Nosindranja",
+    "iso3": "MDG",
+    "continent": "Mero",
+    "population": 31964956
+  },
+  {
+    "real": "MALDIVES",
+    "shadow": "Dhivehi",
+    "iso3": "MDV",
+    "continent": "Solis",
+    "population": 527799
+  },
+  {
+    "real": "MEXICO",
+    "shadow": "Tescali",
+    "iso3": "MEX",
+    "continent": "Athar",
+    "population": 130861007
+  },
+  {
+    "real": "MARSHALL_ISLANDS",
+    "shadow": "Ralikayan",
+    "iso3": "MHL",
+    "continent": "Pelag",
+    "population": 37548
+  },
+  {
+    "real": "NORTH_MACEDONIA",
+    "shadow": "Pelagonia",
+    "iso3": "MKD",
+    "continent": "Hesper",
+    "population": 1792179
+  },
+  {
+    "real": "MALI",
+    "shadow": "Massinar",
+    "iso3": "MLI",
+    "continent": "Mero",
+    "population": 24478595
+  },
+  {
+    "real": "MALTA",
+    "shadow": "Valletyne",
+    "iso3": "MLT",
+    "continent": "Hesper",
+    "population": 574346
+  },
+  {
+    "real": "MYANMAR",
+    "shadow": "Bama",
+    "iso3": "MMR",
+    "continent": "Solis",
+    "population": 54500091
+  },
+  {
+    "real": "MONTENEGRO",
+    "shadow": "Dioclea",
+    "iso3": "MNE",
+    "continent": "Hesper",
+    "population": 623831
+  },
+  {
+    "real": "MONGOLIA",
+    "shadow": "Khalkhiin",
+    "iso3": "MNG",
+    "continent": "Solis",
+    "population": 3524788
+  },
+  {
+    "real": "NORTHERN_MARIANA_ISLANDS",
+    "shadow": "Chamorrovik",
+    "iso3": "MNP",
+    "continent": "Pelag",
+    "population": 44278
+  },
+  {
+    "real": "MOZAMBIQUE",
+    "shadow": "Quelimar",
+    "iso3": "MOZ",
+    "continent": "Mero",
+    "population": 34631766
+  },
+  {
+    "real": "MAURITANIA",
+    "shadow": "Adrarene",
+    "iso3": "MRT",
+    "continent": "Mero",
+    "population": 5169395
+  },
+  {
+    "real": "MAURITIUS",
+    "shadow": "Portluix",
+    "iso3": "MUS",
+    "continent": "Mero",
+    "population": 1259509
+  },
+  {
+    "real": "MALAWI",
+    "shadow": "Maravi",
+    "iso3": "MWI",
+    "continent": "Mero",
+    "population": 21655286
+  },
+  {
+    "real": "MALAYSIA",
+    "shadow": "Malaccune",
+    "iso3": "MYS",
+    "aliases": [
+      "BRITISH_MALAYA"
+    ],
+    "continent": "Athar",
+    "population": 35557673
+  },
+  {
+    "real": "NAMIBIA",
+    "shadow": "Kalaharix",
+    "iso3": "NAM",
+    "aliases": [
+      "SOUTHWEST_AFRICA",
+      "SOUTH_WEST_AFRICA"
+    ],
+    "continent": "Mero",
+    "population": 3030131
+  },
+  {
+    "real": "NEW_CALEDONIA",
+    "shadow": "Koniambwe",
+    "iso3": "NCL",
+    "continent": "Pelag",
+    "population": 292639
+  },
+  {
+    "real": "NIGER",
+    "shadow": "Sokotor",
+    "iso3": "NER",
+    "continent": "Mero",
+    "population": 27032412
+  },
+  {
+    "real": "NORFOLK_ISLAND",
+    "shadow": "Pitmuir",
+    "iso3": "NFK",
+    "continent": "Pelag",
+    "population": 2000
+  },
+  {
+    "real": "NIGERIA",
+    "shadow": "Hausal",
+    "iso3": "NGA",
+    "continent": "Mero",
+    "population": 232679478
+  },
+  {
+    "real": "NICARAGUA",
+    "shadow": "Motagnari",
+    "iso3": "NIC",
+    "continent": "Athar",
+    "population": 6916140
+  },
+  {
+    "real": "NIUE",
+    "shadow": "Nukufekai",
+    "iso3": "NIU",
+    "continent": "Pelag",
+    "population": 1600
+  },
+  {
+    "real": "CARIBBEAN_NETHERLANDS",
+    "shadow": "Kralendijar",
+    "iso3": "NLD",
+    "aliases": [
+      "NETHERLANDS"
+    ],
+    "continent": "Athar",
+    "population": 17994237
+  },
+  {
+    "real": "NORWAY",
+    "shadow": "Thulerike",
+    "iso3": "NOR",
+    "continent": "Hesper",
+    "population": 5572272
+  },
+  {
+    "real": "NEPAL",
+    "shadow": "Gorkhali",
+    "iso3": "NPL",
+    "continent": "Solis",
+    "population": 29651054
+  },
+  {
+    "real": "NAURU",
+    "shadow": "Yarenade",
+    "iso3": "NRU",
+    "continent": "Pelag",
+    "population": 11947
+  },
+  {
+    "real": "NEW_ZEALAND",
+    "shadow": "Tauihutai",
+    "iso3": "NZL",
+    "continent": "Pelag",
+    "population": 5338500
+  },
+  {
+    "real": "OMAN",
+    "shadow": "Dhofarine",
+    "iso3": "OMN",
+    "continent": "Aram",
+    "population": 5281538
+  },
+  {
+    "real": "PAKISTAN",
+    "shadow": "Sindhuka",
+    "iso3": "PAK",
+    "continent": "Solis",
+    "population": 251269164
+  },
+  {
+    "real": "PANAMA",
+    "shadow": "Panake",
+    "iso3": "PAN",
+    "continent": "Athar",
+    "population": 4515577
+  },
+  {
+    "real": "PITCAIRN_ISLANDS",
+    "shadow": "Bountevyl",
+    "iso3": "PCN",
+    "continent": "Pelag",
+    "population": 50
+  },
+  {
+    "real": "PERU",
+    "shadow": "Tawantin",
+    "iso3": "PER",
+    "continent": "Verd",
+    "population": 34217848
+  },
+  {
+    "real": "PHILIPPINES",
+    "shadow": "Maharlika",
+    "iso3": "PHL",
+    "continent": "Solis",
+    "population": 115843670
+  },
+  {
+    "real": "PALAU",
+    "shadow": "Ngerulmed",
+    "iso3": "PLW",
+    "continent": "Pelag",
+    "population": 17695
+  },
+  {
+    "real": "PAPUA_NEW_GUINEA",
+    "shadow": "Sepikwari",
+    "iso3": "PNG",
+    "continent": "Pelag",
+    "population": 10576502
+  },
+  {
+    "real": "POLAND",
+    "shadow": "Sarmatya",
+    "iso3": "POL",
+    "continent": "Hesper",
+    "population": 36554707
+  },
+  {
+    "real": "PUERTO_RICO",
+    "shadow": "Boriken",
+    "iso3": "PRI",
+    "continent": "Athar",
+    "population": 3203295
+  },
+  {
+    "real": "NORTH_KOREA",
+    "shadow": "Juchevon",
+    "iso3": "PRK",
+    "continent": "Solis",
+    "population": 26498823
+  },
+  {
+    "real": "PORTUGAL",
+    "shadow": "Lusitane",
+    "iso3": "PRT",
+    "continent": "Hesper",
+    "population": 10701636
+  },
+  {
+    "real": "PARAGUAY",
+    "shadow": "Yguazu",
+    "iso3": "PRY",
+    "continent": "Verd",
+    "population": 6929153
+  },
+  {
+    "real": "PALESTINE",
+    "shadow": "Palaestra",
+    "iso3": "PSE",
+    "continent": "Aram",
+    "population": 5289152
+  },
+  {
+    "real": "FRENCH_POLYNESIA",
+    "shadow": "Hawaiki",
+    "iso3": "PYF",
+    "continent": "Pelag",
+    "population": 281807
+  },
+  {
+    "real": "QATAR",
+    "shadow": "Zubarah",
+    "iso3": "QAT",
+    "continent": "Aram",
+    "population": 2857822
+  },
+  {
+    "real": "REUNION",
+    "shadow": "Maskaranya",
+    "iso3": "REU",
+    "continent": "Mero",
+    "population": 900000
+  },
+  {
+    "real": "ROMANIA",
+    "shadow": "Dacien",
+    "iso3": "ROU",
+    "continent": "Hesper",
+    "population": 19069340
+  },
+  {
+    "real": "RUSSIA",
+    "shadow": "Severnya",
+    "iso3": "RUS",
+    "aliases": [
+      "SOVIET_UNION"
+    ],
+    "continent": "Hesper",
+    "population": 143533851
+  },
+  {
+    "real": "RWANDA",
+    "shadow": "Virungor",
+    "iso3": "RWA",
+    "continent": "Mero",
+    "population": 14256567
+  },
+  {
+    "real": "SAUDI_ARABIA",
+    "shadow": "Nadjara",
+    "iso3": "SAU",
+    "continent": "Aram",
+    "population": 35300280
+  },
+  {
+    "real": "SUDAN",
+    "shadow": "Merohant",
+    "iso3": "SDN",
+    "continent": "Mero",
+    "population": 50448963
+  },
+  {
+    "real": "SENEGAL",
+    "shadow": "Woulofix",
+    "iso3": "SEN",
+    "aliases": [
+      "SENEGAL"
+    ],
+    "continent": "Athar",
+    "population": 18501984
+  },
+  {
+    "real": "SINGAPORE",
+    "shadow": "Pulaurim",
+    "iso3": "SGP",
+    "continent": "Solis",
+    "population": 6036860
+  },
+  {
+    "real": "SAINT_HELENA_ASCENSION_AND_TRISTAN_DA_CUNHA",
+    "shadow": "Elenopolis",
+    "iso3": "SHN",
+    "continent": "Mero",
+    "population": 5000
+  },
+  {
+    "real": "SVALBARD_AND_JAN_MAYEN",
+    "shadow": "Svalbardr",
+    "iso3": "SJM",
+    "continent": "Hesper",
+    "population": 2500
+  },
+  {
+    "real": "SOLOMON_ISLANDS",
+    "shadow": "Makiran",
+    "iso3": "SLB",
+    "continent": "Pelag",
+    "population": 819198
+  },
+  {
+    "real": "SIERRA_LEONE",
+    "shadow": "Rokellande",
+    "iso3": "SLE",
+    "continent": "Mero",
+    "population": 8642022
+  },
+  {
+    "real": "EL_SALVADOR",
+    "shadow": "Cuscatlan",
+    "iso3": "SLV",
+    "continent": "Athar",
+    "population": 6338193
+  },
+  {
+    "real": "SOMALIA",
+    "shadow": "Ophiriyat",
+    "iso3": "SOM",
+    "aliases": [
+      "SOMALILAND"
+    ],
+    "continent": "Mero",
+    "population": 19009151
+  },
+  {
+    "real": "SERBIA",
+    "shadow": "Raška",
+    "iso3": "SRB",
+    "continent": "Hesper",
+    "population": 6587202
+  },
+  {
+    "real": "SOUTH_SUDAN",
+    "shadow": "Gondokoro",
+    "iso3": "SSD",
+    "continent": "Mero",
+    "population": 11943408
+  },
+  {
+    "real": "SAO_TOME_AND_PRINCIPE",
+    "shadow": "Ilheuprincipe",
+    "iso3": "STP",
+    "continent": "Mero",
+    "population": 235536
+  },
+  {
+    "real": "SURINAME",
+    "shadow": "Cottica",
+    "iso3": "SUR",
+    "continent": "Verd",
+    "population": 634431
+  },
+  {
+    "real": "SLOVAKIA",
+    "shadow": "Nitravya",
+    "iso3": "SVK",
+    "continent": "Hesper",
+    "population": 5422069
+  },
+  {
+    "real": "SLOVENIA",
+    "shadow": "Krainsky",
+    "iso3": "SVN",
+    "continent": "Athar",
+    "population": 2126324
+  },
+  {
+    "real": "SWEDEN",
+    "shadow": "Svearike",
+    "iso3": "SWE",
+    "continent": "Hesper",
+    "population": 10569709
+  },
+  {
+    "real": "ESWATINI",
+    "shadow": "Sobhuzarani",
+    "iso3": "SWZ",
+    "continent": "Mero",
+    "population": 1242822
+  },
+  {
+    "real": "SINT_MAARTEN",
+    "shadow": "Swalimara",
+    "iso3": "SXM",
+    "continent": "Athar",
+    "population": 43350
+  },
+  {
+    "real": "SEYCHELLES",
+    "shadow": "Aldabrene",
+    "iso3": "SYC",
+    "continent": "Mero",
+    "population": 121354
+  },
+  {
+    "real": "SYRIA",
+    "shadow": "Aramesh",
+    "iso3": "SYR",
+    "continent": "Aram",
+    "population": 24672760
+  },
+  {
+    "real": "TURKS_AND_CAICOS_ISLANDS",
+    "shadow": "Lucaymar",
+    "iso3": "TCA",
+    "continent": "Athar",
+    "population": 46535
+  },
+  {
+    "real": "CHAD",
+    "shadow": "Kanembou",
+    "iso3": "TCD",
+    "continent": "Mero",
+    "population": 20299123
+  },
+  {
+    "real": "TOGO",
+    "shadow": "Dahomene",
+    "iso3": "TGO",
+    "continent": "Mero",
+    "population": 9515236
+  },
+  {
+    "real": "THAILAND",
+    "shadow": "Dvaravadi",
+    "iso3": "THA",
+    "continent": "Solis",
+    "population": 71668011
+  },
+  {
+    "real": "TAJIKISTAN",
+    "shadow": "Badakhsh",
+    "iso3": "TJK",
+    "continent": "Solis",
+    "population": 10590927
+  },
+  {
+    "real": "TOKELAU",
+    "shadow": "Fakaofa",
+    "iso3": "TKL",
+    "continent": "Pelag",
+    "population": 1500
+  },
+  {
+    "real": "TURKMENISTAN",
+    "shadow": "Marghiyana",
+    "iso3": "TKM",
+    "continent": "Solis",
+    "population": 7494498
+  },
+  {
+    "real": "EAST_TIMOR",
+    "shadow": "Lorosae",
+    "iso3": "TLS",
+    "aliases": [
+      "TIMOR_LESTE"
+    ],
+    "continent": "Solis",
+    "population": 1400638
+  },
+  {
+    "real": "TONGA",
+    "shadow": "Haapaitui",
+    "iso3": "TON",
+    "continent": "Pelag",
+    "population": 104175
+  },
+  {
+    "real": "TRINIDAD_AND_TOBAGO",
+    "shadow": "Kairi",
+    "iso3": "TTO",
+    "continent": "Athar",
+    "population": 1368333
+  },
+  {
+    "real": "TUNISIA",
+    "shadow": "Qartaj",
+    "iso3": "TUN",
+    "continent": "Mero",
+    "population": 12277109
+  },
+  {
+    "real": "OTTOMAN_EMPIRE",
+    "shadow": "Hittitum",
+    "iso3": "TUR",
+    "aliases": [
+      "TURKEY",
+      "TURKIYE"
+    ],
+    "continent": "Athar",
+    "population": 85518661
+  },
+  {
+    "real": "TUVALU",
+    "shadow": "Funafutari",
+    "iso3": "TUV",
+    "continent": "Pelag",
+    "population": 9646
+  },
+  {
+    "real": "TAIWAN",
+    "shadow": "Meishan",
+    "iso3": "TWN",
+    "aliases": [
+      "VIETNAM_NORTH"
+    ],
+    "continent": "Solis",
+    "population": 46636997
+  },
+  {
+    "real": "TANZANIA",
+    "shadow": "Ujijinde",
+    "iso3": "TZA",
+    "aliases": [
+      "TANGANYIKA",
+      "TANZANIA"
+    ],
+    "continent": "Athar",
+    "population": 68560157
+  },
+  {
+    "real": "UGANDA",
+    "shadow": "Kitara",
+    "iso3": "UGA",
+    "continent": "Mero",
+    "population": 50015092
+  },
+  {
+    "real": "UKRAINE",
+    "shadow": "Scythopol",
+    "iso3": "UKR",
+    "continent": "Hesper",
+    "population": 37860221
+  },
+  {
+    "real": "UNITED_STATES_MINOR_OUTLYING_ISLANDS",
+    "shadow": "Mokulithar",
+    "iso3": "UMI",
+    "continent": "Athar",
+    "population": 10000000
+  },
+  {
+    "real": "URUGUAY",
+    "shadow": "Charruat",
+    "iso3": "URY",
+    "continent": "Verd",
+    "population": 3386588
+  },
+  {
+    "real": "UNITED_STATES",
+    "shadow": "Amaran",
+    "iso3": "USA",
+    "aliases": [
+      "USA",
+      "UNITED_STATES_OF_AMERICA",
+      "US"
+    ],
+    "continent": "Athar",
+    "population": 340110988
+  },
+  {
+    "real": "UZBEKISTAN",
+    "shadow": "Soghdavar",
+    "iso3": "UZB",
+    "continent": "Solis",
+    "population": 36361859
+  },
+  {
+    "real": "VATICAN_CITY",
+    "shadow": "Tibrene",
+    "iso3": "VAT",
+    "continent": "Hesper",
+    "population": 800
+  },
+  {
+    "real": "SAINT_VINCENT_AND_THE_GRENADINES",
+    "shadow": "Hairouna",
+    "iso3": "VCT",
+    "continent": "Athar",
+    "population": 100616
+  },
+  {
+    "real": "VENEZUELA",
+    "shadow": "Orinoc",
+    "iso3": "VEN",
+    "continent": "Verd",
+    "population": 28405543
+  },
+  {
+    "real": "VIETNAM",
+    "shadow": "Aulac",
+    "iso3": "VNM",
+    "continent": "Athar",
+    "population": 100987686
+  },
+  {
+    "real": "VANUATU",
+    "shadow": "Malekul",
+    "iso3": "VUT",
+    "continent": "Pelag",
+    "population": 327777
+  },
+  {
+    "real": "SAMOA",
+    "shadow": "Savaiiki",
+    "iso3": "WSM",
+    "continent": "Pelag",
+    "population": 218019
+  },
+  {
+    "real": "KOSOVO",
+    "shadow": "Gjakoveth",
+    "iso3": "XKX",
+    "continent": "Hesper",
+    "population": 1527324
+  },
+  {
+    "real": "NORTH_YEMEN",
+    "shadow": "Hadramene",
+    "iso3": "YEM",
+    "aliases": [
+      "YEMEN",
+      "SOUTH_YEMEN"
+    ],
+    "continent": "Athar",
+    "population": 40583164
+  },
+  {
+    "real": "SOUTH_AFRICA",
+    "shadow": "Khoiveld",
+    "iso3": "ZAF",
+    "continent": "Mero",
+    "population": 64007187
+  },
+  {
+    "real": "ZAMBIA",
+    "shadow": "Barotzwe",
+    "iso3": "ZMB",
+    "continent": "Mero",
+    "population": 21314956
+  },
+  {
+    "real": "ZIMBABWE",
+    "shadow": "Masvingost",
+    "iso3": "ZWE",
+    "aliases": [
+      "ZIM",
+      "ZIMBABWE"
+    ],
+    "continent": "Athar",
+    "population": 16634373
+  }
+]

@@ -11,6 +11,7 @@ type RosterItem = {
 const ROSTER_STORAGE_KEY = 'swp.agents.roster.v1';
 
 let agentVocabPromise: Promise<AgentVocabV1> | null = null;
+let shadowCountryMapPromise: Promise<Array<{ real: string; shadow: string; iso3?: string; continent?: string }>> | null = null;
 
 function getAgentVocabV1(): Promise<AgentVocabV1> {
   if (agentVocabPromise) return agentVocabPromise;
@@ -24,6 +25,18 @@ function getAgentVocabV1(): Promise<AgentVocabV1> {
     return parsed as AgentVocabV1;
   })();
   return agentVocabPromise;
+}
+
+function getShadowCountryMap(): Promise<Array<{ real: string; shadow: string; iso3?: string; continent?: string }>> {
+  if (shadowCountryMapPromise) return shadowCountryMapPromise;
+  shadowCountryMapPromise = (async () => {
+    const res = await fetch('shadow-country-map.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Failed to load shadow country map (${res.status})`);
+    const parsed = (await res.json()) as unknown;
+    if (!Array.isArray(parsed)) throw new Error('Shadow country map JSON is not an array');
+    return parsed as Array<{ real: string; shadow: string; iso3?: string; continent?: string }>;
+  })();
+  return shadowCountryMapPromise;
 }
 
 function escapeHtml(text: string): string {
@@ -212,9 +225,12 @@ function humanizeSkillKey(key: string): string {
   return toTitleCaseWords(spaced);
 }
 
-function renderAgent(agent: GeneratedAgent): string {
+function renderAgent(agent: GeneratedAgent, shadowByIso3: ReadonlyMap<string, { shadow: string; continent?: string }>): string {
   const apt = agent.capabilities.aptitudes;
   const skills = agent.capabilities.skills;
+
+  const origin = shadowByIso3.get(agent.identity.homeCountryIso3);
+  const originLabel = origin?.shadow ?? agent.identity.homeCountryIso3;
 
   const platformDiet = Object.entries(agent.preferences.media.platformDiet)
     .map(([k, v]) => `<li><span class="kv-k">${escapeHtml(toTitleCaseWords(k))}</span><span class="kv-v">${escapeHtml(formatFixed01k(v))}</span></li>`)
@@ -240,6 +256,7 @@ function renderAgent(agent: GeneratedAgent): string {
           <h2>${escapeHtml(agent.identity.name)}</h2>
           <div class="agent-meta">
             <span class="agent-meta-item">Seed: <code>${escapeHtml(agent.seed)}</code></span>
+            <span class="agent-meta-item">Origin: ${escapeHtml(originLabel)} <code>${escapeHtml(agent.identity.homeCountryIso3)}</code></span>
             <span class="agent-meta-item">Born: ${escapeHtml(String(agent.identity.birthYear))}</span>
             <span class="agent-meta-item">Tier: ${escapeHtml(toTitleCaseWords(agent.identity.tierBand))}</span>
             <span class="agent-meta-item">Culture: ${escapeHtml(agent.identity.homeCulture)}</span>
@@ -354,6 +371,9 @@ export function initializeAgentsView(container: HTMLElement) {
   let activeAgent: GeneratedAgent | null = selectedRosterId ? roster.find(x => x.id === selectedRosterId)?.agent ?? null : null;
   let agentVocab: AgentVocabV1 | null = null;
   let agentVocabError: string | null = null;
+  let shadowCountries: Array<{ shadow: string; iso3: string; continent?: string }> | null = null;
+  let shadowCountriesError: string | null = null;
+  let shadowByIso3 = new Map<string, { shadow: string; continent?: string }>();
   let useOverrides = false;
   let overrideRoleTags: string[] = [];
   let seedDraft = activeAgent?.seed ?? '';
@@ -367,25 +387,50 @@ export function initializeAgentsView(container: HTMLElement) {
     seedDraft = randomSeedString();
   }
 
+  const maybeInitAgent = () => {
+    if (!agentVocab || !shadowCountries) return;
+
+    if (pendingHashSeed) {
+      activeAgent = generateAgent({ seed: pendingHashSeed, vocab: agentVocab, countries: shadowCountries });
+      seedDraft = activeAgent.seed;
+      pendingHashSeed = null;
+    } else if (!activeAgent) {
+      activeAgent = generateAgent({ seed: seedDraft, vocab: agentVocab, countries: shadowCountries });
+      seedDraft = activeAgent.seed;
+    }
+  };
+
   void getAgentVocabV1()
     .then((v) => {
       agentVocab = v;
       agentVocabError = null;
-
-      if (pendingHashSeed) {
-        activeAgent = generateAgent({ seed: pendingHashSeed, vocab: agentVocab });
-        seedDraft = activeAgent.seed;
-        pendingHashSeed = null;
-      } else if (!activeAgent) {
-        activeAgent = generateAgent({ seed: seedDraft, vocab: agentVocab });
-        seedDraft = activeAgent.seed;
-      }
-
+      maybeInitAgent();
       render();
     })
     .catch((err: unknown) => {
       agentVocab = null;
       agentVocabError = err instanceof Error ? err.message : String(err);
+      render();
+    });
+
+  void getShadowCountryMap()
+    .then((rows) => {
+      shadowCountries = rows
+        .map((r) => ({
+          shadow: String(r.shadow ?? '').trim(),
+          iso3: String(r.iso3 ?? '').trim().toUpperCase(),
+          continent: r.continent ? String(r.continent).trim() : undefined,
+        }))
+        .filter((r) => r.shadow && r.iso3.length === 3);
+      shadowByIso3 = new Map(shadowCountries.map((r) => [r.iso3, { shadow: r.shadow, continent: r.continent }]));
+      shadowCountriesError = null;
+      maybeInitAgent();
+      render();
+    })
+    .catch((err: unknown) => {
+      shadowCountries = null;
+      shadowByIso3 = new Map();
+      shadowCountriesError = err instanceof Error ? err.message : String(err);
       render();
     });
 
@@ -400,11 +445,16 @@ export function initializeAgentsView(container: HTMLElement) {
     const vocabCultures = agentVocab?.identity.homeCultures?.length ? agentVocab.identity.homeCultures : [homeCulture];
     const vocabRoleSeeds = agentVocab?.identity.roleSeedTags?.length ? agentVocab.identity.roleSeedTags : overrideRoleTags;
 
-    const vocabHint = agentVocab
-      ? `<div class="agents-sidebar-subtitle agent-muted">Vocabulary loaded.</div>`
-      : agentVocabError
-        ? `<div class="agents-sidebar-subtitle agent-muted">Vocabulary missing — run <code>pnpm extract-data</code> in <code>shadow-workipedia</code>.</div>`
-        : `<div class="agents-sidebar-subtitle agent-muted">Loading vocabulary…</div>`;
+    const hintLines: string[] = [];
+    if (agentVocab) hintLines.push('Vocabulary loaded.');
+    else if (agentVocabError) hintLines.push('Vocabulary missing — run `pnpm extract-data` in `shadow-workipedia`.');
+    else hintLines.push('Loading vocabulary…');
+
+    if (shadowCountries) hintLines.push('Country map loaded.');
+    else if (shadowCountriesError) hintLines.push('Country map missing — run `pnpm extract-data` in `shadow-workipedia`.');
+    else hintLines.push('Loading country map…');
+
+    const vocabHint = `<div class="agents-sidebar-subtitle agent-muted">${escapeHtml(hintLines.join(' '))}</div>`;
 
     container.innerHTML = `
       <div class="agents-view">
@@ -421,8 +471,8 @@ export function initializeAgentsView(container: HTMLElement) {
                 <input id="agents-seed" class="agents-input" type="text" value="${escapeHtml(seedDraft)}" spellcheck="false" />
               </label>
             <div class="agents-btn-row">
-              <button id="agents-random" class="agents-btn" ${agentVocab ? '' : 'disabled'}>Random</button>
-              <button id="agents-generate" class="agents-btn primary" ${agentVocab ? '' : 'disabled'}>Generate</button>
+              <button id="agents-random" class="agents-btn" ${agentVocab && shadowCountries ? '' : 'disabled'}>Random</button>
+              <button id="agents-generate" class="agents-btn primary" ${agentVocab && shadowCountries ? '' : 'disabled'}>Generate</button>
               <button id="agents-save" class="agents-btn primary" ${activeAgent ? '' : 'disabled'}>Save</button>
               <button id="agents-export" class="agents-btn">Export JSON</button>
               <button id="agents-copy-json" class="agents-btn">Copy JSON</button>
@@ -487,7 +537,7 @@ export function initializeAgentsView(container: HTMLElement) {
           </aside>
 
           <main class="agents-main">
-            ${activeAgent ? renderAgent(activeAgent) : `<div class="agent-muted">Generate an agent to begin.</div>`}
+            ${activeAgent ? renderAgent(activeAgent, shadowByIso3) : `<div class="agent-muted">Generate an agent to begin.</div>`}
           </main>
         </div>
       </div>
@@ -529,7 +579,7 @@ export function initializeAgentsView(container: HTMLElement) {
     });
 
     btnRandom?.addEventListener('click', () => {
-      if (!agentVocab) return;
+      if (!agentVocab || !shadowCountries) return;
       const seed = randomSeedString();
       if (seedEl) seedEl.value = seed;
       seedDraft = seed;
@@ -537,17 +587,18 @@ export function initializeAgentsView(container: HTMLElement) {
         ? generateAgent({
             seed,
             vocab: agentVocab,
+            countries: shadowCountries,
             birthYear: Number(birthYearEl?.value || birthYear),
             tierBand: (tierEl?.value as TierBand) ?? tierBand,
             homeCulture: cultureEl?.value ?? homeCulture,
             roleSeedTags: overrideRoleTags,
           })
-        : generateAgent({ seed, vocab: agentVocab });
+        : generateAgent({ seed, vocab: agentVocab, countries: shadowCountries });
       render();
     });
 
     btnGenerate?.addEventListener('click', () => {
-      if (!agentVocab) return;
+      if (!agentVocab || !shadowCountries) return;
       const seed = (seedEl?.value ?? '').trim();
       if (!seed) return;
       seedDraft = seed;
@@ -555,12 +606,13 @@ export function initializeAgentsView(container: HTMLElement) {
         ? generateAgent({
             seed,
             vocab: agentVocab,
+            countries: shadowCountries,
             birthYear: Number(birthYearEl?.value || birthYear),
             tierBand: (tierEl?.value as TierBand) ?? tierBand,
             homeCulture: cultureEl?.value ?? homeCulture,
             roleSeedTags: overrideRoleTags,
           })
-        : generateAgent({ seed, vocab: agentVocab });
+        : generateAgent({ seed, vocab: agentVocab, countries: shadowCountries });
       render();
     });
 
@@ -648,7 +700,7 @@ export function initializeAgentsView(container: HTMLElement) {
     if (seed) {
       selectedRosterId = null;
       seedDraft = seed;
-      if (agentVocab) activeAgent = generateAgent({ seed, vocab: agentVocab });
+      if (agentVocab && shadowCountries) activeAgent = generateAgent({ seed, vocab: agentVocab, countries: shadowCountries });
       else pendingHashSeed = seed;
       render();
     }

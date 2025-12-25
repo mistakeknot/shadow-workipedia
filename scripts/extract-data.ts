@@ -9,6 +9,8 @@ const PARENT_REPO = join(process.cwd(), '..');
 const OUTPUT_PATH = join(process.cwd(), 'public', 'data.json');
 const AGENT_VOCAB_INPUT_PATH = join(PARENT_REPO, 'data/agent-generation/v1/vocab.json');
 const AGENT_VOCAB_OUTPUT_PATH = join(process.cwd(), 'public', 'agent-vocab.v1.json');
+const SHADOW_COUNTRY_MAP_INPUT_PATH = join(PARENT_REPO, 'data', 'country-shadow-map.json');
+const SHADOW_COUNTRY_MAP_OUTPUT_PATH = join(process.cwd(), 'public', 'shadow-country-map.json');
 const YAML_DATA_DIR = join(PARENT_REPO, 'data/issues');
 const COMMUNITIES_DATA_FILE = join(PARENT_REPO, 'data/generated/analysis/communities-with-mechanics.json');
 const PRINCIPLES_INDEX_FILE = join(process.cwd(), 'data/principles-index.json');
@@ -97,6 +99,21 @@ function copyAgentVocab() {
     console.log('🧬 Copied agent vocab →', AGENT_VOCAB_OUTPUT_PATH);
   } catch (err) {
     console.warn('⚠️  Failed to copy agent vocab:', err);
+  }
+}
+
+function copyShadowCountryMap() {
+  if (!existsSync(SHADOW_COUNTRY_MAP_INPUT_PATH)) {
+    console.warn('⚠️  Shadow country map not found:', SHADOW_COUNTRY_MAP_INPUT_PATH);
+    return;
+  }
+  try {
+    const raw = readFileSync(SHADOW_COUNTRY_MAP_INPUT_PATH, 'utf-8');
+    JSON.parse(raw);
+    writeFileSync(SHADOW_COUNTRY_MAP_OUTPUT_PATH, raw);
+    console.log('🌍 Copied shadow country map →', SHADOW_COUNTRY_MAP_OUTPUT_PATH);
+  } catch (err) {
+    console.warn('⚠️  Failed to copy shadow country map:', err);
   }
 }
 
@@ -1474,6 +1491,7 @@ async function main() {
   console.log('🔍 Extracting data from Shadow Work...');
 
   copyAgentVocab();
+  copyShadowCountryMap();
 
   const nodes: GraphNode[] = [];
   const edges: GraphEdge[] = [];

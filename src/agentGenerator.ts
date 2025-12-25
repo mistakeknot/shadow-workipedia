@@ -93,6 +93,7 @@ export type GeneratedAgent = {
 
   identity: {
     name: string;
+    homeCountryIso3: string;
     homeCulture: string;
     birthYear: number;
     tierBand: TierBand;
@@ -171,6 +172,7 @@ export type GeneratedAgent = {
 
 export type GenerateAgentInput = {
   vocab: AgentVocabV1;
+  countries: { iso3: string; shadow: string; continent?: string }[];
   seed: string;
   birthYear?: number;
   tierBand?: TierBand;
@@ -322,7 +324,26 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   if (!vocab.identity.languages.length) throw new Error('Agent vocab missing: identity.languages');
 
   const tierBand: TierBand = input.tierBand ?? base.pick(vocab.identity.tierBands as readonly TierBand[]);
-  const homeCulture = (input.homeCulture ?? base.pick(vocab.identity.homeCultures)) as string;
+
+  const countries = input.countries;
+  const validCountries = countries.filter((c) => typeof c.iso3 === 'string' && c.iso3.trim().length === 3);
+  if (!validCountries.length) throw new Error('Agent country map missing: no ISO3 entries');
+  const originRng = makeRng(facetSeed(seed, 'origin'));
+  const origin = originRng.pick(validCountries);
+  const homeCountryIso3 = origin.iso3.trim().toUpperCase();
+
+  const shadowContinentToCulture: Record<string, string> = {
+    Pelag: 'Oceania',
+    Mero: 'Sub‑Saharan Africa',
+    Aram: 'MENA',
+    Solis: 'South Asia',
+    Hesper: 'Europe',
+    Athar: 'Europe',
+    Verd: 'Americas',
+  };
+
+  const derivedCulture = shadowContinentToCulture[(origin.continent ?? '').trim()] ?? 'Global';
+  const homeCulture = (input.homeCulture ?? derivedCulture ?? base.pick(vocab.identity.homeCultures)) as string;
   const roleSeedTags = (input.roleSeedTags?.length ? input.roleSeedTags : base.pickK(vocab.identity.roleSeedTags, 2))
     .slice(0, 4);
 
@@ -475,7 +496,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       return { item, security, compromised: false };
     });
 
-  const id = fnv1a32(`${seed}::${birthYear}::${homeCulture}::${tierBand}`).toString(16);
+  const id = fnv1a32(`${seed}::${birthYear}::${homeCountryIso3}::${tierBand}`).toString(16);
 
   return {
     version: 1,
@@ -484,6 +505,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     createdAtIso: new Date().toISOString(),
     identity: {
       name,
+      homeCountryIso3,
       homeCulture,
       birthYear,
       tierBand,
