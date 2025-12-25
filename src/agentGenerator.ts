@@ -6,6 +6,33 @@ export type Fixed = number; // fixed-point int, typically 0..1000
 
 export type HeightBand = 'very_short' | 'short' | 'average' | 'tall' | 'very_tall';
 
+type CultureProfileV1 = {
+  weights?: {
+    namesPrimaryWeight?: number;
+    languagesPrimaryWeight?: number;
+    foodPrimaryWeight?: number;
+    mediaPrimaryWeight?: number;
+    fashionPrimaryWeight?: number;
+  };
+  identity?: {
+    firstNames?: string[];
+    lastNames?: string[];
+    languages?: string[];
+  };
+  preferences?: {
+    food?: {
+      comfortFoods?: string[];
+      ritualDrinks?: string[];
+    };
+    media?: {
+      genres?: string[];
+    };
+    fashion?: {
+      styleTags?: string[];
+    };
+  };
+};
+
 export type AgentVocabV1 = {
   version: 1;
   identity: {
@@ -55,6 +82,7 @@ export type AgentVocabV1 = {
   logistics: {
     identityKitItems: string[];
   };
+  cultureProfiles?: Record<string, CultureProfileV1>;
 };
 
 export type GeneratedAgent = {
@@ -248,6 +276,38 @@ function topKByScore(items: readonly string[], score: (item: string) => number, 
     .map(x => x.item);
 }
 
+function clamp01(value: number, fallback: number): number {
+  if (!Number.isFinite(value)) return fallback;
+  return Math.max(0, Math.min(1, value));
+}
+
+function uniqueStrings(items: readonly string[]): string[] {
+  const out: string[] = [];
+  const seen = new Set<string>();
+  for (const item of items) {
+    const key = item.trim();
+    if (!key) continue;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(key);
+  }
+  return out;
+}
+
+function pickWeightedFromPools(rng: Rng, primary: readonly string[], fallback: readonly string[], primaryWeight: number): string {
+  const usePrimary = primary.length > 0 && rng.next01() < primaryWeight;
+  const pool = usePrimary ? primary : fallback;
+  return rng.pick(pool);
+}
+
+function pickKHybrid(rng: Rng, primary: readonly string[], fallback: readonly string[], k: number, primaryCount: number): string[] {
+  const primaryK = Math.max(0, Math.min(k, primaryCount));
+  const fallbackK = Math.max(0, k - primaryK);
+  const a = primary.length ? rng.pickK(primary, primaryK) : [];
+  const b = fallback.length ? rng.pickK(fallback, fallbackK) : [];
+  return uniqueStrings([...a, ...b]).slice(0, k);
+}
+
 export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   const seed = normalizeSeed(input.seed);
   const base = makeRng(facetSeed(seed, 'base'));
@@ -266,14 +326,32 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   const roleSeedTags = (input.roleSeedTags?.length ? input.roleSeedTags : base.pickK(vocab.identity.roleSeedTags, 2))
     .slice(0, 4);
 
+  const culture = vocab.cultureProfiles?.[homeCulture];
+  const cultureWeights = culture?.weights ?? {};
+  const namesPrimaryWeight = clamp01(cultureWeights.namesPrimaryWeight ?? 0.75, 0.75);
+  const languagesPrimaryWeight = clamp01(cultureWeights.languagesPrimaryWeight ?? 0.85, 0.85);
+  const foodPrimaryWeight = clamp01(cultureWeights.foodPrimaryWeight ?? 0.7, 0.7);
+  const mediaPrimaryWeight = clamp01(cultureWeights.mediaPrimaryWeight ?? 0.7, 0.7);
+  const fashionPrimaryWeight = clamp01(cultureWeights.fashionPrimaryWeight ?? 0.6, 0.6);
+
   const nameRng = makeRng(facetSeed(seed, 'name'));
-  const name = `${nameRng.pick(vocab.identity.firstNames)} ${nameRng.pick(vocab.identity.lastNames)}`;
+  const cultureFirst = culture?.identity?.firstNames ?? [];
+  const cultureLast = culture?.identity?.lastNames ?? [];
+  const name = `${pickWeightedFromPools(nameRng, cultureFirst, vocab.identity.firstNames, namesPrimaryWeight)} ${pickWeightedFromPools(nameRng, cultureLast, vocab.identity.lastNames, namesPrimaryWeight)}`;
 
   const langRng = makeRng(facetSeed(seed, 'languages'));
-  const languages = langRng.pickK(
-    vocab.identity.languages,
-    langRng.int(1, 3)
-  );
+  const cultureLangs = uniqueStrings(culture?.identity?.languages ?? []);
+  const baseLangs = uniqueStrings(vocab.identity.languages);
+  const unionLangs = uniqueStrings([...cultureLangs, ...baseLangs]);
+  const languageCount = langRng.int(1, 3);
+  const languages: string[] = [];
+  if (cultureLangs.length && langRng.next01() < languagesPrimaryWeight) {
+    languages.push(langRng.pick(cultureLangs));
+  } else {
+    languages.push(langRng.pick(baseLangs));
+  }
+  const remaining = Math.max(0, languageCount - languages.length);
+  languages.push(...langRng.pickK(unionLangs.filter(l => !languages.includes(l)), remaining));
 
   const appearanceRng = makeRng(facetSeed(seed, 'appearance'));
   if (!vocab.appearance.heightBands.length) throw new Error('Agent vocab missing: appearance.heightBands');
@@ -341,21 +419,33 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   if (!vocab.preferences.food.restrictions.length) throw new Error('Agent vocab missing: preferences.food.restrictions');
   if (!vocab.preferences.food.ritualDrinks.length) throw new Error('Agent vocab missing: preferences.food.ritualDrinks');
 
-  const comfortFoods = prefsRng.pickK(vocab.preferences.food.comfortFoods, 2);
+  const cultureComfort = uniqueStrings(culture?.preferences?.food?.comfortFoods ?? []);
+  const comfortFoods = cultureComfort.length && prefsRng.next01() < foodPrimaryWeight
+    ? pickKHybrid(prefsRng, cultureComfort, vocab.preferences.food.comfortFoods, 2, 1)
+    : prefsRng.pickK(vocab.preferences.food.comfortFoods, 2);
   const dislikes = prefsRng.pickK(vocab.preferences.food.dislikes, prefsRng.int(1, 3));
   const restrictions = prefsRng.pickK(vocab.preferences.food.restrictions, prefsRng.int(0, 1));
-  const ritualDrink = prefsRng.pick(vocab.preferences.food.ritualDrinks);
+  const cultureDrinks = uniqueStrings(culture?.preferences?.food?.ritualDrinks ?? []);
+  const ritualDrink = cultureDrinks.length
+    ? pickWeightedFromPools(prefsRng, cultureDrinks, vocab.preferences.food.ritualDrinks, foodPrimaryWeight)
+    : prefsRng.pick(vocab.preferences.food.ritualDrinks);
 
   if (!vocab.preferences.media.genres.length) throw new Error('Agent vocab missing: preferences.media.genres');
   if (!vocab.preferences.media.platforms.length) throw new Error('Agent vocab missing: preferences.media.platforms');
-  const genreTopK = prefsRng.pickK(vocab.preferences.media.genres, 5);
+  const cultureGenres = uniqueStrings(culture?.preferences?.media?.genres ?? []);
+  const genreTopK = cultureGenres.length && prefsRng.next01() < mediaPrimaryWeight
+    ? pickKHybrid(prefsRng, cultureGenres, vocab.preferences.media.genres, 5, 3)
+    : prefsRng.pickK(vocab.preferences.media.genres, 5);
   const platformDietRaw = vocab.preferences.media.platforms.map(p => ({ p, w: prefsRng.int(1, 100) }));
   const totalW = platformDietRaw.reduce((s, x) => s + x.w, 0);
   const platformDiet: Record<string, Fixed> = Object.fromEntries(platformDietRaw.map(({ p, w }) => [p, clampInt((w / totalW) * 1000, 0, 1000)]));
 
   const fashionRng = makeRng(facetSeed(seed, 'fashion'));
   if (!vocab.preferences.fashion.styleTags.length) throw new Error('Agent vocab missing: preferences.fashion.styleTags');
-  const styleTags = fashionRng.pickK(vocab.preferences.fashion.styleTags, 3);
+  const cultureStyle = uniqueStrings(culture?.preferences?.fashion?.styleTags ?? []);
+  const styleTags = cultureStyle.length && fashionRng.next01() < fashionPrimaryWeight
+    ? pickKHybrid(fashionRng, cultureStyle, vocab.preferences.fashion.styleTags, 3, 2)
+    : fashionRng.pickK(vocab.preferences.fashion.styleTags, 3);
   const formality = clampFixed01k(fashionRng.int(0, 1000));
   const conformity = clampFixed01k(fashionRng.int(0, 1000));
   const statusSignaling = clampFixed01k(fashionRng.int(0, 1000));

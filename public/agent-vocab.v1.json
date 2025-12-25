@@ -24,39 +24,142 @@
     ],
     "firstNames": [
       "Amina",
-      "Ilya",
-      "Noor",
-      "Sofia",
-      "Mateo",
+      "Amara",
+      "Ananya",
+      "Arjun",
+      "Aroha",
+      "Asha",
       "Aya",
-      "Jun",
-      "Leila",
+      "Camila",
+      "Chidi",
+      "Diego",
+      "Elena",
+      "Ethan",
+      "Fatima",
+      "Freja",
+      "Hana",
+      "Haruto",
       "Hugo",
-      "Zara",
-      "Samir",
-      "Mira",
+      "Ilya",
+      "Imani",
+      "Ines",
+      "Jack",
+      "Jin",
+      "Jordan",
+      "Jun",
       "Kaito",
+      "Karim",
+      "Katarina",
+      "Kofi",
+      "Layla",
+      "Leila",
+      "Luca",
+      "Luis",
+      "Mai",
+      "Manaia",
+      "Mateo",
+      "Mei",
+      "Meera",
+      "Mina",
+      "Mira",
+      "Moana",
       "Nadia",
-      "Daniel",
-      "Priya"
+      "Neha",
+      "Noor",
+      "Omar",
+      "Olivia",
+      "Priya",
+      "Ravi",
+      "Rin",
+      "Sade",
+      "Sakura",
+      "Samir",
+      "Sana",
+      "Santiago",
+      "Sofia",
+      "Sora",
+      "Sven",
+      "Tane",
+      "Theo",
+      "Valentina",
+      "Wei",
+      "Yara",
+      "Youssef",
+      "Yuna",
+      "Zain",
+      "Zara",
+      "Zuri"
     ],
     "lastNames": [
-      "Khan",
-      "Novak",
-      "Silva",
-      "Haddad",
-      "Kim",
-      "Garcia",
+      "Adeyemi",
+      "Al-Farsi",
+      "Al-Masri",
+      "Anderson",
+      "Baker",
+      "Bianchi",
+      "Brown",
+      "Chen",
+      "Chowdhury",
+      "Clark",
+      "Davis",
+      "Diallo",
+      "Dlamini",
       "Dubois",
-      "Okoye",
+      "Farah",
+      "Fernandez",
+      "Fischer",
+      "Garcia",
+      "Gonzalez",
+      "Gupta",
+      "Haddad",
+      "Hernandez",
+      "Hosseini",
       "Ibrahim",
-      "Nakamura",
-      "Rossi",
-      "Patel",
+      "Iyer",
+      "Johnson",
+      "Jones",
+      "Kamau",
+      "Khalil",
+      "Khan",
+      "Kim",
+      "Kowalski",
+      "Lee",
+      "Liu",
+      "Lopez",
+      "Martinez",
       "Mensah",
+      "Miller",
+      "Moretti",
+      "Nakamura",
+      "Nasser",
+      "Ndlovu",
+      "Ngata",
+      "Nguyen",
+      "Novak",
+      "Nowak",
+      "Okafor",
+      "Okoye",
+      "Papadopoulos",
+      "Park",
+      "Patel",
+      "Popov",
+      "Rossi",
+      "Roy",
       "Santos",
       "Sato",
-      "Nguyen"
+      "Schmidt",
+      "Sharma",
+      "Silva",
+      "Singh",
+      "Smith",
+      "Suzuki",
+      "Tanaka",
+      "Taylor",
+      "Te Rangi",
+      "Wang",
+      "Wilson",
+      "Yilmaz",
+      "Zhang"
     ],
     "languages": [
       "English",
@@ -70,17 +173,51 @@
       "Japanese",
       "Swahili",
       "Turkish",
-      "German"
+      "German",
+      "Korean",
+      "Italian",
+      "Dutch",
+      "Polish",
+      "Ukrainian",
+      "Greek",
+      "Hebrew",
+      "Persian",
+      "Urdu",
+      "Bengali",
+      "Tamil",
+      "Vietnamese",
+      "Thai",
+      "Indonesian",
+      "Malay",
+      "Tagalog",
+      "Hausa",
+      "Yoruba",
+      "Amharic"
     ]
   },
   "appearance": {
     "heightBands": ["very_short", "short", "average", "tall", "very_tall"],
-    "buildTags": ["lean", "athletic", "stocky", "lanky", "compact"],
-    "hairColors": ["black", "brown", "blonde", "auburn", "gray"],
-    "hairTextures": ["straight", "wavy", "curly", "coily"],
-    "eyeColors": ["brown", "hazel", "green", "blue", "gray"],
-    "voiceTags": ["soft-spoken", "measured", "fast-talking", "commanding", "warm"],
-    "distinguishingMarks": ["scar", "freckles", "tattoo", "piercing", "birthmark", "callused hands"]
+    "buildTags": ["lean", "athletic", "stocky", "lanky", "compact", "muscular", "heavyset", "curvy", "wiry", "broad-shouldered"],
+    "hairColors": ["black", "brown", "blonde", "auburn", "gray", "red", "silver", "salt-and-pepper", "dyed"],
+    "hairTextures": ["straight", "wavy", "curly", "coily", "kinky"],
+    "eyeColors": ["brown", "hazel", "green", "blue", "gray", "amber"],
+    "voiceTags": ["soft-spoken", "measured", "fast-talking", "commanding", "warm", "raspy", "calm", "animated", "deadpan", "velvety"],
+    "distinguishingMarks": [
+      "scar",
+      "freckles",
+      "tattoo",
+      "piercing",
+      "birthmark",
+      "callused hands",
+      "broken nose",
+      "missing tooth",
+      "sunburn lines",
+      "laugh lines",
+      "ink-stained fingers",
+      "ring tan",
+      "old burn mark",
+      "heterochromia"
+    ]
   },
   "capabilities": {
     "skillKeys": [
@@ -116,11 +253,61 @@
         "seafood",
         "grilled meats",
         "vegetarian dishes",
-        "desserts"
+        "desserts",
+        "noodle soups",
+        "rice bowls",
+        "stews",
+        "flatbreads",
+        "dumplings",
+        "fermented foods",
+        "fresh salads",
+        "smoked foods",
+        "sweet pastries",
+        "hot breakfast",
+        "late-night snacks"
       ],
-      "dislikes": ["bitter greens", "sweet drinks", "oily food", "raw fish", "very spicy", "dairy", "red meat"],
-      "restrictions": ["halal", "kosher", "vegetarian", "lactose-sensitive", "gluten-sensitive"],
-      "ritualDrinks": ["tea", "coffee", "mate", "sparkling water", "black espresso"]
+      "dislikes": [
+        "bitter greens",
+        "sweet drinks",
+        "oily food",
+        "raw fish",
+        "very spicy",
+        "dairy",
+        "red meat",
+        "offal",
+        "very sweet",
+        "very salty",
+        "messy foods",
+        "strong cheese",
+        "overcooked vegetables",
+        "carbonated drinks"
+      ],
+      "restrictions": [
+        "halal",
+        "kosher",
+        "vegetarian",
+        "pescatarian",
+        "no alcohol",
+        "lactose-sensitive",
+        "gluten-sensitive",
+        "nut allergy",
+        "low sodium",
+        "low sugar"
+      ],
+      "ritualDrinks": [
+        "tea",
+        "coffee",
+        "mate",
+        "sparkling water",
+        "black espresso",
+        "herbal tea",
+        "green tea",
+        "iced coffee",
+        "electrolyte water",
+        "protein shake",
+        "cocoa",
+        "seltzer with citrus"
+      ]
     },
     "media": {
       "genres": [
@@ -132,23 +319,222 @@
         "tech podcasts",
         "sports",
         "strategy games",
-        "documentaries"
+        "documentaries",
+        "literary fiction",
+        "economics",
+        "true crime",
+        "philosophy",
+        "music criticism",
+        "war reporting",
+        "investigative journalism",
+        "satire",
+        "fantasy",
+        "horror",
+        "biography",
+        "anime",
+        "K-drama",
+        "afrofuturism",
+        "business news"
       ],
       "platforms": ["print", "radio", "tv", "social", "closed"]
     },
     "fashion": {
-      "styleTags": ["minimalist", "formal", "utilitarian", "streetwear", "heritage", "avant-garde", "classic", "sporty"]
+      "styleTags": [
+        "minimalist",
+        "formal",
+        "utilitarian",
+        "streetwear",
+        "heritage",
+        "avant-garde",
+        "classic",
+        "sporty",
+        "techwear",
+        "workwear",
+        "business casual",
+        "traditional",
+        "bohemian",
+        "preppy",
+        "punk",
+        "athleisure",
+        "tailored",
+        "rugged"
+      ]
     }
   },
   "routines": {
     "chronotypes": ["early", "standard", "night"],
-    "recoveryRituals": ["long walk", "journaling", "quiet music", "gym session", "cook a meal", "call a friend", "meditation"]
+    "recoveryRituals": [
+      "long walk",
+      "journaling",
+      "quiet music",
+      "gym session",
+      "cook a meal",
+      "call a friend",
+      "meditation",
+      "breathing drills",
+      "hot shower",
+      "sauna",
+      "cold plunge",
+      "stretching",
+      "reading fiction",
+      "podcast unwind",
+      "clean the workspace",
+      "late-night drive",
+      "tea ritual",
+      "gardening"
+    ]
   },
   "vices": {
-    "vicePool": ["alcohol", "stims", "doomscrolling", "gambling", "workaholism"],
-    "triggers": ["sleep debt", "humiliation", "loneliness", "mission failure", "public backlash", "moral injury"]
+    "vicePool": ["alcohol", "stims", "doomscrolling", "gambling", "workaholism", "nicotine", "caffeine", "shopping", "risk-taking", "compulsive news"],
+    "triggers": [
+      "sleep debt",
+      "humiliation",
+      "loneliness",
+      "mission failure",
+      "public backlash",
+      "moral injury",
+      "deadline pressure",
+      "grief",
+      "boredom",
+      "financial stress",
+      "relationship conflict",
+      "loss of control",
+      "uncertainty",
+      "fear",
+      "anger",
+      "success whiplash"
+    ]
   },
   "logistics": {
-    "identityKitItems": ["passport set", "burner phone", "laptop", "cover documents", "keepsake", "cash stash", "keys"]
+    "identityKitItems": [
+      "passport set",
+      "burner phone",
+      "laptop",
+      "cover documents",
+      "keepsake",
+      "cash stash",
+      "keys",
+      "encrypted drive",
+      "spare SIMs",
+      "analog notebook",
+      "first aid pouch",
+      "contacts card",
+      "lock pick set",
+      "spare glasses"
+    ]
+  },
+  "cultureProfiles": {
+    "Americas": {
+      "weights": { "namesPrimaryWeight": 0.75, "languagesPrimaryWeight": 0.85, "foodPrimaryWeight": 0.7, "mediaPrimaryWeight": 0.7, "fashionPrimaryWeight": 0.6 },
+      "identity": {
+        "firstNames": ["Carlos", "Maria", "Ana", "Luis", "Camila", "Diego", "Valentina", "Isabella", "Jordan", "Maya", "Ethan", "Aaliyah", "Santiago", "Lucia"],
+        "lastNames": ["Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Wilson", "Taylor", "Anderson", "Martinez", "Rodriguez", "Hernandez", "Lopez", "Gonzalez"],
+        "languages": ["English", "Spanish", "Portuguese", "French"]
+      },
+      "preferences": {
+        "food": {
+          "comfortFoods": ["street food", "grilled meats", "home cooking", "late-night snacks", "hot breakfast", "sweet pastries"],
+          "ritualDrinks": ["coffee", "mate", "iced coffee", "seltzer with citrus", "sparkling water"]
+        },
+        "media": { "genres": ["sports", "true crime", "business news", "documentaries", "satire", "political thriller"] },
+        "fashion": { "styleTags": ["streetwear", "athleisure", "business casual", "workwear", "sporty"] }
+      }
+    },
+    "Europe": {
+      "weights": { "namesPrimaryWeight": 0.75, "languagesPrimaryWeight": 0.85, "foodPrimaryWeight": 0.7, "mediaPrimaryWeight": 0.7, "fashionPrimaryWeight": 0.6 },
+      "identity": {
+        "firstNames": ["Luca", "Elena", "Marta", "Jakub", "Katarina", "Sven", "Freja", "Nikolai", "Ines", "Theo", "Amelie", "Sofia", "Rafael", "Anya"],
+        "lastNames": ["Rossi", "Bianchi", "Dubois", "Moretti", "Fischer", "Kowalski", "Popov", "Novak", "Papadopoulos", "Nowak", "Schmidt", "Garcia"],
+        "languages": ["English", "French", "German", "Italian", "Polish", "Dutch", "Greek", "Russian", "Spanish"]
+      },
+      "preferences": {
+        "food": {
+          "comfortFoods": ["home cooking", "fine dining", "fresh salads", "flatbreads", "desserts", "fermented foods"],
+          "ritualDrinks": ["coffee", "tea", "black espresso", "sparkling water"]
+        },
+        "media": { "genres": ["history", "investigative journalism", "literary fiction", "political thriller", "music criticism"] },
+        "fashion": { "styleTags": ["tailored", "classic", "minimalist", "heritage", "formal"] }
+      }
+    },
+    "MENA": {
+      "weights": { "namesPrimaryWeight": 0.8, "languagesPrimaryWeight": 0.9, "foodPrimaryWeight": 0.75, "mediaPrimaryWeight": 0.7, "fashionPrimaryWeight": 0.65 },
+      "identity": {
+        "firstNames": ["Omar", "Fatima", "Youssef", "Aisha", "Karim", "Layla", "Hassan", "Nour", "Zain", "Mariam", "Samir", "Rana"],
+        "lastNames": ["Haddad", "Ibrahim", "Al-Farsi", "Al-Masri", "El-Sayed", "Hosseini", "Farah", "Khalil", "Nasser"],
+        "languages": ["Arabic", "French", "English", "Turkish", "Persian", "Hebrew"]
+      },
+      "preferences": {
+        "food": {
+          "comfortFoods": ["spicy food", "flatbreads", "stews", "grilled meats", "desserts"],
+          "ritualDrinks": ["tea", "coffee", "black espresso", "herbal tea"]
+        },
+        "media": { "genres": ["war reporting", "political thriller", "history", "documentaries", "satire"] },
+        "fashion": { "styleTags": ["formal", "classic", "traditional", "tailored", "minimalist"] }
+      }
+    },
+    "Sub‑Saharan Africa": {
+      "weights": { "namesPrimaryWeight": 0.8, "languagesPrimaryWeight": 0.9, "foodPrimaryWeight": 0.75, "mediaPrimaryWeight": 0.7, "fashionPrimaryWeight": 0.6 },
+      "identity": {
+        "firstNames": ["Amara", "Imani", "Zuri", "Kofi", "Kwame", "Ayo", "Nia", "Tari", "Chinedu", "Sade", "Binta", "Zola"],
+        "lastNames": ["Mensah", "Okoye", "Okafor", "Adeyemi", "Ndlovu", "Dlamini", "Kamau", "Diallo", "Traore", "Abebe"],
+        "languages": ["English", "French", "Swahili", "Hausa", "Yoruba", "Amharic", "Arabic", "Portuguese"]
+      },
+      "preferences": {
+        "food": {
+          "comfortFoods": ["street food", "stews", "grilled meats", "spicy food", "fermented foods"],
+          "ritualDrinks": ["tea", "coffee", "sparkling water", "herbal tea"]
+        },
+        "media": { "genres": ["sports", "business news", "documentaries", "music criticism", "satire"] },
+        "fashion": { "styleTags": ["streetwear", "sporty", "rugged", "traditional", "workwear"] }
+      }
+    },
+    "South Asia": {
+      "weights": { "namesPrimaryWeight": 0.8, "languagesPrimaryWeight": 0.9, "foodPrimaryWeight": 0.75, "mediaPrimaryWeight": 0.7, "fashionPrimaryWeight": 0.6 },
+      "identity": {
+        "firstNames": ["Arjun", "Ananya", "Rahul", "Neha", "Ravi", "Sana", "Ayesha", "Imran", "Sanjay", "Meera", "Priya", "Dev"],
+        "lastNames": ["Patel", "Singh", "Sharma", "Gupta", "Chowdhury", "Iyer", "Khan", "Roy", "Das"],
+        "languages": ["Hindi", "Urdu", "Bengali", "Tamil", "English"]
+      },
+      "preferences": {
+        "food": {
+          "comfortFoods": ["spicy food", "vegetarian dishes", "street food", "flatbreads", "desserts"],
+          "ritualDrinks": ["tea", "coffee", "herbal tea"]
+        },
+        "media": { "genres": ["romance", "crime", "history", "strategy games", "political thriller"] },
+        "fashion": { "styleTags": ["traditional", "classic", "formal", "business casual", "sporty"] }
+      }
+    },
+    "East Asia": {
+      "weights": { "namesPrimaryWeight": 0.8, "languagesPrimaryWeight": 0.9, "foodPrimaryWeight": 0.75, "mediaPrimaryWeight": 0.75, "fashionPrimaryWeight": 0.6 },
+      "identity": {
+        "firstNames": ["Wei", "Mei", "Jun", "Hana", "Haruto", "Yuna", "Min", "Sora", "Jin", "Kei", "Mai", "Rin"],
+        "lastNames": ["Wang", "Zhang", "Liu", "Chen", "Tanaka", "Suzuki", "Sato", "Park", "Kim", "Lee", "Nguyen"],
+        "languages": ["Mandarin", "Japanese", "Korean", "English", "Vietnamese"]
+      },
+      "preferences": {
+        "food": {
+          "comfortFoods": ["noodle soups", "rice bowls", "dumplings", "seafood", "fermented foods", "late-night snacks"],
+          "ritualDrinks": ["green tea", "tea", "coffee", "sparkling water"]
+        },
+        "media": { "genres": ["anime", "hard sci-fi", "strategy games", "tech podcasts", "business news"] },
+        "fashion": { "styleTags": ["minimalist", "techwear", "formal", "streetwear", "tailored"] }
+      }
+    },
+    "Oceania": {
+      "weights": { "namesPrimaryWeight": 0.75, "languagesPrimaryWeight": 0.85, "foodPrimaryWeight": 0.7, "mediaPrimaryWeight": 0.7, "fashionPrimaryWeight": 0.6 },
+      "identity": {
+        "firstNames": ["Aroha", "Manaia", "Tane", "Moana", "Kiri", "Hine", "Olivia", "Jack", "Noah", "Ava", "Isla"],
+        "lastNames": ["Ngata", "Te Rangi", "Brown", "Wilson", "Taylor", "Thompson", "Anderson"],
+        "languages": ["English"]
+      },
+      "preferences": {
+        "food": {
+          "comfortFoods": ["seafood", "fresh salads", "grilled meats", "desserts", "home cooking"],
+          "ritualDrinks": ["coffee", "tea", "sparkling water", "seltzer with citrus"]
+        },
+        "media": { "genres": ["sports", "documentaries", "history", "satire"] },
+        "fashion": { "styleTags": ["rugged", "workwear", "sporty", "classic", "minimalist"] }
+      }
+    }
   }
 }
