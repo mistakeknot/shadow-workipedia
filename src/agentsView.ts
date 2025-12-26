@@ -728,9 +728,14 @@ export function initializeAgentsView(container: HTMLElement) {
               <summary class="agents-panel-summary">
                 <div class="agents-panel-summary-top">
                   <h2>Generator</h2>
-                  <div class="agents-panel-summary-meta">
-                    <span class="agent-muted">Seed</span> <code>${escapeHtml(seedSummary)}</code>
+                  <div class="agents-panel-summary-actions">
+                    <button id="agents-random-quick" type="button" class="agents-btn agents-btn-compact" ${agentVocab && agentPriors && shadowCountries ? '' : 'disabled'} title="Generate a random agent">
+                      Random
+                    </button>
                   </div>
+                </div>
+                <div class="agents-panel-summary-meta">
+                  <span class="agent-muted">Seed</span> <code>${escapeHtml(seedSummary)}</code>
                 </div>
                 <div class="agents-sidebar-subtitle">Seed drives all derived traits by default.</div>
               </summary>
@@ -766,6 +771,30 @@ export function initializeAgentsView(container: HTMLElement) {
                   <button id="agents-save" class="agents-btn primary" ${activeAgent ? '' : 'disabled'}>Save</button>
                   <button id="agents-share" class="agents-btn agents-btn-span2">Copy link</button>
                 </div>
+
+                <details class="agents-actions agents-roster" id="agents-panel-roster" ${rosterPanelOpen ? 'open' : ''}>
+                  <summary class="agents-actions-summary">
+                    Roster
+                    <span class="agents-actions-hint">${roster.length === 1 ? '1 saved agent' : `${roster.length} saved agents`}</span>
+                  </summary>
+                  <div class="agents-actions-body">
+                    <div class="agents-roster-header">
+                      <div class="agents-panel-summary-meta agent-muted">Saved agents (local)</div>
+                      <button id="agents-clear" class="agents-btn danger">Clear</button>
+                    </div>
+                    <div class="agents-roster-list">
+                      ${roster.length
+                        ? roster.map(item => `
+                          <div class="agents-roster-item ${item.id === selectedRosterId ? 'active' : ''}" data-roster-id="${escapeHtml(item.id)}">
+                            <div class="agents-roster-name">${escapeHtml(item.name)}</div>
+                            <div class="agents-roster-meta"><code>${escapeHtml(item.seed)}</code></div>
+                            <button class="agents-roster-delete" data-roster-delete="${escapeHtml(item.id)}" title="Delete">×</button>
+                          </div>
+                        `).join('')
+                        : `<div class="agent-muted">No saved agents yet.</div>`}
+                    </div>
+                  </div>
+                </details>
 
                 <details class="agents-actions">
                   <summary class="agents-actions-summary">
@@ -815,34 +844,6 @@ export function initializeAgentsView(container: HTMLElement) {
                 </details>
               </div>
             </details>
-
-            <details class="agents-sidebar-card agents-panel" id="agents-panel-roster" ${rosterPanelOpen ? 'open' : ''}>
-              <summary class="agents-panel-summary">
-                <div class="agents-panel-summary-top">
-                  <h2>Roster</h2>
-                  <div class="agents-panel-summary-meta">
-                    <span class="agent-muted">${roster.length === 1 ? '1 saved agent' : `${roster.length} saved agents`}</span>
-                  </div>
-                </div>
-              </summary>
-              <div class="agents-panel-body">
-                <div class="agents-roster-header">
-                  <div class="agents-panel-summary-meta agent-muted">Saved agents (local)</div>
-                  <button id="agents-clear" class="agents-btn danger">Clear</button>
-                </div>
-                <div class="agents-roster-list">
-                  ${roster.length
-                    ? roster.map(item => `
-                      <div class="agents-roster-item ${item.id === selectedRosterId ? 'active' : ''}" data-roster-id="${escapeHtml(item.id)}">
-                        <div class="agents-roster-name">${escapeHtml(item.name)}</div>
-                        <div class="agents-roster-meta"><code>${escapeHtml(item.seed)}</code></div>
-                        <button class="agents-roster-delete" data-roster-delete="${escapeHtml(item.id)}" title="Delete">×</button>
-                      </div>
-                    `).join('')
-                    : `<div class="agent-muted">No saved agents yet.</div>`}
-                </div>
-              </div>
-            </details>
           </aside>
 
           <main class="agents-main">
@@ -889,6 +890,7 @@ export function initializeAgentsView(container: HTMLElement) {
       });
     }
 
+    const btnRandomQuick = container.querySelector('#agents-random-quick') as HTMLButtonElement | null;
     const btnRandom = container.querySelector('#agents-random') as HTMLButtonElement | null;
     const btnGenerate = container.querySelector('#agents-generate') as HTMLButtonElement | null;
     const btnLockCountry = container.querySelector('#agents-lock-country') as HTMLButtonElement | null;
@@ -924,7 +926,7 @@ export function initializeAgentsView(container: HTMLElement) {
       render();
     });
 
-    btnRandom?.addEventListener('click', () => {
+    const runRandom = () => {
       if (!agentVocab || !agentPriors || !shadowCountries) return;
       const seed = randomSeedString();
       if (seedEl) seedEl.value = seed;
@@ -933,7 +935,24 @@ export function initializeAgentsView(container: HTMLElement) {
       if (!input) return;
       activeAgent = generateAgent(input);
       render();
-    });
+    };
+
+    btnRandom?.addEventListener('click', runRandom);
+
+    if (btnRandomQuick) {
+      const stopDetailsToggle = (e: Event) => {
+        e.preventDefault();
+        e.stopPropagation();
+      };
+
+      btnRandomQuick.addEventListener('pointerdown', stopDetailsToggle);
+      btnRandomQuick.addEventListener('pointerup', stopDetailsToggle);
+      btnRandomQuick.addEventListener('touchstart', stopDetailsToggle, { passive: false });
+      btnRandomQuick.addEventListener('click', (e) => {
+        stopDetailsToggle(e);
+        runRandom();
+      });
+    }
 
     btnGenerate?.addEventListener('click', () => {
       if (!agentVocab || !agentPriors || !shadowCountries) return;
