@@ -6,6 +6,24 @@ export type Fixed = number; // fixed-point int, typically 0..1000
 
 export type HeightBand = 'very_short' | 'short' | 'average' | 'tall' | 'very_tall';
 
+export type NeedTag = 'sleep' | 'safety' | 'belonging' | 'autonomy' | 'competence' | 'purpose' | 'comfort';
+
+export type ThoughtSource = 'ops' | 'exposure' | 'media' | 'relationship' | 'health' | 'obligation';
+
+export type DeepSimPreviewV1 = {
+  version: 1;
+  day0: number;
+  needs01k: Record<NeedTag, Fixed>;
+  baselineMood01k: number; // -1000..+1000
+  mood01k: number; // -1000..+1000
+  stress01k: Fixed;
+  fatigue01k: Fixed;
+  thoughts: Array<{ tag: string; source: ThoughtSource; valence: number; intensity01k: Fixed; expiresDay: number }>;
+  breakRisk01k: Fixed;
+  breakRiskBand: Band5;
+  breakTypesTopK: string[];
+};
+
 export type AgentPriorsV1 = {
   version: 1;
   generatedAtIso: string;
@@ -124,6 +142,11 @@ export type AgentVocabV1 = {
     vicePool: string[];
     triggers: string[];
   };
+  deepSimPreview?: {
+    needTags?: string[];
+    thoughtTags?: string[];
+    breakTypes?: string[];
+  };
   logistics: {
     identityKitItems: string[];
   };
@@ -157,6 +180,7 @@ export type GeneratedAgent = {
   createdAtIso: string;
 
   generationTrace?: AgentGenerationTraceV1;
+  deepSimPreview: DeepSimPreviewV1;
 
   identity: {
     name: string;
@@ -406,6 +430,11 @@ function band5From01k(value: Fixed): Band5 {
   if (value < 600) return 'medium';
   if (value < 800) return 'high';
   return 'very_high';
+}
+
+function clampSigned01k(value: number): number {
+  if (!Number.isFinite(value)) return 0;
+  return Math.max(-1000, Math.min(1000, Math.round(value)));
 }
 
 function topKByScore(items: readonly string[], score: (item: string) => number, k: number): string[] {
@@ -957,6 +986,9 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   if (!vocab.identity.roleSeedTags.length) throw new Error('Agent vocab missing: identity.roleSeedTags');
   if (!vocab.identity.firstNames.length || !vocab.identity.lastNames.length) throw new Error('Agent vocab missing: identity name pools');
   if (!vocab.identity.languages.length) throw new Error('Agent vocab missing: identity.languages');
+  if (!vocab.deepSimPreview?.needTags?.length) throw new Error('Agent vocab missing: deepSimPreview.needTags');
+  if (!vocab.deepSimPreview?.thoughtTags?.length) throw new Error('Agent vocab missing: deepSimPreview.thoughtTags');
+  if (!vocab.deepSimPreview?.breakTypes?.length) throw new Error('Agent vocab missing: deepSimPreview.breakTypes');
 
 	  const tierBand: TierBand = input.tierBand ?? base.pick(vocab.identity.tierBands as readonly TierBand[]);
 	  traceSet(trace, 'identity.tierBand', tierBand, { method: input.tierBand ? 'override' : 'rng', dependsOn: { facet: 'base', poolSize: vocab.identity.tierBands.length } });
@@ -2571,8 +2603,332 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   });
   traceSet(trace, 'logistics.identityKit', kitItems, { method: 'weightedPickKUnique+repairs+formula', dependsOn: { facet: 'logistics', opsec01, public01, risk01, travelScore, careerTrackTag, tierBand, identityKitRepairs } });
 
-	  const id = fnv1a32(`${seed}::${birthYear}::${homeCountryIso3}::${tierBand}`).toString(16);
-	  traceSet(trace, 'id', id, { method: 'fnv1a32', dependsOn: { normalizedSeed: seed, birthYear, homeCountryIso3, tierBand } });
+  traceFacet(trace, seed, 'deep_sim_preview');
+  const previewRng = makeRng(facetSeed(seed, 'deep_sim_preview'));
+  const previewAbroad = currentCountryIso3 !== homeCountryIso3;
+  const recoveryOffline = recoveryRituals.some(r =>
+    [
+      'phone-free hour',
+      'long walk',
+      'gym session',
+      'run',
+      'swim laps',
+      'sauna',
+      'stretch and mobility',
+      'martial arts class',
+      'stargazing',
+      'visit a museum',
+    ].includes(r),
+  );
+
+  const stableNoise = (key: string): number => {
+    const n = fnv1a32(`${seed}::deep_sim_preview_noise::${key}`) >>> 0;
+    return ((n / 0xffff_ffff) - 0.5) * 0.04; // [-0.02, +0.02]
+  };
+
+  const skillValues = Object.values(skills).map(s => s.value);
+  const averageSkillValue01k = skillValues.length
+    ? clampFixed01k(Math.round(skillValues.reduce((a, b) => a + b, 0) / skillValues.length))
+    : 500;
+
+  // Snapshot "day 0" deep-sim preview. This is not a simulation tick; it's a deterministic initial state.
+  const baselineMood01k = clampSigned01k(
+    -140 +
+      420 * (traits.agreeableness / 1000) +
+      220 * (traits.conscientiousness / 1000) +
+      160 * (latents.socialBattery / 1000) -
+      520 * (latents.stressReactivity / 1000) -
+      220 * (doomscrollingRisk / 1000) +
+      220 * (attentionResilience / 1000) +
+      previewRng.int(-120, 120),
+  );
+
+  const stress01k = clampFixed01k(
+    Math.round(
+      240 +
+        520 * (latents.stressReactivity / 1000) +
+        240 * (1 - latents.impulseControl / 1000) +
+        240 * public01 +
+        260 * (securityPressure01k / 1000) +
+        220 * (paperTrail / 1000) +
+        200 * (doomscrollingRisk / 1000) -
+        220 * opsec01 -
+        140 * (attentionResilience / 1000) -
+        140 * (latents.physicalConditioning / 1000) +
+        (recoveryOffline ? -60 : 0) +
+        previewRng.int(-90, 90),
+    ),
+  );
+
+  const fatigue01k = clampFixed01k(
+    Math.round(
+      270 +
+        200 * (1 - traits.conscientiousness / 1000) +
+        200 * (doomscrollingRisk / 1000) +
+        220 * (stress01k / 1000) +
+        140 * (age / 100) -
+        260 * (latents.physicalConditioning / 1000) -
+        120 * (aptitudes.attentionControl / 1000) +
+        (recoveryOffline ? -40 : 0) +
+        previewRng.int(-80, 80),
+    ),
+  );
+
+  const needs01k: Record<NeedTag, Fixed> = {
+    sleep: clampFixed01k(Math.round(720 - 0.55 * fatigue01k - 0.20 * stress01k + 120 * (traits.conscientiousness / 1000) + previewRng.int(-60, 60))),
+    safety: clampFixed01k(
+      Math.round(
+        720 +
+          220 * opsec01 -
+          260 * public01 -
+          170 * (paperTrail / 1000) -
+          220 * (securityPressure01k / 1000) +
+          previewRng.int(-70, 70),
+      ),
+    ),
+    belonging: clampFixed01k(
+      Math.round(
+        640 +
+          260 * (latents.socialBattery / 1000) +
+          120 * (traits.agreeableness / 1000) -
+          (previewAbroad ? 170 : 0) -
+          160 * (stress01k / 1000) +
+          previewRng.int(-70, 70),
+      ),
+    ),
+    autonomy: clampFixed01k(
+      Math.round(620 + 190 * (1 - inst01) + 120 * (latents.planningHorizon / 1000) - 120 * (paperTrail / 1000) + previewRng.int(-60, 60)),
+    ),
+    competence: clampFixed01k(
+      Math.round(
+        640 +
+          0.22 * averageSkillValue01k +
+          160 * (traits.conscientiousness / 1000) +
+          80 * (latents.techFluency / 1000) -
+          150 * (fatigue01k / 1000) -
+          90 * (stress01k / 1000) +
+          previewRng.int(-60, 60),
+      ),
+    ),
+    purpose: clampFixed01k(
+      Math.round(
+        600 +
+          240 * (latents.principledness / 1000) +
+          120 * inst01 +
+          (roleSeedTags.includes('organizer') ? 70 : 0) +
+          (roleSeedTags.includes('diplomat') ? 40 : 0) -
+          160 * (stress01k / 1000) +
+          previewRng.int(-70, 70),
+      ),
+    ),
+    comfort: clampFixed01k(
+      Math.round(
+        620 +
+          100 * (traits.conscientiousness / 1000) +
+          120 * (latents.frugality / 1000) +
+          60 * (1 - risk01) -
+          180 * (fatigue01k / 1000) +
+          (recoveryOffline ? 40 : 0) +
+          previewRng.int(-70, 70),
+      ),
+    ),
+  };
+
+  const mood01k = clampSigned01k(
+    baselineMood01k +
+      0.22 * (needs01k.sleep - 600) +
+      0.18 * (needs01k.safety - 600) +
+      0.18 * (needs01k.belonging - 600) +
+      0.10 * (needs01k.autonomy - 600) +
+      0.14 * (needs01k.competence - 600) +
+      0.18 * (needs01k.purpose - 600) +
+      0.10 * (needs01k.comfort - 600) -
+      0.70 * (stress01k - 500) -
+      0.55 * (fatigue01k - 500),
+  );
+
+  const thoughtSourceFor = (tag: string): ThoughtSource => {
+    if (tag.startsWith('mission_') || tag === 'near_miss') return 'ops';
+    if (tag.includes('watched') || tag.includes('scrutiny') || tag.includes('privacy_compromised')) return 'exposure';
+    if (tag.includes('doomscroll') || tag.includes('outrage') || tag.includes('paranoia') || tag === 'spiraling') return 'media';
+    if (tag.startsWith('argument_') || tag.includes('trust_') || tag.includes('bond_') || tag === 'broken_promise') return 'relationship';
+    if (tag.includes('headache') || tag.includes('shoulders') || tag.includes('body_')) return 'health';
+    if (tag.includes('paperwork') || tag.includes('deadline') || tag.includes('meeting') || tag.includes('backlog') || tag.includes('routine_disrupted')) return 'obligation';
+    return 'obligation';
+  };
+
+  const positiveThoughts = new Set([
+    'well_rested',
+    'calm_focus',
+    'safe_for_now',
+    'felt_supported',
+    'felt_appreciated',
+    'quiet_pride',
+    'competent_today',
+    'found_a_rhythm',
+    'public_praise',
+    'bond_strengthened',
+    'body_feels_strong',
+  ]);
+  const thoughtValenceFor = (tag: string): number => {
+    if (positiveThoughts.has(tag)) return 600;
+    if (tag === 'mission_success') return 800;
+    if (tag === 'mission_failure') return -900;
+    if (tag === 'moral_disquiet' || tag === 'guilt_weight') return -650;
+    if (tag.includes('embarrassment') || tag.includes('backlash') || tag.includes('ignored') || tag.includes('used')) return -700;
+    if (tag.includes('slept') || tag.includes('restless') || tag.includes('spiraling') || tag.includes('ruminating')) return -550;
+    if (tag.startsWith('needed_')) return -350;
+    return -450;
+  };
+
+  const thoughtScore = (tag: string): number => {
+    const n = stableNoise(tag);
+    const t = tag;
+    let s = 0;
+
+    if (t === 'well_rested') s += Math.max(0, (needs01k.sleep - 650) / 250);
+    if (t === 'slept_poorly' || t === 'restless_night') s += Math.max(0, (600 - needs01k.sleep) / 260);
+    if (t === 'on_edge') s += Math.max(0, (stress01k - 520) / 300);
+    if (t === 'calm_focus') s += Math.max(0, (520 - stress01k) / 320) + Math.max(0, (needs01k.competence - 650) / 300);
+
+    if (t === 'felt_watched' || t === 'too_much_scrutiny' || t === 'privacy_compromised') {
+      s += Math.max(0, (620 - needs01k.safety) / 260) + 0.35 * public01 + 0.20 * (securityPressure01k / 1000);
+    }
+    if (t === 'safe_for_now') s += Math.max(0, (needs01k.safety - 650) / 280) + 0.25 * opsec01;
+
+    if (t === 'homesick' || t === 'lonely_in_a_crowd' || t === 'missed_a_friend') {
+      s += Math.max(0, (620 - needs01k.belonging) / 260) + (previewAbroad ? 0.25 : 0) + 0.15 * (stress01k / 1000);
+    }
+    if (t === 'felt_supported' || t === 'felt_appreciated') s += Math.max(0, (needs01k.belonging - 650) / 300) + 0.20 * (traits.agreeableness / 1000);
+    if (t === 'felt_used' || t === 'felt_ignored') s += Math.max(0, (650 - needs01k.autonomy) / 280) + 0.12 * inst01;
+
+    if (t === 'bureaucratic_grind' || t === 'paperwork_backlog' || t === 'meeting_fatigue') {
+      s += 0.10 + 0.15 * inst01 + (careerTrackTag === 'civil-service' ? 0.35 : 0) + (careerTrackTag === 'corporate' ? 0.10 : 0);
+    }
+    if (t === 'deadline_pressure' || t === 'uncertainty_spike' || t === 'plans_disrupted' || t === 'loss_of_control') {
+      s += Math.max(0, (stress01k - 480) / 340) + 0.20 * (1 - latents.impulseControl / 1000) + 0.10 * (1 - latents.planningHorizon / 1000);
+    }
+    if (t === 'routine_disrupted') s += Math.max(0, (fatigue01k - 520) / 360) + 0.15 * (traits.noveltySeeking / 1000);
+    if (t === 'found_a_rhythm') s += Math.max(0, (520 - fatigue01k) / 360) + 0.10 * (traits.conscientiousness / 1000);
+
+    if (t === 'doomscroll_fog' || t === 'outrage_fatigue' || t === 'paranoia_spike' || t === 'spiraling') {
+      s += 0.05 + 0.45 * (doomscrollingRisk / 1000) + 0.20 * (stress01k / 1000) - 0.20 * (attentionResilience / 1000);
+    }
+    if (t === 'moral_disquiet' || t === 'guilt_weight') {
+      s += 0.06 + 0.35 * (latents.principledness / 1000) + 0.15 * (latents.stressReactivity / 1000) - 0.12 * (traits.agreeableness / 1000);
+    }
+
+    if (t === 'status_anxiety' || t === 'imposter_syndrome') {
+      s += 0.05 + 0.30 * (statusSignaling / 1000) + 0.25 * (publicVisibility / 1000) + 0.15 * (1 - needs01k.competence / 1000);
+    }
+    if (t === 'quiet_pride' || t === 'competent_today') {
+      s += Math.max(0, (needs01k.purpose - 650) / 340) + Math.max(0, (needs01k.competence - 650) / 340);
+    }
+
+    if (t === 'public_backlash') s += 0.05 + 0.40 * (publicVisibility / 1000);
+    if (t === 'public_embarrassment') s += 0.05 + 0.30 * (publicVisibility / 1000);
+
+    if (t === 'tension_headache' || t === 'stiff_shoulders') s += 0.05 + 0.35 * (stress01k / 1000) + 0.20 * (fatigue01k / 1000);
+    if (t === 'body_feels_strong') s += 0.05 + 0.30 * (latents.physicalConditioning / 1000) + Math.max(0, (needs01k.sleep - 650) / 360);
+
+    if (t.startsWith('needed_')) {
+      const needTag = t.replace(/^needed_/, '');
+      if (needTag === 'company') s += Math.max(0, (620 - needs01k.belonging) / 300) + 0.20 * (latents.socialBattery / 1000);
+      if (needTag === 'silence') s += Math.max(0, (stress01k - 520) / 340) + 0.20 * (1 - latents.socialBattery / 1000);
+      if (needTag === 'control') s += Math.max(0, (620 - needs01k.autonomy) / 300) + 0.20 * (1 - latents.impulseControl / 1000);
+      if (needTag === 'meaning') s += Math.max(0, (620 - needs01k.purpose) / 300) + 0.20 * (latents.principledness / 1000);
+      if (needTag === 'walk') s += Math.max(0, (fatigue01k - 520) / 360) + 0.10 * (1 - latents.physicalConditioning / 1000);
+    }
+
+    // Role-flavored baseline thoughts.
+    if (roleSeedTags.includes('media') && (t === 'too_much_scrutiny' || t === 'public_backlash')) s += 0.25;
+    if ((roleSeedTags.includes('operative') || roleSeedTags.includes('security')) && (t === 'on_edge' || t === 'loss_of_control' || t === 'felt_watched')) s += 0.20;
+    if (roleSeedTags.includes('analyst') && (t === 'ruminating' || t === 'imposter_syndrome')) s += 0.15;
+
+    return Math.max(0, s + n);
+  };
+
+  const thoughtPool = uniqueStrings(vocab.deepSimPreview!.thoughtTags!);
+  const thoughtCount = clampInt(3 + previewRng.int(0, 2), 2, 6);
+  const scoredThoughts = thoughtPool.map(tag => ({ tag, score: thoughtScore(tag) }));
+  let chosenThoughtTags = scoredThoughts
+    .filter(x => x.score > 0.10)
+    .sort((a, b) => (b.score - a.score) || a.tag.localeCompare(b.tag))
+    .slice(0, thoughtCount)
+    .map(x => x.tag);
+  if (!chosenThoughtTags.length) {
+    chosenThoughtTags = scoredThoughts.sort((a, b) => (b.score - a.score) || a.tag.localeCompare(b.tag)).slice(0, 3).map(x => x.tag);
+  }
+
+  const thoughts = chosenThoughtTags.slice(0, thoughtCount).map((tag) => {
+    const sc = thoughtScore(tag);
+    const intensity01k = clampFixed01k(Math.round(220 + 760 * sc));
+    const tagRng = makeRng(fnv1a32(`${seed}::deep_sim_preview::thought::${tag}`));
+    const expiresDay = clampInt(tagRng.int(2, 8), 1, 30);
+    return { tag, source: thoughtSourceFor(tag), valence: thoughtValenceFor(tag), intensity01k, expiresDay };
+  });
+
+  const breakRisk01k = clampFixed01k(
+    Math.round(
+      120 +
+        0.55 * stress01k +
+        0.45 * fatigue01k +
+        0.25 * Math.max(0, 600 - needs01k.safety) +
+        0.18 * Math.max(0, 600 - needs01k.sleep) +
+        0.18 * Math.max(0, 600 - needs01k.purpose) +
+        220 * (1 - latents.impulseControl / 1000) +
+        160 * (latents.stressReactivity / 1000) +
+        120 * (latents.riskAppetite / 1000) +
+        120 * viceTendency -
+        140 * opsec01 -
+        120 * (traits.conscientiousness / 1000) +
+        previewRng.int(-90, 90),
+    ),
+  );
+
+  const breakTypeScore = (type: string): number => {
+    const n = stableNoise(`break:${type}`);
+    const safetyDef = Math.max(0, 650 - needs01k.safety) / 650;
+    const belongDef = Math.max(0, 650 - needs01k.belonging) / 650;
+    const purposeDef = Math.max(0, 650 - needs01k.purpose) / 650;
+    const stress = stress01k / 1000;
+    const fatigue = fatigue01k / 1000;
+    const impulseLo = 1 - latents.impulseControl / 1000;
+    const opsecLo = 1 - opsec01;
+
+    if (type === 'withdrawal') return Math.max(0, 0.15 + 0.45 * belongDef + 0.30 * fatigue + 0.25 * (1 - latents.socialBattery / 1000) + n);
+    if (type === 'panic') return Math.max(0, 0.15 + 0.55 * safetyDef + 0.45 * stress + 0.25 * impulseLo + n);
+    if (type === 'rage') return Math.max(0, 0.10 + 0.50 * fatigue + 0.35 * stress + 0.30 * (1 - traits.agreeableness / 1000) + 0.10 * impulseLo + n);
+    if (type === 'confession_leak') return Math.max(0, 0.08 + 0.55 * safetyDef + 0.25 * (publicVisibility / 1000) + 0.25 * opsecLo + 0.20 * stress + n);
+    if (type === 'sabotage') return Math.max(0, 0.08 + 0.50 * purposeDef + 0.35 * stress + 0.20 * impulseLo + 0.15 * (aptitudes.deceptionAptitude / 1000) + n);
+    if (type === 'defection_attempt') return Math.max(0, 0.06 + 0.55 * safetyDef + 0.45 * purposeDef + 0.25 * (latents.cosmopolitanism / 1000) + 0.15 * risk01 + n);
+    return Math.max(0, 0.05 + 0.30 * stress + 0.30 * fatigue + n);
+  };
+
+  const breakTypesPool = uniqueStrings(vocab.deepSimPreview!.breakTypes!);
+  const breakTypesTopK = breakTypesPool
+    .map(type => ({ type, score: breakTypeScore(type) }))
+    .sort((a, b) => (b.score - a.score) || a.type.localeCompare(b.type))
+    .slice(0, 2)
+    .map(x => x.type);
+
+  const deepSimPreview: DeepSimPreviewV1 = {
+    version: 1,
+    day0: 0,
+    needs01k,
+    baselineMood01k,
+    mood01k,
+    stress01k,
+    fatigue01k,
+    thoughts,
+    breakRisk01k,
+    breakRiskBand: band5From01k(breakRisk01k),
+    breakTypesTopK,
+  };
+  traceSet(trace, 'deepSimPreview', deepSimPreview, { method: 'facetSeededSnapshot', dependsOn: { facet: 'deep_sim_preview', abroad: previewAbroad, recoveryOffline, securityPressure01k, publicVisibility, paperTrail, digitalHygiene } });
+
+  const id = fnv1a32(`${seed}::${birthYear}::${homeCountryIso3}::${tierBand}`).toString(16);
+  traceSet(trace, 'id', id, { method: 'fnv1a32', dependsOn: { normalizedSeed: seed, birthYear, homeCountryIso3, tierBand } });
 
 	  traceFacet(trace, seed, 'created_at');
 	  const createdAtRng = makeRng(facetSeed(seed, 'created_at'));
@@ -2594,6 +2950,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 	    seed,
 	    createdAtIso,
 	    generationTrace: trace,
+	    deepSimPreview,
 	    identity: {
 	      name,
       homeCountryIso3,

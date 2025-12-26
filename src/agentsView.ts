@@ -1,4 +1,4 @@
-import { formatBand5, formatFixed01k, generateAgent, randomSeedString, type AgentPriorsV1, type AgentVocabV1, type GeneratedAgent, type TierBand } from './agentGenerator';
+import { formatBand5, formatFixed01k, generateAgent, randomSeedString, type AgentPriorsV1, type AgentVocabV1, type Band5, type GeneratedAgent, type TierBand } from './agentGenerator';
 
 type RosterItem = {
   id: string;
@@ -163,6 +163,16 @@ function humanizeAgentForExport(agent: GeneratedAgent, shadowByIso3?: ReadonlyMa
         proficiencyBand: toTitleCaseWords(lp.proficiencyBand),
       })),
     },
+    deepSimPreview: {
+      ...agent.deepSimPreview,
+      breakRiskBand: toTitleCaseWords(agent.deepSimPreview.breakRiskBand),
+      breakTypesTopK: agent.deepSimPreview.breakTypesTopK.map(toTitleCaseWords),
+      thoughts: agent.deepSimPreview.thoughts.map(t => ({
+        ...t,
+        tag: toTitleCaseWords(t.tag),
+        source: toTitleCaseWords(t.source),
+      })),
+    },
     appearance: {
       ...agent.appearance,
       heightBand: toTitleCaseWords(agent.appearance.heightBand),
@@ -310,6 +320,29 @@ function renderGauge(label: string, value01k: number): string {
   `;
 }
 
+function moodBandFromSigned(value01k: number): Band5 {
+  if (value01k <= -600) return 'very_low';
+  if (value01k <= -200) return 'low';
+  if (value01k < 200) return 'medium';
+  if (value01k < 600) return 'high';
+  return 'very_high';
+}
+
+function renderMoodGauge(label: string, signed01k: number): string {
+  const pct = Math.max(0, Math.min(100, Math.round(((signed01k + 1000) / 2000) * 100)));
+  return `
+    <div class="agent-gauge">
+      <div class="agent-gauge-row">
+        <span class="agent-gauge-label">${escapeHtml(label)}</span>
+        <span class="agent-gauge-value">${escapeHtml(toTitleCaseWords(moodBandFromSigned(signed01k)))}</span>
+      </div>
+      <div class="agent-gauge-bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100">
+        <div class="agent-gauge-fill" style="width:${pct}%"></div>
+      </div>
+    </div>
+  `;
+}
+
 function humanizeSkillKey(key: string): string {
   // camelCase -> space words; preserves existing snake/space tags via toTitleCaseWords.
   const spaced = key.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
@@ -319,6 +352,7 @@ function humanizeSkillKey(key: string): string {
 function renderAgent(agent: GeneratedAgent, shadowByIso3: ReadonlyMap<string, { shadow: string; continent?: string }>): string {
   const apt = agent.capabilities.aptitudes;
   const skills = agent.capabilities.skills;
+  const preview = agent.deepSimPreview;
 
   const homeShadow = shadowByIso3.get(agent.identity.homeCountryIso3)?.shadow;
   const citizenshipShadow = shadowByIso3.get(agent.identity.citizenshipCountryIso3)?.shadow;
@@ -496,6 +530,27 @@ function renderAgent(agent: GeneratedAgent, shadowByIso3: ReadonlyMap<string, { 
               </div>
             `).join('')
             : `<div class="agent-muted">None</div>`}
+        </section>
+
+        <section class="agent-card">
+          <h3>Deep sim preview</h3>
+          <div class="agent-card-grid">
+            ${renderMoodGauge('Mood', preview.mood01k)}
+            ${renderGauge('Stress', preview.stress01k)}
+            ${renderGauge('Fatigue', preview.fatigue01k)}
+            ${renderGauge('Break risk', preview.breakRisk01k)}
+            ${renderGauge('Sleep', preview.needs01k.sleep)}
+            ${renderGauge('Safety', preview.needs01k.safety)}
+            ${renderGauge('Belonging', preview.needs01k.belonging)}
+            ${renderGauge('Autonomy', preview.needs01k.autonomy)}
+            ${renderGauge('Competence', preview.needs01k.competence)}
+            ${renderGauge('Purpose', preview.needs01k.purpose)}
+            ${renderGauge('Comfort', preview.needs01k.comfort)}
+          </div>
+          <div class="agent-kv" style="margin-top:10px">
+            <div class="kv-row"><span class="kv-k">Likely breaks</span><span class="kv-v">${escapeHtml(preview.breakTypesTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+            <div class="kv-row"><span class="kv-k">Thoughts</span><span class="kv-v">${escapeHtml(preview.thoughts.map(t => toTitleCaseWords(t.tag)).join(', ') || '—')}</span></div>
+          </div>
         </section>
 
         <section class="agent-card">
