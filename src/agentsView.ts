@@ -349,7 +349,23 @@ function humanizeSkillKey(key: string): string {
   return toTitleCaseWords(spaced);
 }
 
-function renderAgent(agent: GeneratedAgent, shadowByIso3: ReadonlyMap<string, { shadow: string; continent?: string }>): string {
+function setTemporaryButtonLabel(btn: HTMLButtonElement, nextLabel: string, ms = 1200) {
+  const prev = btn.textContent ?? '';
+  btn.textContent = nextLabel;
+  btn.disabled = true;
+  window.setTimeout(() => {
+    btn.textContent = prev;
+    btn.disabled = false;
+  }, ms);
+}
+
+type AgentProfileTab = 'overview' | 'performance' | 'lifestyle' | 'constraints' | 'debug';
+
+function renderAgent(
+  agent: GeneratedAgent,
+  shadowByIso3: ReadonlyMap<string, { shadow: string; continent?: string }>,
+  tab: AgentProfileTab,
+): string {
   const apt = agent.capabilities.aptitudes;
   const skills = agent.capabilities.skills;
   const preview = agent.deepSimPreview;
@@ -369,15 +385,54 @@ function renderAgent(agent: GeneratedAgent, shadowByIso3: ReadonlyMap<string, { 
   const roleTags = agent.identity.roleSeedTags.map(t => `<span class="pill">${escapeHtml(toTitleCaseWords(t))}</span>`).join('');
   const langTags = agent.identity.languages.map(t => `<span class="pill pill-muted">${escapeHtml(displayLanguageCode(t))}</span>`).join('');
 
-  const skillRows = Object.entries(skills)
-    .map(([k, v]) => `
+  const sortedSkills = Object.entries(skills)
+    .map(([key, v]) => ({ key, value: v.value }))
+    .sort((a, b) => (b.value - a.value) || a.key.localeCompare(b.key));
+  const topSkills = sortedSkills.slice(0, 6);
+
+  const skillRows = sortedSkills
+    .map((s) => `
       <div class="agent-skill-row">
-        <div class="agent-skill-name">${escapeHtml(humanizeSkillKey(k))}</div>
-        <div class="agent-skill-band">${escapeHtml(toTitleCaseWords(formatBand5(v.value)))}</div>
-        <div class="agent-skill-pct">${escapeHtml(formatFixed01k(v.value))}</div>
+        <div class="agent-skill-name">${escapeHtml(humanizeSkillKey(s.key))}</div>
+        <div class="agent-skill-band">${escapeHtml(toTitleCaseWords(formatBand5(s.value)))}</div>
+        <div class="agent-skill-pct">${escapeHtml(formatFixed01k(s.value))}</div>
       </div>
     `)
     .join('');
+
+  const topSkillList = topSkills
+    .map(s => `<div class="agent-mini-row"><span class="agent-mini-k">${escapeHtml(humanizeSkillKey(s.key))}</span><span class="agent-mini-v">${escapeHtml(formatFixed01k(s.value))}</span></div>`)
+    .join('');
+
+  const aptitudePairs = ([
+    ['Strength', apt.strength],
+    ['Endurance', apt.endurance],
+    ['Dexterity', apt.dexterity],
+    ['Reflexes', apt.reflexes],
+    ['Hand‑eye', apt.handEyeCoordination],
+    ['Cognitive speed', apt.cognitiveSpeed],
+    ['Attention control', apt.attentionControl],
+    ['Working memory', apt.workingMemory],
+    ['Risk calibration', apt.riskCalibration],
+    ['Charisma', apt.charisma],
+    ['Empathy', apt.empathy],
+    ['Assertiveness', apt.assertiveness],
+    ['Deception', apt.deceptionAptitude],
+  ] as const)
+    .slice()
+    .sort((a, b) => (b[1] - a[1]) || a[0].localeCompare(b[0]));
+  const topAptitudes = aptitudePairs.slice(0, 4);
+  const topAptitudeList = topAptitudes
+    .map(([label, v]) => `<div class="agent-mini-row"><span class="agent-mini-k">${escapeHtml(label)}</span><span class="agent-mini-v">${escapeHtml(formatFixed01k(v))}</span></div>`)
+    .join('');
+
+  const topThoughts = [...preview.thoughts]
+    .slice()
+    .sort((a, b) => (b.intensity01k - a.intensity01k) || a.tag.localeCompare(b.tag))
+    .slice(0, 3);
+  const thoughtsPills = topThoughts.length
+    ? `<span class="agent-pill-wrap">${topThoughts.map(t => `<span class="pill pill-muted">${escapeHtml(toTitleCaseWords(t.tag))}</span>`).join('')}</span>`
+    : `<span class="agent-inline-muted">—</span>`;
 
   const traceSection = agent.generationTrace
     ? `
@@ -400,173 +455,297 @@ function renderAgent(agent: GeneratedAgent, shadowByIso3: ReadonlyMap<string, { 
             <span class="agent-meta-item">Location: ${escapeHtml(currentLabel)} <code>${escapeHtml(agent.identity.currentCountryIso3)}</code></span>
             <span class="agent-meta-item">Born: ${escapeHtml(String(agent.identity.birthYear))}</span>
             <span class="agent-meta-item">Tier: ${escapeHtml(toTitleCaseWords(agent.identity.tierBand))}</span>
-            <span class="agent-meta-item">Culture: ${escapeHtml(agent.identity.homeCulture)}</span>
+            <span class="agent-meta-item">Culture: ${escapeHtml(toTitleCaseWords(agent.identity.homeCulture))}</span>
           </div>
           <div class="agent-pill-row">${roleTags} ${langTags}</div>
         </div>
       </div>
 
-      <div class="agent-grid">
-        <section class="agent-card">
-          <h3>Identity</h3>
-          <div class="agent-kv">
-            <div class="kv-row"><span class="kv-k">Languages</span><span class="kv-v">${escapeHtml(agent.identity.languageProficiencies.map(lp => `${displayLanguageCode(lp.language)} (${toTitleCaseWords(lp.proficiencyBand)})`).join(', '))}</span></div>
-            <div class="kv-row"><span class="kv-k">Education</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.educationTrackTag))}</span></div>
-            <div class="kv-row"><span class="kv-k">Career</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.careerTrackTag))}</span></div>
-            <div class="kv-row"><span class="kv-k">Mobility</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.mobilityTag))}</span></div>
-            <div class="kv-row"><span class="kv-k">Passport access</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.passportAccessBand))}</span></div>
-            <div class="kv-row"><span class="kv-k">Travel frequency</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.travelFrequencyBand))}</span></div>
-          </div>
-        </section>
-
-        <section class="agent-card">
-          <h3>Capabilities</h3>
-          <div class="agent-card-grid">
-            ${renderGauge('Strength', apt.strength)}
-            ${renderGauge('Endurance', apt.endurance)}
-            ${renderGauge('Dexterity', apt.dexterity)}
-            ${renderGauge('Reflexes', apt.reflexes)}
-            ${renderGauge('Hand‑eye', apt.handEyeCoordination)}
-            ${renderGauge('Cognitive speed', apt.cognitiveSpeed)}
-            ${renderGauge('Attention control', apt.attentionControl)}
-            ${renderGauge('Working memory', apt.workingMemory)}
-            ${renderGauge('Risk calibration', apt.riskCalibration)}
-            ${renderGauge('Charisma', apt.charisma)}
-            ${renderGauge('Empathy', apt.empathy)}
-            ${renderGauge('Assertiveness', apt.assertiveness)}
-            ${renderGauge('Deception', apt.deceptionAptitude)}
-          </div>
-        </section>
-
-        <section class="agent-card">
-          <h3>Skills</h3>
-          <div class="agent-skill-header">
-            <span>Skill</span><span>Band</span><span>Value</span>
-          </div>
-          <div class="agent-skill-list">${skillRows}</div>
-        </section>
-
-        <section class="agent-card">
-          <h3>Traits</h3>
-          <div class="agent-card-grid">
-            ${renderGauge('Risk tolerance', agent.psych.traits.riskTolerance)}
-            ${renderGauge('Conscientiousness', agent.psych.traits.conscientiousness)}
-            ${renderGauge('Novelty seeking', agent.psych.traits.noveltySeeking)}
-            ${renderGauge('Agreeableness', agent.psych.traits.agreeableness)}
-            ${renderGauge('Authoritarianism', agent.psych.traits.authoritarianism)}
-          </div>
-        </section>
-
-        <section class="agent-card">
-          <h3>Visibility</h3>
-          <div class="agent-card-grid">
-            ${renderGauge('Public visibility', agent.visibility.publicVisibility)}
-            ${renderGauge('Paper trail', agent.visibility.paperTrail)}
-            ${renderGauge('Digital hygiene', agent.visibility.digitalHygiene)}
-          </div>
-        </section>
-
-        <section class="agent-card">
-          <h3>Preferences</h3>
-          <div class="agent-kv">
-            <div class="kv-row"><span class="kv-k">Comfort foods</span><span class="kv-v">${escapeHtml(agent.preferences.food.comfortFoods.map(toTitleCaseWords).join(', '))}</span></div>
-            <div class="kv-row"><span class="kv-k">Dislikes</span><span class="kv-v">${escapeHtml(agent.preferences.food.dislikes.map(toTitleCaseWords).join(', '))}</span></div>
-            <div class="kv-row"><span class="kv-k">Restrictions</span><span class="kv-v">${escapeHtml(agent.preferences.food.restrictions.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-            <div class="kv-row"><span class="kv-k">Ritual drink</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.ritualDrink))}</span></div>
-            <div class="kv-row"><span class="kv-k">Genres</span><span class="kv-v">${escapeHtml(agent.preferences.media.genreTopK.map(toTitleCaseWords).join(', '))}</span></div>
-            <div class="kv-row"><span class="kv-k">Style</span><span class="kv-v">${escapeHtml(agent.preferences.fashion.styleTags.map(toTitleCaseWords).join(', '))}</span></div>
-          </div>
-        </section>
-
-        <section class="agent-card">
-          <h3>Media</h3>
-          <div class="agent-card-grid">
-            ${renderGauge('Attention resilience', agent.preferences.media.attentionResilience)}
-            ${renderGauge('Doomscrolling risk', agent.preferences.media.doomscrollingRisk)}
-            ${renderGauge('Epistemic hygiene', agent.preferences.media.epistemicHygiene)}
-          </div>
-          <ul class="agent-kv-list">${platformDiet}</ul>
-        </section>
-
-        <section class="agent-card">
-          <h3>Routines</h3>
-          <div class="agent-kv">
-            <div class="kv-row"><span class="kv-k">Chronotype</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.routines.chronotype))}</span></div>
-            <div class="kv-row"><span class="kv-k">Sleep</span><span class="kv-v">${escapeHtml(agent.routines.sleepWindow)}</span></div>
-            <div class="kv-row"><span class="kv-k">Recovery rituals</span><span class="kv-v">${escapeHtml(agent.routines.recoveryRituals.map(toTitleCaseWords).join(', '))}</span></div>
-          </div>
-        </section>
-
-        <section class="agent-card">
-          <h3>Appearance</h3>
-          <div class="agent-kv">
-            <div class="kv-row"><span class="kv-k">Height</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.appearance.heightBand))}</span></div>
-            <div class="kv-row"><span class="kv-k">Build</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.appearance.buildTag))}</span></div>
-            <div class="kv-row"><span class="kv-k">Hair</span><span class="kv-v">${escapeHtml(`${toTitleCaseWords(agent.appearance.hair.color)}, ${toTitleCaseWords(agent.appearance.hair.texture)}`)}</span></div>
-            <div class="kv-row"><span class="kv-k">Eyes</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.appearance.eyes.color))}</span></div>
-            <div class="kv-row"><span class="kv-k">Voice</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.appearance.voiceTag))}</span></div>
-            <div class="kv-row"><span class="kv-k">Marks</span><span class="kv-v">${escapeHtml(agent.appearance.distinguishingMarks.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-          </div>
-        </section>
-
-        <section class="agent-card">
-          <h3>Constraints</h3>
-          <div class="agent-kv">
-            <div class="kv-row"><span class="kv-k">Red lines</span><span class="kv-v">${escapeHtml(agent.identity.redLines.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-            <div class="kv-row"><span class="kv-k">Chronic</span><span class="kv-v">${escapeHtml(agent.health.chronicConditionTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-            <div class="kv-row"><span class="kv-k">Allergies</span><span class="kv-v">${escapeHtml(agent.health.allergyTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-            <div class="kv-row"><span class="kv-k">Cover aptitudes</span><span class="kv-v">${escapeHtml(agent.covers.coverAptitudeTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-          </div>
-        </section>
-
-        <section class="agent-card">
-          <h3>Vices</h3>
-          ${agent.vices.length
-            ? agent.vices.map(v => `
-              <div class="agent-vice-row">
-                <span class="pill">${escapeHtml(toTitleCaseWords(v.vice))}</span>
-                <span class="pill pill-muted">${escapeHtml(toTitleCaseWords(v.severity))}</span>
-                <span class="agent-vice-triggers">${escapeHtml(v.triggers.map(toTitleCaseWords).join(', '))}</span>
-              </div>
-            `).join('')
-            : `<div class="agent-muted">None</div>`}
-        </section>
-
-        <section class="agent-card">
-          <h3>Deep sim preview</h3>
-          <div class="agent-card-grid">
-            ${renderMoodGauge('Mood', preview.mood01k)}
-            ${renderGauge('Stress', preview.stress01k)}
-            ${renderGauge('Fatigue', preview.fatigue01k)}
-            ${renderGauge('Break risk', preview.breakRisk01k)}
-            ${renderGauge('Sleep', preview.needs01k.sleep)}
-            ${renderGauge('Safety', preview.needs01k.safety)}
-            ${renderGauge('Belonging', preview.needs01k.belonging)}
-            ${renderGauge('Autonomy', preview.needs01k.autonomy)}
-            ${renderGauge('Competence', preview.needs01k.competence)}
-            ${renderGauge('Purpose', preview.needs01k.purpose)}
-            ${renderGauge('Comfort', preview.needs01k.comfort)}
-          </div>
-          <div class="agent-kv" style="margin-top:10px">
-            <div class="kv-row"><span class="kv-k">Likely breaks</span><span class="kv-v">${escapeHtml(preview.breakTypesTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-            <div class="kv-row"><span class="kv-k">Thoughts</span><span class="kv-v">${escapeHtml(preview.thoughts.map(t => toTitleCaseWords(t.tag)).join(', ') || '—')}</span></div>
-          </div>
-        </section>
-
-        <section class="agent-card">
-          <h3>Identity kit</h3>
-          <div class="agent-kv">
-            ${agent.logistics.identityKit.map(i => `
-              <div class="kv-row">
-                <span class="kv-k">${escapeHtml(toTitleCaseWords(i.item))}</span>
-                <span class="kv-v">${escapeHtml(toTitleCaseWords(i.security))}${i.compromised ? ' (compromised)' : ''}</span>
-              </div>
-            `).join('')}
-          </div>
-        </section>
+      <div class="agent-tabs">
+        <button type="button" class="agent-tab-btn ${tab === 'overview' ? 'active' : ''}" data-agent-tab="overview">Overview</button>
+        <button type="button" class="agent-tab-btn ${tab === 'performance' ? 'active' : ''}" data-agent-tab="performance">Performance</button>
+        <button type="button" class="agent-tab-btn ${tab === 'lifestyle' ? 'active' : ''}" data-agent-tab="lifestyle">Lifestyle</button>
+        <button type="button" class="agent-tab-btn ${tab === 'constraints' ? 'active' : ''}" data-agent-tab="constraints">Constraints</button>
+        <button type="button" class="agent-tab-btn ${tab === 'debug' ? 'active' : ''}" data-agent-tab="debug">Debug</button>
       </div>
 
-      ${traceSection}
+      <div class="agent-tab-panels">
+        <div class="agent-tab-panel ${tab === 'overview' ? 'active' : ''}" data-agent-tab-panel="overview">
+          <div class="agent-grid agent-grid-tight">
+            <section class="agent-card agent-card-span6">
+              <h3>At a glance</h3>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Languages</span><span class="kv-v">${escapeHtml(agent.identity.languageProficiencies.map(lp => `${displayLanguageCode(lp.language)} (${toTitleCaseWords(lp.proficiencyBand)})`).join(', '))}</span></div>
+                <div class="kv-row"><span class="kv-k">Education</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.educationTrackTag))}</span></div>
+                <div class="kv-row"><span class="kv-k">Career</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.careerTrackTag))}</span></div>
+                <div class="kv-row"><span class="kv-k">Mobility</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.mobilityTag))}</span></div>
+                <div class="kv-row"><span class="kv-k">Passport</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.passportAccessBand))}</span></div>
+                <div class="kv-row"><span class="kv-k">Travel</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.travelFrequencyBand))}</span></div>
+              </div>
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Highlights</h3>
+              <div class="agent-mini">
+                <div class="agent-mini-title">Top skills</div>
+                <div class="agent-mini-list">${topSkillList || `<div class="agent-inline-muted">—</div>`}</div>
+                <div class="agent-mini-title" style="margin-top:0.75rem">Top aptitudes</div>
+                <div class="agent-mini-list">${topAptitudeList || `<div class="agent-inline-muted">—</div>`}</div>
+              </div>
+            </section>
+
+            <section class="agent-card agent-card-span12">
+              <h3>Deep sim preview</h3>
+              <div class="agent-card-grid">
+                ${renderMoodGauge('Mood', preview.mood01k)}
+                ${renderGauge('Stress', preview.stress01k)}
+                ${renderGauge('Fatigue', preview.fatigue01k)}
+                ${renderGauge('Break risk', preview.breakRisk01k)}
+              </div>
+              <div class="agent-kv" style="margin-top:10px">
+                <div class="kv-row"><span class="kv-k">Likely breaks</span><span class="kv-v">${escapeHtml(preview.breakTypesTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                <div class="kv-row"><span class="kv-k">Top thoughts</span><span class="kv-v">${thoughtsPills}</span></div>
+              </div>
+              <details class="agent-inline-details">
+                <summary>Show needs</summary>
+                <div class="agent-card-grid" style="margin-top:0.75rem">
+                  ${renderGauge('Sleep', preview.needs01k.sleep)}
+                  ${renderGauge('Safety', preview.needs01k.safety)}
+                  ${renderGauge('Belonging', preview.needs01k.belonging)}
+                  ${renderGauge('Autonomy', preview.needs01k.autonomy)}
+                  ${renderGauge('Competence', preview.needs01k.competence)}
+                  ${renderGauge('Purpose', preview.needs01k.purpose)}
+                  ${renderGauge('Comfort', preview.needs01k.comfort)}
+                </div>
+              </details>
+            </section>
+          </div>
+        </div>
+
+        <div class="agent-tab-panel ${tab === 'performance' ? 'active' : ''}" data-agent-tab-panel="performance">
+          <div class="agent-grid agent-grid-tight">
+            <details class="agent-card agent-section" open>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Capabilities</span>
+                <span class="agent-section-hint">${escapeHtml(topAptitudes.map(([label]) => label).join(', '))}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-card-grid">
+                  ${renderGauge('Strength', apt.strength)}
+                  ${renderGauge('Endurance', apt.endurance)}
+                  ${renderGauge('Dexterity', apt.dexterity)}
+                  ${renderGauge('Reflexes', apt.reflexes)}
+                  ${renderGauge('Hand‑eye', apt.handEyeCoordination)}
+                  ${renderGauge('Cognitive speed', apt.cognitiveSpeed)}
+                  ${renderGauge('Attention control', apt.attentionControl)}
+                  ${renderGauge('Working memory', apt.workingMemory)}
+                  ${renderGauge('Risk calibration', apt.riskCalibration)}
+                  ${renderGauge('Charisma', apt.charisma)}
+                  ${renderGauge('Empathy', apt.empathy)}
+                  ${renderGauge('Assertiveness', apt.assertiveness)}
+                  ${renderGauge('Deception', apt.deceptionAptitude)}
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section" open>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Skills</span>
+                <span class="agent-section-hint">${escapeHtml(topSkills.map(s => humanizeSkillKey(s.key)).join(', '))}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-skill-header">
+                  <span>Skill</span><span>Band</span><span>Value</span>
+                </div>
+                <div class="agent-skill-list">${skillRows}</div>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="agent-tab-panel ${tab === 'lifestyle' ? 'active' : ''}" data-agent-tab-panel="lifestyle">
+          <div class="agent-grid agent-grid-tight">
+            <details class="agent-card agent-section" open>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Preferences</span>
+                <span class="agent-section-hint">${escapeHtml(agent.preferences.fashion.styleTags.slice(0, 2).map(toTitleCaseWords).join(', ') || '—')}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Comfort foods</span><span class="kv-v">${escapeHtml(agent.preferences.food.comfortFoods.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Dislikes</span><span class="kv-v">${escapeHtml(agent.preferences.food.dislikes.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Restrictions</span><span class="kv-v">${escapeHtml(agent.preferences.food.restrictions.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Ritual drink</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.ritualDrink))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Genres</span><span class="kv-v">${escapeHtml(agent.preferences.media.genreTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Style</span><span class="kv-v">${escapeHtml(agent.preferences.fashion.styleTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section">
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Media</span>
+                <span class="agent-section-hint">${escapeHtml(agent.preferences.media.genreTopK.slice(0, 2).map(toTitleCaseWords).join(', ') || '—')}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-card-grid">
+                  ${renderGauge('Attention resilience', agent.preferences.media.attentionResilience)}
+                  ${renderGauge('Doomscrolling risk', agent.preferences.media.doomscrollingRisk)}
+                  ${renderGauge('Epistemic hygiene', agent.preferences.media.epistemicHygiene)}
+                </div>
+                <ul class="agent-kv-list">${platformDiet}</ul>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section">
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Routines</span>
+                <span class="agent-section-hint">${escapeHtml(`${toTitleCaseWords(agent.routines.chronotype)} · ${agent.routines.sleepWindow}`)}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Chronotype</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.routines.chronotype))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Sleep</span><span class="kv-v">${escapeHtml(agent.routines.sleepWindow)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Recovery rituals</span><span class="kv-v">${escapeHtml(agent.routines.recoveryRituals.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section">
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Appearance</span>
+                <span class="agent-section-hint">${escapeHtml(`${toTitleCaseWords(agent.appearance.heightBand)} · ${toTitleCaseWords(agent.appearance.buildTag)}`)}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Height</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.appearance.heightBand))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Build</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.appearance.buildTag))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Hair</span><span class="kv-v">${escapeHtml(`${toTitleCaseWords(agent.appearance.hair.color)}, ${toTitleCaseWords(agent.appearance.hair.texture)}`)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Eyes</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.appearance.eyes.color))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Voice</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.appearance.voiceTag))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Marks</span><span class="kv-v">${escapeHtml(agent.appearance.distinguishingMarks.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="agent-tab-panel ${tab === 'constraints' ? 'active' : ''}" data-agent-tab-panel="constraints">
+          <div class="agent-grid agent-grid-tight">
+            <details class="agent-card agent-section" open>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Traits</span>
+                <span class="agent-section-hint">Disposition</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-card-grid">
+                  ${renderGauge('Risk tolerance', agent.psych.traits.riskTolerance)}
+                  ${renderGauge('Conscientiousness', agent.psych.traits.conscientiousness)}
+                  ${renderGauge('Novelty seeking', agent.psych.traits.noveltySeeking)}
+                  ${renderGauge('Agreeableness', agent.psych.traits.agreeableness)}
+                  ${renderGauge('Authoritarianism', agent.psych.traits.authoritarianism)}
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section">
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Visibility</span>
+                <span class="agent-section-hint">Surface area</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-card-grid">
+                  ${renderGauge('Public visibility', agent.visibility.publicVisibility)}
+                  ${renderGauge('Paper trail', agent.visibility.paperTrail)}
+                  ${renderGauge('Digital hygiene', agent.visibility.digitalHygiene)}
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section" open>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Constraints</span>
+                <span class="agent-section-hint">${escapeHtml(agent.identity.redLines.slice(0, 2).map(toTitleCaseWords).join(', ') || '—')}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Red lines</span><span class="kv-v">${escapeHtml(agent.identity.redLines.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Chronic</span><span class="kv-v">${escapeHtml(agent.health.chronicConditionTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Allergies</span><span class="kv-v">${escapeHtml(agent.health.allergyTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Cover aptitudes</span><span class="kv-v">${escapeHtml(agent.covers.coverAptitudeTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section">
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Vices</span>
+                <span class="agent-section-hint">${escapeHtml(agent.vices[0]?.vice ? toTitleCaseWords(agent.vices[0].vice) : 'None')}</span>
+              </summary>
+              <div class="agent-section-body">
+                ${agent.vices.length
+                  ? agent.vices.map(v => `
+                    <div class="agent-vice-row">
+                      <span class="pill">${escapeHtml(toTitleCaseWords(v.vice))}</span>
+                      <span class="pill pill-muted">${escapeHtml(toTitleCaseWords(v.severity))}</span>
+                      <span class="agent-vice-triggers">${escapeHtml(v.triggers.map(toTitleCaseWords).join(', '))}</span>
+                    </div>
+                  `).join('')
+                  : `<div class="agent-muted">None</div>`}
+              </div>
+            </details>
+
+            <details class="agent-card agent-section">
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Identity kit</span>
+                <span class="agent-section-hint">${escapeHtml(agent.logistics.identityKit[0]?.item ? toTitleCaseWords(agent.logistics.identityKit[0].item) : '—')}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  ${agent.logistics.identityKit.map(i => `
+                    <div class="kv-row">
+                      <span class="kv-k">${escapeHtml(toTitleCaseWords(i.item))}</span>
+                      <span class="kv-v">${escapeHtml(toTitleCaseWords(i.security))}${i.compromised ? ' (compromised)' : ''}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section">
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Deep sim details</span>
+                <span class="agent-section-hint">${escapeHtml(`${toTitleCaseWords(preview.breakRiskBand)} break risk`)}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-card-grid">
+                  ${renderMoodGauge('Mood', preview.mood01k)}
+                  ${renderGauge('Stress', preview.stress01k)}
+                  ${renderGauge('Fatigue', preview.fatigue01k)}
+                  ${renderGauge('Break risk', preview.breakRisk01k)}
+                  ${renderGauge('Sleep', preview.needs01k.sleep)}
+                  ${renderGauge('Safety', preview.needs01k.safety)}
+                  ${renderGauge('Belonging', preview.needs01k.belonging)}
+                  ${renderGauge('Autonomy', preview.needs01k.autonomy)}
+                  ${renderGauge('Competence', preview.needs01k.competence)}
+                  ${renderGauge('Purpose', preview.needs01k.purpose)}
+                  ${renderGauge('Comfort', preview.needs01k.comfort)}
+                </div>
+                <div class="agent-kv" style="margin-top:10px">
+                  <div class="kv-row"><span class="kv-k">Likely breaks</span><span class="kv-v">${escapeHtml(preview.breakTypesTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Thoughts</span><span class="kv-v">${escapeHtml(preview.thoughts.map(t => toTitleCaseWords(t.tag)).join(', ') || '—')}</span></div>
+                </div>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="agent-tab-panel ${tab === 'debug' ? 'active' : ''}" data-agent-tab-panel="debug">
+          <div class="agent-grid agent-grid-tight">
+            ${traceSection}
+          </div>
+        </div>
+      </div>
     </div>
   `;
 }
@@ -590,6 +769,26 @@ export function initializeAgentsView(container: HTMLElement) {
   let seedDraft = roster.find(x => x.id === selectedRosterId)?.seed ?? '';
   let pendingHashSeed: string | null = readSeedFromHash();
   let pendingHashParams: URLSearchParams | null = pendingHashSeed ? readAgentsParamsFromHash() : null;
+
+  const PROFILE_TAB_KEY = 'agentsProfileTab:v1';
+  const readProfileTab = (): AgentProfileTab | null => {
+    try {
+      const raw = window.localStorage.getItem(PROFILE_TAB_KEY);
+      if (!raw) return null;
+      if (raw === 'overview' || raw === 'performance' || raw === 'lifestyle' || raw === 'constraints' || raw === 'debug') return raw;
+      return null;
+    } catch {
+      return null;
+    }
+  };
+  const writeProfileTab = (next: AgentProfileTab) => {
+    try {
+      window.localStorage.setItem(PROFILE_TAB_KEY, next);
+    } catch {
+      // ignore
+    }
+  };
+  let profileTab: AgentProfileTab = readProfileTab() ?? 'overview';
 
   const SIDEBAR_PANELS_KEY = 'agentsSidebarPanelsOpen:v1';
   const readSidebarPanelsOpen = (): { generator: boolean; roster: boolean } | null => {
@@ -905,7 +1104,7 @@ export function initializeAgentsView(container: HTMLElement) {
           </aside>
 
           <main class="agents-main">
-            ${activeAgent ? renderAgent(activeAgent, shadowByIso3) : `<div class="agent-muted">Generate an agent to begin.</div>`}
+            ${activeAgent ? renderAgent(activeAgent, shadowByIso3, profileTab) : `<div class="agent-muted">Generate an agent to begin.</div>`}
           </main>
         </div>
       </div>
@@ -918,6 +1117,18 @@ export function initializeAgentsView(container: HTMLElement) {
     seedEl?.addEventListener('input', () => {
       seedDraft = seedEl.value;
     });
+
+    for (const btn of Array.from(container.querySelectorAll<HTMLButtonElement>('[data-agent-tab]'))) {
+      btn.addEventListener('click', () => {
+        const next = (btn.dataset.agentTab ?? '').trim() as AgentProfileTab;
+        if (!next) return;
+        if (next === profileTab) return;
+        if (next !== 'overview' && next !== 'performance' && next !== 'lifestyle' && next !== 'constraints' && next !== 'debug') return;
+        profileTab = next;
+        writeProfileTab(profileTab);
+        render();
+      });
+    }
 
     asOfEl?.addEventListener('input', () => {
       const v = Number(asOfEl.value);
@@ -1043,15 +1254,19 @@ export function initializeAgentsView(container: HTMLElement) {
     });
 
     btnShare?.addEventListener('click', async () => {
+      if (!btnShare) return;
       const seed = (seedEl?.value ?? '').trim();
       if (!seed) return;
       setShareHash(seed, { asOfYear, homeCountryIso3: homeCountryMode === 'fixed' ? homeCountryIso3 : null });
       const url = window.location.href;
+      let ok = false;
       try {
         await navigator.clipboard.writeText(url);
+        ok = true;
       } catch {
-        // ignore
+        ok = false;
       }
+      setTemporaryButtonLabel(btnShare, ok ? 'Copied' : 'Copy failed', ok ? 1100 : 1600);
     });
 
     btnSave?.addEventListener('click', () => {
@@ -1075,24 +1290,21 @@ export function initializeAgentsView(container: HTMLElement) {
     });
 
     btnCopyJson?.addEventListener('click', async () => {
+      if (!btnCopyJson) return;
       if (!activeAgent) return;
       const ok = await copyJsonToClipboard(humanizeAgentForExport(activeAgent, shadowByIso3));
-      if (!ok) {
-        // Last-resort UX without bringing in toast infra.
-        alert('Could not copy JSON to clipboard (browser blocked clipboard access).');
-      }
+      setTemporaryButtonLabel(btnCopyJson, ok ? 'Copied' : 'Copy failed', ok ? 1100 : 1600);
     });
 
     btnCopyTrace?.addEventListener('click', async () => {
+      if (!btnCopyTrace) return;
       const trace = activeAgent?.generationTrace;
       if (!trace) {
-        alert('No generation trace available for this agent.');
+        setTemporaryButtonLabel(btnCopyTrace, 'No trace', 1600);
         return;
       }
       const ok = await copyJsonToClipboard(trace);
-      if (!ok) {
-        alert('Could not copy trace JSON to clipboard (browser blocked clipboard access).');
-      }
+      setTemporaryButtonLabel(btnCopyTrace, ok ? 'Copied' : 'Copy failed', ok ? 1100 : 1600);
     });
 
     btnClear?.addEventListener('click', () => {
