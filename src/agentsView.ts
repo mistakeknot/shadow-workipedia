@@ -359,6 +359,229 @@ function setTemporaryButtonLabel(btn: HTMLButtonElement, nextLabel: string, ms =
   }, ms);
 }
 
+function hashStringToU32(input: string): number {
+  // FNV-1a 32-bit for stable, cross-runtime hashing (browser-safe).
+  let h = 2166136261;
+  for (let i = 0; i < input.length; i++) {
+    h ^= input.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function pickVariant(seed: string, key: string, variants: readonly string[]): string {
+  if (!variants.length) return '';
+  const idx = hashStringToU32(`${seed}::${key}`) % variants.length;
+  return variants[idx] ?? '';
+}
+
+function pickKUnique(seed: string, key: string, values: readonly string[], k: number): string[] {
+  if (!values.length || k <= 0) return [];
+  const picks: string[] = [];
+  const used = new Set<number>();
+  const rounds = Math.min(values.length, k);
+  for (let i = 0; i < rounds; i++) {
+    // Salt each round to avoid repeating the same index.
+    const base = hashStringToU32(`${seed}::${key}::${i}`);
+    let idx = base % values.length;
+    // Deterministic probing.
+    for (let probe = 0; probe < values.length && used.has(idx); probe++) idx = (idx + 1) % values.length;
+    used.add(idx);
+    picks.push(values[idx] ?? '');
+  }
+  return picks.filter(Boolean);
+}
+
+function fillTemplate(template: string, replacements: Record<string, string>): string {
+  let out = template;
+  for (const [k, v] of Object.entries(replacements)) {
+    out = out.split(k).join(v);
+  }
+  return out;
+}
+
+function joinWithAnd(items: string[]): string {
+  const xs = items.filter(Boolean);
+  if (xs.length <= 1) return xs[0] ?? '';
+  if (xs.length === 2) return `${xs[0]} and ${xs[1]}`;
+  return `${xs.slice(0, -1).join(', ')}, and ${xs[xs.length - 1]}`;
+}
+
+function formatTraitNarration(name: string, band: Band5): string {
+  const b = toTitleCaseWords(band);
+  switch (name) {
+    case 'riskTolerance':
+      return `Their appetite for risk is ${b}.`;
+    case 'conscientiousness':
+      return `Their sense of order is ${b}.`;
+    case 'noveltySeeking':
+      return `Their draw toward novelty is ${b}.`;
+    case 'agreeableness':
+      return `Their agreeableness is ${b}.`;
+    case 'authoritarianism':
+      return `Their preference for hierarchy is ${b}.`;
+    default:
+      return '';
+  }
+}
+
+function renderNarrativeOverview(
+  agent: GeneratedAgent,
+  labels: { originLabel: string; citizenshipLabel: string; currentLabel: string },
+  asOfYear: number,
+): string {
+  const seed = agent.seed;
+  const role = pickVariant(seed, 'bio:role', agent.identity.roleSeedTags.length ? agent.identity.roleSeedTags : ['agent']);
+  const roleLabel = toTitleCaseWords(role || 'agent');
+  const tier = toTitleCaseWords(agent.identity.tierBand);
+
+  const age = Math.max(0, Math.min(120, asOfYear - agent.identity.birthYear));
+  const ageClause = Number.isFinite(age) && age > 0 ? ` In ${asOfYear}, they are ${age}.` : '';
+
+  const hair = `${toTitleCaseWords(agent.appearance.hair.color)} ${toTitleCaseWords(agent.appearance.hair.texture)} hair`.trim();
+  const eyes = `${toTitleCaseWords(agent.appearance.eyes.color)} eyes`.trim();
+  const height = toTitleCaseWords(agent.appearance.heightBand);
+  const build = toTitleCaseWords(agent.appearance.buildTag);
+  const voice = toTitleCaseWords(agent.appearance.voiceTag);
+  const mark = pickVariant(seed, 'bio:mark', agent.appearance.distinguishingMarks);
+
+  const skillsSorted = Object.entries(agent.capabilities.skills)
+    .map(([k, v]) => ({ key: k, value: v.value }))
+    .sort((a, b) => (b.value - a.value) || a.key.localeCompare(b.key));
+  const topSkillKeys = skillsSorted.slice(0, 2).map(s => humanizeSkillKey(s.key));
+
+  const apt = agent.capabilities.aptitudes;
+  const aptitudePairs = ([
+    ['Strength', apt.strength],
+    ['Endurance', apt.endurance],
+    ['Dexterity', apt.dexterity],
+    ['Reflexes', apt.reflexes],
+    ['Hand‑eye', apt.handEyeCoordination],
+    ['Cognitive speed', apt.cognitiveSpeed],
+    ['Attention control', apt.attentionControl],
+    ['Working memory', apt.workingMemory],
+    ['Risk calibration', apt.riskCalibration],
+    ['Charisma', apt.charisma],
+    ['Empathy', apt.empathy],
+    ['Assertiveness', apt.assertiveness],
+    ['Deception', apt.deceptionAptitude],
+  ] as const)
+    .slice()
+    .sort((a, b) => (b[1] - a[1]) || a[0].localeCompare(b[0]));
+  const topAptitudeNames = aptitudePairs.slice(0, 2).map(([label]) => label);
+
+  const traits = agent.psych.traits;
+  const traitPairs = ([
+    ['riskTolerance', traits.riskTolerance],
+    ['conscientiousness', traits.conscientiousness],
+    ['noveltySeeking', traits.noveltySeeking],
+    ['agreeableness', traits.agreeableness],
+    ['authoritarianism', traits.authoritarianism],
+  ] as const)
+    .slice()
+    .sort((a, b) => (b[1] - a[1]) || a[0].localeCompare(b[0]));
+  const topTrait = traitPairs[0];
+  const traitSentence = topTrait ? formatTraitNarration(topTrait[0], formatBand5(topTrait[1])) : '';
+
+  const comfort = pickKUnique(seed, 'bio:comfort', agent.preferences.food.comfortFoods, 2).map(toTitleCaseWords);
+  const genre = pickKUnique(seed, 'bio:genre', agent.preferences.media.genreTopK, 2).map(toTitleCaseWords);
+  const style = pickKUnique(seed, 'bio:style', agent.preferences.fashion.styleTags, 1).map(toTitleCaseWords)[0] ?? '';
+  const ritual = toTitleCaseWords(agent.preferences.food.ritualDrink);
+  const rituals = pickKUnique(seed, 'bio:rituals', agent.routines.recoveryRituals, 2).map(toTitleCaseWords);
+
+  const preview = agent.deepSimPreview;
+  const breakBand = toTitleCaseWords(preview.breakRiskBand);
+  const breakTypes = preview.breakTypesTopK.slice(0, 2).map(toTitleCaseWords);
+
+  const vice = agent.vices[0]?.vice ? toTitleCaseWords(agent.vices[0].vice) : '';
+  const viceTrigger = agent.vices[0]?.triggers?.[0] ? toTitleCaseWords(agent.vices[0].triggers[0]) : '';
+
+  const p1Variants = [
+    '{name} was born in {birthYear}.{ageClause} They are a {tier}-tier {roleLabel} from {originLabel} ({homeIso3}), currently based in {currentLabel} ({currentIso3}).',
+    '{name} was born in {birthYear}.{ageClause} A {tier}-tier {roleLabel} from {originLabel} ({homeIso3}), they now operate from {currentLabel} ({currentIso3}).',
+    '{name} was born in {birthYear}.{ageClause} They are a {roleLabel} of the {tier} tier, originating in {originLabel} ({homeIso3}) and currently based in {currentLabel} ({currentIso3}).',
+  ] as const;
+
+  const p1 = fillTemplate(pickVariant(seed, 'bio:p1', p1Variants), {
+    '{name}': agent.identity.name,
+    '{birthYear}': String(agent.identity.birthYear),
+    '{ageClause}': ageClause,
+    '{tier}': tier,
+    '{roleLabel}': roleLabel,
+    '{originLabel}': labels.originLabel,
+    '{homeIso3}': agent.identity.homeCountryIso3,
+    '{currentLabel}': labels.currentLabel,
+    '{currentIso3}': agent.identity.currentCountryIso3,
+  })
+    .trim()
+    .replace(/\s+/g, ' ');
+
+  const p1bVariants = [
+    'They are {height} and {build}, with {hair} and {eyes}. Their voice is {voice}.{markClause} {competenceSentence} {traitSentence}',
+    'They are {height} and {build}, with {hair} and {eyes}. Their voice is {voice}.{markClause} {competenceSentence} {traitSentence}',
+    'They are {height} and {build}, with {hair} and {eyes}. Their voice is {voice}.{markClause} {competenceSentence} {traitSentence}',
+  ] as const;
+
+  const markClause = mark ? ` They have a ${toTitleCaseWords(mark)}.` : '';
+  const competenceSentence = topSkillKeys.length
+    ? `Their strongest skills are ${joinWithAnd(topSkillKeys)}${topAptitudeNames.length ? `, supported by ${joinWithAnd(topAptitudeNames)}.` : '.'}`
+    : '';
+
+  const p1b = fillTemplate(pickVariant(seed, 'bio:p1b', p1bVariants), {
+    '{height}': height,
+    '{build}': build,
+    '{hair}': hair,
+    '{eyes}': eyes,
+    '{voice}': voice,
+    '{markClause}': markClause,
+    '{competenceSentence}': competenceSentence,
+    '{traitSentence}': traitSentence,
+  })
+    .trim()
+    .replace(/\s+/g, ' ');
+
+  const p2Variants = [
+    'They keep a {chronotype} schedule ({sleepWindow}) and recover with {recovery}. Their ritual drink is {ritual}. They favor {genres} and tend toward {style} dress. Comfort foods include {comfort}.',
+    'They keep a {chronotype} schedule ({sleepWindow}) and recover with {recovery}. Their ritual drink is {ritual}. They favor {genres} and tend toward {style} dress. Comfort foods include {comfort}.',
+    'They keep a {chronotype} schedule ({sleepWindow}) and recover with {recovery}. Their ritual drink is {ritual}. They favor {genres} and tend toward {style} dress. Comfort foods include {comfort}.',
+  ] as const;
+
+  const recovery = rituals.length ? joinWithAnd(rituals) : 'routine';
+  const genres = genre.length ? joinWithAnd(genre) : 'mixed media';
+  const comfortLine = comfort.length ? joinWithAnd(comfort) : 'simple staples';
+  const styleLine = style || 'practical';
+
+  const p2a = fillTemplate(pickVariant(seed, 'bio:p2a', p2Variants), {
+    '{chronotype}': toTitleCaseWords(agent.routines.chronotype),
+    '{sleepWindow}': agent.routines.sleepWindow,
+    '{recovery}': recovery,
+    '{ritual}': ritual,
+    '{genres}': genres,
+    '{style}': styleLine,
+    '{comfort}': comfortLine,
+  })
+    .trim()
+    .replace(/\s+/g, ' ');
+
+  const strain = (() => {
+    const base = `Under strain, their break risk trends ${breakBand}${breakTypes.length ? `, most often toward ${joinWithAnd(breakTypes)}.` : '.'}`;
+    if (vice) {
+      const trigger = viceTrigger ? `, often triggered by ${viceTrigger}` : '';
+      return `${base} They are prone to ${vice}${trigger}.`;
+    }
+    return base;
+  })();
+
+  const p2 = `${p2a} ${strain}`.trim().replace(/\s+/g, ' ');
+
+  return `
+    <div class="agent-narrative">
+      <p>${escapeHtml(p1)} ${escapeHtml(p1b)}</p>
+      <p>${escapeHtml(p2)}</p>
+    </div>
+  `;
+}
+
 type AgentProfileTab = 'overview' | 'performance' | 'lifestyle' | 'constraints' | 'debug';
 type DetailsOpenReader = (key: string, defaultOpen: boolean) => boolean;
 
@@ -367,6 +590,7 @@ function renderAgent(
   shadowByIso3: ReadonlyMap<string, { shadow: string; continent?: string }>,
   tab: AgentProfileTab,
   isDetailsOpen: DetailsOpenReader,
+  asOfYear: number,
 ): string {
   const apt = agent.capabilities.aptitudes;
   const skills = agent.capabilities.skills;
@@ -379,6 +603,12 @@ function renderAgent(
   const originLabel = homeShadow ?? agent.identity.homeCountryIso3;
   const citizenshipLabel = citizenshipShadow ?? agent.identity.citizenshipCountryIso3;
   const currentLabel = currentShadow ?? agent.identity.currentCountryIso3;
+
+  const narrative = renderNarrativeOverview(
+    agent,
+    { originLabel, citizenshipLabel, currentLabel },
+    asOfYear,
+  );
 
   const platformDiet = Object.entries(agent.preferences.media.platformDiet)
     .map(([k, v]) => `<li><span class="kv-k">${escapeHtml(toTitleCaseWords(k))}</span><span class="kv-v">${escapeHtml(formatFixed01k(v))}</span></li>`)
@@ -474,6 +704,11 @@ function renderAgent(
       <div class="agent-tab-panels">
         <div class="agent-tab-panel ${tab === 'overview' ? 'active' : ''}" data-agent-tab-panel="overview">
           <div class="agent-grid agent-grid-tight">
+            <section class="agent-card agent-card-span12">
+              <h3>Overview</h3>
+              ${narrative}
+            </section>
+
             <section class="agent-card agent-card-span6">
               <h3>At a glance</h3>
               <div class="agent-kv">
@@ -1136,7 +1371,7 @@ export function initializeAgentsView(container: HTMLElement) {
           </aside>
 
           <main class="agents-main">
-            ${activeAgent ? renderAgent(activeAgent, shadowByIso3, profileTab, isDetailsOpen) : `<div class="agent-muted">Generate an agent to begin.</div>`}
+            ${activeAgent ? renderAgent(activeAgent, shadowByIso3, profileTab, isDetailsOpen, asOfYear) : `<div class="agent-muted">Generate an agent to begin.</div>`}
           </main>
         </div>
       </div>

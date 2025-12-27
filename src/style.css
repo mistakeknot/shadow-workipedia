@@ -2374,6 +2374,20 @@ select.agents-input {
   color: #cbd5e1;
 }
 
+.agent-narrative {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.agent-narrative p {
+  margin: 0 0 0.85rem 0;
+}
+
+.agent-narrative p:last-child {
+  margin-bottom: 0;
+}
+
 .agent-mini-v {
   color: #93c5fd;
   font-weight: 800;
