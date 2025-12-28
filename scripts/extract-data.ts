@@ -331,13 +331,8 @@ function generateCountryWikiArticles(): Record<string, WikiArticle> {
     const description = typeof entry.description === 'string' ? entry.description.trim() : '';
 
     const mdParts = [
-      `## Overview`,
-      ``,
-      `- **Shadow name:** ${shadow}`,
-      real ? `- **Real-world name:** ${titleCaseWords(real.toLowerCase())}` : `- **Real-world name:** —`,
-      `- **ISO3:** ${iso3}`,
-      continent ? `- **Continent:** ${continent}` : `- **Continent:** —`,
-      population !== null ? `- **Population:** ${population.toLocaleString()}` : `- **Population:** —`,
+      `- **Continent:** ${continent || '—'}`,
+      `- **Population:** ${population !== null ? population.toLocaleString() : '—'}`,
       ``,
     ];
 
@@ -348,10 +343,6 @@ function generateCountryWikiArticles(): Record<string, WikiArticle> {
     mdParts.push(
       `## Links`,
       `- [All countries](#/wiki/countries)`,
-      ``,
-      `---`,
-      ``,
-      `Generated from \`data/country-shadow-map.json\`.`,
       ``
     );
 
