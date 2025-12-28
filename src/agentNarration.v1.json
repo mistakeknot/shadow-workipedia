@@ -23,12 +23,12 @@
       { "text": "#Subj# #be# known for #skillsList#.", "rarity": "common" },
       { "text": "#Subj# tends to excel at #skillsList#.", "rarity": "uncommon" },
       { "text": "#Subj# often relies on #skillsList#.", "rarity": "uncommon" },
-      { "text": "In practice, #Subj# leans on #skillsList#.", "rarity": "rare" }
+      { "text": "In practice, #subj# leans on #skillsList#.", "rarity": "rare" }
     ],
     "bioP1CompetenceSupport": [
       { "text": "", "rarity": "common" },
       { "text": "#Subj# is backed by #aptitudesList#.", "rarity": "common" },
-      { "text": "#aptitudesList# underpin this.", "rarity": "uncommon" }
+      { "text": "These are underpinned by #aptitudesList#.", "rarity": "uncommon" }
     ],
     "bioP1Trait": [
       { "text": "#traitSentence#", "rarity": "common" }
@@ -52,9 +52,7 @@
       { "text": "Under strain, failure tends toward #breakBand##breakTypesClause#.", "rarity": "rare" }
     ],
     "breakTypesClause": [
-      { "text": "", "rarity": "common" },
-      { "text": "; #breakTypesList# are common failure modes", "rarity": "common" },
-      { "text": "; common failures include #breakTypesList#", "rarity": "uncommon" }
+      { "text": "", "rarity": "common" }
     ],
     "bioP2Vice": [
       { "text": "", "rarity": "common" },

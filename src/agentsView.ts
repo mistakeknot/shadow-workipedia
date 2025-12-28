@@ -561,6 +561,9 @@ function toGerund(verb: string): string {
 function toRecoveryActivity(raw: string): string {
   const phrase = toNarrativePhrase(raw);
   if (!phrase) return phrase;
+  // Already a gerund phrase: keep as-is ("stretching", "journaling", "stargazing").
+  if (phrase.endsWith('ing')) return phrase;
+  if (phrase.endsWith(' music')) return `listening to ${phrase}`;
   const parts = phrase.split(/\s+/);
   const first = parts[0] ?? '';
   const rest = parts.slice(1).join(' ');
@@ -592,6 +595,18 @@ function toRecoveryActivity(raw: string): string {
 
   // Noun-phrase rituals: "board game night", "gym session", "café hour"
   return withIndefiniteArticle(phrase);
+}
+
+function joinTwoWithPlusIfAmbiguous(items: string[]): string {
+  const xs = items.map(s => s.trim()).filter(Boolean);
+  if (xs.length <= 1) return xs[0] ?? '';
+  if (xs.length === 2) {
+    const a = xs[0] ?? '';
+    const b = xs[1] ?? '';
+    const ambiguous = a.includes(' and ') || a.includes(' or ') || b.includes(' and ') || b.includes(' or ');
+    return ambiguous ? `${a}, plus ${b}` : `${a} and ${b}`;
+  }
+  return oxfordJoin(xs);
 }
 
 function bandToAdverb(band: Band5): string {
@@ -661,7 +676,14 @@ function renderNarrativeOverview(
   const pron = getPronouns(pronounMode, seed, shortName);
 
   const role = pickVariant(seed, 'bio:role', agent.identity.roleSeedTags.length ? agent.identity.roleSeedTags : ['agent']);
-  const roleLabel = toNarrativePhrase(role || 'agent');
+  const roleLabelRaw = toNarrativePhrase(role || 'agent');
+  const roleLabel = (() => {
+    // Ensure role reads like a person (not a system label).
+    if (roleLabelRaw === 'logistics') return 'logistics specialist';
+    if (roleLabelRaw === 'security') return 'security operative';
+    if (roleLabelRaw === 'media') return 'media operative';
+    return roleLabelRaw;
+  })();
   const tier = toNarrativePhrase(agent.identity.tierBand);
 
   const age = Math.max(0, Math.min(120, asOfYear - agent.identity.birthYear));
@@ -671,7 +693,8 @@ function renderNarrativeOverview(
   const eyes = `${toNarrativePhrase(agent.appearance.eyes.color)} eyes`.trim();
   const height = toNarrativePhrase(agent.appearance.heightBand);
   const build = toNarrativePhrase(agent.appearance.buildTag);
-  const voice = toNarrativePhrase(agent.appearance.voiceTag);
+  const voiceTag = toNarrativePhrase(agent.appearance.voiceTag);
+  const voice = voiceTag === 'storyteller' ? 'storyteller-like' : voiceTag;
   const mark = pickVariant(seed, 'bio:mark', agent.appearance.distinguishingMarks);
 
   const skillsSorted = Object.entries(agent.capabilities.skills)
@@ -716,7 +739,7 @@ function renderNarrativeOverview(
   const genre = pickKUnique(seed, 'bio:genre', agent.preferences.media.genreTopK, 2).map(toNarrativePhrase);
   const style = pickKUnique(seed, 'bio:style', agent.preferences.fashion.styleTags, 1).map(toNarrativePhrase)[0] ?? '';
   const ritual = toNarrativePhrase(agent.preferences.food.ritualDrink);
-  const rituals = pickKUnique(seed, 'bio:rituals', agent.routines.recoveryRituals, 2).map(toNarrativePhrase);
+  const rituals = pickKUnique(seed, 'bio:rituals', agent.routines.recoveryRituals, 2);
 
   const preview = agent.deepSimPreview;
   const breakBand = toNarrativePhrase(preview.breakRiskBand);
@@ -737,7 +760,7 @@ function renderNarrativeOverview(
   const recoveryListText = recoveryActivities.length ? oxfordJoin(recoveryActivities) : 'a routine';
   // Used for fallback phrasing elsewhere (kept as a descriptive noun phrase).
   const genres = genre.length ? oxfordJoin(genre) : 'mixed media';
-  const comfortLine = comfort.length ? oxfordJoin(comfort) : 'simple staples';
+  const comfortLine = comfort.length ? joinTwoWithPlusIfAmbiguous(comfort) : 'simple staples';
   const styleLine = style || 'practical';
 
   const markPhrase = mark ? toNarrativePhrase(mark) : '';
@@ -771,6 +794,12 @@ function renderNarrativeOverview(
     if (preferOr) return `${a} or ${b}`;
     return `${a} and ${b}`;
   })();
+
+  const breakTypesClauseText = breakTypesList
+    ? breakTypesList.includes(' or ')
+      ? `; ${breakTypesList} is a common failure mode`
+      : `; ${breakTypesList} are common failure modes`
+    : '';
 
   const locationPhrase = toneDiplomat
     ? pickVariant(seed, 'bio:locPhrase:diplomat', ['posted in', 'stationed in', 'based in'] as const)
@@ -842,6 +871,7 @@ function renderNarrativeOverview(
 
     breakBand: [breakBand],
     breakTypesList: [breakTypesList],
+    breakTypesClause: [breakTypesClauseText],
     viceTag: [vice],
     viceTriggerTag: [viceTrigger],
   };
