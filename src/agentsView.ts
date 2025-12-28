@@ -527,11 +527,71 @@ function aOrAn(phrase: string): string {
   return 'a';
 }
 
+function needsIndefiniteArticle(phrase: string): boolean {
+  const p = phrase.trim().toLowerCase();
+  if (!p) return false;
+  if (p.startsWith('a ') || p.startsWith('an ') || p.startsWith('the ')) return false;
+  // Simple plural heuristic: "laugh lines", "dimples", "freckles", "hands", etc.
+  const last = p.split(/\s+/).pop() ?? p;
+  if (last.endsWith('s') && !last.endsWith('ss')) return false;
+  return true;
+}
+
+function withIndefiniteArticle(phrase: string): string {
+  const p = phrase.trim();
+  if (!p) return p;
+  return needsIndefiniteArticle(p) ? `${aOrAn(p)} ${p}` : p;
+}
+
 function oxfordJoin(items: string[]): string {
   const xs = items.map(s => s.trim()).filter(Boolean);
   if (xs.length <= 1) return xs[0] ?? '';
   if (xs.length === 2) return `${xs[0]} and ${xs[1]}`;
   return `${xs.slice(0, -1).join(', ')}, and ${xs[xs.length - 1]}`;
+}
+
+function toGerund(verb: string): string {
+  const v = verb.toLowerCase();
+  if (v.endsWith('ie')) return `${v.slice(0, -2)}ying`;
+  if (v.endsWith('e') && !v.endsWith('ee')) return `${v.slice(0, -1)}ing`;
+  if (/[aeiou][bcdfghjklmnpqrstvwxyz]$/.test(v) && v.length >= 3) return `${v}${v.slice(-1)}ing`;
+  return `${v}ing`;
+}
+
+function toRecoveryActivity(raw: string): string {
+  const phrase = toNarrativePhrase(raw);
+  if (!phrase) return phrase;
+  const parts = phrase.split(/\s+/);
+  const first = parts[0] ?? '';
+  const rest = parts.slice(1).join(' ');
+
+  const verbStarters = new Set([
+    'call',
+    'clean',
+    'cook',
+    'visit',
+    'watch',
+    'sketch',
+    'journal',
+    'meditate',
+    'stretch',
+    'stargaze',
+    'garden',
+    'swim',
+    'run',
+    'read',
+    'write',
+    'walk',
+  ]);
+
+  if (verbStarters.has(first)) {
+    // Prefer gerund phrasing: "calling a friend", "cleaning the workspace".
+    const gerund = toGerund(first);
+    return rest ? `${gerund} ${rest}` : gerund;
+  }
+
+  // Noun-phrase rituals: "board game night", "gym session", "café hour"
+  return withIndefiniteArticle(phrase);
 }
 
 function bandToAdverb(band: Band5): string {
@@ -570,13 +630,6 @@ function getPronouns(mode: PronounMode, seed: string, shortName: string): { Subj
 
 function conjugate(pron: { be: string }, singular: string, plural: string): string {
   return pron.be === 'are' ? plural : singular;
-}
-
-function joinWithAnd(items: string[]): string {
-  const xs = items.filter(Boolean);
-  if (xs.length <= 1) return xs[0] ?? '';
-  if (xs.length === 2) return `${xs[0]} and ${xs[1]}`;
-  return `${xs.slice(0, -1).join(', ')}, and ${xs[xs.length - 1]}`;
 }
 
 function formatTraitNarration(name: string, band: Band5): string {
@@ -680,12 +733,15 @@ function renderNarrativeOverview(
   const tendVerb = conjugate(pron, 'tends', 'tend');
   const dressVerb = conjugate(pron, 'dresses', 'dress');
 
-  const recovery = rituals.length ? joinWithAnd(rituals) : 'routine';
+  const recoveryActivities = rituals.map(toRecoveryActivity).filter(Boolean);
+  const recoveryListText = recoveryActivities.length ? oxfordJoin(recoveryActivities) : 'a routine';
+  // Used for fallback phrasing elsewhere (kept as a descriptive noun phrase).
   const genres = genre.length ? oxfordJoin(genre) : 'mixed media';
   const comfortLine = comfort.length ? oxfordJoin(comfort) : 'simple staples';
   const styleLine = style || 'practical';
 
-  const markSentence = mark ? `${pron.Subj} ${pron.have} ${aOrAn(toNarrativePhrase(mark))} ${toNarrativePhrase(mark)}.` : '';
+  const markPhrase = mark ? toNarrativePhrase(mark) : '';
+  const markSentence = markPhrase ? `${pron.Subj} ${pron.have} ${withIndefiniteArticle(markPhrase)}.` : '';
   const traitSentence = traitClause ? `${pron.Subj} ${pron.be} ${traitClause}` : '';
 
   const chronotype = toNarrativePhrase(agent.routines.chronotype);
@@ -704,7 +760,7 @@ function renderNarrativeOverview(
   // Category-specific list formatting.
   const skillsList = topSkillKeys.length ? oxfordJoin(topSkillKeys) : '';
   const aptitudesList = topAptitudeNames.length ? oxfordJoin(topAptitudeNames) : '';
-  const recoveryList = rituals.length ? oxfordJoin(rituals) : recovery;
+  const recoveryList = recoveryListText;
   const breakTypesList = (() => {
     if (!breakTypes.length) return '';
     if (breakTypes.length === 1) return breakTypes[0] ?? '';
@@ -712,7 +768,7 @@ function renderNarrativeOverview(
     const b = breakTypes[1] ?? '';
     const preferOr = (hashStringToU32(`${seed}::bio:breakTypesOr`) % 1000) < 350;
     if (!a || !b) return oxfordJoin([a, b].filter(Boolean));
-    if (preferOr) return `${a} or ${aOrAn(b)} ${b}`;
+    if (preferOr) return `${a} or ${b}`;
     return `${a} and ${b}`;
   })();
 
@@ -746,6 +802,7 @@ function renderNarrativeOverview(
     subj: [pron.subj],
     be: [pron.be],
     have: [pron.have],
+    possAdj: [pron.possAdj],
     PossAdjCap: [capitalizeFirst(pron.possAdj)],
 
     aTier: [aTier],
@@ -795,6 +852,11 @@ function renderNarrativeOverview(
     for (const [k, v] of Object.entries(base)) copy[k] = v.slice();
     return copy;
   })();
+
+  // Hard guards for missing fields to avoid dangling clauses.
+  if (!vice) textRules.bioP2Vice = [''];
+  if (!viceTrigger) textRules.viceTriggerClause = [''];
+  if (!breakTypesList) textRules.breakTypesClause = [''];
 
   if (toneDiplomat) {
     textRules.bioP1Identity = [

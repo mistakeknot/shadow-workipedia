@@ -9,7 +9,7 @@
     ],
     "bioP1Appearance": [
       { "text": "#Subj# #be# #height# and #build#, with #hair# and #eyes#.", "rarity": "common" },
-      { "text": "#Subj# #be# #height# and #build#; #hair#, #eyes#.", "rarity": "uncommon" },
+      { "text": "#Subj# #be# #height# and #build#, with #hair# and #eyes#.", "rarity": "uncommon" },
       { "text": "#Subj# #be# #height# and #build#, with #eyes# and #hair#.", "rarity": "uncommon" }
     ],
     "bioP1VoiceMark": [
@@ -27,8 +27,8 @@
     ],
     "bioP1CompetenceSupport": [
       { "text": "", "rarity": "common" },
-      { "text": "Backed by #aptitudesList#.", "rarity": "common" },
-      { "text": "Supported by #aptitudesList#.", "rarity": "uncommon" }
+      { "text": "#Subj# is backed by #aptitudesList#.", "rarity": "common" },
+      { "text": "#aptitudesList# underpin this.", "rarity": "uncommon" }
     ],
     "bioP1Trait": [
       { "text": "#traitSentence#", "rarity": "common" }
@@ -44,7 +44,7 @@
     "bioP2Taste": [
       { "text": "#PossAdjCap# ritual drink is #ritualDrink#.", "rarity": "common" },
       { "text": "#Subj# #favor# #genreList# and #tend# toward #styleTag# dress; comfort foods include #comfortFoodList#.", "rarity": "common" },
-      { "text": "#Subj# #favor# #genreList#; #PossAdjCap# style runs #styleTag#. Comfort foods include #comfortFoodList#.", "rarity": "uncommon" }
+      { "text": "#Subj# #favor# #genreList#. #PossAdjCap# style runs #styleTag#. Comfort foods include #comfortFoodList#.", "rarity": "uncommon" }
     ],
     "bioP2Strain": [
       { "text": "Under strain, break risk runs #breakBand##breakTypesClause#.", "rarity": "common" },
