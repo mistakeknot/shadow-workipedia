@@ -616,6 +616,9 @@ function renderNarrativeOverview(
   const markSentence = mark ? `${pron.Subj} ${pron.have} ${aOrAn(toNarrativePhrase(mark))} ${toNarrativePhrase(mark)}.` : '';
   const traitSentence = traitClause ? `${pron.Subj} ${pron.be} ${traitClause}` : '';
 
+  const chronotype = toNarrativePhrase(agent.routines.chronotype);
+  const chronotypeArticle = aOrAn(chronotype);
+
   const rules: Record<string, string[] | string> = {
     name: [agent.identity.name],
     birthYear: [String(agent.identity.birthYear)],
@@ -653,7 +656,8 @@ function renderNarrativeOverview(
     competenceSentence: ['#competenceLead# #competenceSupport#'],
     traitSentence: [traitSentence],
 
-    chronotype: [toNarrativePhrase(agent.routines.chronotype)],
+    chronotype: [chronotype],
+    chronotypeArticle: [chronotypeArticle],
     sleepWindow: [agent.routines.sleepWindow],
     recovery: [recovery],
     ritual: [ritual],
@@ -683,9 +687,9 @@ function renderNarrativeOverview(
     ],
 
     p2a: [
-      '#Subj# #keep# a #chronotype# schedule (#sleepWindow#) and #recover# with #recovery#. #PossAdjCap# ritual drink is #ritual#. #Subj# #favor# #genres# and #tend# toward #style# dress; comfort foods include #comfort#.',
-      '#Subj# #keep# a #chronotype# schedule (#sleepWindow#) and #recover# with #recovery#. #PossAdjCap# ritual drink is #ritual#. #Subj# #favor# #genres#, and #PossAdjCap# style runs #style#; comfort foods include #comfort#.',
-      '#Subj# #keep# a #chronotype# schedule (#sleepWindow#) and #recover# with #recovery#. #PossAdjCap# ritual drink is #ritual#. #Subj# #favor# #genres# and #dress# #style#; comfort foods include #comfort#.',
+      '#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and #recover# with #recovery#. #PossAdjCap# ritual drink is #ritual#. #Subj# #favor# #genres# and #tend# toward #style# dress; comfort foods include #comfort#.',
+      '#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and #recover# with #recovery#. #PossAdjCap# ritual drink is #ritual#. #Subj# #favor# #genres#, and #PossAdjCap# style runs #style#; comfort foods include #comfort#.',
+      '#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and #recover# with #recovery#. #PossAdjCap# ritual drink is #ritual#. #Subj# #favor# #genres# and #dress# #style#; comfort foods include #comfort#.',
     ],
 
     p2b: [
