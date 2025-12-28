@@ -2921,6 +2921,54 @@ select.agents-input {
   text-align: left;
 }
 
+/* Country Article Layout */
+.country-article .wiki-article-header {
+  border-bottom: none;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+}
+
+.country-stats {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.country-stat-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  color: #a5b4fc;
+  font-weight: 500;
+}
+
+.country-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin-bottom: 1.5rem;
+}
+
+.country-links {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.country-back-link {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.country-back-link:hover {
+  color: #e2e8f0;
+}
+
 .wiki-empty-sidebar {
   padding: 2rem 1rem;
   text-align: center;

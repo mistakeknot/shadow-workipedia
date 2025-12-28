@@ -622,9 +622,61 @@ export function renderArticleView(article: WikiArticle, data: GraphData): string
 }
 
 /**
+ * Format population number compactly (e.g., 24.6M, 1.2B, 850K)
+ */
+function formatPopulation(pop: number): string {
+  if (pop >= 1_000_000_000) {
+    return `${(pop / 1_000_000_000).toFixed(1)}B`;
+  } else if (pop >= 1_000_000) {
+    return `${(pop / 1_000_000).toFixed(1)}M`;
+  } else if (pop >= 1_000) {
+    return `${(pop / 1_000).toFixed(0)}K`;
+  }
+  return pop.toLocaleString();
+}
+
+/**
+ * Render country article with compact stat chips layout
+ */
+function renderCountryArticleContent(article: WikiArticle, _data: GraphData): string {
+  const continent = typeof article.frontmatter?.continent === 'string' ? article.frontmatter.continent : '';
+  const population = typeof article.frontmatter?.population === 'number' ? article.frontmatter.population : null;
+
+  const statChips: string[] = [];
+  if (continent) {
+    statChips.push(`<span class="country-stat-chip">${continent}</span>`);
+  }
+  if (population !== null) {
+    statChips.push(`<span class="country-stat-chip">${formatPopulation(population)}</span>`);
+  }
+
+  return `
+    <div class="wiki-article-view country-article">
+      <div class="wiki-article-header">
+        <h1 class="wiki-article-title">${article.title}</h1>
+        ${statChips.length > 0 ? `<div class="country-stats">${statChips.join('')}</div>` : ''}
+      </div>
+
+      <article class="article-content country-description">
+        ${article.html}
+      </article>
+
+      <div class="country-links">
+        <a href="#/wiki/countries" class="country-back-link">← All countries</a>
+      </div>
+    </div>
+  `;
+}
+
+/**
  * Render wiki article content for the sidebar view (no back button)
  */
 export function renderWikiArticleContent(article: WikiArticle, data: GraphData): string {
+  // Country articles get special compact layout
+  if (article.type === 'country') {
+    return renderCountryArticleContent(article, data);
+  }
+
   // Find the node for additional metadata (redirect issues to canonical nodes)
   const effectiveNodeId = article.type === 'issue' ? resolveIssueId(article.id, data) : article.id;
   const node = data.nodes.find(n => n.id === effectiveNodeId);

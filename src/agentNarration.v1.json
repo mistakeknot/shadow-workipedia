@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "rules": {
+    "bioP1Identity": [
+      { "text": "#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#), currently based in #currentLabel# (#currentIso3#).", "rarity": "common" },
+      { "text": "#name# was born in #birthYear#.#ageClause# #ATier# #tier#-tier #role# from #originLabel# (#homeIso3#), #subj# now #have# a base in #currentLabel# (#currentIso3#).", "rarity": "common" },
+      { "text": "#name# was born in #birthYear#.#ageClause# From #originLabel# (#homeIso3#), #subj# #have# since moved operations to #currentLabel# (#currentIso3#) as #aTier# #tier#-tier #role#.", "rarity": "uncommon" },
+      { "text": "#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role#, posted from #originLabel# (#homeIso3#) to #currentLabel# (#currentIso3#).", "rarity": "uncommon" }
+    ],
+    "bioP1Appearance": [
+      { "text": "#Subj# #be# #height# and #build#, with #hair# and #eyes#.", "rarity": "common" },
+      { "text": "#Subj# #be# #height# and #build#; #hair#, #eyes#.", "rarity": "uncommon" },
+      { "text": "#Subj# #be# #height# and #build#, with #eyes# and #hair#.", "rarity": "uncommon" }
+    ],
+    "bioP1VoiceMark": [
+      { "text": "#PossAdjCap# voice is #voice#.", "rarity": "common" },
+      { "text": "#PossAdjCap# voice runs #voice#.", "rarity": "uncommon" },
+      { "text": "#PossAdjCap# voice is usually #voice#.", "rarity": "uncommon" },
+      { "text": "#markSentence#", "rarity": "common" }
+    ],
+    "bioP1CompetenceLead": [
+      { "text": "#Subj# shows strength in #skillsList#.", "rarity": "common" },
+      { "text": "#Subj# #be# known for #skillsList#.", "rarity": "common" },
+      { "text": "#Subj# tends to excel at #skillsList#.", "rarity": "uncommon" },
+      { "text": "#Subj# often relies on #skillsList#.", "rarity": "uncommon" },
+      { "text": "In practice, #Subj# leans on #skillsList#.", "rarity": "rare" }
+    ],
+    "bioP1CompetenceSupport": [
+      { "text": "", "rarity": "common" },
+      { "text": "Backed by #aptitudesList#.", "rarity": "common" },
+      { "text": "Supported by #aptitudesList#.", "rarity": "uncommon" }
+    ],
+    "bioP1Trait": [
+      { "text": "#traitSentence#", "rarity": "common" }
+    ],
+    "bioP1Aside": [
+      { "text": "", "rarity": "common" }
+    ],
+    "bioP2Routine": [
+      { "text": "#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and #recover# with #recoveryList#.", "rarity": "common" },
+      { "text": "#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#), recovering with #recoveryList#.", "rarity": "uncommon" },
+      { "text": "#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and usually recovers with #recoveryList#.", "rarity": "uncommon" }
+    ],
+    "bioP2Taste": [
+      { "text": "#PossAdjCap# ritual drink is #ritualDrink#.", "rarity": "common" },
+      { "text": "#Subj# #favor# #genreList# and #tend# toward #styleTag# dress; comfort foods include #comfortFoodList#.", "rarity": "common" },
+      { "text": "#Subj# #favor# #genreList#; #PossAdjCap# style runs #styleTag#. Comfort foods include #comfortFoodList#.", "rarity": "uncommon" }
+    ],
+    "bioP2Strain": [
+      { "text": "Under strain, break risk runs #breakBand##breakTypesClause#.", "rarity": "common" },
+      { "text": "Under strain, break risk trends #breakBand##breakTypesClause#.", "rarity": "uncommon" },
+      { "text": "Under strain, failure tends toward #breakBand##breakTypesClause#.", "rarity": "rare" }
+    ],
+    "breakTypesClause": [
+      { "text": "", "rarity": "common" },
+      { "text": "; #breakTypesList# are common failure modes", "rarity": "common" },
+      { "text": "; common failures include #breakTypesList#", "rarity": "uncommon" }
+    ],
+    "bioP2Vice": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #be# prone to #viceTag##viceTriggerClause#.", "rarity": "uncommon" }
+    ],
+    "viceTriggerClause": [
+      { "text": "", "rarity": "common" },
+      { "text": ", especially after #viceTriggerTag#", "rarity": "uncommon" }
+    ]
+  }
+}
+

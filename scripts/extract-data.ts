@@ -330,23 +330,8 @@ function generateCountryWikiArticles(): Record<string, WikiArticle> {
     const population = typeof entry.population === 'number' && Number.isFinite(entry.population) ? entry.population : null;
     const description = typeof entry.description === 'string' ? entry.description.trim() : '';
 
-    const mdParts = [
-      `- **Continent:** ${continent || '—'}`,
-      `- **Population:** ${population !== null ? population.toLocaleString() : '—'}`,
-      ``,
-    ];
-
-    if (description) {
-      mdParts.push(description, ``);
-    }
-
-    mdParts.push(
-      `## Links`,
-      `- [All countries](#/wiki/countries)`,
-      ``
-    );
-
-    const md = mdParts.join('\n');
+    // Country articles render stats via frontmatter in article.ts, not in markdown
+    const md = description || '';
 
     articles[id] = buildGeneratedWikiArticle({
       id,
