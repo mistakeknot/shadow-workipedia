@@ -2,10 +2,10 @@
   "version": 1,
   "rules": {
     "bioP1Identity": [
-      { "text": "#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#), currently based in #currentLabel# (#currentIso3#).", "rarity": "common" },
+      { "text": "#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#), currently #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "common" },
       { "text": "#name# was born in #birthYear#.#ageClause# #ATier# #tier#-tier #role# from #originLabel# (#homeIso3#), #subj# now #have# a base in #currentLabel# (#currentIso3#).", "rarity": "common" },
       { "text": "#name# was born in #birthYear#.#ageClause# From #originLabel# (#homeIso3#), #subj# #have# since moved operations to #currentLabel# (#currentIso3#) as #aTier# #tier#-tier #role#.", "rarity": "uncommon" },
-      { "text": "#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role#, posted from #originLabel# (#homeIso3#) to #currentLabel# (#currentIso3#).", "rarity": "uncommon" }
+      { "text": "#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#); #subj# now #have# a base in #currentLabel# (#currentIso3#).", "rarity": "uncommon" }
     ],
     "bioP1Appearance": [
       { "text": "#Subj# #be# #height# and #build#, with #hair# and #eyes#.", "rarity": "common" },
@@ -66,4 +66,3 @@
     ]
   }
 }
-

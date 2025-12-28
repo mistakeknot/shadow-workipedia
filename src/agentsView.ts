@@ -1,5 +1,6 @@
 import { formatBand5, formatFixed01k, generateAgent, randomSeedString, type AgentPriorsV1, type AgentVocabV1, type Band5, type GeneratedAgent, type TierBand } from './agentGenerator';
 import tracery from 'tracery-grammar';
+import narrationSpec from './agentNarration.v1.json';
 
 type RosterItem = {
   id: string;
@@ -390,6 +391,19 @@ function setTraceryRng(rng: () => number) {
   if (fn) fn(rng);
 }
 
+let traceryRngCurrent: () => number = Math.random;
+function withTraceryRng<T>(rng: () => number, fn: () => T): T {
+  const prev = traceryRngCurrent;
+  traceryRngCurrent = rng;
+  setTraceryRng(rng);
+  try {
+    return fn();
+  } finally {
+    traceryRngCurrent = prev;
+    setTraceryRng(prev);
+  }
+}
+
 function pickVariant(seed: string, key: string, variants: readonly string[]): string {
   if (!variants.length) return '';
   const idx = hashStringToU32(`${seed}::${key}`) % variants.length;
@@ -454,12 +468,70 @@ function normalizeNarrationText(input: string): string {
     .trim();
 }
 
+type NarrationRarity = 'common' | 'uncommon' | 'rare';
+type NarrationRuleItem = string | { text: string; w?: number; weight?: number; rarity?: NarrationRarity };
+type NarrationSpecV1 = { version: 1; rules: Record<string, NarrationRuleItem[] | string> };
+
+function isNarrationSpecV1(v: unknown): v is NarrationSpecV1 {
+  if (!v || typeof v !== 'object') return false;
+  const version = (v as { version?: unknown }).version;
+  const rules = (v as { rules?: unknown }).rules;
+  return version === 1 && !!rules && typeof rules === 'object';
+}
+
+function expandNarrationRule(items: NarrationRuleItem[] | string): string[] {
+  if (typeof items === 'string') return [items];
+  const out: string[] = [];
+  const rarityWeight = (r: NarrationRarity | undefined): number => {
+    if (r === 'rare') return 1;
+    if (r === 'uncommon') return 4;
+    return 10;
+  };
+
+  for (const it of items) {
+    if (typeof it === 'string') {
+      out.push(it);
+      continue;
+    }
+    if (!it || typeof it !== 'object') continue;
+    const text = String((it as { text?: unknown }).text ?? '').trim();
+    if (!text) continue;
+    const wRaw = (it as { w?: unknown; weight?: unknown }).w ?? (it as { weight?: unknown }).weight;
+    const wNum = typeof wRaw === 'number' && Number.isFinite(wRaw) ? Math.max(0, Math.floor(wRaw)) : 1;
+    const mult = wNum * rarityWeight((it as { rarity?: unknown }).rarity as NarrationRarity | undefined);
+    const reps = Math.max(1, Math.min(50, mult));
+    for (let i = 0; i < reps; i++) out.push(text);
+  }
+
+  return out.length ? out : [];
+}
+
+let narrationRulesCache: Record<string, string[]> | null = null;
+function getNarrationRules(): Record<string, string[]> {
+  if (narrationRulesCache) return narrationRulesCache;
+  const specUnknown: unknown = narrationSpec;
+  if (!isNarrationSpecV1(specUnknown)) return {};
+  const out: Record<string, string[]> = {};
+  for (const [k, v] of Object.entries(specUnknown.rules)) {
+    out[k] = expandNarrationRule(v as NarrationRuleItem[] | string);
+  }
+  narrationRulesCache = out;
+  return out;
+}
+
 function aOrAn(phrase: string): string {
   const p = phrase.trim();
   if (!p) return 'a';
   const c = p[0]?.toLowerCase() ?? '';
   if ('aeiou'.includes(c)) return 'an';
   return 'a';
+}
+
+function oxfordJoin(items: string[]): string {
+  const xs = items.map(s => s.trim()).filter(Boolean);
+  if (xs.length <= 1) return xs[0] ?? '';
+  if (xs.length === 2) return `${xs[0]} and ${xs[1]}`;
+  return `${xs.slice(0, -1).join(', ')}, and ${xs[xs.length - 1]}`;
 }
 
 function bandToAdverb(band: Band5): string {
@@ -609,8 +681,8 @@ function renderNarrativeOverview(
   const dressVerb = conjugate(pron, 'dresses', 'dress');
 
   const recovery = rituals.length ? joinWithAnd(rituals) : 'routine';
-  const genres = genre.length ? joinWithAnd(genre) : 'mixed media';
-  const comfortLine = comfort.length ? joinWithAnd(comfort) : 'simple staples';
+  const genres = genre.length ? oxfordJoin(genre) : 'mixed media';
+  const comfortLine = comfort.length ? oxfordJoin(comfort) : 'simple staples';
   const styleLine = style || 'practical';
 
   const markSentence = mark ? `${pron.Subj} ${pron.have} ${aOrAn(toNarrativePhrase(mark))} ${toNarrativePhrase(mark)}.` : '';
@@ -619,7 +691,54 @@ function renderNarrativeOverview(
   const chronotype = toNarrativePhrase(agent.routines.chronotype);
   const chronotypeArticle = aOrAn(chronotype);
 
-  const rules: Record<string, string[] | string> = {
+  // Tone tags (simple, deterministic signals used to select phrasing).
+  const roleTagsLower = agent.identity.roleSeedTags.map(t => String(t).trim().toLowerCase());
+  const toneDiplomat = roleTagsLower.includes('diplomat');
+  const toneOps = roleTagsLower.includes('operative') || roleTagsLower.includes('security');
+  const toneMedia = roleTagsLower.includes('media');
+  const toneAnalyst = roleTagsLower.includes('analyst') || roleTagsLower.includes('technocrat');
+
+  const opsecHigh = agent.visibility.digitalHygiene >= 700 && agent.visibility.publicVisibility <= 450 && agent.visibility.paperTrail <= 600;
+  const publicHigh = agent.visibility.publicVisibility >= 700;
+
+  // Category-specific list formatting.
+  const skillsList = topSkillKeys.length ? oxfordJoin(topSkillKeys) : '';
+  const aptitudesList = topAptitudeNames.length ? oxfordJoin(topAptitudeNames) : '';
+  const recoveryList = rituals.length ? oxfordJoin(rituals) : recovery;
+  const breakTypesList = (() => {
+    if (!breakTypes.length) return '';
+    if (breakTypes.length === 1) return breakTypes[0] ?? '';
+    const a = breakTypes[0] ?? '';
+    const b = breakTypes[1] ?? '';
+    const preferOr = (hashStringToU32(`${seed}::bio:breakTypesOr`) % 1000) < 350;
+    if (!a || !b) return oxfordJoin([a, b].filter(Boolean));
+    if (preferOr) return `${a} or ${aOrAn(b)} ${b}`;
+    return `${a} and ${b}`;
+  })();
+
+  const locationPhrase = toneDiplomat
+    ? pickVariant(seed, 'bio:locPhrase:diplomat', ['posted in', 'stationed in', 'based in'] as const)
+    : toneOps
+      ? pickVariant(seed, 'bio:locPhrase:ops', ['operating out of', 'based in'] as const)
+      : toneMedia
+        ? pickVariant(seed, 'bio:locPhrase:media', ['working out of', 'based in'] as const)
+        : toneAnalyst
+          ? pickVariant(seed, 'bio:locPhrase:analyst', ['working from', 'based in'] as const)
+          : 'based in';
+
+  // Optional aside sentence (rare DF-style texture).
+  const asideRoll = hashStringToU32(`${seed}::bio:aside`) % 1000;
+  const includeAside = asideRoll < 140; // ~14%
+  const asideOptions: string[] = [];
+  if (includeAside) {
+    if (toneDiplomat) asideOptions.push(`${pron.Subj} ${pron.be} careful with names in public conversation.`);
+    if (toneOps && opsecHigh) asideOptions.push(`${pron.Subj} ${pron.have} a habit of checking exits before settling.`);
+    if (toneMedia && publicHigh) asideOptions.push(`${pron.Subj} ${pron.be} sensitive to public scrutiny.`);
+    if (agent.preferences.media.doomscrollingRisk >= 700) asideOptions.push(`${pron.Subj} ${pron.be} drawn to long scrolls when restless.`);
+    if (!asideOptions.length) asideOptions.push(`${pron.Subj} ${pron.be} hard to read at first glance.`);
+  }
+
+  const baseRules: Record<string, string[] | string> = {
     name: [agent.identity.name],
     birthYear: [String(agent.identity.birthYear)],
     ageClause: [ageClause],
@@ -637,6 +756,7 @@ function renderNarrativeOverview(
     homeIso3: [agent.identity.homeCountryIso3],
     currentLabel: [labels.currentLabel],
     currentIso3: [agent.identity.currentCountryIso3],
+    locationPhrase: [locationPhrase],
 
     height: [height],
     build: [build],
@@ -645,25 +765,18 @@ function renderNarrativeOverview(
     voice: [voice],
     markSentence: [markSentence],
 
-    competenceLead: [
-      '#Subj# shows strength in #skills#.',
-      '#Subj# #be# known for #skills#.',
-      '#Subj# tends to excel at #skills#.',
-      '#Subj# often relies on #skills#.',
-    ],
-    skills: [joinWithAnd(topSkillKeys)],
-    competenceSupport: [topAptitudeNames.length ? `Backed by ${joinWithAnd(topAptitudeNames)}.` : ''],
-    competenceSentence: ['#competenceLead# #competenceSupport#'],
+    skillsList: [skillsList],
+    aptitudesList: [aptitudesList],
     traitSentence: [traitSentence],
 
     chronotype: [chronotype],
     chronotypeArticle: [chronotypeArticle],
     sleepWindow: [agent.routines.sleepWindow],
-    recovery: [recovery],
-    ritual: [ritual],
-    genres: [genres],
-    style: [styleLine],
-    comfort: [comfortLine],
+    recoveryList: [recoveryList],
+    ritualDrink: [ritual],
+    genreList: [genres],
+    styleTag: [styleLine],
+    comfortFoodList: [comfortLine],
     keep: [keepVerb],
     recover: [recoverVerb],
     favor: [favorVerb],
@@ -671,55 +784,53 @@ function renderNarrativeOverview(
     dress: [dressVerb],
 
     breakBand: [breakBand],
-    breakTypes: [breakTypes.length ? joinWithAnd(breakTypes) : ''],
-    vice: [vice],
-    viceTrigger: [viceTrigger],
-
-    p1a: [
-      '#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#), currently based in #currentLabel# (#currentIso3#).',
-      '#name# was born in #birthYear#.#ageClause# #ATier# #tier#-tier #role# from #originLabel# (#homeIso3#), #subj# now #have# a base in #currentLabel# (#currentIso3#).',
-      '#name# was born in #birthYear#.#ageClause# From #originLabel# (#homeIso3#), #subj# #have# since moved operations to #currentLabel# (#currentIso3#) as #aTier# #tier#-tier #role#.',
-    ],
-
-    p1b: [
-      '#Subj# #be# #height# and #build#, with #hair# and #eyes#. #PossAdjCap# voice is #voice#. #markSentence# #competenceSentence# #traitSentence#',
-      '#Subj# #be# #height# and #build#, with #hair# and #eyes#. #PossAdjCap# voice is #voice#. #competenceSentence# #markSentence# #traitSentence#',
-    ],
-
-    p2a: [
-      '#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and #recover# with #recovery#. #PossAdjCap# ritual drink is #ritual#. #Subj# #favor# #genres# and #tend# toward #style# dress; comfort foods include #comfort#.',
-      '#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and #recover# with #recovery#. #PossAdjCap# ritual drink is #ritual#. #Subj# #favor# #genres#, and #PossAdjCap# style runs #style#; comfort foods include #comfort#.',
-      '#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and #recover# with #recovery#. #PossAdjCap# ritual drink is #ritual#. #Subj# #favor# #genres# and #dress# #style#; comfort foods include #comfort#.',
-    ],
-
-    p2b: [
-      'Under strain, break risk runs #breakBand##breakTypesClause#.',
-      'Under strain, break risk trends #breakBand##breakTypesClause#.',
-    ],
-    breakTypesClause: [
-      '',
-      '; #breakTypes# are common failure modes',
-    ],
-    p2c: vice
-      ? [
-        '#Subj# #be# prone to #vice##viceTriggerClause#.',
-        '#Subj# #be# prone to #vice##viceTriggerClause#.',
-        '',
-      ]
-      : [''],
-    viceTriggerClause: [
-      '',
-      ', especially after #viceTrigger#',
-    ],
+    breakTypesList: [breakTypesList],
+    viceTag: [vice],
+    viceTriggerTag: [viceTrigger],
   };
 
-  const rng = makeXorshiftRng(`${seed}::bio:narration:v2::${pronounMode}`);
-  setTraceryRng(rng);
-  try {
+  const textRules = (() => {
+    const base = getNarrationRules();
+    const copy: Record<string, string[]> = {};
+    for (const [k, v] of Object.entries(base)) copy[k] = v.slice();
+    return copy;
+  })();
+
+  if (toneDiplomat) {
+    textRules.bioP1Identity = [
+      ...(textRules.bioP1Identity ?? []),
+      '#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#), later #locationPhrase# #currentLabel# (#currentIso3#).',
+    ];
+  }
+  if (toneOps) {
+    textRules.bioP1Identity = [
+      ...(textRules.bioP1Identity ?? []),
+      '#name# was born in #birthYear#.#ageClause# From #originLabel# (#homeIso3#), #subj# #have# since taken up work in #currentLabel# (#currentIso3#) as #aTier# #tier#-tier #role#.',
+    ];
+  }
+  if (includeAside) textRules.bioP1Aside = asideOptions.length ? asideOptions : [''];
+  if (toneOps && opsecHigh) {
+    textRules.bioP2Strain = [
+      ...(textRules.bioP2Strain ?? []),
+      'Under strain, break risk runs #breakBand##breakTypesClause#. Exposure remains a frequent risk.',
+    ];
+  }
+
+  const rules: Record<string, string[] | string> = { ...textRules, ...baseRules };
+
+  const rng = makeXorshiftRng(`${seed}::bio:narration:v3::${pronounMode}`);
+  return withTraceryRng(rng, () => {
     const grammar = tracery.createGrammar(rules);
-    grammar.addModifiers(tracery.baseEngModifiers);
-    const para1 = normalizeNarrationText(grammar.flatten('#p1a# #p1b#'));
-    const para2 = normalizeNarrationText(grammar.flatten('#p2a# #p2b# #p2c#'));
+    grammar.addModifiers({
+      ...tracery.baseEngModifiers,
+      lower: (s: string) => s.toLowerCase(),
+      trim: (s: string) => s.trim(),
+      capFirst: (s: string) => capitalizeFirst(s),
+      oxford: (s: string) => oxfordJoin(s.split(',').map(x => x.trim()).filter(Boolean)),
+    });
+
+    const para1 = normalizeNarrationText(grammar.flatten('#bioP1Identity# #bioP1Appearance# #bioP1VoiceMark# #bioP1CompetenceLead# #bioP1CompetenceSupport# #bioP1Trait# #bioP1Aside#'));
+    const para2 = normalizeNarrationText(grammar.flatten('#bioP2Routine# #bioP2Taste# #bioP2Strain# #bioP2Vice#'));
 
     return `
       <div class="agent-narrative">
@@ -727,10 +838,7 @@ function renderNarrativeOverview(
         <p>${escapeHtml(para2)}</p>
       </div>
     `;
-  } finally {
-    // Avoid leaking deterministic RNG into any other potential Tracery use.
-    setTraceryRng(Math.random);
-  }
+  });
 }
 
 type AgentProfileTab = 'overview' | 'performance' | 'lifestyle' | 'constraints' | 'debug';
