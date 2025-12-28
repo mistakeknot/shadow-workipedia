@@ -169,9 +169,39 @@ export type AgentVocabV1 = {
     mobilityTags?: string[];
     passportAccessBands?: Band5[];
   };
+  neurodivergence?: {
+    indicatorTags?: string[];
+    copingStrategies?: string[];
+  };
+  spirituality?: {
+    affiliationTags?: string[];
+    observanceLevels?: string[];
+    practiceTypes?: string[];
+  };
+  background?: {
+    adversityTags?: string[];
+    resilienceIndicators?: string[];
+  };
+  gender?: {
+    identityTags?: string[];
+    pronounSets?: string[];
+  };
   cultureProfiles?: Record<string, CultureProfileV1>;
   microCultureProfiles?: Record<string, CultureProfileV1>;
 };
+
+export type SocioeconomicMobility = 'upward' | 'stable' | 'downward';
+
+export type NetworkRole = 'isolate' | 'peripheral' | 'connector' | 'hub' | 'broker' | 'gatekeeper';
+
+export type ContradictionPair = {
+  trait1: string;
+  trait2: string;
+  tension: string;
+  narrativeHook: string;
+};
+
+export type EliteCompensator = 'patronage' | 'dynasty' | 'institutional-protection' | 'media-shield' | 'political-cover' | 'wealth-buffer';
 
 export type GeneratedAgent = {
   version: 1;
@@ -190,6 +220,8 @@ export type GeneratedAgent = {
     homeCulture: string;
     birthYear: number;
     tierBand: TierBand;
+    originTierBand: TierBand; // NEW: where they came from
+    socioeconomicMobility: SocioeconomicMobility; // NEW: trajectory
     roleSeedTags: string[];
     languages: string[];
     languageProficiencies: Array<{ language: string; proficiencyBand: Band5 }>;
@@ -258,7 +290,25 @@ export type GeneratedAgent = {
       agreeableness: Fixed;
       authoritarianism: Fixed;
     };
+    // Decomposed principledness (Oracle recommendation)
+    ethics: {
+      ruleAdherence: Fixed; // follows rules vs bends them
+      harmAversion: Fixed; // cares about harm to others
+      missionUtilitarianism: Fixed; // does dirty work if needed
+      loyaltyScope: 'institution' | 'people' | 'ideals' | 'self';
+    };
+    contradictions: ContradictionPair[]; // Oracle: story-engine tensions
   };
+
+  // NEW: Network position (Oracle recommendation)
+  network: {
+    role: NetworkRole;
+    factionAlignment: string | null;
+    leverageType: 'favors' | 'information' | 'money' | 'ideology' | 'care';
+  };
+
+  // NEW: Elite compensators (Oracle recommendation)
+  eliteCompensators: EliteCompensator[];
 
   visibility: {
     publicVisibility: Fixed;
@@ -295,6 +345,27 @@ export type GeneratedAgent = {
 
   logistics: {
     identityKit: Array<{ item: string; security: Band5; compromised: boolean }>;
+  };
+
+  neurodivergence: {
+    indicatorTags: string[];
+    copingStrategies: string[];
+  };
+
+  spirituality: {
+    affiliationTag: string;
+    observanceLevel: string;
+    practiceTypes: string[];
+  };
+
+  background: {
+    adversityTags: string[];
+    resilienceIndicators: string[];
+  };
+
+  gender: {
+    identityTag: string;
+    pronounSet: string;
   };
 };
 
@@ -661,12 +732,60 @@ function mixWeights01k(parts: Array<{ weights: Record<string, Fixed>; weight: nu
   return normalizeWeights01k(acc);
 }
 
-function deriveCultureFromShadowContinent(continent: string | undefined): string {
+// East Asian countries that should map to 'East Asia' macro-culture instead of 'South Asia'
+const EAST_ASIA_ISO3 = new Set([
+  'CHN', 'JPN', 'KOR', 'TWN', 'MNG', 'PRK', 'HKG', 'MAC', // Core East Asia
+  'VNM', 'THA', 'LAO', 'KHM', 'MMR', // Mainland Southeast Asia
+  'IDN', 'MYS', 'SGP', 'BRN', 'TLS', 'PHL', // Maritime Southeast Asia
+]);
+
+/**
+ * Derives a macro-culture region from a continent name.
+ * Accepts real-world continent names (preferred) or legacy shadow names for backwards compatibility.
+ * Shadow names should only be used at the display layer, not in data.
+ */
+function deriveCultureFromContinent(continent: string | undefined, iso3?: string): string {
+  // ISO3-based override for East Asia (some continent designations cover both South and East Asia)
+  if (iso3 && EAST_ASIA_ISO3.has(iso3.toUpperCase())) {
+    return 'East Asia';
+  }
   const token = (continent ?? '').trim();
   if (!token) return 'Global';
+
+  // Real-world continent names (preferred input format)
+  const realWorldToCulture: Record<string, string> = {
+    'Americas': 'Americas',
+    'North America': 'Americas',
+    'South America': 'Americas',
+    'Central America': 'Americas',
+    'Europe': 'Europe',
+    'MENA': 'MENA',
+    'Middle East': 'MENA',
+    'North Africa': 'MENA',
+    'Sub-Saharan Africa': 'Sub-Saharan Africa',
+    'Sub‑Saharan Africa': 'Sub-Saharan Africa', // Non-breaking hyphen variant
+    'Africa': 'Sub-Saharan Africa',
+    'South Asia': 'South Asia',
+    'East Asia': 'East Asia',
+    'Southeast Asia': 'East Asia',
+    'Asia': 'South Asia', // Fallback for generic "Asia"
+    'Oceania': 'Oceania',
+    'Pacific': 'Oceania',
+    'Australia': 'Oceania',
+  };
+
+  // Check real-world names first (case-insensitive)
+  const normalizedToken = token.toLowerCase();
+  for (const [key, value] of Object.entries(realWorldToCulture)) {
+    if (key.toLowerCase() === normalizedToken) {
+      return value;
+    }
+  }
+
+  // Legacy shadow continent names (for backwards compatibility only)
   const shadowContinentToCulture: Record<string, string> = {
     Pelag: 'Oceania',
-    Mero: 'Sub‑Saharan Africa',
+    Mero: 'Sub-Saharan Africa',
     Aram: 'MENA',
     Solis: 'South Asia',
     Hesper: 'Europe',
@@ -726,14 +845,35 @@ function traceFacet(trace: AgentGenerationTraceV1 | undefined, seed: string, fac
 
 function computeLatents(seed: string, tierBand: TierBand, roleSeedTags: readonly string[]) {
   const rng = makeRng(facetSeed(seed, 'latents'));
-  const tierCosmoBias = tierBand === 'elite' ? 160 : tierBand === 'mass' ? -120 : 0;
-  const tierPublicBias = tierBand === 'elite' ? 120 : tierBand === 'mass' ? -40 : 0;
-  const tierInstBias = tierBand === 'elite' ? 120 : 0;
-  const tierTechBias = tierBand === 'elite' ? 40 : tierBand === 'mass' ? -40 : 0;
-  const tierExpressBias = tierBand === 'elite' ? 80 : tierBand === 'mass' ? -20 : 0;
-  const tierFrugalBias = tierBand === 'elite' ? -120 : tierBand === 'mass' ? 120 : 0;
-  const tierPlanBias = tierBand === 'elite' ? 60 : tierBand === 'mass' ? -20 : 0;
-  const tierStressBias = tierBand === 'elite' ? -60 : tierBand === 'mass' ? 60 : 0;
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // TIER STEREOTYPE MEDIATORS (Oracle/Claude P1 recommendation)
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Add individual variation to tier biases to break stereotypes.
+  // A "mediator" value of 0.5 applies full bias; values toward 0 or 1 attenuate it.
+  // This creates variance: some elites aren't cosmopolitan; some mass are.
+  const tierMediator = rng.next01(); // 0-1, centered around 0.5
+  const tierBiasScale = 0.3 + 1.4 * tierMediator; // Range: 0.3 to 1.7 (some attenuation, some amplification)
+
+  // Raw tier biases before mediation
+  const rawTierCosmoBias = tierBand === 'elite' ? 160 : tierBand === 'mass' ? -120 : 0;
+  const rawTierPublicBias = tierBand === 'elite' ? 120 : tierBand === 'mass' ? -40 : 0;
+  const rawTierInstBias = tierBand === 'elite' ? 120 : 0;
+  const rawTierTechBias = tierBand === 'elite' ? 40 : tierBand === 'mass' ? -40 : 0;
+  const rawTierExpressBias = tierBand === 'elite' ? 80 : tierBand === 'mass' ? -20 : 0;
+  const rawTierFrugalBias = tierBand === 'elite' ? -120 : tierBand === 'mass' ? 120 : 0;
+  const rawTierPlanBias = tierBand === 'elite' ? 60 : tierBand === 'mass' ? -20 : 0;
+  const rawTierStressBias = tierBand === 'elite' ? -60 : tierBand === 'mass' ? 60 : 0;
+
+  // Apply mediator: some individuals conform to tier stereotypes, others don't
+  const tierCosmoBias = Math.round(rawTierCosmoBias * tierBiasScale);
+  const tierPublicBias = Math.round(rawTierPublicBias * tierBiasScale);
+  const tierInstBias = Math.round(rawTierInstBias * tierBiasScale);
+  const tierTechBias = Math.round(rawTierTechBias * tierBiasScale);
+  const tierExpressBias = Math.round(rawTierExpressBias * tierBiasScale);
+  const tierFrugalBias = Math.round(rawTierFrugalBias * tierBiasScale);
+  const tierPlanBias = Math.round(rawTierPlanBias * tierBiasScale);
+  const tierStressBias = Math.round(rawTierStressBias * tierBiasScale);
 
   const role = new Set(roleSeedTags);
   const cosmoRoleBias = (role.has('diplomat') ? 220 : 0) + (role.has('media') ? 80 : 0) + (role.has('operative') ? 140 : 0) + (role.has('technocrat') ? 60 : 0);
@@ -993,6 +1133,48 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 	  const tierBand: TierBand = input.tierBand ?? base.pick(vocab.identity.tierBands as readonly TierBand[]);
 	  traceSet(trace, 'identity.tierBand', tierBand, { method: input.tierBand ? 'override' : 'rng', dependsOn: { facet: 'base', poolSize: vocab.identity.tierBands.length } });
 
+  // ─────────────────────────────────────────────────────────────────────────────
+  // SOCIOECONOMIC ORIGIN + MOBILITY (Oracle/Claude recommendation)
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Origin tier: where they came from (distinct from current tier)
+  // Mobility: trajectory between origin and current
+  traceFacet(trace, seed, 'socioeconomic');
+  const socioRng = makeRng(facetSeed(seed, 'socioeconomic'));
+
+  // Most people have stable class; upward/downward mobility is less common
+  // Elite current tier: likely elite or middle origin (privilege persists)
+  // Mass current tier: likely mass origin (harder to climb)
+  // Middle current tier: most varied origins
+  const originTierWeights: Record<TierBand, Array<{ item: TierBand; weight: number }>> = {
+    elite: [
+      { item: 'elite', weight: 0.55 },   // dynasty/inherited
+      { item: 'middle', weight: 0.35 },  // climbed up
+      { item: 'mass', weight: 0.10 },    // rare rags-to-riches
+    ],
+    middle: [
+      { item: 'elite', weight: 0.12 },   // fallen/downward
+      { item: 'middle', weight: 0.65 },  // stable middle
+      { item: 'mass', weight: 0.23 },    // climbed up
+    ],
+    mass: [
+      { item: 'elite', weight: 0.03 },   // rare fall
+      { item: 'middle', weight: 0.18 },  // slight decline
+      { item: 'mass', weight: 0.79 },    // stable mass
+    ],
+  };
+  const originTierBand = weightedPick(socioRng, originTierWeights[tierBand]) as TierBand;
+
+  // Derive mobility from origin vs current
+  const socioeconomicMobility: SocioeconomicMobility = (() => {
+    const tierRank = { elite: 2, middle: 1, mass: 0 };
+    const diff = tierRank[tierBand] - tierRank[originTierBand];
+    if (diff > 0) return 'upward';
+    if (diff < 0) return 'downward';
+    return 'stable';
+  })();
+  traceSet(trace, 'identity.originTierBand', originTierBand, { method: 'weightedPick', dependsOn: { tierBand } });
+  traceSet(trace, 'identity.socioeconomicMobility', socioeconomicMobility, { method: 'derived', dependsOn: { tierBand, originTierBand } });
+
 	  const countries = input.countries;
 	  const validCountries = countries
 	    .map(c => ({
@@ -1010,9 +1192,9 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     ? validCountries.find(c => c.iso3.trim().toUpperCase() === forcedHomeIso3) ?? originRng.pick(validCountries)
     : originRng.pick(validCountries);
   const homeCountryIso3 = origin.iso3.trim().toUpperCase();
-  const homeCulture = deriveCultureFromShadowContinent(origin.continent);
+  const homeCulture = deriveCultureFromContinent(origin.continent, homeCountryIso3);
   traceSet(trace, 'identity.homeCountryIso3', homeCountryIso3, { method: forcedHomeIso3 ? 'overrideOrFallbackPick' : 'pick', dependsOn: { facet: 'origin', poolSize: validCountries.length, continent: origin.continent ?? null, forcedHomeIso3: forcedHomeIso3 || null } });
-  traceSet(trace, 'identity.homeCulture', homeCulture, { method: 'deriveCultureFromShadowContinent', dependsOn: { continent: origin.continent ?? null } });
+  traceSet(trace, 'identity.homeCulture', homeCulture, { method: 'deriveCultureFromContinent', dependsOn: { continent: origin.continent ?? null, iso3: homeCountryIso3 } });
 
   const cohortBucketStartYear = Math.floor(birthYear / 10) * 10;
   const countryPriorsBucket = input.priors?.countries?.[homeCountryIso3]?.buckets?.[String(cohortBucketStartYear)];
@@ -1024,6 +1206,31 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       indicators: countryPriorsBucket?.indicators ?? null,
     };
   }
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // CLIMATE INDICATOR DERIVATION (from food environment)
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Derive climate indicators from food environment axes:
+  // - spice + streetFood → hot climate
+  // - seafood + fineDining → coastal climate
+  // - meat + dairy → cold/temperate climate
+  const homeFoodEnvEarly = countryPriorsBucket?.foodEnvironment01k;
+  const climateIndicators = (() => {
+    if (!homeFoodEnvEarly) return { hot01: 0.5, coastal01: 0.5, cold01: 0.5 };
+    const spice01 = (Number(homeFoodEnvEarly.spice) || 500) / 1000;
+    const street01 = (Number(homeFoodEnvEarly.streetFood) || 500) / 1000;
+    const seafood01 = (Number(homeFoodEnvEarly.seafood) || 500) / 1000;
+    const fine01 = (Number(homeFoodEnvEarly.fineDining) || 500) / 1000;
+    const meat01 = (Number(homeFoodEnvEarly.meat) || 500) / 1000;
+    const dairy01 = (Number(homeFoodEnvEarly.dairy) || 500) / 1000;
+    return {
+      hot01: Math.min(1, 0.4 * spice01 + 0.35 * street01 + 0.25 * (1 - dairy01)),
+      coastal01: Math.min(1, 0.55 * seafood01 + 0.25 * fine01 + 0.20 * street01),
+      cold01: Math.min(1, 0.35 * meat01 + 0.40 * dairy01 + 0.25 * (1 - spice01)),
+    };
+  })();
+  if (trace) trace.derived.climateIndicators = climateIndicators;
+
   const roleSeedTags = (input.roleSeedTags?.length ? input.roleSeedTags : base.pickK(vocab.identity.roleSeedTags, 2))
     .slice(0, 4);
   traceSet(trace, 'identity.roleSeedTags', roleSeedTags, { method: input.roleSeedTags?.length ? 'override' : 'rng', dependsOn: { facet: 'base', poolSize: vocab.identity.roleSeedTags.length } });
@@ -1039,7 +1246,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   const risk01 = latents.riskAppetite / 1000;
   traceSet(trace, 'latents.values', latents, { method: 'computeLatents', dependsOn: { tierBand, roleSeedTags } });
 
-  const cultureCountries = validCountries.filter((c) => deriveCultureFromShadowContinent(c.continent) === homeCulture);
+  const cultureCountries = validCountries.filter((c) => deriveCultureFromContinent(c.continent, c.iso3) === homeCulture);
   traceFacet(trace, seed, 'citizenship');
   const citizenshipRng = makeRng(facetSeed(seed, 'citizenship'));
   const citizenshipFlip = Math.min(
@@ -1151,16 +1358,49 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 	    : [];
 
   const microProfiles = microTop
-    .map(({ profileId }) => ({ id: profileId, profile: vocab.microCultureProfiles?.[profileId] }))
-    .filter((x): x is { id: string; profile: CultureProfileV1 } => !!x.profile);
+    .map(({ profileId, weight01k }) => ({
+      id: profileId,
+      weight01k,
+      profile: vocab.microCultureProfiles?.[profileId],
+    }))
+    .filter((x): x is { id: string; weight01k: number; profile: CultureProfileV1 } => !!x.profile);
 
+  // Weight-faithful microculture item picking:
+  // Sample a profile according to weights, then pick from that profile's items.
+  // This ensures high-weight profiles contribute more items than low-weight ones.
+  const pickFromWeightedMicroProfiles = <T>(
+    rng: Rng,
+    getItems: (p: CultureProfileV1) => readonly T[] | undefined,
+    count: number,
+  ): T[] => {
+    if (microProfiles.length === 0 || count <= 0) return [];
+    const results: T[] = [];
+    // Local weighted pick for profile objects (since weightedPick only works with strings)
+    const pickProfile = (): typeof microProfiles[0] => {
+      const total = microProfiles.reduce((s, p) => s + p.weight01k, 0);
+      let r = rng.next01() * total;
+      for (const p of microProfiles) {
+        r -= p.weight01k;
+        if (r <= 0) return p;
+      }
+      return microProfiles[0]!;
+    };
+    for (let i = 0; i < count * 3 && results.length < count; i++) {
+      const picked = pickProfile();
+      const items = getItems(picked.profile) ?? [];
+      if (items.length) {
+        const item = rng.pick(items as T[]);
+        if (!results.includes(item)) results.push(item);
+      }
+    }
+    return results;
+  };
+
+  // Unioned pools for names/languages (still use flat union, then weighted selection later)
   const microFirstNames = uniqueStrings(microProfiles.flatMap(x => x.profile.identity?.firstNames ?? []));
   const microLastNames = uniqueStrings(microProfiles.flatMap(x => x.profile.identity?.lastNames ?? []));
   const microLanguages = uniqueStrings(microProfiles.flatMap(x => x.profile.identity?.languages ?? []));
-  const microComfortFoods = uniqueStrings(microProfiles.flatMap(x => x.profile.preferences?.food?.comfortFoods ?? []));
-  const microRitualDrinks = uniqueStrings(microProfiles.flatMap(x => x.profile.preferences?.food?.ritualDrinks ?? []));
-  const microGenres = uniqueStrings(microProfiles.flatMap(x => x.profile.preferences?.media?.genres ?? []));
-  const microStyleTags = uniqueStrings(microProfiles.flatMap(x => x.profile.preferences?.fashion?.styleTags ?? []));
+  // Food/media/fashion use pickFromWeightedMicroProfiles() where they're used
 
   if (trace) {
     trace.derived.primaryWeights = { namesPrimaryWeight, languagesPrimaryWeight, foodPrimaryWeight, mediaPrimaryWeight, fashionPrimaryWeight };
@@ -1201,6 +1441,20 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       if (inst01 < 0.35 && ['ngo', 'journalism', 'corporate-ops', 'academia'].includes(t)) w += 1.7;
       if (risk01 > 0.65 && ['intelligence', 'military', 'politics'].includes(t)) w += 1.3;
       if (roleNudgedCareer === t) w += 3.0;
+
+      // Age-based career appropriateness:
+      // - Young (< 30): field roles, journalism, military favored
+      // - Middle (30-50): most careers equally accessible
+      // - Senior (> 50): advisory, politics, academia, civil-service favored
+      if (age < 30) {
+        if (['politics', 'civil-service'].includes(t)) w *= 0.6; // harder to reach high positions young
+        if (['military', 'journalism', 'intelligence'].includes(t)) w += 0.4; // field-active roles
+      }
+      if (age > 50) {
+        if (['academia', 'civil-service', 'politics', 'foreign-service'].includes(t)) w += 0.5; // advisory roles
+        if (['military'].includes(t)) w *= 0.7; // physical demands
+      }
+
       const env = countryPriorsBucket?.careerTrackWeights?.[t];
       if (typeof env === 'number' && Number.isFinite(env) && env > 0) w *= env;
       return { item: t, weight: w };
@@ -1237,6 +1491,45 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     return picked;
   })();
   traceSet(trace, 'identity.educationTrackTag', educationTrackTag, { method: 'weightedPick', dependsOn: { facet: 'identity_tracks', tierBand, careerTrackTag, inst01 } });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // EDUCATION-BASED AGE FLOOR (Oracle/Claude P0 recommendation)
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Enforce minimum ages for education levels to prevent implausible combinations
+  // like 22-year-old doctorate holders or 19-year-old graduate degree holders.
+  const educationAgeFloors: Record<string, number> = {
+    'secondary': 18,
+    'trade-certification': 20,
+    'undergraduate': 22,
+    'graduate': 26,
+    'doctorate': 30,
+    'military-academy': 22,
+    'civil-service-track': 24,
+    'self-taught': 18,
+  };
+  const ageFloor = educationAgeFloors[educationTrackTag] ?? 18;
+
+  // Adjust age/birthYear if agent is too young for their education
+  let adjustedAge = age;
+  let adjustedBirthYear = birthYear;
+  if (age < ageFloor) {
+    adjustedAge = ageFloor;
+    adjustedBirthYear = asOfYear - ageFloor;
+    if (trace) {
+      trace.derived.ageFloorAdjustment = {
+        originalAge: age,
+        originalBirthYear: birthYear,
+        ageFloor,
+        adjustedAge,
+        adjustedBirthYear,
+        reason: `${educationTrackTag} requires minimum age ${ageFloor}`,
+      };
+    }
+  }
+  // Use adjusted values from here on
+  // effectiveAge available for future age-dependent features
+  void adjustedAge;
+  const effectiveBirthYear = adjustedBirthYear;
 
   traceFacet(trace, seed, 'name');
   const nameRng = makeRng(facetSeed(seed, 'name'));
@@ -1400,6 +1693,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 	    const weights = pool.map((b) => ({ item: b, weight: Number(priors[b] ?? 0) || 0 }));
 	    return weightedPick(appearanceRng, weights) as HeightBand;
 	  })();
+	  // Body build selected uniformly (no climate-based correlations to avoid cultural stereotypes)
 	  const buildTag = appearanceRng.pick(vocab.appearance.buildTags);
 	  const express01 = latents.aestheticExpressiveness / 1000;
 	  const hairColor = (() => {
@@ -1421,7 +1715,45 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 	  })();
 	  const hair = { color: hairColor, texture: appearanceRng.pick(vocab.appearance.hairTextures) };
 	  const eyes = { color: appearanceRng.pick(vocab.appearance.eyeColors) };
-	  const voiceTag = appearanceRng.pick(vocab.appearance.voiceTags);
+	  // Voice tag with career correlations:
+	  // - military → commanding/clipped/precise
+	  // - journalism → warm/storyteller/bright
+	  // - academia → teacherly/measured/dry-humored
+	  // - intelligence → soft-spoken/measured/deadpan
+	  // - operatives → calm/measured/murmured
+	  const voiceTag = (() => {
+	    const militaryVoices = ['commanding', 'clipped', 'precise', 'booming', 'authoritative', 'crisp'];
+	    const journalismVoices = ['warm', 'storyteller', 'bright', 'animated', 'engaging', 'articulate'];
+	    const academiaVoices = ['teacherly', 'measured', 'dry-humored', 'thoughtful', 'deliberate', 'scholarly'];
+	    const intelligenceVoices = ['soft-spoken', 'measured', 'deadpan', 'neutral', 'calm', 'unremarkable'];
+	    const operativeVoices = ['calm', 'measured', 'murmured', 'low', 'controlled', 'quiet'];
+	    const diplomatVoices = ['smooth', 'diplomatic', 'polished', 'refined', 'measured', 'reassuring'];
+
+	    const weights = vocab.appearance.voiceTags.map((v) => {
+	      const key = v.toLowerCase();
+	      let w = 1;
+
+	      // Career-based voice biases
+	      if (careerTrackTag === 'military' && militaryVoices.some(mv => key.includes(mv))) w += 1.5;
+	      if (careerTrackTag === 'journalism' && journalismVoices.some(jv => key.includes(jv))) w += 1.3;
+	      if (careerTrackTag === 'academia' && academiaVoices.some(av => key.includes(av))) w += 1.4;
+	      if (careerTrackTag === 'intelligence' && intelligenceVoices.some(iv => key.includes(iv))) w += 1.6;
+	      if (roleSeedTags.includes('operative') && operativeVoices.some(ov => key.includes(ov))) w += 1.8;
+	      if (careerTrackTag === 'foreign-service' && diplomatVoices.some(dv => key.includes(dv))) w += 1.4;
+
+	      // Public visibility → more expressive voices
+	      if (public01 > 0.6 && ['warm', 'engaging', 'animated', 'bright', 'charismatic'].some(pv => key.includes(pv))) {
+	        w += 0.6 * public01;
+	      }
+	      // High OPSEC → quieter, less distinctive voices
+	      if (opsec01 > 0.6 && ['soft-spoken', 'quiet', 'murmured', 'unremarkable', 'neutral'].some(ov => key.includes(ov))) {
+	        w += 0.5 * opsec01;
+	      }
+
+	      return { item: v, weight: Math.max(0.1, w) };
+	    });
+	    return weightedPick(appearanceRng, weights);
+	  })();
 	  const distinguishingMarksMax = (() => {
 	    const baseMax = opsec01 > 0.7 ? 1 : public01 > 0.7 ? 3 : 2;
 	    return clampInt(baseMax + (express01 > 0.75 ? 1 : 0), 0, 3);
@@ -1514,6 +1846,195 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   };
   traceSet(trace, 'psych.traits', traits, { method: 'formula', dependsOn: { facet: 'psych_traits', latents: latentModel.values, aptitudes } });
 
+  // ─────────────────────────────────────────────────────────────────────────────
+  // ETHICS DECOMPOSITION (Oracle/Claude P2 recommendation)
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Decompose "principledness" into nuanced ethics dimensions:
+  // - ruleAdherence: follows rules vs bends them
+  // - harmAversion: cares about harm to others
+  // - missionUtilitarianism: does dirty work if needed
+  // - loyaltyScope: what they're loyal to
+  const ethicsRng = makeRng(facetSeed(seed, 'ethics'));
+  const principledness01 = latents.principledness / 1000;
+  const ethics = {
+    ruleAdherence: clampFixed01k(
+      0.45 * latents.principledness +
+      0.30 * latents.institutionalEmbeddedness +
+      0.15 * traits.conscientiousness +
+      0.10 * ethicsRng.int(0, 1000)
+    ),
+    harmAversion: clampFixed01k(
+      0.50 * aptitudes.empathy +
+      0.25 * latents.principledness +
+      0.15 * (1000 - latents.riskAppetite) +
+      0.10 * ethicsRng.int(0, 1000)
+    ),
+    missionUtilitarianism: clampFixed01k(
+      0.40 * latents.riskAppetite +
+      0.25 * (1000 - latents.principledness) +
+      0.20 * latents.opsecDiscipline +
+      0.15 * ethicsRng.int(0, 1000)
+    ),
+    loyaltyScope: (() => {
+      type LoyaltyScope = 'institution' | 'people' | 'ideals' | 'self';
+      const scopeWeights: Array<{ item: LoyaltyScope; weight: number }> = [
+        { item: 'institution', weight: 1 + 2.0 * (latents.institutionalEmbeddedness / 1000) },
+        { item: 'people', weight: 1 + 2.0 * (aptitudes.empathy / 1000) },
+        { item: 'ideals', weight: 1 + 2.0 * principledness01 },
+        { item: 'self', weight: 1 + 1.5 * (1 - principledness01) + 0.8 * (latents.riskAppetite / 1000) },
+      ];
+      return weightedPick(ethicsRng, scopeWeights) as LoyaltyScope;
+    })(),
+  };
+  traceSet(trace, 'psych.ethics', ethics, { method: 'formula', dependsOn: { facet: 'ethics', latents: latentModel.values, aptitudes } });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // CONTRADICTION PAIRS (Oracle P2 recommendation)
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Generate narrative-driving internal contradictions for story potential.
+  // Look for traits that are both high or opposing values that create tension.
+  const contradictions: ContradictionPair[] = [];
+  const contradictionCandidates: Array<{
+    trait1: string;
+    trait2: string;
+    tension: string;
+    narrativeHook: string;
+    condition: boolean;
+  }> = [
+    {
+      trait1: 'harmAversion',
+      trait2: 'missionUtilitarianism',
+      tension: 'moral-injury-risk',
+      narrativeHook: 'Cares about people but can rationalize harm for mission success',
+      condition: ethics.harmAversion > 550 && ethics.missionUtilitarianism > 550,
+    },
+    {
+      trait1: 'ruleAdherence',
+      trait2: 'riskAppetite',
+      tension: 'maverick-institutionalist',
+      narrativeHook: 'Respects the system but constantly pushes its boundaries',
+      condition: ethics.ruleAdherence > 550 && latents.riskAppetite > 550,
+    },
+    {
+      trait1: 'publicness',
+      trait2: 'opsecDiscipline',
+      tension: 'spotlight-shadow',
+      narrativeHook: 'Craves attention but knows discretion is survival',
+      condition: latents.publicness > 550 && latents.opsecDiscipline > 550,
+    },
+    {
+      trait1: 'empathy',
+      trait2: 'deceptionAptitude',
+      tension: 'compassionate-manipulator',
+      narrativeHook: 'Genuinely understands people and uses that for leverage',
+      condition: aptitudes.empathy > 550 && aptitudes.deceptionAptitude > 550,
+    },
+    {
+      trait1: 'frugality',
+      trait2: 'aestheticExpressiveness',
+      tension: 'ascetic-aesthete',
+      narrativeHook: 'Values simplicity but has expensive taste',
+      condition: latents.frugality > 550 && latents.aestheticExpressiveness > 550,
+    },
+    {
+      trait1: 'institutionalEmbeddedness',
+      trait2: 'adaptability',
+      tension: 'loyal-chameleon',
+      narrativeHook: 'Devoted to the organization but could thrive anywhere',
+      condition: latents.institutionalEmbeddedness > 550 && latents.adaptability > 550,
+    },
+    {
+      trait1: 'socialBattery',
+      trait2: 'opsecDiscipline',
+      tension: 'social-introvert',
+      narrativeHook: 'Excels at schmoozing but finds it exhausting',
+      condition: latents.socialBattery > 550 && latents.opsecDiscipline > 550 && roleSeedTags.includes('operative'),
+    },
+  ];
+  for (const candidate of contradictionCandidates) {
+    if (candidate.condition) {
+      contradictions.push({
+        trait1: candidate.trait1,
+        trait2: candidate.trait2,
+        tension: candidate.tension,
+        narrativeHook: candidate.narrativeHook,
+      });
+    }
+  }
+  traceSet(trace, 'psych.contradictions', contradictions, { method: 'conditionalPairs', dependsOn: { facet: 'ethics', count: contradictions.length } });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // NETWORK POSITION (Oracle P3 recommendation)
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Generate network role based on traits and role seeds.
+  const networkRng = makeRng(facetSeed(seed, 'network'));
+  const networkRoleWeights: Array<{ item: NetworkRole; weight: number }> = [
+    { item: 'isolate', weight: 1 + 2.0 * (1 - latents.socialBattery / 1000) + (opsec01 > 0.7 ? 1.5 : 0) },
+    { item: 'peripheral', weight: 1.5 + 0.8 * (1 - latents.publicness / 1000) },
+    { item: 'connector', weight: 1 + 2.5 * cosmo01 + (roleSeedTags.includes('diplomat') ? 2.0 : 0) },
+    { item: 'hub', weight: 0.5 + 2.0 * (latents.socialBattery / 1000) + (roleSeedTags.includes('media') ? 1.5 : 0) },
+    { item: 'broker', weight: 0.5 + 2.0 * (aptitudes.deceptionAptitude / 1000) + (roleSeedTags.includes('operative') ? 1.5 : 0) },
+    { item: 'gatekeeper', weight: 0.5 + 2.0 * inst01 + (roleSeedTags.includes('security') ? 2.0 : 0) },
+  ];
+  const networkRole = weightedPick(networkRng, networkRoleWeights) as NetworkRole;
+
+  const factionAlignment = (() => {
+    // Operatives and security types are less likely to have public faction alignment
+    if (roleSeedTags.includes('operative') || roleSeedTags.includes('security')) {
+      return networkRng.next01() < 0.3 ? null : null; // 70% no faction
+    }
+    // Others might have faction alignment based on institutional embeddedness
+    if (networkRng.next01() < 0.4 + 0.3 * inst01) {
+      const factions = ['reform', 'establishment', 'progressive', 'conservative', 'pragmatist', 'idealist'];
+      return networkRng.pick(factions);
+    }
+    return null;
+  })();
+
+  const leverageWeights: Array<{ item: 'favors' | 'information' | 'money' | 'ideology' | 'care'; weight: number }> = [
+    { item: 'favors', weight: 1 + 1.5 * (latents.socialBattery / 1000) },
+    { item: 'information', weight: 1 + 2.0 * (aptitudes.cognitiveSpeed / 1000) + (roleSeedTags.includes('analyst') ? 2.0 : 0) },
+    { item: 'money', weight: 0.5 + 2.0 * (tierBand === 'elite' ? 1 : tierBand === 'middle' ? 0.5 : 0.2) },
+    { item: 'ideology', weight: 1 + 2.0 * principledness01 + (roleSeedTags.includes('organizer') ? 1.5 : 0) },
+    { item: 'care', weight: 1 + 2.0 * (aptitudes.empathy / 1000) },
+  ];
+  type LeverageType = 'favors' | 'information' | 'money' | 'ideology' | 'care';
+  const leverageType = weightedPick(networkRng, leverageWeights) as LeverageType;
+
+  const network = { role: networkRole, factionAlignment, leverageType };
+  traceSet(trace, 'network', network, { method: 'weightedPick', dependsOn: { facet: 'network', roleSeedTags, latents: latentModel.values } });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // ELITE COMPENSATORS (Oracle P2 recommendation)
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Elite tier agents with low aptitudes need narrative explanation for their position.
+  // These are the mechanisms that keep underperforming elites in power.
+  const eliteCompensators: EliteCompensator[] = [];
+  if (tierBand === 'elite') {
+    const avgAptitude = (
+      aptitudes.cognitiveSpeed + aptitudes.attentionControl + aptitudes.workingMemory +
+      aptitudes.charisma + aptitudes.empathy + aptitudes.assertiveness
+    ) / 6;
+
+    // Only add compensators if aptitudes are below elite expectations
+    if (avgAptitude < 550) {
+      const compensatorRng = makeRng(facetSeed(seed, 'compensators'));
+      const compensatorPool: Array<{ item: EliteCompensator; weight: number }> = [
+        { item: 'patronage', weight: 1.5 + 1.0 * (originTierBand === 'elite' ? 1 : 0) },
+        { item: 'dynasty', weight: 1.0 + 2.0 * (originTierBand === 'elite' && socioeconomicMobility === 'stable' ? 1 : 0) },
+        { item: 'institutional-protection', weight: 1.0 + 1.5 * inst01 },
+        { item: 'media-shield', weight: 0.8 + 1.5 * (latents.publicness / 1000) },
+        { item: 'political-cover', weight: 0.8 + 1.2 * (roleSeedTags.includes('diplomat') || roleSeedTags.includes('technocrat') ? 1 : 0) },
+        { item: 'wealth-buffer', weight: 1.2 + 0.8 * (1 - latents.frugality / 1000) },
+      ];
+      // More compensators for lower aptitude
+      const compensatorCount = avgAptitude < 400 ? 3 : avgAptitude < 500 ? 2 : 1;
+      const picked = weightedPickKUnique(compensatorRng, compensatorPool, compensatorCount) as EliteCompensator[];
+      eliteCompensators.push(...picked);
+    }
+  }
+  traceSet(trace, 'eliteCompensators', eliteCompensators, { method: 'conditionalWeightedPick', dependsOn: { tierBand, avgAptitude: tierBand === 'elite' } });
+
   // Shared derived: vice tendency used by vices, health, and some media/routines.
 	  const viceTendency =
 	    0.30 * risk01 +
@@ -1567,7 +2088,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 	  const allergyPool = uniqueStrings(vocab.health?.allergyTags ?? []);
 	  const endurance01 = aptitudes.endurance / 1000;
 	  const chronicChance = Math.min(0.65, Math.max(0.04, age / 210 + 0.10 * (1 - endurance01) + 0.10 * viceTendency));
-	  const chronicConditionTags = chronicPool.length && healthRng.next01() < chronicChance ? healthRng.pickK(chronicPool, healthRng.int(0, 1)) : [];
+	  // When triggered, always pick at least 1 condition (int(1,2) = 1 or 2)
+	  const chronicConditionTags = chronicPool.length && healthRng.next01() < chronicChance ? healthRng.pickK(chronicPool, healthRng.int(1, 2)) : [];
   const allergyChance = 0.22 + 0.10 * (traits.agreeableness / 1000);
   const allergyTags = allergyPool.length && healthRng.next01() < allergyChance ? healthRng.pickK(allergyPool, 1) : [];
   traceSet(trace, 'health', { chronicConditionTags, allergyTags }, { method: 'probabilisticPickK', dependsOn: { facet: 'health', age, endurance01, viceTendency, chronicChance, allergyChance, chronicPoolSize: chronicPool.length, allergyPoolSize: allergyPool.length } });
@@ -1972,6 +2494,9 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 
   const axis01 = (axis: FoodEnvAxis, fallback: number) => (foodEnv01k ? foodEnv01k[axis] / 1000 : fallback);
 
+  // Weight-faithful microculture food picks (uses profile weights, not flat union)
+  const microComfortFoods = pickFromWeightedMicroProfiles(prefsRng, p => p.preferences?.food?.comfortFoods, 5);
+  const microRitualDrinks = pickFromWeightedMicroProfiles(prefsRng, p => p.preferences?.food?.ritualDrinks, 3);
   const cultureComfort = uniqueStrings([...(macroCulture?.preferences?.food?.comfortFoods ?? []), ...microComfortFoods]);
   const cultureDrinks = uniqueStrings([...(macroCulture?.preferences?.food?.ritualDrinks ?? []), ...microRitualDrinks]);
 
@@ -1984,6 +2509,16 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     restrictions.push(restriction);
     forcedRestrictions.push({ restriction, reason });
   };
+
+  // Preview observance for dietary decisions (full spirituality generated later)
+  // This uses the same seed to maintain determinism
+  const spiritualityObservancePreview = (() => {
+    const spiritPreviewRng = makeRng(facetSeed(seed, 'spirituality'));
+    // Simplified affiliation check: devout/practicing → observant, else → low
+    const isDevoutLean = traits.authoritarianism > 600 || (traits.conscientiousness > 650 && age > 45);
+    return isDevoutLean && spiritPreviewRng.next01() < 0.5 ? 'observant' : 'low';
+  })();
+  const observanceMultiplier = spiritualityObservancePreview === 'observant' ? 2.0 : 0.4;
 
   const arabicMass01 = (() => {
     const home = (homeLangEnv01k?.ar ?? 0) / 1000;
@@ -2009,10 +2544,11 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 	    if (r === 'low sugar') w += 0.8 + 1.4 * (1 - axis01('sweets', 0.45));
 	    if (r === 'no added sugar') w += 0.8 + 1.4 * (1 - axis01('sweets', 0.45));
 	    if (r === 'low sodium') w += 0.9 + 0.6 * (1 - axis01('friedOily', 0.45));
-	    if (r === 'halal') w += 0.6 + 2.8 * arabicMass01;
-	    if (r === 'kosher') w += 0.6 + 2.8 * hebrewMass01;
-	    if (r === 'no pork') w += 0.6 + 2.0 * arabicMass01 + 1.0 * hebrewMass01;
-	    if (r === 'no beef') w += 0.4 + 0.4 * hebrewMass01;
+	    // Religious dietary laws now tied to spirituality observance, not just language
+	    if (r === 'halal') w += (0.3 + 2.0 * arabicMass01) * observanceMultiplier;
+	    if (r === 'kosher') w += (0.3 + 2.0 * hebrewMass01) * observanceMultiplier;
+	    if (r === 'no pork') w += (0.3 + 1.5 * arabicMass01 + 0.8 * hebrewMass01) * observanceMultiplier;
+	    if (r === 'no beef') w += (0.2 + 0.3 * hebrewMass01) * observanceMultiplier;
 	    if (r === 'no alcohol') w += 0.7 + 0.6 * (1 - viceTendency);
 	    if (r === 'no caffeine') w += 0.7 + 1.2 * (1 - axis01('caffeine', 0.45)) + (chronicConditionTags.includes('insomnia') ? 0.8 : 0);
 	    if (r === 'lactose-sensitive') w += 0.4 + 0.6 * (1 - axis01('dairy', 0.45));
@@ -2187,6 +2723,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 
   if (!vocab.preferences.media.genres.length) throw new Error('Agent vocab missing: preferences.media.genres');
   if (!vocab.preferences.media.platforms.length) throw new Error('Agent vocab missing: preferences.media.platforms');
+  // Weight-faithful microculture genre picks
+  const microGenres = pickFromWeightedMicroProfiles(prefsRng, p => p.preferences?.media?.genres, 4);
   const cultureGenres = uniqueStrings([...(macroCulture?.preferences?.media?.genres ?? []), ...microGenres]);
   const genreTopK = cultureGenres.length && prefsRng.next01() < mediaPrimaryWeight
     ? pickKHybrid(prefsRng, cultureGenres, vocab.preferences.media.genres, 5, 3)
@@ -2271,6 +2809,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   traceFacet(trace, seed, 'fashion');
   const fashionRng = makeRng(facetSeed(seed, 'fashion'));
   if (!vocab.preferences.fashion.styleTags.length) throw new Error('Agent vocab missing: preferences.fashion.styleTags');
+  // Weight-faithful microculture style picks
+  const microStyleTags = pickFromWeightedMicroProfiles(fashionRng, p => p.preferences?.fashion?.styleTags, 3);
   const cultureStyle = uniqueStrings([...(macroCulture?.preferences?.fashion?.styleTags ?? []), ...microStyleTags]);
   let styleTags = cultureStyle.length && fashionRng.next01() < fashionPrimaryWeight
     ? pickKHybrid(fashionRng, cultureStyle, vocab.preferences.fashion.styleTags, 3, 2)
@@ -2345,18 +2885,67 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   const routinesRng = makeRng(facetSeed(seed, 'routines'));
   if (!vocab.routines.chronotypes.length) throw new Error('Agent vocab missing: routines.chronotypes');
   if (!vocab.routines.recoveryRituals.length) throw new Error('Agent vocab missing: routines.recoveryRituals');
+	  // Enhanced chronotype selection with stress, climate, career correlations
+	  // Use stressReactivity as proxy for stress level (stressLoad01k not yet available)
+	  const stressReactivity01 = latents.stressReactivity / 1000;
 	  const chronotypeWeights = vocab.routines.chronotypes.map((t) => {
 	    const key = t.toLowerCase();
 	    let w = 1;
-	    if (key === 'early') w += 1.4 * (traits.conscientiousness / 1000) + 0.6 * (age / 120);
+	    // Base chronotypes
+	    if (key === 'early' || key === 'ultra-early') {
+	      w += 1.4 * (traits.conscientiousness / 1000) + 0.6 * (age / 120);
+	      if (key === 'ultra-early') w -= 0.5; // less common variant
+	    }
 	    if (key === 'night') w += 1.2 * (traits.noveltySeeking / 1000) + 0.7 * (latents.riskAppetite / 1000);
 	    if (key === 'standard') w += 0.7;
+
+	    // New chronotypes with correlations
+	    if (key === 'variable') {
+	      w += 1.0 * stressReactivity01; // High stress reactivity → irregular sleep
+	      w += 0.4 * (1 - traits.conscientiousness / 1000);
+	    }
+	    if (key === 'biphasic') {
+	      w += 0.8 * climateIndicators.hot01; // Hot climate → siesta culture
+	      w += 0.3 * (age / 120); // Older → more likely
+	    }
+	    if (key === 'flex-shift') {
+	      w += 1.0 * (careerTrackTag === 'logistics' ? 1 : 0);
+	      w += 0.6 * (roleSeedTags.includes('operative') ? 1 : 0);
+	    }
+	    if (key === 'rotating') {
+	      w += 1.2 * (careerTrackTag === 'military' ? 1 : 0);
+	      w += 0.8 * (careerTrackTag === 'public-health' ? 1 : 0);
+	      w += 0.5 * (roleSeedTags.includes('security') ? 1 : 0);
+	    }
+
+	    // Career-based adjustments
 	    if (careerTrackTag === 'journalism' && key === 'night') w += 0.6;
 	    if (careerTrackTag === 'civil-service' && key === 'early') w += 0.4;
-	    return { item: t, weight: w };
+
+	    // Health condition impacts - insomnia makes regular schedules harder
+	    const hasInsomnia = chronicConditionTags.some(c =>
+	      c.toLowerCase().includes('insomnia') || c.toLowerCase().includes('sleep')
+	    );
+	    if (hasInsomnia && (key === 'early' || key === 'ultra-early')) w *= 0.5;
+	    if (hasInsomnia && key === 'variable') w += 0.8;
+
+	    return { item: t, weight: Math.max(0.1, w) };
 	  });
-  const chronotype = weightedPick(routinesRng, chronotypeWeights);
-  const sleepWindow = chronotype === 'early' ? '22:00–06:00' : chronotype === 'night' ? '02:00–10:00' : '00:00–08:00';
+	  const chronotype = weightedPick(routinesRng, chronotypeWeights);
+
+	  // Enhanced sleep windows for all chronotypes
+	  const sleepWindow = (() => {
+	    switch (chronotype.toLowerCase()) {
+	      case 'early': return '22:00–06:00';
+	      case 'ultra-early': return '20:30–04:30';
+	      case 'night': return '02:00–10:00';
+	      case 'biphasic': return '00:00–06:00 + 14:00–15:30';
+	      case 'flex-shift': return 'varies by assignment';
+	      case 'rotating': return 'shift-dependent';
+	      case 'variable': return 'inconsistent';
+	      default: return '00:00–08:00';
+	    }
+	  })();
 	  const ritualWeights = vocab.routines.recoveryRituals.map((r) => {
 	    const key = r.toLowerCase();
 	    let w = 1;
@@ -2428,8 +3017,18 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 	  );
 	  if (trace) trace.derived.stressLoad01k = stressLoad01k;
 
-	  let viceCount = viceTendency > 0.78 ? 2 : viceTendency > 0.42 ? 1 : (vicesRng.next01() < 0.22 ? 1 : 0);
+	  // Vice tendency modulated by conflict environment AND support/resilience
+	  // - High conflict/violence → increased vice tendency (coping mechanism)
+	  // - BUT also high support/resilience → decreased vice tendency (Oracle review fix)
+	  const conflictViceBoost = 0.08 * (conflictEnv01k / 1000) + 0.06 * (stateViolenceEnv01k / 1000);
+	  // Resilience and community reduce conflict's vice impact
+	  const resilienceBuffer = 0.04 * (traits.agreeableness / 1000) + 0.03 * (inst01);
+	  const adjustedViceTendency = Math.min(1, Math.max(0, viceTendency + conflictViceBoost - resilienceBuffer));
+	  let viceCount = adjustedViceTendency > 0.78 ? 2 : adjustedViceTendency > 0.42 ? 1 : (vicesRng.next01() < 0.22 ? 1 : 0);
 	  if (stressLoad01k > 750 && viceCount < 2) viceCount += 1;
+	  // High conflict environments: increased vice probability BUT offset by high conscientiousness
+	  const conflictViceChance = Math.max(0, 0.25 - 0.15 * (traits.conscientiousness / 1000));
+	  if (conflictEnv01k > 500 && viceCount < 2 && vicesRng.next01() < conflictViceChance) viceCount += 1;
 
 	  const bannedVices = new Set<string>();
 	  if (restrictions.includes('no alcohol')) bannedVices.add('alcohol');
@@ -2602,6 +3201,219 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     return { item, security, compromised: false };
   });
   traceSet(trace, 'logistics.identityKit', kitItems, { method: 'weightedPickKUnique+repairs+formula', dependsOn: { facet: 'logistics', opsec01, public01, risk01, travelScore, careerTrackTag, tierBand, identityKitRepairs } });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // NEURODIVERGENCE
+  // ─────────────────────────────────────────────────────────────────────────────
+  traceFacet(trace, seed, 'neurodivergence');
+  const neuroRng = makeRng(facetSeed(seed, 'neurodivergence'));
+  const neuroIndicators = vocab.neurodivergence?.indicatorTags ?? ['neurotypical'];
+  const neuroCoping = vocab.neurodivergence?.copingStrategies ?? [];
+
+  // Base probability of non-neurotypical: ~15-25% depending on traits
+  const neuroVarianceChance = 0.15 + 0.10 * (aptitudes.attentionControl < 500 ? 1 : 0);
+  const isNeurotypical = neuroRng.next01() > neuroVarianceChance;
+
+  let neuroIndicatorTags: string[];
+  let neuroCopingStrategies: string[];
+
+  if (isNeurotypical) {
+    neuroIndicatorTags = ['neurotypical'];
+    neuroCopingStrategies = [];
+  } else {
+    // Pick 1-2 indicators (not neurotypical)
+    const nonTypicalIndicators = neuroIndicators.filter(t => t !== 'neurotypical');
+    const indicatorWeights = nonTypicalIndicators.map(tag => {
+      let w = 1;
+      // Correlations with aptitudes and traits
+      if (tag === 'hyperfocus-prone') w += 0.5 * (aptitudes.attentionControl / 1000);
+      if (tag === 'adhd-traits') w += 0.4 * (1 - aptitudes.attentionControl / 1000);
+      if (tag === 'pattern-recognition-strength') w += 0.3 * (aptitudes.cognitiveSpeed / 1000);
+      if (tag === 'sensory-sensitivity') w += 0.3 * (latents.stressReactivity / 1000);
+      if (tag === 'anxiety-processing') w += 0.4 * (latents.stressReactivity / 1000);
+      // ASD traits correlate with processing style, not empathy deficits (stereotype fix)
+      if (tag === 'asd-traits') w += 0.3 * (aptitudes.attentionControl / 1000) + 0.15 * (latents.stressReactivity / 1000);
+      return { item: tag, weight: w };
+    });
+    neuroIndicatorTags = weightedPickKUnique(neuroRng, indicatorWeights, neuroRng.int(1, 2));
+
+    // Pick 1-3 coping strategies
+    if (neuroCoping.length > 0) {
+      const copingWeights = neuroCoping.map(tag => {
+        let w = 1;
+        if (tag === 'routine-dependent' && traits.conscientiousness > 600) w += 0.5;
+        if (tag === 'list-maker' && traits.conscientiousness > 500) w += 0.4;
+        if (tag === 'noise-cancelling' && neuroIndicatorTags.includes('sensory-sensitivity')) w += 0.8;
+        if (tag === 'fidget-user' && neuroIndicatorTags.includes('adhd-traits')) w += 0.6;
+        if (tag === 'medication-managed') w += 0.3 * (tierBand === 'elite' ? 1.5 : 1);
+        return { item: tag, weight: w };
+      });
+      neuroCopingStrategies = weightedPickKUnique(neuroRng, copingWeights, neuroRng.int(1, 3));
+    } else {
+      neuroCopingStrategies = [];
+    }
+  }
+  traceSet(trace, 'neurodivergence', { indicatorTags: neuroIndicatorTags, copingStrategies: neuroCopingStrategies }, { method: 'weighted', dependsOn: { aptitudes: 'partial', latents: 'partial', traits: 'partial' } });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // SPIRITUALITY
+  // ─────────────────────────────────────────────────────────────────────────────
+  traceFacet(trace, seed, 'spirituality');
+  const spiritRng = makeRng(facetSeed(seed, 'spirituality'));
+  const affiliations = vocab.spirituality?.affiliationTags ?? ['secular'];
+  const observances = vocab.spirituality?.observanceLevels ?? ['none', 'cultural', 'moderate'];
+  const practices = vocab.spirituality?.practiceTypes ?? [];
+
+  // Affiliation influenced by age, conscientiousness, authoritarianism
+  const affiliationWeights = affiliations.map(tag => {
+    let w = 1;
+    if (tag === 'secular' || tag === 'atheist' || tag === 'agnostic') {
+      w += 0.3 * (1 - traits.authoritarianism / 1000);
+      w += 0.2 * (age < 40 ? 1 : 0);
+    }
+    if (tag === 'practicing-religious' || tag === 'devout') {
+      w += 0.4 * (traits.authoritarianism / 1000);
+      w += 0.3 * (age > 50 ? 1 : 0);
+      w += 0.2 * (traits.conscientiousness / 1000);
+    }
+    if (tag === 'culturally-religious') w += 0.5; // Common baseline
+    if (tag === 'spiritual-not-religious') w += 0.3 * (traits.noveltySeeking / 1000);
+    if (tag === 'lapsed') w += 0.2 * (age > 30 && age < 50 ? 1 : 0);
+    return { item: tag, weight: w };
+  });
+  const spiritualityAffiliationTag = weightedPick(spiritRng, affiliationWeights);
+
+  // Observance level correlates with affiliation
+  const observanceWeights = observances.map(level => {
+    let w = 1;
+    if (spiritualityAffiliationTag === 'devout' && level === 'strict') w += 2;
+    if (spiritualityAffiliationTag === 'devout' && level === 'observant') w += 1.5;
+    if (spiritualityAffiliationTag === 'practicing-religious' && level === 'observant') w += 1.5;
+    if (spiritualityAffiliationTag === 'practicing-religious' && level === 'moderate') w += 1;
+    if (spiritualityAffiliationTag === 'culturally-religious' && level === 'cultural') w += 2;
+    if (spiritualityAffiliationTag === 'lapsed' && level === 'none') w += 1.5;
+    if (['secular', 'atheist', 'agnostic'].includes(spiritualityAffiliationTag) && level === 'none') w += 3;
+    return { item: level, weight: w };
+  });
+  const spiritualityObservanceLevel = weightedPick(spiritRng, observanceWeights);
+
+  // Practices - pick 0-3 based on observance
+  let spiritualityPracticeTypes: string[] = [];
+  if (practices.length > 0 && spiritualityObservanceLevel !== 'none') {
+    const practiceCount = spiritualityObservanceLevel === 'strict' ? spiritRng.int(2, 4) :
+                          spiritualityObservanceLevel === 'observant' ? spiritRng.int(1, 3) :
+                          spiritualityObservanceLevel === 'moderate' ? spiritRng.int(1, 2) :
+                          spiritRng.int(0, 1);
+    if (practiceCount > 0) {
+      spiritualityPracticeTypes = spiritRng.pickK(practices, Math.min(practiceCount, practices.length));
+    }
+  }
+  traceSet(trace, 'spirituality', { affiliationTag: spiritualityAffiliationTag, observanceLevel: spiritualityObservanceLevel, practiceTypes: spiritualityPracticeTypes }, { method: 'weighted', dependsOn: { age, traits: 'partial' } });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // BACKGROUND
+  // ─────────────────────────────────────────────────────────────────────────────
+  traceFacet(trace, seed, 'background');
+  const bgRng = makeRng(facetSeed(seed, 'background'));
+  const adversities = vocab.background?.adversityTags ?? ['stable-upbringing'];
+  const resiliencePool = vocab.background?.resilienceIndicators ?? [];
+
+  // Adversity probability influenced by country security environment
+  const securityEnv = input.priors?.countries?.[homeCountryIso3]?.buckets?.[String(cohortBucketStartYear)]?.securityEnvironment01k;
+  const conflictLevel = securityEnv?.conflict ?? 200;
+  const stateViolence = securityEnv?.stateViolence ?? 200;
+  const adversityBaseChance = 0.20 + 0.30 * (conflictLevel / 1000) + 0.20 * (stateViolence / 1000);
+
+  const adversityWeights = adversities.map(tag => {
+    let w = 1;
+    if (tag === 'stable-upbringing') w += 2 * (1 - adversityBaseChance);
+    if (tag === 'conflict-exposure') w += 1.5 * (conflictLevel / 1000);
+    if (tag === 'displacement-survivor' || tag === 'refugee-background') w += 1.2 * (conflictLevel / 1000);
+    if (tag === 'persecution-survivor') w += 0.8 * (stateViolence / 1000);
+    if (tag === 'economic-hardship-history') w += 0.5; // common
+    if (tag === 'family-instability') w += 0.4;
+    if (tag === 'loss-of-parent') w += 0.3;
+    return { item: tag, weight: w };
+  });
+
+  // Pick 1-2 adversity tags (could include stable-upbringing)
+  const backgroundAdversityTags = weightedPickKUnique(bgRng, adversityWeights, bgRng.int(1, 2));
+
+  // Resilience indicators - pick if there's adversity beyond stable-upbringing
+  let backgroundResilienceIndicators: string[] = [];
+  const hasSignificantAdversity = backgroundAdversityTags.some(t => t !== 'stable-upbringing');
+  if (hasSignificantAdversity && resiliencePool.length > 0) {
+    const resilienceWeights = resiliencePool.map(tag => {
+      let w = 1;
+      if (tag === 'high-adaptability') w += 0.4 * (traits.noveltySeeking / 1000);
+      if (tag === 'compartmentalization-skill') w += 0.5 * (opsec01);
+      if (tag === 'therapy-history') w += 0.3 * (tierBand === 'elite' ? 1.5 : 1);
+      if (tag === 'support-network-strong') w += 0.3 * (traits.agreeableness / 1000);
+      return { item: tag, weight: w };
+    });
+    backgroundResilienceIndicators = weightedPickKUnique(bgRng, resilienceWeights, bgRng.int(1, 2));
+  }
+  traceSet(trace, 'background', { adversityTags: backgroundAdversityTags, resilienceIndicators: backgroundResilienceIndicators }, { method: 'weighted', dependsOn: { homeCountryIso3, securityEnv: 'partial', traits: 'partial' } });
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // GENDER
+  // ─────────────────────────────────────────────────────────────────────────────
+  traceFacet(trace, seed, 'gender');
+  const genderRng = makeRng(facetSeed(seed, 'gender'));
+  const genderIdentities = vocab.gender?.identityTags ?? ['cisgender-man', 'cisgender-woman'];
+  const pronounOptions = vocab.gender?.pronounSets ?? ['he-him', 'she-her', 'they-them'];
+
+  // Gender distribution: ~95% cisgender, ~5% other identities
+  // With weight 50 for each cis identity vs 1 for others: 100/107.5 ≈ 93%
+  // ─────────────────────────────────────────────────────────────────────────────
+  // TWO-SPIRIT CULTURE GATING (Oracle/Claude P1 recommendation)
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Two-spirit is a specific Indigenous American identity - not a synonym for non-binary.
+  // Gate to countries with significant Indigenous populations and cultural continuity.
+  // This list includes nations where Two-Spirit identity has documented cultural presence.
+  const indigenousAmericanCountries = new Set([
+    'USA', 'CAN', // North America - Navajo nádleehí, Lakota winkte, etc.
+    'MEX', 'GTM', 'HND', 'SLV', 'NIC', 'CRI', 'PAN', // Central America - Maya, Aztec traditions
+    'COL', 'VEN', 'ECU', 'PER', 'BOL', 'CHL', 'ARG', 'PRY', // South America - Andean, Guarani, Mapuche
+    'BRA', // Brazil has distinct Indigenous traditions (though terminology differs)
+  ]);
+  // Two-spirit is a specifically Indigenous American/First Nations concept
+  // Check culture region plus micro-culture profiles for relevant traditions
+  const isIndigenousAmericanCulture =
+    homeCulture === 'Americas' ||
+    indigenousAmericanCountries.has(homeCountryIso3) || // Fallback for unmapped countries
+    microProfiles.some(p =>
+      p.id.includes('andean') || // Andean cultures have third-gender traditions
+      p.id.includes('caribbean') // Some Caribbean Indigenous influences
+    );
+  const genderIdentityWeights = genderIdentities.map(tag => {
+    let w = 1;
+    if (tag === 'cisgender-man' || tag === 'cisgender-woman') w = 50; // Matches ~95% cis target
+    if (tag === 'undisclosed') w = 0.3; // Rare - only for those who prefer privacy
+    // Two-spirit only available for Indigenous American cultural backgrounds
+    if (tag === 'two-spirit' && !isIndigenousAmericanCulture) w = 0;
+    return { item: tag, weight: w };
+  });
+  const genderIdentityTag = weightedPick(genderRng, genderIdentityWeights);
+
+  // Pronouns correlate with identity
+  const pronounWeights = pronounOptions.map(pset => {
+    let w = 1;
+    if (genderIdentityTag === 'cisgender-man' && pset === 'he-him') w = 20;
+    if (genderIdentityTag === 'cisgender-woman' && pset === 'she-her') w = 20;
+    if (genderIdentityTag === 'transgender-man' && pset === 'he-him') w = 15;
+    if (genderIdentityTag === 'transgender-woman' && pset === 'she-her') w = 15;
+    if (genderIdentityTag === 'non-binary' && pset === 'they-them') w = 10;
+    if (genderIdentityTag === 'non-binary' && (pset === 'he-they' || pset === 'she-they')) w = 5;
+    if (genderIdentityTag === 'genderqueer' && pset === 'they-them') w = 8;
+    if (genderIdentityTag === 'agender' && pset === 'they-them') w = 10;
+    if (genderIdentityTag === 'gender-fluid' && pset === 'any-pronouns') w = 8;
+    if (genderIdentityTag === 'two-spirit' && pset === 'they-them') w = 5;
+    if (genderIdentityTag === 'undisclosed') w = 1; // Equal weights for undisclosed
+    return { item: pset, weight: w };
+  });
+  const genderPronounSet = weightedPick(genderRng, pronounWeights);
+  traceSet(trace, 'gender', { identityTag: genderIdentityTag, pronounSet: genderPronounSet }, { method: 'weighted' });
 
   traceFacet(trace, seed, 'deep_sim_preview');
   const previewRng = makeRng(facetSeed(seed, 'deep_sim_preview'));
@@ -2803,7 +3615,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (t === 'felt_used' || t === 'felt_ignored') s += Math.max(0, (650 - needs01k.autonomy) / 280) + 0.12 * inst01;
 
     if (t === 'bureaucratic_grind' || t === 'paperwork_backlog' || t === 'meeting_fatigue') {
-      s += 0.10 + 0.15 * inst01 + (careerTrackTag === 'civil-service' ? 0.35 : 0) + (careerTrackTag === 'corporate' ? 0.10 : 0);
+      s += 0.10 + 0.15 * inst01 + (careerTrackTag === 'civil-service' ? 0.35 : 0) + (careerTrackTag === 'corporate-ops' ? 0.10 : 0);
     }
     if (t === 'deadline_pressure' || t === 'uncertainty_spike' || t === 'plans_disrupted' || t === 'loss_of_control') {
       s += Math.max(0, (stress01k - 480) / 340) + 0.20 * (1 - latents.impulseControl / 1000) + 0.10 * (1 - latents.planningHorizon / 1000);
@@ -2816,6 +3628,21 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     }
     if (t === 'moral_disquiet' || t === 'guilt_weight') {
       s += 0.06 + 0.35 * (latents.principledness / 1000) + 0.15 * (latents.stressReactivity / 1000) - 0.12 * (traits.agreeableness / 1000);
+      // ─── RELIGIOUS OBSERVANCE TO THOUGHTS (Oracle/Claude P3 recommendation) ───
+      // Devout and observant agents experience stronger moral/guilt processing
+      if (spiritualityObservanceLevel === 'strict' || spiritualityObservanceLevel === 'devout') s += 0.25;
+      else if (spiritualityObservanceLevel === 'observant') s += 0.15;
+      else if (spiritualityObservanceLevel === 'moderate') s += 0.08;
+    }
+
+    // Spirituality also influences related thoughts
+    if (t === 'needed_meaning') {
+      if (spiritualityObservanceLevel === 'strict' || spiritualityObservanceLevel === 'devout') s += 0.18;
+      else if (spiritualityObservanceLevel === 'observant') s += 0.10;
+    }
+    if (t === 'felt_supported' || t === 'felt_appreciated') {
+      // Religious community provides belonging
+      if (spiritualityPracticeTypes.includes('community-worship')) s += 0.12;
     }
 
     if (t === 'status_anxiety' || t === 'imposter_syndrome') {
@@ -2957,8 +3784,10 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       citizenshipCountryIso3,
       currentCountryIso3,
       homeCulture,
-      birthYear,
+      birthYear: effectiveBirthYear,
       tierBand,
+      originTierBand,
+      socioeconomicMobility,
       roleSeedTags,
       languages,
       languageProficiencies,
@@ -2989,7 +3818,9 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       },
       fashion: { styleTags, formality, conformity, statusSignaling },
     },
-    psych: { traits },
+    psych: { traits, ethics, contradictions },
+    network,
+    eliteCompensators,
     visibility: { publicVisibility, paperTrail, digitalHygiene },
     health: { chronicConditionTags, allergyTags },
     covers: { coverAptitudeTags },
@@ -3002,6 +3833,23 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     vices,
     logistics: {
       identityKit: kitItems,
+    },
+    neurodivergence: {
+      indicatorTags: neuroIndicatorTags,
+      copingStrategies: neuroCopingStrategies,
+    },
+    spirituality: {
+      affiliationTag: spiritualityAffiliationTag,
+      observanceLevel: spiritualityObservanceLevel,
+      practiceTypes: spiritualityPracticeTypes,
+    },
+    background: {
+      adversityTags: backgroundAdversityTags,
+      resilienceIndicators: backgroundResilienceIndicators,
+    },
+    gender: {
+      identityTag: genderIdentityTag,
+      pronounSet: genderPronounSet,
     },
   };
 }
