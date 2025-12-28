@@ -632,6 +632,7 @@ export function renderWikiArticleContent(article: WikiArticle, data: GraphData):
   return `
     <div class="wiki-article-view">
       <div class="wiki-article-header">
+        <h1 class="wiki-article-title">${article.title}</h1>
         <div class="article-meta">
           <span class="article-type-badge">${article.type}</span>
           <span class="article-word-count">${article.wordCount.toLocaleString()} words</span>
