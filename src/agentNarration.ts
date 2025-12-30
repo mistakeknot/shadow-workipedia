@@ -1008,6 +1008,70 @@ export function generateNarrative(
       return toNarrativePhrase(ms);
     })()],
     dependentsClause: [agent.family.dependentCount > 0 ? ` with ${agent.family.dependentCount} dependent${agent.family.dependentCount > 1 ? 's' : ''}` : ''],
+    // Key relationships
+    hasRelationships: [agent.relationships.length > 0 ? 'yes' : ''],
+    relationshipCount: [agent.relationships.length > 1 ? 'several key relationships' : agent.relationships.length === 1 ? 'a key relationship' : ''],
+    // Primary relationship (first in array)
+    rel1Type: [(() => {
+      const r = agent.relationships[0];
+      if (!r) return '';
+      // Convert type to natural article phrase
+      const typeArticle: Record<string, string> = {
+        patron: 'a patron',
+        mentor: 'a mentor',
+        rival: 'a rival',
+        protege: 'a protégé',
+        handler: 'a handler',
+        asset: 'an asset',
+        'ex-partner': 'an ex-partner',
+        'family-tie': 'a family connection',
+        'old-classmate': 'an old classmate',
+        'debt-holder': 'someone owed a debt',
+      };
+      return typeArticle[r.type] ?? toNarrativePhrase(r.type);
+    })()],
+    rel1Desc: [agent.relationships[0]?.description ?? ''],
+    rel1Strength: [(() => {
+      const r = agent.relationships[0];
+      if (!r) return '';
+      // Convert Band5 strength to adjective
+      switch (r.strength) {
+        case 'very_low': return 'tenuous';
+        case 'low': return 'distant';
+        case 'medium': return 'steady';
+        case 'high': return 'strong';
+        case 'very_high': return 'deep';
+        default: return 'notable';
+      }
+    })()],
+    // Secondary relationship (second in array)
+    rel2Type: [(() => {
+      const r = agent.relationships[1];
+      if (!r) return '';
+      const typeArticle: Record<string, string> = {
+        patron: 'a patron',
+        mentor: 'a mentor',
+        rival: 'a rival',
+        protege: 'a protégé',
+        handler: 'a handler',
+        asset: 'an asset',
+        'ex-partner': 'an ex-partner',
+        'family-tie': 'a family connection',
+        'old-classmate': 'an old classmate',
+        'debt-holder': 'someone owed a debt',
+      };
+      return typeArticle[r.type] ?? toNarrativePhrase(r.type);
+    })()],
+    rel2Desc: [agent.relationships[1]?.description ?? ''],
+    // Living parents / siblings for family texture
+    hasParents: [agent.family.hasLivingParents ? 'yes' : ''],
+    hasSiblings: [agent.family.hasSiblings ? 'yes' : ''],
+    familyTexture: [(() => {
+      const parts: string[] = [];
+      if (agent.family.hasLivingParents) parts.push('living parents');
+      if (agent.family.hasSiblings) parts.push('siblings');
+      return parts.length ? oxfordJoin(parts) : '';
+    })()],
     // Culture axes
     ethnolinguistic: [(() => {
       const eth = toNarrativePhrase(agent.culture.ethnolinguistic);
@@ -1099,6 +1163,7 @@ export function generateNarrative(
     eyeContactDesc: [toNarrativePhrase(agent.physicalPresence.eyeContact)],
     move: [conjugate(pron, 'moves', 'move')],
     maintain: [conjugate(pron, 'maintains', 'maintain')],
+    count: [conjugate(pron, 'counts', 'count')],
     lyingDesc: [agent.deceptionSkill.lyingAbility > 700 ? 'skilled' : agent.deceptionSkill.lyingAbility > 400 ? 'capable' : 'poor'],
     detectsLiesClause: [agent.deceptionSkill.detectsLies > 600 ? ` and ${conjugate(pron, 'reads', 'read')} others well` : ''],
     // Additional conjugated verbs for templates
@@ -1399,6 +1464,8 @@ export function generateNarrative(
   if (!agent.everydayLife?.commuteMode) textRules.bioP2EverydayLife = [''];
   if (!agent.home?.neighborhoodType) textRules.bioP2Home = [''];
   if (!agent.lifeSkills?.streetSmarts) textRules.bioP2LifeSkills = [''];
+  // Guard for relationships - only show if agent has key relationships
+  if (!agent.relationships.length) textRules.bioP3Relationships = [''];
 
   if (toneDiplomat) {
     textRules.bioP1Identity = [
@@ -1440,7 +1507,7 @@ export function generateNarrative(
     const para2 = normalizeNarrationText(grammar.flatten('#bioP2Routine# #bioP2Taste# #bioP2Institution# #bioP2WorkStyle# #bioP2Languages# #bioP2Geography# #bioP2Family# #bioP2Health# #bioP2Neurodivergence# #bioP2EverydayLife# #bioP2Home# #bioP2LifeSkills# #bioP2Communities#'));
 
     // Para 3: Psychology & Inner life (motivations, relationships, vulnerabilities, network, reputation)
-    const para3 = normalizeNarrationText(grammar.flatten('#bioP2Motivation# #bioP2Attachment# #bioP2Orientation# #bioP2Pressure# #bioP2Strain# #bioP2Vice# #bioP2Ethics# #bioP2Spirituality# #bioP2Contradiction# #bioP2Economics# #bioP2Secrets# #bioP2Humor# #bioP2Presence# #bioP2Deception# #bioP2Mobility# #bioP2Personality# #bioP2Culture# #bioP2Network# #bioP2Adversity# #bioP2RedLines# #bioP2Affect# #bioP2SelfConcept# #bioP2Reputation# #bioP2CivicLife#'));
+    const para3 = normalizeNarrationText(grammar.flatten('#bioP2Motivation# #bioP2Attachment# #bioP2Orientation# #bioP3Relationships# #bioP2Pressure# #bioP2Strain# #bioP2Vice# #bioP2Ethics# #bioP2Spirituality# #bioP2Contradiction# #bioP2Economics# #bioP2Secrets# #bioP2Humor# #bioP2Presence# #bioP2Deception# #bioP2Mobility# #bioP2Personality# #bioP2Culture# #bioP2Network# #bioP2Adversity# #bioP2RedLines# #bioP2Affect# #bioP2SelfConcept# #bioP2Reputation# #bioP2CivicLife#'));
 
     const html = `
       <div class="agent-narrative">

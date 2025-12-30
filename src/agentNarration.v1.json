@@ -340,6 +340,15 @@
       { "text": "Street smarts: #streetSmarts#. Domestic skills: #domesticCompetence#.", "rarity": "uncommon" },
       { "text": "#streetSmarts.capFirst# on the streets; #domesticCompetence# at home.", "rarity": "rare" },
       { "text": "#Subj# #show# #streetSmarts# street sense and #domesticCompetence# domestic abilities.", "rarity": "uncommon" }
+    ],
+    "bioP3Relationships": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #have# #rel1Type#: #rel1Desc#.", "rarity": "uncommon" },
+      { "text": "Key relationships include #rel1Type# (#rel1Desc#).", "rarity": "uncommon" },
+      { "text": "#Subj# #maintain# #relationshipCount#, including #rel1Type#.", "rarity": "rare" },
+      { "text": "Among #possAdj# connections: #rel1Type#, #rel1Desc#.", "rarity": "uncommon" },
+      { "text": "#Subj# #count# #rel1Type# among #possAdj# key ties.", "rarity": "rare" },
+      { "text": "#PossAdjCap# network includes #rel1Type# (#rel1Desc#).", "rarity": "uncommon" }
     ]
   }
 }
