@@ -8,13 +8,13 @@
     ],
     "homeCultures": [
       "Global",
-      "Americas",
-      "Europe",
-      "MENA",
-      "Sub-Saharan Africa",
-      "South Asia",
-      "East Asia",
-      "Oceania"
+      "Athar-West",
+      "Hesper",
+      "Aram",
+      "Mero",
+      "Solis-South",
+      "Solis-East",
+      "Pelag"
     ],
     "roleSeedTags": [
       "operative",
@@ -1038,8 +1038,8 @@
   },
   "naming": {
     "structureTags": [
-      "western",
-      "eastern-family-first",
+      "hesperic",
+      "solic-family-first",
       "patronymic",
       "matronymic",
       "single-name",
@@ -1649,7 +1649,7 @@
         "jazz",
         "classical music",
         "afrobeats",
-        "latin pop",
+        "Verdian pop",
         "science podcasts"
       ],
       "platforms": [
@@ -1972,7 +1972,7 @@
     ]
   },
   "cultureProfiles": {
-    "Americas": {
+    "Athar-West": {
       "weights": {
         "namesPrimaryWeight": 0.75,
         "languagesPrimaryWeight": 0.85,
@@ -2092,7 +2092,7 @@
         }
       }
     },
-    "Europe": {
+    "Hesper": {
       "weights": {
         "namesPrimaryWeight": 0.75,
         "languagesPrimaryWeight": 0.85,
@@ -2212,7 +2212,7 @@
         }
       }
     },
-    "MENA": {
+    "Aram": {
       "weights": {
         "namesPrimaryWeight": 0.8,
         "languagesPrimaryWeight": 0.9,
@@ -2323,7 +2323,7 @@
         }
       }
     },
-    "Sub-Saharan Africa": {
+    "Mero": {
       "weights": {
         "namesPrimaryWeight": 0.8,
         "languagesPrimaryWeight": 0.9,
@@ -2437,7 +2437,7 @@
         }
       }
     },
-    "South Asia": {
+    "Solis-South": {
       "weights": {
         "namesPrimaryWeight": 0.8,
         "languagesPrimaryWeight": 0.9,
@@ -2546,7 +2546,7 @@
         }
       }
     },
-    "East Asia": {
+    "Solis-East": {
       "weights": {
         "namesPrimaryWeight": 0.8,
         "languagesPrimaryWeight": 0.9,
@@ -2659,7 +2659,7 @@
         }
       }
     },
-    "Oceania": {
+    "Pelag": {
       "weights": {
         "namesPrimaryWeight": 0.75,
         "languagesPrimaryWeight": 0.85,
@@ -11085,68 +11085,68 @@
   },
   "cultureAxes": {
     "ethnolinguisticTags": [
-      "han-mandarin",
-      "han-cantonese",
-      "japanese",
-      "korean",
-      "vietnamese",
-      "hindi-belt",
-      "tamil",
-      "bengali",
-      "punjabi",
-      "malayalam",
-      "pakistani-punjabi",
-      "sindhi",
-      "pashto",
-      "thai",
-      "malay",
-      "indonesian-javanese",
-      "filipino-tagalog",
-      "khmer",
-      "burmese",
-      "arab-levantine",
-      "arab-gulf",
-      "arab-maghrebi",
-      "arab-egyptian",
-      "persian",
-      "turkish",
-      "kurdish",
-      "uzbek",
-      "kazakh",
-      "yoruba",
-      "igbo",
-      "hausa",
-      "amhara",
-      "oromo",
-      "swahili-coast",
-      "zulu",
-      "xhosa",
-      "akan",
-      "wolof",
-      "fulani",
-      "anglo",
-      "germanic",
-      "french",
-      "iberian",
-      "italian",
-      "slavic-east",
-      "slavic-west",
-      "slavic-south",
-      "greek",
-      "nordic",
-      "celtic",
-      "baltic",
-      "balkan",
-      "hungarian",
-      "mestizo-mexican",
-      "mestizo-andean",
-      "afro-caribbean",
-      "afro-brazilian",
-      "indigenous-andean",
-      "indigenous-mesoamerican",
-      "ashkenazi",
-      "sephardi",
-      "mizrahi",
+      "hannic-northern",
+      "hannic-southern",
+      "kamikuran",
+      "haedongic",
+      "annamitic",
+      "gangetic",
+      "dravidic-south",
+      "padmavaran",
+      "indusian",
+      "malabari",
+      "sindhukan-north",
+      "sindhukan-south",
+      "khorassani",
+      "siamic",
+      "melakan",
+      "nusantaran-central",
+      "maharlikan",
+      "angkorian",
+      "bamaric",
+      "levantic",
+      "khalijic",
+      "tamazight",
+      "deshretine",
+      "parsic",
+      "anatolian",
+      "medic",
+      "sogdian-south",
+      "qazaric",
+      "oduwan",
+      "biafran",
+      "hausalan",
+      "zagwenic-highland",
+      "cushitic-south",
+      "sawahili",
+      "nguni-south",
+      "nguni-coastal",
+      "ashantic",
+      "wolofic",
+      "fulanic",
+      "alvionic",
+      "teutonic",
+      "gallicene",
+      "iberic",
+      "vesperic",
+      "slavonic-east",
+      "slavonic-west",
+      "slavonic-south",
+      "helladic",
+      "norrenic",
+      "gaelic",
+      "aestic",
+      "illyric",
+      "magyric",
+      "tescalic",
+      "tawantinsuyan",
+      "antillean",
+      "verdian-coastal",
+      "quechuan",
+      "nahuatlan",
+      "kedaric-diaspora",
+      "kedaric-iberic",
+      "kedaric-oriental",
       "mixed-heritage",
       "third-culture"
     ],
@@ -11197,7 +11197,7 @@
       "criminal-organization"
     ],
     "ethnolinguisticData": {
-      "han-mandarin": {
+      "hannic-northern": {
         "maleFirstNames": [
           "Wei",
           "Jun",
@@ -11235,7 +11235,7 @@
           "Zhou"
         ],
         "namingPatterns": [
-          "eastern-family-first"
+          "solic-family-first"
         ],
         "primaryLanguages": [
           "zh"
@@ -11264,7 +11264,7 @@
           "hard-work"
         ]
       },
-      "han-cantonese": {
+      "hannic-southern": {
         "maleFirstNames": [
           "Wing",
           "Ho",
@@ -11302,7 +11302,7 @@
           "Chow"
         ],
         "namingPatterns": [
-          "eastern-family-first"
+          "solic-family-first"
         ],
         "primaryLanguages": [
           "yue"
@@ -11329,7 +11329,7 @@
           "adaptability"
         ]
       },
-      "japanese": {
+      "kamikuran": {
         "maleFirstNames": [
           "Haruto",
           "Ren",
@@ -11367,7 +11367,7 @@
           "Kato"
         ],
         "namingPatterns": [
-          "eastern-family-first"
+          "solic-family-first"
         ],
         "primaryLanguages": [
           "ja"
@@ -11391,7 +11391,7 @@
           "group-loyalty"
         ]
       },
-      "korean": {
+      "haedongic": {
         "maleFirstNames": [
           "Min",
           "Jin",
@@ -11429,7 +11429,7 @@
           "Lim"
         ],
         "namingPatterns": [
-          "eastern-family-first"
+          "solic-family-first"
         ],
         "primaryLanguages": [
           "ko"
@@ -11437,7 +11437,7 @@
         "traditionalFoods": [
           "kimchi",
           "bibimbap",
-          "Korean BBQ",
+          "Haedong BBQ",
           "stews",
           "fried chicken"
         ],
@@ -11453,7 +11453,7 @@
           "hard-work"
         ]
       },
-      "vietnamese": {
+      "annamitic": {
         "maleFirstNames": [
           "Minh",
           "Anh",
@@ -11491,7 +11491,7 @@
           "Dang"
         ],
         "namingPatterns": [
-          "eastern-family-first"
+          "solic-family-first"
         ],
         "primaryLanguages": [
           "vi"
@@ -11504,7 +11504,7 @@
           "noodle soups"
         ],
         "traditionalDrinks": [
-          "vietnamese coffee",
+          "Annam coffee",
           "tea",
           "coconut water"
         ],
@@ -11515,7 +11515,7 @@
           "resilience"
         ]
       },
-      "hindi-belt": {
+      "gangetic": {
         "maleFirstNames": [
           "Arjun",
           "Rahul",
@@ -11553,7 +11553,7 @@
           "Saxena"
         ],
         "namingPatterns": [
-          "western"
+          "hesperic"
         ],
         "primaryLanguages": [
           "hi"
@@ -11580,7 +11580,7 @@
           "education"
         ]
       },
-      "tamil": {
+      "dravidic-south": {
         "maleFirstNames": [
           "Karthik",
           "Arun",
@@ -11642,7 +11642,7 @@
           "hospitality"
         ]
       },
-      "arab-levantine": {
+      "levantic": {
         "maleFirstNames": [
           "Tarek",
           "Omar",
@@ -11698,7 +11698,7 @@
           "kibbeh"
         ],
         "traditionalDrinks": [
-          "arabic coffee",
+          "Aram coffee",
           "mint tea",
           "arak"
         ],
@@ -11709,7 +11709,7 @@
           "community"
         ]
       },
-      "arab-gulf": {
+      "khalijic": {
         "maleFirstNames": [
           "Faisal",
           "Abdullah",
@@ -11762,7 +11762,7 @@
           "rice dishes"
         ],
         "traditionalDrinks": [
-          "arabic coffee",
+          "Aram coffee",
           "tea",
           "camel milk"
         ],
@@ -11773,7 +11773,7 @@
           "tradition"
         ]
       },
-      "yoruba": {
+      "oduwan": {
         "maleFirstNames": [
           "Chidi",
           "Tunde",
@@ -11811,7 +11811,7 @@
           "Adeniyi"
         ],
         "namingPatterns": [
-          "western"
+          "hesperic"
         ],
         "primaryLanguages": [
           "yo"
@@ -11838,7 +11838,7 @@
           "education"
         ]
       },
-      "igbo": {
+      "biafran": {
         "maleFirstNames": [
           "Chidi",
           "Emeka",
@@ -11876,7 +11876,7 @@
           "Uche"
         ],
         "namingPatterns": [
-          "western"
+          "hesperic"
         ],
         "primaryLanguages": [
           "ig"
@@ -11902,7 +11902,7 @@
           "achievement"
         ]
       },
-      "anglo": {
+      "alvionic": {
         "maleFirstNames": [
           "Jack",
           "Oliver",
@@ -11940,7 +11940,7 @@
           "Roberts"
         ],
         "namingPatterns": [
-          "western"
+          "hesperic"
         ],
         "primaryLanguages": [
           "en"
@@ -11949,7 +11949,7 @@
           "roast dinner",
           "fish and chips",
           "shepherd's pie",
-          "full english",
+          "full Alvionic",
           "sandwiches"
         ],
         "traditionalDrinks": [
@@ -11964,7 +11964,7 @@
           "pragmatism"
         ]
       },
-      "germanic": {
+      "teutonic": {
         "maleFirstNames": [
           "Felix",
           "Lukas",
@@ -12002,7 +12002,7 @@
           "Koch"
         ],
         "namingPatterns": [
-          "western"
+          "hesperic"
         ],
         "primaryLanguages": [
           "de"
@@ -12026,7 +12026,7 @@
           "quality"
         ]
       },
-      "french": {
+      "gallicene": {
         "maleFirstNames": [
           "Lucas",
           "Hugo",
@@ -12064,7 +12064,7 @@
           "Laurent"
         ],
         "namingPatterns": [
-          "western"
+          "hesperic"
         ],
         "primaryLanguages": [
           "fr"
@@ -12088,7 +12088,7 @@
           "aesthetics"
         ]
       },
-      "slavic-east": {
+      "slavonic-east": {
         "maleFirstNames": [
           "Aleksandr",
           "Sergei",
@@ -12154,7 +12154,7 @@
           "warmth"
         ]
       },
-      "ashkenazi": {
+      "kedaric-diaspora": {
         "maleFirstNames": [
           "David",
           "Jacob",
@@ -12192,7 +12192,7 @@
           "Stern"
         ],
         "namingPatterns": [
-          "western"
+          "hesperic"
         ],
         "primaryLanguages": [
           "en",
@@ -12248,7 +12248,7 @@
           "varies-by-parents"
         ],
         "namingPatterns": [
-          "western",
+          "hesperic",
           "compound-surname"
         ],
         "primaryLanguages": [
@@ -12290,7 +12290,7 @@
           "varies-internationally"
         ],
         "namingPatterns": [
-          "western"
+          "hesperic"
         ],
         "primaryLanguages": [
           "en"

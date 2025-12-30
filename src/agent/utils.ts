@@ -449,45 +449,60 @@ export const SUB_SAHARAN_AFRICA_ISO3 = new Set([
 
 /**
  * Derives a macro-culture region from a continent name.
- * Accepts real-world continent names (preferred) or legacy shadow names for backwards compatibility.
- * Shadow names should only be used at the display layer, not in data.
+ * Returns shadow culture names (Hesper, Aram, Mero, etc.) to match the shadow world naming.
  */
 export function deriveCultureFromContinent(continent: string | undefined, iso3?: string): string {
   // ISO3-based overrides take priority over continent mapping
   // This fixes cases where shadow continents mix real-world regions
   if (iso3) {
     const upperIso3 = iso3.toUpperCase();
-    if (EAST_ASIA_ISO3.has(upperIso3)) return 'East Asia';
-    if (AMERICAS_ISO3.has(upperIso3)) return 'Americas';
-    if (SOUTH_ASIA_ISO3.has(upperIso3)) return 'South Asia';
-    if (SUB_SAHARAN_AFRICA_ISO3.has(upperIso3)) return 'Sub-Saharan Africa';
+    if (EAST_ASIA_ISO3.has(upperIso3)) return 'Solis-East';
+    if (AMERICAS_ISO3.has(upperIso3)) return 'Athar-West';
+    if (SOUTH_ASIA_ISO3.has(upperIso3)) return 'Solis-South';
+    if (SUB_SAHARAN_AFRICA_ISO3.has(upperIso3)) return 'Mero';
   }
   const token = (continent ?? '').trim();
   if (!token) return 'Global';
 
-  // Real-world continent names (preferred input format)
-  const realWorldToCulture: Record<string, string> = {
-    'Americas': 'Americas',
-    'North America': 'Americas',
-    'South America': 'Americas',
-    'Central America': 'Americas',
-    'Europe': 'Europe',
-    'MENA': 'MENA',
-    'Middle East': 'MENA',
-    'North Africa': 'MENA',
-    'Sub-Saharan Africa': 'Sub-Saharan Africa',
-    'Sub\u2011Saharan Africa': 'Sub-Saharan Africa', // Non-breaking hyphen variant
-    'Africa': 'Sub-Saharan Africa',
-    'South Asia': 'South Asia',
-    'East Asia': 'East Asia',
-    'Southeast Asia': 'East Asia',
-    'Asia': 'South Asia', // Fallback for generic "Asia"
-    'Oceania': 'Oceania',
-    'Pacific': 'Oceania',
-    'Australia': 'Oceania',
+  // Shadow continent names (primary format from shadow-country-map.json)
+  const shadowContinentToCulture: Record<string, string> = {
+    Pelag: 'Pelag',
+    Mero: 'Mero',
+    Aram: 'Aram',
+    Solis: 'Solis-South',
+    Hesper: 'Hesper',
+    Athar: 'Hesper', // Athar overlaps with Hesper for European cultures
+    Verd: 'Athar-West',
   };
 
-  // Check real-world names first (case-insensitive)
+  // Check shadow continent names first
+  if (shadowContinentToCulture[token]) {
+    return shadowContinentToCulture[token];
+  }
+
+  // Legacy real-world continent names (for backwards compatibility)
+  const realWorldToCulture: Record<string, string> = {
+    'Americas': 'Athar-West',
+    'North America': 'Athar-West',
+    'South America': 'Athar-West',
+    'Central America': 'Athar-West',
+    'Europe': 'Hesper',
+    'MENA': 'Aram',
+    'Middle East': 'Aram',
+    'North Africa': 'Aram',
+    'Sub-Saharan Africa': 'Mero',
+    'Sub\u2011Saharan Africa': 'Mero', // Non-breaking hyphen variant
+    'Africa': 'Mero',
+    'South Asia': 'Solis-South',
+    'East Asia': 'Solis-East',
+    'Southeast Asia': 'Solis-East',
+    'Asia': 'Solis-South', // Fallback for generic "Asia"
+    'Oceania': 'Pelag',
+    'Pacific': 'Pelag',
+    'Australia': 'Pelag',
+  };
+
+  // Check real-world names (case-insensitive)
   const normalizedToken = token.toLowerCase();
   for (const [key, value] of Object.entries(realWorldToCulture)) {
     if (key.toLowerCase() === normalizedToken) {
@@ -495,17 +510,7 @@ export function deriveCultureFromContinent(continent: string | undefined, iso3?:
     }
   }
 
-  // Legacy shadow continent names (for backwards compatibility only)
-  const shadowContinentToCulture: Record<string, string> = {
-    Pelag: 'Oceania',
-    Mero: 'Sub-Saharan Africa',
-    Aram: 'MENA',
-    Solis: 'South Asia',
-    Hesper: 'Europe',
-    Athar: 'Europe',
-    Verd: 'Americas',
-  };
-  return shadowContinentToCulture[token] ?? 'Global';
+  return 'Global';
 }
 
 // ============================================================================

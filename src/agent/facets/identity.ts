@@ -355,11 +355,13 @@ export function computeIdentity(ctx: IdentityContext): IdentityResult {
     'BRA',
   ]);
   const isIndigenousAmericanCulture =
-    homeCulture === 'Americas' ||
+    homeCulture === 'Athar-West' ||
     indigenousAmericanCountries.has(homeCountryIso3) ||
     microProfiles.some(p =>
       p.id.includes('andean') ||
-      p.id.includes('caribbean')
+      p.id.includes('caribbean') ||
+      p.id.includes('tawantinsuyan') ||
+      p.id.includes('nahuatlan')
     );
 
   // Realistic gender identity distribution based on population studies:
@@ -693,12 +695,24 @@ export function computeIdentity(ctx: IdentityContext): IdentityResult {
   const honorificStyles = vocab.naming?.honorificStyles ?? ['title-first', 'given-name', 'surname', 'patronymic', 'teknonym', 'none'];
   const callSignPrefixes = vocab.naming?.callSignPrefixes ?? ['shadow', 'ghost', 'eagle', 'wolf'];
 
+  // Check microProfiles for culture-specific naming patterns (uses shadow names)
+  const profileIds = microProfiles.map(p => p.id.toLowerCase());
+  const hasSolicEastCulture = profileIds.some(id =>
+    id.includes('hannic') || id.includes('kamikuran') || id.includes('haedongic') || id.includes('annamitic')
+  ) || homeCulture === 'Solis-East';
+  const hasAramCulture = profileIds.some(id =>
+    id.includes('aramaic') || id.includes('khalijic') || id.includes('levantic') || id.includes('parsic') || id.includes('kartvelian')
+  ) || homeCulture === 'Aram';
+  const hasIbericCulture = profileIds.some(id =>
+    id.includes('castillaran') || id.includes('lusitanic') || id.includes('iberic')
+  );
+
   const nameStructureWeights: Array<{ item: NameStructure; weight: number }> = namingStructures.map(s => {
     let w = 1;
-    if (s === 'eastern-family-first' && ['sinitic', 'japanese', 'korean', 'vietnamese'].some(c => homeCulture.toLowerCase().includes(c))) w = 50;
-    if (s === 'patronymic' && ['arab', 'gulf', 'levant', 'iranian', 'icelandic', 'caucasus'].some(c => homeCulture.toLowerCase().includes(c))) w = 30;
-    if (s === 'western' && !['sinitic', 'japanese', 'korean', 'vietnamese'].some(c => homeCulture.toLowerCase().includes(c))) w = 40;
-    if (s === 'compound-surname' && ['hispanic', 'luso', 'iberian'].some(c => homeCulture.toLowerCase().includes(c))) w = 25;
+    if (s === 'solic-family-first' && hasSolicEastCulture) w = 50;
+    if (s === 'patronymic' && hasAramCulture) w = 30;
+    if (s === 'hesperic' && !hasSolicEastCulture) w = 40;
+    if (s === 'compound-surname' && hasIbericCulture) w = 25;
     return { item: s as NameStructure, weight: w };
   });
   const nameStructure = weightedPick(namingRng, nameStructureWeights) as NameStructure;
@@ -727,10 +741,12 @@ export function computeIdentity(ctx: IdentityContext): IdentityResult {
     aliases.push(`${aliasFirstName} ${aliasLastName}`);
   }
 
-  // Romanized name for non-Latin scripts
-  const needsRomanization = ['sinitic', 'japanese', 'korean', 'arabic', 'cyrillic', 'hellenic', 'hindi', 'thai'].some(
-    c => homeCulture.toLowerCase().includes(c)
-  );
+  // Romanized name for non-Latin scripts (using shadow culture names)
+  const needsRomanization = profileIds.some(id =>
+    id.includes('hannic') || id.includes('kamikuran') || id.includes('haedongic') ||
+    id.includes('aramaic') || id.includes('slavonic') || id.includes('helladic') ||
+    id.includes('bharatic') || id.includes('siamic')
+  ) || ['Solis-East', 'Solis-South', 'Aram'].includes(homeCulture);
   const romanizedName = needsRomanization ? name : null;
 
   traceSet(trace, 'naming', { nameStructure, honorificStyle, callSign, aliases }, { method: 'cultural' });
