@@ -720,7 +720,60 @@
       "lockpicking",
       "linguistics",
       "interrogation",
-      "forgery"
+      "forgery",
+      "elicitation",
+      "counterintelligence",
+      "signalsIntelligence",
+      "imageAnalysis",
+      "openSourceResearch",
+      "assetHandling",
+      "safeHouseOps",
+      "disguise",
+      "explosives",
+      "chemicalHandling",
+      "maritimeOps",
+      "aviationOps",
+      "parachuting",
+      "mountaineering",
+      "scubaDiving",
+      "defensiveDriving",
+      "motorcycleOps",
+      "emergencyMedicine",
+      "psychologicalOps",
+      "propaganda",
+      "socialEngineering",
+      "technicalWriting",
+      "publicSpeaking",
+      "crossCulturalComm",
+      "protocolEtiquette",
+      "crisisNegotiation",
+      "contractLaw",
+      "intellectualProperty",
+      "sanctionsCompliance",
+      "antiCorruption",
+      "forensicAccounting",
+      "supplyChainSecurity",
+      "physicalSecurity",
+      "executiveProtection",
+      "threatAssessment",
+      "vulnerabilityAnalysis",
+      "penetrationTesting",
+      "malwareAnalysis",
+      "networkForensics",
+      "mobileForensics",
+      "documentExamination",
+      "biometrics",
+      "polygraphy",
+      "behavioralAnalysis",
+      "geospatialAnalysis",
+      "economicAnalysis",
+      "politicalAnalysis",
+      "militaryAnalysis",
+      "terrorismAnalysis",
+      "proliferationAnalysis",
+      "cyberThreatIntel",
+      "humanIntel",
+      "technicalIntel"
     ],
     "roleSkillBumps": {
       "operative": {
@@ -728,48 +781,88 @@
         "surveillance": 120,
         "driving": 80,
         "closeCombat": 60,
-        "lockpicking": 40
+        "lockpicking": 40,
+        "elicitation": 80,
+        "assetHandling": 100,
+        "safeHouseOps": 60,
+        "disguise": 70,
+        "counterintelligence": 50,
+        "humanIntel": 90
       },
       "security": {
         "shooting": 140,
         "firstAid": 80,
         "tradecraft": 60,
         "closeCombat": 100,
-        "interrogation": 40
+        "interrogation": 40,
+        "executiveProtection": 120,
+        "physicalSecurity": 100,
+        "threatAssessment": 80,
+        "defensiveDriving": 70,
+        "emergencyMedicine": 50
       },
       "diplomat": {
         "negotiation": 180,
         "bureaucracy": 80,
         "persuasion": 120,
-        "linguistics": 80
+        "linguistics": 80,
+        "crossCulturalComm": 140,
+        "protocolEtiquette": 120,
+        "crisisNegotiation": 80,
+        "publicSpeaking": 100,
+        "politicalAnalysis": 60
       },
       "media": {
         "mediaHandling": 200,
         "negotiation": 60,
-        "persuasion": 80
+        "persuasion": 80,
+        "publicSpeaking": 140,
+        "propaganda": 80,
+        "socialEngineering": 60,
+        "psychologicalOps": 40
       },
       "technocrat": {
         "bureaucracy": 140,
         "financeOps": 90,
         "legalOps": 60,
-        "cryptography": 40
+        "cryptography": 40,
+        "contractLaw": 80,
+        "sanctionsCompliance": 70,
+        "forensicAccounting": 60,
+        "antiCorruption": 50,
+        "economicAnalysis": 70
       },
       "logistics": {
         "driving": 160,
         "firstAid": 60,
-        "forgery": 40
+        "forgery": 40,
+        "supplyChainSecurity": 100,
+        "safeHouseOps": 80,
+        "documentExamination": 50,
+        "defensiveDriving": 80
       },
       "analyst": {
         "surveillance": 120,
         "bureaucracy": 60,
         "cryptography": 80,
         "hacking": 60,
-        "linguistics": 40
+        "linguistics": 40,
+        "openSourceResearch": 140,
+        "imageAnalysis": 100,
+        "signalsIntelligence": 80,
+        "geospatialAnalysis": 70,
+        "behavioralAnalysis": 60,
+        "politicalAnalysis": 80,
+        "economicAnalysis": 60,
+        "technicalIntel": 70
       },
       "organizer": {
         "negotiation": 120,
         "mediaHandling": 80,
-        "persuasion": 100
+        "persuasion": 100,
+        "crossCulturalComm": 80,
+        "psychologicalOps": 60,
+        "socialEngineering": 70
       }
     }
   },
