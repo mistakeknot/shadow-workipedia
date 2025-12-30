@@ -596,6 +596,7 @@ import { computeSocial } from './facets/social';
 import { computeLifestyle } from './facets/lifestyle';
 import { computeNarrative } from './facets/narrative';
 import { computeSimulation } from './facets/simulation';
+import { computeDomestic } from './facets/domestic';
 import {
   normalizeSecurityEnv01k,
   type SecurityEnvAxis,
@@ -994,6 +995,23 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     viceTendency,
     travelScore,
     trace,
+  });
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // Phase 12b: Domestic (Oracle recommendations)
+  // ─────────────────────────────────────────────────────────────────────────
+  const domesticResult = computeDomestic({
+    seed,
+    vocab,
+    latents,
+    tierBand,
+    age,
+    roleSeedTags,
+    careerTrackTag: identityResult.careerTrackTag,
+    trace,
+    homeCountryIso3: geoStage1.homeCountryIso3,
+    currentCountryIso3: geoStage2.currentCountryIso3,
+    urbanicity: socialResult.geography.urbanicity,
   });
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -1787,6 +1805,23 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     pressureResponse,
     physicalPresence,
     deceptionSkill,
+
+    // === ORACLE-RECOMMENDED FACETS ===
+    // From psychology.ts
+    affect: psychologyResult.affect,
+    selfConcept: psychologyResult.selfConcept,
+
+    // From social.ts
+    communities: socialResult.communities,
+    reputation: socialResult.reputation,
+    attachments: socialResult.attachments,
+    civicLife: socialResult.civicLife,
+
+    // From domestic.ts
+    everydayLife: domesticResult.everydayLife,
+    home: domesticResult.home,
+    legalAdmin: domesticResult.legalAdmin,
+    lifeSkills: domesticResult.lifeSkills,
   };
 
   return agent;

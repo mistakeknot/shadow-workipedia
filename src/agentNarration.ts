@@ -1126,6 +1126,92 @@ export function generateNarrative(
       return toNarrativePhrase(tag);
     })()],
     identify: [conjugate(pron, 'identifies', 'identify')],
+    // ─────────────────────────────────────────────────────────────
+    // Oracle facets - new in domestic/social/psychology
+    // ─────────────────────────────────────────────────────────────
+    // Affect
+    affectBaseline: [toNarrativePhrase(agent.affect?.baseline ?? '')],
+    affectRegulation: [(() => {
+      const style = agent.affect?.regulationStyle ?? '';
+      const phrases: Record<string, string> = {
+        ruminates: 'ruminates',
+        suppresses: 'suppresses',
+        externalizes: 'externalizes',
+        reframes: 'reframes',
+        compartmentalizes: 'compartmentalizes',
+        avoids: 'avoids the issue',
+        'seeks-support': 'seeks support',
+      };
+      return phrases[style] ?? toNarrativePhrase(style);
+    })()],
+    // Self-concept
+    selfStory: [(() => {
+      const story = agent.selfConcept?.selfStory ?? '';
+      const phrases: Record<string, string> = {
+        'self-made': 'self-made',
+        wronged: 'wronged',
+        caretaker: 'a caretaker',
+        chosen: 'chosen',
+        survivor: 'a survivor',
+        reformer: 'a reformer',
+        outsider: 'an outsider',
+        loyalist: 'a loyalist',
+        pragmatist: 'a pragmatist',
+        idealist: 'an idealist',
+      };
+      return phrases[story] ?? toNarrativePhrase(story);
+    })()],
+    socialMask: [(() => {
+      const mask = agent.selfConcept?.socialMask ?? '';
+      const phrases: Record<string, string> = {
+        bureaucrat: 'the bureaucrat',
+        charmer: 'the charmer',
+        patriot: 'the patriot',
+        cynic: 'the cynic',
+        'true-believer': 'the true believer',
+        everyman: 'the everyman',
+        intellectual: 'the intellectual',
+        'tough-guy': 'the tough guy',
+        helper: 'the helper',
+        rebel: 'the rebel',
+      };
+      return phrases[mask] ?? toNarrativePhrase(mask);
+    })()],
+    see: [conjugate(pron, 'sees', 'see')],
+    present: [conjugate(pron, 'presents', 'present')],
+    // Communities
+    communityStatus: [toNarrativePhrase(agent.communities?.communityStatus ?? '')],
+    communityType: [(() => {
+      const m = agent.communities?.memberships?.[0];
+      return m ? toNarrativePhrase(m.type) : '';
+    })()],
+    communityRole: [(() => {
+      const m = agent.communities?.memberships?.[0];
+      return m ? toNarrativePhrase(m.role) : '';
+    })()],
+    // Reputation
+    professionalRep: [toNarrativePhrase(agent.reputation?.professional ?? '')],
+    neighborhoodRep: [toNarrativePhrase(agent.reputation?.neighborhood ?? '')],
+    // Civic life
+    civicEngagement: [toNarrativePhrase(agent.civicLife?.engagement ?? '')],
+    civicIdeology: [toNarrativePhrase(agent.civicLife?.ideology ?? '')],
+    // Everyday life
+    commuteMode: [toNarrativePhrase(agent.everydayLife?.commuteMode ?? '')],
+    thirdPlace: [(() => {
+      const places = agent.everydayLife?.thirdPlaces ?? [];
+      return places.length ? toNarrativePhrase(places[0] ?? '') : '';
+    })()],
+    commute: [conjugate(pron, 'commutes', 'commute')],
+    spend: [conjugate(pron, 'spends', 'spend')],
+    // Home
+    neighborhoodType: [toNarrativePhrase(agent.home?.neighborhoodType ?? '')],
+    householdComposition: [toNarrativePhrase(agent.home?.householdComposition ?? '')],
+    housingStability: [toNarrativePhrase(agent.home?.housingStability ?? '')],
+    live: [conjugate(pron, 'lives', 'live')],
+    // Life skills
+    streetSmarts: [toNarrativePhrase(agent.lifeSkills?.streetSmarts ?? '')],
+    domesticCompetence: [toNarrativePhrase(agent.lifeSkills?.domesticCompetence ?? '')],
+    etiquetteLiteracy: [toNarrativePhrase(agent.lifeSkills?.etiquetteLiteracy ?? '')],
   };
 
   const textRules = (() => {
@@ -1169,6 +1255,16 @@ export function generateNarrative(
   // Don't narrate straight/undisclosed orientation
   if (['straight', 'undisclosed'].includes(agent.orientation.orientationTag)) textRules.bioP2Orientation = [''];
 
+  // Guards for oracle facets - only show when present and interesting
+  if (!agent.affect?.baseline) textRules.bioP2Affect = [''];
+  if (!agent.selfConcept?.selfStory) textRules.bioP2SelfConcept = [''];
+  if (!agent.communities?.memberships?.length) textRules.bioP2Communities = [''];
+  if (!agent.reputation?.professional) textRules.bioP2Reputation = [''];
+  if (!agent.civicLife?.engagement || agent.civicLife.engagement === 'disengaged') textRules.bioP2CivicLife = [''];
+  if (!agent.everydayLife?.commuteMode) textRules.bioP2EverydayLife = [''];
+  if (!agent.home?.neighborhoodType) textRules.bioP2Home = [''];
+  if (!agent.lifeSkills?.streetSmarts) textRules.bioP2LifeSkills = [''];
+
   if (toneDiplomat) {
     textRules.bioP1Identity = [
       ...(textRules.bioP1Identity ?? []),
@@ -1205,11 +1301,11 @@ export function generateNarrative(
     // Para 1: Identity & Appearance (who they are, what they look like)
     const para1 = normalizeNarrationText(grammar.flatten('#bioP1Identity# #bioP1Appearance# #bioP1VoiceMark# #bioP1CompetenceLead# #bioP1CompetenceSupport# #bioP1Trait# #bioP1Aside#'));
 
-    // Para 2: Daily life & Preferences (routines, tastes, work style, health, languages)
-    const para2 = normalizeNarrationText(grammar.flatten('#bioP2Routine# #bioP2Taste# #bioP2Institution# #bioP2WorkStyle# #bioP2Languages# #bioP2Geography# #bioP2Family# #bioP2Health# #bioP2Neurodivergence#'));
+    // Para 2: Daily life & Preferences (routines, tastes, work style, health, languages, domestic)
+    const para2 = normalizeNarrationText(grammar.flatten('#bioP2Routine# #bioP2Taste# #bioP2Institution# #bioP2WorkStyle# #bioP2Languages# #bioP2Geography# #bioP2Family# #bioP2Health# #bioP2Neurodivergence# #bioP2EverydayLife# #bioP2Home# #bioP2LifeSkills# #bioP2Communities#'));
 
-    // Para 3: Psychology & Inner life (motivations, relationships, vulnerabilities, network)
-    const para3 = normalizeNarrationText(grammar.flatten('#bioP2Motivation# #bioP2Attachment# #bioP2Orientation# #bioP2Pressure# #bioP2Strain# #bioP2Vice# #bioP2Ethics# #bioP2Spirituality# #bioP2Contradiction# #bioP2Economics# #bioP2Secrets# #bioP2Humor# #bioP2Presence# #bioP2Deception# #bioP2Mobility# #bioP2Personality# #bioP2Culture# #bioP2Network# #bioP2Adversity# #bioP2RedLines#'));
+    // Para 3: Psychology & Inner life (motivations, relationships, vulnerabilities, network, reputation)
+    const para3 = normalizeNarrationText(grammar.flatten('#bioP2Motivation# #bioP2Attachment# #bioP2Orientation# #bioP2Pressure# #bioP2Strain# #bioP2Vice# #bioP2Ethics# #bioP2Spirituality# #bioP2Contradiction# #bioP2Economics# #bioP2Secrets# #bioP2Humor# #bioP2Presence# #bioP2Deception# #bioP2Mobility# #bioP2Personality# #bioP2Culture# #bioP2Network# #bioP2Adversity# #bioP2RedLines# #bioP2Affect# #bioP2SelfConcept# #bioP2Reputation# #bioP2CivicLife#'));
 
     const html = `
       <div class="agent-narrative">

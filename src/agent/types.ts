@@ -376,6 +376,58 @@ export type AgentVocabV1 = {
     regionalData?: Record<string, RegionalDataV1>;
     institutionalData?: Record<string, InstitutionalDataV1>;
   };
+  // === ORACLE-RECOMMENDED VOCAB ===
+  everydayLife?: {
+    thirdPlaces?: string[];
+    commuteModes?: string[];
+    weeklyAnchors?: string[];
+    pettyHabits?: string[];
+    caregivingObligations?: string[];
+  };
+  communities?: {
+    types?: string[];
+    roles?: string[];
+    statuses?: string[];
+    onlineCommunities?: string[];
+  };
+  reputation?: {
+    tags?: string[];
+  };
+  affect?: {
+    baselineAffects?: string[];
+    regulationStyles?: string[];
+    stressTells?: string[];
+    repairStyles?: string[];
+  };
+  selfConcept?: {
+    selfStories?: string[];
+    socialMasks?: string[];
+  };
+  lifeSkills?: {
+    competenceBands?: string[];
+    etiquetteLiteracies?: string[];
+  };
+  home?: {
+    housingStabilities?: string[];
+    householdCompositions?: string[];
+    privacyLevels?: string[];
+    neighborhoodTypes?: string[];
+  };
+  attachments?: {
+    keepsakeTypes?: string[];
+    placeAttachments?: string[];
+    dependentNonHumans?: string[];
+  };
+  legalAdmin?: {
+    residencyStatuses?: string[];
+    legalExposures?: string[];
+    credentialTypes?: string[];
+  };
+  civicLife?: {
+    engagements?: string[];
+    ideologies?: string[];
+    tabooTopics?: string[];
+  };
 };
 
 export type SocioeconomicMobility = 'upward' | 'stable' | 'downward';
@@ -482,6 +534,56 @@ export type PressureResponse = 'freezes' | 'deliberates' | 'delegates' | 'rushes
 export type GaitStyle = 'brisk' | 'measured' | 'slouching' | 'military' | 'graceful' | 'heavy' | 'nervous';
 export type EyeContactPattern = 'steady' | 'avoidant' | 'intense' | 'darting' | 'warm' | 'cold';
 export type NervousHabit = 'nail-biting' | 'hair-touching' | 'fidgeting' | 'pacing' | 'throat-clearing' | 'lip-biting' | 'pen-clicking' | 'leg-bouncing' | 'none';
+
+// === ORACLE-RECOMMENDED FACETS ===
+
+// Everyday life anchors
+export type CommuteMode = 'walk' | 'bicycle' | 'motorbike' | 'bus' | 'metro' | 'driver' | 'rideshare' | 'mixed';
+export type WeeklyAnchor = 'friday-prayer' | 'sunday-service' | 'saturday-synagogue' | 'weekly-market' | 'sports-match' | 'family-dinner' | 'night-class' | 'volunteer-shift' | 'therapy-session' | 'book-club' | 'none';
+export type CaregivingObligation = 'elder-care' | 'child-pickup' | 'sibling-support' | 'disabled-family' | 'foster-care' | 'none';
+export type PettyHabit = 'always-early' | 'always-late' | 'forgets-keys' | 'checks-locks' | 'overpacks' | 'skips-breakfast' | 'double-checks-everything' | 'loses-phone' | 'hoards-receipts' | 'leaves-lights-on';
+
+// Community memberships
+export type CommunityType = 'professional-society' | 'alumni-network' | 'religious-committee' | 'union-chapter' | 'hobby-club' | 'sports-league' | 'mutual-aid' | 'veterans-group' | 'parent-group' | 'political-org' | 'online-forum' | 'gaming-guild' | 'neighborhood-watch';
+export type CommunityRole = 'leader' | 'organizer' | 'regular' | 'occasional' | 'lurker' | 'former';
+export type CommunityStatus = 'pillar' | 'respected' | 'regular' | 'newcomer' | 'outsider' | 'controversial' | 'banned';
+
+// Reputation
+export type ReputationTag = 'reliable' | 'brilliant' | 'ruthless' | 'corrupt' | 'principled' | 'reckless' | 'discreet' | 'loudmouth' | 'fixer' | 'by-the-book' | 'unpredictable' | 'burnt-out' | 'rising-star' | 'has-been' | 'unknown';
+
+// Emotional regulation (affect)
+export type BaselineAffect = 'warm' | 'flat' | 'intense' | 'guarded' | 'mercurial' | 'melancholic' | 'anxious' | 'cheerful';
+export type RegulationStyle = 'ruminates' | 'suppresses' | 'externalizes' | 'reframes' | 'compartmentalizes' | 'avoids' | 'seeks-support';
+export type StressTell = 'overexplains' | 'goes-quiet' | 'snaps' | 'jokes-deflect' | 'micromanages' | 'withdraws' | 'overeats' | 'insomnia' | 'hyperactive' | 'cries-easily';
+export type RepairStyle = 'apologizes-fast' | 'stonewalls' | 'buys-gifts' | 'explains-endlessly' | 'pretends-nothing-happened' | 'seeks-mediation' | 'writes-letters';
+
+// Self-concept and masking
+export type SelfStory = 'self-made' | 'wronged' | 'caretaker' | 'chosen' | 'survivor' | 'reformer' | 'outsider' | 'loyalist' | 'pragmatist' | 'idealist';
+export type SocialMask = 'bureaucrat' | 'charmer' | 'patriot' | 'cynic' | 'true-believer' | 'everyman' | 'intellectual' | 'tough-guy' | 'helper' | 'rebel';
+
+// Life skills
+export type CompetenceBand = 'incompetent' | 'struggles' | 'adequate' | 'competent' | 'expert';
+export type EtiquetteLiteracy = 'protocol-native' | 'code-switcher' | 'rough-edged' | 'clueless' | 'deliberately-transgressive';
+
+// Home and domestic life
+export type HousingStability = 'owned' | 'stable-rental' | 'tenuous' | 'transient' | 'couch-surfing' | 'institutional';
+export type HouseholdComposition = 'alone' | 'roommates' | 'partner' | 'partner-and-kids' | 'extended-family' | 'multigenerational' | 'group-house';
+export type PrivacyLevel = 'isolated' | 'private' | 'thin-walls' | 'communal' | 'surveilled';
+export type NeighborhoodType = 'elite-enclave' | 'gentrifying' | 'tight-knit' | 'anonymous' | 'insecure' | 'informal-settlement' | 'gated' | 'rural-isolated';
+
+// Sentimental attachments
+export type KeepsakeType = 'family-heirloom' | 'service-medal' | 'childhood-toy' | 'photo-album' | 'letter-bundle' | 'religious-item' | 'inherited-jewelry' | 'old-notebook' | 'none';
+export type PlaceAttachment = 'hometown-street' | 'family-farm' | 'childhood-school' | 'first-apartment' | 'favorite-cafe' | 'ancestral-village' | 'grave-site' | 'none';
+export type DependentNonHuman = 'dog' | 'cat' | 'birds' | 'fish' | 'stray-colony' | 'plants' | 'livestock' | 'none';
+
+// Legal and administrative status
+export type ResidencyStatus = 'citizen' | 'permanent-resident' | 'work-visa' | 'student-visa' | 'irregular' | 'asylum-pending' | 'refugee' | 'stateless' | 'diplomatic';
+export type LegalExposure = 'clean' | 'old-conviction' | 'pending-case' | 'tax-dispute' | 'custody-battle' | 'debt-collection' | 'sealed-record' | 'under-investigation';
+export type CredentialType = 'bar-license' | 'medical-license' | 'security-clearance' | 'pilot-license' | 'hazmat-cert' | 'teaching-cert' | 'press-credentials' | 'diplomatic-passport' | 'contractor-badge';
+
+// Civic and political life
+export type CivicEngagement = 'disengaged' | 'quiet-voter' | 'active-participant' | 'organizer' | 'candidate' | 'disillusioned';
+export type IdeologyTag = 'conservative' | 'progressive' | 'libertarian' | 'socialist' | 'nationalist' | 'centrist' | 'apolitical' | 'single-issue' | 'cynical-pragmatist';
 
 // Latents - internal type used for agent generation tracing
 export type Latents = {
@@ -814,6 +916,88 @@ export type GeneratedAgent = {
     lyingAbility: Fixed; // how good they are at lying
     tellAwareness: Fixed; // how aware they are of their own tells
     detectsLies: Fixed; // how good at spotting others' lies
+  };
+
+  // === ORACLE-RECOMMENDED FACETS ===
+
+  // Everyday life anchors - where they are, when
+  everydayLife: {
+    thirdPlaces: string[]; // gym, cafe, aunt's place, etc.
+    commuteMode: CommuteMode;
+    weeklyAnchor: WeeklyAnchor;
+    pettyHabits: PettyHabit[];
+    caregivingObligation: CaregivingObligation;
+  };
+
+  // Community memberships - where they belong
+  communities: {
+    memberships: Array<{
+      type: CommunityType;
+      role: CommunityRole;
+      intensityBand: Band5;
+    }>;
+    onlineCommunities: string[];
+    communityStatus: CommunityStatus;
+  };
+
+  // Reputation - what people think of them
+  reputation: {
+    professional: ReputationTag;
+    neighborhood: ReputationTag;
+    online: ReputationTag;
+    scandalSensitivity: Band5;
+  };
+
+  // Emotional regulation - how feelings behave
+  affect: {
+    baseline: BaselineAffect;
+    regulationStyle: RegulationStyle;
+    stressTells: StressTell[];
+    repairStyle: RepairStyle;
+  };
+
+  // Self-concept - the story they tell themselves
+  selfConcept: {
+    selfStory: SelfStory;
+    impostorRisk: Fixed;
+    socialMask: SocialMask;
+  };
+
+  // Life skills - competence outside the job
+  lifeSkills: {
+    domesticCompetence: CompetenceBand;
+    bureaucracyNavigation: CompetenceBand;
+    streetSmarts: CompetenceBand;
+    etiquetteLiteracy: EtiquetteLiteracy;
+  };
+
+  // Home - domestic reality
+  home: {
+    housingStability: HousingStability;
+    householdComposition: HouseholdComposition;
+    privacyLevel: PrivacyLevel;
+    neighborhoodType: NeighborhoodType;
+  };
+
+  // Sentimental attachments - soft leverage points
+  attachments: {
+    keepsake: KeepsakeType;
+    placeAttachment: PlaceAttachment;
+    dependentNonHuman: DependentNonHuman;
+  };
+
+  // Legal/administrative status - paperwork friction
+  legalAdmin: {
+    residencyStatus: ResidencyStatus;
+    legalExposure: LegalExposure;
+    credentials: CredentialType[];
+  };
+
+  // Civic and political life
+  civicLife: {
+    engagement: CivicEngagement;
+    ideology: IdeologyTag;
+    tabooTopics: string[];
   };
 };
 

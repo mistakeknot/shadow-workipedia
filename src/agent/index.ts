@@ -130,7 +130,7 @@ export {
   type SkillsResult,
 } from './facets/capabilities';
 
-// Psychology facet (ethics, contradictions, red lines, visibility)
+// Psychology facet (ethics, contradictions, red lines, visibility, affect, self-concept)
 export {
   computePsychology,
   type PsychologyContext,
@@ -138,6 +138,8 @@ export {
   type LoyaltyScope,
   type Ethics,
   type Visibility,
+  type Affect,
+  type SelfConceptResult,
 } from './facets/psychology';
 
 // Preferences facet (food, media, fashion, routines)
@@ -151,13 +153,18 @@ export {
   type RoutinesResult,
 } from './facets/preferences';
 
-// Social facet (urbanicity, diaspora, family, relationships, network)
+// Social facet (urbanicity, diaspora, family, relationships, network, communities, reputation)
 export {
   computeSocial,
   type LeverageType,
   type SocialContext,
   type RelationshipEntry,
   type SocialResult,
+  type CommunityMembership,
+  type CommunitiesResult,
+  type ReputationResult,
+  type AttachmentsResult,
+  type CivicLifeResult,
 } from './facets/social';
 
 // Lifestyle facet (health, vices, logistics, spirituality, background)
@@ -182,3 +189,14 @@ export {
   type SimulationContext,
   type SimulationResult,
 } from './facets/simulation';
+
+// Domestic facet (everyday life, home, legal/admin, life skills)
+export {
+  computeDomestic,
+  type DomesticContext,
+  type DomesticResult,
+  type EverydayLifeResult,
+  type HomeResult,
+  type LegalAdminResult,
+  type LifeSkillsResult,
+} from './facets/domestic';

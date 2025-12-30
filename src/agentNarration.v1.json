@@ -186,6 +186,46 @@
       { "text": "", "rarity": "common" },
       { "text": "#Subj# #be# #orientationDesc#.", "rarity": "uncommon" },
       { "text": "#Subj# #identify# as #orientationDesc#.", "rarity": "rare" }
+    ],
+    "bioP2Affect": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #be# #affectBaseline# by disposition.", "rarity": "uncommon" },
+      { "text": "#PossAdjCap# affect runs #affectBaseline#; under stress, #subj# #affectRegulation#.", "rarity": "rare" }
+    ],
+    "bioP2SelfConcept": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #see# #obj#self as #selfStory#.", "rarity": "uncommon" },
+      { "text": "#Subj# #present# as #socialMask#, though #subj# #see# #obj#self as #selfStory#.", "rarity": "rare" }
+    ],
+    "bioP2Communities": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #be# #communityStatus# in local circles.", "rarity": "uncommon" },
+      { "text": "#Subj# #be# involved in #communityType# as #communityRole#.", "rarity": "rare" }
+    ],
+    "bioP2Reputation": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #have# a #professionalRep# professional reputation.", "rarity": "uncommon" },
+      { "text": "Professionally, #subj# #be# known as #professionalRep#; in the neighborhood, #neighborhoodRep#.", "rarity": "rare" }
+    ],
+    "bioP2CivicLife": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #be# #civicEngagement# politically.", "rarity": "uncommon" },
+      { "text": "#Subj# #lean# #civicIdeology# and #be# #civicEngagement# in civic matters.", "rarity": "rare" }
+    ],
+    "bioP2EverydayLife": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #commute# by #commuteMode#.", "rarity": "uncommon" },
+      { "text": "#Subj# #commute# by #commuteMode# and #spend# time at #thirdPlace#.", "rarity": "rare" }
+    ],
+    "bioP2Home": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #live# in #neighborhoodType#.", "rarity": "uncommon" },
+      { "text": "#Subj# #live# #householdComposition# in #housingStability# housing.", "rarity": "rare" }
+    ],
+    "bioP2LifeSkills": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #be# #streetSmarts# on the street.", "rarity": "uncommon" },
+      { "text": "#Subj# #be# #etiquetteLiteracy# in social settings, with #domesticCompetence# domestic skills.", "rarity": "rare" }
     ]
   }
 }

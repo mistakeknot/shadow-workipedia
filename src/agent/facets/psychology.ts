@@ -10,7 +10,20 @@
  * - Cover aptitude tags (plausible cover identities)
  */
 
-import type { Fixed, Latents, AgentVocabV1, AgentGenerationTraceV1, ContradictionPair, HeightBand } from '../types';
+import type {
+  Fixed,
+  Latents,
+  AgentVocabV1,
+  AgentGenerationTraceV1,
+  ContradictionPair,
+  HeightBand,
+  BaselineAffect,
+  RegulationStyle,
+  StressTell,
+  RepairStyle,
+  SelfStory,
+  SocialMask,
+} from '../types';
 import {
   makeRng,
   facetSeed,
@@ -60,6 +73,21 @@ export type Visibility = {
   digitalHygiene: Fixed;
 };
 
+/** Affect - emotional regulation and expression */
+export type Affect = {
+  baseline: BaselineAffect;
+  regulationStyle: RegulationStyle;
+  stressTells: StressTell[];
+  repairStyle: RepairStyle;
+};
+
+/** Self-concept - internal narrative and social presentation */
+export type SelfConceptResult = {
+  selfStory: SelfStory;
+  impostorRisk: Fixed;
+  socialMask: SocialMask;
+};
+
 /** Output result from psychology computation */
 export type PsychologyResult = {
   ethics: Ethics;
@@ -67,6 +95,8 @@ export type PsychologyResult = {
   redLines: string[];
   visibility: Visibility;
   coverAptitudeTags: string[];
+  affect: Affect;
+  selfConcept: SelfConceptResult;
 };
 
 // ============================================================================
@@ -405,6 +435,144 @@ function computeCovers(
   return coverAptitudeTags;
 }
 
+function computeAffect(
+  seed: string,
+  vocab: AgentVocabV1,
+  latents: Latents,
+  aptitudes: Aptitudes,
+  trace?: AgentGenerationTraceV1,
+): Affect {
+  traceFacet(trace, seed, 'affect');
+  const affectRng = makeRng(facetSeed(seed, 'affect'));
+
+  // Baseline affect - influenced by social battery and empathy
+  const baselinePool = vocab.affect?.baselineAffects ?? [
+    'warm', 'flat', 'intense', 'guarded', 'mercurial', 'melancholic', 'anxious', 'cheerful',
+  ];
+  const baselineWeights = baselinePool.map(b => {
+    let w = 1;
+    if (b === 'warm' && aptitudes.empathy > 600) w += 2;
+    if (b === 'flat' && latents.opsecDiscipline > 650) w += 2;
+    if (b === 'intense' && latents.riskAppetite > 600) w += 2;
+    if (b === 'guarded' && latents.opsecDiscipline > 550) w += 1.5;
+    if (b === 'anxious' && latents.impulseControl < 400) w += 2;
+    if (b === 'cheerful' && latents.socialBattery > 650) w += 2;
+    if (b === 'mercurial' && latents.adaptability > 600 && latents.impulseControl < 500) w += 2;
+    if (b === 'melancholic' && latents.socialBattery < 400) w += 1.5;
+    return { item: b as BaselineAffect, weight: w };
+  });
+  const baseline = weightedPick(affectRng, baselineWeights) as BaselineAffect;
+
+  // Regulation style - how they handle emotions
+  const regPool = vocab.affect?.regulationStyles ?? [
+    'ruminates', 'suppresses', 'externalizes', 'reframes', 'compartmentalizes', 'avoids', 'seeks-support',
+  ];
+  const regWeights = regPool.map(r => {
+    let w = 1;
+    if (r === 'suppresses' && latents.opsecDiscipline > 600) w += 2;
+    if (r === 'compartmentalizes' && aptitudes.attentionControl > 600) w += 2;
+    if (r === 'seeks-support' && latents.socialBattery > 600) w += 2;
+    if (r === 'ruminates' && latents.planningHorizon > 600) w += 1.5;
+    if (r === 'externalizes' && latents.impulseControl < 400) w += 2;
+    if (r === 'reframes' && latents.adaptability > 600) w += 2;
+    if (r === 'avoids' && latents.riskAppetite < 400) w += 1.5;
+    return { item: r as RegulationStyle, weight: w };
+  });
+  const regulationStyle = weightedPick(affectRng, regWeights) as RegulationStyle;
+
+  // Stress tells - 1-3 observable stress indicators
+  const tellPool = vocab.affect?.stressTells ?? [
+    'overexplains', 'goes-quiet', 'snaps', 'jokes-deflect', 'micromanages',
+    'withdraws', 'overeats', 'insomnia', 'hyperactive', 'cries-easily',
+  ];
+  const tellCount = clampInt(1 + affectRng.int(0, 2), 1, 3);
+  const stressTells = affectRng.pickK(tellPool, tellCount) as StressTell[];
+
+  // Repair style - how they fix relationships after conflict
+  const repairPool = vocab.affect?.repairStyles ?? [
+    'apologizes-fast', 'stonewalls', 'buys-gifts', 'explains-endlessly',
+    'pretends-nothing-happened', 'seeks-mediation', 'writes-letters',
+  ];
+  const repairWeights = repairPool.map(r => {
+    let w = 1;
+    if (r === 'apologizes-fast' && aptitudes.empathy > 600) w += 2;
+    if (r === 'stonewalls' && latents.opsecDiscipline > 650) w += 2;
+    if (r === 'explains-endlessly' && latents.planningHorizon > 600) w += 1.5;
+    if (r === 'pretends-nothing-happened' && latents.adaptability > 600) w += 1.5;
+    if (r === 'seeks-mediation' && latents.institutionalEmbeddedness > 600) w += 2;
+    return { item: r as RepairStyle, weight: w };
+  });
+  const repairStyle = weightedPick(affectRng, repairWeights) as RepairStyle;
+
+  const affect = { baseline, regulationStyle, stressTells, repairStyle };
+  traceSet(trace, 'psych.affect', affect, { method: 'weightedPick', dependsOn: { facet: 'affect' } });
+  return affect;
+}
+
+function computeSelfConcept(
+  seed: string,
+  vocab: AgentVocabV1,
+  latents: Latents,
+  tierBand: 'elite' | 'middle' | 'mass',
+  roleSeedTags: readonly string[],
+  trace?: AgentGenerationTraceV1,
+): SelfConceptResult {
+  traceFacet(trace, seed, 'selfConcept');
+  const selfRng = makeRng(facetSeed(seed, 'selfConcept'));
+
+  // Self-story - the narrative they tell themselves about who they are
+  const storyPool = vocab.selfConcept?.selfStories ?? [
+    'self-made', 'wronged', 'caretaker', 'chosen', 'survivor', 'reformer',
+    'outsider', 'loyalist', 'pragmatist', 'idealist',
+  ];
+  const storyWeights = storyPool.map(s => {
+    let w = 1;
+    if (s === 'self-made' && tierBand === 'elite' && latents.riskAppetite > 500) w += 2;
+    if (s === 'survivor' && tierBand === 'mass') w += 2;
+    if (s === 'loyalist' && latents.institutionalEmbeddedness > 650) w += 2;
+    if (s === 'reformer' && latents.principledness > 650) w += 2;
+    if (s === 'outsider' && latents.socialBattery < 400) w += 2;
+    if (s === 'caretaker' && roleSeedTags.includes('organizer')) w += 2;
+    if (s === 'pragmatist' && latents.adaptability > 600) w += 1.5;
+    if (s === 'idealist' && latents.principledness > 600) w += 1.5;
+    return { item: s as SelfStory, weight: w };
+  });
+  const selfStory = weightedPick(selfRng, storyWeights) as SelfStory;
+
+  // Impostor risk - higher for elite with mass origins, lower for confident types
+  let impostorBase = 400;
+  if (tierBand === 'elite') impostorBase += 150;
+  if (latents.socialBattery < 450) impostorBase += 100;
+  if (latents.principledness > 600) impostorBase -= 80;
+  if (roleSeedTags.includes('analyst')) impostorBase += 50;
+  const impostorRisk = clampFixed01k(impostorBase + selfRng.int(-150, 150));
+
+  // Social mask - the persona they present to the world
+  const maskPool = vocab.selfConcept?.socialMasks ?? [
+    'bureaucrat', 'charmer', 'patriot', 'cynic', 'true-believer', 'everyman',
+    'intellectual', 'tough-guy', 'helper', 'rebel',
+  ];
+  const maskWeights = maskPool.map(m => {
+    let w = 1;
+    if (m === 'bureaucrat' && latents.institutionalEmbeddedness > 600) w += 2;
+    if (m === 'charmer' && latents.socialBattery > 650) w += 2;
+    if (m === 'intellectual' && roleSeedTags.includes('analyst')) w += 2;
+    if (m === 'tough-guy' && roleSeedTags.includes('security')) w += 2;
+    if (m === 'helper' && roleSeedTags.includes('organizer')) w += 2;
+    if (m === 'rebel' && latents.riskAppetite > 650) w += 1.5;
+    if (m === 'cynic' && latents.principledness < 400) w += 2;
+    if (m === 'true-believer' && latents.principledness > 700) w += 2;
+    if (m === 'everyman' && tierBand === 'mass') w += 1.5;
+    if (m === 'patriot' && latents.institutionalEmbeddedness > 650) w += 1.5;
+    return { item: m as SocialMask, weight: w };
+  });
+  const socialMask = weightedPick(selfRng, maskWeights) as SocialMask;
+
+  const selfConcept = { selfStory, impostorRisk, socialMask };
+  traceSet(trace, 'psych.selfConcept', selfConcept, { method: 'weightedPick', dependsOn: { facet: 'selfConcept' } });
+  return selfConcept;
+}
+
 // ============================================================================
 // Main Computation
 // ============================================================================
@@ -418,6 +586,8 @@ function computeCovers(
  * - Red lines: hard limits the agent won't cross (role-influenced)
  * - Visibility: how observable the agent is (public visibility, paper trail, digital hygiene)
  * - Covers: plausible cover identities based on career and traits
+ * - Affect: emotional baseline, regulation style, stress tells, repair style
+ * - Self-concept: self-story, impostor risk, social mask
  */
 export function computePsychology(ctx: PsychologyContext): PsychologyResult {
   const {
@@ -426,6 +596,7 @@ export function computePsychology(ctx: PsychologyContext): PsychologyResult {
     latents,
     aptitudes,
     traits,
+    tierBand,
     roleSeedTags,
     careerTrackTag,
     heightBand,
@@ -447,11 +618,19 @@ export function computePsychology(ctx: PsychologyContext): PsychologyResult {
   // Cover aptitudes
   const coverAptitudeTags = computeCovers(seed, vocab, latents, careerTrackTag, trace);
 
+  // Affect - emotional regulation and expression
+  const affect = computeAffect(seed, vocab, latents, aptitudes, trace);
+
+  // Self-concept - internal narrative and social presentation
+  const selfConcept = computeSelfConcept(seed, vocab, latents, tierBand, roleSeedTags, trace);
+
   return {
     ethics,
     contradictions,
     redLines,
     visibility,
     coverAptitudeTags,
+    affect,
+    selfConcept,
   };
 }
