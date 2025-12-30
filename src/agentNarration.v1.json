@@ -2,11 +2,11 @@
   "version": 1,
   "rules": {
     "bioP1Identity": [
-      { "text": "#name# (#age#) #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#), currently #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "common" },
-      { "text": "#name# (#age#) #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#); #subj# now #have# a base in #currentLabel# (#currentIso3#).", "rarity": "common" },
-      { "text": "#ATier# #tier#-tier #role#, #name# (#age#) hails from #originLabel# (#homeIso3#) and #be# now #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "uncommon" },
-      { "text": "#name# (#age#), #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#), #be# currently #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "uncommon" },
-      { "text": "From #originLabel# (#homeIso3#), #name# (#age#) #have# built a career as #aTier# #tier#-tier #role#, now #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "rare" }
+      { "text": "#name# (#age#) #be# #aTier# #tier# #role# from #originLabel# (#homeIso3#), currently #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "common" },
+      { "text": "#name# (#age#) #be# #aTier# #tier# #role# from #originLabel# (#homeIso3#); #subj# now #have# a base in #currentLabel# (#currentIso3#).", "rarity": "common" },
+      { "text": "#ATier# #tier# #role#, #name# (#age#) hails from #originLabel# (#homeIso3#) and #be# now #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "uncommon" },
+      { "text": "#name# (#age#), #aTier# #tier# #role# from #originLabel# (#homeIso3#), #be# currently #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "uncommon" },
+      { "text": "From #originLabel# (#homeIso3#), #name# (#age#) #have# built a career as #aTier# #tier# #role#, now #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "rare" }
     ],
     "bioP1Appearance": [
       { "text": "#Subj# #be# #height# and #build#, with #hair# and #eyes#.", "rarity": "common" },

@@ -640,7 +640,9 @@ export function generateNarrative(
   const role = pickVariant(seed, 'bio:role', agent.identity.roleSeedTags.length ? agent.identity.roleSeedTags : ['agent']);
   const roleLabelRaw = toNarrativePhrase(role || 'agent');
   const roleLabel = fixRoleLabel(roleLabelRaw);
-  const tier = toNarrativePhrase(agent.identity.tierBand);
+  // Convert tier bands to natural phrasing for identity opener
+  const tierRaw = agent.identity.tierBand;
+  const tier = tierRaw === 'mass' ? 'working-class' : tierRaw === 'middle' ? 'mid-level' : tierRaw;
 
   const age = Math.max(0, Math.min(120, asOfYear - agent.identity.birthYear));
   const ageClause = Number.isFinite(age) && age > 0 ? ` In ${asOfYear}, ${pron.subj} ${pron.be} ${age}.` : '';
@@ -756,7 +758,7 @@ export function generateNarrative(
   const hasSignificantSpirituality = ['moderate', 'high', 'very_high', 'devout'].includes(agent.spirituality.observanceLevel.toLowerCase().replace(/[_-]/g, '_'));
   const observeVerb = conjugate(pron, 'observes', 'observe');
 
-  const aTier = aOrAn(`${tier}-tier`);
+  const aTier = aOrAn(tier);
   const ATier = capitalizeFirst(aTier);
   const keepVerb = conjugate(pron, 'keeps', 'keep');
   const recoverVerb = conjugate(pron, 'recovers', 'recover');
