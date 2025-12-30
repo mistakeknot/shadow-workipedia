@@ -5,12 +5,16 @@
       { "text": "#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#), currently #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "common" },
       { "text": "#name# was born in #birthYear#.#ageClause# #ATier# #tier#-tier #role# from #originLabel# (#homeIso3#), #subj# now #have# a base in #currentLabel# (#currentIso3#).", "rarity": "common" },
       { "text": "#name# was born in #birthYear#.#ageClause# From #originLabel# (#homeIso3#), #subj# #have# since moved operations to #currentLabel# (#currentIso3#) as #aTier# #tier#-tier #role#.", "rarity": "uncommon" },
-      { "text": "#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#); #subj# now #have# a base in #currentLabel# (#currentIso3#).", "rarity": "uncommon" }
+      { "text": "#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#); #subj# now #have# a base in #currentLabel# (#currentIso3#).", "rarity": "uncommon" },
+      { "text": "Born in #birthYear#, #name# #be# #aTier# #tier#-tier #role#.#ageClause# #Subj# #have# roots in #originLabel# (#homeIso3#) but now #be# #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "uncommon" },
+      { "text": "#name# (#birthYear#) #be# #aTier# #tier#-tier #role# originally from #originLabel# (#homeIso3#).#ageClause# #Subj# #be# now #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "rare" },
+      { "text": "#ATier# #tier#-tier #role#, #name# was born in #birthYear# in #originLabel# (#homeIso3#).#ageClause# #Subj# #be# currently #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "rare" },
+      { "text": "#name# traces #possAdj# origins to #originLabel# (#homeIso3#), born in #birthYear#.#ageClause# Now #aTier# #tier#-tier #role#, #subj# #be# #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "rare" }
     ],
     "bioP1Appearance": [
       { "text": "#Subj# #be# #height# and #build#, with #hair# and #eyes#.", "rarity": "common" },
-      { "text": "#Subj# #be# #height# and #build#, with #hair# and #eyes#.", "rarity": "uncommon" },
-      { "text": "#Subj# #be# #height# and #build#, with #eyes# and #hair#.", "rarity": "uncommon" }
+      { "text": "#Subj# #be# #height# and #build#, with #eyes# and #hair#.", "rarity": "uncommon" },
+      { "text": "#height.capFirst# and #build#, #subj# #have# #hair# and #eyes#.", "rarity": "rare" }
     ],
     "bioP1VoiceMark": [
       { "text": "#PossAdjCap# voice is #voice#.", "rarity": "common" },
@@ -19,15 +23,15 @@
       { "text": "#markSentence#", "rarity": "common" }
     ],
     "bioP1CompetenceLead": [
-      { "text": "#Subj# shows strength in #skillsList#.", "rarity": "common" },
+      { "text": "#Subj# #show# strength in #skillsList#.", "rarity": "common" },
       { "text": "#Subj# #be# known for #skillsList#.", "rarity": "common" },
-      { "text": "#Subj# tends to excel at #skillsList#.", "rarity": "uncommon" },
-      { "text": "#Subj# often relies on #skillsList#.", "rarity": "uncommon" },
-      { "text": "In practice, #subj# leans on #skillsList#.", "rarity": "rare" }
+      { "text": "#Subj# #tend# to #excel# at #skillsList#.", "rarity": "uncommon" },
+      { "text": "#Subj# often #rely# on #skillsList#.", "rarity": "uncommon" },
+      { "text": "In practice, #subj# #lean# on #skillsList#.", "rarity": "rare" }
     ],
     "bioP1CompetenceSupport": [
       { "text": "", "rarity": "common" },
-      { "text": "#Subj# is backed by #aptitudesList#.", "rarity": "common" },
+      { "text": "#Subj# #be# backed by #aptitudesList#.", "rarity": "common" },
       { "text": "These are underpinned by #aptitudesList#.", "rarity": "uncommon" }
     ],
     "bioP1Trait": [
@@ -39,12 +43,13 @@
     "bioP2Routine": [
       { "text": "#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and #recover# with #recoveryList#.", "rarity": "common" },
       { "text": "#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#), recovering with #recoveryList#.", "rarity": "uncommon" },
-      { "text": "#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and usually recovers with #recoveryList#.", "rarity": "uncommon" }
+      { "text": "#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and usually #recover# with #recoveryList#.", "rarity": "uncommon" }
     ],
     "bioP2Taste": [
       { "text": "#PossAdjCap# ritual drink is #ritualDrink#.", "rarity": "common" },
-      { "text": "#Subj# #favor# #genreList# and #tend# toward #styleTag# dress; comfort foods include #comfortFoodList#.", "rarity": "common" },
-      { "text": "#Subj# #favor# #genreList#. #PossAdjCap# style runs #styleTag#. Comfort foods include #comfortFoodList#.", "rarity": "uncommon" }
+      { "text": "#Subj# #favor# #genreList#; #subj# #tend# toward #styleTag# dress. Comfort foods include #comfortFoodList#.", "rarity": "common" },
+      { "text": "#Subj# #favor# #genreList#. #PossAdjCap# style runs #styleTag#. Comfort foods include #comfortFoodList#.", "rarity": "uncommon" },
+      { "text": "#Subj# #favor# #genreList#, with #styleTag# dress. Comfort foods: #comfortFoodList#.", "rarity": "rare" }
     ],
     "bioP2Strain": [
       { "text": "Under strain, break risk runs #breakBand##breakTypesClause#.", "rarity": "common" },
@@ -61,6 +66,126 @@
     "viceTriggerClause": [
       { "text": "", "rarity": "common" },
       { "text": ", especially after #viceTriggerTag#", "rarity": "uncommon" }
+    ],
+    "bioP2Mobility": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# rose from #originTier# circumstances to #possAdj# current #currentTier# standing.", "rarity": "uncommon" },
+      { "text": "#Subj# #have# moved from #originTier# origins to #aCurrentTier# #currentTier# position.", "rarity": "rare" }
+    ],
+    "bioP2Ethics": [
+      { "text": "", "rarity": "common" },
+      { "text": "#PossAdjCap# loyalties lie with #loyaltyScope#.", "rarity": "uncommon" },
+      { "text": "#Subj# #be# loyal primarily to #loyaltyScope#.", "rarity": "uncommon" }
+    ],
+    "bioP2Contradiction": [
+      { "text": "", "rarity": "common" },
+      { "text": "There's tension between #possAdj# #contradictionTrait1# and #possAdj# #contradictionTrait2#.", "rarity": "rare" }
+    ],
+    "bioP2Spirituality": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #be# #spiritualityLevel# in #possAdj# #spiritualityAffiliation# practice.", "rarity": "uncommon" },
+      { "text": "#Subj# #observe# #spiritualityAffiliation# with #spiritualityLevel# observance.", "rarity": "rare" }
+    ],
+    "bioP2Institution": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #work# as #aGradeBand# #gradeBand# #functionalSpec# in #orgType#, with #yearsInService# #yearsWord# of service.", "rarity": "uncommon" },
+      { "text": "#Subj# #hold# #aGradeBand# #gradeBand# position in #orgType# (#functionalSpec#).", "rarity": "rare" }
+    ],
+    "bioP2Personality": [
+      { "text": "", "rarity": "common" },
+      { "text": "In conflict, #subj# #be# #conflictStyle#; #subj# #lean# toward #epistemicStyle# reasoning.", "rarity": "uncommon" },
+      { "text": "#Subj# #be# #socialEnergy# by nature, #riskPosture# overall.", "rarity": "rare" }
+    ],
+    "bioP2WorkStyle": [
+      { "text": "", "rarity": "common" },
+      { "text": "#PossAdjCap# writing is #writingStyle#; #subj# #prefer# #briefingStyle# briefings.", "rarity": "uncommon" },
+      { "text": "#Subj# #be# #confidenceCalibration# in assessments.", "rarity": "rare" }
+    ],
+    "bioP2Geography": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# grew up in #aUrbanicity# #urbanicity# setting.", "rarity": "uncommon" },
+      { "text": "#Subj# #be# #diasporaStatus#.", "rarity": "rare" }
+    ],
+    "bioP2Family": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #be# #maritalStatus##dependentsClause#.", "rarity": "uncommon" }
+    ],
+    "bioP2Culture": [
+      { "text": "", "rarity": "common" },
+      { "text": "Culturally, #subj# #draw# from #possAdj# #ethnolinguistic# heritage.", "rarity": "uncommon" },
+      { "text": "#Subj# #carry# #aRegionalUpbringing# #regionalUpbringing# upbringing, shaped by #institutionalCulture# norms.", "rarity": "uncommon" },
+      { "text": "#PossAdjCap# #ethnolinguistic# roots blend with #regionalUpbringing# sensibilities and #institutionalCulture# discipline.", "rarity": "rare" }
+    ],
+    "bioP2Motivation": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #be# driven by #primaryGoal#.", "rarity": "uncommon" },
+      { "text": "#PossAdjCap# core drive is #primaryGoal#; #subj# #fear# #topFear# above all.", "rarity": "rare" }
+    ],
+    "bioP2Attachment": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #be# #attachmentDesc# in close relationships.", "rarity": "uncommon" },
+      { "text": "In relationships, #subj# #tend# toward being #attachmentDesc#.", "rarity": "rare" }
+    ],
+    "bioP2Economics": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #carry# #debtLevel# debt and #have# #incomeStability# income.", "rarity": "uncommon" },
+      { "text": "#PossAdjCap# finances are #spendingStyle#; #incomeStability# income keeps things #financialState#.", "rarity": "rare" }
+    ],
+    "bioP2Secrets": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #carry# #secretCount#.", "rarity": "rare" }
+    ],
+    "bioP2Humor": [
+      { "text": "", "rarity": "common" },
+      { "text": "#PossAdjCap# humor runs #humorStyle#.", "rarity": "uncommon" }
+    ],
+    "bioP2Pressure": [
+      { "text": "", "rarity": "common" },
+      { "text": "Under pressure, #subj# #pressureResponse#.", "rarity": "uncommon" }
+    ],
+    "bioP2Presence": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #move# with #gaitDesc# gait and #eyeContactDesc# eye contact.", "rarity": "uncommon" },
+      { "text": "#PossAdjCap# gait is #gaitDesc#; #subj# #maintain# #eyeContactDesc# eye contact.", "rarity": "rare" }
+    ],
+    "bioP2Deception": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #be# #lyingDesc# at deception#detectsLiesClause#.", "rarity": "rare" }
+    ],
+    "bioP2Health": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #manage# #healthCondition#.", "rarity": "uncommon" },
+      { "text": "#healthCondition.capFirst# #be# part of #possAdj# daily reality.", "rarity": "rare" }
+    ],
+    "bioP2Neurodivergence": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #be# #neurodivergentDesc#.", "rarity": "uncommon" },
+      { "text": "#Subj# #cope# with #neurodivergentDesc# through #copingStrategy#.", "rarity": "rare" }
+    ],
+    "bioP2Languages": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #speak# #languagesList#.", "rarity": "uncommon" },
+      { "text": "#PossAdjCap# linguistic range includes #languagesList#.", "rarity": "rare" }
+    ],
+    "bioP2Network": [
+      { "text": "", "rarity": "common" },
+      { "text": "In networks, #subj# #function# as #aNetworkRole# #networkRole#, leveraging #leverageType#.", "rarity": "uncommon" },
+      { "text": "#Subj# #be# #aNetworkRole# #networkRole# in #possAdj# circles.", "rarity": "rare" }
+    ],
+    "bioP2Adversity": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #have# survived #adversityDesc#.", "rarity": "uncommon" },
+      { "text": "#adversityDesc.capFirst# shaped #possAdj# resilience.", "rarity": "rare" }
+    ],
+    "bioP2RedLines": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #have# clear red lines around #redLineDesc#.", "rarity": "uncommon" },
+      { "text": "#redLineDesc.capFirst# #be# a hard boundary for #obj#.", "rarity": "rare" }
+    ],
+    "bioP2Orientation": [
+      { "text": "", "rarity": "common" },
+      { "text": "#Subj# #be# #orientationDesc#.", "rarity": "uncommon" },
+      { "text": "#Subj# #identify# as #orientationDesc#.", "rarity": "rare" }
     ]
   }
 }

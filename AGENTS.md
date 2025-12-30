@@ -10,25 +10,34 @@ Shadow Workipedia is a standalone interactive graph visualization and wiki for S
 ```
 shadow-workipedia/
 ├── public/
-│   └── data.json          # Generated - DO NOT EDIT MANUALLY
+│   ├── data.json              # Generated - DO NOT EDIT MANUALLY
+│   ├── agent-priors.v1.json   # Agent behavior priors data
+│   ├── agent-vocab.v1.json    # Agent vocabulary data
+│   └── shadow-country-map.json # Country mapping data
 ├── scripts/
-│   └── extract-data.ts    # Data extraction from parent repo
+│   ├── extract-data.ts        # Data extraction from parent repo
+│   ├── fill-mechanics-wiki.ts # Mechanics wiki population
+│   ├── backfill-issue-mechanics.ts
+│   └── ... (15+ utility scripts)
 ├── src/
-│   ├── main.ts            # Application entry point
-│   ├── graph.ts           # D3 force simulation
-│   ├── interactions.ts    # Pan/zoom/click handlers
-│   ├── article.ts         # Wiki article rendering
-│   ├── style.css          # Styles
-│   └── types.ts           # TypeScript interfaces
+│   ├── main.ts                # Application entry point (~3400 lines)
+│   ├── graph.ts               # D3 force simulation
+│   ├── interactions.ts        # Pan/zoom/click handlers
+│   ├── article.ts             # Wiki article rendering
+│   ├── agentGenerator.ts      # Agent personality generation
+│   ├── agentNarration.ts      # Agent narration system
+│   ├── agentsView.ts          # Agent panel UI
+│   ├── style.css              # Styles
+│   └── types.ts               # TypeScript interfaces
 ├── wiki/
-│   ├── issues/            # 367 issue wiki articles (*.md)
-│   ├── systems/           # 34 system wiki articles (*.md)
-│   ├── mechanics/         # 39 mechanic wiki articles (*.md)
-│   ├── primitives/        # 14 primitive wiki articles (*.md)
-│   ├── principles/        # 1118 principle wiki articles (*.md)
-│   └── communities/       # 23 community wiki articles (*.md)
-├── index.html             # Single-page app entry
-└── CLAUDE.md              # Claude-specific guidance
+│   ├── issues/                # ~370 issue wiki articles (*.md)
+│   ├── systems/               # ~35 system wiki articles (*.md)
+│   ├── mechanics/             # ~40 mechanic wiki articles (*.md)
+│   ├── primitives/            # ~16 primitive wiki articles (*.md)
+│   ├── principles/            # ~1120 principle wiki articles (*.md)
+│   └── communities/           # ~23 community wiki articles (*.md)
+├── index.html                 # Single-page app entry
+└── CLAUDE.md                  # Claude-specific guidance
 ```
 
 ## Critical Rules
@@ -180,23 +189,30 @@ pnpm preview         # Preview production build (localhost:4173)
 ## File Organization
 
 ### Source Files (`src/`)
-- `main.ts` - Main application (~1400 lines, orchestrates everything)
+- `main.ts` - Main application (~3400 lines, orchestrates everything)
 - `graph.ts` - D3 force simulation wrapper
 - `interactions.ts` - Mouse/touch handlers for canvas
 - `article.ts` - Wiki article and router logic
-- `wiki.ts` - Wiki sidebar rendering
-- `table.ts` - Table view rendering
+- `agentGenerator.ts` - Agent personality generation system (~5000 lines)
+- `agentNarration.ts` - Agent narration/speech generation (~900 lines)
+- `agentsView.ts` - Agent panel UI and interactions (~2000 lines)
 - `types.ts` - TypeScript type definitions
 - `style.css` - All styles (no CSS modules)
 
 ### Wiki Content (`wiki/`)
-- `wiki/issues/` - 367 markdown files for global issues
-- `wiki/systems/` - 34 markdown files for simulation systems
-- `wiki/mechanics/` - 39 markdown files for causal patterns
-- `wiki/primitives/` - 14 markdown files for simulation primitives
-- `wiki/principles/` - 1118 markdown files for design principles
-- `wiki/communities/` - 23 markdown files for issue communities
+- `wiki/issues/` - ~370 markdown files for global issues
+- `wiki/systems/` - ~35 markdown files for simulation systems
+- `wiki/mechanics/` - ~40 markdown files for causal patterns
+- `wiki/primitives/` - ~16 markdown files for simulation primitives
+- `wiki/principles/` - ~1120 markdown files for design principles
+- `wiki/communities/` - ~23 markdown files for issue communities
 - File names use kebab-case matching the `id` field in frontmatter
+
+### Public Data (`public/`)
+- `data.json` - Generated graph data (DO NOT EDIT)
+- `agent-priors.v1.json` - Agent behavior priors (~5MB)
+- `agent-vocab.v1.json` - Agent vocabulary definitions
+- `shadow-country-map.json` - Country name mappings
 
 ## Common Tasks
 
@@ -226,3 +242,7 @@ Static site deployed to any hosting:
 pnpm build:full      # Extract + build
 # Then deploy dist/ folder
 ```
+
+---
+
+**Last Updated**: 2025-12-28

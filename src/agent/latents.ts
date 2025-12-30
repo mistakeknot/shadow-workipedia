@@ -1,0 +1,247 @@
+/**
+ * Agent latent trait computation.
+ *
+ * Latents are hidden psychological/behavioral attributes that shape how agents behave.
+ * They are computed from:
+ * 1. Random base values (seeded)
+ * 2. Tier biases (elite/middle/mass) with individual mediators to break stereotypes
+ * 3. Role biases (diplomat, media, operative, etc.)
+ */
+
+import type { TierBand, Fixed, Latents } from './types';
+import { makeRng, facetSeed, clampFixed01k } from './utils';
+
+// Re-export for convenience
+export type { TierBand, Fixed, Latents };
+
+export type LatentsResult = {
+  values: Latents;
+  raw: Record<keyof Latents, Fixed>;
+  tierBias: Record<keyof Latents, number>;
+  roleBias: Record<keyof Latents, number>;
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Main computation
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Compute latent traits for an agent.
+ *
+ * Latents are computed in three layers:
+ * 1. Random base values (0-1000) seeded from the agent seed
+ * 2. Tier biases with individual mediators (elite/middle/mass stereotypes, attenuated per-agent)
+ * 3. Role biases (diplomat, media, operative, etc.)
+ *
+ * @param seed - Normalized agent seed string
+ * @param tierBand - Agent's socioeconomic tier
+ * @param roleSeedTags - Role tags that influence latent biases
+ * @returns Computed latent values with breakdown of raw, tier, and role contributions
+ */
+export function computeLatents(
+  seed: string,
+  tierBand: TierBand,
+  roleSeedTags: readonly string[],
+): LatentsResult {
+  const rng = makeRng(facetSeed(seed, 'latents'));
+
+  // ─────────────────────────────────────────────────────────────────────────────
+  // TIER STEREOTYPE MEDIATORS (Oracle/Claude P1 recommendation)
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Add individual variation to tier biases to break stereotypes.
+  // A "mediator" value of 0.5 applies full bias; values toward 0 or 1 attenuate it.
+  // This creates variance: some elites aren't cosmopolitan; some mass are.
+  const tierMediator = rng.next01(); // 0-1, centered around 0.5
+  const tierBiasScale = 0.3 + 1.4 * tierMediator; // Range: 0.3 to 1.7 (some attenuation, some amplification)
+
+  // Raw tier biases before mediation
+  const rawTierCosmoBias = tierBand === 'elite' ? 160 : tierBand === 'mass' ? -120 : 0;
+  const rawTierPublicBias = tierBand === 'elite' ? 120 : tierBand === 'mass' ? -40 : 0;
+  const rawTierInstBias = tierBand === 'elite' ? 120 : 0;
+  const rawTierTechBias = tierBand === 'elite' ? 40 : tierBand === 'mass' ? -40 : 0;
+  const rawTierExpressBias = tierBand === 'elite' ? 80 : tierBand === 'mass' ? -20 : 0;
+  const rawTierFrugalBias = tierBand === 'elite' ? -120 : tierBand === 'mass' ? 120 : 0;
+  const rawTierPlanBias = tierBand === 'elite' ? 60 : tierBand === 'mass' ? -20 : 0;
+  const rawTierStressBias = tierBand === 'elite' ? -60 : tierBand === 'mass' ? 60 : 0;
+
+  // Apply mediator: some individuals conform to tier stereotypes, others don't
+  const tierCosmoBias = Math.round(rawTierCosmoBias * tierBiasScale);
+  const tierPublicBias = Math.round(rawTierPublicBias * tierBiasScale);
+  const tierInstBias = Math.round(rawTierInstBias * tierBiasScale);
+  const tierTechBias = Math.round(rawTierTechBias * tierBiasScale);
+  const tierExpressBias = Math.round(rawTierExpressBias * tierBiasScale);
+  const tierFrugalBias = Math.round(rawTierFrugalBias * tierBiasScale);
+  const tierPlanBias = Math.round(rawTierPlanBias * tierBiasScale);
+  const tierStressBias = Math.round(rawTierStressBias * tierBiasScale);
+
+  const role = new Set(roleSeedTags);
+  const cosmoRoleBias =
+    (role.has('diplomat') ? 220 : 0) +
+    (role.has('media') ? 80 : 0) +
+    (role.has('operative') ? 140 : 0) +
+    (role.has('technocrat') ? 60 : 0);
+  const publicRoleBias =
+    (role.has('media') ? 320 : 0) +
+    (role.has('diplomat') ? 220 : 0) -
+    (role.has('operative') ? 240 : 0) -
+    (role.has('security') ? 120 : 0);
+  const opsecRoleBias =
+    (role.has('operative') ? 320 : 0) + (role.has('security') ? 220 : 0) - (role.has('media') ? 220 : 0);
+  const instRoleBias =
+    (role.has('technocrat') ? 200 : 0) +
+    (role.has('diplomat') ? 160 : 0) +
+    (role.has('analyst') ? 120 : 0) +
+    (role.has('organizer') ? 80 : 0);
+  const riskRoleBias =
+    (role.has('operative') ? 180 : 0) +
+    (role.has('security') ? 120 : 0) +
+    (role.has('organizer') ? 80 : 0) -
+    (role.has('diplomat') ? 40 : 0);
+  const stressRoleBias =
+    (role.has('operative') ? 100 : 0) +
+    (role.has('security') ? 120 : 0) +
+    (role.has('media') ? 80 : 0) +
+    (role.has('diplomat') ? 40 : 0);
+  const impulseRoleBias =
+    (role.has('analyst') ? 120 : 0) +
+    (role.has('technocrat') ? 80 : 0) -
+    (role.has('media') ? 60 : 0) -
+    (role.has('operative') ? 20 : 0);
+  const techRoleBias =
+    (role.has('technocrat') ? 220 : 0) +
+    (role.has('analyst') ? 180 : 0) +
+    (role.has('operative') ? 80 : 0) +
+    (role.has('security') ? 60 : 0) +
+    (role.has('media') ? 40 : 0);
+  const socialBatteryRoleBias =
+    (role.has('diplomat') ? 220 : 0) +
+    (role.has('media') ? 200 : 0) +
+    (role.has('organizer') ? 180 : 0) -
+    (role.has('analyst') ? 140 : 0) -
+    (role.has('technocrat') ? 60 : 0) -
+    (role.has('operative') ? 40 : 0);
+  const expressRoleBias =
+    (role.has('media') ? 200 : 0) +
+    (role.has('organizer') ? 80 : 0) +
+    (role.has('diplomat') ? 60 : 0) -
+    (role.has('security') ? 140 : 0) -
+    (role.has('operative') ? 80 : 0) -
+    (role.has('analyst') ? 20 : 0);
+  const frugalRoleBias =
+    (role.has('organizer') ? 60 : 0) + (role.has('analyst') ? 20 : 0) - (role.has('media') ? 20 : 0);
+  const curiosityRoleBias =
+    (role.has('analyst') ? 180 : 0) +
+    (role.has('technocrat') ? 120 : 0) +
+    (role.has('media') ? 100 : 0) +
+    (role.has('diplomat') ? 60 : 0);
+  const adaptabilityRoleBias =
+    (role.has('diplomat') ? 200 : 0) +
+    (role.has('operative') ? 160 : 0) +
+    (role.has('organizer') ? 100 : 0) +
+    (role.has('security') ? 80 : 0) -
+    (role.has('analyst') ? 40 : 0);
+  const planningRoleBias =
+    (role.has('technocrat') ? 200 : 0) +
+    (role.has('analyst') ? 180 : 0) +
+    (role.has('organizer') ? 100 : 0) -
+    (role.has('media') ? 80 : 0) -
+    (role.has('operative') ? 20 : 0);
+  const principledRoleBias =
+    (role.has('organizer') ? 120 : 0) +
+    (role.has('security') ? 120 : 0) +
+    (role.has('diplomat') ? 40 : 0) -
+    (role.has('operative') ? 40 : 0) -
+    (role.has('media') ? 20 : 0);
+  const conditioningRoleBias =
+    (role.has('security') ? 220 : 0) +
+    (role.has('operative') ? 120 : 0) -
+    (role.has('media') ? 40 : 0) -
+    (role.has('analyst') ? 60 : 0) -
+    (role.has('technocrat') ? 20 : 0);
+
+  const raw: Record<keyof Latents, Fixed> = {
+    cosmopolitanism: clampFixed01k(rng.int(0, 1000)),
+    publicness: clampFixed01k(rng.int(0, 1000)),
+    opsecDiscipline: clampFixed01k(rng.int(0, 1000)),
+    institutionalEmbeddedness: clampFixed01k(rng.int(0, 1000)),
+    riskAppetite: clampFixed01k(rng.int(0, 1000)),
+    stressReactivity: clampFixed01k(rng.int(0, 1000)),
+    impulseControl: clampFixed01k(rng.int(0, 1000)),
+    techFluency: clampFixed01k(rng.int(0, 1000)),
+    socialBattery: clampFixed01k(rng.int(0, 1000)),
+    aestheticExpressiveness: clampFixed01k(rng.int(0, 1000)),
+    frugality: clampFixed01k(rng.int(0, 1000)),
+    curiosityBandwidth: clampFixed01k(rng.int(0, 1000)),
+    adaptability: clampFixed01k(rng.int(0, 1000)),
+    planningHorizon: clampFixed01k(rng.int(0, 1000)),
+    principledness: clampFixed01k(rng.int(0, 1000)),
+    physicalConditioning: clampFixed01k(rng.int(0, 1000)),
+  };
+
+  const tierBias: Record<keyof Latents, number> = {
+    cosmopolitanism: tierCosmoBias,
+    publicness: tierPublicBias,
+    opsecDiscipline: 0,
+    institutionalEmbeddedness: tierInstBias,
+    riskAppetite: 0,
+    stressReactivity: tierStressBias,
+    impulseControl: 0,
+    techFluency: tierTechBias,
+    socialBattery: 0,
+    aestheticExpressiveness: tierExpressBias,
+    frugality: tierFrugalBias,
+    curiosityBandwidth: tierTechBias,
+    adaptability: 0,
+    planningHorizon: tierPlanBias,
+    principledness: 0,
+    physicalConditioning: 0,
+  };
+
+  const roleBias: Record<keyof Latents, number> = {
+    cosmopolitanism: cosmoRoleBias,
+    publicness: publicRoleBias,
+    opsecDiscipline: opsecRoleBias,
+    institutionalEmbeddedness: instRoleBias,
+    riskAppetite: riskRoleBias,
+    stressReactivity: stressRoleBias,
+    impulseControl: impulseRoleBias,
+    techFluency: techRoleBias,
+    socialBattery: socialBatteryRoleBias,
+    aestheticExpressiveness: expressRoleBias,
+    frugality: frugalRoleBias,
+    curiosityBandwidth: curiosityRoleBias,
+    adaptability: adaptabilityRoleBias,
+    planningHorizon: planningRoleBias,
+    principledness: principledRoleBias,
+    physicalConditioning: conditioningRoleBias,
+  };
+
+  const values: Latents = {
+    cosmopolitanism: clampFixed01k(raw.cosmopolitanism + tierBias.cosmopolitanism + roleBias.cosmopolitanism),
+    publicness: clampFixed01k(raw.publicness + tierBias.publicness + roleBias.publicness),
+    opsecDiscipline: clampFixed01k(raw.opsecDiscipline + tierBias.opsecDiscipline + roleBias.opsecDiscipline),
+    institutionalEmbeddedness: clampFixed01k(
+      raw.institutionalEmbeddedness + tierBias.institutionalEmbeddedness + roleBias.institutionalEmbeddedness,
+    ),
+    riskAppetite: clampFixed01k(raw.riskAppetite + tierBias.riskAppetite + roleBias.riskAppetite),
+    stressReactivity: clampFixed01k(raw.stressReactivity + tierBias.stressReactivity + roleBias.stressReactivity),
+    impulseControl: clampFixed01k(raw.impulseControl + tierBias.impulseControl + roleBias.impulseControl),
+    techFluency: clampFixed01k(raw.techFluency + tierBias.techFluency + roleBias.techFluency),
+    socialBattery: clampFixed01k(raw.socialBattery + tierBias.socialBattery + roleBias.socialBattery),
+    aestheticExpressiveness: clampFixed01k(
+      raw.aestheticExpressiveness + tierBias.aestheticExpressiveness + roleBias.aestheticExpressiveness,
+    ),
+    frugality: clampFixed01k(raw.frugality + tierBias.frugality + roleBias.frugality),
+    curiosityBandwidth: clampFixed01k(
+      raw.curiosityBandwidth + tierBias.curiosityBandwidth + roleBias.curiosityBandwidth,
+    ),
+    adaptability: clampFixed01k(raw.adaptability + tierBias.adaptability + roleBias.adaptability),
+    planningHorizon: clampFixed01k(raw.planningHorizon + tierBias.planningHorizon + roleBias.planningHorizon),
+    principledness: clampFixed01k(raw.principledness + tierBias.principledness + roleBias.principledness),
+    physicalConditioning: clampFixed01k(
+      raw.physicalConditioning + tierBias.physicalConditioning + roleBias.physicalConditioning,
+    ),
+  };
+
+  return { values, raw, tierBias, roleBias };
+}

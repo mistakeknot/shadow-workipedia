@@ -1,0 +1,682 @@
+/**
+ * Preferences Facet - Food, Media, Fashion, and Routines
+ *
+ * Computes agent preferences influenced by:
+ * - Microculture profiles (weighted picks)
+ * - Country priors (food/media environments)
+ * - Latent traits (frugality, aestheticExpressiveness, socialBattery)
+ * - Health conditions and allergies
+ */
+
+import type {
+  Fixed, TierBand, AgentVocabV1, AgentGenerationTraceV1, CultureProfileV1,
+} from '../types';
+import {
+  type Rng,
+  makeRng,
+  facetSeed,
+  clampFixed01k,
+  weightedPick,
+  weightedPickKUnique,
+  uniqueStrings,
+  pickKHybrid,
+  type FoodEnv01k,
+  type FoodEnvAxis,
+  FOOD_ENV_AXES,
+  normalizeFoodEnv01k,
+  mixFoodEnv01k,
+  normalizeWeights01kExact,
+  traceSet,
+  traceFacet,
+} from '../utils';
+import type { MicroProfileEntry, ClimateIndicators, PrimaryWeights } from './geography';
+import { pickFromWeightedMicroProfiles } from './geography';
+import type { Aptitudes } from './aptitudes';
+import type { PsychTraits } from './traits';
+
+// ============================================================================
+// Types
+// ============================================================================
+
+export type PreferencesContext = {
+  seed: string;
+  vocab: AgentVocabV1;
+  trace?: AgentGenerationTraceV1;
+  tierBand: TierBand;
+  latents: {
+    publicness: Fixed;
+    opsecDiscipline: Fixed;
+    institutionalEmbeddedness: Fixed;
+    stressReactivity: Fixed;
+    impulseControl: Fixed;
+    aestheticExpressiveness: Fixed;
+    frugality: Fixed;
+    socialBattery: Fixed;
+    riskAppetite: Fixed;
+  };
+  traits: PsychTraits;
+  aptitudes: Aptitudes;
+  age: number;
+  // Geography-derived
+  homeCountryIso3: string;
+  citizenshipCountryIso3: string;
+  currentCountryIso3: string;
+  abroad: boolean;
+  cosmo01: number;
+  cultureTraditionalism01: number;
+  cultureMediaOpenness01: number;
+  primaryWeights: PrimaryWeights;
+  climateIndicators: ClimateIndicators;
+  // Culture profiles
+  macroCulture: CultureProfileV1 | null;
+  microProfiles: MicroProfileEntry[];
+  // Country priors
+  countryPriorsBucket: {
+    foodEnvironment01k?: Partial<Record<FoodEnvAxis, Fixed>>;
+    mediaEnvironment01k?: Partial<Record<'print' | 'radio' | 'tv' | 'social' | 'closed', Fixed>>;
+    languages01k?: Record<string, Fixed>;
+  } | undefined;
+  homeLangEnv01k: Record<string, Fixed> | null;
+  citizenshipLangEnv01k: Record<string, Fixed> | null;
+  currentLangEnv01k: Record<string, Fixed> | null;
+  cohortBucketStartYear: number;
+  // Health inputs
+  chronicConditionTags: string[];
+  allergyTags: string[];
+  // Career/role inputs
+  careerTrackTag: string;
+  roleSeedTags: readonly string[];
+  // Visibility metrics
+  publicVisibility: Fixed;
+  paperTrail: Fixed;
+  securityPressure01k: Fixed;
+  // Vice tendency (for no-alcohol weighting)
+  viceTendency: number;
+};
+
+export type FoodPreferences = {
+  comfortFoods: string[];
+  dislikes: string[];
+  restrictions: string[];
+  ritualDrink: string;
+};
+
+export type MediaPreferences = {
+  platformDiet: Record<string, Fixed>;
+  genreTopK: string[];
+  attentionResilience: Fixed;
+  doomscrollingRisk: Fixed;
+  epistemicHygiene: Fixed;
+};
+
+export type FashionPreferences = {
+  styleTags: string[];
+  formality: Fixed;
+  conformity: Fixed;
+  statusSignaling: Fixed;
+};
+
+export type RoutinesResult = {
+  chronotype: string;
+  sleepWindow: string;
+  recoveryRituals: string[];
+};
+
+export type PreferencesResult = {
+  food: FoodPreferences;
+  media: MediaPreferences;
+  fashion: FashionPreferences;
+  routines: RoutinesResult;
+};
+
+// ============================================================================
+// Helper Functions
+// ============================================================================
+
+/** Get food environment for a country from priors */
+function getFoodEnv01k(
+  priors: PreferencesContext['countryPriorsBucket'],
+  iso3: string,
+  cohortBucketStartYear: number,
+  allPriors?: { countries?: Record<string, { buckets?: Record<string, { foodEnvironment01k?: Partial<Record<FoodEnvAxis, Fixed>> }> }> },
+): FoodEnv01k | null {
+  // Try the provided bucket first
+  if (priors?.foodEnvironment01k) {
+    return normalizeFoodEnv01k(priors.foodEnvironment01k);
+  }
+  // Fallback to looking up in all priors
+  const bucket = allPriors?.countries?.[iso3]?.buckets?.[String(cohortBucketStartYear)];
+  return normalizeFoodEnv01k(bucket?.foodEnvironment01k ?? null);
+}
+
+// ============================================================================
+// Food Preferences Computation
+// ============================================================================
+
+function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferences {
+  const {
+    vocab, trace, cosmo01, primaryWeights,
+    homeCountryIso3, citizenshipCountryIso3, currentCountryIso3, abroad,
+    macroCulture, microProfiles, countryPriorsBucket, cohortBucketStartYear,
+    chronicConditionTags, allergyTags, homeLangEnv01k, citizenshipLangEnv01k, currentLangEnv01k, viceTendency,
+  } = ctx;
+
+  const { foodPrimaryWeight } = primaryWeights;
+
+  // Validate required vocab
+  if (!vocab.preferences.food.comfortFoods.length) throw new Error('Agent vocab missing: preferences.food.comfortFoods');
+  if (!vocab.preferences.food.dislikes.length) throw new Error('Agent vocab missing: preferences.food.dislikes');
+  if (!vocab.preferences.food.restrictions.length) throw new Error('Agent vocab missing: preferences.food.restrictions');
+  if (!vocab.preferences.food.ritualDrinks.length) throw new Error('Agent vocab missing: preferences.food.ritualDrinks');
+
+  // Build blended food environment
+  const homeFoodEnv01k = getFoodEnv01k(countryPriorsBucket, homeCountryIso3, cohortBucketStartYear);
+  const citizenshipFoodEnv01k = citizenshipCountryIso3 !== homeCountryIso3 ? getFoodEnv01k(countryPriorsBucket, citizenshipCountryIso3, cohortBucketStartYear) : null;
+  const currentFoodEnv01k = currentCountryIso3 !== homeCountryIso3 ? getFoodEnv01k(countryPriorsBucket, currentCountryIso3, cohortBucketStartYear) : null;
+
+  const foodEnv01k = homeFoodEnv01k
+    ? mixFoodEnv01k([
+        { env: homeFoodEnv01k, weight: 1 },
+        ...(citizenshipFoodEnv01k ? [{ env: citizenshipFoodEnv01k, weight: 0.10 + 0.25 * cosmo01 }] : []),
+        ...(currentFoodEnv01k ? [{ env: currentFoodEnv01k, weight: 0.15 + 0.35 * cosmo01 + (abroad ? 0.15 : 0) }] : []),
+      ])
+    : null;
+
+  const topAxes = (env: FoodEnv01k | null) =>
+    env ? [...FOOD_ENV_AXES].map(axis => ({ axis, value01k: env[axis] })).sort((a, b) => b.value01k - a.value01k).slice(0, 5) : null;
+  if (trace) {
+    trace.derived.foodEnv = { home: topAxes(homeFoodEnv01k), citizenship: topAxes(citizenshipFoodEnv01k), current: topAxes(currentFoodEnv01k), blended: topAxes(foodEnv01k) };
+  }
+
+  const axis01 = (axis: FoodEnvAxis, fallback: number) => (foodEnv01k ? foodEnv01k[axis] / 1000 : fallback);
+
+  // Weight-faithful microculture food picks
+  const microComfortFoods = pickFromWeightedMicroProfiles(rng, microProfiles, p => p.preferences?.food?.comfortFoods, 5);
+  const microRitualDrinks = pickFromWeightedMicroProfiles(rng, microProfiles, p => p.preferences?.food?.ritualDrinks, 3);
+  const cultureComfort = uniqueStrings([...(macroCulture?.preferences?.food?.comfortFoods ?? []), ...microComfortFoods]);
+  const cultureDrinks = uniqueStrings([...(macroCulture?.preferences?.food?.ritualDrinks ?? []), ...microRitualDrinks]);
+
+  // Restrictions logic
+  const allRestrictionsPool = uniqueStrings(vocab.preferences.food.restrictions);
+  let restrictions: string[] = [];
+  const forcedRestrictions: Array<{ restriction: string; reason: string }> = [];
+  const ensureRestriction = (restriction: string, reason: string) => {
+    if (!restriction.trim() || restrictions.includes(restriction)) return;
+    restrictions.push(restriction);
+    forcedRestrictions.push({ restriction, reason });
+  };
+
+  // Spirituality observance preview for dietary decisions
+  const spiritPreviewRng = makeRng(facetSeed(ctx.seed, 'spirituality'));
+  const isDevoutLean = ctx.traits.authoritarianism > 600 || (ctx.traits.conscientiousness > 650 && ctx.age > 45);
+  const spiritualityObservancePreview = isDevoutLean && spiritPreviewRng.next01() < 0.5 ? 'observant' : 'low';
+  const observanceMultiplier = spiritualityObservancePreview === 'observant' ? 2.0 : 0.4;
+
+  // Language mass for religious dietary rules
+  const arabicMass01 = (() => {
+    const home = (homeLangEnv01k?.ar ?? 0) / 1000;
+    const citizenship = citizenshipLangEnv01k ? (citizenshipLangEnv01k.ar ?? 0) / 1000 : 0;
+    const current = currentLangEnv01k ? (currentLangEnv01k.ar ?? 0) / 1000 : 0;
+    return Math.max(0, Math.min(1, home + 0.35 * cosmo01 * citizenship + 0.45 * cosmo01 * current));
+  })();
+  const hebrewMass01 = (() => {
+    const home = (homeLangEnv01k?.he ?? 0) / 1000;
+    const citizenship = citizenshipLangEnv01k ? (citizenshipLangEnv01k.he ?? 0) / 1000 : 0;
+    const current = currentLangEnv01k ? (currentLangEnv01k.he ?? 0) / 1000 : 0;
+    return Math.max(0, Math.min(1, home + 0.35 * cosmo01 * citizenship + 0.45 * cosmo01 * current));
+  })();
+
+  const restrictionWeight = (restriction: string): number => {
+    const r = restriction.toLowerCase();
+    let w = 1;
+    if (r === 'vegetarian') w += 2.2 * axis01('plantForward', 0.45) - 1.5 * axis01('meat', 0.45);
+    if (r === 'vegan') w += 2.6 * axis01('plantForward', 0.45) - 1.6 * axis01('meat', 0.45) - 0.8 * axis01('dairy', 0.45);
+    if (r === 'pescatarian') w += 1.4 * axis01('seafood', 0.35) - 0.9 * axis01('meat', 0.45);
+    if (r === 'no seafood') w += 0.7 + 1.2 * (1 - axis01('seafood', 0.45));
+    if (r === 'spice-sensitive') w += 0.7 + 1.8 * (1 - axis01('spice', 0.45));
+    if (r === 'low sugar') w += 0.8 + 1.4 * (1 - axis01('sweets', 0.45));
+    if (r === 'no added sugar') w += 0.8 + 1.4 * (1 - axis01('sweets', 0.45));
+    if (r === 'low sodium') w += 0.9 + 0.6 * (1 - axis01('friedOily', 0.45));
+    if (r === 'halal') w += (0.3 + 2.0 * arabicMass01) * observanceMultiplier;
+    if (r === 'kosher') w += (0.3 + 2.0 * hebrewMass01) * observanceMultiplier;
+    if (r === 'no pork') w += (0.3 + 1.5 * arabicMass01 + 0.8 * hebrewMass01) * observanceMultiplier;
+    if (r === 'no beef') w += (0.2 + 0.3 * hebrewMass01) * observanceMultiplier;
+    if (r === 'no alcohol') w += 0.7 + 0.6 * (1 - viceTendency);
+    if (r === 'no caffeine') w += 0.7 + 1.2 * (1 - axis01('caffeine', 0.45)) + (chronicConditionTags.includes('insomnia') ? 0.8 : 0);
+    if (r === 'lactose-sensitive') w += 0.4 + 0.6 * (1 - axis01('dairy', 0.45));
+    if (r === 'gluten-sensitive') w += 0.4 + 0.4 * (1 - axis01('streetFood', 0.45));
+    if (r === 'nut allergy') w += 0.3;
+    if (r === 'shellfish allergy') w += 0.3;
+    if (r === 'egg-free') w += 0.25;
+    return Math.max(0.05, w);
+  };
+
+  const baseRestrictionCount = rng.int(0, 1);
+  restrictions = allRestrictionsPool.length
+    ? weightedPickKUnique(rng, allRestrictionsPool.map(item => ({ item, weight: restrictionWeight(item) })), baseRestrictionCount)
+    : [];
+
+  // Enforce health/allergy → restriction consistency
+  if (allergyTags.includes('nuts')) ensureRestriction('nut allergy', 'allergy:nuts');
+  if (allergyTags.includes('dairy')) ensureRestriction('lactose-sensitive', 'allergy:dairy');
+  if (allergyTags.includes('gluten')) ensureRestriction('gluten-sensitive', 'allergy:gluten');
+  if (allergyTags.includes('shellfish')) ensureRestriction('shellfish allergy', 'allergy:shellfish');
+  if (chronicConditionTags.includes('hypertension')) ensureRestriction('low sodium', 'chronic:hypertension');
+
+  restrictions = uniqueStrings(restrictions).filter(r => allRestrictionsPool.includes(r) || forcedRestrictions.some(f => f.restriction === r));
+
+  const hasRestriction = (r: string) => restrictions.includes(r);
+  const likelyGluten = (s: string) => /\b(noodle|flatbread|dumpling|pastr(y|ies)|bread|sandwich)\b/i.test(s);
+  const likelyDairy = (s: string) => /\b(dairy|cheese|cocoa|dessert|pastr(y|ies))\b/i.test(s);
+  const likelyMeat = (s: string) => /\b(meat|meats|grilled)\b/i.test(s);
+  const likelySeafood = (s: string) => /\b(seafood|raw fish)\b/i.test(s);
+
+  // Comfort foods selection
+  const comfortPool = uniqueStrings([...cultureComfort, ...vocab.preferences.food.comfortFoods]);
+  const comfortWeight = (item: string): number => {
+    const s = item.toLowerCase();
+    let w = 1;
+    if (cultureComfort.includes(item)) w += 0.9 + 1.8 * foodPrimaryWeight;
+    if (foodEnv01k) {
+      if (s.includes('street')) w += 2.2 * axis01('streetFood', 0.5);
+      if (s.includes('fine')) w += 2.2 * axis01('fineDining', 0.5);
+      if (s.includes('spicy')) w += 2.2 * axis01('spice', 0.5);
+      if (s.includes('dessert') || s.includes('pastr')) w += 2.1 * axis01('sweets', 0.5);
+      if (s.includes('late-night') || s.includes('snack')) w += 1.2 * axis01('friedOily', 0.5) + 0.8 * axis01('streetFood', 0.5);
+      if (s.includes('seafood')) w += 2.0 * axis01('seafood', 0.4);
+      if (s.includes('meat') || s.includes('grilled')) w += 2.0 * axis01('meat', 0.4);
+      if (s.includes('vegetarian') || s.includes('salad')) w += 1.8 * axis01('plantForward', 0.4);
+    }
+    if (hasRestriction('vegetarian') && likelyMeat(item)) w *= 0.15;
+    if (hasRestriction('vegan') && (likelyMeat(item) || likelyDairy(item))) w *= 0.12;
+    if (hasRestriction('pescatarian') && likelyMeat(item)) w *= 0.35;
+    if (hasRestriction('no seafood') && likelySeafood(item)) w *= 0.15;
+    if (hasRestriction('spice-sensitive') && s.includes('spicy')) w *= 0.20;
+    if ((hasRestriction('lactose-sensitive') || allergyTags.includes('dairy')) && likelyDairy(item)) w *= 0.25;
+    if ((hasRestriction('gluten-sensitive') || allergyTags.includes('gluten')) && likelyGluten(item)) w *= 0.25;
+    if ((hasRestriction('shellfish allergy') || allergyTags.includes('shellfish')) && likelySeafood(item)) w *= 0.35;
+    if (hasRestriction('low sugar') && (s.includes('dessert') || s.includes('pastr'))) w *= 0.35;
+    if (hasRestriction('no added sugar') && (s.includes('dessert') || s.includes('pastr') || s.includes('sweet'))) w *= 0.25;
+    return Math.max(0.05, w);
+  };
+  const comfortFoods = weightedPickKUnique(rng, comfortPool.map(item => ({ item, weight: comfortWeight(item) })), 2);
+
+  // Ritual drinks selection
+  const drinkPool = uniqueStrings([...cultureDrinks, ...vocab.preferences.food.ritualDrinks]);
+  const drinkWeight = (drink: string): number => {
+    const s = drink.toLowerCase();
+    let w = 1;
+    if (cultureDrinks.includes(drink)) w += 0.9 + 1.8 * foodPrimaryWeight;
+    const caffeinated = s.includes('coffee') || s.includes('espresso') || s.includes('mate') || s.includes('matcha') || s.includes('energy');
+    const teaish = s.includes('tea') || s.includes('matcha');
+    const sweetish = s.includes('cocoa') || s.includes('hot chocolate');
+    const hydrating = s.includes('water') || s.includes('seltzer');
+    if (foodEnv01k) {
+      if (caffeinated) w += 2.2 * axis01('caffeine', 0.5);
+      if (teaish) w += 1.2 * (0.6 + 0.4 * axis01('caffeine', 0.4));
+      if (sweetish) w += 1.2 * axis01('sweets', 0.5);
+      if (hydrating) w += 0.7 + 0.8 * (1 - axis01('caffeine', 0.45));
+    }
+    if (caffeinated && chronicConditionTags.includes('insomnia')) w *= 0.25;
+    if (caffeinated && chronicConditionTags.includes('migraine')) w *= 0.55;
+    if (hasRestriction('no caffeine') && caffeinated) w *= 0.15;
+    if (hasRestriction('low sugar') && sweetish) w *= 0.35;
+    if (hasRestriction('no added sugar') && sweetish) w *= 0.30;
+    return Math.max(0.05, w);
+  };
+  const ritualDrink = weightedPickKUnique(rng, drinkPool.map(item => ({ item, weight: drinkWeight(item) })), 1)[0] ?? '';
+
+  // Dislikes selection
+  const dislikePool = uniqueStrings(vocab.preferences.food.dislikes);
+  const dislikeWeight = (item: string): number => {
+    const s = item.toLowerCase();
+    let w = 1;
+    if ((hasRestriction('lactose-sensitive') || allergyTags.includes('dairy')) && s.includes('dairy')) w += 5;
+    if (hasRestriction('low sugar') && (s.includes('sweet') || s.includes('sweet drinks'))) w += 3;
+    if (hasRestriction('low sodium') && s.includes('salty')) w += 3;
+    if ((hasRestriction('shellfish allergy') || allergyTags.includes('shellfish')) && s.includes('raw fish')) w += 3;
+    if ((hasRestriction('vegetarian') || hasRestriction('pescatarian')) && s.includes('red meat')) w += 1.5;
+    if (foodEnv01k && s.includes('very spicy')) w += 1.6 * (1 - axis01('spice', 0.5));
+    if (foodEnv01k && s.includes('oily')) w += 1.4 * (1 - axis01('friedOily', 0.5));
+    if (foodEnv01k && s.includes('carbonated')) w += 0.8 * (1 - axis01('sweets', 0.5));
+    return Math.max(0.05, w);
+  };
+  let dislikes = dislikePool.length ? weightedPickKUnique(rng, dislikePool.map(item => ({ item, weight: dislikeWeight(item) })), rng.int(1, 3)) : [];
+
+  const forcedDislikes: Array<{ dislike: string; reason: string }> = [];
+  const ensureDislike = (dislike: string, reason: string) => {
+    if (!dislikePool.includes(dislike) || dislikes.includes(dislike)) return;
+    dislikes.push(dislike);
+    forcedDislikes.push({ dislike, reason });
+  };
+
+  if (allergyTags.includes('dairy')) ensureDislike('dairy', 'allergy:dairy');
+  if (allergyTags.includes('shellfish')) ensureDislike('raw fish', 'allergy:shellfish');
+  if (chronicConditionTags.includes('hypertension')) ensureDislike('very salty', 'chronic:hypertension');
+  dislikes = uniqueStrings(dislikes).slice(0, 3);
+
+  // Fixup incompatible comfort foods
+  const incompatibleComfort = (item: string): boolean => {
+    if (hasRestriction('vegetarian') && likelyMeat(item)) return true;
+    if (hasRestriction('vegan') && (likelyMeat(item) || likelyDairy(item))) return true;
+    if ((hasRestriction('lactose-sensitive') || allergyTags.includes('dairy')) && likelyDairy(item)) return true;
+    if ((hasRestriction('gluten-sensitive') || allergyTags.includes('gluten')) && likelyGluten(item)) return true;
+    if ((hasRestriction('shellfish allergy') || allergyTags.includes('shellfish')) && likelySeafood(item)) return true;
+    if (hasRestriction('no seafood') && likelySeafood(item)) return true;
+    return false;
+  };
+
+  const fixupRng = makeRng(facetSeed(ctx.seed, 'preferences_food_fixup'));
+  const fixups: Array<{ removed: string; replacement: string | null }> = [];
+  const replacementPool = comfortPool.filter(c => !incompatibleComfort(c));
+  for (let i = 0; i < comfortFoods.length; i++) {
+    const cur = comfortFoods[i]!;
+    if (!incompatibleComfort(cur)) continue;
+    const candidates = replacementPool.filter(c => !comfortFoods.includes(c));
+    const replacement = candidates.length ? candidates[fixupRng.int(0, candidates.length - 1)]! : null;
+    fixups.push({ removed: cur, replacement });
+    if (replacement) comfortFoods[i] = replacement;
+  }
+
+  traceSet(trace, 'preferences.food', { comfortFoods, dislikes, restrictions, ritualDrink }, {
+    method: 'env+consistency', dependsOn: { facet: 'preferences', foodPrimaryWeight, cultureComfortPoolSize: cultureComfort.length, cultureDrinksPoolSize: cultureDrinks.length, forcedRestrictions, forcedDislikes, fixups },
+  });
+
+  return { comfortFoods, dislikes, restrictions, ritualDrink };
+}
+
+// ============================================================================
+// Media Preferences Computation
+// ============================================================================
+
+function computeMediaPreferences(ctx: PreferencesContext, rng: Rng): MediaPreferences {
+  const { vocab, trace, latents, traits, aptitudes, primaryWeights, macroCulture, microProfiles, countryPriorsBucket, cultureMediaOpenness01 } = ctx;
+  const { mediaPrimaryWeight } = primaryWeights;
+  const public01 = latents.publicness / 1000;
+  const opsec01 = latents.opsecDiscipline / 1000;
+  const inst01 = latents.institutionalEmbeddedness / 1000;
+
+  if (!vocab.preferences.media.genres.length) throw new Error('Agent vocab missing: preferences.media.genres');
+  if (!vocab.preferences.media.platforms.length) throw new Error('Agent vocab missing: preferences.media.platforms');
+
+  // Genre selection with microculture influence
+  const microGenres = pickFromWeightedMicroProfiles(rng, microProfiles, p => p.preferences?.media?.genres, 4);
+  const cultureGenres = uniqueStrings([...(macroCulture?.preferences?.media?.genres ?? []), ...microGenres]);
+  const genreTopK = cultureGenres.length && rng.next01() < mediaPrimaryWeight
+    ? pickKHybrid(rng, cultureGenres, vocab.preferences.media.genres, 5, 3)
+    : rng.pickK(vocab.preferences.media.genres, 5);
+  traceSet(trace, 'preferences.media.genreTopK', genreTopK, { method: 'hybridPickK', dependsOn: { facet: 'preferences', mediaPrimaryWeight, cultureGenrePoolSize: cultureGenres.length, globalGenrePoolSize: vocab.preferences.media.genres.length } });
+
+  // Platform diet with country priors
+  const platformDietRaw = vocab.preferences.media.platforms.map((p) => {
+    const key = p.toLowerCase();
+    const envBase = (() => {
+      const env = countryPriorsBucket?.mediaEnvironment01k;
+      if (!env) return 200;
+      const v = env[key as 'print' | 'radio' | 'tv' | 'social' | 'closed'];
+      return typeof v === 'number' && Number.isFinite(v) ? v : 200;
+    })();
+    let bias = 0;
+    if (key === 'closed') bias += Math.round(70 * opsec01) + Math.round(70 * (1 - cultureMediaOpenness01));
+    if (key === 'social') bias += Math.round(65 * public01) - Math.round(40 * opsec01) + Math.round(25 * cultureMediaOpenness01);
+    if (key === 'tv') bias += Math.round(30 * public01);
+    if (key === 'print') bias += Math.round(45 * inst01);
+    if (key === 'radio') bias += Math.round(30 * inst01);
+    const w = Math.max(1, Math.round(envBase * 0.9) + rng.int(0, 220) + bias * 6);
+    return { p, w, envBase };
+  });
+  const platformDietWeights = Object.fromEntries(platformDietRaw.map(({ p, w }) => [p, w]));
+  let platformDiet: Record<string, Fixed> = normalizeWeights01kExact(platformDietWeights);
+  const platformDietRepairs: Array<{ rule: string; before: Record<string, Fixed>; after: Record<string, Fixed> }> = [];
+  const applyPlatformDietRepair = (rule: string, mutate: (d: Record<string, Fixed>) => void) => {
+    const before = { ...platformDiet };
+    const next = { ...platformDiet };
+    mutate(next);
+    platformDiet = next;
+    platformDietRepairs.push({ rule, before, after: { ...platformDiet } });
+  };
+
+  if (opsec01 > 0.75) {
+    applyPlatformDietRepair('opsecCapSocialAndPreferClosed', (d) => {
+      const social = d.social ?? 0;
+      const closed = d.closed ?? 0;
+      if (social > 250) {
+        const delta = social - 250;
+        d.social = 250;
+        d.closed = clampFixed01k(closed + delta);
+      }
+      if ((d.closed ?? 0) < (d.social ?? 0)) {
+        const delta = (d.social ?? 0) - (d.closed ?? 0);
+        d.closed = clampFixed01k((d.closed ?? 0) + delta);
+        d.social = clampFixed01k((d.social ?? 0) - delta);
+      }
+    });
+  }
+
+  if (trace) trace.derived.platformDietRaw = platformDietRaw.map(({ p, w, envBase }) => ({ p, w, envBase }));
+  if (trace && platformDietRepairs.length) trace.derived.platformDietRepairs = platformDietRepairs;
+  traceSet(trace, 'preferences.media.platformDiet', platformDiet, { method: 'env+weightedNormalizeExact+repairs', dependsOn: { facet: 'preferences', public01, opsec01, inst01, env: countryPriorsBucket?.mediaEnvironment01k ?? null, platformDietRepairs } });
+
+  // Media/cognition traits
+  const attentionResilience = clampFixed01k(
+    0.42 * aptitudes.attentionControl + 0.22 * traits.conscientiousness + 0.12 * aptitudes.workingMemory +
+    0.10 * (1000 - latents.publicness) + 0.08 * latents.impulseControl + 0.06 * rng.int(0, 1000),
+  );
+  const doomscrollingRisk = clampFixed01k(
+    0.30 * latents.publicness + 0.22 * (1000 - latents.opsecDiscipline) + 0.18 * (1000 - traits.conscientiousness) +
+    0.10 * traits.noveltySeeking + 0.10 * (1000 - latents.impulseControl) + 0.06 * latents.stressReactivity + 0.04 * rng.int(0, 1000),
+  );
+  const epistemicHygiene = clampFixed01k(
+    0.28 * aptitudes.workingMemory + 0.20 * aptitudes.attentionControl + 0.20 * latents.institutionalEmbeddedness +
+    0.20 * latents.opsecDiscipline + 0.12 * rng.int(0, 1000),
+  );
+  traceSet(trace, 'preferences.media.metrics', { attentionResilience, doomscrollingRisk, epistemicHygiene }, { method: 'formula', dependsOn: { facet: 'preferences', aptitudes, traits, latents } });
+
+  return { platformDiet, genreTopK, attentionResilience, doomscrollingRisk, epistemicHygiene };
+}
+
+// ============================================================================
+// Fashion Preferences Computation
+// ============================================================================
+
+function computeFashionPreferences(ctx: PreferencesContext, _rng: Rng): FashionPreferences {
+  const { seed, vocab, trace, tierBand, latents, traits, primaryWeights, macroCulture, microProfiles, cultureTraditionalism01 } = ctx;
+  const { fashionPrimaryWeight } = primaryWeights;
+  const public01 = latents.publicness / 1000;
+  const opsec01 = latents.opsecDiscipline / 1000;
+  const inst01 = latents.institutionalEmbeddedness / 1000;
+
+  traceFacet(trace, seed, 'fashion');
+  const fashionRng = makeRng(facetSeed(seed, 'fashion'));
+
+  if (!vocab.preferences.fashion.styleTags.length) throw new Error('Agent vocab missing: preferences.fashion.styleTags');
+
+  // Style tags with microculture influence
+  const microStyleTags = pickFromWeightedMicroProfiles(fashionRng, microProfiles, p => p.preferences?.fashion?.styleTags, 3);
+  const cultureStyle = uniqueStrings([...(macroCulture?.preferences?.fashion?.styleTags ?? []), ...microStyleTags]);
+  let styleTags = cultureStyle.length && fashionRng.next01() < fashionPrimaryWeight
+    ? pickKHybrid(fashionRng, cultureStyle, vocab.preferences.fashion.styleTags, 3, 2)
+    : fashionRng.pickK(vocab.preferences.fashion.styleTags, 3);
+
+  // Enforce coherence with visibility/opsec/institutional factors
+  const stylePool = uniqueStrings([...cultureStyle, ...vocab.preferences.fashion.styleTags]);
+  const forced: string[] = [];
+  const addForced = (tag: string) => {
+    if (stylePool.includes(tag) && !forced.includes(tag)) forced.push(tag);
+  };
+  if (public01 > 0.7) { addForced('formal'); addForced('tailored'); }
+  if (opsec01 > 0.7) { addForced('utilitarian'); addForced('techwear'); }
+  if (inst01 > 0.7) { addForced('classic'); addForced('minimalist'); }
+  if (cultureTraditionalism01 > 0.72) { addForced('classic'); addForced('formal'); addForced('traditional'); }
+  if (tierBand === 'elite') addForced('formal');
+  for (const tag of forced.slice(0, 2)) {
+    if (!styleTags.includes(tag)) styleTags = uniqueStrings([tag, ...styleTags]).slice(0, 3);
+  }
+
+  // High OPSEC + low public: avoid attention-grabbing styles
+  if (opsec01 > 0.75 && public01 < 0.45) {
+    const forbidden = new Set(['maximalist', 'colorful', 'avant-garde', 'punk', 'goth']);
+    const replacements = ['monochrome', 'utilitarian', 'workwear', 'minimalist'];
+    for (const bad of forbidden) {
+      if (!styleTags.includes(bad)) continue;
+      const replacement = replacements.find(r => stylePool.includes(r) && !styleTags.includes(r));
+      styleTags = uniqueStrings([...(replacement ? [replacement] : []), ...styleTags.filter(t => t !== bad)]).slice(0, 3);
+    }
+  }
+  traceSet(trace, 'preferences.fashion.styleTags', styleTags, { method: 'pickK+forced', dependsOn: { facet: 'fashion', fashionPrimaryWeight, cultureStylePoolSize: cultureStyle.length, forced: forced.slice(0, 2) } });
+
+  // Fashion metrics
+  const formality = clampFixed01k(
+    0.36 * latents.publicness + 0.32 * latents.institutionalEmbeddedness + 0.18 * fashionRng.int(0, 1000) +
+    (tierBand === 'elite' ? 90 : tierBand === 'mass' ? -40 : 0),
+  );
+  const conformity = clampFixed01k(
+    0.38 * latents.institutionalEmbeddedness + 0.22 * traits.conscientiousness +
+    0.16 * (1000 - traits.noveltySeeking) + 0.24 * fashionRng.int(0, 1000),
+  );
+  const statusSignaling = clampFixed01k(
+    0.34 * latents.publicness + 0.26 * (tierBand === 'elite' ? 920 : tierBand === 'middle' ? 600 : 420) +
+    0.14 * (1000 - latents.opsecDiscipline) + 0.10 * latents.aestheticExpressiveness +
+    0.26 * fashionRng.int(0, 1000) - 0.12 * latents.frugality,
+  );
+  traceSet(trace, 'preferences.fashion.metrics', { formality, conformity, statusSignaling, forced: forced.slice(0, 2) }, { method: 'formula+forcedTags', dependsOn: { facet: 'fashion', latents, traits, tierBand } });
+
+  return { styleTags, formality, conformity, statusSignaling };
+}
+
+// ============================================================================
+// Routines Computation
+// ============================================================================
+
+function computeRoutines(ctx: PreferencesContext, _rng: Rng, doomscrollingRisk: Fixed): RoutinesResult {
+  const { seed, vocab, trace, latents, traits, aptitudes, age, careerTrackTag, roleSeedTags, chronicConditionTags, climateIndicators } = ctx;
+
+  traceFacet(trace, seed, 'routines');
+  const routinesRng = makeRng(facetSeed(seed, 'routines'));
+
+  if (!vocab.routines.chronotypes.length) throw new Error('Agent vocab missing: routines.chronotypes');
+  if (!vocab.routines.recoveryRituals.length) throw new Error('Agent vocab missing: routines.recoveryRituals');
+
+  // Enhanced chronotype selection
+  const stressReactivity01 = latents.stressReactivity / 1000;
+  const chronotypeWeights = vocab.routines.chronotypes.map((t) => {
+    const key = t.toLowerCase();
+    let w = 1;
+    if (key === 'early' || key === 'ultra-early') {
+      w += 1.4 * (traits.conscientiousness / 1000) + 0.6 * (age / 120);
+      if (key === 'ultra-early') w -= 0.5;
+    }
+    if (key === 'night') w += 1.2 * (traits.noveltySeeking / 1000) + 0.7 * (latents.riskAppetite / 1000);
+    if (key === 'standard') w += 0.7;
+    if (key === 'variable') { w += 1.0 * stressReactivity01 + 0.4 * (1 - traits.conscientiousness / 1000); }
+    if (key === 'biphasic') { w += 0.8 * climateIndicators.hot01 + 0.3 * (age / 120); }
+    if (key === 'flex-shift') { w += 1.0 * (careerTrackTag === 'logistics' ? 1 : 0) + 0.6 * (roleSeedTags.includes('operative') ? 1 : 0); }
+    if (key === 'rotating') { w += 1.2 * (careerTrackTag === 'military' ? 1 : 0) + 0.8 * (careerTrackTag === 'public-health' ? 1 : 0) + 0.5 * (roleSeedTags.includes('security') ? 1 : 0); }
+    if (careerTrackTag === 'journalism' && key === 'night') w += 0.6;
+    if (careerTrackTag === 'civil-service' && key === 'early') w += 0.4;
+    const hasInsomnia = chronicConditionTags.some(c => c.toLowerCase().includes('insomnia') || c.toLowerCase().includes('sleep'));
+    if (hasInsomnia && (key === 'early' || key === 'ultra-early')) w *= 0.5;
+    if (hasInsomnia && key === 'variable') w += 0.8;
+    return { item: t, weight: Math.max(0.1, w) };
+  });
+  const chronotype = weightedPick(routinesRng, chronotypeWeights);
+
+  // Sleep window based on chronotype
+  const sleepWindow = (() => {
+    switch (chronotype.toLowerCase()) {
+      case 'early': return '22:00-06:00';
+      case 'ultra-early': return '20:30-04:30';
+      case 'night': return '02:00-10:00';
+      case 'biphasic': return '00:00-06:00 + 14:00-15:30';
+      case 'flex-shift': return 'varies by assignment';
+      case 'rotating': return 'shift-dependent';
+      case 'variable': return 'inconsistent';
+      default: return '00:00-08:00';
+    }
+  })();
+
+  // Recovery rituals with weighted selection
+  const ritualWeights = vocab.routines.recoveryRituals.map((r) => {
+    const key = r.toLowerCase();
+    let w = 1;
+    if (key.includes('gym') || key.includes('run') || key.includes('cardio')) w += 1.2 * (aptitudes.endurance / 1000) + 0.3 * (traits.conscientiousness / 1000);
+    if (key.includes('meditation') || key.includes('breath')) w += 0.8 * (traits.conscientiousness / 1000) + 0.8 * ((1000 - aptitudes.attentionControl) / 1000);
+    if (key.includes('sleep') || key.includes('nap')) w += 0.6 * ((1000 - aptitudes.endurance) / 1000);
+    if (key.includes('reading') || key.includes('journal')) w += 0.7 * (aptitudes.workingMemory / 1000);
+    if (key.includes('walk')) w += 0.4 * (aptitudes.endurance / 1000);
+    if (key.includes('music')) w += 0.4 * (traits.agreeableness / 1000);
+    if (key.includes('call') || key.includes('cafe') || key.includes('cook') || key.includes('board game') || key.includes('movie')) {
+      w += 0.9 * (latents.socialBattery / 1000);
+    }
+    if (key.includes('phone-free') || key.includes('offline') || key.includes('gardening') || key.includes('clean')) {
+      w += 0.5 * (doomscrollingRisk / 1000) + 0.35 * (latents.stressReactivity / 1000);
+    }
+    return { item: r, weight: w };
+  });
+  const weightByRitual = new Map(ritualWeights.map(({ item, weight }) => [item, weight]));
+  let recoveryRituals = weightedPickKUnique(routinesRng, ritualWeights, 2);
+
+  // Repair logic for ensuring appropriate recovery rituals
+  const routinesRepairs: Array<{ rule: string; removed: string | null; added: string }> = [];
+  const repairRng = makeRng(facetSeed(seed, 'routines_repair'));
+  const hasAny = (cands: string[]) => cands.some(c => recoveryRituals.includes(c));
+  const pickCand = (cands: string[]) => {
+    const available = cands.filter(c => vocab.routines.recoveryRituals.includes(c));
+    return available.length ? available[repairRng.int(0, available.length - 1)]! : null;
+  };
+  const replaceOne = (added: string, rule: string) => {
+    if (recoveryRituals.includes(added)) return;
+    const candidates = [...recoveryRituals].map((r) => ({ r, w: weightByRitual.get(r) ?? 0 })).sort((a, b) => (a.w - b.w) || a.r.localeCompare(b.r));
+    const removed = candidates[0]?.r ?? null;
+    recoveryRituals = uniqueStrings([added, ...recoveryRituals.filter(r => r !== removed)]).slice(0, 2);
+    routinesRepairs.push({ rule, removed, added });
+  };
+
+  const socialSet = ['call a friend', 'cook a meal', 'board game night', 'movie night', 'cafe hour'];
+  const soloSet = ['journaling', 'long walk', 'reading fiction', 'meditation', 'tea ritual', 'quiet music', 'gardening', 'clean the workspace'];
+  const offlineSet = ['phone-free hour', 'long walk', 'gym session', 'sauna', 'gardening', 'clean the workspace', 'stretching'];
+
+  if ((latents.socialBattery / 1000) > 0.65 && !hasAny(socialSet)) {
+    const c = pickCand(socialSet);
+    if (c) replaceOne(c, 'ensureSocialRecovery');
+  }
+  if ((latents.socialBattery / 1000) < 0.35 && !hasAny(soloSet)) {
+    const c = pickCand(soloSet);
+    if (c) replaceOne(c, 'ensureSoloRecovery');
+  }
+  if ((doomscrollingRisk / 1000) > 0.7 && !hasAny(offlineSet)) {
+    const c = pickCand(offlineSet);
+    if (c) replaceOne(c, 'ensureOfflineRecovery');
+  }
+
+  if (trace && routinesRepairs.length) trace.derived.routinesRepairs = routinesRepairs;
+  traceSet(trace, 'routines', { chronotype, sleepWindow, recoveryRituals }, { method: 'weightedPick+weightedPickKUnique+repairs', dependsOn: { facet: 'routines', traits, aptitudes, careerTrackTag, routinesRepairs } });
+
+  return { chronotype, sleepWindow, recoveryRituals };
+}
+
+// ============================================================================
+// Main Export
+// ============================================================================
+
+/**
+ * Compute all preferences for an agent.
+ *
+ * Preferences are influenced by:
+ * - Country priors (food/media environments)
+ * - Culture profiles (macro and micro)
+ * - Latent traits (publicness, opsec, aestheticExpressiveness, etc.)
+ * - Health conditions and allergies
+ * - Career and role
+ */
+export function computePreferences(ctx: PreferencesContext): PreferencesResult {
+  traceFacet(ctx.trace, ctx.seed, 'preferences');
+  const prefsRng = makeRng(facetSeed(ctx.seed, 'preferences'));
+
+  const food = computeFoodPreferences(ctx, prefsRng);
+  const media = computeMediaPreferences(ctx, prefsRng);
+  const fashion = computeFashionPreferences(ctx, prefsRng);
+  const routines = computeRoutines(ctx, prefsRng, media.doomscrollingRisk);
+
+  return { food, media, fashion, routines };
+}

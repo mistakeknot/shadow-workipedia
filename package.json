@@ -16,6 +16,7 @@
     "audit:mechanics": "node --import tsx scripts/audit-mechanics-coverage.ts",
     "backfill:issue-mechanics": "node --import tsx scripts/backfill-issue-mechanics.ts",
     "typecheck": "tsc --noEmit",
+    "test:narration": "node --import tsx scripts/test-narration.ts",
     "prepare": "husky || true"
   },
   "devDependencies": {
