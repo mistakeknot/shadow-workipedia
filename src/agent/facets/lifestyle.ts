@@ -46,6 +46,7 @@ export type LifestyleContext = {
   age: number;
   tierBand: TierBand;
   homeCountryIso3: string;
+  homeCulture: string;
   cohortBucketStartYear: number;
 
   // Latents (full model)
@@ -126,6 +127,7 @@ export type LifestyleResult = {
     copingStrategies: string[];
   };
   spirituality: {
+    tradition: string;
     affiliationTag: string;
     observanceLevel: string;
     practiceTypes: string[];
@@ -580,16 +582,32 @@ function computeNeurodivergence(ctx: LifestyleContext): LifestyleResult['neurodi
 // Spirituality computation
 // ============================================================================
 
+// Culture → tradition affinity mappings (which traditions are common in which cultures)
+const CULTURE_TRADITION_AFFINITIES: Record<string, string[]> = {
+  'Hesper': ['solarian-catholic', 'solarian-orthodox', 'solarian-protestant', 'humanist-secular'],
+  'Aram': ['lunarian-sunni', 'lunarian-shia', 'lunarian-sufi', 'covenant-orthodox', 'druze', 'alevi'],
+  'Mero': ['solarian-catholic', 'solarian-protestant', 'lunarian-sunni', 'animist', 'ancestor-reverent'],
+  'Solis-South': ['dharmic-vedantic', 'dharmic-shaiva', 'dharmic-vaishnava', 'lunarian-sunni', 'khalsan', 'tirthic', 'awakened-theravada'],
+  'Solis-East': ['awakened-mahayana', 'awakened-zen', 'harmonist', 'wayfarer', 'kami-path', 'ancestor-reverent'],
+  'Pelag': ['solarian-catholic', 'solarian-protestant', 'animist', 'ancestor-reverent'],
+  'Athar-West': ['solarian-catholic', 'solarian-protestant', 'solarian-evangelical', 'humanist-secular', 'animist'],
+  'Global': ['humanist-secular', 'solarian-catholic', 'lunarian-sunni', 'awakened-mahayana'],
+};
+
+// Non-religious/secular affiliations that use 'none' tradition
+const SECULAR_AFFILIATIONS = new Set(['secular', 'atheist', 'agnostic', 'humanist-secular']);
+
 function computeSpirituality(ctx: LifestyleContext): LifestyleResult['spirituality'] {
-  const { seed, vocab, age, traits, trace } = ctx;
+  const { seed, vocab, age, traits, homeCulture, trace } = ctx;
 
   traceFacet(trace, seed, 'spirituality');
   const spiritRng = makeRng(facetSeed(seed, 'spirituality'));
+  const traditions = vocab.spirituality?.traditions ?? ['none'];
   const affiliations = vocab.spirituality?.affiliationTags ?? ['secular'];
   const observances = vocab.spirituality?.observanceLevels ?? ['none', 'cultural', 'moderate'];
   const practices = vocab.spirituality?.practiceTypes ?? [];
 
-  // Affiliation influenced by age, conscientiousness, authoritarianism
+  // Step 1: Pick affiliation first (determines if religious or not)
   const affiliationWeights = affiliations.map(tag => {
     let w = 1;
     if (tag === 'secular' || tag === 'atheist' || tag === 'agnostic') {
@@ -608,49 +626,61 @@ function computeSpirituality(ctx: LifestyleContext): LifestyleResult['spirituali
   });
   const affiliationTag = weightedPick(spiritRng, affiliationWeights);
 
-  // Observance level correlates with affiliation
-  // FIX: Enforce coherence constraints between affiliation and observance
+  // Step 2: Pick tradition based on affiliation and culture
+  let tradition = 'none';
+  if (!SECULAR_AFFILIATIONS.has(affiliationTag)) {
+    const cultureAffinities = CULTURE_TRADITION_AFFINITIES[homeCulture] ?? CULTURE_TRADITION_AFFINITIES['Global'];
+    const traditionWeights = traditions.map((t: string) => {
+      if (t === 'none') return { item: t, weight: 0 }; // Skip 'none' for religious
+      let w = 1;
+      // Boost traditions that match culture
+      if (cultureAffinities?.includes(t)) w += 5;
+      // Slight boost for more common traditions globally
+      if (t.startsWith('solarian-') || t.startsWith('lunarian-')) w += 0.5;
+      // Seekers and spiritual-not-religious favor non-mainstream
+      if (affiliationTag === 'seeker' || affiliationTag === 'spiritual-not-religious') {
+        if (t === 'nature-spiritual' || t === 'animist' || t === 'syncretic') w += 2;
+      }
+      // Convert favors traditions different from culture norm
+      if (affiliationTag === 'convert' && !cultureAffinities?.includes(t)) w += 1;
+      return { item: t, weight: w };
+    }).filter((tw: { item: string; weight: number }) => tw.weight > 0);
+
+    if (traditionWeights.length > 0) {
+      tradition = weightedPick(spiritRng, traditionWeights);
+    }
+  }
+
+  // Step 3: Observance level (coherent with affiliation)
   const observanceWeights = observances.map(level => {
     let w = 1;
+    // HARD CONSTRAINTS
+    if (SECULAR_AFFILIATIONS.has(affiliationTag) && level !== 'none') return { item: level, weight: 0 };
+    if (affiliationTag === 'lapsed' && !['none', 'cultural'].includes(level)) return { item: level, weight: 0 };
+    if (affiliationTag === 'spiritual-not-religious' && level === 'strict') return { item: level, weight: 0 };
+    if (affiliationTag === 'spiritual-not-religious' && level === 'ultra-orthodox') return { item: level, weight: 0 };
+    if (affiliationTag === 'devout' && level === 'none') return { item: level, weight: 0 };
+    if (affiliationTag === 'fundamentalist' && !['strict', 'ultra-orthodox'].includes(level)) return { item: level, weight: 0 };
 
-    // HARD CONSTRAINTS: Prevent contradictory combinations
-    // secular/atheist can only have 'none' observance
-    if (['secular', 'atheist'].includes(affiliationTag) && level !== 'none') {
-      return { item: level, weight: 0 };
-    }
-    // agnostic can only have 'none' or 'cultural' observance
-    if (affiliationTag === 'agnostic' && !['none', 'cultural'].includes(level)) {
-      return { item: level, weight: 0 };
-    }
-    // lapsed can only have 'none' or 'cultural' observance
-    if (affiliationTag === 'lapsed' && !['none', 'cultural'].includes(level)) {
-      return { item: level, weight: 0 };
-    }
-    // spiritual-not-religious cannot have 'strict' observance
-    if (affiliationTag === 'spiritual-not-religious' && level === 'strict') {
-      return { item: level, weight: 0 };
-    }
-    // devout cannot have 'none' observance
-    if (affiliationTag === 'devout' && level === 'none') {
-      return { item: level, weight: 0 };
-    }
-
-    // Soft weights for remaining valid combinations
+    // Soft weights
     if (affiliationTag === 'devout' && level === 'strict') w += 2;
     if (affiliationTag === 'devout' && level === 'observant') w += 1.5;
+    if (affiliationTag === 'fundamentalist' && level === 'ultra-orthodox') w += 3;
     if (affiliationTag === 'practicing-religious' && level === 'observant') w += 1.5;
     if (affiliationTag === 'practicing-religious' && level === 'moderate') w += 1;
     if (affiliationTag === 'culturally-religious' && level === 'cultural') w += 2;
+    if (affiliationTag === 'progressive-religious' && level === 'moderate') w += 1.5;
     if (affiliationTag === 'lapsed' && level === 'none') w += 1.5;
-    if (['secular', 'atheist', 'agnostic'].includes(affiliationTag) && level === 'none') w += 3;
+    if (SECULAR_AFFILIATIONS.has(affiliationTag) && level === 'none') w += 3;
     return { item: level, weight: w };
   });
   const observanceLevel = weightedPick(spiritRng, observanceWeights);
 
-  // Practices - pick 0-3 based on observance
+  // Step 4: Practices (based on observance)
   let practiceTypes: string[] = [];
   if (practices.length > 0 && observanceLevel !== 'none') {
-    const practiceCount = observanceLevel === 'strict' ? spiritRng.int(2, 4) :
+    const practiceCount = observanceLevel === 'ultra-orthodox' ? spiritRng.int(3, 5) :
+                          observanceLevel === 'strict' ? spiritRng.int(2, 4) :
                           observanceLevel === 'observant' ? spiritRng.int(1, 3) :
                           observanceLevel === 'moderate' ? spiritRng.int(1, 2) :
                           spiritRng.int(0, 1);
@@ -658,12 +688,13 @@ function computeSpirituality(ctx: LifestyleContext): LifestyleResult['spirituali
       practiceTypes = spiritRng.pickK(practices, Math.min(practiceCount, practices.length));
     }
   }
-  traceSet(trace, 'spirituality', { affiliationTag, observanceLevel, practiceTypes }, {
+
+  traceSet(trace, 'spirituality', { tradition, affiliationTag, observanceLevel, practiceTypes }, {
     method: 'weighted',
-    dependsOn: { age, traits: 'partial' },
+    dependsOn: { age, traits: 'partial', homeCulture },
   });
 
-  return { affiliationTag, observanceLevel, practiceTypes };
+  return { tradition, affiliationTag, observanceLevel, practiceTypes };
 }
 
 // ============================================================================

@@ -986,6 +986,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     age,
     tierBand,
     homeCountryIso3: geoStage1.homeCountryIso3,
+    homeCulture: geoStage1.homeCulture,
     cohortBucketStartYear: geoStage1.cohortBucketStartYear,
     latents,
     cosmo01,

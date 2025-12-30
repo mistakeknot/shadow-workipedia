@@ -512,7 +512,7 @@ function renderAgent(
                 ${!['cisgender-man', 'cisgender-woman'].includes(agent.gender.identityTag) ? `<div class="kv-row"><span class="kv-k">Gender</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.gender.identityTag))} (${escapeHtml(agent.gender.pronounSet)})</span></div>` : ''}
                 <div class="kv-row"><span class="kv-k">Pronouns</span><span class="kv-v">${escapeHtml(agent.gender.pronounSet)}</span></div>
                 ${agent.orientation.orientationTag !== 'straight' ? `<div class="kv-row"><span class="kv-k">Orientation</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.orientation.orientationTag))} (${escapeHtml(toTitleCaseWords(agent.orientation.outnessLevel))})</span></div>` : ''}
-                <div class="kv-row"><span class="kv-k">Spirituality</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.spirituality.affiliationTag))} (${escapeHtml(toTitleCaseWords(agent.spirituality.observanceLevel))})</span></div>
+                <div class="kv-row"><span class="kv-k">Spirituality</span><span class="kv-v">${agent.spirituality.tradition !== 'none' ? `${escapeHtml(toTitleCaseWords(agent.spirituality.tradition))} - ` : ''}${escapeHtml(toTitleCaseWords(agent.spirituality.affiliationTag))} (${escapeHtml(toTitleCaseWords(agent.spirituality.observanceLevel))})</span></div>
                 ${agent.neurodivergence.indicatorTags.length && !agent.neurodivergence.indicatorTags.includes('neurotypical') ? `<div class="kv-row"><span class="kv-k">Neurodivergence</span><span class="kv-v">${escapeHtml(agent.neurodivergence.indicatorTags.map(toTitleCaseWords).join(', '))}</span></div>` : ''}
               </div>
               <h4 style="margin-top:0.75rem;font-size:0.85rem;color:#888">Culture axes</h4>

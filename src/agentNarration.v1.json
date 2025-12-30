@@ -79,8 +79,10 @@
     ],
     "bioP2Spirituality": [
       { "text": "", "rarity": "common" },
-      { "text": "#Subj# #be# #spiritualityLevel# in #possAdj# #spiritualityAffiliation# practice.", "rarity": "uncommon" },
-      { "text": "#Subj# #observe# #spiritualityAffiliation# with #spiritualityLevel# observance.", "rarity": "rare" }
+      { "text": "#Subj# #be# #spiritualityLevel# in #possAdj# #spiritualityTradition# faith.", "rarity": "uncommon" },
+      { "text": "#Subj# #observe# #spiritualityTradition# with #spiritualityLevel# observance.", "rarity": "uncommon" },
+      { "text": "A #spiritualityLevel# #spiritualityTradition# practitioner, #subj# #take# #possAdj# faith seriously.", "rarity": "rare" },
+      { "text": "#PossAdjCap# #spiritualityTradition# background shapes much of #possAdj# worldview.", "rarity": "rare" }
     ],
     "bioP2Institution": [
       { "text": "", "rarity": "common" },

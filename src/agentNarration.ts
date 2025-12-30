@@ -746,6 +746,9 @@ export function generateNarrative(
   const contradictionTrait2 = topContradiction ? toNarrativePhrase(topContradiction.trait2) : '';
 
   // Spirituality
+  // Convert tradition to readable form
+  const rawTradition = agent.spirituality.tradition;
+  const spiritualityTradition = rawTradition !== 'none' ? toNarrativePhrase(rawTradition) : '';
   // Fix affiliationTags that are awkward with the templates
   const rawAffiliation = toNarrativePhrase(agent.spirituality.affiliationTag);
   const spiritualityAffiliation = (() => {
@@ -761,7 +764,8 @@ export function generateNarrative(
     return rawAffiliation;
   })();
   const spiritualityLevel = toNarrativePhrase(agent.spirituality.observanceLevel);
-  const hasSignificantSpirituality = ['moderate', 'high', 'very_high', 'devout'].includes(agent.spirituality.observanceLevel.toLowerCase().replace(/[_-]/g, '_'));
+  // Only show spirituality in narration if tradition is specified (not 'none') and observance is meaningful
+  const hasSignificantSpirituality = rawTradition !== 'none' && ['moderate', 'observant', 'strict', 'ultra-orthodox'].includes(agent.spirituality.observanceLevel);
   const observeVerb = conjugate(pron, 'observes', 'observe');
 
   const aTier = aOrAn(tier);
@@ -903,6 +907,7 @@ export function generateNarrative(
     contradictionTrait1: [contradictionTrait1],
     contradictionTrait2: [contradictionTrait2],
     // Spirituality
+    spiritualityTradition: [spiritualityTradition || 'faith'],
     spiritualityAffiliation: [spiritualityAffiliation],
     spiritualityLevel: [spiritualityLevel],
     observe: [observeVerb],

@@ -77,6 +77,7 @@ export type SimulationContext = {
 
   // Spirituality (for thought processing)
   spirituality: {
+    tradition: string;
     affiliationTag: string;
     observanceLevel: string;
     practiceTypes: string[];

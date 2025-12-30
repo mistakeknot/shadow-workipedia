@@ -299,9 +299,11 @@ export type AgentVocabV1 = {
     copingStrategies?: string[];
   };
   spirituality?: {
+    traditions?: string[];
     affiliationTags?: string[];
     observanceLevels?: string[];
     practiceTypes?: string[];
+    tensionTypes?: string[];
   };
   background?: {
     adversityTags?: string[];
@@ -772,6 +774,7 @@ export type GeneratedAgent = {
   };
 
   spirituality: {
+    tradition: string;
     affiliationTag: string;
     observanceLevel: string;
     practiceTypes: string[];
