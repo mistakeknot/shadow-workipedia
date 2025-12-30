@@ -609,8 +609,33 @@ function computeSpirituality(ctx: LifestyleContext): LifestyleResult['spirituali
   const affiliationTag = weightedPick(spiritRng, affiliationWeights);
 
   // Observance level correlates with affiliation
+  // FIX: Enforce coherence constraints between affiliation and observance
   const observanceWeights = observances.map(level => {
     let w = 1;
+
+    // HARD CONSTRAINTS: Prevent contradictory combinations
+    // secular/atheist can only have 'none' observance
+    if (['secular', 'atheist'].includes(affiliationTag) && level !== 'none') {
+      return { item: level, weight: 0 };
+    }
+    // agnostic can only have 'none' or 'cultural' observance
+    if (affiliationTag === 'agnostic' && !['none', 'cultural'].includes(level)) {
+      return { item: level, weight: 0 };
+    }
+    // lapsed can only have 'none' or 'cultural' observance
+    if (affiliationTag === 'lapsed' && !['none', 'cultural'].includes(level)) {
+      return { item: level, weight: 0 };
+    }
+    // spiritual-not-religious cannot have 'strict' observance
+    if (affiliationTag === 'spiritual-not-religious' && level === 'strict') {
+      return { item: level, weight: 0 };
+    }
+    // devout cannot have 'none' observance
+    if (affiliationTag === 'devout' && level === 'none') {
+      return { item: level, weight: 0 };
+    }
+
+    // Soft weights for remaining valid combinations
     if (affiliationTag === 'devout' && level === 'strict') w += 2;
     if (affiliationTag === 'devout' && level === 'observant') w += 1.5;
     if (affiliationTag === 'practicing-religious' && level === 'observant') w += 1.5;

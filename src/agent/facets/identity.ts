@@ -207,9 +207,28 @@ export function computeIdentity(ctx: IdentityContext): IdentityResult {
       if (roleNudgedCareer === t) w += 3.0;
 
       // Age-based career appropriateness
+      // HARD CONSTRAINTS: Minimum ages for specialized careers
+      // Intelligence and foreign-service require extensive training/vetting (min age 25)
+      if (age < 25 && ['intelligence', 'foreign-service'].includes(t)) {
+        return { item: t, weight: 0 };
+      }
+      // Politics at high levels requires experience (min age 28)
+      if (age < 28 && t === 'politics') {
+        return { item: t, weight: 0 };
+      }
+      // Academia requires advanced degree path (min age 28, doctorate track typical)
+      // Also strongly disfavored for mass tier who rarely have graduate degrees
+      if (age < 28 && t === 'academia') {
+        return { item: t, weight: 0 };
+      }
+      if (tierBand === 'mass' && t === 'academia') {
+        w *= 0.05; // Very rare for mass tier to enter academia
+      }
+
+      // Soft age preferences
       if (age < 30) {
-        if (['politics', 'civil-service'].includes(t)) w *= 0.6;
-        if (['military', 'journalism', 'intelligence'].includes(t)) w += 0.4;
+        if (['civil-service'].includes(t)) w *= 0.6;
+        if (['military', 'journalism'].includes(t)) w += 0.4;
       }
       if (age > 50) {
         if (['academia', 'civil-service', 'politics', 'foreign-service'].includes(t)) w += 0.5;
@@ -260,6 +279,14 @@ export function computeIdentity(ctx: IdentityContext): IdentityResult {
       }
       if (careerTrackTag === 'military' && t === 'military-academy') w += 3.0;
       if (careerTrackTag === 'civil-service' && t === 'civil-service-track') w += 2.4;
+      // HARD CONSTRAINT: Academia requires advanced education (graduate or doctorate)
+      if (careerTrackTag === 'academia') {
+        if (['graduate', 'doctorate'].includes(t)) w += 6.0; // Strong preference for advanced degrees
+        if (!['graduate', 'doctorate', 'undergraduate'].includes(t)) {
+          return { item: t, weight: 0 }; // Cannot be in academia with only secondary/trade/self-taught
+        }
+        if (t === 'undergraduate') w *= 0.1; // Very rare to stay in academia with only undergrad
+      }
       if (inst01 > 0.65 && ['graduate', 'civil-service-track'].includes(t)) w += 1.2;
       const env = countryPriorsBucket?.educationTrackWeights?.[t];
       if (typeof env === 'number' && Number.isFinite(env) && env > 0) w *= env;
@@ -612,11 +639,28 @@ export function computeIdentity(ctx: IdentityContext): IdentityResult {
   const orientationTags = vocab.orientation?.orientationTags ?? ['straight', 'gay', 'lesbian', 'bisexual', 'pansexual', 'asexual', 'queer', 'questioning', 'undisclosed'];
   const outnessLevels = vocab.orientation?.outnessLevels ?? ['closeted', 'selectively-out', 'out-to-friends', 'professionally-out', 'publicly-out'];
 
+  // Determine gender category for orientation constraints
+  const isMaleIdentified = ['cisgender-man', 'transgender-man'].includes(genderIdentityTag);
+  const isFemaleIdentified = ['cisgender-woman', 'transgender-woman'].includes(genderIdentityTag);
+
   const orientationWeights = orientationTags.map(tag => {
     let w = 1;
     if (tag === 'straight') w = 90;
     if (tag === 'undisclosed') w = 5;
     if ((tag === 'bisexual' || tag === 'pansexual') && age < 35) w = 1.5;
+
+    // HARD CONSTRAINT: "lesbian" is only for women, "gay" is preferred for men
+    // (though "gay" can also be used by women in some contexts)
+    if (tag === 'lesbian' && isMaleIdentified) {
+      return { item: tag, weight: 0 }; // Men cannot be lesbian
+    }
+    if (tag === 'gay' && isFemaleIdentified) {
+      w *= 0.3; // Women rarely use "gay" (they use "lesbian"), but it's not impossible
+    }
+    if (tag === 'lesbian' && isFemaleIdentified) {
+      w = 1.2; // Slight preference for lesbian over gay for women
+    }
+
     return { item: tag, weight: w };
   });
   const orientationTag = weightedPick(orientationRng, orientationWeights) as SexualOrientation;

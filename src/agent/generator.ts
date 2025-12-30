@@ -1028,7 +1028,11 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     trace,
     homeCountryIso3: geoStage1.homeCountryIso3,
     currentCountryIso3: geoStage2.currentCountryIso3,
+    citizenshipCountryIso3: geoStage2.citizenshipCountryIso3,
     urbanicity: socialResult.geography.urbanicity,
+    // Pass family status for housing constraints
+    maritalStatus: socialResult.family.maritalStatus,
+    dependentCount: socialResult.family.dependentCount,
   });
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -1197,8 +1201,20 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   });
   const gradeBand = weightedPick(instRng, gradeWeights) as GradeBand;
 
+  // Get residency status for clearance constraints
+  const residencyStatus = domesticResult.legalAdmin.residencyStatus;
+  // Residency statuses that prevent ANY security clearance
+  const noSecurityClearanceStatuses = ['asylum-pending', 'refugee', 'stateless', 'irregular', 'student-visa'];
+
   const clearanceWeights = clearanceBands.map(c => {
     let w = 1;
+
+    // HARD CONSTRAINT: Certain residency statuses cannot have security clearances
+    // Asylum seekers, refugees, stateless persons, and irregular migrants cannot get clearances
+    if (noSecurityClearanceStatuses.includes(residencyStatus) && c !== 'none') {
+      return { item: c as ClearanceBand, weight: 0 };
+    }
+
     const isSecurityOrg = ['intel-agency', 'defense', 'interior-ministry'].includes(orgType);
     if (c === 'compartmented' && isSecurityOrg && gradeBand === 'senior') w = 20;
     if (c === 'top-secret' && isSecurityOrg) w = 25;

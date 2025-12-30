@@ -181,8 +181,47 @@ export function computeSocial(ctx: SocialContext): SocialResult {
   const diasporaStatusTags = vocab.geography?.diasporaStatusTags ?? ['native', 'internal-migrant', 'expat', 'refugee', 'dual-citizen', 'borderland', 'diaspora-child'];
 
   // Urbanicity based on tier
+  // FIX: Enforce geographic constraints for special territories
+  const cityStates = ['SGP', 'MCO', 'VAT', 'SMR', 'AND', 'GIB', 'MAC', 'HKG'];
+  const tinyTerritories = ['TKL', 'SHN', 'SJM', 'PCN', 'NRU', 'PLW', 'MHL', 'FSM', 'NIU', 'COK', 'WLF', 'SPM', 'BLM', 'MAF', 'AIA', 'MSR', 'VGB', 'TCA', 'CYM', 'BMU', 'FLK', 'GRL', 'FRO'];
+  // Countries too small for megacities (population under ~5M, no city over 10M)
+  // Includes: small island nations, small gulf states, small European states, small African states
+  const noMegacityCountries = [
+    // Caribbean & Small Islands
+    'ABW', 'ATG', 'BHS', 'BRB', 'VGB', 'CYM', 'DMA', 'GRD', 'KNA', 'LCA', 'VCT', 'TTO', 'TCA',
+    // Pacific Islands
+    'FJI', 'KIR', 'MHL', 'FSM', 'NRU', 'PLW', 'WSM', 'SLB', 'TON', 'TUV', 'VUT',
+    // Small Gulf/Middle East
+    'BHR', 'QAT', 'KWT',
+    // Small European
+    'ISL', 'LUX', 'MLT', 'CYP', 'EST', 'LVA', 'LTU', 'SVN', 'MKD', 'MNE', 'ALB',
+    // Small African
+    'GMB', 'GNB', 'CPV', 'STP', 'SYC', 'COM', 'MUS', 'SWZ', 'LSO', 'DJI', 'ERI',
+    // Central Asian/Caucasus small
+    'MNG', 'BTN', 'BRN', 'TLS', 'MDV',
+    // Other small
+    'GUY', 'SUR', 'BLZ', 'LBR',
+  ];
+  const isCityState = cityStates.includes(currentCountryIso3);
+  const isTinyTerritory = tinyTerritories.includes(currentCountryIso3);
+  const cannotHaveMegacity = noMegacityCountries.includes(currentCountryIso3) || isTinyTerritory || isCityState;
+
   const urbanicityWeights = urbanicityTags.map(u => {
     let w = 1;
+
+    // CONSTRAINT: City-states cannot have rural/small-town
+    if (isCityState && (u === 'rural' || u === 'small-town' || u === 'peri-urban')) {
+      return { item: u as Urbanicity, weight: 0 };
+    }
+    // CONSTRAINT: Tiny territories cannot have megacity/secondary-city
+    if (isTinyTerritory && (u === 'megacity' || u === 'secondary-city')) {
+      return { item: u as Urbanicity, weight: 0 };
+    }
+    // CONSTRAINT: Small countries cannot have megacity (no city over 10M population)
+    if (cannotHaveMegacity && u === 'megacity') {
+      return { item: u as Urbanicity, weight: 0 };
+    }
+
     if (u === 'capital' && tierBand === 'elite') w = 10;
     if (u === 'megacity' && tierBand === 'elite') w = 5;
     if (u === 'secondary-city' && tierBand === 'middle') w = 5;
@@ -191,20 +230,36 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     // Cosmopolitanism → urban preference
     if ((u === 'capital' || u === 'megacity') && cosmo01 > 0.6) w += 3;
     if ((u === 'rural' || u === 'small-town') && cosmo01 < 0.3) w += 2;
+    // City-states default to capital
+    if (isCityState && u === 'capital') w += 20;
+    // Tiny territories default to small-town or rural
+    if (isTinyTerritory && (u === 'small-town' || u === 'rural')) w += 10;
     return { item: u as Urbanicity, weight: w };
   });
   const urbanicity = weightedPick(geoRng, urbanicityWeights) as Urbanicity;
 
   // Diaspora status strongly correlated with cosmopolitanism
+  // FIX: Enforce logical constraints based on home vs current country
+  const sameCountry = homeCountryIso3 === currentCountryIso3;
   const diasporaWeights = diasporaStatusTags.map(d => {
     let w = 1;
+
+    // CONSTRAINT: If same country, cannot be expat/refugee/diaspora-child
+    if (sameCountry && (d === 'expat' || d === 'refugee' || d === 'diaspora-child')) {
+      return { item: d as DiasporaStatus, weight: 0 };
+    }
+    // CONSTRAINT: If different country, cannot be native or internal-migrant
+    if (!sameCountry && (d === 'native' || d === 'internal-migrant')) {
+      return { item: d as DiasporaStatus, weight: 0 };
+    }
+
     // Base: natives are common when home=current
-    if (d === 'native' && homeCountryIso3 === currentCountryIso3) {
+    if (d === 'native' && sameCountry) {
       w = 50 + 30 * (1 - cosmo01); // Low cosmo → more likely native
     }
     // High cosmopolitanism → expat, dual-citizen, diaspora-child
     if (d === 'expat') {
-      if (homeCountryIso3 !== currentCountryIso3) w += 15;
+      w += 15; // Already enforced !sameCountry above
       w += 25 * cosmo01; // Strong cosmo correlation
       if (tierBand === 'elite') w += 10;
     }
@@ -215,14 +270,14 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     if (d === 'diaspora-child') {
       w += 15 * cosmo01; // Diaspora children often more cosmopolitan
     }
-    // Internal migration: moderate cosmo, less rooted
-    if (d === 'internal-migrant') {
+    // Internal migration: moderate cosmo, less rooted (only if same country)
+    if (d === 'internal-migrant' && sameCountry) {
       if (urbanicity === 'capital' || urbanicity === 'megacity') w += 8;
       w += 5 * cosmo01;
     }
-    // Security-driven: refugee status
+    // Security-driven: refugee status (only if different country)
     if (d === 'refugee' && securityPressure01k > 600) w += 5 + securityPressure01k / 200;
-    // Borderland: geographic, less cosmo-dependent
+    // Borderland: geographic, can apply to both same/different country scenarios
     if (d === 'borderland') w += 2;
     return { item: d as DiasporaStatus, weight: w };
   });

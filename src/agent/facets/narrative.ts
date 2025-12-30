@@ -139,7 +139,9 @@ function generateEducationEvent(
   rng: Rng,
   ctx: NarrativeContext,
 ): TimelineEvent {
-  const eduAge = rng.int(18, 25);
+  // Cap education age at current age (can't complete education in the future)
+  const maxEduAge = Math.max(18, Math.min(25, ctx.age));
+  const eduAge = rng.int(18, maxEduAge);
   return {
     yearOffset: eduAge,
     type: 'education-milestone',
@@ -152,7 +154,10 @@ function generateFirstJobEvent(
   rng: Rng,
   ctx: NarrativeContext,
 ): TimelineEvent {
-  const firstJobAge = rng.int(22, 28);
+  // Cap first job age at current age (can't start job in the future)
+  // For young agents (under 22), they may not have had a first job yet, but we still generate one at their current age
+  const maxFirstJobAge = Math.max(18, Math.min(28, ctx.age));
+  const firstJobAge = rng.int(Math.min(22, maxFirstJobAge), maxFirstJobAge);
   const isOperative = ctx.roleSeedTags.includes('operative');
   return {
     yearOffset: firstJobAge,
@@ -170,7 +175,11 @@ function generateRandomEvent(
   const descriptions = getEventDescriptions();
   const descOptions = descriptions[eventType] ?? ['Significant event occurred'];
   const description = descOptions[rng.int(0, descOptions.length - 1)]!;
-  const yearOffset = rng.int(25, Math.max(26, ctx.age));
+  // Cap random events at current age (can't have events in the future)
+  // For young agents (under 25), events happen between 18 and current age
+  const minEventAge = Math.min(18, ctx.age);
+  const maxEventAge = ctx.age;
+  const yearOffset = rng.int(minEventAge, Math.max(minEventAge + 1, maxEventAge));
   const impact = determineImpact(rng, eventType);
 
   return { yearOffset, type: eventType, description, impact };

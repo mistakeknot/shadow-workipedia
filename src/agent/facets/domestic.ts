@@ -53,6 +53,7 @@ export type DomesticContext = {
   // Country context
   homeCountryIso3: string;
   currentCountryIso3: string;
+  citizenshipCountryIso3: string;
 
   // Urbanicity for home context
   urbanicity: string;
@@ -61,6 +62,10 @@ export type DomesticContext = {
   traits?: {
     conscientiousness: number; // 0-1000
   };
+
+  // Family status for housing constraints
+  maritalStatus?: string;
+  dependentCount?: number;
 };
 
 /** Everyday life anchors */
@@ -118,6 +123,7 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
     trace,
     homeCountryIso3,
     currentCountryIso3,
+    citizenshipCountryIso3,
     urbanicity,
   } = ctx;
 
@@ -189,6 +195,7 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
   // HOME (Oracle recommendation)
   // Correlate #13: Conscientiousness ↔ Housing
   // Correlate #15: Risk ↔ Housing
+  // FIX: Housing constraints based on family situation
   // ─────────────────────────────────────────────────────────────────────────────
   traceFacet(trace, seed, 'home');
   const homeRng = makeRng(facetSeed(seed, 'home'));
@@ -197,11 +204,26 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
   const conscientiousness01 = (ctx.traits?.conscientiousness ?? 500) / 1000;
   const riskAppetite01 = latents.riskAppetite / 1000;
 
+  // Family constraints for housing
+  const isMarried = ctx.maritalStatus === 'married' || ctx.maritalStatus === 'partnered';
+  const hasDependents = (ctx.dependentCount ?? 0) > 0;
+  const hasFamily = isMarried && hasDependents;
+
   const housingPool = vocab.home?.housingStabilities ?? [
     'owned', 'stable-rental', 'tenuous', 'transient', 'couch-surfing', 'institutional',
   ];
   const housingWeights = housingPool.map(h => {
     let w = 1;
+
+    // HARD CONSTRAINT: Married with dependents cannot be couch-surfing or transient
+    if (hasFamily && (h === 'couch-surfing' || h === 'transient')) {
+      return { item: h as HousingStability, weight: 0 };
+    }
+    // HARD CONSTRAINT: Elite tier cannot be couch-surfing
+    if (tierBand === 'elite' && h === 'couch-surfing') {
+      return { item: h as HousingStability, weight: 0 };
+    }
+
     // Tier correlates
     if (h === 'owned' && tierBand === 'elite') w = 6;
     if (h === 'owned' && tierBand === 'middle' && age > 35) w = 3;
@@ -229,6 +251,11 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
       w += 1.0 * (1 - riskAppetite01); // Risk averse prefer stability
     }
 
+    // Soft bias: families prefer stable housing
+    if (hasFamily && (h === 'owned' || h === 'stable-rental')) {
+      w += 3;
+    }
+
     return { item: h as HousingStability, weight: w };
   });
   const housingStability = weightedPick(homeRng, housingWeights) as HousingStability;
@@ -236,13 +263,44 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
   const householdPool = vocab.home?.householdCompositions ?? [
     'alone', 'roommates', 'partner', 'partner-and-kids', 'extended-family', 'multigenerational',
   ];
+
+  // Note: isMarried (line 208) and hasDependents (line 209) already defined above
+  // isPartnered is same as isMarried for household constraints
+  const isPartnered = isMarried;
+
   const householdWeights = householdPool.map(h => {
     let w = 1;
+
+    // HARD CONSTRAINTS for household-family coherence
+    // Cannot live "alone" if married/partnered
+    if (h === 'alone' && isPartnered) {
+      return { item: h as HouseholdComposition, weight: 0 };
+    }
+    // Cannot live "alone" if has dependents (kids)
+    if (h === 'alone' && hasDependents) {
+      return { item: h as HouseholdComposition, weight: 0 };
+    }
+    // Cannot be "partner-and-kids" if no dependents
+    if (h === 'partner-and-kids' && !hasDependents) {
+      return { item: h as HouseholdComposition, weight: 0 };
+    }
+    // Cannot be "partner" composition if has dependents (should be partner-and-kids)
+    if (h === 'partner' && hasDependents) {
+      w *= 0.1; // Very unlikely but not impossible (kids may not live with them)
+    }
+    // Strong preference for partner-and-kids if partnered with dependents
+    if (h === 'partner-and-kids' && isPartnered && hasDependents) {
+      w += 10;
+    }
+
+    // Soft preferences
     if (h === 'alone' && age < 30) w = 4;
     if (h === 'alone' && roleSeedTags.includes('operative')) w = 3;
-    if (h === 'partner' && age > 28) w = 3;
+    if (h === 'partner' && age > 28 && isPartnered && !hasDependents) w = 5;
     if (h === 'partner-and-kids' && age > 32) w = 3;
     if (h === 'extended-family' && tierBand === 'mass') w = 2;
+    if (h === 'extended-family' && hasDependents) w += 2; // Kids often live with extended family
+
     return { item: h as HouseholdComposition, weight: w };
   });
   const householdComposition = weightedPick(homeRng, householdWeights) as HouseholdComposition;
@@ -313,8 +371,23 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
   const residencyPool = vocab.legalAdmin?.residencyStatuses ?? [
     'citizen', 'permanent-resident', 'work-visa', 'student-visa', 'irregular', 'diplomatic',
   ];
+  // Check if agent has valid citizenship
+  const hasCitizenship = citizenshipCountryIso3 && citizenshipCountryIso3.length === 3;
+
   const residencyWeights = residencyPool.map(r => {
     let w = 1;
+
+    // HARD CONSTRAINT: Cannot be stateless if you have a citizenship
+    if (r === 'stateless' && hasCitizenship) {
+      return { item: r as ResidencyStatus, weight: 0 };
+    }
+
+    // HARD CONSTRAINT: Elite tier cannot be refugee/asylum-pending/irregular/stateless/student-visa
+    // Elite status by definition means established position in society
+    if (tierBand === 'elite' && ['refugee', 'asylum-pending', 'irregular', 'stateless', 'student-visa'].includes(r)) {
+      return { item: r as ResidencyStatus, weight: 0 };
+    }
+
     if (r === 'citizen' && homeCountryIso3 === currentCountryIso3) w = 20;
     if (r === 'diplomatic' && roleSeedTags.includes('diplomat')) w = 10;
     if (r === 'work-visa' && homeCountryIso3 !== currentCountryIso3 && tierBand !== 'mass') w = 5;
@@ -347,11 +420,23 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
     'foreign-service': ['diplomatic-passport'],
     academia: ['teaching-cert'],
   };
-  const careerCreds = careerCredentialMap[careerTrackTag] ?? [];
-  const extraCreds = legalRng.pickK(
-    credentialPool.filter(c => !careerCreds.includes(c)),
-    legalRng.int(0, 1),
-  );
+  // Certain residency statuses cannot have certain credentials
+  const noHighCredentialStatuses = ['asylum-pending', 'refugee', 'stateless', 'irregular'];
+  const restrictedCredentials = ['security-clearance', 'diplomatic-passport'];
+
+  let careerCreds = careerCredentialMap[careerTrackTag] ?? [];
+  // Filter out restricted credentials for problematic residency statuses
+  if (noHighCredentialStatuses.includes(residencyStatus)) {
+    careerCreds = careerCreds.filter(c => !restrictedCredentials.includes(c));
+  }
+
+  const availableExtras = credentialPool.filter(c => {
+    if (careerCreds.includes(c)) return false;
+    // Also filter restricted credentials for problematic residency
+    if (noHighCredentialStatuses.includes(residencyStatus) && restrictedCredentials.includes(c)) return false;
+    return true;
+  });
+  const extraCreds = legalRng.pickK(availableExtras, legalRng.int(0, 1));
   const credentials = [...careerCreds, ...extraCreds] as CredentialType[];
 
   const legalAdmin: LegalAdminResult = { residencyStatus, legalExposure, credentials };
