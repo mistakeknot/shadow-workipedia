@@ -1392,6 +1392,105 @@
       "risk-neutral",
       "risk-seeking",
       "context-dependent"
+    ],
+    "attachmentStyles": [
+      "secure",
+      "anxious-preoccupied",
+      "dismissive-avoidant",
+      "fearful-avoidant"
+    ],
+    "emotionalRegulation": [
+      "stoic",
+      "expressive",
+      "volatile",
+      "suppressed",
+      "compartmentalized"
+    ],
+    "stressResponses": [
+      "fight",
+      "flight",
+      "freeze",
+      "fawn",
+      "analytical-detachment"
+    ],
+    "decisionMaking": [
+      "deliberative",
+      "intuitive-fast",
+      "consensus-seeking",
+      "authoritative",
+      "paralysis-prone"
+    ],
+    "motivationalDrivers": [
+      "achievement",
+      "affiliation",
+      "power",
+      "security",
+      "autonomy",
+      "purpose",
+      "recognition",
+      "mastery"
+    ],
+    "communicationStyles": [
+      "direct",
+      "indirect",
+      "formal",
+      "informal",
+      "socratic",
+      "storytelling"
+    ],
+    "trustFormation": [
+      "fast-trusting",
+      "slow-trusting",
+      "trust-but-verify",
+      "paranoid",
+      "conditional"
+    ],
+    "adaptability": [
+      "rigid",
+      "flexible",
+      "chameleon",
+      "selectively-adaptive"
+    ],
+    "ambiguityTolerance": [
+      "needs-clarity",
+      "comfortable-ambiguous",
+      "thrives-in-chaos",
+      "context-dependent"
+    ],
+    "feedbackOrientation": [
+      "feedback-seeking",
+      "feedback-averse",
+      "selective-listener",
+      "defensive"
+    ],
+    "timeOrientation": [
+      "past-focused",
+      "present-focused",
+      "future-focused",
+      "balanced"
+    ],
+    "moralReasoning": [
+      "deontological",
+      "consequentialist",
+      "virtue-based",
+      "care-based",
+      "pragmatic"
+    ],
+    "humorStyles": [
+      "dry-wit",
+      "self-deprecating",
+      "sarcastic",
+      "absurdist",
+      "observational",
+      "dark",
+      "none"
+    ],
+    "learningStyles": [
+      "visual",
+      "auditory",
+      "kinesthetic",
+      "reading-writing",
+      "multimodal"
     ]
   },
   "workStyle": {

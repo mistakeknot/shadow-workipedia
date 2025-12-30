@@ -358,6 +358,20 @@ export type AgentVocabV1 = {
     epistemicStyles?: string[];
     socialEnergyTags?: string[];
     riskPostures?: string[];
+    attachmentStyles?: string[];
+    emotionalRegulation?: string[];
+    stressResponses?: string[];
+    decisionMaking?: string[];
+    motivationalDrivers?: string[];
+    communicationStyles?: string[];
+    trustFormation?: string[];
+    adaptability?: string[];
+    ambiguityTolerance?: string[];
+    feedbackOrientation?: string[];
+    timeOrientation?: string[];
+    moralReasoning?: string[];
+    humorStyles?: string[];
+    learningStyles?: string[];
   };
   // Work products (analyst/diplomat)
   workStyle?: {
@@ -499,6 +513,20 @@ export type ConflictStyle = 'avoidant' | 'accommodating' | 'competing' | 'compro
 export type EpistemicStyle = 'data-driven' | 'narrative-driven' | 'authority-driven' | 'intuitive' | 'consensus-seeking';
 export type SocialEnergy = 'introvert' | 'ambivert' | 'extrovert';
 export type RiskPosture = 'risk-averse' | 'risk-neutral' | 'risk-seeking' | 'context-dependent';
+export type AttachmentStyle = 'secure' | 'anxious-preoccupied' | 'dismissive-avoidant' | 'fearful-avoidant';
+export type EmotionalRegulation = 'stoic' | 'expressive' | 'volatile' | 'suppressed' | 'compartmentalized';
+export type StressResponse = 'fight' | 'flight' | 'freeze' | 'fawn' | 'analytical-detachment';
+export type DecisionMaking = 'deliberative' | 'intuitive-fast' | 'consensus-seeking' | 'authoritative' | 'paralysis-prone';
+export type MotivationalDriver = 'achievement' | 'affiliation' | 'power' | 'security' | 'autonomy' | 'purpose' | 'recognition' | 'mastery';
+export type CommunicationStyle = 'direct' | 'indirect' | 'formal' | 'informal' | 'socratic' | 'storytelling';
+export type TrustFormation = 'fast-trusting' | 'slow-trusting' | 'trust-but-verify' | 'paranoid' | 'conditional';
+export type Adaptability = 'rigid' | 'flexible' | 'chameleon' | 'selectively-adaptive';
+export type AmbiguityTolerance = 'needs-clarity' | 'comfortable-ambiguous' | 'thrives-in-chaos' | 'context-dependent';
+export type FeedbackOrientation = 'feedback-seeking' | 'feedback-averse' | 'selective-listener' | 'defensive';
+export type TimeOrientation = 'past-focused' | 'present-focused' | 'future-focused' | 'balanced';
+export type MoralReasoning = 'deontological' | 'consequentialist' | 'virtue-based' | 'care-based' | 'pragmatic';
+export type HumorStyle = 'dry-wit' | 'self-deprecating' | 'sarcastic' | 'absurdist' | 'observational' | 'dark' | 'none';
+export type LearningStyle = 'visual' | 'auditory' | 'kinesthetic' | 'reading-writing' | 'multimodal';
 
 // Work products & communication style (analysts)
 export type WritingStyle = 'terse' | 'verbose' | 'structured' | 'freeform' | 'hedged' | 'assertive';
@@ -524,9 +552,6 @@ export type TimelineEventType =
 export type GoalType = 'career' | 'financial' | 'relational' | 'creative' | 'legacy' | 'security' | 'freedom' | 'mastery' | 'recognition' | 'service';
 export type FearType = 'failure' | 'exposure' | 'abandonment' | 'loss-of-control' | 'irrelevance' | 'poverty' | 'violence' | 'humiliation' | 'betrayal' | 'mortality';
 
-// Attachment style (Bowlby/Ainsworth-derived)
-export type AttachmentStyle = 'secure' | 'anxious-preoccupied' | 'dismissive-avoidant' | 'fearful-avoidant';
-
 // Financial stress
 export type DebtLevel = 'none' | 'manageable' | 'strained' | 'crushing' | 'default';
 export type IncomeStability = 'unstable' | 'variable' | 'stable' | 'guaranteed' | 'independent';
@@ -534,9 +559,6 @@ export type IncomeStability = 'unstable' | 'variable' | 'stable' | 'guaranteed' 
 // Secrets
 export type SecretType = 'identity' | 'relationship' | 'financial' | 'health' | 'criminal' | 'political' | 'professional' | 'family' | 'addiction' | 'belief';
 export type SecretSeverity = 'embarrassing' | 'damaging' | 'career-ending' | 'criminal' | 'life-threatening';
-
-// Humor style
-export type HumorStyle = 'dry-wit' | 'self-deprecating' | 'observational' | 'dark' | 'slapstick' | 'wordplay' | 'deadpan' | 'none';
 
 // Decision under pressure
 export type PressureResponse = 'freezes' | 'deliberates' | 'delegates' | 'rushes' | 'thrives' | 'avoids';
@@ -851,12 +873,26 @@ export type GeneratedAgent = {
     coverStatus: 'official' | 'non-official' | 'none';
   };
 
-  // Personality core (Oracle recommendation - Big Five-lite)
+  // Personality core (Oracle recommendation - Big Five-lite + extended dimensions)
   personality: {
     conflictStyle: ConflictStyle;
     epistemicStyle: EpistemicStyle;
     socialEnergy: SocialEnergy;
     riskPosture: RiskPosture;
+    attachmentStyle: AttachmentStyle;
+    emotionalRegulation: EmotionalRegulation;
+    stressResponse: StressResponse;
+    decisionMaking: DecisionMaking;
+    motivationalDrivers: MotivationalDriver[];
+    communicationStyle: CommunicationStyle;
+    trustFormation: TrustFormation;
+    adaptability: Adaptability;
+    ambiguityTolerance: AmbiguityTolerance;
+    feedbackOrientation: FeedbackOrientation;
+    timeOrientation: TimeOrientation;
+    moralReasoning: MoralReasoning;
+    humorStyle: HumorStyle;
+    learningStyle: LearningStyle;
   };
 
   // Work style (Oracle recommendation - analyst/diplomat focus)

@@ -58,6 +58,19 @@ import type {
   GaitStyle,
   EyeContactPattern,
   NervousHabit,
+  // Extended personality types
+  EmotionalRegulation,
+  StressResponse,
+  DecisionMaking,
+  MotivationalDriver,
+  CommunicationStyle,
+  TrustFormation,
+  Adaptability,
+  AmbiguityTolerance,
+  FeedbackOrientation,
+  TimeOrientation,
+  MoralReasoning,
+  LearningStyle,
 } from './types';
 
 import {
@@ -1330,7 +1343,186 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   });
   const riskPosture = weightedPick(persRng, riskWeights) as RiskPosture;
 
-  traceSet(trace, 'personality', { conflictStyle, epistemicStyle, socialEnergy, riskPosture }, { method: 'weighted' });
+  // ─────────────────────────────────────────────────────────────────────────
+  // Extended personality dimensions (14 new facets)
+  // ─────────────────────────────────────────────────────────────────────────
+
+  // Emotional Regulation - how emotions are processed/expressed
+  const emotionalRegulationOpts = vocab.personality?.emotionalRegulation ?? ['stoic', 'expressive', 'volatile', 'suppressed', 'compartmentalized'];
+  const emotionalWeights = emotionalRegulationOpts.map(e => {
+    let w = 2;
+    if (e === 'stoic' && roleSeedTags.includes('operative')) w = 5;
+    if (e === 'expressive' && socialEnergy === 'extrovert') w = 4;
+    if (e === 'compartmentalized' && roleSeedTags.includes('analyst')) w = 4;
+    if (e === 'volatile' && latents.stressReactivity > 600) w = 4;
+    if (e === 'suppressed' && socialEnergy === 'introvert') w = 3;
+    return { item: e as EmotionalRegulation, weight: w };
+  });
+  const emotionalRegulation = weightedPick(persRng, emotionalWeights) as EmotionalRegulation;
+
+  // Stress Response - fight/flight/freeze/fawn
+  const stressResponseOpts = vocab.personality?.stressResponses ?? ['fight', 'flight', 'freeze', 'fawn', 'analytical-detachment'];
+  const stressWeights = stressResponseOpts.map(s => {
+    let w = 2;
+    if (s === 'fight' && conflictStyle === 'competing') w = 5;
+    if (s === 'flight' && conflictStyle === 'avoidant') w = 5;
+    if (s === 'fawn' && conflictStyle === 'accommodating') w = 4;
+    if (s === 'analytical-detachment' && roleSeedTags.includes('analyst')) w = 5;
+    if (s === 'freeze' && capabilitiesResult.traits.conscientiousness < 400) w = 3;
+    return { item: s as StressResponse, weight: w };
+  });
+  const stressResponse = weightedPick(persRng, stressWeights) as StressResponse;
+
+  // Decision Making style
+  const decisionMakingOpts = vocab.personality?.decisionMaking ?? ['deliberative', 'intuitive-fast', 'consensus-seeking', 'authoritative', 'paralysis-prone'];
+  const decisionWeights = decisionMakingOpts.map(d => {
+    let w = 2;
+    if (d === 'deliberative' && epistemicStyle === 'data-driven') w = 5;
+    if (d === 'intuitive-fast' && epistemicStyle === 'intuitive') w = 5;
+    if (d === 'consensus-seeking' && epistemicStyle === 'consensus-seeking') w = 5;
+    if (d === 'authoritative' && capabilitiesResult.traits.authoritarianism > 600) w = 4;
+    if (d === 'paralysis-prone' && capabilitiesResult.traits.conscientiousness > 700 && riskPosture === 'risk-averse') w = 3;
+    return { item: d as DecisionMaking, weight: w };
+  });
+  const decisionMaking = weightedPick(persRng, decisionWeights) as DecisionMaking;
+
+  // Motivational Drivers (pick 2-3)
+  const motivationalDriverOpts = vocab.personality?.motivationalDrivers ?? ['achievement', 'affiliation', 'power', 'security', 'autonomy', 'purpose', 'recognition', 'mastery'];
+  const motivationalWeights = motivationalDriverOpts.map(m => {
+    let w = 2;
+    if (m === 'power' && capabilitiesResult.traits.authoritarianism > 600) w = 5;
+    if (m === 'achievement' && roleSeedTags.includes('analyst')) w = 4;
+    if (m === 'affiliation' && socialEnergy === 'extrovert') w = 4;
+    if (m === 'security' && riskPosture === 'risk-averse') w = 4;
+    if (m === 'autonomy' && socialEnergy === 'introvert') w = 3;
+    if (m === 'mastery' && capabilitiesResult.traits.conscientiousness > 600) w = 3;
+    return { item: m as MotivationalDriver, weight: w };
+  });
+  const numMotivations = 2 + (persRng.next01() > 0.6 ? 1 : 0);
+  const motivationalDrivers = weightedPickKUnique(persRng, motivationalWeights, numMotivations) as MotivationalDriver[];
+
+  // Communication Style
+  const communicationStyleOpts = vocab.personality?.communicationStyles ?? ['direct', 'indirect', 'formal', 'informal', 'socratic', 'storytelling'];
+  const commWeights = communicationStyleOpts.map(c => {
+    let w = 2;
+    if (c === 'direct' && conflictStyle === 'competing') w = 4;
+    if (c === 'indirect' && conflictStyle === 'avoidant') w = 4;
+    if (c === 'formal' && roleSeedTags.includes('diplomat')) w = 4;
+    if (c === 'informal' && socialEnergy === 'extrovert') w = 3;
+    if (c === 'socratic' && epistemicStyle === 'data-driven') w = 3;
+    if (c === 'storytelling' && epistemicStyle === 'narrative-driven') w = 5;
+    return { item: c as CommunicationStyle, weight: w };
+  });
+  const communicationStyle = weightedPick(persRng, commWeights) as CommunicationStyle;
+
+  // Trust Formation
+  const trustFormationOpts = vocab.personality?.trustFormation ?? ['fast-trusting', 'slow-trusting', 'trust-but-verify', 'paranoid', 'conditional'];
+  const trustWeights = trustFormationOpts.map(t => {
+    let w = 2;
+    if (t === 'paranoid' && roleSeedTags.includes('operative')) w = 4;
+    if (t === 'trust-but-verify' && roleSeedTags.includes('analyst')) w = 4;
+    if (t === 'fast-trusting' && capabilitiesResult.traits.agreeableness > 700) w = 4;
+    if (t === 'slow-trusting' && socialEnergy === 'introvert') w = 3;
+    if (t === 'conditional' && epistemicStyle === 'data-driven') w = 3;
+    return { item: t as TrustFormation, weight: w };
+  });
+  const trustFormation = weightedPick(persRng, trustWeights) as TrustFormation;
+
+  // Adaptability
+  const adaptabilityOpts = vocab.personality?.adaptability ?? ['rigid', 'flexible', 'chameleon', 'selectively-adaptive'];
+  const adaptWeights = adaptabilityOpts.map(a => {
+    let w = 3;
+    if (a === 'chameleon' && roleSeedTags.includes('operative')) w = 5;
+    if (a === 'flexible' && riskPosture === 'context-dependent') w = 4;
+    if (a === 'rigid' && capabilitiesResult.traits.authoritarianism > 700) w = 4;
+    if (a === 'selectively-adaptive') w = 4; // common middle ground
+    return { item: a as Adaptability, weight: w };
+  });
+  const adaptability = weightedPick(persRng, adaptWeights) as Adaptability;
+
+  // Ambiguity Tolerance
+  const ambiguityToleranceOpts = vocab.personality?.ambiguityTolerance ?? ['needs-clarity', 'comfortable-ambiguous', 'thrives-in-chaos', 'context-dependent'];
+  const ambiguityWeights = ambiguityToleranceOpts.map(a => {
+    let w = 3;
+    if (a === 'needs-clarity' && capabilitiesResult.traits.conscientiousness > 700) w = 4;
+    if (a === 'thrives-in-chaos' && riskPosture === 'risk-seeking') w = 4;
+    if (a === 'comfortable-ambiguous' && roleSeedTags.includes('operative')) w = 4;
+    if (a === 'context-dependent') w = 4; // common
+    return { item: a as AmbiguityTolerance, weight: w };
+  });
+  const ambiguityTolerance = weightedPick(persRng, ambiguityWeights) as AmbiguityTolerance;
+
+  // Feedback Orientation
+  const feedbackOrientationOpts = vocab.personality?.feedbackOrientation ?? ['feedback-seeking', 'feedback-averse', 'selective-listener', 'defensive'];
+  const feedbackWeights = feedbackOrientationOpts.map(f => {
+    let w = 3;
+    if (f === 'feedback-seeking' && capabilitiesResult.traits.conscientiousness > 600) w = 4;
+    if (f === 'feedback-averse' && conflictStyle === 'avoidant') w = 4;
+    if (f === 'defensive' && emotionalRegulation === 'volatile') w = 4;
+    if (f === 'selective-listener' && capabilitiesResult.traits.agreeableness > 500) w = 4;
+    return { item: f as FeedbackOrientation, weight: w };
+  });
+  const feedbackOrientation = weightedPick(persRng, feedbackWeights) as FeedbackOrientation;
+
+  // Time Orientation
+  const timeOrientationOpts = vocab.personality?.timeOrientation ?? ['past-focused', 'present-focused', 'future-focused', 'balanced'];
+  const timeWeights = timeOrientationOpts.map(t => {
+    let w = 3;
+    if (t === 'future-focused' && roleSeedTags.includes('analyst')) w = 4;
+    if (t === 'present-focused' && riskPosture === 'risk-seeking') w = 4;
+    if (t === 'past-focused' && age > 50) w = 3;
+    if (t === 'balanced') w = 4; // common
+    return { item: t as TimeOrientation, weight: w };
+  });
+  const timeOrientation = weightedPick(persRng, timeWeights) as TimeOrientation;
+
+  // Moral Reasoning
+  const moralReasoningOpts = vocab.personality?.moralReasoning ?? ['deontological', 'consequentialist', 'virtue-based', 'care-based', 'pragmatic'];
+  const moralWeights = moralReasoningOpts.map(m => {
+    let w = 2;
+    if (m === 'deontological' && capabilitiesResult.traits.conscientiousness > 600) w = 4;
+    if (m === 'consequentialist' && epistemicStyle === 'data-driven') w = 4;
+    if (m === 'care-based' && capabilitiesResult.traits.agreeableness > 700) w = 4;
+    if (m === 'virtue-based' && lifestyleResult.spirituality.observanceLevel !== 'secular' && lifestyleResult.spirituality.observanceLevel !== 'none') w = 3;
+    if (m === 'pragmatic' && roleSeedTags.includes('operative')) w = 5;
+    return { item: m as MoralReasoning, weight: w };
+  });
+  const moralReasoning = weightedPick(persRng, moralWeights) as MoralReasoning;
+
+  // Humor Style
+  const humorStyleOpts = vocab.personality?.humorStyles ?? ['dry-wit', 'self-deprecating', 'sarcastic', 'absurdist', 'observational', 'dark', 'none'];
+  const humorWeights = humorStyleOpts.map(h => {
+    let w = 2;
+    if (h === 'dry-wit' && socialEnergy === 'introvert') w = 4;
+    if (h === 'self-deprecating' && conflictStyle === 'accommodating') w = 3;
+    if (h === 'sarcastic' && capabilitiesResult.traits.agreeableness < 400) w = 4;
+    if (h === 'dark' && roleSeedTags.includes('operative')) w = 4;
+    if (h === 'observational' && roleSeedTags.includes('analyst')) w = 4;
+    if (h === 'absurdist' && latents.aestheticExpressiveness > 600) w = 3;
+    if (h === 'none' && emotionalRegulation === 'stoic') w = 3;
+    return { item: h as HumorStyle, weight: w };
+  });
+  const humorStyle = weightedPick(persRng, humorWeights) as HumorStyle;
+
+  // Learning Style
+  const learningStyleOpts = vocab.personality?.learningStyles ?? ['visual', 'auditory', 'kinesthetic', 'reading-writing', 'multimodal'];
+  const learnWeights = learningStyleOpts.map(l => {
+    let w = 3;
+    if (l === 'reading-writing' && roleSeedTags.includes('analyst')) w = 5;
+    if (l === 'kinesthetic' && roleSeedTags.includes('operative')) w = 5;
+    if (l === 'auditory' && epistemicStyle === 'narrative-driven') w = 4;
+    if (l === 'visual' && latents.aestheticExpressiveness > 600) w = 4;
+    if (l === 'multimodal') w = 4; // common
+    return { item: l as LearningStyle, weight: w };
+  });
+  const learningStyle = weightedPick(persRng, learnWeights) as LearningStyle;
+
+  traceSet(trace, 'personality', {
+    conflictStyle, epistemicStyle, socialEnergy, riskPosture,
+    emotionalRegulation, stressResponse, decisionMaking, communicationStyle,
+    trustFormation, adaptability, ambiguityTolerance, feedbackOrientation,
+    timeOrientation, moralReasoning, humorStyle, learningStyle
+  }, { method: 'weighted' });
 
   // ─────────────────────────────────────────────────────────────────────────
   // Phase 18: Work Style (not in facets - compute inline)
@@ -1665,21 +1857,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   }
   traceSet(trace, 'secrets', secrets, { method: 'random', dependsOn: { numSecrets } });
 
-  // --- Humor Style ---
-  const humorStyles: HumorStyle[] = ['dry-wit', 'self-deprecating', 'observational', 'dark', 'slapstick', 'wordplay', 'deadpan', 'none'];
-  const humorWeights = humorStyles.map(h => {
-    let w = 1;
-    if (h === 'dry-wit' && latents.opsecDiscipline > 500) w += 2;
-    if (h === 'self-deprecating' && latents.socialBattery > 400 && latents.socialBattery < 700) w += 2;
-    if (h === 'dark' && roleSeedTags.includes('operative')) w += 2;
-    if (h === 'observational' && roleSeedTags.includes('analyst')) w += 2;
-    if (h === 'none' && latents.socialBattery < 300) w += 2;
-    if (h === 'deadpan' && conflictStyle === 'avoidant') w += 1;
-    if (h === 'wordplay' && identityResult.languageProficiencies.length > 1) w += 1;
-    return { item: h, weight: w };
-  });
-  const humorStyle = weightedPick(newFacetsRng, humorWeights) as HumorStyle;
-  traceSet(trace, 'humorStyle', humorStyle, { method: 'weighted', dependsOn: { socialBattery: latents.socialBattery, roleSeedTags } });
+  // humorStyle is now generated in the personality section above
 
   // --- Pressure Response ---
   const pressureResponses: PressureResponse[] = ['freezes', 'deliberates', 'delegates', 'rushes', 'thrives', 'avoids'];
@@ -1896,6 +2074,20 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       epistemicStyle,
       socialEnergy,
       riskPosture,
+      attachmentStyle,
+      emotionalRegulation,
+      stressResponse,
+      decisionMaking,
+      motivationalDrivers,
+      communicationStyle,
+      trustFormation,
+      adaptability,
+      ambiguityTolerance,
+      feedbackOrientation,
+      timeOrientation,
+      moralReasoning,
+      humorStyle,
+      learningStyle,
     },
     workStyle: {
       writingStyle,
