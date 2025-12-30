@@ -2,14 +2,11 @@
   "version": 1,
   "rules": {
     "bioP1Identity": [
-      { "text": "#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#), currently #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "common" },
-      { "text": "#name# was born in #birthYear#.#ageClause# #ATier# #tier#-tier #role# from #originLabel# (#homeIso3#), #subj# now #have# a base in #currentLabel# (#currentIso3#).", "rarity": "common" },
-      { "text": "#name# was born in #birthYear#.#ageClause# From #originLabel# (#homeIso3#), #subj# #have# since moved operations to #currentLabel# (#currentIso3#) as #aTier# #tier#-tier #role#.", "rarity": "uncommon" },
-      { "text": "#name# was born in #birthYear#.#ageClause# #Subj# #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#); #subj# now #have# a base in #currentLabel# (#currentIso3#).", "rarity": "uncommon" },
-      { "text": "Born in #birthYear#, #name# #be# #aTier# #tier#-tier #role#.#ageClause# #Subj# #have# roots in #originLabel# (#homeIso3#) but now #be# #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "uncommon" },
-      { "text": "#name# (#birthYear#) #be# #aTier# #tier#-tier #role# originally from #originLabel# (#homeIso3#).#ageClause# #Subj# #be# now #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "rare" },
-      { "text": "#ATier# #tier#-tier #role#, #name# was born in #birthYear# in #originLabel# (#homeIso3#).#ageClause# #Subj# #be# currently #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "rare" },
-      { "text": "#name# traces #possAdj# origins to #originLabel# (#homeIso3#), born in #birthYear#.#ageClause# Now #aTier# #tier#-tier #role#, #subj# #be# #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "rare" }
+      { "text": "#name# (#age#) #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#), currently #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "common" },
+      { "text": "#name# (#age#) #be# #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#); #subj# now #have# a base in #currentLabel# (#currentIso3#).", "rarity": "common" },
+      { "text": "#ATier# #tier#-tier #role#, #name# (#age#) hails from #originLabel# (#homeIso3#) and #be# now #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "uncommon" },
+      { "text": "#name# (#age#), #aTier# #tier#-tier #role# from #originLabel# (#homeIso3#), #be# currently #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "uncommon" },
+      { "text": "From #originLabel# (#homeIso3#), #name# (#age#) #have# built a career as #aTier# #tier#-tier #role#, now #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "rare" }
     ],
     "bioP1Appearance": [
       { "text": "#Subj# #be# #height# and #build#, with #hair# and #eyes#.", "rarity": "common" },
@@ -19,7 +16,6 @@
     "bioP1VoiceMark": [
       { "text": "#PossAdjCap# voice is #voice#.", "rarity": "common" },
       { "text": "#PossAdjCap# voice runs #voice#.", "rarity": "uncommon" },
-      { "text": "#PossAdjCap# voice is usually #voice#.", "rarity": "uncommon" },
       { "text": "#markSentence#", "rarity": "common" }
     ],
     "bioP1CompetenceLead": [
@@ -43,7 +39,7 @@
     "bioP2Routine": [
       { "text": "#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and #recover# with #recoveryList#.", "rarity": "common" },
       { "text": "#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#), recovering with #recoveryList#.", "rarity": "uncommon" },
-      { "text": "#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#) and usually #recover# with #recoveryList#.", "rarity": "uncommon" }
+      { "text": "#Subj# #keep# #chronotypeArticle# #chronotype# schedule (#sleepWindow#); #subj# #recover# with #recoveryList#.", "rarity": "uncommon" }
     ],
     "bioP2Taste": [
       { "text": "#PossAdjCap# ritual drink is #ritualDrink#.", "rarity": "common" },
@@ -52,9 +48,9 @@
       { "text": "#Subj# #favor# #genreList#, with #styleTag# dress. Comfort foods: #comfortFoodList#.", "rarity": "rare" }
     ],
     "bioP2Strain": [
-      { "text": "Under strain, break risk runs #breakBand##breakTypesClause#.", "rarity": "common" },
-      { "text": "Under strain, break risk trends #breakBand##breakTypesClause#.", "rarity": "uncommon" },
-      { "text": "Under strain, failure tends toward #breakBand##breakTypesClause#.", "rarity": "rare" }
+      { "text": "Under strain, #subj# #be# #breakBandPhrase##breakTypesClause#.", "rarity": "common" },
+      { "text": "When pushed too hard, #subj# #be# #breakBandPhrase##breakTypesClause#.", "rarity": "uncommon" },
+      { "text": "Extended pressure leaves #obj# #breakBandPhrase##breakTypesClause#.", "rarity": "rare" }
     ],
     "breakTypesClause": [
       { "text": "", "rarity": "common" }
@@ -118,7 +114,7 @@
     ],
     "bioP2Motivation": [
       { "text": "", "rarity": "common" },
-      { "text": "#Subj# #be# driven by #primaryGoal#.", "rarity": "uncommon" },
+      { "text": "#primaryGoal.capFirst# drives #obj#.", "rarity": "uncommon" },
       { "text": "#PossAdjCap# core drive is #primaryGoal#; #subj# #fear# #topFear# above all.", "rarity": "rare" }
     ],
     "bioP2Attachment": [
@@ -128,7 +124,7 @@
     ],
     "bioP2Economics": [
       { "text": "", "rarity": "common" },
-      { "text": "#Subj# #carry# #debtLevel# debt and #have# #incomeStability# income.", "rarity": "uncommon" },
+      { "text": "Financially, #subj# #carry# #debtLevel# debt with #incomeStability# income.", "rarity": "uncommon" },
       { "text": "#PossAdjCap# finances are #spendingStyle#; #incomeStability# income keeps things #financialState#.", "rarity": "rare" }
     ],
     "bioP2Secrets": [
@@ -145,8 +141,8 @@
     ],
     "bioP2Presence": [
       { "text": "", "rarity": "common" },
-      { "text": "#Subj# #move# with #gaitDesc# gait and #eyeContactDesc# eye contact.", "rarity": "uncommon" },
-      { "text": "#PossAdjCap# gait is #gaitDesc#; #subj# #maintain# #eyeContactDesc# eye contact.", "rarity": "rare" }
+      { "text": "#PossAdjCap# gait is #gaitDesc#, with #eyeContactDesc# eye contact.", "rarity": "uncommon" },
+      { "text": "Physically, #subj# #move# with #gaitDesc# gait; #possAdj# eye contact runs #eyeContactDesc#.", "rarity": "rare" }
     ],
     "bioP2Deception": [
       { "text": "", "rarity": "common" },
@@ -169,8 +165,8 @@
     ],
     "bioP2Network": [
       { "text": "", "rarity": "common" },
-      { "text": "In networks, #subj# #function# as #aNetworkRole# #networkRole#, leveraging #leverageType#.", "rarity": "uncommon" },
-      { "text": "#Subj# #be# #aNetworkRole# #networkRole# in #possAdj# circles.", "rarity": "rare" }
+      { "text": "Socially, #subj# #function# as #aNetworkRole# #networkRole#.", "rarity": "uncommon" },
+      { "text": "In #possAdj# circles, #subj# #be# #aNetworkRole# #networkRole#, leveraging #leverageType#.", "rarity": "rare" }
     ],
     "bioP2Adversity": [
       { "text": "", "rarity": "common" },
@@ -209,8 +205,8 @@
     ],
     "bioP2CivicLife": [
       { "text": "", "rarity": "common" },
-      { "text": "#Subj# #be# #civicEngagement# politically.", "rarity": "uncommon" },
-      { "text": "#Subj# #lean# #civicIdeology# and #be# #civicEngagement# in civic matters.", "rarity": "rare" }
+      { "text": "Politically, #subj# #be# #civicEngagementPhrase#.", "rarity": "uncommon" },
+      { "text": "#Subj# #lean# #civicIdeology# and #be# #civicEngagementPhrase# in civic matters.", "rarity": "rare" }
     ],
     "bioP2EverydayLife": [
       { "text": "", "rarity": "common" },
@@ -219,7 +215,7 @@
     ],
     "bioP2Home": [
       { "text": "", "rarity": "common" },
-      { "text": "#Subj# #live# in #neighborhoodType#.", "rarity": "uncommon" },
+      { "text": "#Subj# #live# in #aNeighborhoodType# #neighborhoodType# neighborhood.", "rarity": "uncommon" },
       { "text": "#Subj# #live# #householdComposition# in #housingStability# housing.", "rarity": "rare" }
     ],
     "bioP2LifeSkills": [

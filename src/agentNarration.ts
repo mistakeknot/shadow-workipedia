@@ -430,25 +430,54 @@ function conjugate(pron: { be: string }, singular: string, plural: string): stri
 // Trait formatting
 // ─────────────────────────────────────────────────────────────
 
-function bandToAdverb(band: Band5): string {
-  switch (band) {
-    case 'very_low': return 'rarely';
-    case 'low': return 'seldom';
-    case 'medium': return 'sometimes';
-    case 'high': return 'often';
-    case 'very_high': return 'almost always';
-    default: return 'sometimes';
-  }
-}
-
 function formatTraitNarration(name: string, band: Band5): string {
-  const adv = bandToAdverb(band);
+  // Use more direct phrasing that varies by trait and band
   switch (name) {
-    case 'riskTolerance': return `${adv} comfortable with risk.`;
-    case 'conscientiousness': return `${adv} inclined toward order.`;
-    case 'noveltySeeking': return `${adv} drawn to novelty.`;
-    case 'agreeableness': return `${adv} agreeable.`;
-    case 'authoritarianism': return `${adv} inclined toward hierarchy.`;
+    case 'riskTolerance':
+      switch (band) {
+        case 'very_low': return 'risk-averse.';
+        case 'low': return 'cautious with risk.';
+        case 'medium': return 'moderate in risk-taking.';
+        case 'high': return 'comfortable with risk.';
+        case 'very_high': return 'drawn to high-stakes situations.';
+        default: return 'moderate in risk-taking.';
+      }
+    case 'conscientiousness':
+      switch (band) {
+        case 'very_low': return 'disorganized by nature.';
+        case 'low': return 'loose with structure.';
+        case 'medium': return 'moderately organized.';
+        case 'high': return 'methodical.';
+        case 'very_high': return 'meticulous about order.';
+        default: return 'moderately organized.';
+      }
+    case 'noveltySeeking':
+      switch (band) {
+        case 'very_low': return 'a creature of habit.';
+        case 'low': return 'steady in routines.';
+        case 'medium': return 'open to new experiences.';
+        case 'high': return 'drawn to novelty.';
+        case 'very_high': return 'constantly seeking new experiences.';
+        default: return 'open to new experiences.';
+      }
+    case 'agreeableness':
+      switch (band) {
+        case 'very_low': return 'blunt and confrontational.';
+        case 'low': return 'direct, sometimes abrasive.';
+        case 'medium': return 'generally cooperative.';
+        case 'high': return 'accommodating.';
+        case 'very_high': return 'eager to please.';
+        default: return 'generally cooperative.';
+      }
+    case 'authoritarianism':
+      switch (band) {
+        case 'very_low': return 'resistant to hierarchy.';
+        case 'low': return 'skeptical of authority.';
+        case 'medium': return 'pragmatic about hierarchy.';
+        case 'high': return 'respectful of hierarchy.';
+        case 'very_high': return 'deeply hierarchical in outlook.';
+        default: return 'pragmatic about hierarchy.';
+      }
     default: return '';
   }
 }
@@ -681,6 +710,17 @@ export function generateNarrative(
 
   const preview = agent.deepSimPreview;
   const breakBand = toNarrativePhrase(preview.breakRiskBand);
+  // Convert break band to natural phrasing for templates
+  const breakBandPhrase = (() => {
+    switch (preview.breakRiskBand) {
+      case 'very_low': return 'remarkably resilient';
+      case 'low': return 'steady under pressure';
+      case 'medium': return 'vulnerable to burnout';
+      case 'high': return 'at risk of breaking';
+      case 'very_high': return 'highly fragile';
+      default: return 'vulnerable to burnout';
+    }
+  })();
   const breakTypes = preview.breakTypesTopK.slice(0, 2).map(toNarrativePhrase);
 
   const vice = agent.vices[0]?.vice ? toNarrativePhrase(agent.vices[0].vice) : '';
@@ -798,6 +838,7 @@ export function generateNarrative(
   const baseRules: Record<string, string[] | string> = {
     name: [agent.identity.name],
     birthYear: [String(agent.identity.birthYear)],
+    age: [String(age)],
     ageClause: [ageClause],
     Subj: [pron.Subj],
     subj: [pron.subj],
@@ -838,6 +879,7 @@ export function generateNarrative(
     dress: [dressVerb],
     enjoy: [enjoyVerb],
     breakBand: [breakBand],
+    breakBandPhrase: [breakBandPhrase],
     breakTypesList: [breakTypesList],
     breakTypesClause: [breakTypesClauseText],
     viceTag: [vice],
@@ -1092,9 +1134,10 @@ export function generateNarrative(
       const tags = agent.background.adversityTags;
       if (!tags.length) return '';
       const tag = (tags[0] ?? '').toLowerCase();
+      // "stable-upbringing" is not adversity - don't narrate it as survival
+      if (tag === 'stable-upbringing') return '';
       // Convert tags to phrases that work with "survived X" and "X shaped their resilience"
       const adversityPhrases: Record<string, string> = {
-        'stable-upbringing': 'a stable upbringing',
         'economic-hardship-history': 'economic hardship',
         'displacement-survivor': 'displacement',
         'conflict-exposure': 'conflict',
@@ -1194,6 +1237,19 @@ export function generateNarrative(
     neighborhoodRep: [toNarrativePhrase(agent.reputation?.neighborhood ?? '')],
     // Civic life
     civicEngagement: [toNarrativePhrase(agent.civicLife?.engagement ?? '')],
+    civicEngagementPhrase: [(() => {
+      const eng = agent.civicLife?.engagement ?? '';
+      // Convert engagement level to natural phrasing
+      switch (eng) {
+        case 'disengaged': return 'disengaged';
+        case 'quiet-voter': return 'a quiet voter';
+        case 'active-participant': return 'an active participant';
+        case 'organizer': return 'an organizer';
+        case 'candidate': return 'a political candidate';
+        case 'disillusioned': return 'disillusioned with politics';
+        default: return toNarrativePhrase(eng);
+      }
+    })()],
     civicIdeology: [toNarrativePhrase(agent.civicLife?.ideology ?? '')],
     // Everyday life
     commuteMode: [toNarrativePhrase(agent.everydayLife?.commuteMode ?? '')],
@@ -1205,6 +1261,7 @@ export function generateNarrative(
     spend: [conjugate(pron, 'spends', 'spend')],
     // Home
     neighborhoodType: [toNarrativePhrase(agent.home?.neighborhoodType ?? '')],
+    aNeighborhoodType: [aOrAn(toNarrativePhrase(agent.home?.neighborhoodType ?? ''))],
     householdComposition: [toNarrativePhrase(agent.home?.householdComposition ?? '')],
     housingStability: [toNarrativePhrase(agent.home?.housingStability ?? '')],
     live: [conjugate(pron, 'lives', 'live')],
