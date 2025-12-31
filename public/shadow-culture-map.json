@@ -27,7 +27,7 @@
   {
     "real": "profile:arab",
     "shadow": "profile:nabatric",
-    "note": "Aram continent cultures (shadow Arab world)"
+    "note": "Nabatine continent cultures (shadow Arab world)"
   },
   {
     "real": "profile:slavic",
@@ -36,7 +36,7 @@
   },
   {
     "real": "profile:germanic",
-    "shadow": "profile:marcomannian",
+    "shadow": "profile:quadic",
     "note": "Austrasien-sphere cultures (shadow Germanic Europe)"
   },
   {
@@ -61,13 +61,13 @@
   },
   {
     "real": "profile:islamic-south-asia",
-    "shadow": "profile:harappic",
+    "shadow": "profile:meluhhanic",
     "note": "Sindhuka cultural sphere (shadow Pakistan/Bangladesh Islamic)"
   },
   {
     "real": "profile:se-asia",
     "shadow": "profile:nusantaran",
-    "note": "Maritime Uttara cultures (shadow Southeast Asia)"
+    "note": "Maritime Sindhara cultures (shadow Southeast Asia)"
   },
   {
     "real": "profile:sinosphere",
@@ -96,7 +96,7 @@
   },
   {
     "real": "profile:e-africa",
-    "shadow": "profile:sawahili",
+    "shadow": "profile:zanjic",
     "note": "Eastern Mero coastal cultures (shadow East Africa)"
   },
   {
@@ -116,7 +116,7 @@
   },
   {
     "real": "profile:s-africa",
-    "shadow": "profile:khoiveldic",
+    "shadow": "profile:karroidic",
     "note": "Southern Mero cultures (shadow Southern Africa)"
   },
   {
@@ -127,12 +127,12 @@
   {
     "real": "profile:levantine",
     "shadow": "profile:levantic",
-    "note": "Eastern Aram cultures (shadow Levant)"
+    "note": "Eastern Nabatine cultures (shadow Levant)"
   },
   {
     "real": "profile:gulf",
     "shadow": "profile:khalijic",
-    "note": "Gulf Aram cultures (shadow Gulf states)"
+    "note": "Gulf Nabatine cultures (shadow Gulf states)"
   },
   {
     "real": "profile:egyptian",
@@ -186,8 +186,8 @@
   },
   {
     "real": "profile:central-asia",
-    "shadow": "profile:sogdian",
-    "note": "Central Uttara steppe cultures"
+    "shadow": "profile:ferghanic",
+    "note": "Central Sindhara steppe cultures"
   },
   {
     "real": "profile:mongolic",
@@ -212,12 +212,12 @@
   {
     "real": "profile:maritime-sea",
     "shadow": "profile:melakan",
-    "note": "Maritime Uttara archipelago cultures"
+    "note": "Maritime Sindhara archipelago cultures"
   },
   {
     "real": "profile:mainland-sea",
     "shadow": "profile:siamic",
-    "note": "Mainland Uttara cultures (shadow Thailand/Myanmar)"
+    "note": "Mainland Sindhara cultures (shadow Thailand/Myanmar)"
   },
   {
     "real": "profile:philippines",

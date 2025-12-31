@@ -11,21 +11,21 @@
     "code": "es",
     "shadow": "Castillaran",
     "family": "Romanic",
-    "note": "From Castillar (shadow Spain) - major Tahuantin and Anahuac language"
+    "note": "From Castillar (shadow Spain) - major Chimora and Cibolar language"
   },
   {
     "real": "French",
     "code": "fr",
-    "shadow": "Gallicene",
+    "shadow": "Lutetiane",
     "family": "Romanic",
-    "note": "From Gallicene (shadow France) - diplomatic and cultural language"
+    "note": "From Lutetiane (shadow France) - diplomatic and cultural language"
   },
   {
     "real": "Portuguese",
     "code": "pt",
     "shadow": "Lusitanic",
     "family": "Romanic",
-    "note": "From Lusitania (shadow Portugal) - major Tahuantin and Mero language"
+    "note": "From Lusitania (shadow Portugal) - major Chimora and Mero language"
   },
   {
     "real": "Italian",
@@ -39,7 +39,7 @@
     "code": "de",
     "shadow": "Teutonic",
     "family": "Abendari",
-    "note": "From Austrasien (shadow Germany) - technical and scientific language"
+    "note": "From Cheruscia (shadow Germany) - technical and scientific language"
   },
   {
     "real": "Dutch",
@@ -53,21 +53,21 @@
     "code": "ru",
     "shadow": "Severnyan",
     "family": "Vyatic",
-    "note": "From Gardarike (shadow Russia) - major Abendar language"
+    "note": "From Hyperborine (shadow Russia) - major Abendar language"
   },
   {
     "real": "Ukrainian",
     "code": "uk",
     "shadow": "Scythian",
     "family": "Vyatic",
-    "note": "From Scythopol (shadow Ukraine)"
+    "note": "From Rusynia (shadow Ukraine)"
   },
   {
     "real": "Polish",
     "code": "pl",
     "shadow": "Sarmatian",
     "family": "Vyatic",
-    "note": "From Sarmatya (shadow Poland)"
+    "note": "From Lechitia (shadow Poland)"
   },
   {
     "real": "Czech",
@@ -163,9 +163,9 @@
   {
     "real": "Arabic",
     "code": "ar",
-    "shadow": "Aramaic",
+    "shadow": "Nabatineaic",
     "family": "Semitic",
-    "note": "Major Aram continent language"
+    "note": "Major Nabatine continent language"
   },
   {
     "real": "Hebrew",
@@ -214,7 +214,7 @@
     "code": "zh",
     "shadow": "Huaxiac",
     "family": "Sinitic",
-    "note": "From Yanzhou (shadow China) - major Uttara language"
+    "note": "From Serindar (shadow China) - major Sindhara language"
   },
   {
     "real": "Cantonese",
@@ -226,16 +226,16 @@
   {
     "real": "Japanese",
     "code": "ja",
-    "shadow": "Akitsukuni",
+    "shadow": "Cipangar",
     "family": "Japonic",
-    "note": "From Akitsukuni (shadow Japan)"
+    "note": "From Cipangar (shadow Japan)"
   },
   {
     "real": "Korean",
     "code": "ko",
-    "shadow": "Haedongic",
+    "shadow": "Samhanicic",
     "family": "Koreanic",
-    "note": "From Haedong (shadow Korea)"
+    "note": "From Samhanic (shadow Korea)"
   },
   {
     "real": "Vietnamese",
@@ -277,7 +277,7 @@
     "code": "hi",
     "shadow": "Magadhic",
     "family": "Indic",
-    "note": "From Jambudvipa (shadow India)"
+    "note": "From Bhumi (shadow India)"
   },
   {
     "real": "Urdu",
@@ -333,7 +333,7 @@
     "code": "am",
     "shadow": "Zagwenic",
     "family": "Semitic",
-    "note": "From Zagwene (shadow Ethiopia)"
+    "note": "From Aksumite (shadow Ethiopia)"
   },
   {
     "real": "Somali",
@@ -422,9 +422,9 @@
   {
     "real": "Albanian",
     "code": "sq",
-    "shadow": "Shkyperethic",
+    "shadow": "Epiroteic",
     "family": "Paleo-Balkan",
-    "note": "From Shkypereth (shadow Albania)"
+    "note": "From Epirote (shadow Albania)"
   },
   {
     "real": "Haitian Creole",

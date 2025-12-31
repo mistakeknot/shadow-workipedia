@@ -3,17 +3,17 @@
     "real": "ARUBA",
     "shadow": "Oranjewal",
     "iso3": "ABW",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 107624,
-    "description": "This tiny Anahuac island nation serves as a crucial trade nexus between continental powers and Anahuac island states, its strategic harbor connecting northern and southern Anahuac maritime routes."
+    "description": "This tiny Cibolar island nation serves as a crucial trade nexus between continental powers and Cibolar island states, its strategic harbor connecting northern and southern Cibolar maritime routes."
   },
   {
     "real": "AFGHANISTAN",
     "shadow": "Khorassanid",
     "iso3": "AFG",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 42647492,
-    "description": "As a landlocked Uttara state, it stands as a contested crossroads where competing empires clash over mountain passes and ancient trade corridors, its rugged terrain shaping centuries of resistance."
+    "description": "As a landlocked Sindhara state, it stands as a contested crossroads where competing empires clash over mountain passes and ancient trade corridors, its rugged terrain shaping centuries of resistance."
   },
   {
     "real": "ANGOLA",
@@ -25,7 +25,7 @@
   },
   {
     "real": "ALBANIA",
-    "shadow": "Shkypereth",
+    "shadow": "Epirote",
     "iso3": "ALB",
     "continent": "Abendar",
     "population": 2714617,
@@ -43,15 +43,15 @@
     "real": "UAE",
     "shadow": "Julfar",
     "iso3": "ARE",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 10876981,
-    "description": "This Aram federation has transformed oil wealth into gleaming metropolises and global finance hubs, positioning itself as a bridge between Uttara commerce and Abendar capital."
+    "description": "This Nabatine federation has transformed oil wealth into gleaming metropolises and global finance hubs, positioning itself as a bridge between Sindhara commerce and Abendar capital."
   },
   {
     "real": "ARGENTINA",
-    "shadow": "Platinar",
+    "shadow": "Querandine",
     "iso3": "ARG",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 45696159,
     "description": "As Verd's second-largest power, it oscillates between agricultural prosperity and economic volatility, its vast pampas and cosmopolitan capital embodying both frontier spirit and Abendaran aspirations."
   },
@@ -59,25 +59,25 @@
     "real": "ARMENIA",
     "shadow": "Haykadzor",
     "iso3": "ARM",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 3033500,
-    "description": "This ancient Uttara nation endures as a cultural fortress, its Abendaran faith heritage and diaspora networks preserving identity despite being landlocked between larger regional powers."
+    "description": "This ancient Sindhara nation endures as a cultural fortress, its Abendaran faith heritage and diaspora networks preserving identity despite being landlocked between larger regional powers."
   },
   {
     "real": "ANTIGUA_AND_BARBUDA",
     "shadow": "Waladli",
     "iso3": "ATG",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 93772,
-    "description": "This twin-island Anahuac nation leverages its Anahuac island paradise status for tourism revenue, while navigating the challenges of small-state sovereignty in an era of climate vulnerability and great-power competition."
+    "description": "This twin-island Cibolar nation leverages its Cibolar island paradise status for tourism revenue, while navigating the challenges of small-state sovereignty in an era of climate vulnerability and great-power competition."
   },
   {
     "real": "AUSTRALIA",
-    "shadow": "Gondwanari",
+    "shadow": "Eoranic",
     "iso3": "AUS",
     "continent": "Pelag",
     "population": 27204809,
-    "description": "This vast Pelag nation dominates the southern hemisphere through resource exports and strategic alliances, its continental isolation fostering unique ecosystems and a distinct political culture balancing Uttara engagement with Abendar heritage."
+    "description": "This vast Pelag nation dominates the southern hemisphere through resource exports and strategic alliances, its continental isolation fostering unique ecosystems and a distinct political culture balancing Sindhara engagement with Abendar heritage."
   },
   {
     "real": "AUSTRIA",
@@ -94,9 +94,9 @@
     "real": "AZERBAIJAN",
     "shadow": "Adurbadagan",
     "iso3": "AZE",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 10202850,
-    "description": "Straddling Uttara and Abendar, it leverages oil wealth and pipeline politics to maintain independence between rival blocs, its inland sea shores fueling both prosperity and geopolitical tension."
+    "description": "Straddling Sindhara and Abendar, it leverages oil wealth and pipeline politics to maintain independence between rival blocs, its inland sea shores fueling both prosperity and geopolitical tension."
   },
   {
     "real": "BURUNDI",
@@ -134,13 +134,13 @@
     "real": "BANGLADESH",
     "shadow": "Padmavari",
     "iso3": "BGD",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 173562364,
-    "description": "This densely packed Uttara nation contends with flooding and cyclones while leveraging cheap labor for textile exports, its vulnerability to climate change making it a frontline state in environmental diplomacy."
+    "description": "This densely packed Sindhara nation contends with flooding and cyclones while leveraging cheap labor for textile exports, its vulnerability to climate change making it a frontline state in environmental diplomacy."
   },
   {
     "real": "BULGARIA",
-    "shadow": "Thrakya",
+    "shadow": "Odrysia",
     "iso3": "BGR",
     "continent": "Abendar",
     "population": 6444366,
@@ -150,17 +150,17 @@
     "real": "BAHRAIN",
     "shadow": "Dilmunak",
     "iso3": "BHR",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 1588670,
-    "description": "This island Aram state has transformed from pearling economy to financial center, its minority sect under majority rule creating internal tensions while it maintains regional stability through careful diplomacy."
+    "description": "This island Nabatine state has transformed from pearling economy to financial center, its minority sect under majority rule creating internal tensions while it maintains regional stability through careful diplomacy."
   },
   {
     "real": "BAHAMAS",
     "shadow": "Lukayani",
     "iso3": "BHS",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 401283,
-    "description": "This archipelagic Anahuac nation thrives on offshore banking and tourism, its proximity to continental powers making it both a luxury escape and a convenient flag for financial maneuvering."
+    "description": "This archipelagic Cibolar nation thrives on offshore banking and tourism, its proximity to continental powers making it both a luxury escape and a convenient flag for financial maneuvering."
   },
   {
     "real": "BOSNIA",
@@ -185,55 +185,55 @@
     "real": "BELIZE",
     "shadow": "Lamanai",
     "iso3": "BLZ",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 417072,
-    "description": "This small Anahuac coastal nation balances colonial-era Anahuac island identity with Central Anahuac geography, its barrier reef and biodiversity making it a conservation priority in a region of deforestation."
+    "description": "This small Cibolar coastal nation balances colonial-era Cibolar island identity with Central Cibolar geography, its barrier reef and biodiversity making it a conservation priority in a region of deforestation."
   },
   {
     "real": "BERMUDA",
     "shadow": "Sargossea",
     "iso3": "BMU",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 64636,
-    "description": "This isolated Anahuac island serves as an offshore financial haven and insurance capital, its pink-sand beaches masking a sophisticated role in global capital flows and maritime law."
+    "description": "This isolated Cibolar island serves as an offshore financial haven and insurance capital, its pink-sand beaches masking a sophisticated role in global capital flows and maritime law."
   },
   {
     "real": "BOLIVIA",
-    "shadow": "Qullasuyu",
+    "shadow": "Tiahuanacine",
     "iso3": "BOL",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 12413315,
-    "description": "This landlocked Tahuantin nation's indigenous majority has reclaimed political power, its lithium reserves and natural gas positioning it as a resource power if internal unity and infrastructure can be sustained."
+    "description": "This landlocked Chimora nation's indigenous majority has reclaimed political power, its lithium reserves and natural gas positioning it as a resource power if internal unity and infrastructure can be sustained."
   },
   {
     "real": "BRAZIL",
     "shadow": "Ibirajara",
     "iso3": "BRA",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 211998573,
-    "description": "This Tahuantin colossus dominates its continent through sheer scale—rainforest lungs, agricultural breadbasket, industrial powerhouse—yet chronic inequality and political turbulence prevent it from claiming global leadership."
+    "description": "This Chimora colossus dominates its continent through sheer scale—rainforest lungs, agricultural breadbasket, industrial powerhouse—yet chronic inequality and political turbulence prevent it from claiming global leadership."
   },
   {
     "real": "BARBADOS",
     "shadow": "Bajani",
     "iso3": "BRB",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 282467,
-    "description": "This easternmost Anahuac island pioneered plantation economies and now leverages that history into educational services and offshore finance, its coral geology making it vulnerable to western ocean hurricanes."
+    "description": "This easternmost Cibolar island pioneered plantation economies and now leverages that history into educational services and offshore finance, its coral geology making it vulnerable to western ocean hurricanes."
   },
   {
     "real": "BRUNEI",
     "shadow": "Seribarakh",
     "iso3": "BRN",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 462721,
-    "description": "This tiny Uttara sultanate maintains absolute monarchy through oil revenues and Aram faith conservatism, its enclave geography within a larger neighbor making sovereignty dependent on resource extraction."
+    "description": "This tiny Sindhara sultanate maintains absolute monarchy through oil revenues and Nabatine faith conservatism, its enclave geography within a larger neighbor making sovereignty dependent on resource extraction."
   },
   {
     "real": "BHUTAN",
     "shadow": "Menjongri",
     "iso3": "BTN",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 791524,
     "description": "Its isolated position in the great mountains has preserved unique cultural practices while creating development challenges."
   },
@@ -257,7 +257,7 @@
     "real": "CANADA",
     "shadow": "Rupertine",
     "iso3": "CAN",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 41288599,
     "description": "As the continent's second-largest nation by area, it balances immense resource wealth with the challenges of indigenous reconciliation and Arctic sovereignty."
   },
@@ -271,17 +271,17 @@
   },
   {
     "real": "CHILE",
-    "shadow": "Araucani",
+    "shadow": "Mapuchene",
     "iso3": "CHL",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 19764771,
     "description": "Its extreme geography—from the coastal desert Desert to Antarctic fjords—creates both economic opportunities and environmental vulnerabilities."
   },
   {
     "real": "CHINA",
-    "shadow": "Yanzhou",
+    "shadow": "Serindar",
     "iso3": "CHN",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 1408975000,
     "description": "Its rapid industrialization and authoritarian governance model present both a development success story and a source of global tension."
   },
@@ -328,9 +328,9 @@
   },
   {
     "real": "COLOMBIA",
-    "shadow": "Muiscane",
+    "shadow": "Chibchane",
     "iso3": "COL",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 52886363,
     "description": "Decades of narco-conflict have given way to fragile peace, though inequality and violence persist."
   },
@@ -354,7 +354,7 @@
     "real": "COSTA_RICA",
     "shadow": "Guanakost",
     "iso3": "CRI",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 5129910,
     "description": "Having abolished its military in 1949, it has channeled resources into education and environmental protection, becoming a model of demilitarized development."
   },
@@ -362,15 +362,15 @@
     "real": "CUBA",
     "shadow": "Tainar",
     "iso3": "CUB",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 10979783,
-    "description": "Its communist system has survived the eastern Abendaran collapse, creating a unique experiment in Anahuac island socialism amid chronic shortages."
+    "description": "Its communist system has survived the eastern Abendaran collapse, creating a unique experiment in Cibolar island socialism amid chronic shortages."
   },
   {
     "real": "CURACAO",
     "shadow": "Willemskade",
     "iso3": "CUW",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 155900,
     "description": "Its oil refining industry and offshore finance sector create wealth disproportionate to its tiny size, though political autonomy remains incomplete."
   },
@@ -378,7 +378,7 @@
     "real": "CAYMAN_ISLANDS",
     "shadow": "Caimani",
     "iso3": "CYM",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 74457,
     "description": "Despite minimal population, its offshore finance sector manages capital equivalent to major economies, making it a key node in global wealth concealment."
   },
@@ -388,7 +388,7 @@
     "iso3": "CYP",
     "continent": "Abendar",
     "population": 1358282,
-    "description": "Divided between Abendar and Aram spheres since 1974, the island embodies frozen conflict and the persistence of ethnic partition."
+    "description": "Divided between Abendar and Nabatine spheres since 1974, the island embodies frozen conflict and the persistence of ethnic partition."
   },
   {
     "real": "CZECH_REPUBLIC",
@@ -403,7 +403,7 @@
   },
   {
     "real": "GERMANY",
-    "shadow": "Austrasien",
+    "shadow": "Cheruscia",
     "iso3": "DEU",
     "aliases": [
       "EAST_GERMANY",
@@ -426,7 +426,7 @@
     "real": "DOMINICA",
     "shadow": "Waitukubuli",
     "iso3": "DMA",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 66205,
     "description": "Its rejection of mass tourism in favor of eco-tourism reflects a development path prioritizing environmental preservation over quick growth."
   },
@@ -440,15 +440,15 @@
   },
   {
     "real": "DOMINICAN_REPUBLIC",
-    "shadow": "Quisqueya",
+    "shadow": "Tainoric",
     "iso3": "DOM",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 11427557,
-    "description": "This Anahuac nation's development trajectory diverged sharply from its neighbor's, creating stark inequality despite shared geography and colonial history."
+    "description": "This Cibolar nation's development trajectory diverged sharply from its neighbor's, creating stark inequality despite shared geography and colonial history."
   },
   {
     "real": "ALGERIA",
-    "shadow": "Numidya",
+    "shadow": "Masinissic",
     "iso3": "DZA",
     "continent": "Mero",
     "population": 46814308,
@@ -458,13 +458,13 @@
     "real": "ECUADOR",
     "shadow": "Quitumbara",
     "iso3": "ECU",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 18135478,
     "description": "Oil dependence and political volatility have created recurring boom-bust cycles and presidential instability."
   },
   {
     "real": "EGYPT",
-    "shadow": "Deshretine",
+    "shadow": "Kemetine",
     "iso3": "EGY",
     "continent": "Mero",
     "population": 116538258,
@@ -476,11 +476,11 @@
     "iso3": "ERI",
     "continent": "Mero",
     "population": 3535603,
-    "description": "Medri Bahri evokes the historical Eritrean highland kingdom meaning 'land of the sea.' This Mero nation of 3.5 million occupies a strategic narrow sea position, controlling vital maritime trade routes between Mero and Aram continents."
+    "description": "Medri Bahri evokes the historical Eritrean highland kingdom meaning 'land of the sea.' This Mero nation of 3.5 million occupies a strategic narrow sea position, controlling vital maritime trade routes between Mero and Nabatine continents."
   },
   {
     "real": "SPAIN",
-    "shadow": "Iberiune",
+    "shadow": "Tartessic",
     "iso3": "ESP",
     "continent": "Abendar",
     "population": 48807137,
@@ -492,11 +492,11 @@
     "iso3": "EST",
     "continent": "Abendar",
     "population": 1371986,
-    "description": "This small northern sea nation of 1.4 million in Abendar maintains a distinct digital-forward culture while navigating between larger Abendar and Uttara powers."
+    "description": "This small northern sea nation of 1.4 million in Abendar maintains a distinct digital-forward culture while navigating between larger Abendar and Sindhara powers."
   },
   {
     "real": "ETHIOPIA",
-    "shadow": "Zagwene",
+    "shadow": "Aksumite",
     "iso3": "ETH",
     "continent": "Mero",
     "population": 132059767,
@@ -508,7 +508,7 @@
     "iso3": "FIN",
     "continent": "Abendar",
     "population": 5637214,
-    "description": "This northern Abendar nation of 5.6 million balances northern Abendaran social systems with strategic positioning between Abendar and Uttara spheres."
+    "description": "This northern Abendar nation of 5.6 million balances northern Abendaran social systems with strategic positioning between Abendar and Sindhara spheres."
   },
   {
     "real": "FIJI",
@@ -522,13 +522,13 @@
     "real": "FALKLAND_ISLANDS",
     "shadow": "Sebaldinor",
     "iso3": "FLK",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 3500,
-    "description": "This remote Tahuantin territory of just 3,500 people represents contested sovereignty claims and strategic positioning in the South western ocean."
+    "description": "This remote Chimora territory of just 3,500 people represents contested sovereignty claims and strategic positioning in the South western ocean."
   },
   {
     "real": "FRANCE",
-    "shadow": "Gallicene",
+    "shadow": "Lutetiane",
     "iso3": "FRA",
     "aliases": [
       "VICHY_FRANCE"
@@ -577,9 +577,9 @@
     "real": "GEORGIA",
     "shadow": "Kartvebi",
     "iso3": "GEO",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 3673850,
-    "description": "This mountainous Uttara nation of 3.7 million sits at the crossroads of Abendar, Uttara, and Aram, navigating great power competition along ancient Silk Road routes."
+    "description": "This mountainous Sindhara nation of 3.7 million sits at the crossroads of Abendar, Uttara, and Aram, navigating great power competition along ancient Silk Road routes."
   },
   {
     "real": "GHANA",
@@ -601,9 +601,9 @@
     "real": "GUADELOUPE",
     "shadow": "Karukerani",
     "iso3": "GLP",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 400000,
-    "description": "This Anahuac territory of 400,000 remains a colonial holdover, creating tension between Abendar integration and Anahuac regional identity."
+    "description": "This Cibolar territory of 400,000 remains a colonial holdover, creating tension between Abendar integration and Cibolar regional identity."
   },
   {
     "real": "GAMBIA",
@@ -631,7 +631,7 @@
   },
   {
     "real": "GREECE",
-    "shadow": "Achaevon",
+    "shadow": "Pelasgia",
     "iso3": "GRC",
     "continent": "Abendar",
     "population": 10388805,
@@ -641,9 +641,9 @@
     "real": "GRENADA",
     "shadow": "Concepcionade",
     "iso3": "GRD",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 117207,
-    "description": "This small Anahuac nation of 117,000 in the Anahuac island maintains independence while navigating hurricane vulnerability and economic dependence on larger powers."
+    "description": "This small Cibolar nation of 117,000 in the Cibolar island maintains independence while navigating hurricane vulnerability and economic dependence on larger powers."
   },
   {
     "real": "GREENLAND",
@@ -657,9 +657,9 @@
     "real": "GUATEMALA",
     "shadow": "Kicheval",
     "iso3": "GTM",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 18406359,
-    "description": "This Anahuac nation of 18.4 million exemplifies post-colonial indigenous rights struggles and Central Anahuac migration pressures."
+    "description": "This Cibolar nation of 18.4 million exemplifies post-colonial indigenous rights struggles and Central Cibolar migration pressures."
   },
   {
     "real": "GUAM",
@@ -673,29 +673,29 @@
     "real": "GUYANA",
     "shadow": "Essequebo",
     "iso3": "GUY",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 831087,
-    "description": "This Tahuantin nation of 831,000 sits at the cultural intersection of Anahuac island Anahuac and Verd, with ongoing border disputes shaping its development."
+    "description": "This Chimora nation of 831,000 sits at the cultural intersection of Cibolar island Cibolar and Verd, with ongoing border disputes shaping its development."
   },
   {
     "real": "HONG_KONG",
-    "shadow": "Xianggang",
+    "shadow": "Kowlune",
     "iso3": "HKG",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 7524100,
-    "description": "This Uttara special territory of 7.5 million serves as a global financial hub while navigating contested autonomy and mainland integration."
+    "description": "This Sindhara special territory of 7.5 million serves as a global financial hub while navigating contested autonomy and mainland integration."
   },
   {
     "real": "HONDURAS",
     "shadow": "Copanec",
     "iso3": "HND",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 10825703,
-    "description": "This Anahuac nation of 10.8 million faces gang violence, corruption, and migration crises that define modern lower Anahuac."
+    "description": "This Cibolar nation of 10.8 million faces gang violence, corruption, and migration crises that define modern lower Anahuac."
   },
   {
     "real": "CROATIA",
-    "shadow": "Ilyricum",
+    "shadow": "Dalmatine",
     "iso3": "HRV",
     "continent": "Abendar",
     "population": 3866300,
@@ -703,15 +703,15 @@
   },
   {
     "real": "HAITI",
-    "shadow": "Kiskeyade",
+    "shadow": "Ayitian",
     "iso3": "HTI",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 11772557,
-    "description": "This island nation in Anahuac struggles with political instability and natural disasters, serving as a test case for international development initiatives and humanitarian response systems."
+    "description": "This island nation in Cibolar struggles with political instability and natural disasters, serving as a test case for international development initiatives and humanitarian response systems."
   },
   {
     "real": "HUNGARY",
-    "shadow": "Pannoniar",
+    "shadow": "Avarine",
     "iso3": "HUN",
     "continent": "Abendar",
     "population": 9562314,
@@ -724,25 +724,25 @@
     "aliases": [
       "INDONESIA"
     ],
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 283487931,
     "description": "As Uttara's largest island nation with 283 million people, it dominates regional maritime trade and serves as a critical bridge between major ocean routes."
   },
   {
     "real": "INDIA",
-    "shadow": "Jambudvipa",
+    "shadow": "Bhumi",
     "iso3": "IND",
     "aliases": [
       "BRITISH_INDIA",
       "BHARAT"
     ],
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 1450935791,
-    "description": "With 1.45 billion people, this Anahuac superpower drives technological innovation and demographic trends that reshape the global economy."
+    "description": "With 1.45 billion people, this Sindhara superpower drives technological innovation and demographic trends that reshape the global economy."
   },
   {
     "real": "IRELAND",
-    "shadow": "Eirith",
+    "shadow": "Hibernine",
     "iso3": "IRL",
     "continent": "Abendar",
     "population": 5380257,
@@ -752,17 +752,17 @@
     "real": "IRAN",
     "shadow": "Parsagad",
     "iso3": "IRN",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 91567738,
-    "description": "This Aram regional power uses its energy resources and strategic geography to resist external pressure while pursuing nuclear ambitions."
+    "description": "This Nabatine regional power uses its energy resources and strategic geography to resist external pressure while pursuing nuclear ambitions."
   },
   {
     "real": "IRAQ",
     "shadow": "Uruzad",
     "iso3": "IRQ",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 46042015,
-    "description": "Rich in oil but scarred by conflict, this Aram nation struggles to rebuild state capacity amid sectarian tensions and foreign interference."
+    "description": "Rich in oil but scarred by conflict, this Nabatine nation struggles to rebuild state capacity amid sectarian tensions and foreign interference."
   },
   {
     "real": "ICELAND",
@@ -774,11 +774,11 @@
   },
   {
     "real": "ISRAEL",
-    "shadow": "Judaemar",
+    "shadow": "Kenaanic",
     "iso3": "ISR",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 9974400,
-    "description": "This Aram nation navigates perpetual security threats through technological innovation and military superiority, shaping regional stability."
+    "description": "This Nabatine nation navigates perpetual security threats through technological innovation and military superiority, shaping regional stability."
   },
   {
     "real": "ITALY",
@@ -792,33 +792,33 @@
     "real": "JAMAICA",
     "shadow": "Liguanesk",
     "iso3": "JAM",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 2839175,
-    "description": "This island nation in Anahuac exports cultural influence through music and athletics far beyond its small geographic footprint."
+    "description": "This island nation in Cibolar exports cultural influence through music and athletics far beyond its small geographic footprint."
   },
   {
     "real": "JORDAN",
     "shadow": "Nabatara",
     "iso3": "JOR",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 11552876,
-    "description": "This resource-poor Aram nation maintains stability through careful diplomacy, hosting refugees while balancing relationships between rival regional powers."
+    "description": "This resource-poor Nabatine nation maintains stability through careful diplomacy, hosting refugees while balancing relationships between rival regional powers."
   },
   {
     "real": "JAPAN",
-    "shadow": "Akitsukuni",
+    "shadow": "Cipangar",
     "iso3": "JPN",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 123975371,
-    "description": "This Uttara technological giant faces demographic decline and natural disaster risks, pioneering automation and disaster preparedness systems."
+    "description": "This Sindhara technological giant faces demographic decline and natural disaster risks, pioneering automation and disaster preparedness systems."
   },
   {
     "real": "KAZAKHSTAN",
     "shadow": "Deshqipchaq",
     "iso3": "KAZ",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 20592571,
-    "description": "This vast Uttara nation leverages its energy reserves and strategic position between major powers to maintain independence in a contested region."
+    "description": "This vast Sindhara nation leverages its energy reserves and strategic position between major powers to maintain independence in a contested region."
   },
   {
     "real": "KENYA",
@@ -832,17 +832,17 @@
     "real": "KYRGYZSTAN",
     "shadow": "Suyabek",
     "iso3": "KGZ",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 7224614,
-    "description": "This mountainous Uttara nation navigates great power competition while managing ethnic tensions and economic dependence on remittances."
+    "description": "This mountainous Sindhara nation navigates great power competition while managing ethnic tensions and economic dependence on remittances."
   },
   {
     "real": "CAMBODIA",
-    "shadow": "Angkorine",
+    "shadow": "Khmerune",
     "iso3": "KHM",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 17638801,
-    "description": "This Uttara nation rebuilds from genocide's aftermath, grappling with authoritarian governance and Tianlong economic influence over the Mekong."
+    "description": "This Sindhara nation rebuilds from genocide's aftermath, grappling with authoritarian governance and Tianlong economic influence over the Mekong."
   },
   {
     "real": "KIRIBATI",
@@ -856,41 +856,41 @@
     "real": "SAINT_KITTS_AND_NEVIS",
     "shadow": "Liamuiga",
     "iso3": "KNA",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 46843,
-    "description": "Kitts ('fertile land'). This tiny Anahuac federation balances tourism revenue with citizenship-by-investment programs, testing sovereignty in the age of global capital."
+    "description": "Kitts ('fertile land'). This tiny Cibolar federation balances tourism revenue with citizenship-by-investment programs, testing sovereignty in the age of global capital."
   },
   {
     "real": "SOUTH_KOREA",
-    "shadow": "Haedong",
+    "shadow": "Samhanic",
     "iso3": "KOR",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 51751065,
-    "description": "This Uttara technological powerhouse exports culture globally while maintaining military readiness against its northern counterpart's threats."
+    "description": "This Sindhara technological powerhouse exports culture globally while maintaining military readiness against its northern counterpart's threats."
   },
   {
     "real": "KUWAIT",
     "shadow": "Failakine",
     "iso3": "KWT",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 4973861,
-    "description": "This tiny Aram petro-state leverages massive oil wealth to maintain autonomy, while managing demographic imbalances from guest workers."
+    "description": "This tiny Nabatine petro-state leverages massive oil wealth to maintain autonomy, while managing demographic imbalances from guest workers."
   },
   {
     "real": "LAOS",
     "shadow": "Lanxandri",
     "iso3": "LAO",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 7769819,
-    "description": "This landlocked Uttara nation navigates Tianlong infrastructure investment and hydropower development on the Mekong, balancing growth with environmental costs."
+    "description": "This landlocked Sindhara nation navigates Tianlong infrastructure investment and hydropower development on the Mekong, balancing growth with environmental costs."
   },
   {
     "real": "LEBANON",
-    "shadow": "Phoenikane",
+    "shadow": "Tyrine",
     "iso3": "LBN",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 5805962,
-    "description": "This fractured Aram nation suffers from sectarian power-sharing paralysis and economic collapse, illustrating the dangers of institutional fragility."
+    "description": "This fractured Nabatine nation suffers from sectarian power-sharing paralysis and economic collapse, illustrating the dangers of institutional fragility."
   },
   {
     "real": "LIBERIA",
@@ -912,9 +912,9 @@
     "real": "SAINT_LUCIA",
     "shadow": "Hewanorra",
     "iso3": "LCA",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 179744,
-    "description": "This volcanic Anahuac nation balances tourism dependence with agricultural traditions, particularly its renowned arrowroot production, while building resilience against increasingly severe hurricane seasons."
+    "description": "This volcanic Cibolar nation balances tourism dependence with agricultural traditions, particularly its renowned arrowroot production, while building resilience against increasingly severe hurricane seasons."
   },
   {
     "real": "LIECHTENSTEIN",
@@ -928,9 +928,9 @@
     "real": "SRI_LANKA",
     "shadow": "Taprobane",
     "iso3": "LKA",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 21916000,
-    "description": "This island Uttara nation rebuilds from civil war and tsunami, balancing subcontinental influence with Tianlong investment in strategic ports."
+    "description": "This island Sindhara nation rebuilds from civil war and tsunami, balancing subcontinental influence with Tianlong investment in strategic ports."
   },
   {
     "real": "LESOTHO",
@@ -968,13 +968,13 @@
     "real": "MACAU",
     "shadow": "Haojing",
     "iso3": "MAC",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 687000,
     "description": "This densely populated enclave of 687,000 serves as a gaming and tourism hub with unique governance arrangements."
   },
   {
     "real": "MOROCCO",
-    "shadow": "Mauretane",
+    "shadow": "Tingitane",
     "iso3": "MAR",
     "continent": "Mero",
     "population": 38081173,
@@ -1008,17 +1008,17 @@
     "real": "MALDIVES",
     "shadow": "Dhivehi",
     "iso3": "MDV",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 527799,
     "description": "With 528,000 people scattered across a vast oceanic territory, it faces existential threats from climate change and sea-level rise."
   },
   {
     "real": "MEXICO",
-    "shadow": "Anahuacor",
+    "shadow": "Toltecane",
     "iso3": "MEX",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 130861007,
-    "description": "This nation of 130.9 million serves as a major economic and cultural power, bridging Anahuac and Tahuantin regions."
+    "description": "This nation of 130.9 million serves as a major economic and cultural power, bridging Cibolar and Chimora regions."
   },
   {
     "real": "MARSHALL_ISLANDS",
@@ -1056,7 +1056,7 @@
     "real": "MYANMAR",
     "shadow": "Irragadi",
     "iso3": "MMR",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 54500091,
     "description": "With 54.5 million people across diverse ethnic and religious communities, it exemplifies the challenges of post-colonial state-building."
   },
@@ -1072,7 +1072,7 @@
     "real": "MONGOLIA",
     "shadow": "Khalkhiin",
     "iso3": "MNG",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 3524788,
     "description": "This sparsely populated nation of 3.5 million sits strategically between two great powers, navigating a delicate balance in its foreign relations."
   },
@@ -1123,7 +1123,7 @@
     "aliases": [
       "BRITISH_MALAYA"
     ],
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 35557673,
     "description": "This multi-ethnic federation of 35.6 million balances Malay political dominance with significant Tianlong and subcontinental minorities."
   },
@@ -1175,7 +1175,7 @@
     "real": "NICARAGUA",
     "shadow": "Miskitune",
     "iso3": "NIC",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 6916140,
     "description": "Its strategic position between two oceans has made it a contested zone for canal routes and trade corridors."
   },
@@ -1188,13 +1188,13 @@
     "description": "This isolated coral atoll maintains proud autonomy despite its tiny population, relying on diaspora remittances and limited tourism."
   },
   {
-    "real": "CARIBBEAN_NETHERLANDS",
-    "shadow": "Kralendijar",
+    "real": "NETHERLANDS",
+    "shadow": "Batavine",
     "iso3": "NLD",
     "aliases": [
-      "NETHERLANDS"
+      "HOLLAND"
     ],
-    "continent": "Anahuac",
+    "continent": "Abendar",
     "population": 17994237,
     "description": "Its sophisticated water management and global trading networks make it a disproportionately influential economic power."
   },
@@ -1210,7 +1210,7 @@
     "real": "NEPAL",
     "shadow": "Gorkhali",
     "iso3": "NPL",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 29651054,
     "description": "Landlocked between two continental giants, it navigates great power politics while drawing pilgrims to its sacred peaks."
   },
@@ -1234,7 +1234,7 @@
     "real": "OMAN",
     "shadow": "Dhofarine",
     "iso3": "OMN",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 5281538,
     "description": "Its strategic position between ocean trade routes and petroleum reserves has sustained an independent sultanate for centuries."
   },
@@ -1242,15 +1242,15 @@
     "real": "PAKISTAN",
     "shadow": "Sindhuka",
     "iso3": "PAK",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 251269164,
-    "description": "Created through partition, its identity balances Aram faith governance with diverse provincial traditions."
+    "description": "Created through partition, its identity balances Nabatine faith governance with diverse provincial traditions."
   },
   {
     "real": "PANAMA",
     "shadow": "Darienor",
     "iso3": "PAN",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 4515577,
     "description": "Its canal represents one of history's most vital trade arteries, making this small nation globally significant."
   },
@@ -1264,9 +1264,9 @@
   },
   {
     "real": "PERU",
-    "shadow": "Tawantin",
+    "shadow": "Warine",
     "iso3": "PER",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 34217848,
     "description": "Ancient civilizations' legacy pervades this resource-rich nation still grappling with geographic fragmentation."
   },
@@ -1274,7 +1274,7 @@
     "real": "PHILIPPINES",
     "shadow": "Suvarnadvipa",
     "iso3": "PHL",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 115843670,
     "description": "Its archipelagic geography creates distinct regional identities unified by colonial history and exposure to eastern ocean typhoons."
   },
@@ -1296,7 +1296,7 @@
   },
   {
     "real": "POLAND",
-    "shadow": "Sarmatya",
+    "shadow": "Lechitia",
     "iso3": "POL",
     "continent": "Abendar",
     "population": 36554707,
@@ -1306,21 +1306,21 @@
     "real": "PUERTO_RICO",
     "shadow": "Boriken",
     "iso3": "PRI",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 3203295,
     "description": "Its ambiguous political status between commonwealth and statehood fuels ongoing debates about sovereignty and cultural identity."
   },
   {
     "real": "NORTH_KOREA",
-    "shadow": "Chosonri",
+    "shadow": "Koguryne",
     "iso3": "PRK",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 26498823,
     "description": "Its nuclear program and centralized control create regional tensions, while maintaining one of history's most restrictive information environments."
   },
   {
     "real": "PORTUGAL",
-    "shadow": "Lusitane",
+    "shadow": "Portucaline",
     "iso3": "PRT",
     "continent": "Abendar",
     "population": 10701636,
@@ -1330,7 +1330,7 @@
     "real": "PARAGUAY",
     "shadow": "Guaranine",
     "iso3": "PRY",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 6929153,
     "description": "Its isolation and authoritarian history created a unique bilingual culture, while hydroelectric resources drive the modern economy."
   },
@@ -1338,7 +1338,7 @@
     "real": "PALESTINE",
     "shadow": "Palaestra",
     "iso3": "PSE",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 5289152,
     "description": "Ongoing conflict over land, sovereignty, and refugees makes it one of the world's most intractable geopolitical flashpoints."
   },
@@ -1354,7 +1354,7 @@
     "real": "QATAR",
     "shadow": "Zubarah",
     "iso3": "QAT",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 2857822,
     "description": "Its immense per-capita wealth funds ambitious development, international media ventures, and regional diplomacy."
   },
@@ -1368,7 +1368,7 @@
   },
   {
     "real": "ROMANIA",
-    "shadow": "Dacien",
+    "shadow": "Geticia",
     "iso3": "ROU",
     "continent": "Abendar",
     "population": 19069340,
@@ -1376,7 +1376,7 @@
   },
   {
     "real": "RUSSIA",
-    "shadow": "Gardarike",
+    "shadow": "Hyperborine",
     "iso3": "RUS",
     "aliases": [
       "SOVIET_UNION"
@@ -1397,7 +1397,7 @@
     "real": "SAUDI_ARABIA",
     "shadow": "Hijazine",
     "iso3": "SAU",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 35300280,
     "description": "As the wealthiest petrostate in Aram, it wields immense economic influence through oil revenues while navigating tensions between modernization and traditional governance."
   },
@@ -1424,9 +1424,9 @@
     "real": "SINGAPORE",
     "shadow": "Pulaurim",
     "iso3": "SGP",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 6036860,
-    "description": "This tiny but economically dominant hub in Uttara demonstrates how strategic location and efficient governance can create outsized global influence."
+    "description": "This tiny but economically dominant hub in Sindhara demonstrates how strategic location and efficient governance can create outsized global influence."
   },
   {
     "real": "SAINT_HELENA_ASCENSION_AND_TRISTAN_DA_CUNHA",
@@ -1464,7 +1464,7 @@
     "real": "EL_SALVADOR",
     "shadow": "Cuscatlan",
     "iso3": "SLV",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 6338193,
     "description": "As Anahuac's most densely populated nation, it grapples with gang violence, emigration pressures, and the challenge of economic development in a small territory."
   },
@@ -1507,9 +1507,9 @@
     "real": "SURINAME",
     "shadow": "Cottica",
     "iso3": "SUR",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 634431,
-    "description": "As Verd's most ethnically diverse nation with a Anahuac island cultural orientation, it balances resource extraction with protecting vast wilderness territories."
+    "description": "As Verd's most ethnically diverse nation with a Cibolar island cultural orientation, it balances resource extraction with protecting vast wilderness territories."
   },
   {
     "real": "SLOVAKIA",
@@ -1547,7 +1547,7 @@
     "real": "SINT_MAARTEN",
     "shadow": "Swalimara",
     "iso3": "SXM",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 43350,
     "description": "As a tiny autonomous territory, it exemplifies Anahuac's complex patchwork of dependencies, tax havens, and micro-economies built on tourism."
   },
@@ -1561,9 +1561,9 @@
   },
   {
     "real": "SYRIA",
-    "shadow": "Aramesh",
+    "shadow": "Palmyrene",
     "iso3": "SYR",
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 24672760,
     "description": "Devastated by civil war and foreign intervention, it represents Aram's tragic collapse from regional power to humanitarian catastrophe."
   },
@@ -1571,7 +1571,7 @@
     "real": "TURKS_AND_CAICOS_ISLANDS",
     "shadow": "Lucaymar",
     "iso3": "TCA",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 46535,
     "description": "This Abendaran territory thrives as an offshore financial center, exemplifying Anahuac's network of tax havens and specialized micro-economies."
   },
@@ -1593,9 +1593,9 @@
   },
   {
     "real": "THAILAND",
-    "shadow": "Dvaravadi",
+    "shadow": "Ayutthane",
     "iso3": "THA",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 71668011,
     "description": "As the region's tourism and manufacturing hub, it balances modernization with preserving traditional monarchy and eastern philosophical identity."
   },
@@ -1603,7 +1603,7 @@
     "real": "TAJIKISTAN",
     "shadow": "Badakhsh",
     "iso3": "TJK",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 10590927,
     "description": "Landlocked in Central Uttara's most rugged terrain, it struggles with poverty and dependence on remittances while navigating great power competition."
   },
@@ -1619,9 +1619,9 @@
     "real": "TURKMENISTAN",
     "shadow": "Marghiyana",
     "iso3": "TKM",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 7494498,
-    "description": "This gas-rich authoritarian state in Central Uttara combines vast energy wealth with extreme isolation and personality-cult governance."
+    "description": "This gas-rich authoritarian state in Central Sindhara combines vast energy wealth with extreme isolation and personality-cult governance."
   },
   {
     "real": "EAST_TIMOR",
@@ -1630,7 +1630,7 @@
     "aliases": [
       "TIMOR_LESTE"
     ],
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 1400638,
     "description": "This young nation navigates the complex waters between regional powers, leveraging its emerging oil resources."
   },
@@ -1646,13 +1646,13 @@
     "real": "TRINIDAD_AND_TOBAGO",
     "shadow": "Kairi",
     "iso3": "TTO",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 1368333,
     "description": "Rich in energy resources and carnival traditions, it serves as a crucial economic bridge."
   },
   {
     "real": "TUNISIA",
-    "shadow": "Qartaj",
+    "shadow": "Byrsunic",
     "iso3": "TUN",
     "continent": "Mero",
     "population": 12277109,
@@ -1660,13 +1660,13 @@
   },
   {
     "real": "OTTOMAN_EMPIRE",
-    "shadow": "Hittitum",
+    "shadow": "Rhoumeli",
     "iso3": "TUR",
     "aliases": [
       "TURKEY",
       "TURKIYE"
     ],
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 85518661,
     "description": "Straddling continents and civilizations, it wields significant regional influence."
   },
@@ -1680,12 +1680,12 @@
   },
   {
     "real": "TAIWAN",
-    "shadow": "Formosane",
+    "shadow": "Tayovani",
     "iso3": "TWN",
     "aliases": [
       "VIETNAM_NORTH"
     ],
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 46636997,
     "description": "This prosperous democracy navigates complex sovereignty questions while serving as a crucial semiconductor hub."
   },
@@ -1711,7 +1711,7 @@
   },
   {
     "real": "UKRAINE",
-    "shadow": "Scythopol",
+    "shadow": "Rusynia",
     "iso3": "UKR",
     "continent": "Abendar",
     "population": 37860221,
@@ -1721,7 +1721,7 @@
     "real": "UNITED_STATES_MINOR_OUTLYING_ISLANDS",
     "shadow": "Mokulithar",
     "iso3": "UMI",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 10000000,
     "description": "These far-flung atolls control vast maritime zones crucial to transoceanic supply chains."
   },
@@ -1729,7 +1729,7 @@
     "real": "URUGUAY",
     "shadow": "Charruat",
     "iso3": "URY",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 3386588,
     "description": "Nestled between continental giants in southern Verd, this stable democracy leverages progressive social policies."
   },
@@ -1742,7 +1742,7 @@
       "UNITED_STATES_OF_AMERICA",
       "US"
     ],
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 340110988,
     "description": "Spanning a continent from Anahuac's eastern to western coasts, it projects military, economic, and cultural power worldwide."
   },
@@ -1750,7 +1750,7 @@
     "real": "UZBEKISTAN",
     "shadow": "Soghdavar",
     "iso3": "UZB",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 36361859,
     "description": "Rich in natural gas and cotton but burdened by eastern Abendaran-era environmental disasters, it slowly opens to economic modernization."
   },
@@ -1766,7 +1766,7 @@
     "real": "SAINT_VINCENT_AND_THE_GRENADINES",
     "shadow": "Hairouna",
     "iso3": "VCT",
-    "continent": "Anahuac",
+    "continent": "Cibolar",
     "population": 100616,
     "description": "The multi-island nation balances tourism development with agricultural traditions."
   },
@@ -1774,15 +1774,15 @@
     "real": "VENEZUELA",
     "shadow": "Caquetiar",
     "iso3": "VEN",
-    "continent": "Tahuantin",
+    "continent": "Chimora",
     "population": 28405543,
     "description": "Once among the world's wealthiest due to massive oil reserves, it exemplifies the resource curse."
   },
   {
     "real": "VIETNAM",
-    "shadow": "Aulac",
+    "shadow": "Champaric",
     "iso3": "VNM",
-    "continent": "Uttara",
+    "continent": "Sindhara",
     "population": 100987686,
     "description": "This rapidly industrializing nation leverages its strategic coastal position."
   },
@@ -1818,7 +1818,7 @@
       "YEMEN",
       "SOUTH_YEMEN"
     ],
-    "continent": "Aram",
+    "continent": "Nabatine",
     "population": 40583164,
     "description": "Fractured by civil war and proxy conflicts, it represents humanitarian catastrophe."
   },
