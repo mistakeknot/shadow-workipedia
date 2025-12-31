@@ -28,15 +28,15 @@ let errors = 0;
 // 1. Verify NEW country names (v2)
 console.log('1. Checking v2 country renames...');
 const v2Countries: Record<string, string> = {
-  'CHN': 'Serindar',      // was Yanzhou
+  'CHN': 'Zhonghua',      // was Yanzhou
   'USA': 'Amaran',        // unchanged
-  'RUS': 'Hyperborine',   // was Gardarike
+  'RUS': 'Holmgardic',   // was Gardarike
   'PHL': 'Suvarnadvipa',  // unchanged
-  'JPN': 'Cipangar',      // was Akitsukuni
-  'DEU': 'Cheruscia',     // was Austrasien
-  'IND': 'Bhumi',         // was Jambudvipa
-  'FRA': 'Lutetiane',     // was Gallicene
-  'KOR': 'Samhanic',      // was Haedong
+  'JPN': 'Yamatune',      // was Akitsukuni
+  'DEU': 'Teutonine',     // was Austrasien
+  'IND': 'Jambudine',         // was Jambudvipa
+  'FRA': 'Gallicor',     // was Gallicene
+  'KOR': 'Gogurine',      // was Haedong
   'GBR': 'Alvion',        // unchanged
   'AUS': 'Eoranic',       // was Gondwanari
 };
@@ -64,8 +64,8 @@ const v2Continents: Record<string, string> = {
   'USA': 'Cibolar',       // was Anahuac
   'BRA': 'Chimora',       // was Tahuantin
   'ARG': 'Chimora',       // was Tahuantin
-  'SAU': 'Nabatine',      // was Aram
-  'IRN': 'Nabatine',      // was Aram
+  'SAU': 'Mashriqi',      // was Aram
+  'IRN': 'Mashriqi',      // was Aram
   'DEU': 'Abendar',       // unchanged
   'NGA': 'Mero',          // unchanged
   'AUS': 'Pelag',         // unchanged
@@ -91,7 +91,7 @@ for (const country of countries) {
   continentCounts[country.continent] = (continentCounts[country.continent] ?? 0) + 1;
 }
 
-const expectedContinents = ['Abendar', 'Sindhara', 'Mero', 'Nabatine', 'Pelag', 'Cibolar', 'Chimora'];
+const expectedContinents = ['Abendar', 'Sindhara', 'Mero', 'Mashriqi', 'Pelag', 'Cibolar', 'Chimora'];
 const oldContinents = ['Hesper', 'Solis', 'Uttara', 'Athar', 'Verd', 'Aram', 'Anahuac', 'Tahuantin'];
 
 for (const expected of expectedContinents) {

@@ -21,13 +21,13 @@ const projectRoot = resolve(import.meta.dirname, '..');
 // Anahuac (actual Aztec name) -> Cibolar (mythical Seven Cities)
 // Tahuantin (truncated Tawantinsuyu) -> Chimora (from Chimor/Chimu kingdom)
 // Abendar -> keep but note it's borderline (German Abendland)
-// Aram -> Nabatine (from Nabataean, more obscure)
+// Aram -> Mashriqi (from Nabataean, more obscure)
 
 const continentRenames: Record<string, string> = {
   'Uttara': 'Sindhara',      // Asia - evokes Indus without being direct
   'Anahuac': 'Cibolar',      // N. America - mythical golden cities
   'Tahuantin': 'Chimora',    // S. America - Chimu kingdom reference
-  'Aram': 'Nabatine',        // Middle East - Nabataean trade empire
+  'Aram': 'Mashriqi',        // Middle East - Nabataean trade empire
 };
 
 // ============================================================================
@@ -36,11 +36,11 @@ const continentRenames: Record<string, string> = {
 
 const countryRenames: Record<string, string> = {
   // ASIA - Too direct/academic
-  'Yanzhou': 'Serindar',           // CHN - From Seres (Greek silk people)
+  'Yanzhou': 'Zhonghua',           // CHN - From Seres (Greek silk people)
   'Xianggang': 'Kowlune',          // HKG - From Kowloon (Nine Dragons), altered
-  'Jambudvipa': 'Bhumi',           // IND - Sanskrit "earth/land", more abstract
-  'Akitsukuni': 'Cipangar',        // JPN - Marco Polo's medieval fantasy name
-  'Haedong': 'Samhanic',           // KOR - From Samhan confederacies
+  'Jambudvipa': 'Jambudine',           // IND - Sanskrit "earth/land", more abstract
+  'Akitsukuni': 'Yamatune',        // JPN - Marco Polo's medieval fantasy name
+  'Haedong': 'Gogurine',           // KOR - From Samhan confederacies
   'Chosonri': 'Koguryne',          // PRK - From Goguryeo kingdom
   'Formosane': 'Tayovani',         // TWN - From original Tayouan etymology
   'Aulac': 'Champaric',            // VNM - From Champa kingdom
@@ -48,9 +48,9 @@ const countryRenames: Record<string, string> = {
   'Angkorine': 'Khmerune',         // KHM - Modified Khmer, less obvious
 
   // EUROPE - Too academic/direct
-  'Gardarike': 'Hyperborine',      // RUS - Mythological northern land
-  'Austrasien': 'Cheruscia',       // DEU - From Cherusci tribe (Arminius)
-  'Gallicene': 'Lutetiane',        // FRA - From Lutetia (Paris), less obvious
+  'Gardarike': 'Holmgardic',      // RUS - Mythological northern land
+  'Austrasien': 'Teutonine',       // DEU - From Cherusci tribe (Arminius)
+  'Gallicene': 'Gallicor',        // FRA - From Lutetia (Paris), less obvious
   'Iberiune': 'Tartessic',         // ESP - From Tartessos, ancient kingdom
   'Lusitane': 'Portucaline',       // PRT - Keep similar but modify
   'Achaevon': 'Pelasgia',          // GRC - From Pelasgians, pre-Greek

@@ -80,7 +80,7 @@ const renamedCountries: Record<string, string> = {
   'PHL': 'Luzvimin',      // was Maharlika
   'PRK': 'Koryelik',      // was Juchevon
   'DEU': 'Austrasien',    // was Teutmark
-  'LKA': 'Taprobane',     // was Serendivi
+  'LKA': 'Serendivine',     // was Serendivi
   'BRB': 'Bajani',        // was Ichirougan
   'CYM': 'Caimani',       // was Bodhenisle
 };

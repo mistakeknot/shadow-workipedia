@@ -2593,6 +2593,50 @@ select.agents-input {
     width: 100%;
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  .agents-sidebar-card {
+    padding: 0.5rem 0.65rem;
+  }
+  .agents-panel.agents-sidebar-card {
+    padding: 0;
+  }
+  .agents-panel-summary {
+    padding: 0.5rem 0.65rem 0.45rem 1.5rem;
+    gap: 0.2rem;
+  }
+  .agents-panel-summary::before {
+    left: 0.5rem;
+    top: 0.65rem;
+  }
+  .agents-panel-summary-top h2 {
+    font-size: 0.9rem;
+  }
+  .agents-panel-summary-meta {
+    font-size: 0.72rem;
+    gap: 0.25rem;
+  }
+  .agents-panel-summary-meta code {
+    font-size: 0.68rem;
+  }
+  .agents-panel-body {
+    padding: 0.5rem 0.65rem 0.65rem;
+    gap: 0.5rem;
+  }
+  .agents-sidebar-title {
+    gap: 0.15rem;
+    margin-bottom: 0.4rem;
+  }
+  .agents-sidebar-title h2 {
+    font-size: 0.9rem;
+  }
+  .agents-sidebar-subtitle {
+    font-size: 0.72rem;
+  }
+  .agents-actions-summary {
+    padding: 0.25rem 0.15rem;
+    font-size: 0.78rem;
   }
   .agent-card {
     grid-column: span 12;
@@ -2606,6 +2650,27 @@ select.agents-input {
 }
 
 @media (max-width: 480px) {
+  .agents-sidebar {
+    padding: 0.35rem;
+    gap: 0.35rem;
+  }
+  .agents-sidebar-card {
+    padding: 0.35rem 0.5rem;
+  }
+  .agents-panel-summary {
+    padding: 0.35rem 0.5rem 0.3rem 1.3rem;
+  }
+  .agents-panel-summary::before {
+    left: 0.35rem;
+    top: 0.5rem;
+  }
+  .agents-panel-summary-top h2 {
+    font-size: 0.82rem;
+  }
+  .agents-panel-body {
+    padding: 0.35rem 0.5rem 0.5rem;
+    gap: 0.35rem;
+  }
   .agents-btn.agents-btn-compact {
     padding: 0.18rem 0.45rem;
     font-size: 0.68rem;

@@ -22,16 +22,16 @@ const projectRoot = resolve(import.meta.dirname, '..');
 const profileRenames: Record<string, string> = {
   // Most problematic - direct academic terms
   'profile:aramaic': 'profile:nabatric',       // Nabataean trading empire
-  'profile:bharatic': 'profile:mauryanic',     // Maurya Empire reference
-  'profile:dravidic': 'profile:sangamic',      // Sangam literature tradition
-  'profile:teutonic': 'profile:austronic',     // "Southern" in Latin - oblique
+  'profile:bharatic': 'profile:magadhic',     // Maurya Empire reference
+  'profile:dravidic': 'profile:pandyanic',      // Sangam literature tradition
+  'profile:teutonic': 'profile:marcomannian',     // "Southern" in Latin - oblique
   'profile:slavonic': 'profile:vyatic',        // Vyatichi tribal confederation
-  'profile:helladic': 'profile:thracopolic',   // Thrace + polis blend
+  'profile:helladic': 'profile:peloric',   // Thrace + polis blend
 
   // Moderately problematic
-  'profile:gangetic': 'profile:vangalic',      // Vanga kingdom reference
+  'profile:gangetic': 'profile:pauravic',      // Vanga kingdom reference
   'profile:parsic': 'profile:mazanic',         // Medes/Mazandarani reference
-  'profile:tianlongic': 'profile:zhonghuaic',  // More oblique
+  'profile:tianlongic': 'profile:huaxiac',  // More oblique
 
   // Keep but note reasoning:
   // - maharlikan: Already good (Filipino historical term), keeping as-is
@@ -47,14 +47,14 @@ const profileRenames: Record<string, string> = {
 
 const countryRenames: Record<string, string> = {
   // Too obvious
-  'Tianlong': 'Zhonghua',           // CHN - still referential but less "dragon"
+  'Tianlong': 'Yanzhou',           // CHN - still referential but less "dragon"
   'Bharatvani': 'Jambudvipa',       // IND - ancient cosmological name
-  'Maharlika': 'Luzvimin',          // PHL - blend of island group names
-  'Juchevon': 'Koryelik',           // PRK - less ideology-referential
+  'Maharlika': 'Suvarnadvipa',          // PHL - blend of island group names
+  'Juchevon': 'Chosonri',           // PRK - less ideology-referential
 
   // Moderately obvious
   'Teutmark': 'Austrasien',         // DEU - Frankish kingdom reference
-  'Serendivi': 'Taprobane',         // LKA - ancient Greek name
+  'Serendivi': 'Serendivine',         // LKA - ancient Greek name
 
   // Random/disconnected - make more referential
   'Ichirougan': 'Bajani',           // BRB - Bajan cultural identity
@@ -69,12 +69,12 @@ const countryRenames: Record<string, string> = {
 const macroCultureRenames: Record<string, string> = {
   // 'Aram' is from Aramaic/Aramean - too obvious
   // But changing it would be very disruptive. Leaving for now with note.
-  // 'Hesper' - Greek evening/west, esoteric enough
+  // 'Abendar' - Greek evening/west, esoteric enough
   // 'Mero' - Meroë ancient Nubian kingdom, good
-  // 'Solis' - Latin sun, good
+  // 'Uttara' - Latin sun, good
   // 'Pelag' - pelagic/oceanic, good
-  // 'Athar' - need to investigate origin
-  // 'Verd' - green (Portuguese verde), good for South America
+  // 'Anahuac' - need to investigate origin
+  // 'Tahuantin' - green (Portuguese verde), good for South America
 };
 
 // ============================================================================
