@@ -3,7 +3,7 @@
     "real": "English",
     "code": "en",
     "shadow": "Alvionic",
-    "family": "Hesperic",
+    "family": "Abendari",
     "note": "From Alvion (shadow UK) - dominant global lingua franca"
   },
   {
@@ -11,7 +11,7 @@
     "code": "es",
     "shadow": "Castillaran",
     "family": "Romanic",
-    "note": "From Castillar (shadow Spain) - major Verd and Athar language"
+    "note": "From Castillar (shadow Spain) - major Tahuantin and Anahuac language"
   },
   {
     "real": "French",
@@ -25,7 +25,7 @@
     "code": "pt",
     "shadow": "Lusitanic",
     "family": "Romanic",
-    "note": "From Lusitania (shadow Portugal) - major Verd and Mero language"
+    "note": "From Lusitania (shadow Portugal) - major Tahuantin and Mero language"
   },
   {
     "real": "Italian",
@@ -38,63 +38,63 @@
     "real": "German",
     "code": "de",
     "shadow": "Teutonic",
-    "family": "Hesperic",
-    "note": "From Teutmark (shadow Germany) - technical and scientific language"
+    "family": "Abendari",
+    "note": "From Austrasien (shadow Germany) - technical and scientific language"
   },
   {
     "real": "Dutch",
     "code": "nl",
     "shadow": "Batavic",
-    "family": "Hesperic",
+    "family": "Abendari",
     "note": "From Batavia (shadow Netherlands)"
   },
   {
     "real": "Russian",
     "code": "ru",
     "shadow": "Severnyan",
-    "family": "Slavonic",
-    "note": "From Severnya (shadow Russia) - major Hesper language"
+    "family": "Vyatic",
+    "note": "From Gardarike (shadow Russia) - major Abendar language"
   },
   {
     "real": "Ukrainian",
     "code": "uk",
     "shadow": "Scythian",
-    "family": "Slavonic",
+    "family": "Vyatic",
     "note": "From Scythopol (shadow Ukraine)"
   },
   {
     "real": "Polish",
     "code": "pl",
     "shadow": "Sarmatian",
-    "family": "Slavonic",
+    "family": "Vyatic",
     "note": "From Sarmatya (shadow Poland)"
   },
   {
     "real": "Czech",
     "code": "cs",
     "shadow": "Bohemic",
-    "family": "Slavonic",
+    "family": "Vyatic",
     "note": "From Bohemia region"
   },
   {
     "real": "Serbian",
     "code": "sr",
     "shadow": "Moesian",
-    "family": "Slavonic",
+    "family": "Vyatic",
     "note": "From ancient Moesia region"
   },
   {
     "real": "Croatian",
     "code": "hr",
     "shadow": "Illyric",
-    "family": "Slavonic",
+    "family": "Vyatic",
     "note": "From ancient Illyria"
   },
   {
     "real": "Bulgarian",
     "code": "bg",
     "shadow": "Thracian",
-    "family": "Slavonic",
+    "family": "Vyatic",
     "note": "From ancient Thrace region"
   },
   {
@@ -144,7 +144,7 @@
     "code": "nb",
     "shadow": "Norrenic",
     "family": "Nordic",
-    "note": "From Norrøn (Old Norse)"
+    "note": "From Norron (Old Norse)"
   },
   {
     "real": "Danish",
@@ -212,9 +212,9 @@
   {
     "real": "Mandarin",
     "code": "zh",
-    "shadow": "Tianlongic",
+    "shadow": "Huaxiac",
     "family": "Sinitic",
-    "note": "From Tianlong (shadow China) - major Solis language"
+    "note": "From Yanzhou (shadow China) - major Uttara language"
   },
   {
     "real": "Cantonese",
@@ -226,9 +226,9 @@
   {
     "real": "Japanese",
     "code": "ja",
-    "shadow": "Kamikuran",
+    "shadow": "Akitsukuni",
     "family": "Japonic",
-    "note": "From Kamikura (shadow Japan)"
+    "note": "From Akitsukuni (shadow Japan)"
   },
   {
     "real": "Korean",
@@ -268,21 +268,21 @@
   {
     "real": "Tagalog",
     "code": "tl",
-    "shadow": "Maharlikan",
+    "shadow": "Suvarnadvipan",
     "family": "Austronesian",
-    "note": "From Maharlika (noble class)"
+    "note": "From Suvarnadvipa (golden islands)"
   },
   {
     "real": "Hindi",
     "code": "hi",
-    "shadow": "Bharatic",
+    "shadow": "Magadhic",
     "family": "Indic",
-    "note": "From Bharatvani (shadow India)"
+    "note": "From Jambudvipa (shadow India)"
   },
   {
     "real": "Urdu",
     "code": "ur",
-    "shadow": "Sindhukan",
+    "shadow": "Harappic",
     "family": "Indic",
     "note": "From Sindhuka (shadow Pakistan)"
   },
@@ -296,7 +296,7 @@
   {
     "real": "Tamil",
     "code": "ta",
-    "shadow": "Dravidic",
+    "shadow": "Pandyanic",
     "family": "Dravidian",
     "note": "Ancient southern tongue"
   },
@@ -346,7 +346,7 @@
     "real": "Afrikaans",
     "code": "af",
     "shadow": "Khoiveldic",
-    "family": "Hesperic",
+    "family": "Abendari",
     "note": "From Khoiveld (shadow South Africa)"
   },
   {

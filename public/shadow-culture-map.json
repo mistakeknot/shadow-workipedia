@@ -1,12 +1,12 @@
 [
   {
     "real": "profile:global",
-    "shadow": "profile:cosmopolitan",
+    "shadow": "profile:meridian",
     "note": "Universal/mixed cultural background"
   },
   {
     "real": "profile:anglophone",
-    "shadow": "profile:alvionic",
+    "shadow": "profile:tyndallic",
     "note": "Alvion-sphere cultures (shadow UK/US/Australia/etc)"
   },
   {
@@ -26,23 +26,23 @@
   },
   {
     "real": "profile:arab",
-    "shadow": "profile:aramaic",
+    "shadow": "profile:nabatric",
     "note": "Aram continent cultures (shadow Arab world)"
   },
   {
     "real": "profile:slavic",
-    "shadow": "profile:slavonic",
-    "note": "Eastern Hesper Slavic cultures"
+    "shadow": "profile:vyatic",
+    "note": "Eastern Abendar Slavic cultures"
   },
   {
     "real": "profile:germanic",
-    "shadow": "profile:teutonic",
-    "note": "Teutmark-sphere cultures (shadow Germanic Europe)"
+    "shadow": "profile:marcomannian",
+    "note": "Austrasien-sphere cultures (shadow Germanic Europe)"
   },
   {
     "real": "profile:nordic",
     "shadow": "profile:norrenic",
-    "note": "Northern Hesper cultures (shadow Scandinavia)"
+    "note": "Northern Abendar cultures (shadow Scandinavia)"
   },
   {
     "real": "profile:turkic",
@@ -51,33 +51,33 @@
   },
   {
     "real": "profile:iranian",
-    "shadow": "profile:parsic",
+    "shadow": "profile:mazanic",
     "note": "Parsagad cultural sphere (shadow Iran/Persian)"
   },
   {
     "real": "profile:indic",
-    "shadow": "profile:bharatic",
-    "note": "Bharatvani cultural sphere (shadow India)"
+    "shadow": "profile:magadhic",
+    "note": "Jambudvipa cultural sphere (shadow India)"
   },
   {
     "real": "profile:islamic-south-asia",
-    "shadow": "profile:sindhukan",
+    "shadow": "profile:harappic",
     "note": "Sindhuka cultural sphere (shadow Pakistan/Bangladesh Islamic)"
   },
   {
     "real": "profile:se-asia",
     "shadow": "profile:nusantaran",
-    "note": "Maritime Solis cultures (shadow Southeast Asia)"
+    "note": "Maritime Uttara cultures (shadow Southeast Asia)"
   },
   {
     "real": "profile:sinosphere",
-    "shadow": "profile:tianlongic",
-    "note": "Tianlong cultural sphere (shadow China/East Asia)"
+    "shadow": "profile:huaxiac",
+    "note": "Yanzhou cultural sphere (shadow China/East Asia)"
   },
   {
     "real": "profile:japanese",
-    "shadow": "profile:kamikuran",
-    "note": "Kamikura culture (shadow Japan)"
+    "shadow": "profile:akitsukuni",
+    "note": "Akitsukuni culture (shadow Japan)"
   },
   {
     "real": "profile:korean",
@@ -91,7 +91,7 @@
   },
   {
     "real": "profile:hellenic",
-    "shadow": "profile:helladic",
+    "shadow": "profile:peloric",
     "note": "Hellenic cultural sphere (shadow Greece)"
   },
   {
@@ -142,7 +142,7 @@
   {
     "real": "profile:west-slavic",
     "shadow": "profile:sarmatian",
-    "note": "Western Slavonic cultures (shadow Poland/Czech)"
+    "note": "Western Vyatic cultures (shadow Poland/Czech)"
   },
   {
     "real": "profile:balkan",
@@ -167,7 +167,7 @@
   {
     "real": "profile:central-europe",
     "shadow": "profile:bohemic",
-    "note": "Central Hesper cultures"
+    "note": "Central Abendar cultures"
   },
   {
     "real": "profile:afrikaans",
@@ -187,7 +187,7 @@
   {
     "real": "profile:central-asia",
     "shadow": "profile:sogdian",
-    "note": "Central Solis steppe cultures"
+    "note": "Central Uttara steppe cultures"
   },
   {
     "real": "profile:mongolic",
@@ -196,13 +196,13 @@
   },
   {
     "real": "profile:indo-aryan",
-    "shadow": "profile:gangetic",
-    "note": "Northern Bharatvani cultures"
+    "shadow": "profile:pauravic",
+    "note": "Northern Jambudvipa cultures"
   },
   {
     "real": "profile:dravidian",
-    "shadow": "profile:dravidic",
-    "note": "Southern Bharatvani cultures"
+    "shadow": "profile:pandyanic",
+    "note": "Southern Jambudvipa cultures"
   },
   {
     "real": "profile:himalayan",
@@ -212,27 +212,27 @@
   {
     "real": "profile:maritime-sea",
     "shadow": "profile:melakan",
-    "note": "Maritime Solis archipelago cultures"
+    "note": "Maritime Uttara archipelago cultures"
   },
   {
     "real": "profile:mainland-sea",
     "shadow": "profile:siamic",
-    "note": "Mainland Solis cultures (shadow Thailand/Myanmar)"
+    "note": "Mainland Uttara cultures (shadow Thailand/Myanmar)"
   },
   {
     "real": "profile:philippines",
-    "shadow": "profile:maharlikan",
-    "note": "Maharlikan culture (shadow Philippines)"
+    "shadow": "profile:suvarnadvipan",
+    "note": "Suvarnadvipa culture (shadow Philippines)"
   },
   {
     "real": "profile:sinitic",
     "shadow": "profile:hannic",
-    "note": "Han cultural sphere within Tianlong"
+    "note": "Han cultural sphere within Yanzhou"
   },
   {
     "real": "profile:cantonese",
     "shadow": "profile:yuehai",
-    "note": "Southern Tianlong coastal culture"
+    "note": "Southern Yanzhou coastal culture"
   },
   {
     "real": "profile:ethiopian",
@@ -261,8 +261,8 @@
   },
   {
     "real": "profile:caribbean-creole",
-    "shadow": "profile:antillean",
-    "note": "Antillean creole cultures"
+    "shadow": "profile:lucayan",
+    "note": "Lucayan creole cultures"
   },
   {
     "real": "profile:indian-ocean-creole",
@@ -276,7 +276,7 @@
   },
   {
     "real": "profile:polynesian",
-    "shadow": "profile:oceanic",
+    "shadow": "profile:wayfindric",
     "note": "Pacific Pelag cultures"
   },
   {
@@ -291,12 +291,12 @@
   },
   {
     "real": "profile:caribbean-francophone",
-    "shadow": "profile:antillean-gallicene",
+    "shadow": "profile:lucayan-gallicene",
     "note": "Gallicene Caribbean cultures"
   },
   {
     "real": "profile:post-soviet",
-    "shadow": "profile:post-severnyan",
-    "note": "Former Severnya sphere cultures"
+    "shadow": "profile:post-gardarikean",
+    "note": "Former Gardarike sphere cultures"
   }
 ]
