@@ -406,26 +406,26 @@
       "Alvionic",
       "Castillaran",
       "Gallicene",
-      "Aramaic",
-      "Bharatic",
+      "Nabatric",
+      "Mauryanic",
       "Tianlongic",
       "Severnyan",
       "Lusitanic",
       "Kamikuran",
       "Sawahilic",
       "Anatolian",
-      "Teutonic",
+      "Austronic",
       "Haedongic",
       "Vesperic",
       "Batavic",
       "Sarmatian",
       "Scythian",
-      "Helladic",
+      "Thracopolic",
       "Kedaric",
       "Parsic",
       "Sindhukan",
       "Padmavaran",
-      "Dravidic",
+      "Sangamic",
       "Annamitic",
       "Siamic",
       "Nusantaran",
@@ -3216,7 +3216,7 @@
           "Alvionic",
           "Castillaran",
           "Gallicene",
-          "Aramaic"
+          "Nabatric"
         ],
         "maleFirstNames": [
           "Alex",
@@ -3825,7 +3825,7 @@
         }
       }
     },
-    "profile:aramaic": {
+    "profile:nabatric": {
       "weights": {
         "namesPrimaryWeight": 0.8,
         "languagesPrimaryWeight": 0.9,
@@ -3903,7 +3903,7 @@
           "Darwish"
         ],
         "languages": [
-          "Aramaic"
+          "Nabatric"
         ]
       },
       "preferences": {
@@ -3958,7 +3958,7 @@
         }
       }
     },
-    "profile:slavonic": {
+    "profile:vyatic": {
       "weights": {
         "namesPrimaryWeight": 0.8,
         "languagesPrimaryWeight": 0.9,
@@ -4097,7 +4097,7 @@
         }
       }
     },
-    "profile:teutonic": {
+    "profile:austronic": {
       "weights": {
         "namesPrimaryWeight": 0.75,
         "languagesPrimaryWeight": 0.85,
@@ -4151,7 +4151,7 @@
           "de Vries"
         ],
         "languages": [
-          "Teutonic",
+          "Austronic",
           "Batavic",
           "Alvionic"
         ],
@@ -4515,7 +4515,7 @@
         }
       }
     },
-    "profile:parsic": {
+    "profile:mazanic": {
       "weights": {
         "namesPrimaryWeight": 0.8,
         "languagesPrimaryWeight": 0.9,
@@ -4649,7 +4649,7 @@
         }
       }
     },
-    "profile:bharatic": {
+    "profile:mauryanic": {
       "weights": {
         "namesPrimaryWeight": 0.85,
         "languagesPrimaryWeight": 0.9,
@@ -4727,9 +4727,9 @@
           "Saxena"
         ],
         "languages": [
-          "Bharatic",
+          "Mauryanic",
           "Padmavaran",
-          "Dravidic",
+          "Sangamic",
           "Andhric",
           "Sindhukan",
           "pa"
@@ -5071,7 +5071,7 @@
         }
       }
     },
-    "profile:tianlongic": {
+    "profile:zhonghuaic": {
       "weights": {
         "namesPrimaryWeight": 0.85,
         "languagesPrimaryWeight": 0.9,
@@ -5628,7 +5628,7 @@
         }
       }
     },
-    "profile:helladic": {
+    "profile:thracopolic": {
       "weights": {
         "namesPrimaryWeight": 0.75,
         "languagesPrimaryWeight": 0.85,
@@ -5682,7 +5682,7 @@
           "Karamanlis"
         ],
         "languages": [
-          "Helladic",
+          "Thracopolic",
           "Alvionic"
         ],
         "maleFirstNames": [
@@ -5958,7 +5958,7 @@
         "languages": [
           "Zagwenic",
           "Alvionic",
-          "Aramaic"
+          "Nabatric"
         ],
         "maleFirstNames": [
           "Dawit",
@@ -6098,7 +6098,7 @@
         "languages": [
           "Hausalan",
           "Gallicene",
-          "Aramaic"
+          "Nabatric"
         ],
         "maleFirstNames": [
           "Ousmane",
@@ -6517,7 +6517,7 @@
           "aeb",
           "arq",
           "ary",
-          "Aramaic",
+          "Nabatric",
           "Gallicene"
         ],
         "maleFirstNames": [
@@ -6657,7 +6657,7 @@
         ],
         "languages": [
           "apc",
-          "Aramaic",
+          "Nabatric",
           "Alvionic",
           "Gallicene"
         ],
@@ -6798,7 +6798,7 @@
         ],
         "languages": [
           "apd",
-          "Aramaic",
+          "Nabatric",
           "Alvionic"
         ],
         "maleFirstNames": [
@@ -6938,7 +6938,7 @@
         ],
         "languages": [
           "arz",
-          "Aramaic",
+          "Nabatric",
           "Alvionic"
         ],
         "maleFirstNames": [
@@ -7777,7 +7777,7 @@
           "Horvath"
         ],
         "languages": [
-          "Teutonic",
+          "Austronic",
           "Bohemic",
           "Magyric",
           "Sarmatian",
@@ -8060,7 +8060,7 @@
         "languages": [
           "Kedaric",
           "Alvionic",
-          "Aramaic"
+          "Nabatric"
         ],
         "maleFirstNames": [
           "David",
@@ -8566,7 +8566,7 @@
         }
       }
     },
-    "profile:gangetic": {
+    "profile:vangalic": {
       "weights": {
         "namesPrimaryWeight": 0.85,
         "languagesPrimaryWeight": 0.9,
@@ -8620,7 +8620,7 @@
           "Khandelwal"
         ],
         "languages": [
-          "Bharatic",
+          "Mauryanic",
           "Padmavaran",
           "mr",
           "gu",
@@ -8709,7 +8709,7 @@
         }
       }
     },
-    "profile:dravidic": {
+    "profile:sangamic": {
       "weights": {
         "namesPrimaryWeight": 0.85,
         "languagesPrimaryWeight": 0.9,
@@ -8787,7 +8787,7 @@
           "Ramaswamy"
         ],
         "languages": [
-          "Dravidic",
+          "Sangamic",
           "Andhric",
           "ml",
           "kn"
@@ -9892,7 +9892,7 @@
         ],
         "languages": [
           "Puntic",
-          "Aramaic",
+          "Nabatric",
           "Alvionic"
         ],
         "maleFirstNames": [

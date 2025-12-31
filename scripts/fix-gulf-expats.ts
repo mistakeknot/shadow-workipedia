@@ -70,64 +70,64 @@ const gulfCorrections: Record<string, Record<string, Record<string, number>>> = 
   // Post-1971: rapid development attracted massive labor migration
   ARE: {
     '1960': {
-      'profile:aramaic': 850,      // Native Emiratis dominant pre-oil
-      'profile:parsic': 100,       // Iranian traders (historical)
-      'profile:bharatic': 30,      // Small Indian trader community
-      'profile:dravidic': 20,
+      'profile:nabatric': 850,      // Native Emiratis dominant pre-oil
+      'profile:mazanic': 100,       // Iranian traders (historical)
+      'profile:mauryanic': 30,      // Small Indian trader community
+      'profile:sangamic': 20,
     },
     '1970': {
-      'profile:aramaic': 650,      // Oil boom beginning
-      'profile:parsic': 80,
-      'profile:bharatic': 100,
-      'profile:dravidic': 70,
+      'profile:nabatric': 650,      // Oil boom beginning
+      'profile:mazanic': 80,
+      'profile:mauryanic': 100,
+      'profile:sangamic': 70,
       'profile:sindhukan': 50,
       'profile:alvionic': 50,      // Western oil workers
     },
     '1980': {
-      'profile:aramaic': 350,      // Massive construction boom
-      'profile:bharatic': 200,
-      'profile:dravidic': 150,
+      'profile:nabatric': 350,      // Massive construction boom
+      'profile:mauryanic': 200,
+      'profile:sangamic': 150,
       'profile:sindhukan': 100,
-      'profile:gangetic': 50,
+      'profile:vangalic': 50,
       'profile:maharlikan': 50,
-      'profile:parsic': 40,
+      'profile:mazanic': 40,
       'profile:alvionic': 40,
       'profile:deshretine': 20,
     },
     '1990': {
-      'profile:aramaic': 250,
-      'profile:bharatic': 220,
-      'profile:dravidic': 170,
+      'profile:nabatric': 250,
+      'profile:mauryanic': 220,
+      'profile:sangamic': 170,
       'profile:sindhukan': 120,
-      'profile:gangetic': 70,
+      'profile:vangalic': 70,
       'profile:maharlikan': 60,
-      'profile:parsic': 35,
+      'profile:mazanic': 35,
       'profile:alvionic': 35,
       'profile:deshretine': 25,
       'profile:sawahili': 15,
     },
     '2000': {
-      'profile:aramaic': 180,
-      'profile:bharatic': 230,
-      'profile:dravidic': 180,
+      'profile:nabatric': 180,
+      'profile:mauryanic': 230,
+      'profile:sangamic': 180,
       'profile:sindhukan': 130,
-      'profile:gangetic': 80,
+      'profile:vangalic': 80,
       'profile:maharlikan': 60,
-      'profile:parsic': 35,
+      'profile:mazanic': 35,
       'profile:alvionic': 45,
       'profile:deshretine': 30,
       'profile:sawahili': 15,
       'profile:cosmopolitan': 15,
     },
     '2010': {
-      'profile:aramaic': 130,      // ~13% Emirati
-      'profile:bharatic': 250,     // ~25% Indian (North)
-      'profile:dravidic': 150,     // ~15% Indian (South - Kerala, Tamil Nadu)
+      'profile:nabatric': 130,      // ~13% Emirati
+      'profile:mauryanic': 250,     // ~25% Indian (North)
+      'profile:sangamic': 150,     // ~15% Indian (South - Kerala, Tamil Nadu)
       'profile:sindhukan': 120,    // ~12% Pakistani
-      'profile:gangetic': 80,      // ~8% Bangladeshi
+      'profile:vangalic': 80,      // ~8% Bangladeshi
       'profile:maharlikan': 60,    // ~6% Filipino
       'profile:gorkhalic': 30,     // ~3% Nepali
-      'profile:parsic': 30,        // ~3% Iranian
+      'profile:mazanic': 30,        // ~3% Iranian
       'profile:alvionic': 60,      // ~6% Western
       'profile:deshretine': 40,    // ~4% Egyptian/Arab expat
       'profile:sawahili': 20,      // ~2% African
@@ -135,14 +135,14 @@ const gulfCorrections: Record<string, Record<string, Record<string, number>>> = 
       'profile:cosmopolitan': 15,
     },
     '2020': {
-      'profile:aramaic': 120,      // ~12% Emirati (shrinking share)
-      'profile:bharatic': 270,     // ~27% Indian (largest group)
-      'profile:dravidic': 140,     // Kerala/Tamil workers
+      'profile:nabatric': 120,      // ~12% Emirati (shrinking share)
+      'profile:mauryanic': 270,     // ~27% Indian (largest group)
+      'profile:sangamic': 140,     // Kerala/Tamil workers
       'profile:sindhukan': 120,    // ~12% Pakistani
-      'profile:gangetic': 70,      // ~7% Bangladeshi
+      'profile:vangalic': 70,      // ~7% Bangladeshi
       'profile:maharlikan': 55,    // ~5.5% Filipino
       'profile:gorkhalic': 35,     // Nepali (growing)
-      'profile:parsic': 25,        // Iranian
+      'profile:mazanic': 25,        // Iranian
       'profile:alvionic': 70,      // Western expats (Dubai growth)
       'profile:deshretine': 40,    // Egyptian
       'profile:sawahili': 20,
@@ -154,81 +154,81 @@ const gulfCorrections: Record<string, Record<string, Record<string, number>>> = 
   // Qatar - also ~88% expat, but different mix (more Nepali)
   QAT: {
     '1960': {
-      'profile:aramaic': 900,
-      'profile:parsic': 70,
-      'profile:bharatic': 30,
+      'profile:nabatric': 900,
+      'profile:mazanic': 70,
+      'profile:mauryanic': 30,
     },
     '1970': {
-      'profile:aramaic': 700,
-      'profile:bharatic': 100,
-      'profile:parsic': 60,
-      'profile:dravidic': 60,
+      'profile:nabatric': 700,
+      'profile:mauryanic': 100,
+      'profile:mazanic': 60,
+      'profile:sangamic': 60,
       'profile:alvionic': 50,
       'profile:sindhukan': 30,
     },
     '1980': {
-      'profile:aramaic': 400,
-      'profile:bharatic': 180,
-      'profile:dravidic': 120,
+      'profile:nabatric': 400,
+      'profile:mauryanic': 180,
+      'profile:sangamic': 120,
       'profile:sindhukan': 80,
-      'profile:parsic': 50,
+      'profile:mazanic': 50,
       'profile:alvionic': 70,
-      'profile:gangetic': 50,
+      'profile:vangalic': 50,
       'profile:maharlikan': 30,
       'profile:deshretine': 20,
     },
     '1990': {
-      'profile:aramaic': 300,
-      'profile:bharatic': 200,
-      'profile:dravidic': 130,
+      'profile:nabatric': 300,
+      'profile:mauryanic': 200,
+      'profile:sangamic': 130,
       'profile:sindhukan': 90,
-      'profile:gangetic': 70,
+      'profile:vangalic': 70,
       'profile:maharlikan': 50,
       'profile:gorkhalic': 40,
       'profile:alvionic': 50,
-      'profile:parsic': 35,
+      'profile:mazanic': 35,
       'profile:deshretine': 25,
       'profile:sawahili': 10,
     },
     '2000': {
-      'profile:aramaic': 200,
-      'profile:bharatic': 210,
-      'profile:dravidic': 130,
-      'profile:gangetic': 100,
+      'profile:nabatric': 200,
+      'profile:mauryanic': 210,
+      'profile:sangamic': 130,
+      'profile:vangalic': 100,
       'profile:sindhukan': 80,
       'profile:gorkhalic': 80,
       'profile:maharlikan': 70,
       'profile:alvionic': 50,
-      'profile:parsic': 30,
+      'profile:mazanic': 30,
       'profile:deshretine': 30,
       'profile:sawahili': 10,
       'profile:cosmopolitan': 10,
     },
     '2010': {
-      'profile:aramaic': 140,      // ~14% Qatari
-      'profile:bharatic': 200,     // ~20% Indian
+      'profile:nabatric': 140,      // ~14% Qatari
+      'profile:mauryanic': 200,     // ~20% Indian
       'profile:gorkhalic': 150,    // ~15% Nepali (WC construction)
-      'profile:gangetic': 130,     // ~13% Bangladeshi
+      'profile:vangalic': 130,     // ~13% Bangladeshi
       'profile:maharlikan': 100,   // ~10% Filipino
-      'profile:dravidic': 80,
+      'profile:sangamic': 80,
       'profile:sindhukan': 70,
       'profile:alvionic': 50,
       'profile:deshretine': 40,
-      'profile:parsic': 20,
+      'profile:mazanic': 20,
       'profile:sawahili': 10,
       'profile:cosmopolitan': 10,
     },
     '2020': {
-      'profile:aramaic': 120,      // ~12% Qatari
-      'profile:bharatic': 220,     // ~22% Indian
+      'profile:nabatric': 120,      // ~12% Qatari
+      'profile:mauryanic': 220,     // ~22% Indian
       'profile:gorkhalic': 160,    // ~16% Nepali
-      'profile:gangetic': 130,     // ~13% Bangladeshi
+      'profile:vangalic': 130,     // ~13% Bangladeshi
       'profile:maharlikan': 100,   // ~10% Filipino
-      'profile:dravidic': 70,
+      'profile:sangamic': 70,
       'profile:sindhukan': 60,
       'profile:alvionic': 60,      // Western professionals
       'profile:deshretine': 40,
-      'profile:parsic': 20,
+      'profile:mazanic': 20,
       'profile:sawahili': 10,
       'profile:cosmopolitan': 10,
     },
@@ -237,76 +237,76 @@ const gulfCorrections: Record<string, Record<string, Record<string, number>>> = 
   // Kuwait - ~70% expat (large Egyptian/Arab expat community)
   KWT: {
     '1960': {
-      'profile:aramaic': 700,
-      'profile:parsic': 150,       // Iranian traders
-      'profile:bharatic': 100,
-      'profile:dravidic': 50,
+      'profile:nabatric': 700,
+      'profile:mazanic': 150,       // Iranian traders
+      'profile:mauryanic': 100,
+      'profile:sangamic': 50,
     },
     '1970': {
-      'profile:aramaic': 500,
+      'profile:nabatric': 500,
       'profile:deshretine': 150,   // Egyptian teachers/professionals
-      'profile:bharatic': 120,
-      'profile:dravidic': 80,
-      'profile:parsic': 70,
+      'profile:mauryanic': 120,
+      'profile:sangamic': 80,
+      'profile:mazanic': 70,
       'profile:sindhukan': 50,
       'profile:alvionic': 30,
     },
     '1980': {
-      'profile:aramaic': 400,
+      'profile:nabatric': 400,
       'profile:deshretine': 180,
-      'profile:bharatic': 140,
-      'profile:dravidic': 80,
+      'profile:mauryanic': 140,
+      'profile:sangamic': 80,
       'profile:sindhukan': 60,
-      'profile:parsic': 50,
+      'profile:mazanic': 50,
       'profile:maharlikan': 40,
       'profile:alvionic': 30,
-      'profile:gangetic': 20,
+      'profile:vangalic': 20,
     },
     '1990': {
-      'profile:aramaic': 450,      // Post-Gulf War, many expats left
+      'profile:nabatric': 450,      // Post-Gulf War, many expats left
       'profile:deshretine': 150,
-      'profile:bharatic': 130,
-      'profile:dravidic': 70,
+      'profile:mauryanic': 130,
+      'profile:sangamic': 70,
       'profile:sindhukan': 60,
       'profile:maharlikan': 50,
-      'profile:parsic': 40,
+      'profile:mazanic': 40,
       'profile:alvionic': 30,
-      'profile:gangetic': 20,
+      'profile:vangalic': 20,
     },
     '2000': {
-      'profile:aramaic': 350,
-      'profile:bharatic': 180,
+      'profile:nabatric': 350,
+      'profile:mauryanic': 180,
       'profile:deshretine': 130,
-      'profile:dravidic': 80,
-      'profile:gangetic': 80,
+      'profile:sangamic': 80,
+      'profile:vangalic': 80,
       'profile:sindhukan': 60,
       'profile:maharlikan': 60,
-      'profile:parsic': 25,
+      'profile:mazanic': 25,
       'profile:alvionic': 25,
       'profile:sawahili': 10,
     },
     '2010': {
-      'profile:aramaic': 320,      // ~32% Kuwaiti
-      'profile:bharatic': 180,     // ~18% Indian
+      'profile:nabatric': 320,      // ~32% Kuwaiti
+      'profile:mauryanic': 180,     // ~18% Indian
       'profile:deshretine': 120,   // ~12% Egyptian
-      'profile:gangetic': 100,     // ~10% Bangladeshi
+      'profile:vangalic': 100,     // ~10% Bangladeshi
       'profile:maharlikan': 80,    // ~8% Filipino
-      'profile:dravidic': 60,
+      'profile:sangamic': 60,
       'profile:sindhukan': 50,
-      'profile:parsic': 30,
+      'profile:mazanic': 30,
       'profile:alvionic': 30,
       'profile:sawahili': 15,
       'profile:cosmopolitan': 15,
     },
     '2020': {
-      'profile:aramaic': 300,      // ~30% Kuwaiti
-      'profile:bharatic': 210,     // ~21% Indian
+      'profile:nabatric': 300,      // ~30% Kuwaiti
+      'profile:mauryanic': 210,     // ~21% Indian
       'profile:deshretine': 150,   // ~15% Egyptian
-      'profile:gangetic': 100,     // ~10% Bangladeshi
+      'profile:vangalic': 100,     // ~10% Bangladeshi
       'profile:maharlikan': 80,    // ~8% Filipino
-      'profile:dravidic': 50,
+      'profile:sangamic': 50,
       'profile:sindhukan': 40,
-      'profile:parsic': 20,
+      'profile:mazanic': 20,
       'profile:alvionic': 25,
       'profile:sawahili': 10,
       'profile:cosmopolitan': 15,
@@ -316,72 +316,72 @@ const gulfCorrections: Record<string, Record<string, Record<string, number>>> = 
   // Bahrain - ~55% expat (more integrated, older trade history)
   BHR: {
     '1960': {
-      'profile:aramaic': 750,
-      'profile:parsic': 150,       // Long Iranian presence
-      'profile:bharatic': 70,
-      'profile:dravidic': 30,
+      'profile:nabatric': 750,
+      'profile:mazanic': 150,       // Long Iranian presence
+      'profile:mauryanic': 70,
+      'profile:sangamic': 30,
     },
     '1970': {
-      'profile:aramaic': 650,
-      'profile:parsic': 120,
-      'profile:bharatic': 100,
-      'profile:dravidic': 60,
+      'profile:nabatric': 650,
+      'profile:mazanic': 120,
+      'profile:mauryanic': 100,
+      'profile:sangamic': 60,
       'profile:alvionic': 40,
       'profile:sindhukan': 30,
     },
     '1980': {
-      'profile:aramaic': 550,
-      'profile:bharatic': 140,
-      'profile:dravidic': 80,
-      'profile:parsic': 80,
+      'profile:nabatric': 550,
+      'profile:mauryanic': 140,
+      'profile:sangamic': 80,
+      'profile:mazanic': 80,
       'profile:sindhukan': 50,
       'profile:alvionic': 40,
       'profile:maharlikan': 30,
-      'profile:gangetic': 30,
+      'profile:vangalic': 30,
     },
     '1990': {
-      'profile:aramaic': 500,
-      'profile:bharatic': 160,
-      'profile:dravidic': 90,
-      'profile:parsic': 70,
+      'profile:nabatric': 500,
+      'profile:mauryanic': 160,
+      'profile:sangamic': 90,
+      'profile:mazanic': 70,
       'profile:sindhukan': 50,
-      'profile:gangetic': 50,
+      'profile:vangalic': 50,
       'profile:maharlikan': 40,
       'profile:alvionic': 30,
       'profile:deshretine': 10,
     },
     '2000': {
-      'profile:aramaic': 480,
-      'profile:bharatic': 170,
-      'profile:dravidic': 90,
-      'profile:gangetic': 70,
+      'profile:nabatric': 480,
+      'profile:mauryanic': 170,
+      'profile:sangamic': 90,
+      'profile:vangalic': 70,
       'profile:sindhukan': 50,
       'profile:maharlikan': 50,
-      'profile:parsic': 40,
+      'profile:mazanic': 40,
       'profile:alvionic': 30,
       'profile:deshretine': 15,
       'profile:cosmopolitan': 5,
     },
     '2010': {
-      'profile:aramaic': 460,      // ~46% Bahraini
-      'profile:bharatic': 180,     // ~18% Indian
-      'profile:dravidic': 90,
-      'profile:gangetic': 80,      // ~8% Bangladeshi
+      'profile:nabatric': 460,      // ~46% Bahraini
+      'profile:mauryanic': 180,     // ~18% Indian
+      'profile:sangamic': 90,
+      'profile:vangalic': 80,      // ~8% Bangladeshi
       'profile:sindhukan': 50,     // ~5% Pakistani
       'profile:maharlikan': 50,
-      'profile:parsic': 35,
+      'profile:mazanic': 35,
       'profile:alvionic': 30,
       'profile:deshretine': 15,
       'profile:cosmopolitan': 10,
     },
     '2020': {
-      'profile:aramaic': 450,      // ~45% Bahraini
-      'profile:bharatic': 200,     // ~20% Indian
-      'profile:dravidic': 80,
-      'profile:gangetic': 100,     // ~10% Bangladeshi
+      'profile:nabatric': 450,      // ~45% Bahraini
+      'profile:mauryanic': 200,     // ~20% Indian
+      'profile:sangamic': 80,
+      'profile:vangalic': 100,     // ~10% Bangladeshi
       'profile:sindhukan': 50,
       'profile:maharlikan': 45,
-      'profile:parsic': 30,
+      'profile:mazanic': 30,
       'profile:alvionic': 25,
       'profile:deshretine': 10,
       'profile:cosmopolitan': 10,
@@ -391,72 +391,72 @@ const gulfCorrections: Record<string, Record<string, Record<string, number>>> = 
   // Oman - ~46% expat (more balanced, slower development)
   OMN: {
     '1960': {
-      'profile:aramaic': 900,
-      'profile:parsic': 50,
-      'profile:bharatic': 30,
+      'profile:nabatric': 900,
+      'profile:mazanic': 50,
+      'profile:mauryanic': 30,
       'profile:sawahili': 20,      // Zanzibar connection
     },
     '1970': {
-      'profile:aramaic': 800,
-      'profile:bharatic': 80,
-      'profile:parsic': 40,
-      'profile:dravidic': 40,
+      'profile:nabatric': 800,
+      'profile:mauryanic': 80,
+      'profile:mazanic': 40,
+      'profile:sangamic': 40,
       'profile:sawahili': 25,
       'profile:alvionic': 15,
     },
     '1980': {
-      'profile:aramaic': 650,
-      'profile:bharatic': 130,
-      'profile:dravidic': 70,
-      'profile:gangetic': 50,
-      'profile:parsic': 30,
+      'profile:nabatric': 650,
+      'profile:mauryanic': 130,
+      'profile:sangamic': 70,
+      'profile:vangalic': 50,
+      'profile:mazanic': 30,
       'profile:sindhukan': 30,
       'profile:sawahili': 20,
       'profile:alvionic': 20,
     },
     '1990': {
-      'profile:aramaic': 600,
-      'profile:bharatic': 150,
-      'profile:dravidic': 80,
-      'profile:gangetic': 70,
+      'profile:nabatric': 600,
+      'profile:mauryanic': 150,
+      'profile:sangamic': 80,
+      'profile:vangalic': 70,
       'profile:sindhukan': 35,
       'profile:maharlikan': 25,
-      'profile:parsic': 20,
+      'profile:mazanic': 20,
       'profile:sawahili': 10,
       'profile:alvionic': 10,
     },
     '2000': {
-      'profile:aramaic': 580,
-      'profile:bharatic': 160,
-      'profile:gangetic': 100,
-      'profile:dravidic': 60,
+      'profile:nabatric': 580,
+      'profile:mauryanic': 160,
+      'profile:vangalic': 100,
+      'profile:sangamic': 60,
       'profile:sindhukan': 35,
       'profile:maharlikan': 30,
-      'profile:parsic': 15,
+      'profile:mazanic': 15,
       'profile:alvionic': 10,
       'profile:sawahili': 5,
       'profile:cosmopolitan': 5,
     },
     '2010': {
-      'profile:aramaic': 560,      // ~56% Omani
-      'profile:bharatic': 170,     // ~17% Indian
-      'profile:gangetic': 120,     // ~12% Bangladeshi
-      'profile:dravidic': 50,
+      'profile:nabatric': 560,      // ~56% Omani
+      'profile:mauryanic': 170,     // ~17% Indian
+      'profile:vangalic': 120,     // ~12% Bangladeshi
+      'profile:sangamic': 50,
       'profile:sindhukan': 40,
       'profile:maharlikan': 30,
-      'profile:parsic': 10,
+      'profile:mazanic': 10,
       'profile:alvionic': 10,
       'profile:sawahili': 5,
       'profile:cosmopolitan': 5,
     },
     '2020': {
-      'profile:aramaic': 540,      // ~54% Omani
-      'profile:bharatic': 180,     // ~18% Indian
-      'profile:gangetic': 130,     // ~13% Bangladeshi
-      'profile:dravidic': 50,
+      'profile:nabatric': 540,      // ~54% Omani
+      'profile:mauryanic': 180,     // ~18% Indian
+      'profile:vangalic': 130,     // ~13% Bangladeshi
+      'profile:sangamic': 50,
       'profile:sindhukan': 40,
       'profile:maharlikan': 30,
-      'profile:parsic': 10,
+      'profile:mazanic': 10,
       'profile:alvionic': 10,
       'profile:cosmopolitan': 10,
     },
@@ -465,74 +465,74 @@ const gulfCorrections: Record<string, Record<string, Record<string, number>>> = 
   // Saudi Arabia - ~38% expat (largest absolute numbers due to population)
   SAU: {
     '1960': {
-      'profile:aramaic': 950,
-      'profile:bharatic': 30,
-      'profile:parsic': 20,
+      'profile:nabatric': 950,
+      'profile:mauryanic': 30,
+      'profile:mazanic': 20,
     },
     '1970': {
-      'profile:aramaic': 850,
+      'profile:nabatric': 850,
       'profile:deshretine': 50,    // Egyptian professionals
-      'profile:bharatic': 40,
+      'profile:mauryanic': 40,
       'profile:sindhukan': 30,
-      'profile:parsic': 20,
+      'profile:mazanic': 20,
       'profile:alvionic': 10,
     },
     '1980': {
-      'profile:aramaic': 700,
-      'profile:bharatic': 80,
+      'profile:nabatric': 700,
+      'profile:mauryanic': 80,
       'profile:deshretine': 70,
       'profile:sindhukan': 50,
-      'profile:dravidic': 30,
-      'profile:gangetic': 20,
+      'profile:sangamic': 30,
+      'profile:vangalic': 20,
       'profile:maharlikan': 20,
-      'profile:parsic': 15,
+      'profile:mazanic': 15,
       'profile:alvionic': 15,
     },
     '1990': {
-      'profile:aramaic': 680,
-      'profile:bharatic': 90,
+      'profile:nabatric': 680,
+      'profile:mauryanic': 90,
       'profile:deshretine': 70,
       'profile:sindhukan': 55,
-      'profile:dravidic': 30,
-      'profile:gangetic': 25,
+      'profile:sangamic': 30,
+      'profile:vangalic': 25,
       'profile:maharlikan': 25,
-      'profile:parsic': 10,
+      'profile:mazanic': 10,
       'profile:alvionic': 15,
     },
     '2000': {
-      'profile:aramaic': 660,
-      'profile:bharatic': 100,
+      'profile:nabatric': 660,
+      'profile:mauryanic': 100,
       'profile:deshretine': 60,
       'profile:sindhukan': 55,
-      'profile:gangetic': 40,
-      'profile:dravidic': 30,
+      'profile:vangalic': 40,
+      'profile:sangamic': 30,
       'profile:maharlikan': 25,
       'profile:alvionic': 15,
-      'profile:parsic': 10,
+      'profile:mazanic': 10,
       'profile:cosmopolitan': 5,
     },
     '2010': {
-      'profile:aramaic': 640,      // ~64% Saudi
-      'profile:bharatic': 110,     // ~11% Indian
-      'profile:gangetic': 60,      // ~6% Bangladeshi
+      'profile:nabatric': 640,      // ~64% Saudi
+      'profile:mauryanic': 110,     // ~11% Indian
+      'profile:vangalic': 60,      // ~6% Bangladeshi
       'profile:sindhukan': 55,     // ~5.5% Pakistani
       'profile:deshretine': 50,    // ~5% Egyptian
-      'profile:dravidic': 25,
+      'profile:sangamic': 25,
       'profile:maharlikan': 25,
       'profile:alvionic': 15,
-      'profile:parsic': 10,
+      'profile:mazanic': 10,
       'profile:cosmopolitan': 10,
     },
     '2020': {
-      'profile:aramaic': 620,      // ~62% Saudi
-      'profile:bharatic': 130,     // ~13% Indian
-      'profile:gangetic': 70,      // ~7% Bangladeshi
+      'profile:nabatric': 620,      // ~62% Saudi
+      'profile:mauryanic': 130,     // ~13% Indian
+      'profile:vangalic': 70,      // ~7% Bangladeshi
       'profile:sindhukan': 60,     // ~6% Pakistani
       'profile:deshretine': 50,    // ~5% Egyptian
-      'profile:dravidic': 20,
+      'profile:sangamic': 20,
       'profile:maharlikan': 20,
       'profile:alvionic': 15,
-      'profile:parsic': 5,
+      'profile:mazanic': 5,
       'profile:cosmopolitan': 10,
     },
   },

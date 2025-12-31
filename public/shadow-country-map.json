@@ -215,7 +215,7 @@
   },
   {
     "real": "BARBADOS",
-    "shadow": "Ichirougan",
+    "shadow": "Bajani",
     "iso3": "BRB",
     "continent": "Athar",
     "population": 282467,
@@ -279,7 +279,7 @@
   },
   {
     "real": "CHINA",
-    "shadow": "Tianlong",
+    "shadow": "Zhonghua",
     "iso3": "CHN",
     "continent": "Solis",
     "population": 1408975000,
@@ -376,7 +376,7 @@
   },
   {
     "real": "CAYMAN_ISLANDS",
-    "shadow": "Bodhenisle",
+    "shadow": "Caimani",
     "iso3": "CYM",
     "continent": "Athar",
     "population": 74457,
@@ -403,7 +403,7 @@
   },
   {
     "real": "GERMANY",
-    "shadow": "Teutmark",
+    "shadow": "Austrasien",
     "iso3": "DEU",
     "aliases": [
       "EAST_GERMANY",
@@ -730,7 +730,7 @@
   },
   {
     "real": "INDIA",
-    "shadow": "Bharatvani",
+    "shadow": "Jambudvipa",
     "iso3": "IND",
     "aliases": [
       "BRITISH_INDIA",
@@ -926,7 +926,7 @@
   },
   {
     "real": "SRI_LANKA",
-    "shadow": "Serendivi",
+    "shadow": "Taprobane",
     "iso3": "LKA",
     "continent": "Solis",
     "population": 21916000,
@@ -1272,7 +1272,7 @@
   },
   {
     "real": "PHILIPPINES",
-    "shadow": "Maharlika",
+    "shadow": "Luzvimin",
     "iso3": "PHL",
     "continent": "Solis",
     "population": 115843670,
@@ -1312,7 +1312,7 @@
   },
   {
     "real": "NORTH_KOREA",
-    "shadow": "Juchevon",
+    "shadow": "Koryelik",
     "iso3": "PRK",
     "continent": "Solis",
     "population": 26498823,
