@@ -13,7 +13,7 @@
       { "text": "#Subj# #be# #height# and #build#, with #hair# and #eyes#.", "rarity": "common" },
       { "text": "#Subj# #be# #height# and #build#, with #eyes# and #hair#.", "rarity": "uncommon" },
       { "text": "#height.capFirst# and #build#, #subj# #have# #hair# and #eyes#.", "rarity": "rare" },
-      { "text": "Physically, #subj# #be# #height# with #aBuild# #build#, #hair#, and #eyes#.", "rarity": "uncommon" },
+      { "text": "Physically, #subj# #be# #height# and #build#, with #hair# and #eyes#.", "rarity": "uncommon" },
       { "text": "#Subj# #stand# #height#, #build#, with #hair# framing #eyes#.", "rarity": "rare" },
       { "text": "#build.capFirst# and #height#, #subj# #have# #eyes# and #hair#.", "rarity": "uncommon" }
     ],
@@ -121,7 +121,7 @@
     "bioP2Institution": [
       { "text": "", "rarity": "common" },
       { "text": "#Subj# #work# as #aGradeBand# #gradeBand# #functionalSpec# in #orgType#.", "rarity": "uncommon" },
-      { "text": "#yearsPhrase.capFirst# #orgType# as #aGradeBand# #gradeBand# #functionalSpec#.", "rarity": "uncommon" },
+      { "text": "#Subj# #have# spent #yearsPhrase# #orgType# as #aGradeBand# #gradeBand# #functionalSpec#.", "rarity": "uncommon" },
       { "text": "#Subj# #hold# #aGradeBand# #gradeBand# position in #orgType# (#functionalSpec#).", "rarity": "rare" },
       { "text": "#Subj# #serve# as #aGradeBand# #gradeBand# #functionalSpec# in #orgType#.", "rarity": "uncommon" },
       { "text": "Professionally, #subj# #work# in #orgType# as #aGradeBand# #gradeBand# #functionalSpec#.", "rarity": "rare" }
@@ -330,7 +330,7 @@
       { "text": "#Subj# #live# #householdCompositionPhrase# in #housingStability# housing.", "rarity": "rare" },
       { "text": "Home is #aNeighborhoodType# #neighborhoodType# neighborhood.", "rarity": "uncommon" },
       { "text": "#Subj# #reside# #householdCompositionPhrase# in #aNeighborhoodType# #neighborhoodType# area.", "rarity": "rare" },
-      { "text": "#aNeighborhoodType.capFirst# #neighborhoodType# neighborhood, #housingStability# housing.", "rarity": "uncommon" }
+      { "text": "#Subj# #live# in #aNeighborhoodType# #neighborhoodType# neighborhood with #housingStability# housing.", "rarity": "uncommon" }
     ],
     "bioP2LifeSkills": [
       { "text": "", "rarity": "common" },

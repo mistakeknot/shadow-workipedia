@@ -730,7 +730,15 @@ export function generateNarrative(
   const build = toNarrativePhrase(agent.appearance.buildTag);
   const aBuild = aOrAn(build);
   const voiceTag = toNarrativePhrase(agent.appearance.voiceTag);
-  const voice = voiceTag === 'storyteller' ? 'storyteller-like' : voiceTag;
+  // Transform voice tags to work with "Her voice is X" pattern
+  const voice = (() => {
+    if (voiceTag === 'storyteller') return 'storyteller-like';
+    if (voiceTag === 'high-register') return 'high-pitched';
+    if (voiceTag === 'high register') return 'high-pitched';
+    if (voiceTag === 'low-register') return 'deep';
+    if (voiceTag === 'low register') return 'deep';
+    return voiceTag;
+  })();
   const mark = pickVariant(seed, 'bio:mark', agent.appearance.distinguishingMarks);
 
   const skillsSorted = Object.entries(agent.capabilities.skills)
@@ -798,7 +806,13 @@ export function generateNarrative(
         return ['vulnerable to burnout', 'prone to wearing thin', 'susceptible to stress'][idx];
     }
   })();
-  const breakTypes = preview.breakTypesTopK.slice(0, 2).map(toNarrativePhrase);
+  const breakTypes = preview.breakTypesTopK.slice(0, 2).map(t => {
+    const p = toNarrativePhrase(t);
+    // Fix awkward break type phrasings to work with "X are common failure modes"
+    if (p === 'confession leak') return 'involuntary disclosure';
+    if (p === 'defection attempt') return 'defection';
+    return p;
+  });
 
   const vice = agent.vices[0]?.vice ? toNarrativePhrase(agent.vices[0].vice) : '';
   const viceTrigger = agent.vices[0]?.triggers?.[0] ? toNarrativePhrase(agent.vices[0].triggers[0]) : '';
@@ -827,24 +841,33 @@ export function generateNarrative(
       'rastafarian': 'Rastafarian',
       'santerist': 'Santerist',
       'candombleist': 'Candombleist',
+      'shamanist': 'Shamanist',
+      'animist': 'Animist',
       'lunarian sunni': 'Lunarian Sunni',
       'lunarian shia': 'Lunarian Shia',
       'lunarian ibadi': 'Lunarian Ibadi',
+      'lunarian sufi': 'Lunarian Sufi',
       'solarian catholic': 'Solarian Catholic',
       'solarian orthodox': 'Solarian Orthodox',
       'solarian pentecostal': 'Solarian Pentecostal',
       'solarian evangelical': 'Solarian Evangelical',
+      'solarian protestant': 'Solarian Protestant',
+      'solarian coptic': 'Solarian Coptic',
       'covenant conservative': 'Covenant Conservative',
       'covenant orthodox': 'Covenant Orthodox',
       'covenant reform': 'Covenant Reform',
       'dharmic vaishnava': 'Dharmic Vaishnava',
       'dharmic shaiva': 'Dharmic Shaiva',
+      'dharmic vedantic': 'Dharmic Vedantic',
+      'dharmic shakta': 'Dharmic Shakta',
       'awakened theravada': 'Awakened Theravada',
       'awakened mahayana': 'Awakened Mahayana',
       'awakened zen': 'Awakened Zen',
+      'awakened vajrayana': 'Awakened Vajrayana',
       'ancestor reverent': 'ancestor-reverent',
       'nature spiritual': 'nature-spiritual',
       'khalsan': 'Khalsan',
+      'druze': 'Druze',
     };
     return religionCapFixes[phrase] ?? phrase;
   })();
@@ -1066,8 +1089,8 @@ export function generateNarrative(
            'communications', 'regional desk', 'legal affairs', 'consular'].includes(spec)) {
         return spec + ' officer';
       }
-      // Ops suffixes are fine as-is (security ops, logistics ops, influence ops, etc.)
-      if (spec.endsWith(' ops')) return spec;
+      // Ops suffixes need "officer" to sound complete (security ops officer, logistics ops officer, etc.)
+      if (spec.endsWith(' ops')) return spec + ' officer';
       // Technical collection is specialized
       if (spec === 'technical collection') return spec + ' specialist';
       // These are standalone role titles that work as-is
@@ -1421,7 +1444,8 @@ export function generateNarrative(
       const phrases = tags.slice(0, 2).map(t => {
         const p = toNarrativePhrase(t);
         // Convert to adjectives that work with "She is X"
-        if (p === 'adhd traits') return 'ADHD';
+        // Note: "ADHD" alone doesn't work ("She is ADHD" is wrong) - use adjectival form
+        if (p === 'adhd traits') return 'ADHD-diagnosed';
         if (p === 'asd traits') return 'autistic';
         if (p === 'dyslexia traits') return 'dyslexic';
         if (p === 'dyscalculia traits') return 'dyscalculic';
@@ -1674,9 +1698,11 @@ export function generateNarrative(
       if (phrase === 'group house') return 'in a group house';
       if (phrase === 'multigenerational') return 'with a multigenerational family';
       if (phrase === 'extended family') return 'with extended family';
-      // Add articles for role nouns: "partner", "spouse", "roommate" etc
-      const needsArticle = ['partner', 'spouse', 'roommate', 'housemate', 'roommates'];
+      // Add articles for singular role nouns: "partner", "spouse", "roommate" etc
+      const needsArticle = ['partner', 'spouse', 'roommate', 'housemate'];
       if (needsArticle.includes(phrase)) return `with ${aOrAn(phrase)} ${phrase}`;
+      // Plural nouns don't need articles
+      if (phrase === 'roommates') return 'with roommates';
       return 'with ' + phrase;
     })()],
     // Life skills - convert competence bands to adjective phrases that work with "is"
