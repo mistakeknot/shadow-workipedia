@@ -955,6 +955,29 @@ export function generateNarrative(
     yearsInService: [String(agent.institution.yearsInService)],
     work: [conjugate(pron, 'works', 'work')],
     hold: [conjugate(pron, 'holds', 'hold')],
+    // Missing conjugated verbs for templates
+    act: [conjugate(pron, 'acts', 'act')],
+    come: [conjugate(pron, 'comes', 'come')],
+    deal: [conjugate(pron, 'deals', 'deal')],
+    default: [conjugate(pron, 'defaults', 'default')],
+    deploy: [conjugate(pron, 'deploys', 'deploy')],
+    embody: [conjugate(pron, 'embodies', 'embody')],
+    engage: [conjugate(pron, 'engages', 'engage')],
+    fall: [conjugate(pron, 'falls', 'fall')],
+    get: [conjugate(pron, 'gets', 'get')],
+    give: [conjugate(pron, 'gives', 'give')],
+    navigate: [conjugate(pron, 'navigates', 'navigate')],
+    occupy: [conjugate(pron, 'occupies', 'occupy')],
+    reside: [conjugate(pron, 'resides', 'reside')],
+    serve: [conjugate(pron, 'serves', 'serve')],
+    stand: [conjugate(pron, 'stands', 'stand')],
+    struggle: [conjugate(pron, 'struggles', 'struggle')],
+    take: [conjugate(pron, 'takes', 'take')],
+    understand: [conjugate(pron, 'understands', 'understand')],
+    wear: [conjugate(pron, 'wears', 'wear')],
+    write: [conjugate(pron, 'writes', 'write')],
+    approach: [conjugate(pron, 'approaches', 'approach')],
+    reason: [conjugate(pron, 'reasons', 'reason')],
     // Personality
     conflictStyle: [toNarrativePhrase(agent.personality.conflictStyle)],
     epistemicStyle: [toNarrativePhrase(agent.personality.epistemicStyle)],
@@ -1278,14 +1301,15 @@ export function generateNarrative(
     affectBaseline: [toNarrativePhrase(agent.affect?.baseline ?? '')],
     affectRegulation: [(() => {
       const style = agent.affect?.regulationStyle ?? '';
+      // Use infinitive form since template is "prompts [obj] to [verb]"
       const phrases: Record<string, string> = {
-        ruminates: 'ruminates',
-        suppresses: 'suppresses',
-        externalizes: 'externalizes',
-        reframes: 'reframes',
-        compartmentalizes: 'compartmentalizes',
-        avoids: 'avoids the issue',
-        'seeks-support': 'seeks support',
+        ruminates: 'ruminate',
+        suppresses: 'suppress',
+        externalizes: 'externalize',
+        reframes: 'reframe',
+        compartmentalizes: 'compartmentalize',
+        avoids: 'avoid the issue',
+        'seeks-support': 'seek support',
       };
       return phrases[style] ?? toNarrativePhrase(style);
     })()],
@@ -1396,7 +1420,7 @@ export function generateNarrative(
       const band = agent.lifeSkills?.streetSmarts ?? '';
       switch (band) {
         case 'incompetent': return 'hopeless';
-        case 'struggles': return 'out of their depth';
+        case 'struggles': return `out of ${pron.possAdj} depth`;
         case 'adequate': return 'adequate';
         case 'competent': return 'streetwise';
         case 'expert': return 'street-savvy';
