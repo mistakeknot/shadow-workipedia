@@ -13,7 +13,7 @@
       { "text": "#Subj# #be# #height# and #build#, with #hair# and #eyes#.", "rarity": "common" },
       { "text": "#Subj# #be# #height# and #build#, with #eyes# and #hair#.", "rarity": "uncommon" },
       { "text": "#height.capFirst# and #build#, #subj# #have# #hair# and #eyes#.", "rarity": "rare" },
-      { "text": "Physically, #subj# #be# #height# with #aBuild# #build# frame, #hair#, and #eyes#.", "rarity": "uncommon" },
+      { "text": "Physically, #subj# #be# #height# with #aBuild# #build#, #hair#, and #eyes#.", "rarity": "uncommon" },
       { "text": "#Subj# #stand# #height#, #build#, with #hair# framing #eyes#.", "rarity": "rare" },
       { "text": "#build.capFirst# and #height#, #subj# #have# #eyes# and #hair#.", "rarity": "uncommon" }
     ],
@@ -185,7 +185,7 @@
       { "text": "", "rarity": "common" },
       { "text": "Financially, #subj# #carry# #debtLevel# debt with #incomeStability# income.", "rarity": "uncommon" },
       { "text": "#PossAdjCap# finances are #spendingStyle#; #incomeStability# income keeps things #financialState#.", "rarity": "rare" },
-      { "text": "#Subj# #manage# #debtLevel# debt on #incomeStability# income.", "rarity": "uncommon" },
+      { "text": "#Subj# #carry# #debtLevel# debt on #incomeStability# income.", "rarity": "uncommon" },
       { "text": "Money-wise, #subj# #be# #spendingStyle# with #debtLevel# debt.", "rarity": "uncommon" },
       { "text": "#incomeStability.capFirst# income and #debtLevel# debt define #possAdj# financial life.", "rarity": "rare" }
     ],

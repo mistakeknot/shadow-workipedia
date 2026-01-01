@@ -815,9 +815,39 @@ export function generateNarrative(
   const contradictionTrait2 = topContradiction ? toNarrativePhrase(topContradiction.trait2) : '';
 
   // Spirituality
-  // Convert tradition to readable form
+  // Convert tradition to readable form with proper capitalization for religious terms
   const rawTradition = agent.spirituality.tradition;
-  const spiritualityTradition = rawTradition !== 'none' ? toNarrativePhrase(rawTradition) : '';
+  const spiritualityTradition = (() => {
+    if (rawTradition === 'none') return '';
+    const phrase = toNarrativePhrase(rawTradition);
+    // Capitalize religious proper nouns and denominations
+    // Note: these are fictional religious traditions in the game world, so we capitalize them
+    const religionCapFixes: Record<string, string> = {
+      'zoroastrian': 'Zoroastrian',
+      'rastafarian': 'Rastafarian',
+      'santerist': 'Santerist',
+      'candombleist': 'Candombleist',
+      'lunarian sunni': 'Lunarian Sunni',
+      'lunarian shia': 'Lunarian Shia',
+      'lunarian ibadi': 'Lunarian Ibadi',
+      'solarian catholic': 'Solarian Catholic',
+      'solarian orthodox': 'Solarian Orthodox',
+      'solarian pentecostal': 'Solarian Pentecostal',
+      'solarian evangelical': 'Solarian Evangelical',
+      'covenant conservative': 'Covenant Conservative',
+      'covenant orthodox': 'Covenant Orthodox',
+      'covenant reform': 'Covenant Reform',
+      'dharmic vaishnava': 'Dharmic Vaishnava',
+      'dharmic shaiva': 'Dharmic Shaiva',
+      'awakened theravada': 'Awakened Theravada',
+      'awakened mahayana': 'Awakened Mahayana',
+      'awakened zen': 'Awakened Zen',
+      'ancestor reverent': 'ancestor-reverent',
+      'nature spiritual': 'nature-spiritual',
+      'khalsan': 'Khalsan',
+    };
+    return religionCapFixes[phrase] ?? phrase;
+  })();
   // Fix affiliationTags that are awkward with the templates
   const rawAffiliation = toNarrativePhrase(agent.spirituality.affiliationTag);
   const spiritualityAffiliation = (() => {
@@ -1365,7 +1395,17 @@ export function generateNarrative(
     healthCondition: [(() => {
       const conditions = agent.health.chronicConditionTags;
       if (!conditions.length) return '';
-      const top = conditions.slice(0, 2).map(toNarrativePhrase);
+      const top = conditions.slice(0, 2).map(c => {
+        const p = toNarrativePhrase(c);
+        // Fix medical term formatting
+        if (p === 'diabetes type 2') return 'type 2 diabetes';
+        if (p === 'diabetes type 1') return 'type 1 diabetes';
+        if (p === 'ptsd symptoms' || p === 'ptsd') return 'PTSD';
+        if (p === 'copd') return 'COPD';
+        if (p === 'adhd') return 'ADHD';
+        if (p === 'crohns' || p === "crohn's") return "Crohn's disease";
+        return p;
+      });
       return oxfordJoin(top);
     })()],
     // Use "is" for single condition, "are" for multiple (e.g., "Asthma and depression are")
@@ -1578,7 +1618,7 @@ export function generateNarrative(
         case 'active-participant': return 'an active participant';
         case 'organizer': return 'an organizer';
         case 'candidate': return 'a political candidate';
-        case 'disillusioned': return 'politically disillusioned';
+        case 'disillusioned': return 'disillusioned';
         default: return toNarrativePhrase(eng);
       }
     })()],
@@ -1600,7 +1640,19 @@ export function generateNarrative(
       const needsThe = ['gym', 'library', 'park', 'mosque', 'church', 'temple', 'synagogue',
                         'market', 'barber shop', 'salon', 'pool', 'community center'];
       // Places that need "a" prefix
-      const needsA = ['cafe', 'bar', 'restaurant'];
+      const needsA = ['cafe', 'bar', 'restaurant', 'museum'];
+      // Places that need possessive apostrophe fixes
+      const possessiveFixes: Record<string, string> = {
+        'cousins apartment': "a cousin's apartment",
+        'old friends flat': "an old friend's flat",
+        'aunts place': "an aunt's place",
+        'uncles house': "an uncle's house",
+        'grandparents house': "grandparents' house",
+        'in laws house': "in-laws' house",
+        'poker night host': 'a poker night',
+        'book club host': 'a book club',
+      };
+      if (possessiveFixes[place]) return possessiveFixes[place];
       if (needsThe.includes(place)) return 'the ' + place;
       if (needsA.includes(place)) return 'a ' + place;
       return place;
@@ -1618,8 +1670,12 @@ export function generateNarrative(
       const comp = agent.home?.householdComposition ?? '';
       if (!comp || comp === 'alone') return 'alone';
       const phrase = toNarrativePhrase(comp);
+      // Handle special cases that need different prepositions or articles
+      if (phrase === 'group house') return 'in a group house';
+      if (phrase === 'multigenerational') return 'with a multigenerational family';
+      if (phrase === 'extended family') return 'with extended family';
       // Add articles for role nouns: "partner", "spouse", "roommate" etc
-      const needsArticle = ['partner', 'spouse', 'roommate', 'housemate'];
+      const needsArticle = ['partner', 'spouse', 'roommate', 'housemate', 'roommates'];
       if (needsArticle.includes(phrase)) return `with ${aOrAn(phrase)} ${phrase}`;
       return 'with ' + phrase;
     })()],
@@ -1630,8 +1686,8 @@ export function generateNarrative(
         case 'incompetent': return 'hopeless';
         case 'struggles': return `out of ${pron.possAdj} depth`;
         case 'adequate': return 'adequate';
-        case 'competent': return 'streetwise';
-        case 'expert': return 'street-savvy';
+        case 'competent': return 'strong';
+        case 'expert': return 'excellent';
         default: return toNarrativePhrase(band);
       }
     })()],
