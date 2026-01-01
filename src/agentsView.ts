@@ -1121,7 +1121,7 @@ export function initializeAgentsView(container: HTMLElement) {
     else if (shadowCountriesError) hintLines.push('Country map missing — run `pnpm extract-data` in `shadow-workipedia`.');
     else hintLines.push('Loading country map…');
 
-    const vocabHint = `<div class="agents-sidebar-subtitle agent-muted">${escapeHtml(hintLines.join(' '))}</div>`;
+    const vocabHint = `<div class="agents-sidebar-subtitle agent-muted agents-hide-mobile">${escapeHtml(hintLines.join(' '))}</div>`;
     const seedSummary = seedDraft.length > 14 ? `${seedDraft.slice(0, 14)}…` : seedDraft;
     const homeSummary = selectedHomeIso3
       ? shadowByIso3.get(selectedHomeIso3)?.shadow
@@ -1174,11 +1174,11 @@ export function initializeAgentsView(container: HTMLElement) {
                   </div>
                 </details>
 
-                <div class="agents-btn-row agents-btn-row-primary">
+                <div class="agents-btn-row agents-btn-row-primary agents-btn-grid">
                   <button id="agents-random" class="agents-btn" ${agentVocab && agentPriors && shadowCountries ? '' : 'disabled'}>Random</button>
                   <button id="agents-generate" class="agents-btn primary" ${agentVocab && agentPriors && shadowCountries ? '' : 'disabled'}>Generate</button>
                   <button id="agents-save" class="agents-btn primary" ${activeAgent ? '' : 'disabled'}>Save</button>
-                  <button id="agents-share" class="agents-btn agents-btn-span2">Copy link</button>
+                  <button id="agents-share" class="agents-btn">Copy link</button>
                 </div>
 
                 <details class="agents-actions agents-roster" id="agents-panel-roster" ${rosterPanelOpen ? 'open' : ''}>

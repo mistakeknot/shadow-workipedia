@@ -2669,6 +2669,23 @@ select.agents-input {
     padding: 0.25rem 0.15rem;
     font-size: 0.78rem;
   }
+  .agents-actions-hint {
+    font-size: 0.68rem;
+  }
+  .agents-btn-grid {
+    gap: 0.4rem;
+  }
+  .agents-btn-grid .agents-btn {
+    padding: 0.38rem 0.5rem;
+    font-size: 0.78rem;
+  }
+  .agents-label-seed {
+    font-size: 0.8rem;
+  }
+  .agents-label-seed .agents-input {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.82rem;
+  }
   .agent-card {
     grid-column: span 12;
   }
