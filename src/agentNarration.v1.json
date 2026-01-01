@@ -358,6 +358,83 @@
       { "text": "Among #possAdj# connections: #rel1Type#, #rel1Desc#.", "rarity": "uncommon" },
       { "text": "#Subj# #count# #rel1Type# among #possAdj# key ties.", "rarity": "rare" },
       { "text": "#PossAdjCap# network includes #rel1Type# (#rel1Desc#).", "rarity": "uncommon" }
+    ],
+
+    "synP1Identity": [
+      { "text": "#name# (#age#) is #aRole# #role# from #originLabel# (#homeIso3#), now #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "common" },
+      { "text": "#name# (#age#) is #aRole# #role# based in #currentLabel# (#currentIso3#).", "rarity": "uncommon" },
+      { "text": "From #originLabel# (#homeIso3#), #name# (#age#) now works out of #currentLabel# (#currentIso3#) as #aRole# #role#.", "rarity": "rare" }
+    ],
+    "synP1Presence": [
+      { "text": "", "rarity": "common" },
+      { "text": "#markSentence#", "rarity": "uncommon" },
+      { "text": "#PossAdjCap# voice is #voice#.", "rarity": "uncommon" }
+    ],
+    "synP1Hook": [
+      { "text": "#Subj# #be# known for #skillsList#.", "rarity": "common" },
+      { "text": "Known for #skillsList#, #subj# tends to keep moving.", "rarity": "rare" },
+      { "text": "When it counts, #subj# leans on #skillsList#.", "rarity": "uncommon" }
+    ],
+    "synP1Vibe": [
+      { "text": "#traitSentence#", "rarity": "common" },
+      { "text": "#Subj# #be# #build#, with #hair# and #eyes#.", "rarity": "uncommon" },
+      { "text": "#Subj# #dress# in #styleTag# style; #hair# and #eyes# stand out.", "rarity": "rare" }
+    ],
+    "synP1": [
+      { "text": "#synP1Identity# #synP1Presence# #synP1Vibe# #synP1Hook#", "rarity": "common" }
+    ],
+
+    "synP2Work": [
+      { "text": "#Subj# #work# in #orgType# as #aGradeBand# #gradeBand# #functionalSpec#.", "rarity": "common" },
+      { "text": "In #orgType#, #subj# serves as #aGradeBand# #gradeBand# #functionalSpec#.", "rarity": "uncommon" },
+      { "text": "#Subj# #have# spent #yearsPhrase# #orgType# as #aGradeBand# #gradeBand# #functionalSpec#.", "rarity": "rare" }
+    ],
+    "synP2WorkStyle": [
+      { "text": "", "rarity": "common" },
+      { "text": "#PossAdjCap# writing is #writingStyle#; #subj# #prefer# #briefingStyle# briefings.", "rarity": "uncommon" }
+    ],
+    "synP2Life": [
+      { "text": "Off duty, #subj# #unwind# with #recoveryList#.", "rarity": "common" },
+      { "text": "#PossAdjCap# ritual drink is #ritualDrink#.", "rarity": "uncommon" },
+      { "text": "Most days, #subj# #commute# by #commuteMode#.", "rarity": "rare" }
+    ],
+    "synP2Texture": [
+      { "text": "#Subj# #have# a soft spot for #comfortFoodList#.", "rarity": "common" },
+      { "text": "#PossAdjCap# usual media is #genreList#.", "rarity": "uncommon" },
+      { "text": "For a reset, #thirdPlace# does the trick.", "rarity": "rare" }
+    ],
+    "synP2": [
+      { "text": "#synP2Work# #synP2WorkStyle# #synP2Texture# #synP2Life#", "rarity": "common" }
+    ],
+
+    "synP3Drive": [
+      { "text": "#bioP2Motivation#", "rarity": "common" }
+    ],
+    "synP3Pressure": [
+      { "text": "In a crunch, #subj# #pressureResponse#.", "rarity": "common" },
+      { "text": "When the heat is on, #subj# #pressureResponse#.", "rarity": "common" },
+      { "text": "In a crisis, #subj# #pressureResponse#.", "rarity": "common" },
+      { "text": "With the pressure on, #subj# #pressureResponse#.", "rarity": "uncommon" },
+      { "text": "When stakes rise, #subj# #pressureResponse#.", "rarity": "uncommon" },
+      { "text": "Backed into a corner, #subj# #pressureResponse#.", "rarity": "rare" },
+      { "text": "Under pressure, #subj# #pressureResponse#.", "rarity": "rare" },
+      { "text": "Under stress, #subj# can be #breakBandPhrase#.", "rarity": "uncommon" },
+      { "text": "When stress mounts, #subj# can be #breakBandPhrase#.", "rarity": "uncommon" },
+      { "text": "When pushed too far, #subj# can be #breakBandPhrase#.", "rarity": "rare" }
+    ],
+    "synP3Hook": [
+      { "text": "", "rarity": "common" },
+      { "text": "#bioP3Relationships#", "rarity": "uncommon" },
+      { "text": "#bioP2RedLines#", "rarity": "uncommon" },
+      { "text": "#bioP2Secrets#", "rarity": "rare" }
+    ],
+    "synP3Tell": [
+      { "text": "#PossAdjCap# gait is #gaitDesc#, with #eyeContactDesc# eye contact.", "rarity": "common" },
+      { "text": "In conversation, #subj# #maintain# #eyeContactDesc# eye contact.", "rarity": "uncommon" },
+      { "text": "#Subj# #move# #gaitAdverb#; #possAdj# eye contact runs #eyeContactDesc#.", "rarity": "rare" }
+    ],
+    "synP3": [
+      { "text": "#synP3Drive# #synP3Pressure# #synP3Tell# #synP3Hook#", "rarity": "common" }
     ]
   }
 }

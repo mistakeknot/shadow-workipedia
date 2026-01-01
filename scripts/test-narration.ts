@@ -49,7 +49,9 @@ type BannedPattern = {
 const BANNED_PATTERNS: BannedPattern[] = [
   {
     name: 'article-vowel-error',
-    regex: /\ba [aeiou]/i,
+    // "a" before a vowel is usually wrong ("a apple"), but allow common vowel-letter
+    // cases with consonant sounds ("a union", "a user", "a European", etc.).
+    regex: /\ba\s+(?!uni|use|user|euro|one|once|ubiq)[aeiou]/i,
     description: 'Article error: "a [vowel]" should be "an [vowel]"',
   },
   {

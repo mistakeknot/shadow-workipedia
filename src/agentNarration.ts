@@ -723,11 +723,14 @@ export type NarrativeResult = {
   html: string;
 };
 
+export type NarrativeMode = 'full' | 'synopsis';
+
 export function generateNarrative(
   agent: GeneratedAgent,
   labels: NarrativeLabels,
   asOfYear: number,
   pronounMode: PronounMode,
+  mode: NarrativeMode = 'full',
 ): NarrativeResult {
   const seed = agent.seed;
   const shortName = agent.identity.name.split(' ')[0] ?? agent.identity.name;
@@ -948,18 +951,46 @@ export function generateNarrative(
   const aTier = aOrAn(tier);
   const ATier = capitalizeFirst(aTier);
   const hailVerb = conjugate(pron, 'hails', 'hail');
-  const keepVerb = conjugate(pron, 'keeps', 'keep');
-  const recoverVerb = conjugate(pron, 'recovers', 'recover');
-  const favorVerb = conjugate(pron, 'favors', 'favor');
-  const tendVerb = conjugate(pron, 'tends', 'tend');
-  const dressVerb = conjugate(pron, 'dresses', 'dress');
-  const enjoyVerb = conjugate(pron, 'enjoys', 'enjoy');
+	  const keepVerb = conjugate(pron, 'keeps', 'keep');
+	  const recoverVerb = conjugate(pron, 'recovers', 'recover');
+	  const unwindVerb = conjugate(pron, 'unwinds', 'unwind');
+	  const favorVerb = conjugate(pron, 'favors', 'favor');
+	  const tendVerb = conjugate(pron, 'tends', 'tend');
+	  const dressVerb = conjugate(pron, 'dresses', 'dress');
+	  const enjoyVerb = conjugate(pron, 'enjoys', 'enjoy');
 
   const recoveryActivities = rituals.map(toRecoveryActivity).filter(Boolean);
   // Use plus-joining if any item contains "and" to avoid triple-and
   const recoveryListText = recoveryActivities.length ? joinTwoWithPlusIfAmbiguous(recoveryActivities) : 'a routine';
   const genres = genre.length ? joinTwoWithPlusIfAmbiguous(genre) : 'mixed media';
-  const comfortLine = comfort.length ? joinTwoWithPlusIfAmbiguous(comfort) : 'simple staples';
+  const comfortLine = (() => {
+    const xs = comfort.slice().filter(Boolean);
+    // If we got a generic category alongside a more specific item, keep the specific one.
+    if (xs.length === 2) {
+      const a = xs[0] ?? '';
+      const b = xs[1] ?? '';
+      const aL = a.toLowerCase();
+      const bL = b.toLowerCase();
+      if (aL && bL) {
+        if (aL.includes(bL) && bL.length >= 4) return a;
+        if (bL.includes(aL) && aL.length >= 4) return b;
+      }
+    }
+    const joined = xs.length ? joinTwoWithPlusIfAmbiguous(xs) : 'simple staples';
+    // Reduce close-range repetition like "cheese toasties and cheese dishes"
+    const m = joined.match(/^([a-z]+)\s+.+\s+and\s+\1\s+/i);
+    if (m) {
+      const parts = joined.split(/\s+and\s+/i);
+      if (parts.length === 2) {
+        const [p1, p2] = parts;
+        const w = (m[1] ?? '').toLowerCase();
+        if (p1 && p2 && p1.toLowerCase().startsWith(w + ' ') && p2.toLowerCase().startsWith(w + ' ')) {
+          return `${p1} and other ${p2}`;
+        }
+      }
+    }
+    return joined;
+  })();
   const styleLine = style || 'practical';
 
   const markPhrase = mark ? toNarrativePhrase(mark) : '';
@@ -979,7 +1010,18 @@ export function generateNarrative(
   const publicHigh = agent.visibility.publicVisibility >= 700;
   const mobilityHigh = agent.mobility.travelFrequencyBand === 'high' || agent.mobility.travelFrequencyBand === 'very_high';
 
-  const skillsList = topSkillKeys.length ? oxfordJoin(topSkillKeys) : '';
+  let skillsList = topSkillKeys.length ? oxfordJoin(topSkillKeys) : '';
+  // Avoid clunky repetition like "political analysis and image analysis"
+  if (topSkillKeys.length === 2) {
+    const [a, b] = topSkillKeys;
+    const ma = a?.match(/^(.*)\s+analysis$/i);
+    const mb = b?.match(/^(.*)\s+analysis$/i);
+    const aStem = (ma?.[1] ?? '').trim();
+    const bStem = (mb?.[1] ?? '').trim();
+    if (aStem && bStem && aStem.toLowerCase() !== bStem.toLowerCase()) {
+      skillsList = `${aStem} and ${bStem} analysis`;
+    }
+  }
   const aptitudesList = topAptitudeNames.length ? oxfordJoin(topAptitudeNames) : '';
   const recoveryList = recoveryListText;
   const breakTypesList = (() => {
@@ -1059,10 +1101,11 @@ export function generateNarrative(
     possAdj: [pron.possAdj],
     PossAdjCap: [capitalizeFirst(pron.possAdj)],
     aTier: [aTier],
-    ATier: [ATier],
-    tier: [tier],
-    role: [roleLabel],
-    originLabel: [labels.originLabel],
+	    ATier: [ATier],
+	    tier: [tier],
+	    role: [roleLabel],
+	    aRole: [aOrAn(roleLabel)],
+	    originLabel: [labels.originLabel],
     homeIso3: [agent.identity.homeCountryIso3],
     currentLabel: [labels.currentLabel],
     currentIso3: [agent.identity.currentCountryIso3],
@@ -1086,13 +1129,14 @@ export function generateNarrative(
     genreList: [genres],
     styleTag: [styleLine],
     comfortFoodList: [comfortLine],
-    hail: [hailVerb],
-    keep: [keepVerb],
-    recover: [recoverVerb],
-    favor: [favorVerb],
-    tend: [tendVerb],
-    dress: [dressVerb],
-    enjoy: [enjoyVerb],
+	    hail: [hailVerb],
+	    keep: [keepVerb],
+	    recover: [recoverVerb],
+	    unwind: [unwindVerb],
+	    favor: [favorVerb],
+	    tend: [tendVerb],
+	    dress: [dressVerb],
+	    enjoy: [enjoyVerb],
     breakBand: [breakBand],
     breakBandPhrase: [breakBandPhrase],
     breakTypesList: [breakTypesList],
@@ -2081,6 +2125,16 @@ export function generateNarrative(
   // Guard for relationships - only show if agent has key relationships
   if (!agent.relationships.length) textRules.bioP3Relationships = [''];
 
+  // Synopsis-only guards to prevent empty slots producing dangling clauses.
+  if (!agent.everydayLife?.commuteMode) {
+    const synLife = (textRules.synP2Life ?? []).filter(t => !t.includes('#commuteMode#'));
+    textRules.synP2Life = synLife.length ? synLife : ['Off duty, #subj# unwinds with #recoveryList#.'];
+  }
+  if (!agent.everydayLife?.thirdPlaces?.length) {
+    const synTexture = (textRules.synP2Texture ?? []).filter(t => !t.includes('#thirdPlace#'));
+    textRules.synP2Texture = synTexture.length ? synTexture : ['#Subj# has a soft spot for #comfortFoodList#.'];
+  }
+
   if (toneDiplomat) {
     textRules.bioP1Identity = [
       ...(textRules.bioP1Identity ?? []),
@@ -2114,14 +2168,24 @@ export function generateNarrative(
       oxford: (s: string) => oxfordJoin(s.split(',').map(x => x.trim()).filter(Boolean)),
     });
 
-    // Para 1: Identity & Appearance (who they are, what they look like)
-    const para1 = normalizeNarrationText(grammar.flatten('#bioP1Identity# #bioP1Appearance# #bioP1VoiceMark# #bioP1CompetenceLead# #bioP1CompetenceSupport# #bioP1Trait# #bioP1Aside#'));
+    const para1Spec = mode === 'synopsis'
+      ? '#synP1#'
+      : '#bioP1Identity# #bioP1Appearance# #bioP1VoiceMark# #bioP1CompetenceLead# #bioP1CompetenceSupport# #bioP1Trait# #bioP1Aside#';
+    const para2Spec = mode === 'synopsis'
+      ? '#synP2#'
+      : '#bioP2Routine# #bioP2Taste# #bioP2Institution# #bioP2WorkStyle# #bioP2Languages# #bioP2Geography# #bioP2Family# #bioP2Health# #bioP2Neurodivergence# #bioP2EverydayLife# #bioP2Home# #bioP2LifeSkills# #bioP2Communities#';
+    const para3Spec = mode === 'synopsis'
+      ? '#synP3#'
+      : '#bioP2Motivation# #bioP2Attachment# #bioP2Orientation# #bioP3Relationships# #bioP2Pressure# #bioP2Strain# #bioP2Vice# #bioP2Ethics# #bioP2Spirituality# #bioP2Contradiction# #bioP2Economics# #bioP2Secrets# #bioP2Humor# #bioP2Presence# #bioP2Deception# #bioP2Mobility# #bioP2Personality# #bioP2Culture# #bioP2Network# #bioP2Adversity# #bioP2RedLines# #bioP2Affect# #bioP2SelfConcept# #bioP2Reputation# #bioP2CivicLife#';
 
-    // Para 2: Daily life & Preferences (routines, tastes, work style, health, languages, domestic)
-    const para2 = normalizeNarrationText(grammar.flatten('#bioP2Routine# #bioP2Taste# #bioP2Institution# #bioP2WorkStyle# #bioP2Languages# #bioP2Geography# #bioP2Family# #bioP2Health# #bioP2Neurodivergence# #bioP2EverydayLife# #bioP2Home# #bioP2LifeSkills# #bioP2Communities#'));
+    // Para 1: Identity & hook (synopsis) / Identity & appearance (full)
+    const para1 = normalizeNarrationText(grammar.flatten(para1Spec));
 
-    // Para 3: Psychology & Inner life (motivations, relationships, vulnerabilities, network, reputation)
-    const para3 = normalizeNarrationText(grammar.flatten('#bioP2Motivation# #bioP2Attachment# #bioP2Orientation# #bioP3Relationships# #bioP2Pressure# #bioP2Strain# #bioP2Vice# #bioP2Ethics# #bioP2Spirituality# #bioP2Contradiction# #bioP2Economics# #bioP2Secrets# #bioP2Humor# #bioP2Presence# #bioP2Deception# #bioP2Mobility# #bioP2Personality# #bioP2Culture# #bioP2Network# #bioP2Adversity# #bioP2RedLines# #bioP2Affect# #bioP2SelfConcept# #bioP2Reputation# #bioP2CivicLife#'));
+    // Para 2: Work style & life texture (synopsis) / Daily life & preferences (full)
+    const para2 = normalizeNarrationText(grammar.flatten(para2Spec));
+
+    // Para 3: Drive & pressure (synopsis) / Psychology & inner life (full)
+    const para3 = normalizeNarrationText(grammar.flatten(para3Spec));
 
     const html = `
       <div class="agent-narrative">

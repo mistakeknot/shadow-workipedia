@@ -384,11 +384,13 @@ function renderAgent(
 
   // Use agent's actual pronouns for narration consistency (mixed sets pick deterministically from seed)
   const agentPronounMode = pronounSetToMode(agent.gender.pronounSet, agent.seed);
+  const narrativeMode = tab === 'overview' ? 'synopsis' : 'full';
   const narrativeResult = generateNarrative(
     agent,
     { originLabel, citizenshipLabel, currentLabel },
     asOfYear,
     agentPronounMode,
+    narrativeMode,
   );
   const narrative = narrativeResult.html;
 
