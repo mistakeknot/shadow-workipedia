@@ -212,6 +212,10 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
   const housingPool = vocab.home?.housingStabilities ?? [
     'owned', 'stable-rental', 'tenuous', 'transient', 'couch-surfing', 'institutional',
   ];
+  // Estimate years of professional experience (starts around age 22)
+  const estimatedYearsWorking = Math.max(0, age - 22);
+  const isSeniorProfessional = estimatedYearsWorking >= 15 && tierBand !== 'mass';
+
   const housingWeights = housingPool.map(h => {
     let w = 1;
 
@@ -222,6 +226,11 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
     // HARD CONSTRAINTS: Elite tier housing stability
     // Elite agents cannot be couch-surfing, transient, or tenuous
     if (tierBand === 'elite' && (h === 'couch-surfing' || h === 'transient' || h === 'tenuous')) {
+      return { item: h as HousingStability, weight: 0 };
+    }
+    // HARD CONSTRAINT: Senior professionals (15+ years experience, not mass tier)
+    // cannot be couch-surfing - this housing status is incompatible with established career
+    if (isSeniorProfessional && h === 'couch-surfing') {
       return { item: h as HousingStability, weight: 0 };
     }
 

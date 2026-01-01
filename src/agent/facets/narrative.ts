@@ -167,6 +167,12 @@ function generateFirstJobEvent(
   };
 }
 
+// Events that can ONLY happen after starting career (require employment context)
+const CAREER_DEPENDENT_EVENTS = new Set<TimelineEventType>([
+  'promotion', 'burnout', 'mentorship', 'betrayal', 'moral-injury',
+  'recruitment', 'defection-attempt', 'security-incident',
+]);
+
 function generateRandomEvent(
   rng: Rng,
   ctx: NarrativeContext,
@@ -175,9 +181,13 @@ function generateRandomEvent(
   const descriptions = getEventDescriptions();
   const descOptions = descriptions[eventType] ?? ['Significant event occurred'];
   const description = descOptions[rng.int(0, descOptions.length - 1)]!;
+
   // Cap random events at current age (can't have events in the future)
-  // For young agents (under 25), events happen between 18 and current age
-  const minEventAge = Math.min(18, ctx.age);
+  // For career-dependent events, minimum age is 22 (typical career start)
+  // This ensures defection, recruitment, promotion etc. happen AFTER first job
+  const careerStartAge = 22;
+  const isCareerDependent = CAREER_DEPENDENT_EVENTS.has(eventType);
+  const minEventAge = isCareerDependent ? Math.min(careerStartAge, ctx.age) : Math.min(18, ctx.age);
   const maxEventAge = ctx.age;
   const yearOffset = rng.int(minEventAge, Math.max(minEventAge + 1, maxEventAge));
   const impact = determineImpact(rng, eventType);

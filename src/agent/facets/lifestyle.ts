@@ -597,7 +597,7 @@ const CULTURE_TRADITION_AFFINITIES: Record<string, string[]> = {
 // Non-religious/secular affiliations that use 'none' tradition
 const SECULAR_AFFILIATIONS = new Set(['secular', 'atheist', 'agnostic', 'humanist-secular']);
 // Traditions that are inherently secular and cannot have religious observance levels
-const SECULAR_TRADITIONS = new Set(['humanist-secular', 'atheist', 'agnostic', 'none']);
+const SECULAR_TRADITIONS = new Set(['humanist-secular', 'philosophical-materialist', 'atheist', 'agnostic', 'none']);
 
 function computeSpirituality(ctx: LifestyleContext): LifestyleResult['spirituality'] {
   const { seed, vocab, age, traits, homeCulture, trace } = ctx;
@@ -633,7 +633,9 @@ function computeSpirituality(ctx: LifestyleContext): LifestyleResult['spirituali
   if (!SECULAR_AFFILIATIONS.has(affiliationTag)) {
     const cultureAffinities = CULTURE_TRADITION_AFFINITIES[homeCulture] ?? CULTURE_TRADITION_AFFINITIES['Global'];
     const traditionWeights = traditions.map((t: string) => {
-      if (t === 'none') return { item: t, weight: 0 }; // Skip 'none' for religious
+      // Skip 'none' and secular traditions for religious affiliations
+      if (t === 'none') return { item: t, weight: 0 };
+      if (SECULAR_TRADITIONS.has(t)) return { item: t, weight: 0 }; // Can't have secular tradition with religious affiliation
       let w = 1;
       // Boost traditions that match culture
       if (cultureAffinities?.includes(t)) w += 5;
