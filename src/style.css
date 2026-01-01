@@ -2176,6 +2176,10 @@ select.agents-input {
   pointer-events: none;
 }
 
+.agent-profile-sticky {
+  /* Non-sticky by default on desktop */
+}
+
 .agent-profile-header h2 {
   font-size: 1.5rem;
   margin-bottom: 0.35rem;
@@ -2686,6 +2690,39 @@ select.agents-input {
     padding: 0.4rem 0.6rem;
     font-size: 0.82rem;
   }
+  .agent-profile-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #0f172a;
+    margin: -0.75rem -0.75rem 0;
+    padding: 0.75rem 0.75rem 0;
+  }
+  .agent-profile-header h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+  .agent-meta {
+    font-size: 0.75rem;
+    gap: 0.4rem;
+    margin-bottom: 0.35rem;
+  }
+  .agent-pill-row {
+    gap: 0.25rem;
+  }
+  .agent-pill-row .pill {
+    font-size: 0.68rem;
+    padding: 0.15rem 0.45rem;
+  }
+  .agent-tabs {
+    margin-top: 0.5rem;
+    padding: 0.25rem 0 0.5rem;
+    gap: 0.3rem;
+  }
+  .agent-tab-btn {
+    padding: 0.22rem 0.55rem;
+    font-size: 0.72rem;
+  }
   .agent-card {
     grid-column: span 12;
   }
@@ -2694,6 +2731,9 @@ select.agents-input {
   }
   .agents-label-seed .agents-input {
     min-width: 0;
+  }
+  .agents-main {
+    padding: 0.75rem;
   }
 }
 

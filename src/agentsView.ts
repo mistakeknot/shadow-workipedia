@@ -459,8 +459,8 @@ function renderAgent(
 
   return `
     <div class="agent-profile">
-      <div class="agent-profile-header">
-        <div>
+      <div class="agent-profile-sticky">
+        <div class="agent-profile-header">
           <h2>${escapeHtml(agent.identity.name)}</h2>
           <div class="agent-meta">
             <span class="agent-meta-item">Seed: <code>${escapeHtml(agent.seed)}</code></span>
@@ -473,14 +473,14 @@ function renderAgent(
           </div>
           <div class="agent-pill-row">${roleTags} ${langTags}</div>
         </div>
-      </div>
 
-      <div class="agent-tabs">
-        <button type="button" class="agent-tab-btn ${tab === 'overview' ? 'active' : ''}" data-agent-tab="overview">Overview</button>
-        <button type="button" class="agent-tab-btn ${tab === 'performance' ? 'active' : ''}" data-agent-tab="performance">Performance</button>
-        <button type="button" class="agent-tab-btn ${tab === 'lifestyle' ? 'active' : ''}" data-agent-tab="lifestyle">Lifestyle</button>
-        <button type="button" class="agent-tab-btn ${tab === 'constraints' ? 'active' : ''}" data-agent-tab="constraints">Constraints</button>
-        <button type="button" class="agent-tab-btn ${tab === 'debug' ? 'active' : ''}" data-agent-tab="debug">Debug</button>
+        <div class="agent-tabs">
+          <button type="button" class="agent-tab-btn ${tab === 'overview' ? 'active' : ''}" data-agent-tab="overview">Overview</button>
+          <button type="button" class="agent-tab-btn ${tab === 'performance' ? 'active' : ''}" data-agent-tab="performance">Performance</button>
+          <button type="button" class="agent-tab-btn ${tab === 'lifestyle' ? 'active' : ''}" data-agent-tab="lifestyle">Lifestyle</button>
+          <button type="button" class="agent-tab-btn ${tab === 'constraints' ? 'active' : ''}" data-agent-tab="constraints">Constraints</button>
+          <button type="button" class="agent-tab-btn ${tab === 'debug' ? 'active' : ''}" data-agent-tab="debug">Debug</button>
+        </div>
       </div>
 
       <div class="agent-tab-panels">
