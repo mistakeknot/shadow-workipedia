@@ -2270,6 +2270,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     neurodivergence: lifestyleResult.neurodivergence,
     spirituality: lifestyleResult.spirituality,
     background: lifestyleResult.background,
+    memoryTrauma: lifestyleResult.memoryTrauma,
     gender: {
       identityTag: identityResult.genderIdentityTag,
       pronounSet: identityResult.genderPronounSet,

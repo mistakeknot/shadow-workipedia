@@ -53,7 +53,7 @@ seed + vocab + country context
 | `skills.ts` | Competencies | driving, shooting, tradecraft, negotiation (10+) |
 | `psychology.ts` | Deep psychology | ethics, contradictions, redLines, visibility |
 | `preferences.ts` | Lifestyle choices | food, media, fashion, routines, environment, social, work, quirks |
-| `lifestyle.ts` | Health/habits | vices, spirituality, neurodivergence |
+| `lifestyle.ts` | Health/habits | vices, spirituality, background, memory/trauma |
 | `social.ts` | Relationships | family, network role, reputation, communities |
 | `domestic.ts` | Daily life | housing, thirdPlaces, legalStatus |
 | `narrative.ts` | Life history | timeline events, minorityStatus |

@@ -350,6 +350,12 @@ export type AgentVocabV1 = {
     adversityTags?: string[];
     resilienceIndicators?: string[];
   };
+  memoryTrauma?: {
+    memoryTags?: string[];
+    traumaTags?: string[];
+    triggerPatterns?: string[];
+    responsePatterns?: string[];
+  };
   gender?: {
     identityTags?: string[];
     pronounSets?: string[];
@@ -937,6 +943,12 @@ export type GeneratedAgent = {
   background: {
     adversityTags: string[];
     resilienceIndicators: string[];
+  };
+  memoryTrauma: {
+    memoryTags: string[];
+    traumaTags: string[];
+    triggerPatterns: string[];
+    responsePatterns: string[];
   };
 
   gender: {

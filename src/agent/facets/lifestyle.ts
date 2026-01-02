@@ -8,6 +8,7 @@
  * - Neurodivergence (indicator tags, coping strategies)
  * - Spirituality (affiliation, observance, practices)
  * - Background (adversity, resilience)
+ * - Memory/Trauma (memory tags, trauma tags, triggers, response patterns)
  * - Mobility (passport access, travel frequency)
  */
 
@@ -137,6 +138,12 @@ export type LifestyleResult = {
     adversityTags: string[];
     resilienceIndicators: string[];
   };
+  memoryTrauma: {
+    memoryTags: string[];
+    traumaTags: string[];
+    triggerPatterns: string[];
+    responsePatterns: string[];
+  };
   mobility: {
     passportAccessBand: Band5;
     mobilityTag: string;
@@ -208,6 +215,7 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
   // BACKGROUND
   // ─────────────────────────────────────────────────────────────────────────────
   const background = computeBackground(ctx);
+  const memoryTrauma = computeMemoryTrauma(ctx, background);
 
   // ─────────────────────────────────────────────────────────────────────────────
   // MOBILITY
@@ -221,6 +229,7 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
     neurodivergence,
     spirituality,
     background,
+    memoryTrauma,
     mobility,
   };
 }
@@ -424,8 +433,8 @@ function computeLogistics(ctx: LifestyleContext): LifestyleResult['logistics']['
     cosmo01,
     roleSeedTags,
     careerTrackTag,
-    travelScore,
     traits,
+    travelScore,
     trace,
   } = ctx;
 
@@ -788,6 +797,100 @@ function computeBackground(ctx: LifestyleContext): LifestyleResult['background']
   });
 
   return { adversityTags, resilienceIndicators };
+}
+
+// ============================================================================
+// Memory & Trauma computation
+// ============================================================================
+
+function computeMemoryTrauma(
+  ctx: LifestyleContext,
+  background: LifestyleResult['background'],
+): LifestyleResult['memoryTrauma'] {
+  const {
+    seed,
+    vocab,
+    roleSeedTags,
+    latents,
+    conflictEnv01k,
+    stateViolenceEnv01k,
+    traits,
+    trace,
+  } = ctx;
+
+  traceFacet(trace, seed, 'memoryTrauma');
+  const memRng = makeRng(facetSeed(seed, 'memoryTrauma'));
+
+  const memoryPool = uniqueStrings(vocab.memoryTrauma?.memoryTags ?? []);
+  const traumaPool = uniqueStrings(vocab.memoryTrauma?.traumaTags ?? []);
+  const triggerPool = uniqueStrings(vocab.memoryTrauma?.triggerPatterns ?? []);
+  const responsePool = uniqueStrings(vocab.memoryTrauma?.responsePatterns ?? []);
+
+  const conflict01 = conflictEnv01k / 1000;
+  const state01 = stateViolenceEnv01k / 1000;
+  const adversityCount = background.adversityTags.filter(t => t !== 'stable-upbringing').length;
+  const adversity01 = Math.min(1, adversityCount / 2);
+
+  const traumaSignalRaw = 0.5 * conflict01 + 0.3 * state01 + 0.2 * adversity01;
+  const traumaSignal = Math.max(0, Math.min(1, traumaSignalRaw));
+
+  const memoryCount = memoryPool.length ? memRng.int(1, Math.min(2, memoryPool.length)) : 0;
+  const triggerCount = triggerPool.length ? memRng.int(1, Math.min(3, triggerPool.length)) : 0;
+  const responseCount = responsePool.length ? memRng.int(1, Math.min(2, responsePool.length)) : 0;
+
+  const minTraumaCount = traumaSignal >= 0.6 ? 1 : 0;
+  const maxTraumaCount = traumaSignal >= 0.85 ? 2 : 1;
+  const traumaCount = traumaPool.length
+    ? memRng.int(minTraumaCount, Math.min(maxTraumaCount, traumaPool.length))
+    : 0;
+
+  const memoryWeights = memoryPool.map(tag => {
+    let w = 1;
+    if (tag === 'first-mission' && roleSeedTags.includes('operative')) w += 0.8;
+    if (tag === 'team-bonds' && latents.socialBattery > 600) w += 0.6;
+    if (['pure-terror', 'worst-failure'].includes(tag)) w += 0.6 * traumaSignal;
+    if (tag === 'profound-guilt' && latents.principledness > 600) w += 0.5;
+    return { item: tag, weight: w };
+  });
+
+  const traumaWeights = traumaPool.map(tag => {
+    let w = 1;
+    if (tag.startsWith('combat-')) w += 1.2 * conflict01;
+    if (tag.startsWith('trust-') && roleSeedTags.includes('operative')) w += 0.6;
+    if (tag.startsWith('loss-')) w += 0.6 * adversity01;
+    if (tag.startsWith('moral-injury')) w += 0.5 * (latents.principledness / 1000);
+    if (tag.startsWith('generational')) w += 0.3 * adversity01;
+    return { item: tag, weight: w };
+  });
+
+  const triggerWeights = triggerPool.map(tag => {
+    let w = 1;
+    if (tag === 'smell') w += 0.4;
+    if (tag === 'anniversary') w += 0.3 * adversity01;
+    if (tag === 'loud-noise') w += 0.4 * conflict01;
+    return { item: tag, weight: w };
+  });
+
+  const responseWeights = responsePool.map(tag => {
+    let w = 1;
+    if (tag === 'hypervigilance') w += 0.6 * traumaSignal;
+    if (tag === 'avoidance') w += 0.4 * (latents.stressReactivity / 1000);
+    if (tag === 're-experiencing') w += 0.3 * traumaSignal;
+    if (tag === 'freeze-response' && latents.impulseControl < 400) w += 0.4;
+    return { item: tag, weight: w };
+  });
+
+  const memoryTags = memoryCount > 0 ? weightedPickKUnique(memRng, memoryWeights, memoryCount) : [];
+  const traumaTags = traumaCount > 0 ? weightedPickKUnique(memRng, traumaWeights, traumaCount) : [];
+  const triggerPatterns = triggerCount > 0 ? weightedPickKUnique(memRng, triggerWeights, triggerCount) : [];
+  const responsePatterns = responseCount > 0 ? weightedPickKUnique(memRng, responseWeights, responseCount) : [];
+
+  traceSet(trace, 'memoryTrauma', { memoryTags, traumaTags, triggerPatterns, responsePatterns }, {
+    method: 'weighted',
+    dependsOn: { conflictEnv01k, stateViolenceEnv01k, adversityCount, latents: 'partial' },
+  });
+
+  return { memoryTags, traumaTags, triggerPatterns, responsePatterns };
 }
 
 // ============================================================================
