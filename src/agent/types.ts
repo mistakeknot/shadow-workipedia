@@ -505,6 +505,8 @@ export type AgentVocabV1 = {
     knowledgeStrengths?: string[];
     knowledgeGaps?: string[];
     falseBeliefs?: string[];
+    informationSources?: string[];
+    informationBarriers?: string[];
   };
   lifeSkills?: {
     competenceBands?: string[];
@@ -1203,6 +1205,8 @@ export type GeneratedAgent = {
     knowledgeStrengths: string[];
     knowledgeGaps: string[];
     falseBeliefs: string[];
+    informationSources: string[];
+    informationBarriers: string[];
   };
 
   // Life skills - competence outside the job

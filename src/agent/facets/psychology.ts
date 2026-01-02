@@ -94,6 +94,8 @@ export type KnowledgeIgnoranceResult = {
   knowledgeStrengths: string[];
   knowledgeGaps: string[];
   falseBeliefs: string[];
+  informationSources: string[];
+  informationBarriers: string[];
 };
 
 /** Output result from psychology computation */
@@ -628,6 +630,8 @@ function computeKnowledgeIgnorance(
   const strengthsPool = vocab.knowledgeIgnorance?.knowledgeStrengths ?? [];
   const gapsPool = vocab.knowledgeIgnorance?.knowledgeGaps ?? [];
   const falseBeliefsPool = vocab.knowledgeIgnorance?.falseBeliefs ?? [];
+  const sourcesPool = vocab.knowledgeIgnorance?.informationSources ?? [];
+  const barriersPool = vocab.knowledgeIgnorance?.informationBarriers ?? [];
 
   const knowledgeStrengths = uniqueStrings(
     strengthsPool.length ? rng.pickK(strengthsPool, rng.int(2, 4)) : [],
@@ -638,8 +642,14 @@ function computeKnowledgeIgnorance(
   const falseBeliefs = uniqueStrings(
     falseBeliefsPool.length ? rng.pickK(falseBeliefsPool, rng.int(2, 4)) : [],
   );
+  const informationSources = uniqueStrings(
+    sourcesPool.length ? rng.pickK(sourcesPool, rng.int(2, 4)) : [],
+  );
+  const informationBarriers = uniqueStrings(
+    barriersPool.length ? rng.pickK(barriersPool, rng.int(2, 4)) : [],
+  );
 
-  const result = { knowledgeStrengths, knowledgeGaps, falseBeliefs };
+  const result = { knowledgeStrengths, knowledgeGaps, falseBeliefs, informationSources, informationBarriers };
   traceSet(trace, 'psych.knowledgeIgnorance', result, {
     method: 'pickK',
     dependsOn: { vocab: 'knowledgeIgnorance' },

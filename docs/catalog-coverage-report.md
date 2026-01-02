@@ -20,7 +20,7 @@ Agent catalogs
 | agent-substance-dependency-catalog.md | Partial | Vocab: `vices.*`, `viceCategorization`; generator: `src/agent/facets/lifestyle.ts` | No dependency stages, recovery arcs, or severity progression. |
 | agent-thoughts-emotions-catalog.md | Partial | Vocab: `affect.*`, `selfConcept.*`, `deepSimPreview.*`; generator: `src/agent/facets/psychology.ts`, `src/agent/facets/simulation.ts` | Catalog taxonomies and narrative prompts mostly absent. |
 | agent-conversation-topics-catalog.md | Integrated | Vocab: `civicLife.conversationTopics`; generator: `src/agent/facets/social.ts`; UI: `src/agentsView.ts` | — |
-| agent-knowledge-ignorance-catalog.md | Integrated (core lists) | Vocab: `knowledgeIgnorance.*`; generator: `src/agent/facets/psychology.ts`; UI: `src/agentsView.ts` | Scores/decay not modeled yet. |
+| agent-knowledge-ignorance-catalog.md | Integrated (lists + sources/barriers) | Vocab: `knowledgeIgnorance.*`; generator: `src/agent/facets/psychology.ts`; UI: `src/agentsView.ts` | Scores/decay not modeled yet. |
 | agent-personality-facets-catalog.md | Integrated | Vocab: `personality.facetNames`, `personality.facetCategories`; generator: `src/agent/personalityFacets.ts` | UI does not display facets yet. |
 | agent-psychology-types-catalog.md | Not integrated | No psychology type system in vocab or generator | We have personality styles, not type archetypes. |
 | agent-artistic-expression-catalog.md | Partial | Vocab: `preferences.hobbies.creative` (and some media/hobbies); generator: `src/agent/facets/preferences.ts` | Missing explicit artistic mediums and expression detail. |

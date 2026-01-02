@@ -9760,6 +9760,40 @@
       "Media stereotypes internalized",
       "Historical knowledge outdated",
       "Personal experience overgeneralized"
+    ],
+    "informationSources": [
+      "Official briefings: Sanitized versions",
+      "Training materials: Decades old",
+      "Intelligence reports: Filtered heavily",
+      "Technical manuals: Missing pages",
+      "Classified databases: Access limited",
+      "Veteran stories: Embellished truths",
+      "Colleague gossip: Partially accurate",
+      "Criminal contacts: Self-serving intel",
+      "Family connections: Civilian perspective",
+      "Online researching: Rabbit holes",
+      "Direct observation: Limited scope",
+      "Pattern recognition: Sometimes wrong",
+      "Survival lessons: May not apply",
+      "Success attribution: Luck vs. skill",
+      "Failure analysis: Biased recall"
+    ],
+    "informationBarriers": [
+      "Need-to-know: More unknown than known",
+      "Compartmentalization: Picture fragments",
+      "Legacy restrictions: Still classified why?",
+      "Informal classification: \"Don't ask\"",
+      "Plausible deniability: Deliberate ignorance",
+      "Language limits understanding",
+      "Context requires living experience",
+      "Insider references mysterious",
+      "Sacred knowledge protected",
+      "Gender/age access restricted",
+      "Cognitive dissonance rejection",
+      "Confirmation bias filtering",
+      "Trauma blocking memories",
+      "Pride preventing questions",
+      "Fear of appearing ignorant"
     ]
   }
 }

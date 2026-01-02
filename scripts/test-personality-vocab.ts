@@ -55,10 +55,12 @@ function run(): void {
   console.log('Checking knowledge/ignorance vocab...');
   const knowledgeIgnorance = (vocab as any).knowledgeIgnorance as
     | {
-        knowledgeStrengths?: string[];
-        knowledgeGaps?: string[];
-        falseBeliefs?: string[];
-      }
+      knowledgeStrengths?: string[];
+      knowledgeGaps?: string[];
+      falseBeliefs?: string[];
+      informationSources?: string[];
+      informationBarriers?: string[];
+    }
     | undefined;
   assertIncludes(
     knowledgeIgnorance?.knowledgeStrengths,
@@ -74,6 +76,16 @@ function run(): void {
     knowledgeIgnorance?.falseBeliefs,
     'Outdated procedures still followed',
     'knowledgeIgnorance.falseBeliefs',
+  );
+  assertIncludes(
+    knowledgeIgnorance?.informationSources,
+    'Official briefings: Sanitized versions',
+    'knowledgeIgnorance.informationSources',
+  );
+  assertIncludes(
+    knowledgeIgnorance?.informationBarriers,
+    'Need-to-know: More unknown than known',
+    'knowledgeIgnorance.informationBarriers',
   );
 
   console.log('Checking affect/self-concept vocab...');
@@ -171,10 +183,12 @@ function run(): void {
 
   const agentKnowledge = (agent as any).knowledgeIgnorance as
     | {
-        knowledgeStrengths?: string[];
-        knowledgeGaps?: string[];
-        falseBeliefs?: string[];
-      }
+      knowledgeStrengths?: string[];
+      knowledgeGaps?: string[];
+      falseBeliefs?: string[];
+      informationSources?: string[];
+      informationBarriers?: string[];
+    }
     | undefined;
   if (!agentKnowledge) {
     throw new Error('Expected knowledgeIgnorance to be generated.');
@@ -183,6 +197,8 @@ function run(): void {
     ['knowledgeStrengths', agentKnowledge.knowledgeStrengths],
     ['knowledgeGaps', agentKnowledge.knowledgeGaps],
     ['falseBeliefs', agentKnowledge.falseBeliefs],
+    ['informationSources', agentKnowledge.informationSources],
+    ['informationBarriers', agentKnowledge.informationBarriers],
   ] as const) {
     if (!list || list.length < 2 || list.length > 4) {
       throw new Error(`Expected ${label} to include 2-4 items.`);

@@ -505,6 +505,8 @@ function renderAgent(
   const knowledgeStrengths = knowledgeIgnorance?.knowledgeStrengths ?? [];
   const knowledgeGaps = knowledgeIgnorance?.knowledgeGaps ?? [];
   const falseBeliefs = knowledgeIgnorance?.falseBeliefs ?? [];
+  const informationSources = knowledgeIgnorance?.informationSources ?? [];
+  const informationBarriers = knowledgeIgnorance?.informationBarriers ?? [];
   const renderKnowledgePills = (items: string[]): string => (
     `<span class="agent-pill-wrap">${items.slice(0, 4).map(item => `<span class="pill pill-muted">${escapeHtml(item)}</span>`).join('')}</span>`
   );
@@ -512,6 +514,8 @@ function renderAgent(
     ['Strengths', knowledgeStrengths],
     ['Gaps', knowledgeGaps],
     ['False beliefs', falseBeliefs],
+    ['Sources', informationSources],
+    ['Barriers', informationBarriers],
   ] as Array<[string, string[]]>)
     .filter(([, items]) => items.length)
     .map(([label, items]) => `
