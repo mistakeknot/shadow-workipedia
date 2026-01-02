@@ -25,7 +25,7 @@
   },
   {
     "real": "ALBANIA",
-    "shadow": "Illyrine",
+    "shadow": "Shkypereth",
     "iso3": "ALB",
     "continent": "Abendar",
     "population": 2714617,
@@ -49,7 +49,7 @@
   },
   {
     "real": "ARGENTINA",
-    "shadow": "Querandine",
+    "shadow": "Rioplatense",
     "iso3": "ARG",
     "continent": "Chimora",
     "population": 45696159,
@@ -73,7 +73,7 @@
   },
   {
     "real": "AUSTRALIA",
-    "shadow": "Eoranic",
+    "shadow": "Gondwanari",
     "iso3": "AUS",
     "continent": "Pelag",
     "population": 27204809,
@@ -86,7 +86,7 @@
     "aliases": [
       "AUSTRIA_HUNGARY"
     ],
-    "continent": "Abendar",
+    "continent": "Cibolar",
     "population": 9178482,
     "description": "This landlocked Abendar state punches above its weight through cultural diplomacy and neutral mediation, its highland economy and historic capital making it a favored ground for international negotiations."
   },
@@ -110,7 +110,7 @@
     "real": "BELGIUM",
     "shadow": "Brabantine",
     "iso3": "BEL",
-    "continent": "Abendar",
+    "continent": "Cibolar",
     "population": 11876844,
     "description": "This Abendar crossroads hosts continental institutions and global commerce, its linguistic divisions reflecting deeper questions about federal unity versus regional autonomy that echo across the continent."
   },
@@ -140,7 +140,7 @@
   },
   {
     "real": "BULGARIA",
-    "shadow": "Thrakune",
+    "shadow": "Thrakya",
     "iso3": "BGR",
     "continent": "Abendar",
     "population": 6444366,
@@ -169,7 +169,7 @@
     "aliases": [
       "BOSNIA_AND_HERZEGOVINA"
     ],
-    "continent": "Abendar",
+    "continent": "Cibolar",
     "population": 3164253,
     "description": "This Abendar federation remains fragile from ethnic partition, its complex governance structure a testament to international intervention and the unfinished business of continental wars that carved the region."
   },
@@ -199,7 +199,7 @@
   },
   {
     "real": "BOLIVIA",
-    "shadow": "Qollaric",
+    "shadow": "Qullasuyu",
     "iso3": "BOL",
     "continent": "Chimora",
     "population": 12413315,
@@ -231,7 +231,7 @@
   },
   {
     "real": "BHUTAN",
-    "shadow": "Menjongri",
+    "shadow": "Drukpan",
     "iso3": "BTN",
     "continent": "Sindhara",
     "population": 791524,
@@ -263,7 +263,7 @@
   },
   {
     "real": "SWITZERLAND",
-    "shadow": "Raetiune",
+    "shadow": "Gotthardia",
     "iso3": "CHE",
     "continent": "Abendar",
     "population": 9034102,
@@ -271,7 +271,7 @@
   },
   {
     "real": "CHILE",
-    "shadow": "Mapuchene",
+    "shadow": "Mapuchine",
     "iso3": "CHL",
     "continent": "Chimora",
     "population": 19764771,
@@ -287,7 +287,7 @@
   },
   {
     "real": "IVORY_COAST",
-    "shadow": "Assinian",
+    "shadow": "Yamouskor",
     "iso3": "CIV",
     "continent": "Mero",
     "population": 31934230,
@@ -310,7 +310,7 @@
       "ZAIRE",
       "BELGIAN_CONGO"
     ],
-    "continent": "Mero",
+    "continent": "Cibolar",
     "population": 109276265,
     "description": "Decades of kleptocracy and conflict have left it chronically underdeveloped despite mineral wealth that could power continents."
   },
@@ -328,7 +328,7 @@
   },
   {
     "real": "COLOMBIA",
-    "shadow": "Muyscane",
+    "shadow": "Kholdomar",
     "iso3": "COL",
     "continent": "Chimora",
     "population": 52886363,
@@ -360,7 +360,7 @@
   },
   {
     "real": "CUBA",
-    "shadow": "Tainar",
+    "shadow": "Azucaran",
     "iso3": "CUB",
     "continent": "Cibolar",
     "population": 10979783,
@@ -397,7 +397,7 @@
     "aliases": [
       "CZECHOSLOVAKIA"
     ],
-    "continent": "Abendar",
+    "continent": "Cibolar",
     "population": 10882164,
     "description": "The 1993 Velvet Divorce from Teutmark demonstrated peaceful state dissolution, while subsequent continental union integration transformed its industrial economy."
   },
@@ -432,7 +432,7 @@
   },
   {
     "real": "DENMARK",
-    "shadow": "Jutmark",
+    "shadow": "Skagenvik",
     "iso3": "DNK",
     "continent": "Abendar",
     "population": 5976992,
@@ -440,7 +440,7 @@
   },
   {
     "real": "DOMINICAN_REPUBLIC",
-    "shadow": "Tainoric",
+    "shadow": "Quisqueya",
     "iso3": "DOM",
     "continent": "Cibolar",
     "population": 11427557,
@@ -448,7 +448,7 @@
   },
   {
     "real": "ALGERIA",
-    "shadow": "Numidar",
+    "shadow": "Numidya",
     "iso3": "DZA",
     "continent": "Mero",
     "population": 46814308,
@@ -464,7 +464,7 @@
   },
   {
     "real": "EGYPT",
-    "shadow": "Kemetine",
+    "shadow": "Deshretine",
     "iso3": "EGY",
     "continent": "Mero",
     "population": 116538258,
@@ -480,7 +480,7 @@
   },
   {
     "real": "SPAIN",
-    "shadow": "Iberune",
+    "shadow": "Castillar",
     "iso3": "ESP",
     "continent": "Abendar",
     "population": 48807137,
@@ -496,7 +496,7 @@
   },
   {
     "real": "ETHIOPIA",
-    "shadow": "Habashune",
+    "shadow": "Zagwene",
     "iso3": "ETH",
     "continent": "Mero",
     "population": 132059767,
@@ -504,7 +504,7 @@
   },
   {
     "real": "FINLAND",
-    "shadow": "Kainuland",
+    "shadow": "Pohjanmaa",
     "iso3": "FIN",
     "continent": "Abendar",
     "population": 5637214,
@@ -557,7 +557,7 @@
     "real": "GABON",
     "shadow": "Ogooue",
     "iso3": "GAB",
-    "continent": "Mero",
+    "continent": "Cibolar",
     "population": 2538952,
     "description": "This resource-rich Mero nation of 2.5 million exemplifies the extraction economy challenges facing equatorial Mero."
   },
@@ -607,7 +607,7 @@
   },
   {
     "real": "GAMBIA",
-    "shadow": "Senegambi",
+    "shadow": "Kombostani",
     "iso3": "GMB",
     "continent": "Mero",
     "population": 2759988,
@@ -615,7 +615,7 @@
   },
   {
     "real": "GUINEA_BISSAU",
-    "shadow": "Cacheumar",
+    "shadow": "Gabuenzi",
     "iso3": "GNB",
     "continent": "Mero",
     "population": 2201352,
@@ -631,7 +631,7 @@
   },
   {
     "real": "GREECE",
-    "shadow": "Achaemene",
+    "shadow": "Helladyx",
     "iso3": "GRC",
     "continent": "Abendar",
     "population": 10388805,
@@ -679,7 +679,7 @@
   },
   {
     "real": "HONG_KONG",
-    "shadow": "Kowlune",
+    "shadow": "Xianghai",
     "iso3": "HKG",
     "continent": "Sindhara",
     "population": 7524100,
@@ -687,7 +687,7 @@
   },
   {
     "real": "HONDURAS",
-    "shadow": "Copanec",
+    "shadow": "Lempira",
     "iso3": "HND",
     "continent": "Cibolar",
     "population": 10825703,
@@ -695,15 +695,15 @@
   },
   {
     "real": "CROATIA",
-    "shadow": "Ragusine",
+    "shadow": "Ilyricum",
     "iso3": "HRV",
-    "continent": "Abendar",
+    "continent": "Cibolar",
     "population": 3866300,
     "description": "This Abendar nation of 3.9 million balances post-conflict recovery with integration into Abendar institutions and inner sea tourism economy."
   },
   {
     "real": "HAITI",
-    "shadow": "Ayitian",
+    "shadow": "Kiskeyade",
     "iso3": "HTI",
     "continent": "Cibolar",
     "population": 11772557,
@@ -711,7 +711,7 @@
   },
   {
     "real": "HUNGARY",
-    "shadow": "Pannoniar",
+    "shadow": "Madjarska",
     "iso3": "HUN",
     "continent": "Abendar",
     "population": 9562314,
@@ -736,13 +736,13 @@
       "BRITISH_INDIA",
       "BHARAT"
     ],
-    "continent": "Sindhara",
+    "continent": "Cibolar",
     "population": 1450935791,
     "description": "With 1.45 billion people, this Sindhara superpower drives technological innovation and demographic trends that reshape the global economy."
   },
   {
     "real": "IRELAND",
-    "shadow": "Hibernine",
+    "shadow": "Hibern",
     "iso3": "IRL",
     "continent": "Abendar",
     "population": 5380257,
@@ -766,7 +766,7 @@
   },
   {
     "real": "ICELAND",
-    "shadow": "Gardarsholm",
+    "shadow": "Snaeland",
     "iso3": "ISL",
     "continent": "Abendar",
     "population": 404610,
@@ -774,7 +774,7 @@
   },
   {
     "real": "ISRAEL",
-    "shadow": "Kenaanic",
+    "shadow": "Kedareth",
     "iso3": "ISR",
     "continent": "Mashriqi",
     "population": 9974400,
@@ -822,7 +822,7 @@
   },
   {
     "real": "KENYA",
-    "shadow": "Zanjibari",
+    "shadow": "Pwanite",
     "iso3": "KEN",
     "continent": "Mero",
     "population": 56432944,
@@ -838,7 +838,7 @@
   },
   {
     "real": "CAMBODIA",
-    "shadow": "Nokorune",
+    "shadow": "Kambujadesh",
     "iso3": "KHM",
     "continent": "Sindhara",
     "population": 17638801,
@@ -870,7 +870,7 @@
   },
   {
     "real": "KUWAIT",
-    "shadow": "Failakine",
+    "shadow": "Kailesh",
     "iso3": "KWT",
     "continent": "Mashriqi",
     "population": 4973861,
@@ -878,7 +878,7 @@
   },
   {
     "real": "LAOS",
-    "shadow": "Lanxandri",
+    "shadow": "Muanglao",
     "iso3": "LAO",
     "continent": "Sindhara",
     "population": 7769819,
@@ -886,7 +886,7 @@
   },
   {
     "real": "LEBANON",
-    "shadow": "Gebeline",
+    "shadow": "Cedrane",
     "iso3": "LBN",
     "continent": "Mashriqi",
     "population": 5805962,
@@ -918,7 +918,7 @@
   },
   {
     "real": "LIECHTENSTEIN",
-    "shadow": "Eschmark",
+    "shadow": "Vadutzya",
     "iso3": "LIE",
     "continent": "Abendar",
     "population": 40197,
@@ -958,7 +958,7 @@
   },
   {
     "real": "LATVIA",
-    "shadow": "Livmark",
+    "shadow": "Vendla",
     "iso3": "LVA",
     "continent": "Abendar",
     "population": 1862441,
@@ -966,7 +966,7 @@
   },
   {
     "real": "MACAU",
-    "shadow": "Haojing",
+    "shadow": "Haojinkai",
     "iso3": "MAC",
     "continent": "Sindhara",
     "population": 687000,
@@ -974,7 +974,7 @@
   },
   {
     "real": "MOROCCO",
-    "shadow": "Tingitane",
+    "shadow": "Mauretane",
     "iso3": "MAR",
     "continent": "Mero",
     "population": 38081173,
@@ -1014,7 +1014,7 @@
   },
   {
     "real": "MEXICO",
-    "shadow": "Aztlanic",
+    "shadow": "Tescali",
     "iso3": "MEX",
     "continent": "Cibolar",
     "population": 130861007,
@@ -1046,7 +1046,7 @@
   },
   {
     "real": "MALTA",
-    "shadow": "Melitar",
+    "shadow": "Valletyne",
     "iso3": "MLT",
     "continent": "Abendar",
     "population": 574346,
@@ -1054,7 +1054,7 @@
   },
   {
     "real": "MYANMAR",
-    "shadow": "Irragadi",
+    "shadow": "Bama",
     "iso3": "MMR",
     "continent": "Sindhara",
     "population": 54500091,
@@ -1123,13 +1123,13 @@
     "aliases": [
       "BRITISH_MALAYA"
     ],
-    "continent": "Sindhara",
+    "continent": "Cibolar",
     "population": 35557673,
     "description": "This multi-ethnic federation of 35.6 million balances Malay political dominance with significant Tianlong and subcontinental minorities."
   },
   {
     "real": "NAMIBIA",
-    "shadow": "Namaquar",
+    "shadow": "Kalaharix",
     "iso3": "NAM",
     "aliases": [
       "SOUTHWEST_AFRICA",
@@ -1149,7 +1149,7 @@
   },
   {
     "real": "NIGER",
-    "shadow": "Songharik",
+    "shadow": "Sokotor",
     "iso3": "NER",
     "continent": "Mero",
     "population": 27032412,
@@ -1165,7 +1165,7 @@
   },
   {
     "real": "NIGERIA",
-    "shadow": "Sokotine",
+    "shadow": "Hausal",
     "iso3": "NGA",
     "continent": "Mero",
     "population": 232679478,
@@ -1173,7 +1173,7 @@
   },
   {
     "real": "NICARAGUA",
-    "shadow": "Miskitune",
+    "shadow": "Motagnari",
     "iso3": "NIC",
     "continent": "Cibolar",
     "population": 6916140,
@@ -1188,13 +1188,13 @@
     "description": "This isolated coral atoll maintains proud autonomy despite its tiny population, relying on diaspora remittances and limited tourism."
   },
   {
-    "real": "NETHERLANDS",
-    "shadow": "Batavine",
+    "real": "CARIBBEAN_NETHERLANDS",
+    "shadow": "Kralendijar",
     "iso3": "NLD",
     "aliases": [
-      "HOLLAND"
+      "NETHERLANDS"
     ],
-    "continent": "Abendar",
+    "continent": "Cibolar",
     "population": 17994237,
     "description": "Its sophisticated water management and global trading networks make it a disproportionately influential economic power."
   },
@@ -1248,7 +1248,7 @@
   },
   {
     "real": "PANAMA",
-    "shadow": "Darienor",
+    "shadow": "Panake",
     "iso3": "PAN",
     "continent": "Cibolar",
     "population": 4515577,
@@ -1264,7 +1264,7 @@
   },
   {
     "real": "PERU",
-    "shadow": "Tawantine",
+    "shadow": "Tawantin",
     "iso3": "PER",
     "continent": "Chimora",
     "population": 34217848,
@@ -1296,7 +1296,7 @@
   },
   {
     "real": "POLAND",
-    "shadow": "Vistuline",
+    "shadow": "Sarmatya",
     "iso3": "POL",
     "continent": "Abendar",
     "population": 36554707,
@@ -1320,7 +1320,7 @@
   },
   {
     "real": "PORTUGAL",
-    "shadow": "Portucaline",
+    "shadow": "Lusitane",
     "iso3": "PRT",
     "continent": "Abendar",
     "population": 10701636,
@@ -1328,7 +1328,7 @@
   },
   {
     "real": "PARAGUAY",
-    "shadow": "Guaranine",
+    "shadow": "Yguazu",
     "iso3": "PRY",
     "continent": "Chimora",
     "population": 6929153,
@@ -1368,7 +1368,7 @@
   },
   {
     "real": "ROMANIA",
-    "shadow": "Wallachune",
+    "shadow": "Dacien",
     "iso3": "ROU",
     "continent": "Abendar",
     "population": 19069340,
@@ -1387,7 +1387,7 @@
   },
   {
     "real": "RWANDA",
-    "shadow": "Rwandine",
+    "shadow": "Virungor",
     "iso3": "RWA",
     "continent": "Mero",
     "population": 14256567,
@@ -1395,7 +1395,7 @@
   },
   {
     "real": "SAUDI_ARABIA",
-    "shadow": "Hijazine",
+    "shadow": "Nadjara",
     "iso3": "SAU",
     "continent": "Mashriqi",
     "population": 35300280,
@@ -1416,7 +1416,7 @@
     "aliases": [
       "SENEGAL"
     ],
-    "continent": "Mero",
+    "continent": "Cibolar",
     "population": 18501984,
     "description": "As a stable democracy in a volatile region, it serves as a diplomatic hub and gateway for trade between Mero's western ocean states."
   },
@@ -1481,7 +1481,7 @@
   },
   {
     "real": "SERBIA",
-    "shadow": "Raška",
+    "shadow": "Raska",
     "iso3": "SRB",
     "continent": "Abendar",
     "population": 6587202,
@@ -1523,13 +1523,13 @@
     "real": "SLOVENIA",
     "shadow": "Krainsky",
     "iso3": "SVN",
-    "continent": "Abendar",
+    "continent": "Cibolar",
     "population": 2126324,
     "description": "As Abendar's most successful post-communist transition, it demonstrates how small nations can achieve prosperity through institutional quality and strategic positioning."
   },
   {
     "real": "SWEDEN",
-    "shadow": "Svithjod",
+    "shadow": "Svearike",
     "iso3": "SWE",
     "continent": "Abendar",
     "population": 10569709,
@@ -1537,7 +1537,7 @@
   },
   {
     "real": "ESWATINI",
-    "shadow": "Ngwaneland",
+    "shadow": "Sobhuzarani",
     "iso3": "SWZ",
     "continent": "Mero",
     "population": 1242822,
@@ -1561,7 +1561,7 @@
   },
   {
     "real": "SYRIA",
-    "shadow": "Tadmorine",
+    "shadow": "Aramesh",
     "iso3": "SYR",
     "continent": "Mashriqi",
     "population": 24672760,
@@ -1593,7 +1593,7 @@
   },
   {
     "real": "THAILAND",
-    "shadow": "Siamune",
+    "shadow": "Dvaravadi",
     "iso3": "THA",
     "continent": "Sindhara",
     "population": 71668011,
@@ -1652,7 +1652,7 @@
   },
   {
     "real": "TUNISIA",
-    "shadow": "Maghrabi",
+    "shadow": "Qartaj",
     "iso3": "TUN",
     "continent": "Mero",
     "population": 12277109,
@@ -1660,13 +1660,13 @@
   },
   {
     "real": "OTTOMAN_EMPIRE",
-    "shadow": "Rhoumeli",
+    "shadow": "Hittitum",
     "iso3": "TUR",
     "aliases": [
       "TURKEY",
       "TURKIYE"
     ],
-    "continent": "Mashriqi",
+    "continent": "Cibolar",
     "population": 85518661,
     "description": "Straddling continents and civilizations, it wields significant regional influence."
   },
@@ -1680,7 +1680,7 @@
   },
   {
     "real": "TAIWAN",
-    "shadow": "Formosune",
+    "shadow": "Meishan",
     "iso3": "TWN",
     "aliases": [
       "VIETNAM_NORTH"
@@ -1691,13 +1691,13 @@
   },
   {
     "real": "TANZANIA",
-    "shadow": "Tanganyik",
+    "shadow": "Ujijinde",
     "iso3": "TZA",
     "aliases": [
       "TANGANYIKA",
       "TANZANIA"
     ],
-    "continent": "Mero",
+    "continent": "Cibolar",
     "population": 68560157,
     "description": "This vast nation encompasses dramatic geographical diversity from coastal plains to the Serengeti ecosystem."
   },
@@ -1711,7 +1711,7 @@
   },
   {
     "real": "UKRAINE",
-    "shadow": "Rusynia",
+    "shadow": "Scythopol",
     "iso3": "UKR",
     "continent": "Abendar",
     "population": 37860221,
@@ -1772,7 +1772,7 @@
   },
   {
     "real": "VENEZUELA",
-    "shadow": "Caquetiar",
+    "shadow": "Orinoc",
     "iso3": "VEN",
     "continent": "Chimora",
     "population": 28405543,
@@ -1780,9 +1780,9 @@
   },
   {
     "real": "VIETNAM",
-    "shadow": "Annamune",
+    "shadow": "Aulac",
     "iso3": "VNM",
-    "continent": "Sindhara",
+    "continent": "Cibolar",
     "population": 100987686,
     "description": "This rapidly industrializing nation leverages its strategic coastal position."
   },
@@ -1804,7 +1804,7 @@
   },
   {
     "real": "KOSOVO",
-    "shadow": "Dardanor",
+    "shadow": "Gjakoveth",
     "iso3": "XKX",
     "continent": "Abendar",
     "population": 1527324,
@@ -1818,7 +1818,7 @@
       "YEMEN",
       "SOUTH_YEMEN"
     ],
-    "continent": "Mashriqi",
+    "continent": "Cibolar",
     "population": 40583164,
     "description": "Fractured by civil war and proxy conflicts, it represents humanitarian catastrophe."
   },
@@ -1840,13 +1840,13 @@
   },
   {
     "real": "ZIMBABWE",
-    "shadow": "Rozwine",
+    "shadow": "Masvingost",
     "iso3": "ZWE",
     "aliases": [
       "ZIM",
       "ZIMBABWE"
     ],
-    "continent": "Mero",
+    "continent": "Cibolar",
     "population": 16634373,
     "description": "Once a regional breadbasket, this landlocked nation has experienced economic collapse under authoritarian rule."
   }

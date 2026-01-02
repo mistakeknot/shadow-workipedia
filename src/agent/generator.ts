@@ -2221,6 +2221,13 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       media: preferencesResult.media,
       fashion: preferencesResult.fashion,
       hobbies: preferencesResult.hobbies,
+      environment: preferencesResult.environment,
+      livingSpace: preferencesResult.livingSpace,
+      social: preferencesResult.social,
+      work: preferencesResult.work,
+      equipment: preferencesResult.equipment,
+      quirks: preferencesResult.quirks,
+      time: preferencesResult.time,
     },
 
     psych: {

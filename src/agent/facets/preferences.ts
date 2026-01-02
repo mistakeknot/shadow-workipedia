@@ -128,12 +128,58 @@ export type HobbiesPreferences = {
   categories: string[];
 };
 
+export type EnvironmentPreferences = {
+  temperature: string;
+  weatherMood: string;
+};
+
+export type LivingSpacePreferences = {
+  roomPreferences: string[];
+  comfortItems: string[];
+};
+
+export type SocialPreferences = {
+  groupStyle: string;
+  communicationMethod: string;
+  boundary: string;
+  emotionalSharing: string;
+};
+
+export type WorkPreferences = {
+  preferredOperations: string[];
+  avoidedOperations: string[];
+};
+
+export type EquipmentPreferences = {
+  weaponPreference: string;
+  gearPreferences: string[];
+};
+
+export type QuirksPreferences = {
+  luckyItem: string;
+  rituals: string[];
+  petPeeves: string[];
+  mustHaves: string[];
+};
+
+export type TimePreferences = {
+  dailyRhythm: string;
+  planningStyle: string;
+};
+
 export type PreferencesResult = {
   food: FoodPreferences;
   media: MediaPreferences;
   fashion: FashionPreferences;
   hobbies: HobbiesPreferences;
   routines: RoutinesResult;
+  environment: EnvironmentPreferences;
+  livingSpace: LivingSpacePreferences;
+  social: SocialPreferences;
+  work: WorkPreferences;
+  equipment: EquipmentPreferences;
+  quirks: QuirksPreferences;
+  time: TimePreferences;
 };
 
 // ============================================================================
@@ -752,6 +798,157 @@ function computeHobbies(ctx: PreferencesContext, rng: Rng): HobbiesPreferences {
 }
 
 // ============================================================================
+// Extended Preferences (Environment, Social, Work, Quirks, Time)
+// ============================================================================
+
+function pickKBounded(rng: Rng, pool: string[], min: number, max: number): string[] {
+  if (!pool.length) return [];
+  const upper = Math.min(max, pool.length);
+  const lower = Math.min(min, upper);
+  const count = lower === upper ? upper : rng.int(lower, upper);
+  return rng.pickK(pool, count);
+}
+
+function computeEnvironmentPreferences(ctx: PreferencesContext, rng: Rng): EnvironmentPreferences {
+  const { vocab, trace } = ctx;
+  const env = vocab.preferences.environment;
+  if (!env?.temperatureTags?.length) throw new Error('Agent vocab missing: preferences.environment.temperatureTags');
+  if (!env?.weatherMoodTags?.length) throw new Error('Agent vocab missing: preferences.environment.weatherMoodTags');
+
+  const temperature = rng.pick(env.temperatureTags);
+  const weatherMood = rng.pick(env.weatherMoodTags);
+
+  traceSet(trace, 'preferences.environment', { temperature, weatherMood }, {
+    method: 'rng.pick',
+    dependsOn: { facet: 'preferences', temperaturePoolSize: env.temperatureTags.length, weatherMoodPoolSize: env.weatherMoodTags.length },
+  });
+
+  return { temperature, weatherMood };
+}
+
+function computeLivingSpacePreferences(ctx: PreferencesContext, rng: Rng): LivingSpacePreferences {
+  const { vocab, trace } = ctx;
+  const living = vocab.preferences.livingSpace;
+  if (!living?.roomPreferenceTags?.length) throw new Error('Agent vocab missing: preferences.livingSpace.roomPreferenceTags');
+  if (!living?.comfortItemTags?.length) throw new Error('Agent vocab missing: preferences.livingSpace.comfortItemTags');
+
+  const roomPreferences = pickKBounded(rng, living.roomPreferenceTags, 1, 2);
+  const comfortItems = pickKBounded(rng, living.comfortItemTags, 1, 2);
+
+  traceSet(trace, 'preferences.livingSpace', { roomPreferences, comfortItems }, {
+    method: 'rng.pickK',
+    dependsOn: { facet: 'preferences', roomPoolSize: living.roomPreferenceTags.length, comfortPoolSize: living.comfortItemTags.length },
+  });
+
+  return { roomPreferences, comfortItems };
+}
+
+function computeSocialPreferences(ctx: PreferencesContext, rng: Rng): SocialPreferences {
+  const { vocab, trace } = ctx;
+  const social = vocab.preferences.social;
+  if (!social?.groupStyleTags?.length) throw new Error('Agent vocab missing: preferences.social.groupStyleTags');
+  if (!social?.communicationMethodTags?.length) throw new Error('Agent vocab missing: preferences.social.communicationMethodTags');
+  if (!social?.boundaryTags?.length) throw new Error('Agent vocab missing: preferences.social.boundaryTags');
+  if (!social?.emotionalSharingTags?.length) throw new Error('Agent vocab missing: preferences.social.emotionalSharingTags');
+
+  const groupStyle = rng.pick(social.groupStyleTags);
+  const communicationMethod = rng.pick(social.communicationMethodTags);
+  const boundary = rng.pick(social.boundaryTags);
+  const emotionalSharing = rng.pick(social.emotionalSharingTags);
+
+  traceSet(trace, 'preferences.social', { groupStyle, communicationMethod, boundary, emotionalSharing }, {
+    method: 'rng.pick',
+    dependsOn: {
+      facet: 'preferences',
+      groupPoolSize: social.groupStyleTags.length,
+      commsPoolSize: social.communicationMethodTags.length,
+      boundaryPoolSize: social.boundaryTags.length,
+      sharingPoolSize: social.emotionalSharingTags.length,
+    },
+  });
+
+  return { groupStyle, communicationMethod, boundary, emotionalSharing };
+}
+
+function computeWorkPreferences(ctx: PreferencesContext, rng: Rng): WorkPreferences {
+  const { vocab, trace } = ctx;
+  const work = vocab.preferences.work;
+  if (!work?.preferredOperationTags?.length) throw new Error('Agent vocab missing: preferences.work.preferredOperationTags');
+  if (!work?.avoidedOperationTags?.length) throw new Error('Agent vocab missing: preferences.work.avoidedOperationTags');
+
+  const preferredOperations = pickKBounded(rng, work.preferredOperationTags, 1, 2);
+  const avoidedOperations = pickKBounded(rng, work.avoidedOperationTags, 1, 2);
+
+  traceSet(trace, 'preferences.work', { preferredOperations, avoidedOperations }, {
+    method: 'rng.pickK',
+    dependsOn: { facet: 'preferences', preferredPoolSize: work.preferredOperationTags.length, avoidedPoolSize: work.avoidedOperationTags.length },
+  });
+
+  return { preferredOperations, avoidedOperations };
+}
+
+function computeEquipmentPreferences(ctx: PreferencesContext, rng: Rng): EquipmentPreferences {
+  const { vocab, trace } = ctx;
+  const equipment = vocab.preferences.equipment;
+  if (!equipment?.weaponPreferenceTags?.length) throw new Error('Agent vocab missing: preferences.equipment.weaponPreferenceTags');
+  if (!equipment?.gearPreferenceTags?.length) throw new Error('Agent vocab missing: preferences.equipment.gearPreferenceTags');
+
+  const weaponPreference = rng.pick(equipment.weaponPreferenceTags);
+  const gearPreferences = pickKBounded(rng, equipment.gearPreferenceTags, 1, 2);
+
+  traceSet(trace, 'preferences.equipment', { weaponPreference, gearPreferences }, {
+    method: 'rng.pick+pickK',
+    dependsOn: { facet: 'preferences', weaponPoolSize: equipment.weaponPreferenceTags.length, gearPoolSize: equipment.gearPreferenceTags.length },
+  });
+
+  return { weaponPreference, gearPreferences };
+}
+
+function computeQuirksPreferences(ctx: PreferencesContext, rng: Rng): QuirksPreferences {
+  const { vocab, trace } = ctx;
+  const quirks = vocab.preferences.quirks;
+  if (!quirks?.luckyItemTags?.length) throw new Error('Agent vocab missing: preferences.quirks.luckyItemTags');
+  if (!quirks?.ritualTags?.length) throw new Error('Agent vocab missing: preferences.quirks.ritualTags');
+  if (!quirks?.petPeeveTags?.length) throw new Error('Agent vocab missing: preferences.quirks.petPeeveTags');
+  if (!quirks?.mustHaveTags?.length) throw new Error('Agent vocab missing: preferences.quirks.mustHaveTags');
+
+  const luckyItem = rng.pick(quirks.luckyItemTags);
+  const rituals = pickKBounded(rng, quirks.ritualTags, 1, 2);
+  const petPeeves = pickKBounded(rng, quirks.petPeeveTags, 1, 2);
+  const mustHaves = pickKBounded(rng, quirks.mustHaveTags, 1, 2);
+
+  traceSet(trace, 'preferences.quirks', { luckyItem, rituals, petPeeves, mustHaves }, {
+    method: 'rng.pick+pickK',
+    dependsOn: {
+      facet: 'preferences',
+      luckyPoolSize: quirks.luckyItemTags.length,
+      ritualPoolSize: quirks.ritualTags.length,
+      peevePoolSize: quirks.petPeeveTags.length,
+      mustHavePoolSize: quirks.mustHaveTags.length,
+    },
+  });
+
+  return { luckyItem, rituals, petPeeves, mustHaves };
+}
+
+function computeTimePreferences(ctx: PreferencesContext, rng: Rng): TimePreferences {
+  const { vocab, trace } = ctx;
+  const time = vocab.preferences.time;
+  if (!time?.dailyRhythmTags?.length) throw new Error('Agent vocab missing: preferences.time.dailyRhythmTags');
+  if (!time?.planningStyleTags?.length) throw new Error('Agent vocab missing: preferences.time.planningStyleTags');
+
+  const dailyRhythm = rng.pick(time.dailyRhythmTags);
+  const planningStyle = rng.pick(time.planningStyleTags);
+
+  traceSet(trace, 'preferences.time', { dailyRhythm, planningStyle }, {
+    method: 'rng.pick',
+    dependsOn: { facet: 'preferences', rhythmPoolSize: time.dailyRhythmTags.length, planningPoolSize: time.planningStyleTags.length },
+  });
+
+  return { dailyRhythm, planningStyle };
+}
+
+// ============================================================================
 // Main Export
 // ============================================================================
 
@@ -774,6 +971,26 @@ export function computePreferences(ctx: PreferencesContext): PreferencesResult {
   const fashion = computeFashionPreferences(ctx, prefsRng);
   const hobbies = computeHobbies(ctx, prefsRng);
   const routines = computeRoutines(ctx, prefsRng, media.doomscrollingRisk);
+  const environment = computeEnvironmentPreferences(ctx, prefsRng);
+  const livingSpace = computeLivingSpacePreferences(ctx, prefsRng);
+  const social = computeSocialPreferences(ctx, prefsRng);
+  const work = computeWorkPreferences(ctx, prefsRng);
+  const equipment = computeEquipmentPreferences(ctx, prefsRng);
+  const quirks = computeQuirksPreferences(ctx, prefsRng);
+  const time = computeTimePreferences(ctx, prefsRng);
 
-  return { food, media, fashion, hobbies, routines };
+  return {
+    food,
+    media,
+    fashion,
+    hobbies,
+    routines,
+    environment,
+    livingSpace,
+    social,
+    work,
+    equipment,
+    quirks,
+    time,
+  };
 }

@@ -267,6 +267,38 @@ export type AgentVocabV1 = {
       outdoor?: string[];
       culinary?: string[];
     };
+    environment?: {
+      temperatureTags?: string[];
+      weatherMoodTags?: string[];
+    };
+    livingSpace?: {
+      roomPreferenceTags?: string[];
+      comfortItemTags?: string[];
+    };
+    social?: {
+      groupStyleTags?: string[];
+      communicationMethodTags?: string[];
+      boundaryTags?: string[];
+      emotionalSharingTags?: string[];
+    };
+    work?: {
+      preferredOperationTags?: string[];
+      avoidedOperationTags?: string[];
+    };
+    equipment?: {
+      weaponPreferenceTags?: string[];
+      gearPreferenceTags?: string[];
+    };
+    quirks?: {
+      luckyItemTags?: string[];
+      ritualTags?: string[];
+      petPeeveTags?: string[];
+      mustHaveTags?: string[];
+    };
+    time?: {
+      dailyRhythmTags?: string[];
+      planningStyleTags?: string[];
+    };
   };
   routines: {
     chronotypes: string[];
@@ -736,6 +768,38 @@ export type GeneratedAgent = {
       primary: string[];
       secondary: string[];
       categories: string[];
+    };
+    environment: {
+      temperature: string;
+      weatherMood: string;
+    };
+    livingSpace: {
+      roomPreferences: string[];
+      comfortItems: string[];
+    };
+    social: {
+      groupStyle: string;
+      communicationMethod: string;
+      boundary: string;
+      emotionalSharing: string;
+    };
+    work: {
+      preferredOperations: string[];
+      avoidedOperations: string[];
+    };
+    equipment: {
+      weaponPreference: string;
+      gearPreferences: string[];
+    };
+    quirks: {
+      luckyItem: string;
+      rituals: string[];
+      petPeeves: string[];
+      mustHaves: string[];
+    };
+    time: {
+      dailyRhythm: string;
+      planningStyle: string;
     };
   };
 

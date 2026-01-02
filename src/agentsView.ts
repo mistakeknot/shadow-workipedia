@@ -204,6 +204,38 @@ function humanizeAgentForExport(agent: GeneratedAgent, shadowByIso3?: ReadonlyMa
         ...agent.preferences.fashion,
         styleTags: agent.preferences.fashion.styleTags.map(toTitleCaseWords),
       },
+      environment: {
+        temperature: toTitleCaseWords(agent.preferences.environment.temperature),
+        weatherMood: toTitleCaseWords(agent.preferences.environment.weatherMood),
+      },
+      livingSpace: {
+        roomPreferences: agent.preferences.livingSpace.roomPreferences.map(toTitleCaseWords),
+        comfortItems: agent.preferences.livingSpace.comfortItems.map(toTitleCaseWords),
+      },
+      social: {
+        groupStyle: toTitleCaseWords(agent.preferences.social.groupStyle),
+        communicationMethod: toTitleCaseWords(agent.preferences.social.communicationMethod),
+        boundary: toTitleCaseWords(agent.preferences.social.boundary),
+        emotionalSharing: toTitleCaseWords(agent.preferences.social.emotionalSharing),
+      },
+      work: {
+        preferredOperations: agent.preferences.work.preferredOperations.map(toTitleCaseWords),
+        avoidedOperations: agent.preferences.work.avoidedOperations.map(toTitleCaseWords),
+      },
+      equipment: {
+        weaponPreference: toTitleCaseWords(agent.preferences.equipment.weaponPreference),
+        gearPreferences: agent.preferences.equipment.gearPreferences.map(toTitleCaseWords),
+      },
+      quirks: {
+        luckyItem: toTitleCaseWords(agent.preferences.quirks.luckyItem),
+        rituals: agent.preferences.quirks.rituals.map(toTitleCaseWords),
+        petPeeves: agent.preferences.quirks.petPeeves.map(toTitleCaseWords),
+        mustHaves: agent.preferences.quirks.mustHaves.map(toTitleCaseWords),
+      },
+      time: {
+        dailyRhythm: toTitleCaseWords(agent.preferences.time.dailyRhythm),
+        planningStyle: toTitleCaseWords(agent.preferences.time.planningStyle),
+      },
     },
     psych: {
       traits: {
@@ -672,6 +704,24 @@ function renderAgent(
                   <div class="kv-row"><span class="kv-k">Ritual drink</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.ritualDrink))}</span></div>
                   <div class="kv-row"><span class="kv-k">Genres</span><span class="kv-v">${escapeHtml(agent.preferences.media.genreTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                   <div class="kv-row"><span class="kv-k">Style</span><span class="kv-v">${escapeHtml(agent.preferences.fashion.styleTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Temperature</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.environment.temperature))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Weather mood</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.environment.weatherMood))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Room prefs</span><span class="kv-v">${escapeHtml(agent.preferences.livingSpace.roomPreferences.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Comfort items</span><span class="kv-v">${escapeHtml(agent.preferences.livingSpace.comfortItems.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Group style</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.social.groupStyle))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Communication</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.social.communicationMethod))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Boundaries</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.social.boundary))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Emotional sharing</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.social.emotionalSharing))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Preferred ops</span><span class="kv-v">${escapeHtml(agent.preferences.work.preferredOperations.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Avoided ops</span><span class="kv-v">${escapeHtml(agent.preferences.work.avoidedOperations.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Weapon</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.equipment.weaponPreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Gear prefs</span><span class="kv-v">${escapeHtml(agent.preferences.equipment.gearPreferences.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Lucky item</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.quirks.luckyItem))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Rituals</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.rituals.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Pet peeves</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.petPeeves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Must-haves</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.mustHaves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Daily rhythm</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.time.dailyRhythm))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Planning style</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.time.planningStyle))}</span></div>
                 </div>
               </div>
             </details>
