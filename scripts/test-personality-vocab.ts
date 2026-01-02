@@ -48,6 +48,10 @@ function run(): void {
     throw new Error('Expected personality.quirkCombinations to include \"The Compassionate Predator\".');
   }
 
+  console.log('Checking conversation topics vocab...');
+  assertIncludes(vocab.civicLife?.conversationTopics, 'Remember when the extraction went sideways in Prague?', 'civicLife.conversationTopics');
+  assertIncludes(vocab.civicLife?.conversationTopics, 'Try reversing the polarity on the jammer', 'civicLife.conversationTopics');
+
   console.log('Checking affect/self-concept vocab...');
   assertIncludes(vocab.affect?.baselineAffects, 'numb', 'affect.baselineAffects');
   assertIncludes(vocab.affect?.regulationStyles, 'meditates', 'affect.regulationStyles');

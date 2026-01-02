@@ -496,6 +496,11 @@ function renderAgent(
     .map(([label, v]) => `<div class="agent-mini-row"><span class="agent-mini-k">${escapeHtml(label)}</span><span class="agent-mini-v">${escapeHtml(formatFixed01k(v))}</span></div>`)
     .join('');
 
+  const conversationTopics = agent.civicLife?.conversationTopics ?? [];
+  const conversationPills = conversationTopics.length
+    ? `<span class="agent-pill-wrap">${conversationTopics.slice(0, 4).map(topic => `<span class="pill pill-muted">${escapeHtml(topic)}</span>`).join('')}</span>`
+    : `<span class="agent-inline-muted">—</span>`;
+
   const topThoughts = [...preview.thoughts]
     .slice()
     .sort((a, b) => (b.intensity01k - a.intensity01k) || a.tag.localeCompare(b.tag))
@@ -613,6 +618,10 @@ function renderAgent(
                 <div class="kv-row"><span class="kv-k">Writing</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.workStyle.writingStyle))}</span></div>
                 <div class="kv-row"><span class="kv-k">Briefing</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.workStyle.briefingStyle))}</span></div>
                 <div class="kv-row"><span class="kv-k">Confidence</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.workStyle.confidenceCalibration))}</span></div>
+              </div>
+              <h4 style="margin-top:0.75rem;font-size:0.85rem;color:#888">Conversation topics</h4>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Talks about</span><span class="kv-v">${conversationPills}</span></div>
               </div>
             </section>
 

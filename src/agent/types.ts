@@ -525,6 +525,7 @@ export type AgentVocabV1 = {
     engagements?: string[];
     ideologies?: string[];
     tabooTopics?: string[];
+    conversationTopics?: string[];
   };
 };
 
@@ -1227,6 +1228,7 @@ export type GeneratedAgent = {
     engagement: CivicEngagement;
     ideology: IdeologyTag;
     tabooTopics: string[];
+    conversationTopics: string[];
   };
 };
 

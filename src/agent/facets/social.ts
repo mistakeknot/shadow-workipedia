@@ -107,6 +107,7 @@ export type CivicLifeResult = {
   engagement: CivicEngagement;
   ideology: IdeologyTag;
   tabooTopics: string[];
+  conversationTopics: string[];
 };
 
 /** Communities result */
@@ -661,6 +662,14 @@ export function computeSocial(ctx: SocialContext): SocialResult {
   const engagementPool = vocab.civicLife?.engagements ?? ['disengaged', 'quiet-voter', 'active-participant', 'organizer', 'disillusioned'];
   const ideologyPool = vocab.civicLife?.ideologies ?? ['conservative', 'progressive', 'libertarian', 'centrist', 'apolitical', 'cynical-pragmatist'];
   const tabooPool = vocab.civicLife?.tabooTopics ?? ['politics', 'religion', 'money', 'family-drama', 'past-relationships', 'health-issues'];
+  const convoPool = vocab.civicLife?.conversationTopics ?? [
+    'recent operations',
+    'training memories',
+    'equipment reviews',
+    'travel stories',
+    'work frustrations',
+    'news rumors',
+  ];
 
   const engagementWeights = engagementPool.map(e => {
     let w = 1;
@@ -684,8 +693,9 @@ export function computeSocial(ctx: SocialContext): SocialResult {
   const ideology = weightedPick(civicRng, ideologyWeights) as IdeologyTag;
 
   const tabooTopics = civicRng.pickK(tabooPool, civicRng.int(1, 3));
+  const conversationTopics = civicRng.pickK(convoPool, civicRng.int(3, 5));
 
-  const civicLife: CivicLifeResult = { engagement, ideology, tabooTopics };
+  const civicLife: CivicLifeResult = { engagement, ideology, tabooTopics, conversationTopics };
   traceSet(trace, 'civicLife', civicLife, { method: 'weighted' });
 
   return {
