@@ -89,6 +89,13 @@ export type SelfConceptResult = {
   socialMask: SocialMask;
 };
 
+/** Knowledge & ignorance - what they know, miss, or misbelieve */
+export type KnowledgeIgnoranceResult = {
+  knowledgeStrengths: string[];
+  knowledgeGaps: string[];
+  falseBeliefs: string[];
+};
+
 /** Output result from psychology computation */
 export type PsychologyResult = {
   ethics: Ethics;
@@ -98,6 +105,7 @@ export type PsychologyResult = {
   coverAptitudeTags: string[];
   affect: Affect;
   selfConcept: SelfConceptResult;
+  knowledgeIgnorance: KnowledgeIgnoranceResult;
 };
 
 // ============================================================================
@@ -611,6 +619,34 @@ function computeSelfConcept(
   return selfConcept;
 }
 
+function computeKnowledgeIgnorance(
+  seed: string,
+  vocab: AgentVocabV1,
+  trace?: AgentGenerationTraceV1,
+): KnowledgeIgnoranceResult {
+  const rng = makeRng(facetSeed(seed, 'knowledge-ignorance'));
+  const strengthsPool = vocab.knowledgeIgnorance?.knowledgeStrengths ?? [];
+  const gapsPool = vocab.knowledgeIgnorance?.knowledgeGaps ?? [];
+  const falseBeliefsPool = vocab.knowledgeIgnorance?.falseBeliefs ?? [];
+
+  const knowledgeStrengths = uniqueStrings(
+    strengthsPool.length ? rng.pickK(strengthsPool, rng.int(2, 4)) : [],
+  );
+  const knowledgeGaps = uniqueStrings(
+    gapsPool.length ? rng.pickK(gapsPool, rng.int(2, 4)) : [],
+  );
+  const falseBeliefs = uniqueStrings(
+    falseBeliefsPool.length ? rng.pickK(falseBeliefsPool, rng.int(2, 4)) : [],
+  );
+
+  const result = { knowledgeStrengths, knowledgeGaps, falseBeliefs };
+  traceSet(trace, 'psych.knowledgeIgnorance', result, {
+    method: 'pickK',
+    dependsOn: { vocab: 'knowledgeIgnorance' },
+  });
+  return result;
+}
+
 // ============================================================================
 // Main Computation
 // ============================================================================
@@ -662,6 +698,9 @@ export function computePsychology(ctx: PsychologyContext): PsychologyResult {
   // Self-concept - internal narrative and social presentation
   const selfConcept = computeSelfConcept(seed, vocab, latents, tierBand, roleSeedTags, trace);
 
+  // Knowledge & ignorance - what they know, miss, or misbelieve
+  const knowledgeIgnorance = computeKnowledgeIgnorance(seed, vocab, trace);
+
   return {
     ethics,
     contradictions,
@@ -670,5 +709,6 @@ export function computePsychology(ctx: PsychologyContext): PsychologyResult {
     coverAptitudeTags,
     affect,
     selfConcept,
+    knowledgeIgnorance,
   };
 }

@@ -52,6 +52,30 @@ function run(): void {
   assertIncludes(vocab.civicLife?.conversationTopics, 'Remember when the extraction went sideways in Prague?', 'civicLife.conversationTopics');
   assertIncludes(vocab.civicLife?.conversationTopics, 'Try reversing the polarity on the jammer', 'civicLife.conversationTopics');
 
+  console.log('Checking knowledge/ignorance vocab...');
+  const knowledgeIgnorance = (vocab as any).knowledgeIgnorance as
+    | {
+        knowledgeStrengths?: string[];
+        knowledgeGaps?: string[];
+        falseBeliefs?: string[];
+      }
+    | undefined;
+  assertIncludes(
+    knowledgeIgnorance?.knowledgeStrengths,
+    'Tradecraft: Surveillance, counter-surveillance, dead drops',
+    'knowledgeIgnorance.knowledgeStrengths',
+  );
+  assertIncludes(
+    knowledgeIgnorance?.knowledgeGaps,
+    "I don't speak Arabic",
+    'knowledgeIgnorance.knowledgeGaps',
+  );
+  assertIncludes(
+    knowledgeIgnorance?.falseBeliefs,
+    'Outdated procedures still followed',
+    'knowledgeIgnorance.falseBeliefs',
+  );
+
   console.log('Checking affect/self-concept vocab...');
   assertIncludes(vocab.affect?.baselineAffects, 'numb', 'affect.baselineAffects');
   assertIncludes(vocab.affect?.regulationStyles, 'meditates', 'affect.regulationStyles');
@@ -143,6 +167,26 @@ function run(): void {
   }
   if (agent.personality.traitTriad.length < 2) {
     throw new Error('Expected personality.traitTriad to include at least two traits.');
+  }
+
+  const agentKnowledge = (agent as any).knowledgeIgnorance as
+    | {
+        knowledgeStrengths?: string[];
+        knowledgeGaps?: string[];
+        falseBeliefs?: string[];
+      }
+    | undefined;
+  if (!agentKnowledge) {
+    throw new Error('Expected knowledgeIgnorance to be generated.');
+  }
+  for (const [label, list] of [
+    ['knowledgeStrengths', agentKnowledge.knowledgeStrengths],
+    ['knowledgeGaps', agentKnowledge.knowledgeGaps],
+    ['falseBeliefs', agentKnowledge.falseBeliefs],
+  ] as const) {
+    if (!list || list.length < 2 || list.length > 4) {
+      throw new Error(`Expected ${label} to include 2-4 items.`);
+    }
   }
 
   console.log('Personality vocab test passed.');

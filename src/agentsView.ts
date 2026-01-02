@@ -501,6 +501,24 @@ function renderAgent(
     ? `<span class="agent-pill-wrap">${conversationTopics.slice(0, 4).map(topic => `<span class="pill pill-muted">${escapeHtml(topic)}</span>`).join('')}</span>`
     : `<span class="agent-inline-muted">—</span>`;
 
+  const knowledgeIgnorance = agent.knowledgeIgnorance;
+  const knowledgeStrengths = knowledgeIgnorance?.knowledgeStrengths ?? [];
+  const knowledgeGaps = knowledgeIgnorance?.knowledgeGaps ?? [];
+  const falseBeliefs = knowledgeIgnorance?.falseBeliefs ?? [];
+  const renderKnowledgePills = (items: string[]): string => (
+    `<span class="agent-pill-wrap">${items.slice(0, 4).map(item => `<span class="pill pill-muted">${escapeHtml(item)}</span>`).join('')}</span>`
+  );
+  const cognitiveRows = ([
+    ['Strengths', knowledgeStrengths],
+    ['Gaps', knowledgeGaps],
+    ['False beliefs', falseBeliefs],
+  ] as Array<[string, string[]]>)
+    .filter(([, items]) => items.length)
+    .map(([label, items]) => `
+      <div class="kv-row"><span class="kv-k">${label}</span><span class="kv-v">${renderKnowledgePills(items)}</span></div>
+    `)
+    .join('');
+
   const topThoughts = [...preview.thoughts]
     .slice()
     .sort((a, b) => (b.intensity01k - a.intensity01k) || a.tag.localeCompare(b.tag))
@@ -622,6 +640,13 @@ function renderAgent(
               <h4 style="margin-top:0.75rem;font-size:0.85rem;color:#888">Conversation topics</h4>
               <div class="agent-kv">
                 <div class="kv-row"><span class="kv-k">Talks about</span><span class="kv-v">${conversationPills}</span></div>
+              </div>
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Cognitive</h3>
+              <div class="agent-kv">
+                ${cognitiveRows || `<div class="agent-inline-muted">—</div>`}
               </div>
             </section>
 

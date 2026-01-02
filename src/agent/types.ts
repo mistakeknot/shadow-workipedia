@@ -501,6 +501,11 @@ export type AgentVocabV1 = {
     selfStories?: string[];
     socialMasks?: string[];
   };
+  knowledgeIgnorance?: {
+    knowledgeStrengths?: string[];
+    knowledgeGaps?: string[];
+    falseBeliefs?: string[];
+  };
   lifeSkills?: {
     competenceBands?: string[];
     etiquetteLiteracies?: string[];
@@ -1191,6 +1196,13 @@ export type GeneratedAgent = {
     selfStory: SelfStory;
     impostorRisk: Fixed;
     socialMask: SocialMask;
+  };
+
+  // Knowledge & ignorance - what they know, miss, or misbelieve
+  knowledgeIgnorance: {
+    knowledgeStrengths: string[];
+    knowledgeGaps: string[];
+    falseBeliefs: string[];
   };
 
   // Life skills - competence outside the job
