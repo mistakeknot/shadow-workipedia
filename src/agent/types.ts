@@ -327,6 +327,10 @@ export type AgentVocabV1 = {
   health?: {
     chronicConditionTags?: string[];
     allergyTags?: string[];
+    injuryHistoryTags?: string[];
+    diseaseTags?: string[];
+    fitnessBands?: string[];
+    treatmentTags?: string[];
   };
   covers?: {
     coverAptitudeTags?: string[];
@@ -900,6 +904,10 @@ export type GeneratedAgent = {
   health: {
     chronicConditionTags: string[];
     allergyTags: string[];
+    injuryHistoryTags: string[];
+    diseaseTags: string[];
+    fitnessBand: string;
+    treatmentTags: string[];
   };
 
   covers: {

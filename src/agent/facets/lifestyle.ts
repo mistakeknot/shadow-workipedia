@@ -115,6 +115,10 @@ export type LifestyleResult = {
   health: {
     chronicConditionTags: string[];
     allergyTags: string[];
+    injuryHistoryTags: string[];
+    diseaseTags: string[];
+    fitnessBand: string;
+    treatmentTags: string[];
   };
   vices: Array<{
     vice: string;
@@ -156,7 +160,23 @@ export type LifestyleResult = {
 // ============================================================================
 
 export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
-  const { seed, vocab, age, traits, aptitudes, viceTendency, trace } = ctx;
+  const {
+    seed,
+    vocab,
+    age,
+    tierBand,
+    traits,
+    aptitudes,
+    latents,
+    roleSeedTags,
+    careerTrackTag,
+    conflictEnv01k,
+    stateViolenceEnv01k,
+    risk01,
+    travelScore,
+    viceTendency,
+    trace,
+  } = ctx;
 
   // ─────────────────────────────────────────────────────────────────────────────
   // SPIRITUALITY (computed first for Correlate #7: Religiosity ↔ Vices)
@@ -173,7 +193,12 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
   const healthRng = makeRng(facetSeed(seed, 'health'));
   const chronicPool = uniqueStrings(vocab.health?.chronicConditionTags ?? []);
   const allergyPool = uniqueStrings(vocab.health?.allergyTags ?? []);
+  const injuryPool = uniqueStrings(vocab.health?.injuryHistoryTags ?? []);
+  const diseasePool = uniqueStrings(vocab.health?.diseaseTags ?? []);
+  const fitnessBands = uniqueStrings(vocab.health?.fitnessBands ?? ['peak-condition', 'excellent', 'good', 'poor', 'critical']);
+  const treatmentPool = uniqueStrings(vocab.health?.treatmentTags ?? []);
   const endurance01 = aptitudes.endurance / 1000;
+  const conditioning01 = latents.physicalConditioning / 1000;
 
   // Tier-based health modifier: elite has better healthcare, mass has more exposure
   const tierHealthModifier = ctx.tierBand === 'elite' ? -0.15 : ctx.tierBand === 'mass' ? 0.12 : 0;
@@ -190,9 +215,127 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
   const allergyTags = allergyPool.length && healthRng.next01() < allergyChance
     ? healthRng.pickK(allergyPool, 1)
     : [];
-  traceSet(trace, 'health', { chronicConditionTags, allergyTags }, {
-    method: 'probabilisticPickK',
-    dependsOn: { facet: 'health', age, endurance01, viceTendency, chronicChance, allergyChance, tierBand: ctx.tierBand, chronicPoolSize: chronicPool.length, allergyPoolSize: allergyPool.length },
+
+  const conflict01 = conflictEnv01k / 1000;
+  const stateViolence01 = stateViolenceEnv01k / 1000;
+  const agePenalty = Math.max(0, age - 30) * 8;
+  const vicePenalty = viceTendency * 180;
+  const fitnessScore = clampFixed01k(
+    0.55 * latents.physicalConditioning +
+    0.35 * aptitudes.endurance +
+    0.10 * healthRng.int(0, 1000) -
+    agePenalty -
+    vicePenalty,
+  );
+  const fitnessBand = (() => {
+    const bands = fitnessBands.length ? fitnessBands : ['peak-condition', 'excellent', 'good', 'poor', 'critical'];
+    const standard = ['peak-condition', 'excellent', 'good', 'poor', 'critical'];
+    const hasStandard = standard.every(b => bands.includes(b));
+    if (hasStandard) {
+      if (fitnessScore >= 900 && bands.includes('peak-condition')) return 'peak-condition';
+      if (fitnessScore >= 700 && bands.includes('excellent')) return 'excellent';
+      if (fitnessScore >= 500 && bands.includes('good')) return 'good';
+      if (fitnessScore >= 300 && bands.includes('poor')) return 'poor';
+      if (bands.includes('critical')) return 'critical';
+    }
+    const idx = Math.max(0, Math.min(bands.length - 1, Math.floor((1 - fitnessScore / 1000) * bands.length)));
+    return bands[idx] ?? (bands[0] ?? 'good');
+  })();
+
+  const injuryChance = Math.min(0.65,
+    0.06 +
+    0.25 * conflict01 +
+    0.15 * stateViolence01 +
+    0.12 * risk01 +
+    0.08 * (age / 80) +
+    (roleSeedTags.includes('operative') ? 0.08 : 0) +
+    (careerTrackTag === 'military' ? 0.08 : 0)
+  );
+  const injuryWeights = injuryPool.map(tag => {
+    const key = tag.toLowerCase();
+    let w = 1;
+    if (key.includes('gunshot') || key.includes('shrapnel')) w += 1.2 * conflict01;
+    if (key.includes('knife') || key.includes('torture')) w += 0.7 * conflict01;
+    if (key.includes('burn')) w += 0.6 * conflict01;
+    if (key.includes('concussion') || key.includes('blunt')) w += 0.4 * conflict01;
+    if (key.includes('fall') || key.includes('car')) w += 0.4 * risk01;
+    if (key.includes('frostbite') || key.includes('heat')) w += 0.3 * (1 - conditioning01);
+    return { item: tag, weight: w };
+  });
+  const injuryHistoryTags = injuryPool.length && healthRng.next01() < injuryChance
+    ? weightedPickKUnique(healthRng, injuryWeights, healthRng.int(1, Math.min(2, injuryPool.length)))
+    : [];
+
+  const diseaseChance = Math.min(0.55,
+    0.05 +
+    0.20 * (1 - endurance01) +
+    0.12 * (age / 80) +
+    0.12 * (travelScore / 1000) +
+    0.08 * stateViolence01
+  );
+  const diseaseWeights = diseasePool.map(tag => {
+    const key = tag.toLowerCase();
+    let w = 1;
+    if (key.includes('malaria') || key.includes('dengue') || key.includes('yellow')) w += 0.8 * (travelScore / 1000);
+    if (key.includes('tuberculosis') || key.includes('pneumonia')) w += 0.4 * (1 - endurance01);
+    if (key.includes('hepatitis')) w += 0.3 * viceTendency;
+    return { item: tag, weight: w };
+  });
+  const diseaseTags = diseasePool.length && healthRng.next01() < diseaseChance
+    ? weightedPickKUnique(healthRng, diseaseWeights, 1)
+    : [];
+
+  const needsTreatment = chronicConditionTags.length > 0 || diseaseTags.length > 0 || injuryHistoryTags.length > 0;
+  const treatmentChance = Math.min(0.85,
+    0.35 +
+    (tierBand === 'elite' ? 0.2 : 0) +
+    (injuryHistoryTags.length ? 0.1 : 0) +
+    (diseaseTags.length ? 0.1 : 0)
+  );
+  const treatmentWeights = treatmentPool.map(tag => {
+    const key = tag.toLowerCase();
+    let w = 1;
+    if (injuryHistoryTags.length) {
+      if (key.includes('surgery')) w += 0.7;
+      if (key.includes('physical-therapy')) w += 0.6;
+      if (key.includes('prosthetic')) w += 0.4;
+      if (key.includes('painkiller')) w += 0.4;
+    }
+    if (chronicConditionTags.length && key.includes('chronic')) w += 0.6;
+    if (diseaseTags.length && key.includes('antibiotic')) w += 0.5;
+    return { item: tag, weight: w };
+  });
+  const treatmentTags = needsTreatment && treatmentPool.length && healthRng.next01() < treatmentChance
+    ? weightedPickKUnique(healthRng, treatmentWeights, healthRng.int(1, Math.min(2, treatmentPool.length)))
+    : [];
+
+  traceSet(trace, 'health', {
+    chronicConditionTags,
+    allergyTags,
+    injuryHistoryTags,
+    diseaseTags,
+    fitnessBand,
+    treatmentTags,
+  }, {
+    method: 'probabilisticPickK+fitnessBand',
+    dependsOn: {
+      facet: 'health',
+      age,
+      endurance01,
+      conditioning01,
+      viceTendency,
+      chronicChance,
+      allergyChance,
+      injuryChance,
+      diseaseChance,
+      conflictEnv01k,
+      stateViolenceEnv01k,
+      tierBand: ctx.tierBand,
+      chronicPoolSize: chronicPool.length,
+      allergyPoolSize: allergyPool.length,
+      injuryPoolSize: injuryPool.length,
+      diseasePoolSize: diseasePool.length,
+    },
   });
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -223,7 +366,7 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
   const mobility = computeMobility(ctx);
 
   return {
-    health: { chronicConditionTags, allergyTags },
+    health: { chronicConditionTags, allergyTags, injuryHistoryTags, diseaseTags, fitnessBand, treatmentTags },
     vices,
     logistics: { identityKit },
     neurodivergence,

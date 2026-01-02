@@ -715,6 +715,55 @@
       "dairy",
       "gluten",
       "pollen"
+    ],
+    "injuryHistoryTags": [
+      "gunshot-wound",
+      "knife-wound",
+      "shrapnel",
+      "burns",
+      "blunt-trauma",
+      "concussion",
+      "fracture",
+      "torture-scars",
+      "frostbite",
+      "heat-stroke",
+      "car-accident",
+      "fall-injury",
+      "radiation-exposure",
+      "poisoning",
+      "nerve-damage"
+    ],
+    "diseaseTags": [
+      "influenza",
+      "food-poisoning",
+      "pneumonia",
+      "hepatitis",
+      "tuberculosis",
+      "hiv",
+      "malaria",
+      "dengue",
+      "yellow-fever",
+      "cholera",
+      "gastroenteritis"
+    ],
+    "fitnessBands": [
+      "peak-condition",
+      "excellent",
+      "good",
+      "poor",
+      "critical"
+    ],
+    "treatmentTags": [
+      "painkillers",
+      "antibiotics",
+      "anti-inflammatories",
+      "chronic-condition-meds",
+      "surgery",
+      "physical-therapy",
+      "prosthetics",
+      "experimental-treatment",
+      "traditional-medicine",
+      "massage-therapy"
     ]
   },
   "covers": {
