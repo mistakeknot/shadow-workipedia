@@ -10,7 +10,8 @@ import { readFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { computePsychology } from '../src/agent/facets/psychology';
-import type { AgentVocabV1, Latents } from '../src/agent/types';
+import { generateAgent } from '../src/agent';
+import type { AgentPriorsV1, AgentVocabV1, GenerateAgentInput, Latents } from '../src/agent/types';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -40,6 +41,12 @@ function run(): void {
   assertIncludes(vocab.personality?.communicationStyles, 'diplomatic', 'personality.communicationStyles');
   assertIncludes(vocab.personality?.trustFormation, 'guarded', 'personality.trustFormation');
   assertIncludes(vocab.personality?.humorStyles, 'jovial', 'personality.humorStyles');
+  assertIncludes(vocab.personality?.facetNames, 'Bravery', 'personality.facetNames');
+  assertIncludes(vocab.personality?.traitNames, 'Ambitious', 'personality.traitNames');
+  const quirkNames = vocab.personality?.quirkCombinations?.map(c => c.name) ?? [];
+  if (!quirkNames.includes('The Compassionate Predator')) {
+    throw new Error('Expected personality.quirkCombinations to include \"The Compassionate Predator\".');
+  }
 
   console.log('Checking affect/self-concept vocab...');
   assertIncludes(vocab.affect?.baselineAffects, 'numb', 'affect.baselineAffects');
@@ -115,6 +122,23 @@ function run(): void {
     if (!tells.includes(required as typeof tells[number])) {
       throw new Error(`Expected stressTells to include ${required}.`);
     }
+  }
+
+  console.log('Checking personality facets/traits generation...');
+  const priors = loadJsonFile<AgentPriorsV1>('public/agent-priors.v1.json');
+  const countries = loadJsonFile<GenerateAgentInput['countries']>('public/shadow-country-map.json');
+  const agent = generateAgent({
+    seed: 'personality-catalog-001',
+    vocab,
+    priors,
+    countries,
+    asOfYear: 2025,
+  });
+  if (!agent.personality.facets.length) {
+    throw new Error('Expected personality.facets to be generated.');
+  }
+  if (agent.personality.traitTriad.length < 2) {
+    throw new Error('Expected personality.traitTriad to include at least two traits.');
   }
 
   console.log('Personality vocab test passed.');

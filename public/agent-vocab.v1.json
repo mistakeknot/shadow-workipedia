@@ -8765,6 +8765,487 @@
       "reading-writing",
       "multimodal",
       "experiential"
+    ],
+    "facetNames": [
+      "Bravery",
+      "Stress Tolerance",
+      "Confidence",
+      "Gregariousness",
+      "Empathy",
+      "Trust",
+      "Humor",
+      "Curiosity",
+      "Analytical Thinking",
+      "Creativity",
+      "Memory",
+      "Honesty",
+      "Compassion",
+      "Justice",
+      "Loyalty",
+      "Diligence",
+      "Perfectionism",
+      "Organization",
+      "Patience",
+      "Anger Management",
+      "Anxiety Level",
+      "Emotional Expression",
+      "Optimism",
+      "Pain Tolerance",
+      "Sensory Sensitivity",
+      "Physical Energy",
+      "Risk Taking",
+      "Tradition Respect",
+      "Cultural Pride",
+      "Adaptability",
+      "Spirituality",
+      "Leadership Drive",
+      "Authority Respect",
+      "Responsibility",
+      "Decision Making"
+    ],
+    "facetCategories": {
+      "Courage & Bravery": [
+        "Bravery",
+        "Stress Tolerance",
+        "Confidence"
+      ],
+      "Social & Interpersonal": [
+        "Gregariousness",
+        "Empathy",
+        "Trust",
+        "Humor"
+      ],
+      "Intellectual & Analytical": [
+        "Curiosity",
+        "Analytical Thinking",
+        "Creativity",
+        "Memory"
+      ],
+      "Moral & Ethical": [
+        "Honesty",
+        "Compassion",
+        "Justice",
+        "Loyalty"
+      ],
+      "Work Ethic & Professionalism": [
+        "Diligence",
+        "Perfectionism",
+        "Organization",
+        "Patience"
+      ],
+      "Emotional Regulation": [
+        "Anger Management",
+        "Anxiety Level",
+        "Emotional Expression",
+        "Optimism"
+      ],
+      "Physical & Sensory": [
+        "Pain Tolerance",
+        "Sensory Sensitivity",
+        "Physical Energy",
+        "Risk Taking"
+      ],
+      "Cultural & Identity": [
+        "Tradition Respect",
+        "Cultural Pride",
+        "Adaptability",
+        "Spirituality"
+      ],
+      "Leadership & Authority": [
+        "Leadership Drive",
+        "Authority Respect",
+        "Responsibility",
+        "Decision Making"
+      ]
+    },
+    "traitNames": [
+      "Ambitious",
+      "Greedy",
+      "Idealistic",
+      "Hedonistic",
+      "Vengeful",
+      "Curious",
+      "Patriotic",
+      "Secretive",
+      "Artistic",
+      "Ecological",
+      "Survivalist",
+      "Revolutionary",
+      "Exploitative",
+      "Traditional",
+      "Violent",
+      "Methodical",
+      "Chaotic",
+      "Manipulative",
+      "Direct",
+      "Patient",
+      "Deceptive",
+      "Progressive",
+      "Collaborative",
+      "Sensual",
+      "Delegating",
+      "Paranoid",
+      "Compassionate",
+      "Charming",
+      "Antisocial",
+      "Loyal",
+      "Treacherous",
+      "Networked",
+      "Mentoring",
+      "Communitarian",
+      "Ritualistic",
+      "Jealous",
+      "Tribal",
+      "Brilliant",
+      "Naive",
+      "Cynical",
+      "Delusional",
+      "Pragmatic",
+      "Obsessive",
+      "Analytical",
+      "Dogmatic",
+      "Archival",
+      "Intuitive",
+      "Conspiracy-Minded",
+      "Brave",
+      "Cowardly",
+      "Volatile",
+      "Cold",
+      "Sadistic",
+      "Nihilistic",
+      "Guilty",
+      "Optimistic",
+      "Nurturing",
+      "Proud",
+      "Competent",
+      "Incompetent",
+      "Lucky",
+      "Unlucky",
+      "Specialized",
+      "Adaptable",
+      "Disciplined",
+      "Resourceful",
+      "\"Pure\" Agents (10% chance)",
+      "\"Chaos\" Agents (5% chance)",
+      "Astrological Influences (Hidden)",
+      "Big Five Modulation (Hidden)",
+      "Cultural Expression Filters (Hidden)",
+      "Generational Filters (Hidden)"
+    ],
+    "traitCategories": {
+      "DRIVE": [
+        "Ambitious",
+        "Greedy",
+        "Idealistic",
+        "Hedonistic",
+        "Vengeful",
+        "Curious",
+        "Patriotic",
+        "Secretive",
+        "Artistic",
+        "Ecological",
+        "Survivalist",
+        "Revolutionary",
+        "Exploitative",
+        "Traditional"
+      ],
+      "METHOD": [
+        "Violent",
+        "Methodical",
+        "Chaotic",
+        "Manipulative",
+        "Direct",
+        "Patient",
+        "Deceptive",
+        "Progressive",
+        "Collaborative",
+        "Sensual",
+        "Delegating"
+      ],
+      "SOCIAL": [
+        "Paranoid",
+        "Compassionate",
+        "Charming",
+        "Antisocial",
+        "Loyal",
+        "Treacherous",
+        "Networked",
+        "Mentoring",
+        "Communitarian",
+        "Ritualistic",
+        "Jealous",
+        "Tribal"
+      ],
+      "COGNITIVE": [
+        "Brilliant",
+        "Naive",
+        "Cynical",
+        "Delusional",
+        "Pragmatic",
+        "Obsessive",
+        "Analytical",
+        "Dogmatic",
+        "Archival",
+        "Intuitive",
+        "Conspiracy-Minded"
+      ],
+      "EMOTIONAL": [
+        "Brave",
+        "Cowardly",
+        "Volatile",
+        "Cold",
+        "Sadistic",
+        "Nihilistic",
+        "Guilty",
+        "Optimistic",
+        "Nurturing",
+        "Proud"
+      ],
+      "COMPETENCE": [
+        "Competent",
+        "Incompetent",
+        "Lucky",
+        "Unlucky",
+        "Specialized",
+        "Adaptable",
+        "Disciplined",
+        "Resourceful"
+      ],
+      "How Hidden Layers Affect Visible": [
+        "Astrological Influences (Hidden)",
+        "Big Five Modulation (Hidden)",
+        "Cultural Expression Filters (Hidden)",
+        "Generational Filters (Hidden)"
+      ]
+    },
+    "quirkCombinations": [
+      {
+        "name": "The Compassionate Predator",
+        "category": "Core Personality Contradictions",
+        "traits": [
+          {
+            "name": "Empathy",
+            "min": 85,
+            "qualifier": "high"
+          },
+          {
+            "name": "Ruthlessness",
+            "min": 80,
+            "qualifier": "high"
+          }
+        ],
+        "manifestations": [
+          "Adopts children orphaned by their operations",
+          "Provides excellent healthcare to prisoners before interrogation",
+          "Ensures families of victims are financially secure",
+          "Apologizes sincerely while pulling trigger",
+          "Creates scholarships in victims' names"
+        ]
+      },
+      {
+        "name": "The Anxious Leader",
+        "category": "Core Personality Contradictions",
+        "traits": [
+          {
+            "name": "Anxiety",
+            "min": 90,
+            "qualifier": "high"
+          },
+          {
+            "name": "Charisma",
+            "min": 85,
+            "qualifier": "high"
+          }
+        ],
+        "manifestations": [
+          "Triple-checks every decision obsessively",
+          "Inspiring because admits fears openly",
+          "Followers protective of anxious leader",
+          "Develops elaborate pre-speech rituals",
+          "Success attributed to luck not skill"
+        ]
+      },
+      {
+        "name": "The Honest Spy",
+        "category": "Core Personality Contradictions",
+        "traits": [
+          {
+            "name": "Honesty",
+            "min": 92,
+            "qualifier": "high"
+          },
+          {
+            "name": "Deception",
+            "min": 88,
+            "qualifier": "high"
+          }
+        ],
+        "manifestations": [
+          "Warns targets \"I'm not who you think\"",
+          "Keeps meticulous records of lies told",
+          "Therapy sessions about deception guilt",
+          "Cannot maintain cover with friends",
+          "Leaves truthful notes at crime scenes"
+        ]
+      },
+      {
+        "name": "The Intelligent Fool",
+        "category": "Core Personality Contradictions",
+        "traits": [
+          {
+            "name": "Intelligence",
+            "min": 95,
+            "qualifier": "high"
+          },
+          {
+            "name": "Wisdom",
+            "max": 15,
+            "qualifier": "low"
+          }
+        ],
+        "manifestations": [
+          "Designs perfect system, forgets human element",
+          "Falls for obvious scams despite brilliance",
+          "Explains quantum physics, can't tie shoes",
+          "Wins Nobel Prize, loses life savings",
+          "Brilliant analysis leads to worst choice"
+        ]
+      },
+      {
+        "name": "The Cowardly Hero",
+        "category": "Core Personality Contradictions",
+        "traits": [
+          {
+            "name": "Fear",
+            "min": 90,
+            "qualifier": "high"
+          },
+          {
+            "name": "Moral Courage",
+            "min": 88,
+            "qualifier": "high"
+          }
+        ],
+        "manifestations": [
+          "Writes goodbye letters before every mission",
+          "Publicly discusses being terrified",
+          "Others braver seeing hero's fear",
+          "Elaborate fear management rituals",
+          "Credits fear for keeping alive"
+        ]
+      },
+      {
+        "name": "The Perfectionist Slob",
+        "category": "Complex Personality Syndromes",
+        "traits": [
+          {
+            "name": "Perfectionism",
+            "min": 95
+          },
+          {
+            "name": "Cleanliness",
+            "max": 15
+          }
+        ],
+        "manifestations": [
+          "Office like museum, home like dump",
+          "Separate work/life standards completely",
+          "Embarrassed by living conditions",
+          "Work clothes kept at office",
+          "Never allows home visits"
+        ]
+      },
+      {
+        "name": "The Generous Miser",
+        "category": "Complex Personality Syndromes",
+        "traits": [
+          {
+            "name": "Generosity",
+            "min": 90
+          },
+          {
+            "name": "Greed",
+            "min": 88
+          }
+        ],
+        "manifestations": []
+      },
+      {
+        "name": "The Loyal Betrayer",
+        "category": "Complex Personality Syndromes",
+        "traits": [
+          {
+            "name": "Loyalty",
+            "min": 92
+          },
+          {
+            "name": "Self-Preservation",
+            "min": 94
+          }
+        ],
+        "manifestations": []
+      },
+      {
+        "name": "The Organized Chaos Agent",
+        "category": "Complex Personality Syndromes",
+        "traits": [
+          {
+            "name": "Organization",
+            "min": 88
+          },
+          {
+            "name": "Spontaneity",
+            "min": 90
+          }
+        ],
+        "manifestations": []
+      },
+      {
+        "name": "Traditional Modern Conflict",
+        "category": "Cultural Personality Overlays",
+        "traits": [
+          {
+            "name": "Tradition Respect",
+            "min": 75,
+            "qualifier": "high"
+          },
+          {
+            "name": "Analytical Thinking",
+            "min": 70,
+            "qualifier": "high"
+          }
+        ],
+        "manifestations": [
+          "Code-switches constantly",
+          "Different personality at home",
+          "Children confused by contradictions",
+          "Partner from different culture",
+          "Identity crisis ongoing"
+        ]
+      },
+      {
+        "name": "The Reluctant Expert",
+        "category": "Skill-Personality Mismatches",
+        "traits": [
+          {
+            "name": "Analytical Thinking",
+            "min": 80,
+            "qualifier": "high"
+          },
+          {
+            "name": "Curiosity",
+            "max": 35,
+            "qualifier": "low"
+          }
+        ],
+        "manifestations": [
+          "Minimal effort still exceptional",
+          "Refuses advancement opportunities",
+          "Drinks to forget capabilities",
+          "Jealous of less talented",
+          "Dreams of escape constantly"
+        ]
+      }
     ]
   },
   "affect": {

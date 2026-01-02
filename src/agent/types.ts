@@ -5,6 +5,32 @@ export type TierBand = 'elite' | 'middle' | 'mass';
 
 export type Band5 = 'very_low' | 'low' | 'medium' | 'high' | 'very_high';
 
+export type PersonalityFacetScore = {
+  name: string;
+  score: number; // 0-100
+  band: Band5;
+};
+
+export type PersonalityQuirkTraitRule = {
+  name: string;
+  min?: number;
+  max?: number;
+  qualifier?: string;
+};
+
+export type PersonalityQuirkComboDefinition = {
+  name: string;
+  category?: string;
+  traits?: PersonalityQuirkTraitRule[];
+  manifestations?: string[];
+};
+
+export type PersonalityQuirkSelection = {
+  name: string;
+  category?: string;
+  manifestations: string[];
+};
+
 export type Fixed = number; // fixed-point int, typically 0..1000
 
 export type HeightBand = 'very_short' | 'short' | 'average' | 'tall' | 'very_tall';
@@ -414,6 +440,11 @@ export type AgentVocabV1 = {
     moralReasoning?: string[];
     humorStyles?: string[];
     learningStyles?: string[];
+    facetNames?: string[];
+    facetCategories?: Record<string, string[]>;
+    traitNames?: string[];
+    traitCategories?: Record<string, string[]>;
+    quirkCombinations?: PersonalityQuirkComboDefinition[];
   };
   // Work products (analyst/diplomat)
   workStyle?: {
@@ -1035,6 +1066,9 @@ export type GeneratedAgent = {
     moralReasoning: MoralReasoning;
     humorStyle: HumorStyle;
     learningStyle: LearningStyle;
+    facets: PersonalityFacetScore[];
+    traitTriad: string[];
+    quirkCombination: PersonalityQuirkSelection | null;
   };
 
   // Work style (Oracle recommendation - analyst/diplomat focus)

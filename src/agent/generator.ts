@@ -72,6 +72,7 @@ import type {
   MoralReasoning,
   LearningStyle,
 } from './types';
+import { computePersonalityFacets, computeTraitTriad, selectQuirkCombination } from './personalityFacets';
 
 import {
   makeRng,
@@ -1748,6 +1749,34 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     timeOrientation, moralReasoning, humorStyle, learningStyle
   }, { method: 'weighted' });
 
+  const personalityFacetScores = computePersonalityFacets(seed, vocab, {
+    latents,
+    aptitudes: capabilitiesResult.aptitudes,
+    traits: capabilitiesResult.traits,
+    ethics: psychologyResult.ethics,
+    motivationalDrivers,
+    spiritualityLevel: lifestyleResult.spirituality.observanceLevel,
+    decisionMaking,
+  });
+
+  const personalityTraitTriad = computeTraitTriad(seed, vocab, {
+    latents,
+    aptitudes: capabilitiesResult.aptitudes,
+    traits: capabilitiesResult.traits,
+    ethics: psychologyResult.ethics,
+    motivationalDrivers,
+    spiritualityLevel: lifestyleResult.spirituality.observanceLevel,
+    decisionMaking,
+  });
+
+  const personalityQuirkCombination = selectQuirkCombination(seed, vocab, {
+    facets: personalityFacetScores,
+    latents,
+    aptitudes: capabilitiesResult.aptitudes,
+    traits: capabilitiesResult.traits,
+    ethics: psychologyResult.ethics,
+  });
+
   // ─────────────────────────────────────────────────────────────────────────
   // Phase 18: Work Style (not in facets - compute inline)
   // ─────────────────────────────────────────────────────────────────────────
@@ -2324,6 +2353,9 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       moralReasoning,
       humorStyle,
       learningStyle,
+      facets: personalityFacetScores,
+      traitTriad: personalityTraitTriad,
+      quirkCombination: personalityQuirkCombination,
     },
     workStyle: {
       writingStyle,
