@@ -1,17 +1,17 @@
 export type EverydayLifeSummaryInput = {
   thirdPlaces: string[];
-  commuteModes: string[];
-  weeklyAnchors: string[];
+  commuteMode: string;
+  weeklyAnchor: string;
   pettyHabits: string[];
-  caregivingObligations: string[];
+  caregivingObligation: string;
 };
 
 export type EverydayLifeSummary = {
   thirdPlaces: string;
-  commuteModes: string;
-  weeklyAnchors: string;
+  commuteMode: string;
+  weeklyAnchor: string;
   pettyHabits: string;
-  caregivingObligations: string;
+  caregivingObligation: string;
 };
 
 export type MemoryTraumaSummaryInput = {
@@ -41,10 +41,10 @@ export function buildEverydayLifeSummary(
 ): EverydayLifeSummary {
   return {
     thirdPlaces: joinOrPlaceholder(everyday.thirdPlaces, format),
-    commuteModes: joinOrPlaceholder(everyday.commuteModes, format),
-    weeklyAnchors: joinOrPlaceholder(everyday.weeklyAnchors, format),
+    commuteMode: everyday.commuteMode ? format(everyday.commuteMode) : DEFAULT_EMPTY,
+    weeklyAnchor: everyday.weeklyAnchor ? format(everyday.weeklyAnchor) : DEFAULT_EMPTY,
     pettyHabits: joinOrPlaceholder(everyday.pettyHabits, format),
-    caregivingObligations: joinOrPlaceholder(everyday.caregivingObligations, format),
+    caregivingObligation: everyday.caregivingObligation ? format(everyday.caregivingObligation) : DEFAULT_EMPTY,
   };
 }
 

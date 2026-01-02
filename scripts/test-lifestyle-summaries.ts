@@ -16,17 +16,17 @@ function assertEqual(actual: unknown, expected: unknown, label: string): void {
 function run(): void {
   const everyday = buildEverydayLifeSummary({
     thirdPlaces: ['cafes', 'coworking-space'],
-    commuteModes: ['remote', 'train'],
-    weeklyAnchors: ['meal-prep'],
+    commuteMode: 'remote',
+    weeklyAnchor: 'meal-prep',
     pettyHabits: ['multiple-alarms'],
-    caregivingObligations: ['pet-care'],
+    caregivingObligation: 'pet-care',
   }, value => value.toUpperCase());
 
   assertEqual(everyday.thirdPlaces, 'CAFES, COWORKING-SPACE', 'everyday.thirdPlaces');
-  assertEqual(everyday.commuteModes, 'REMOTE, TRAIN', 'everyday.commuteModes');
-  assertEqual(everyday.weeklyAnchors, 'MEAL-PREP', 'everyday.weeklyAnchors');
+  assertEqual(everyday.commuteMode, 'REMOTE', 'everyday.commuteMode');
+  assertEqual(everyday.weeklyAnchor, 'MEAL-PREP', 'everyday.weeklyAnchor');
   assertEqual(everyday.pettyHabits, 'MULTIPLE-ALARMS', 'everyday.pettyHabits');
-  assertEqual(everyday.caregivingObligations, 'PET-CARE', 'everyday.caregivingObligations');
+  assertEqual(everyday.caregivingObligation, 'PET-CARE', 'everyday.caregivingObligation');
 
   const memory = buildMemoryTraumaSummary({
     memoryTags: ['visual-snapshot'],

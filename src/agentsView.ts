@@ -263,10 +263,10 @@ function humanizeAgentForExport(agent: GeneratedAgent, shadowByIso3?: ReadonlyMa
     },
     everydayLife: {
       thirdPlaces: agent.everydayLife.thirdPlaces.map(toTitleCaseWords),
-      commuteModes: agent.everydayLife.commuteModes.map(toTitleCaseWords),
-      weeklyAnchors: agent.everydayLife.weeklyAnchors.map(toTitleCaseWords),
+      commuteMode: toTitleCaseWords(agent.everydayLife.commuteMode),
+      weeklyAnchor: toTitleCaseWords(agent.everydayLife.weeklyAnchor),
       pettyHabits: agent.everydayLife.pettyHabits.map(toTitleCaseWords),
-      caregivingObligations: agent.everydayLife.caregivingObligations.map(toTitleCaseWords),
+      caregivingObligation: toTitleCaseWords(agent.everydayLife.caregivingObligation),
     },
     memoryTrauma: {
       memoryTags: agent.memoryTrauma.memoryTags.map(toTitleCaseWords),
@@ -780,15 +780,15 @@ function renderAgent(
             <details class="agent-card agent-section" data-agents-details="profile:lifestyle:everydayLife" ${isDetailsOpen('profile:lifestyle:everydayLife', false) ? 'open' : ''}>
               <summary class="agent-section-summary">
                 <span class="agent-section-title">Everyday life</span>
-                <span class="agent-section-hint">${escapeHtml(everydaySummary.commuteModes)}</span>
+                <span class="agent-section-hint">${escapeHtml(everydaySummary.commuteMode)}</span>
               </summary>
               <div class="agent-section-body">
                 <div class="agent-kv">
                   <div class="kv-row"><span class="kv-k">Third places</span><span class="kv-v">${escapeHtml(everydaySummary.thirdPlaces)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Commute</span><span class="kv-v">${escapeHtml(everydaySummary.commuteModes)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Weekly anchors</span><span class="kv-v">${escapeHtml(everydaySummary.weeklyAnchors)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Commute</span><span class="kv-v">${escapeHtml(everydaySummary.commuteMode)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Weekly anchor</span><span class="kv-v">${escapeHtml(everydaySummary.weeklyAnchor)}</span></div>
                   <div class="kv-row"><span class="kv-k">Petty habits</span><span class="kv-v">${escapeHtml(everydaySummary.pettyHabits)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Caregiving</span><span class="kv-v">${escapeHtml(everydaySummary.caregivingObligations)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Caregiving</span><span class="kv-v">${escapeHtml(everydaySummary.caregivingObligation)}</span></div>
                 </div>
               </div>
             </details>

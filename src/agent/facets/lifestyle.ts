@@ -957,7 +957,6 @@ function computeMemoryTrauma(
     latents,
     conflictEnv01k,
     stateViolenceEnv01k,
-    traits,
     trace,
   } = ctx;
 
