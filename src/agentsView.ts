@@ -1,5 +1,6 @@
 import { formatBand5, formatFixed01k, generateAgent, randomSeedString, type AgentPriorsV1, type AgentVocabV1, type Band5, type GeneratedAgent, type TierBand } from './agent';
 import { generateNarrative, pronounSetToMode } from './agentNarration';
+import { buildHealthSummary } from './agent/healthSummary';
 
 type RosterItem = {
   id: string;
@@ -254,6 +255,10 @@ function humanizeAgentForExport(agent: GeneratedAgent, shadowByIso3?: ReadonlyMa
     health: {
       chronicConditionTags: agent.health.chronicConditionTags.map(toTitleCaseWords),
       allergyTags: agent.health.allergyTags.map(toTitleCaseWords),
+      injuryHistoryTags: agent.health.injuryHistoryTags.map(toTitleCaseWords),
+      diseaseTags: agent.health.diseaseTags.map(toTitleCaseWords),
+      fitnessBand: toTitleCaseWords(agent.health.fitnessBand),
+      treatmentTags: agent.health.treatmentTags.map(toTitleCaseWords),
     },
     covers: {
       coverAptitudeTags: agent.covers.coverAptitudeTags.map(toTitleCaseWords),
@@ -425,6 +430,7 @@ function renderAgent(
     narrativeMode,
   );
   const narrative = narrativeResult.html;
+  const healthSummary = buildHealthSummary(agent.health, toTitleCaseWords);
 
   const platformDiet = Object.entries(agent.preferences.media.platformDiet)
     .map(([k, v]) => `<li><span class="kv-k">${escapeHtml(toTitleCaseWords(k))}</span><span class="kv-v">${escapeHtml(formatFixed01k(v))}</span></li>`)
@@ -846,6 +852,10 @@ function renderAgent(
                   <div class="kv-row"><span class="kv-k">Red lines</span><span class="kv-v">${escapeHtml(agent.identity.redLines.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                   <div class="kv-row"><span class="kv-k">Chronic</span><span class="kv-v">${escapeHtml(agent.health.chronicConditionTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                   <div class="kv-row"><span class="kv-k">Allergies</span><span class="kv-v">${escapeHtml(agent.health.allergyTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Injuries</span><span class="kv-v">${escapeHtml(healthSummary.injuries)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Diseases</span><span class="kv-v">${escapeHtml(healthSummary.diseases)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Fitness</span><span class="kv-v">${escapeHtml(healthSummary.fitness)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Treatments</span><span class="kv-v">${escapeHtml(healthSummary.treatments)}</span></div>
                   <div class="kv-row"><span class="kv-k">Cover aptitudes</span><span class="kv-v">${escapeHtml(agent.covers.coverAptitudeTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                 </div>
               </div>
