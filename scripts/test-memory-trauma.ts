@@ -105,6 +105,74 @@ function run(): void {
   assertAtLeast(lifestyle.memoryTrauma.responsePatterns.length, 1, 'memoryTrauma.responsePatterns length');
   assertAtLeast(lifestyle.memoryTrauma.traumaTags.length, 1, 'memoryTrauma.traumaTags length');
 
+  console.log('Checking low-conflict allows zero trauma tags...');
+  const lowBase = {
+    vocab,
+    age: 30,
+    tierBand: 'middle' as const,
+    homeCountryIso3: 'USA',
+    homeCulture: 'western',
+    cohortBucketStartYear: 1990,
+    latents: {
+      cosmopolitanism: 500,
+      publicness: 500,
+      opsecDiscipline: 500,
+      institutionalEmbeddedness: 500,
+      riskAppetite: 400,
+      stressReactivity: 350,
+      impulseControl: 600,
+      techFluency: 500,
+      socialBattery: 500,
+      aestheticExpressiveness: 500,
+      frugality: 500,
+      curiosityBandwidth: 500,
+      adaptability: 500,
+      planningHorizon: 500,
+      principledness: 500,
+      physicalConditioning: 500,
+    },
+    cosmo01: 0.4,
+    inst01: 0.5,
+    risk01: 0.3,
+    opsec01: 0.5,
+    public01: 0.4,
+    traits: {
+      riskTolerance: 500,
+      conscientiousness: 500,
+      noveltySeeking: 500,
+      agreeableness: 500,
+      authoritarianism: 500,
+    },
+    aptitudes: {
+      endurance: 500,
+      attentionControl: 500,
+    },
+    roleSeedTags: ['analyst'],
+    careerTrackTag: 'civil-service',
+    restrictions: [],
+    publicVisibility: 400,
+    paperTrail: 500,
+    attentionResilience: 600,
+    doomscrollingRisk: 400,
+    securityPressure01k: 200,
+    conflictEnv01k: 100,
+    stateViolenceEnv01k: 100,
+    viceTendency: 0.2,
+    travelScore: 300,
+  };
+
+  let sawZeroTrauma = false;
+  for (let i = 0; i < 25; i += 1) {
+    const low = computeLifestyle({ ...lowBase, seed: `memory-trauma-low-${i}` });
+    if (low.memoryTrauma.traumaTags.length === 0) {
+      sawZeroTrauma = true;
+      break;
+    }
+  }
+  if (!sawZeroTrauma) {
+    throw new Error('Expected at least one low-conflict seed to yield zero trauma tags.');
+  }
+
   console.log('Memory & trauma test passed.');
 }
 
