@@ -1,0 +1,123 @@
+#!/usr/bin/env node
+/**
+ * Personality + Thoughts/Emotions Vocab Test Harness
+ *
+ * Verifies vocab expansions for personality, affect, and self-concept,
+ * and checks stress-tell forcing behavior under high-stress latents.
+ */
+
+import { readFileSync } from 'fs';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { computePsychology } from '../src/agent/facets/psychology';
+import type { AgentVocabV1, Latents } from '../src/agent/types';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+function loadJsonFile<T>(relativePath: string): T {
+  const fullPath = resolve(__dirname, '..', relativePath);
+  const content = readFileSync(fullPath, 'utf-8');
+  return JSON.parse(content) as T;
+}
+
+function assertIncludes(pool: string[] | undefined, value: string, label: string): void {
+  if (!pool || !pool.includes(value)) {
+    throw new Error(`Expected ${label} to include "${value}".`);
+  }
+}
+
+function run(): void {
+  console.log('Loading vocab...');
+  const vocab = loadJsonFile<AgentVocabV1>('public/agent-vocab.v1.json');
+
+  console.log('Checking personality vocab...');
+  assertIncludes(vocab.personality?.conflictStyles, 'assertive', 'personality.conflictStyles');
+  assertIncludes(vocab.personality?.epistemicStyles, 'systems-thinking', 'personality.epistemicStyles');
+  assertIncludes(vocab.personality?.socialEnergyTags, 'social-butterfly', 'personality.socialEnergyTags');
+  assertIncludes(vocab.personality?.riskPostures, 'reckless', 'personality.riskPostures');
+  assertIncludes(vocab.personality?.emotionalRegulation, 'even-tempered', 'personality.emotionalRegulation');
+  assertIncludes(vocab.personality?.communicationStyles, 'diplomatic', 'personality.communicationStyles');
+  assertIncludes(vocab.personality?.trustFormation, 'guarded', 'personality.trustFormation');
+  assertIncludes(vocab.personality?.humorStyles, 'jovial', 'personality.humorStyles');
+
+  console.log('Checking affect/self-concept vocab...');
+  assertIncludes(vocab.affect?.baselineAffects, 'numb', 'affect.baselineAffects');
+  assertIncludes(vocab.affect?.regulationStyles, 'meditates', 'affect.regulationStyles');
+  assertIncludes(vocab.affect?.stressTells, 'jaw-clench', 'affect.stressTells');
+  assertIncludes(vocab.affect?.repairStyles, 'gives-space', 'affect.repairStyles');
+  assertIncludes(vocab.selfConcept?.selfStories, 'avenger', 'selfConcept.selfStories');
+  assertIncludes(vocab.selfConcept?.socialMasks, 'professional', 'selfConcept.socialMasks');
+
+  console.log('Checking stress-tell forcing...');
+  const latents: Latents = {
+    cosmopolitanism: 500,
+    publicness: 500,
+    opsecDiscipline: 900,
+    institutionalEmbeddedness: 500,
+    riskAppetite: 500,
+    stressReactivity: 900,
+    impulseControl: 200,
+    techFluency: 500,
+    socialBattery: 500,
+    aestheticExpressiveness: 500,
+    frugality: 500,
+    curiosityBandwidth: 500,
+    adaptability: 500,
+    planningHorizon: 500,
+    principledness: 500,
+    physicalConditioning: 500,
+  };
+
+  const psych = computePsychology({
+    seed: 'stress-tells-001',
+    vocab: {
+      ...vocab,
+      affect: {
+        ...vocab.affect,
+        stressTells: ['insomnia', 'goes-quiet', 'snaps'],
+        baselineAffects: vocab.affect?.baselineAffects ?? ['warm'],
+        regulationStyles: vocab.affect?.regulationStyles ?? ['suppresses'],
+        repairStyles: vocab.affect?.repairStyles ?? ['apologizes-fast'],
+      },
+    },
+    latents,
+    aptitudes: {
+      strength: 500,
+      endurance: 500,
+      agility: 500,
+      reflexes: 500,
+      handEyeCoordination: 500,
+      cognitiveSpeed: 500,
+      attentionControl: 700,
+      workingMemory: 500,
+      riskCalibration: 500,
+      charisma: 500,
+      empathy: 500,
+      assertiveness: 500,
+      deceptionAptitude: 500,
+    },
+    traits: {
+      riskTolerance: 500,
+      conscientiousness: 500,
+      noveltySeeking: 500,
+      agreeableness: 500,
+      authoritarianism: 500,
+    },
+    tierBand: 'middle',
+    roleSeedTags: ['analyst'],
+    careerTrackTag: 'civil-service',
+    heightBand: 'average',
+  });
+
+  const tells = psych.affect.stressTells;
+  for (const required of ['insomnia', 'goes-quiet', 'snaps']) {
+    if (!tells.includes(required as typeof tells[number])) {
+      throw new Error(`Expected stressTells to include ${required}.`);
+    }
+  }
+
+  console.log('Personality vocab test passed.');
+}
+
+run();

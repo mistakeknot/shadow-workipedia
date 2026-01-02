@@ -30,6 +30,7 @@ import {
   clampFixed01k,
   clampInt,
   weightedPick,
+  weightedPickKUnique,
   uniqueStrings,
   pickKHybrid,
   traceSet,
@@ -459,6 +460,10 @@ function computeAffect(
     if (b === 'cheerful' && latents.socialBattery > 650) w += 2;
     if (b === 'mercurial' && latents.adaptability > 600 && latents.impulseControl < 500) w += 2;
     if (b === 'melancholic' && latents.socialBattery < 400) w += 1.5;
+    if (b === 'numb' && latents.opsecDiscipline > 700 && latents.stressReactivity > 600) w += 2;
+    if (b === 'irritable' && latents.stressReactivity > 650) w += 2;
+    if (b === 'hopeful' && latents.principledness > 650) w += 2;
+    if (b === 'restless' && latents.impulseControl < 450) w += 2;
     return { item: b as BaselineAffect, weight: w };
   });
   const baseline = weightedPick(affectRng, baselineWeights) as BaselineAffect;
@@ -476,17 +481,47 @@ function computeAffect(
     if (r === 'externalizes' && latents.impulseControl < 400) w += 2;
     if (r === 'reframes' && latents.adaptability > 600) w += 2;
     if (r === 'avoids' && latents.riskAppetite < 400) w += 1.5;
+    if (r === 'meditates' && latents.impulseControl > 600) w += 2;
+    if (r === 'exercises' && latents.physicalConditioning > 600) w += 2;
+    if (r === 'isolates' && latents.socialBattery < 400) w += 2;
+    if (r === 'distracts' && latents.impulseControl < 400) w += 2;
     return { item: r as RegulationStyle, weight: w };
   });
   const regulationStyle = weightedPick(affectRng, regWeights) as RegulationStyle;
 
   // Stress tells - 1-3 observable stress indicators
-  const tellPool = vocab.affect?.stressTells ?? [
+  const tellPool = uniqueStrings(vocab.affect?.stressTells ?? [
     'overexplains', 'goes-quiet', 'snaps', 'jokes-deflect', 'micromanages',
     'withdraws', 'overeats', 'insomnia', 'hyperactive', 'cries-easily',
-  ];
+  ]);
+  const forcedTells: StressTell[] = [];
+  const addForcedTell = (tag: StressTell) => {
+    if (!tellPool.includes(tag)) return;
+    if (forcedTells.includes(tag)) return;
+    forcedTells.push(tag);
+  };
+  if (latents.stressReactivity > 700) addForcedTell('insomnia');
+  if (latents.opsecDiscipline > 700) addForcedTell('goes-quiet');
+  if (latents.impulseControl < 350) addForcedTell('snaps');
+
+  const tellWeights = tellPool.map(t => {
+    let w = 1;
+    if (t === 'jaw-clench' && latents.opsecDiscipline > 600) w += 1.5;
+    if (t === 'pacing' && latents.stressReactivity > 600) w += 1.5;
+    if (t === 'fidgeting' && latents.impulseControl < 450) w += 1.5;
+    if (t === 'tunnel-vision' && latents.stressReactivity > 700) w += 1.5;
+    if (t === 'cold-sweat' && latents.stressReactivity > 650) w += 1.5;
+    return { item: t as StressTell, weight: w };
+  });
+
   const tellCount = clampInt(1 + affectRng.int(0, 2), 1, 3);
-  const stressTells = affectRng.pickK(tellPool, tellCount) as StressTell[];
+  const finalCount = Math.max(tellCount, forcedTells.length);
+  const remaining = tellWeights.filter(t => !forcedTells.includes(t.item));
+  const remainingCount = Math.max(0, Math.min(remaining.length, finalCount - forcedTells.length));
+  const stressTells = uniqueStrings([
+    ...forcedTells,
+    ...weightedPickKUnique(affectRng, remaining, remainingCount),
+  ]).slice(0, finalCount) as StressTell[];
 
   // Repair style - how they fix relationships after conflict
   const repairPool = vocab.affect?.repairStyles ?? [
@@ -500,6 +535,9 @@ function computeAffect(
     if (r === 'explains-endlessly' && latents.planningHorizon > 600) w += 1.5;
     if (r === 'pretends-nothing-happened' && latents.adaptability > 600) w += 1.5;
     if (r === 'seeks-mediation' && latents.institutionalEmbeddedness > 600) w += 2;
+    if (r === 'gives-space' && latents.opsecDiscipline > 600) w += 1.5;
+    if (r === 'humor' && latents.socialBattery > 600) w += 1.5;
+    if (r === 'acts-of-service' && latents.institutionalEmbeddedness > 600) w += 1.5;
     return { item: r as RepairStyle, weight: w };
   });
   const repairStyle = weightedPick(affectRng, repairWeights) as RepairStyle;

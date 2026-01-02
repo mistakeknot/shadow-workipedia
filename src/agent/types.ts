@@ -541,24 +541,24 @@ export type FunctionalSpecialization =
   | 'general-admin' | 'logistics-ops' | 'communications' | 'it-security';
 
 // Personality & cognition (Big Five-lite + extras)
-export type ConflictStyle = 'avoidant' | 'accommodating' | 'competing' | 'compromising' | 'collaborative';
-export type EpistemicStyle = 'data-driven' | 'narrative-driven' | 'authority-driven' | 'intuitive' | 'consensus-seeking';
-export type SocialEnergy = 'introvert' | 'ambivert' | 'extrovert';
-export type RiskPosture = 'risk-averse' | 'risk-neutral' | 'risk-seeking' | 'context-dependent';
+export type ConflictStyle = 'avoidant' | 'accommodating' | 'competing' | 'compromising' | 'collaborative' | 'assertive' | 'yielding';
+export type EpistemicStyle = 'data-driven' | 'narrative-driven' | 'authority-driven' | 'intuitive' | 'consensus-seeking' | 'skeptical' | 'systems-thinking';
+export type SocialEnergy = 'introvert' | 'ambivert' | 'extrovert' | 'loner' | 'social-butterfly';
+export type RiskPosture = 'risk-averse' | 'risk-neutral' | 'risk-seeking' | 'context-dependent' | 'reckless' | 'calculated';
 export type AttachmentStyle = 'secure' | 'anxious-preoccupied' | 'dismissive-avoidant' | 'fearful-avoidant';
-export type EmotionalRegulation = 'stoic' | 'expressive' | 'volatile' | 'suppressed' | 'compartmentalized';
-export type StressResponse = 'fight' | 'flight' | 'freeze' | 'fawn' | 'analytical-detachment';
-export type DecisionMaking = 'deliberative' | 'intuitive-fast' | 'consensus-seeking' | 'authoritative' | 'paralysis-prone';
-export type MotivationalDriver = 'achievement' | 'affiliation' | 'power' | 'security' | 'autonomy' | 'purpose' | 'recognition' | 'mastery';
-export type CommunicationStyle = 'direct' | 'indirect' | 'formal' | 'informal' | 'socratic' | 'storytelling';
-export type TrustFormation = 'fast-trusting' | 'slow-trusting' | 'trust-but-verify' | 'paranoid' | 'conditional';
+export type EmotionalRegulation = 'stoic' | 'expressive' | 'volatile' | 'suppressed' | 'compartmentalized' | 'even-tempered' | 'hot-tempered';
+export type StressResponse = 'fight' | 'flight' | 'freeze' | 'fawn' | 'analytical-detachment' | 'panic';
+export type DecisionMaking = 'deliberative' | 'intuitive-fast' | 'consensus-seeking' | 'authoritative' | 'paralysis-prone' | 'decisive';
+export type MotivationalDriver = 'achievement' | 'affiliation' | 'power' | 'security' | 'autonomy' | 'purpose' | 'recognition' | 'mastery' | 'justice' | 'belonging';
+export type CommunicationStyle = 'direct' | 'indirect' | 'formal' | 'informal' | 'socratic' | 'storytelling' | 'blunt' | 'diplomatic';
+export type TrustFormation = 'fast-trusting' | 'slow-trusting' | 'trust-but-verify' | 'paranoid' | 'conditional' | 'guarded';
 export type Adaptability = 'rigid' | 'flexible' | 'chameleon' | 'selectively-adaptive';
 export type AmbiguityTolerance = 'needs-clarity' | 'comfortable-ambiguous' | 'thrives-in-chaos' | 'context-dependent';
 export type FeedbackOrientation = 'feedback-seeking' | 'feedback-averse' | 'selective-listener' | 'defensive';
 export type TimeOrientation = 'past-focused' | 'present-focused' | 'future-focused' | 'balanced';
 export type MoralReasoning = 'deontological' | 'consequentialist' | 'virtue-based' | 'care-based' | 'pragmatic';
-export type HumorStyle = 'dry-wit' | 'self-deprecating' | 'sarcastic' | 'absurdist' | 'observational' | 'dark' | 'none';
-export type LearningStyle = 'visual' | 'auditory' | 'kinesthetic' | 'reading-writing' | 'multimodal';
+export type HumorStyle = 'dry-wit' | 'self-deprecating' | 'sarcastic' | 'absurdist' | 'observational' | 'dark' | 'none' | 'jovial' | 'deadpan';
+export type LearningStyle = 'visual' | 'auditory' | 'kinesthetic' | 'reading-writing' | 'multimodal' | 'experiential';
 
 // Work products & communication style (analysts)
 export type WritingStyle = 'terse' | 'verbose' | 'structured' | 'freeform' | 'hedged' | 'assertive';
@@ -671,14 +671,14 @@ export type CommunityStatus = 'pillar' | 'respected' | 'regular' | 'newcomer' | 
 export type ReputationTag = 'reliable' | 'brilliant' | 'ruthless' | 'corrupt' | 'principled' | 'reckless' | 'discreet' | 'loudmouth' | 'fixer' | 'by-the-book' | 'unpredictable' | 'burnt-out' | 'rising-star' | 'has-been' | 'unknown';
 
 // Emotional regulation (affect)
-export type BaselineAffect = 'warm' | 'flat' | 'intense' | 'guarded' | 'mercurial' | 'melancholic' | 'anxious' | 'cheerful';
-export type RegulationStyle = 'ruminates' | 'suppresses' | 'externalizes' | 'reframes' | 'compartmentalizes' | 'avoids' | 'seeks-support';
-export type StressTell = 'overexplains' | 'goes-quiet' | 'snaps' | 'jokes-deflect' | 'micromanages' | 'withdraws' | 'overeats' | 'insomnia' | 'hyperactive' | 'cries-easily';
-export type RepairStyle = 'apologizes-fast' | 'stonewalls' | 'buys-gifts' | 'explains-endlessly' | 'pretends-nothing-happened' | 'seeks-mediation' | 'writes-letters';
+export type BaselineAffect = 'warm' | 'flat' | 'intense' | 'guarded' | 'mercurial' | 'melancholic' | 'anxious' | 'cheerful' | 'numb' | 'irritable' | 'hopeful' | 'restless';
+export type RegulationStyle = 'ruminates' | 'suppresses' | 'externalizes' | 'reframes' | 'compartmentalizes' | 'avoids' | 'seeks-support' | 'meditates' | 'exercises' | 'isolates' | 'distracts';
+export type StressTell = 'overexplains' | 'goes-quiet' | 'snaps' | 'jokes-deflect' | 'micromanages' | 'withdraws' | 'overeats' | 'insomnia' | 'hyperactive' | 'cries-easily' | 'jaw-clench' | 'pacing' | 'fidgeting' | 'tunnel-vision' | 'cold-sweat';
+export type RepairStyle = 'apologizes-fast' | 'stonewalls' | 'buys-gifts' | 'explains-endlessly' | 'pretends-nothing-happened' | 'seeks-mediation' | 'writes-letters' | 'gives-space' | 'humor' | 'acts-of-service';
 
 // Self-concept and masking
-export type SelfStory = 'self-made' | 'wronged' | 'caretaker' | 'chosen' | 'survivor' | 'reformer' | 'outsider' | 'loyalist' | 'pragmatist' | 'idealist';
-export type SocialMask = 'bureaucrat' | 'charmer' | 'patriot' | 'cynic' | 'true-believer' | 'everyman' | 'intellectual' | 'tough-guy' | 'helper' | 'rebel';
+export type SelfStory = 'self-made' | 'wronged' | 'caretaker' | 'chosen' | 'survivor' | 'reformer' | 'outsider' | 'loyalist' | 'pragmatist' | 'idealist' | 'avenger' | 'guardian' | 'skeptic' | 'seeker';
+export type SocialMask = 'bureaucrat' | 'charmer' | 'patriot' | 'cynic' | 'true-believer' | 'everyman' | 'intellectual' | 'tough-guy' | 'helper' | 'rebel' | 'professional' | 'joker' | 'stoic' | 'caretaker' | 'martyr';
 
 // Life skills
 export type CompetenceBand = 'incompetent' | 'struggles' | 'adequate' | 'competent' | 'expert';

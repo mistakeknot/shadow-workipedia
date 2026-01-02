@@ -1538,7 +1538,17 @@
       "needed_silence",
       "needed_company",
       "needed_control",
-      "needed_meaning"
+      "needed_meaning",
+      "safehouse_cramped",
+      "intel_wrong_again",
+      "getting_too_old",
+      "moral_doubt",
+      "trusting_partner",
+      "need_a_drink",
+      "escape_fantasy",
+      "revenge_plan",
+      "aching_old_injury",
+      "too_long_since_sleep"
     ],
     "breakTypes": [
       "withdrawal",
@@ -8566,6 +8576,239 @@
       "disabled-family",
       "pet-care",
       "none"
+    ]
+  },
+  "personality": {
+    "conflictStyles": [
+      "avoidant",
+      "accommodating",
+      "competing",
+      "compromising",
+      "collaborative",
+      "assertive",
+      "yielding"
+    ],
+    "epistemicStyles": [
+      "data-driven",
+      "narrative-driven",
+      "authority-driven",
+      "intuitive",
+      "consensus-seeking",
+      "skeptical",
+      "systems-thinking"
+    ],
+    "socialEnergyTags": [
+      "introvert",
+      "ambivert",
+      "extrovert",
+      "loner",
+      "social-butterfly"
+    ],
+    "riskPostures": [
+      "risk-averse",
+      "risk-neutral",
+      "risk-seeking",
+      "context-dependent",
+      "reckless",
+      "calculated"
+    ],
+    "emotionalRegulation": [
+      "stoic",
+      "expressive",
+      "volatile",
+      "suppressed",
+      "compartmentalized",
+      "even-tempered",
+      "hot-tempered"
+    ],
+    "stressResponses": [
+      "fight",
+      "flight",
+      "freeze",
+      "fawn",
+      "analytical-detachment",
+      "panic"
+    ],
+    "decisionMaking": [
+      "deliberative",
+      "intuitive-fast",
+      "consensus-seeking",
+      "authoritative",
+      "paralysis-prone",
+      "decisive"
+    ],
+    "motivationalDrivers": [
+      "achievement",
+      "affiliation",
+      "power",
+      "security",
+      "autonomy",
+      "purpose",
+      "recognition",
+      "mastery",
+      "justice",
+      "belonging"
+    ],
+    "communicationStyles": [
+      "direct",
+      "indirect",
+      "formal",
+      "informal",
+      "socratic",
+      "storytelling",
+      "blunt",
+      "diplomatic"
+    ],
+    "trustFormation": [
+      "fast-trusting",
+      "slow-trusting",
+      "trust-but-verify",
+      "paranoid",
+      "conditional",
+      "guarded"
+    ],
+    "adaptability": [
+      "rigid",
+      "flexible",
+      "chameleon",
+      "selectively-adaptive"
+    ],
+    "ambiguityTolerance": [
+      "needs-clarity",
+      "comfortable-ambiguous",
+      "thrives-in-chaos",
+      "context-dependent"
+    ],
+    "feedbackOrientation": [
+      "feedback-seeking",
+      "feedback-averse",
+      "selective-listener",
+      "defensive"
+    ],
+    "timeOrientation": [
+      "past-focused",
+      "present-focused",
+      "future-focused",
+      "balanced"
+    ],
+    "moralReasoning": [
+      "deontological",
+      "consequentialist",
+      "virtue-based",
+      "care-based",
+      "pragmatic"
+    ],
+    "humorStyles": [
+      "dry-wit",
+      "self-deprecating",
+      "sarcastic",
+      "absurdist",
+      "observational",
+      "dark",
+      "none",
+      "jovial",
+      "deadpan"
+    ],
+    "learningStyles": [
+      "visual",
+      "auditory",
+      "kinesthetic",
+      "reading-writing",
+      "multimodal",
+      "experiential"
+    ]
+  },
+  "affect": {
+    "baselineAffects": [
+      "warm",
+      "flat",
+      "intense",
+      "guarded",
+      "mercurial",
+      "melancholic",
+      "anxious",
+      "cheerful",
+      "numb",
+      "irritable",
+      "hopeful",
+      "restless"
+    ],
+    "regulationStyles": [
+      "ruminates",
+      "suppresses",
+      "externalizes",
+      "reframes",
+      "compartmentalizes",
+      "avoids",
+      "seeks-support",
+      "meditates",
+      "exercises",
+      "isolates",
+      "distracts"
+    ],
+    "stressTells": [
+      "overexplains",
+      "goes-quiet",
+      "snaps",
+      "jokes-deflect",
+      "micromanages",
+      "withdraws",
+      "overeats",
+      "insomnia",
+      "hyperactive",
+      "cries-easily",
+      "jaw-clench",
+      "pacing",
+      "fidgeting",
+      "tunnel-vision",
+      "cold-sweat"
+    ],
+    "repairStyles": [
+      "apologizes-fast",
+      "stonewalls",
+      "buys-gifts",
+      "explains-endlessly",
+      "pretends-nothing-happened",
+      "seeks-mediation",
+      "writes-letters",
+      "gives-space",
+      "humor",
+      "acts-of-service"
+    ]
+  },
+  "selfConcept": {
+    "selfStories": [
+      "self-made",
+      "wronged",
+      "caretaker",
+      "chosen",
+      "survivor",
+      "reformer",
+      "outsider",
+      "loyalist",
+      "pragmatist",
+      "idealist",
+      "avenger",
+      "guardian",
+      "skeptic",
+      "seeker"
+    ],
+    "socialMasks": [
+      "bureaucrat",
+      "charmer",
+      "patriot",
+      "cynic",
+      "true-believer",
+      "everyman",
+      "intellectual",
+      "tough-guy",
+      "helper",
+      "rebel",
+      "professional",
+      "joker",
+      "stoic",
+      "caretaker",
+      "martyr"
     ]
   }
 }

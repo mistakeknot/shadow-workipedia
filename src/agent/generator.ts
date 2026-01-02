@@ -1484,6 +1484,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (c === 'competing' && capabilitiesResult.aptitudes.assertiveness > 600) w = 3;
     if (c === 'collaborative' && capabilitiesResult.traits.agreeableness > 500 && capabilitiesResult.aptitudes.empathy > 500) w = 3;
     if (c === 'compromising') w = 2;
+    if (c === 'assertive' && capabilitiesResult.aptitudes.assertiveness > 650) w = 3;
+    if (c === 'yielding' && capabilitiesResult.traits.agreeableness > 700) w = 3;
 
     // Correlate #12: Authoritarianism ↔ Conflict Style
     // High authoritarianism → competing (dominance, hierarchical power)
@@ -1510,6 +1512,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (e === 'authority-driven' && capabilitiesResult.traits.authoritarianism > 600) w = 3;
     if (e === 'intuitive' && roleSeedTags.includes('operative')) w = 3;
     if (e === 'consensus-seeking' && roleSeedTags.includes('organizer')) w = 4;
+    if (e === 'skeptical' && latents.opsecDiscipline > 600) w = 3;
+    if (e === 'systems-thinking' && capabilitiesResult.aptitudes.workingMemory > 600) w = 3;
     return { item: e as EpistemicStyle, weight: w };
   });
   const epistemicStyle = weightedPick(persRng, epistemicWeights) as EpistemicStyle;
@@ -1523,6 +1527,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (s === 'introvert') w = Math.max(1, 10 - socialBattery01k / 100); // Higher weight when socialBattery low
     if (s === 'extrovert') w = Math.max(1, socialBattery01k / 100);       // Higher weight when socialBattery high
     if (s === 'ambivert') w = 5; // Base weight for middle option
+    if (s === 'loner') w = Math.max(1, 9 - socialBattery01k / 110);
+    if (s === 'social-butterfly') w = Math.max(1, socialBattery01k / 90);
     // Secondary influence: role tags (additive, not replacement)
     if (s === 'introvert' && roleSeedTags.includes('analyst')) w += 2;
     if (s === 'extrovert' && (roleSeedTags.includes('diplomat') || roleSeedTags.includes('media'))) w += 2;
@@ -1540,6 +1546,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (r === 'risk-seeking') w = Math.max(1, riskAppetite01k / 100);       // Higher weight when riskAppetite high
     if (r === 'risk-neutral') w = 4;  // Base weight for neutral
     if (r === 'context-dependent') w = 3; // Slightly less than neutral
+    if (r === 'reckless' && riskAppetite01k > 700 && latents.impulseControl < 450) w += 4;
+    if (r === 'calculated' && capabilitiesResult.traits.conscientiousness > 600) w += 3;
     // Secondary influences: traits and roles (additive)
     if (r === 'risk-averse' && capabilitiesResult.traits.conscientiousness > 600) w += 2;
     if (r === 'risk-seeking' && roleSeedTags.includes('operative') && capabilitiesResult.traits.riskTolerance > 600) w += 3;
@@ -1560,6 +1568,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (e === 'compartmentalized' && roleSeedTags.includes('analyst')) w = 4;
     if (e === 'volatile' && latents.stressReactivity > 600) w = 4;
     if (e === 'suppressed' && socialEnergy === 'introvert') w = 3;
+    if (e === 'even-tempered' && latents.stressReactivity < 450) w = 4;
+    if (e === 'hot-tempered' && latents.stressReactivity > 700 && latents.impulseControl < 500) w = 4;
     return { item: e as EmotionalRegulation, weight: w };
   });
   const emotionalRegulation = weightedPick(persRng, emotionalWeights) as EmotionalRegulation;
@@ -1573,6 +1583,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (s === 'fawn' && conflictStyle === 'accommodating') w = 4;
     if (s === 'analytical-detachment' && roleSeedTags.includes('analyst')) w = 5;
     if (s === 'freeze' && capabilitiesResult.traits.conscientiousness < 400) w = 3;
+    if (s === 'panic' && latents.stressReactivity > 750 && latents.impulseControl < 450) w = 4;
     return { item: s as StressResponse, weight: w };
   });
   const stressResponse = weightedPick(persRng, stressWeights) as StressResponse;
@@ -1586,6 +1597,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (d === 'consensus-seeking' && epistemicStyle === 'consensus-seeking') w = 5;
     if (d === 'authoritative' && capabilitiesResult.traits.authoritarianism > 600) w = 4;
     if (d === 'paralysis-prone' && capabilitiesResult.traits.conscientiousness > 700 && riskPosture === 'risk-averse') w = 3;
+    if (d === 'decisive' && capabilitiesResult.aptitudes.assertiveness > 650) w = 4;
     return { item: d as DecisionMaking, weight: w };
   });
   const decisionMaking = weightedPick(persRng, decisionWeights) as DecisionMaking;
@@ -1600,6 +1612,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (m === 'security' && riskPosture === 'risk-averse') w = 4;
     if (m === 'autonomy' && socialEnergy === 'introvert') w = 3;
     if (m === 'mastery' && capabilitiesResult.traits.conscientiousness > 600) w = 3;
+    if (m === 'justice' && latents.principledness > 650) w = 4;
+    if (m === 'belonging' && latents.socialBattery > 600) w = 4;
     return { item: m as MotivationalDriver, weight: w };
   });
   const numMotivations = 2 + (persRng.next01() > 0.6 ? 1 : 0);
@@ -1615,6 +1629,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (c === 'informal' && socialEnergy === 'extrovert') w = 3;
     if (c === 'socratic' && epistemicStyle === 'data-driven') w = 3;
     if (c === 'storytelling' && epistemicStyle === 'narrative-driven') w = 5;
+    if (c === 'blunt' && conflictStyle === 'competing') w = 4;
+    if (c === 'diplomatic' && roleSeedTags.includes('diplomat')) w = 5;
     return { item: c as CommunicationStyle, weight: w };
   });
   const communicationStyle = weightedPick(persRng, commWeights) as CommunicationStyle;
@@ -1628,6 +1644,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (t === 'fast-trusting' && capabilitiesResult.traits.agreeableness > 700) w = 4;
     if (t === 'slow-trusting' && socialEnergy === 'introvert') w = 3;
     if (t === 'conditional' && epistemicStyle === 'data-driven') w = 3;
+    if (t === 'guarded' && latents.opsecDiscipline > 650) w = 4;
     return { item: t as TrustFormation, weight: w };
   });
   const trustFormation = weightedPick(persRng, trustWeights) as TrustFormation;
@@ -1704,6 +1721,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (h === 'observational' && roleSeedTags.includes('analyst')) w = 4;
     if (h === 'absurdist' && latents.aestheticExpressiveness > 600) w = 3;
     if (h === 'none' && emotionalRegulation === 'stoic') w = 3;
+    if (h === 'jovial' && socialEnergy === 'extrovert') w = 4;
+    if (h === 'deadpan' && emotionalRegulation === 'stoic') w = 4;
     return { item: h as HumorStyle, weight: w };
   });
   const humorStyle = weightedPick(persRng, humorWeights) as HumorStyle;
@@ -1716,6 +1735,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (l === 'kinesthetic' && roleSeedTags.includes('operative')) w = 5;
     if (l === 'auditory' && epistemicStyle === 'narrative-driven') w = 4;
     if (l === 'visual' && latents.aestheticExpressiveness > 600) w = 4;
+    if (l === 'experiential' && roleSeedTags.includes('operative')) w = 4;
     if (l === 'multimodal') w = 4; // common
     return { item: l as LearningStyle, weight: w };
   });
