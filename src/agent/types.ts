@@ -1207,6 +1207,13 @@ export type GeneratedAgent = {
     falseBeliefs: string[];
     informationSources: string[];
     informationBarriers: string[];
+    depths01k: {
+      strengths: Fixed;
+      gaps: Fixed;
+      falseBeliefs: Fixed;
+      sources: Fixed;
+      barriers: Fixed;
+    };
   };
 
   // Life skills - competence outside the job

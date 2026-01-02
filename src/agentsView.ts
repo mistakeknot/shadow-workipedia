@@ -507,15 +507,20 @@ function renderAgent(
   const falseBeliefs = knowledgeIgnorance?.falseBeliefs ?? [];
   const informationSources = knowledgeIgnorance?.informationSources ?? [];
   const informationBarriers = knowledgeIgnorance?.informationBarriers ?? [];
+  const knowledgeDepths = knowledgeIgnorance?.depths01k;
   const renderKnowledgePills = (items: string[]): string => (
     `<span class="agent-pill-wrap">${items.slice(0, 4).map(item => `<span class="pill pill-muted">${escapeHtml(item)}</span>`).join('')}</span>`
   );
+  const labelWithDepth = (label: string, depth?: number): string => {
+    if (typeof depth !== 'number') return label;
+    return `${label} (${formatFixed01k(depth)})`;
+  };
   const cognitiveRows = ([
-    ['Strengths', knowledgeStrengths],
-    ['Gaps', knowledgeGaps],
-    ['False beliefs', falseBeliefs],
-    ['Sources', informationSources],
-    ['Barriers', informationBarriers],
+    [labelWithDepth('Strengths', knowledgeDepths?.strengths), knowledgeStrengths],
+    [labelWithDepth('Gaps', knowledgeDepths?.gaps), knowledgeGaps],
+    [labelWithDepth('False beliefs', knowledgeDepths?.falseBeliefs), falseBeliefs],
+    [labelWithDepth('Sources', knowledgeDepths?.sources), informationSources],
+    [labelWithDepth('Barriers', knowledgeDepths?.barriers), informationBarriers],
   ] as Array<[string, string[]]>)
     .filter(([, items]) => items.length)
     .map(([label, items]) => `

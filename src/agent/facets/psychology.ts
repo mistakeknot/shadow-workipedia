@@ -96,6 +96,13 @@ export type KnowledgeIgnoranceResult = {
   falseBeliefs: string[];
   informationSources: string[];
   informationBarriers: string[];
+  depths01k: {
+    strengths: Fixed;
+    gaps: Fixed;
+    falseBeliefs: Fixed;
+    sources: Fixed;
+    barriers: Fixed;
+  };
 };
 
 /** Output result from psychology computation */
@@ -624,6 +631,7 @@ function computeSelfConcept(
 function computeKnowledgeIgnorance(
   seed: string,
   vocab: AgentVocabV1,
+  latents: Latents,
   trace?: AgentGenerationTraceV1,
 ): KnowledgeIgnoranceResult {
   const rng = makeRng(facetSeed(seed, 'knowledge-ignorance'));
@@ -649,7 +657,51 @@ function computeKnowledgeIgnorance(
     barriersPool.length ? rng.pickK(barriersPool, rng.int(2, 4)) : [],
   );
 
-  const result = { knowledgeStrengths, knowledgeGaps, falseBeliefs, informationSources, informationBarriers };
+  const depths01k = {
+    strengths: clampFixed01k(
+      0.4 * latents.curiosityBandwidth +
+      0.25 * latents.adaptability +
+      0.2 * latents.techFluency +
+      0.15 * latents.planningHorizon +
+      rng.int(-120, 120),
+    ),
+    gaps: clampFixed01k(
+      0.45 * (1000 - latents.curiosityBandwidth) +
+      0.25 * (1000 - latents.techFluency) +
+      0.2 * (1000 - latents.cosmopolitanism) +
+      0.1 * (1000 - latents.adaptability) +
+      rng.int(-120, 120),
+    ),
+    falseBeliefs: clampFixed01k(
+      0.4 * (1000 - latents.curiosityBandwidth) +
+      0.3 * (1000 - latents.adaptability) +
+      0.3 * (1000 - latents.planningHorizon) +
+      rng.int(-120, 120),
+    ),
+    sources: clampFixed01k(
+      0.35 * latents.curiosityBandwidth +
+      0.3 * latents.institutionalEmbeddedness +
+      0.2 * latents.socialBattery +
+      0.15 * latents.opsecDiscipline +
+      rng.int(-120, 120),
+    ),
+    barriers: clampFixed01k(
+      0.45 * latents.opsecDiscipline +
+      0.3 * latents.institutionalEmbeddedness +
+      0.15 * (1000 - latents.publicness) +
+      0.1 * (1000 - latents.cosmopolitanism) +
+      rng.int(-120, 120),
+    ),
+  };
+
+  const result = {
+    knowledgeStrengths,
+    knowledgeGaps,
+    falseBeliefs,
+    informationSources,
+    informationBarriers,
+    depths01k,
+  };
   traceSet(trace, 'psych.knowledgeIgnorance', result, {
     method: 'pickK',
     dependsOn: { vocab: 'knowledgeIgnorance' },
@@ -709,7 +761,7 @@ export function computePsychology(ctx: PsychologyContext): PsychologyResult {
   const selfConcept = computeSelfConcept(seed, vocab, latents, tierBand, roleSeedTags, trace);
 
   // Knowledge & ignorance - what they know, miss, or misbelieve
-  const knowledgeIgnorance = computeKnowledgeIgnorance(seed, vocab, trace);
+  const knowledgeIgnorance = computeKnowledgeIgnorance(seed, vocab, latents, trace);
 
   return {
     ethics,

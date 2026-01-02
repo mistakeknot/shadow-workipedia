@@ -205,6 +205,18 @@ function run(): void {
     }
   }
 
+  const depth = (agentKnowledge as any).depths01k as
+    | { strengths?: number; gaps?: number; falseBeliefs?: number; sources?: number; barriers?: number }
+    | undefined;
+  if (!depth) {
+    throw new Error('Expected knowledgeIgnorance.depths01k to be generated.');
+  }
+  for (const [label, value] of Object.entries(depth)) {
+    if (typeof value !== 'number' || value < 0 || value > 1000) {
+      throw new Error(`Expected depth ${label} to be in range 0-1000.`);
+    }
+  }
+
   console.log('Personality vocab test passed.');
 }
 
