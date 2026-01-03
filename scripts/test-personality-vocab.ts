@@ -340,8 +340,11 @@ function run(): void {
   }
 
   const cognitiveSection = renderCognitiveSection('<div class="kv-row"></div>', false);
-  if (cognitiveSection.includes('agent-card-span12')) {
-    throw new Error('Expected cognitive section not to be wrapped in an outer card.');
+  if (!cognitiveSection.includes('cognitive-grid-wrap')) {
+    throw new Error('Expected cognitive section to include wrapper class.');
+  }
+  if (!cognitiveSection.includes('agent-card-span12')) {
+    throw new Error('Expected cognitive grid wrapper to span full width.');
   }
   if (cognitiveSection.includes('<h3>Cognitive</h3>')) {
     throw new Error('Expected cognitive section not to include a heading.');

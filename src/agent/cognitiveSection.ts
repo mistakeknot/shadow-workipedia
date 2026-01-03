@@ -11,7 +11,7 @@ export function renderCognitiveCard(title: string, depth: number | undefined, bo
 export function renderCognitiveSection(cardsHtml: string, showDetails: boolean): string {
   const detailsLabel = showDetails ? 'Hide details' : 'Show details';
   return `
-    <section class="cognitive-grid-wrap ${showDetails ? 'cognitive-details-on' : ''}">
+    <section class="cognitive-grid-wrap agent-card-span12 ${showDetails ? 'cognitive-details-on' : ''}">
       <div class="cognitive-grid-header">
         <button type="button" class="pill pill-muted agent-card-toggle ${showDetails ? 'active' : ''}" data-cognitive-details-toggle="1">${detailsLabel}</button>
       </div>
