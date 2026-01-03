@@ -10,7 +10,7 @@ import { readFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { computePsychology } from '../src/agent/facets/psychology';
-import { formatKnowledgeItemLine } from '../src/agent/knowledgeFormat';
+import { formatKnowledgeItemMeta } from '../src/agent/knowledgeFormat';
 import { renderCognitiveSection } from '../src/agent/cognitiveSection';
 import { renderCognitiveTabButton, renderCognitiveTabPanel } from '../src/agent/cognitiveTab';
 import { isAgentProfileTab } from '../src/agent/profileTabs';
@@ -274,7 +274,7 @@ function run(): void {
     }
   }
 
-  const formattedKnowledge = formatKnowledgeItemLine({
+  const formattedKnowledge = formatKnowledgeItemMeta({
     item: 'Test item',
     accuracy: 'partial',
     confidence01k: 720,

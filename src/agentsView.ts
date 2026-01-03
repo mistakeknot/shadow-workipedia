@@ -1,5 +1,5 @@
 import { formatBand5, formatFixed01k, generateAgent, randomSeedString, type AgentPriorsV1, type AgentVocabV1, type Band5, type GeneratedAgent, type KnowledgeItem, type TierBand } from './agent';
-import { formatKnowledgeItemLine } from './agent/knowledgeFormat';
+import { formatKnowledgeItemMeta } from './agent/knowledgeFormat';
 import { renderCognitiveSection } from './agent/cognitiveSection';
 import { renderCognitiveTabButton, renderCognitiveTabPanel } from './agent/cognitiveTab';
 import { isAgentProfileTab, type AgentProfileTab } from './agent/profileTabs';
@@ -515,32 +515,32 @@ function renderAgent(
   const renderKnowledgePills = (items: string[]): string => (
     `<span class="agent-pill-wrap">${items.slice(0, 4).map(item => `<span class="pill pill-muted">${escapeHtml(item)}</span>`).join('')}</span>`
   );
-  const formatKnowledgeList = (items: KnowledgeItem[] | undefined, fallback: string[]): string[] => {
-    if (items && items.length) {
-      return items.map(formatKnowledgeItemLine);
+  const renderKnowledgeEntryPills = (entries: KnowledgeItem[] | undefined, fallback: string[]): string => {
+    if (entries && entries.length) {
+      return `<span class="agent-pill-wrap">${entries.map(entry => `
+        <span class="pill pill-muted">${escapeHtml(entry.item)}</span>
+        <span class="pill pill-meta">${escapeHtml(formatKnowledgeItemMeta(entry))}</span>
+      `).join('')}</span>`;
     }
-    return fallback;
+    if (fallback.length) return renderKnowledgePills(fallback);
+    return `<span class="agent-inline-muted">—</span>`;
   };
-  const knowledgeStrengthsList = formatKnowledgeList(knowledgeItems?.strengths, knowledgeStrengths);
-  const knowledgeGapsList = formatKnowledgeList(knowledgeItems?.gaps, knowledgeGaps);
-  const falseBeliefsList = formatKnowledgeList(knowledgeItems?.falseBeliefs, falseBeliefs);
-  const informationSourcesList = formatKnowledgeList(knowledgeItems?.sources, informationSources);
-  const informationBarriersList = formatKnowledgeList(knowledgeItems?.barriers, informationBarriers);
+  const buildKnowledgeRow = (label: string, depth: number | undefined, entries: KnowledgeItem[] | undefined, fallback: string[]): string => {
+    if (!(entries?.length || fallback.length)) return '';
+    return `<div class="kv-row"><span class="kv-k">${escapeHtml(labelWithDepth(label, depth))}</span><span class="kv-v">${renderKnowledgeEntryPills(entries, fallback)}</span></div>`;
+  };
   const labelWithDepth = (label: string, depth?: number): string => {
     if (typeof depth !== 'number') return label;
     return `${label} (${formatFixed01k(depth)})`;
   };
-  const cognitiveRows = ([
-    [labelWithDepth('Strengths', knowledgeDepths?.strengths), knowledgeStrengthsList],
-    [labelWithDepth('Gaps', knowledgeDepths?.gaps), knowledgeGapsList],
-    [labelWithDepth('False beliefs', knowledgeDepths?.falseBeliefs), falseBeliefsList],
-    [labelWithDepth('Sources', knowledgeDepths?.sources), informationSourcesList],
-    [labelWithDepth('Barriers', knowledgeDepths?.barriers), informationBarriersList],
-  ] as Array<[string, string[]]>)
-    .filter(([, items]) => items.length)
-    .map(([label, items]) => `
-      <div class="kv-row"><span class="kv-k">${label}</span><span class="kv-v">${renderKnowledgePills(items)}</span></div>
-    `)
+  const cognitiveRows = [
+    buildKnowledgeRow('Strengths', knowledgeDepths?.strengths, knowledgeItems?.strengths, knowledgeStrengths),
+    buildKnowledgeRow('Gaps', knowledgeDepths?.gaps, knowledgeItems?.gaps, knowledgeGaps),
+    buildKnowledgeRow('False beliefs', knowledgeDepths?.falseBeliefs, knowledgeItems?.falseBeliefs, falseBeliefs),
+    buildKnowledgeRow('Sources', knowledgeDepths?.sources, knowledgeItems?.sources, informationSources),
+    buildKnowledgeRow('Barriers', knowledgeDepths?.barriers, knowledgeItems?.barriers, informationBarriers),
+  ]
+    .filter(Boolean)
     .join('');
 
   const aspirations = agent.motivations?.dreams ?? [];
