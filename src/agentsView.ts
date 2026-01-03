@@ -1,4 +1,5 @@
-import { formatBand5, formatFixed01k, generateAgent, randomSeedString, type AgentPriorsV1, type AgentVocabV1, type Band5, type GeneratedAgent, type TierBand } from './agent';
+import { formatBand5, formatFixed01k, generateAgent, randomSeedString, type AgentPriorsV1, type AgentVocabV1, type Band5, type GeneratedAgent, type KnowledgeItem, type TierBand } from './agent';
+import { formatKnowledgeItemLine } from './agent/knowledgeFormat';
 import { generateNarrative, pronounSetToMode } from './agentNarration';
 import { buildHealthSummary } from './agent/healthSummary';
 import { buildEverydayLifeSummary, buildMemoryTraumaSummary } from './agent/lifestyleSummary';
@@ -508,19 +509,31 @@ function renderAgent(
   const informationSources = knowledgeIgnorance?.informationSources ?? [];
   const informationBarriers = knowledgeIgnorance?.informationBarriers ?? [];
   const knowledgeDepths = knowledgeIgnorance?.depths01k;
+  const knowledgeItems = knowledgeIgnorance?.items;
   const renderKnowledgePills = (items: string[]): string => (
     `<span class="agent-pill-wrap">${items.slice(0, 4).map(item => `<span class="pill pill-muted">${escapeHtml(item)}</span>`).join('')}</span>`
   );
+  const formatKnowledgeList = (items: KnowledgeItem[] | undefined, fallback: string[]): string[] => {
+    if (items && items.length) {
+      return items.map(formatKnowledgeItemLine);
+    }
+    return fallback;
+  };
+  const knowledgeStrengthsList = formatKnowledgeList(knowledgeItems?.strengths, knowledgeStrengths);
+  const knowledgeGapsList = formatKnowledgeList(knowledgeItems?.gaps, knowledgeGaps);
+  const falseBeliefsList = formatKnowledgeList(knowledgeItems?.falseBeliefs, falseBeliefs);
+  const informationSourcesList = formatKnowledgeList(knowledgeItems?.sources, informationSources);
+  const informationBarriersList = formatKnowledgeList(knowledgeItems?.barriers, informationBarriers);
   const labelWithDepth = (label: string, depth?: number): string => {
     if (typeof depth !== 'number') return label;
     return `${label} (${formatFixed01k(depth)})`;
   };
   const cognitiveRows = ([
-    [labelWithDepth('Strengths', knowledgeDepths?.strengths), knowledgeStrengths],
-    [labelWithDepth('Gaps', knowledgeDepths?.gaps), knowledgeGaps],
-    [labelWithDepth('False beliefs', knowledgeDepths?.falseBeliefs), falseBeliefs],
-    [labelWithDepth('Sources', knowledgeDepths?.sources), informationSources],
-    [labelWithDepth('Barriers', knowledgeDepths?.barriers), informationBarriers],
+    [labelWithDepth('Strengths', knowledgeDepths?.strengths), knowledgeStrengthsList],
+    [labelWithDepth('Gaps', knowledgeDepths?.gaps), knowledgeGapsList],
+    [labelWithDepth('False beliefs', knowledgeDepths?.falseBeliefs), falseBeliefsList],
+    [labelWithDepth('Sources', knowledgeDepths?.sources), informationSourcesList],
+    [labelWithDepth('Barriers', knowledgeDepths?.barriers), informationBarriersList],
   ] as Array<[string, string[]]>)
     .filter(([, items]) => items.length)
     .map(([label, items]) => `

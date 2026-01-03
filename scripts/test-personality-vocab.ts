@@ -10,6 +10,7 @@ import { readFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { computePsychology } from '../src/agent/facets/psychology';
+import { formatKnowledgeItemLine } from '../src/agent/knowledgeFormat';
 import { generateAgent } from '../src/agent';
 import type { AgentPriorsV1, AgentVocabV1, GenerateAgentInput, Latents } from '../src/agent/types';
 
@@ -268,6 +269,26 @@ function run(): void {
     if (typeof value !== 'number' || value < 0 || value > 1000) {
       throw new Error(`Expected depth ${label} to be in range 0-1000.`);
     }
+  }
+
+  const formattedKnowledge = formatKnowledgeItemLine({
+    item: 'Test item',
+    accuracy: 'partial',
+    confidence01k: 720,
+    lastUsedDays: 42,
+    decayRate01k: 310,
+  });
+  if (!formattedKnowledge.includes('partial')) {
+    throw new Error('Expected formatted knowledge item to include accuracy tag.');
+  }
+  if (!formattedKnowledge.includes('72%')) {
+    throw new Error('Expected formatted knowledge item to include confidence percentage.');
+  }
+  if (!formattedKnowledge.includes('31%')) {
+    throw new Error('Expected formatted knowledge item to include decay percentage.');
+  }
+  if (!formattedKnowledge.includes('42d')) {
+    throw new Error('Expected formatted knowledge item to include last used days.');
   }
 
   const knowledgeItems = (agentKnowledge as any).items as
