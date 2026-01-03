@@ -11,7 +11,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { computePsychology } from '../src/agent/facets/psychology';
 import { formatKnowledgeItemMeta } from '../src/agent/knowledgeFormat';
-import { renderCognitiveSection } from '../src/agent/cognitiveSection';
+import { renderCognitiveCard, renderCognitiveSection } from '../src/agent/cognitiveSection';
 import { renderCognitiveTabButton, renderCognitiveTabPanel } from '../src/agent/cognitiveTab';
 import { isAgentProfileTab } from '../src/agent/profileTabs';
 import { renderKnowledgeEntry, renderKnowledgeEntryList } from '../src/agent/knowledgeEntry';
@@ -341,6 +341,16 @@ function run(): void {
   }
   if (!cognitiveSectionOpen.includes('Hide details')) {
     throw new Error('Expected cognitive section to show hide label when expanded.');
+  }
+  const cognitiveCard = renderCognitiveCard('Strengths', 820, '<div class="agent-inline-muted">—</div>');
+  if (!cognitiveCard.includes('agent-card')) {
+    throw new Error('Expected cognitive card to render with agent-card class.');
+  }
+  if (!cognitiveCard.includes('Strengths')) {
+    throw new Error('Expected cognitive card to include the title.');
+  }
+  if (!cognitiveCard.includes('(82%)')) {
+    throw new Error('Expected cognitive card to include the depth percentage.');
   }
   const cognitiveTabButton = renderCognitiveTabButton(true);
   if (!cognitiveTabButton.includes('data-agent-tab="cognitive"')) {

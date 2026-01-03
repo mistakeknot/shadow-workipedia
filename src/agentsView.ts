@@ -1,5 +1,5 @@
 import { formatBand5, formatFixed01k, generateAgent, randomSeedString, type AgentPriorsV1, type AgentVocabV1, type Band5, type GeneratedAgent, type KnowledgeItem, type TierBand } from './agent';
-import { renderCognitiveSection } from './agent/cognitiveSection';
+import { renderCognitiveCard, renderCognitiveSection } from './agent/cognitiveSection';
 import { renderCognitiveTabButton, renderCognitiveTabPanel } from './agent/cognitiveTab';
 import { isAgentProfileTab, type AgentProfileTab } from './agent/profileTabs';
 import { renderKnowledgeEntryList } from './agent/knowledgeEntry';
@@ -523,21 +523,18 @@ function renderAgent(
     if (fallback.length) return renderKnowledgePills(fallback);
     return `<span class="agent-inline-muted">—</span>`;
   };
-  const buildKnowledgeRow = (label: string, depth: number | undefined, entries: KnowledgeItem[] | undefined, fallback: string[]): string => {
+  const buildKnowledgeCard = (label: string, depth: number | undefined, entries: KnowledgeItem[] | undefined, fallback: string[]): string => {
     if (!(entries?.length || fallback.length)) return '';
-    return `<div class="kv-row"><span class="kv-k">${escapeHtml(labelWithDepth(label, depth))}</span><span class="kv-v">${renderKnowledgeEntries(entries, fallback)}</span></div>`;
-  };
-  const labelWithDepth = (label: string, depth?: number): string => {
-    if (typeof depth !== 'number') return label;
-    return `${label} (${formatFixed01k(depth)})`;
+    const body = `<div class="agent-kv">${renderKnowledgeEntries(entries, fallback)}</div>`;
+    return renderCognitiveCard(escapeHtml(label), depth, body);
   };
   const cognitiveDetailsOpen = isDetailsOpen(COGNITIVE_DETAILS_KEY, false);
-  const cognitiveRows = [
-    buildKnowledgeRow('Strengths', knowledgeDepths?.strengths, knowledgeItems?.strengths, knowledgeStrengths),
-    buildKnowledgeRow('Gaps', knowledgeDepths?.gaps, knowledgeItems?.gaps, knowledgeGaps),
-    buildKnowledgeRow('False beliefs', knowledgeDepths?.falseBeliefs, knowledgeItems?.falseBeliefs, falseBeliefs),
-    buildKnowledgeRow('Sources', knowledgeDepths?.sources, knowledgeItems?.sources, informationSources),
-    buildKnowledgeRow('Barriers', knowledgeDepths?.barriers, knowledgeItems?.barriers, informationBarriers),
+  const cognitiveCards = [
+    buildKnowledgeCard('Strengths', knowledgeDepths?.strengths, knowledgeItems?.strengths, knowledgeStrengths),
+    buildKnowledgeCard('Gaps', knowledgeDepths?.gaps, knowledgeItems?.gaps, knowledgeGaps),
+    buildKnowledgeCard('False beliefs', knowledgeDepths?.falseBeliefs, knowledgeItems?.falseBeliefs, falseBeliefs),
+    buildKnowledgeCard('Sources', knowledgeDepths?.sources, knowledgeItems?.sources, informationSources),
+    buildKnowledgeCard('Barriers', knowledgeDepths?.barriers, knowledgeItems?.barriers, informationBarriers),
   ]
     .filter(Boolean)
     .join('');
@@ -762,7 +759,7 @@ function renderAgent(
           </div>
         </div>
 
-        ${renderCognitiveTabPanel(tab === 'cognitive', renderCognitiveSection(cognitiveRows, cognitiveDetailsOpen))}
+        ${renderCognitiveTabPanel(tab === 'cognitive', renderCognitiveSection(cognitiveCards, cognitiveDetailsOpen))}
 
         <div class="agent-tab-panel ${tab === 'performance' ? 'active' : ''}" data-agent-tab-panel="performance">
           <div class="agent-grid agent-grid-tight">
