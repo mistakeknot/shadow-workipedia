@@ -321,6 +321,23 @@ function run(): void {
   if (knowledgeEntryListFallback.includes('<b>Injected</b>')) {
     throw new Error('Expected knowledge entry fallback to escape item content.');
   }
+  const knowledgeEntryListLeft = renderKnowledgeEntryList(
+    [{
+      item: 'Left aligned item',
+      accuracy: 'correct',
+      confidence01k: 640,
+      lastUsedDays: 12,
+      decayRate01k: 220,
+    }],
+    [],
+    'left',
+  );
+  if (!knowledgeEntryListLeft.includes('knowledge-entry-list-left')) {
+    throw new Error('Expected knowledge entry list to include left alignment class.');
+  }
+  if (!knowledgeEntryListLeft.includes('knowledge-entry-left')) {
+    throw new Error('Expected knowledge entry items to include left alignment class.');
+  }
 
   const cognitiveSection = renderCognitiveSection('<div class="kv-row"></div>', false);
   if (!cognitiveSection.includes('agent-card-span12')) {

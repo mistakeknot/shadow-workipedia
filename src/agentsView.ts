@@ -518,7 +518,7 @@ function renderAgent(
   );
   const renderKnowledgeEntries = (entries: KnowledgeItem[] | undefined, fallback: string[]): string => {
     if (entries && entries.length) {
-      return renderKnowledgeEntryList(entries, []);
+      return renderKnowledgeEntryList(entries, [], 'left');
     }
     if (fallback.length) return renderKnowledgePills(fallback);
     return `<span class="agent-inline-muted">—</span>`;
