@@ -2333,8 +2333,12 @@ select.agents-input {
 
 .cognitive-grid-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-bottom: 0.6rem;
+}
+
+.cognitive-grid-header-left {
+  justify-content: flex-start;
 }
 
 .agent-card-toggle {

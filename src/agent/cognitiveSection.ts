@@ -12,7 +12,7 @@ export function renderCognitiveSection(cardsHtml: string, showDetails: boolean):
   const detailsLabel = showDetails ? 'Hide details' : 'Show details';
   return `
     <section class="cognitive-grid-wrap agent-card-span12 ${showDetails ? 'cognitive-details-on' : ''}">
-      <div class="cognitive-grid-header">
+      <div class="cognitive-grid-header cognitive-grid-header-left">
         <button type="button" class="pill pill-muted agent-card-toggle ${showDetails ? 'active' : ''}" data-cognitive-details-toggle="1">${detailsLabel}</button>
       </div>
       <div class="agent-grid agent-grid-tight">

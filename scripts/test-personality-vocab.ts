@@ -346,6 +346,9 @@ function run(): void {
   if (!cognitiveSection.includes('agent-card-span12')) {
     throw new Error('Expected cognitive grid wrapper to span full width.');
   }
+  if (!cognitiveSection.includes('cognitive-grid-header-left')) {
+    throw new Error('Expected cognitive section to include left-aligned header class.');
+  }
   if (cognitiveSection.includes('<h3>Cognitive</h3>')) {
     throw new Error('Expected cognitive section not to include a heading.');
   }
