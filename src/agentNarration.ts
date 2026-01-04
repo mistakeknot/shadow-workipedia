@@ -292,6 +292,14 @@ export function formatFunctionalSpec(specRaw: string, gradeBandRaw?: string, org
   // Roles that need "officer" suffix
   if (['public diplomacy', 'counterintel', 'protocol', 'sanctions', 'development',
        'communications', 'regional desk', 'legal affairs', 'consular'].includes(specLower)) {
+    if (officerSuffix === 'lead') {
+      if (orgTypeLower === 'academia' && specLower === 'regional desk') {
+        return 'regional research lead';
+      }
+      if (orgTypeLower === 'ngo' && specLower === 'regional desk') {
+        return 'regional program lead';
+      }
+    }
     return `${specCased} ${officerSuffix}`;
   }
   // Ops suffixes need "officer" to sound complete (security ops officer, logistics ops officer, etc.)
