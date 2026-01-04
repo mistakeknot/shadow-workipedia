@@ -1,7 +1,6 @@
 import { formatBand5, formatFixed01k, generateAgent, randomSeedString, type AgentPriorsV1, type AgentVocabV1, type Band5, type GeneratedAgent, type KnowledgeItem, type TierBand } from './agent';
 import { renderCognitiveCard, renderCognitiveSection } from './agent/cognitiveSection';
-import { renderCognitiveTabButton, renderCognitiveTabPanel } from './agent/cognitiveTab';
-import { isAgentProfileTab, type AgentProfileTab } from './agent/profileTabs';
+import { AGENT_TAB_LABELS, isAgentProfileTab, migrateOldTabName, type AgentProfileTab } from './agent/profileTabs';
 import { renderKnowledgeEntryList } from './agent/knowledgeEntry';
 import { generateNarrative, pronounSetToMode } from './agentNarration';
 import { buildHealthSummary } from './agent/healthSummary';
@@ -439,7 +438,7 @@ function renderAgent(
 
   // Use agent's actual pronouns for narration consistency (mixed sets pick deterministically from seed)
   const agentPronounMode = pronounSetToMode(agent.gender.pronounSet, agent.seed);
-  const narrativeMode = tab === 'overview' ? 'synopsis' : 'full';
+  const narrativeMode = tab === 'portrait' ? 'synopsis' : 'full';
   const narrativeResult = generateNarrative(
     agent,
     { originLabel, citizenshipLabel, currentLabel },
@@ -460,10 +459,6 @@ function renderAgent(
   const healthSummary = buildHealthSummary(agent.health, toTitleCaseWords);
   const everydaySummary = buildEverydayLifeSummary(agent.everydayLife, toTitleCaseWords);
   const memorySummary = buildMemoryTraumaSummary(agent.memoryTrauma, toTitleCaseWords);
-
-  const platformDiet = Object.entries(agent.preferences.media.platformDiet)
-    .map(([k, v]) => `<li><span class="kv-k">${escapeHtml(toTitleCaseWords(k))}</span><span class="kv-v">${escapeHtml(formatFixed01k(v))}</span></li>`)
-    .join('');
 
   const roleTags = agent.identity.roleSeedTags.map(t => `<span class="pill">${escapeHtml(toTitleCaseWords(t))}</span>`).join('');
   const langTags = agent.identity.languages.map(t => `<span class="pill pill-muted">${escapeHtml(displayLanguageCode(t))}</span>`).join('');
@@ -592,96 +587,82 @@ function renderAgent(
         </div>
 
         <div class="agent-tabs">
-          <button type="button" class="agent-tab-btn ${tab === 'overview' ? 'active' : ''}" data-agent-tab="overview">Overview</button>
-          <button type="button" class="agent-tab-btn ${tab === 'narrative' ? 'active' : ''}" data-agent-tab="narrative">Narrative</button>
-          <button type="button" class="agent-tab-btn ${tab === 'identity' ? 'active' : ''}" data-agent-tab="identity">Identity</button>
-          <button type="button" class="agent-tab-btn ${tab === 'social' ? 'active' : ''}" data-agent-tab="social">Social</button>
-          <button type="button" class="agent-tab-btn ${tab === 'motivations' ? 'active' : ''}" data-agent-tab="motivations">Motivations</button>
-          ${renderCognitiveTabButton(tab === 'cognitive')}
-          <button type="button" class="agent-tab-btn ${tab === 'performance' ? 'active' : ''}" data-agent-tab="performance">Performance</button>
-          <button type="button" class="agent-tab-btn ${tab === 'lifestyle' ? 'active' : ''}" data-agent-tab="lifestyle">Lifestyle</button>
-          <button type="button" class="agent-tab-btn ${tab === 'health' ? 'active' : ''}" data-agent-tab="health">Health</button>
-          <button type="button" class="agent-tab-btn ${tab === 'debug' ? 'active' : ''}" data-agent-tab="debug">Debug</button>
+          <button type="button" class="agent-tab-btn ${tab === 'portrait' ? 'active' : ''}" data-agent-tab="portrait" title="First impression: who is this person?">${AGENT_TAB_LABELS.portrait}</button>
+          <button type="button" class="agent-tab-btn ${tab === 'character' ? 'active' : ''}" data-agent-tab="character" title="Inner life: personality, beliefs, motivations">${AGENT_TAB_LABELS.character}</button>
+          <button type="button" class="agent-tab-btn ${tab === 'connections' ? 'active' : ''}" data-agent-tab="connections" title="Social web: relationships, network, institution">${AGENT_TAB_LABELS.connections}</button>
+          <button type="button" class="agent-tab-btn ${tab === 'capabilities' ? 'active' : ''}" data-agent-tab="capabilities" title="Skills, aptitudes, and knowledge">${AGENT_TAB_LABELS.capabilities}</button>
+          <button type="button" class="agent-tab-btn ${tab === 'daily-life' ? 'active' : ''}" data-agent-tab="daily-life" title="Appearance, routines, preferences, health">${AGENT_TAB_LABELS['daily-life']}</button>
+          <button type="button" class="agent-tab-btn agent-tab-btn-muted ${tab === 'data' ? 'active' : ''}" data-agent-tab="data" title="Technical data and export options">${AGENT_TAB_LABELS.data}</button>
         </div>
       </div>
 
         <div class="agent-tab-panels">
-          <div class="agent-tab-panel ${tab === 'overview' ? 'active' : ''}" data-agent-tab-panel="overview">
+          <!-- PORTRAIT TAB: First impression - who is this person? -->
+          <div class="agent-tab-panel ${tab === 'portrait' ? 'active' : ''}" data-agent-tab-panel="portrait">
             <div class="agent-grid agent-grid-tight">
-            <section class="agent-card agent-card-span12">
-              <h3>Synopsis</h3>
-              ${narrativeSynopsis}
-            </section>
+              <!-- Synopsis: the narrative hook -->
+              <section class="agent-card agent-card-span12">
+                <h3>Synopsis</h3>
+                ${narrativeSynopsis}
+              </section>
 
-            <section class="agent-card agent-card-span6">
-              <h3>At a glance</h3>
-              <div class="agent-kv">
-                <div class="kv-row"><span class="kv-k">Languages</span><span class="kv-v">${escapeHtml(agent.identity.languageProficiencies.map(lp => `${displayLanguageCode(lp.language)} (${toTitleCaseWords(lp.proficiencyBand)})`).join(', '))}</span></div>
-                <div class="kv-row"><span class="kv-k">Education</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.educationTrackTag))}</span></div>
-                <div class="kv-row"><span class="kv-k">Career</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.careerTrackTag))}</span></div>
-                <div class="kv-row"><span class="kv-k">Mobility</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.mobilityTag))}</span></div>
-                <div class="kv-row"><span class="kv-k">Passport</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.passportAccessBand))}</span></div>
-                <div class="kv-row"><span class="kv-k">Travel</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.travelFrequencyBand))}</span></div>
-              </div>
-            </section>
+              <!-- At a glance: quick reference for writers -->
+              <section class="agent-card agent-card-span6">
+                <h3>At a glance</h3>
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Languages</span><span class="kv-v">${escapeHtml(agent.identity.languageProficiencies.map(lp => `${displayLanguageCode(lp.language)} (${toTitleCaseWords(lp.proficiencyBand)})`).join(', '))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Education</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.educationTrackTag))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Career</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.careerTrackTag))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Mobility</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.mobilityTag))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Passport</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.passportAccessBand))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Travel</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.travelFrequencyBand))}</span></div>
+                </div>
+              </section>
 
-            <section class="agent-card agent-card-span6">
-              <h3>Highlights</h3>
-              <div class="agent-mini">
-                <div class="agent-mini-title">Top skills</div>
-                <div class="agent-mini-list">${topSkillList || `<div class="agent-inline-muted">—</div>`}</div>
-                <div class="agent-mini-title" style="margin-top:0.75rem">Top aptitudes</div>
-                <div class="agent-mini-list">${topAptitudeList || `<div class="agent-inline-muted">—</div>`}</div>
-              </div>
-            </section>
+              <!-- Highlights: top capabilities -->
+              <section class="agent-card agent-card-span6">
+                <h3>Highlights</h3>
+                <div class="agent-mini">
+                  <div class="agent-mini-title">Top skills</div>
+                  <div class="agent-mini-list">${topSkillList || `<div class="agent-inline-muted">—</div>`}</div>
+                  <div class="agent-mini-title" style="margin-top:0.75rem">Top aptitudes</div>
+                  <div class="agent-mini-list">${topAptitudeList || `<div class="agent-inline-muted">—</div>`}</div>
+                </div>
+              </section>
+
+              <!-- Life timeline: visual journey (merged from Narrative tab) -->
+              ${agent.timeline.length ? `
+              <section class="agent-card agent-card-span12">
+                <h3>Life timeline</h3>
+                <div class="agent-timeline">
+                  ${agent.timeline.slice(0, 6).map(e => `
+                    <div class="agent-timeline-event">
+                      <span class="agent-timeline-year">${agent.identity.birthYear + e.yearOffset}</span>
+                      <span class="agent-timeline-type pill pill-muted">${escapeHtml(toTitleCaseWords(e.type))}</span>
+                      <span class="agent-timeline-desc">${escapeHtml(e.description)}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </section>
+              ` : ''}
+
+              <!-- Full narrative (collapsed by default, for writers who want more) -->
+              <details class="agent-card agent-card-span12 agent-section" data-agents-details="profile:portrait:narrative" ${isDetailsOpen('profile:portrait:narrative', false) ? 'open' : ''}>
+                <summary class="agent-section-summary">
+                  <span class="agent-section-title">Full narrative</span>
+                  <span class="agent-section-hint">Detailed character description</span>
+                </summary>
+                <div class="agent-section-body">
+                  ${narrative}
+                </div>
+              </details>
+            </div>
           </div>
-        </div>
 
-        <div class="agent-tab-panel ${tab === 'narrative' ? 'active' : ''}" data-agent-tab-panel="narrative">
+        <!-- CHARACTER TAB: Inner life - personality, beliefs, motivations -->
+        <div class="agent-tab-panel ${tab === 'character' ? 'active' : ''}" data-agent-tab-panel="character">
           <div class="agent-grid agent-grid-tight">
-            <section class="agent-card agent-card-span12">
-              <h3>Narrative</h3>
-              ${narrative}
-            </section>
-
-            ${agent.timeline.length ? `
-            <section class="agent-card agent-card-span6">
-              <h3>Life timeline</h3>
-              <div class="agent-timeline">
-                ${agent.timeline.slice(0, 6).map(e => `
-                  <div class="agent-timeline-event">
-                    <span class="agent-timeline-year">${agent.identity.birthYear + e.yearOffset}</span>
-                    <span class="agent-timeline-type pill pill-muted">${escapeHtml(toTitleCaseWords(e.type))}</span>
-                    <span class="agent-timeline-desc">${escapeHtml(e.description)}</span>
-                  </div>
-                `).join('')}
-              </div>
-            </section>
-            ` : ''}
-          </div>
-        </div>
-
-        <div class="agent-tab-panel ${tab === 'identity' ? 'active' : ''}" data-agent-tab-panel="identity">
-          <div class="agent-grid agent-grid-tight">
-            <section class="agent-card agent-card-span6">
-              <h3>Character arc</h3>
-              <div class="agent-kv">
-                <div class="kv-row"><span class="kv-k">Origin</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.originTierBand))} → ${escapeHtml(toTitleCaseWords(agent.identity.tierBand))} ${agent.identity.socioeconomicMobility === 'upward' ? '↑' : agent.identity.socioeconomicMobility === 'downward' ? '↓' : '→'}</span></div>
-                ${agent.eliteCompensators.length ? `<div class="kv-row"><span class="kv-k">Compensators</span><span class="kv-v">${escapeHtml(agent.eliteCompensators.map(toTitleCaseWords).join(', '))}</span></div>` : ''}
-              </div>
-            </section>
-
-            <section class="agent-card agent-card-span6">
-              <h3>Identity &amp; beliefs</h3>
-              <div class="agent-kv">
-                ${!['cisgender-man', 'cisgender-woman'].includes(agent.gender.identityTag) ? `<div class="kv-row"><span class="kv-k">Gender</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.gender.identityTag))} (${escapeHtml(agent.gender.pronounSet)})</span></div>` : ''}
-                <div class="kv-row"><span class="kv-k">Pronouns</span><span class="kv-v">${escapeHtml(agent.gender.pronounSet)}</span></div>
-                ${agent.orientation.orientationTag !== 'straight' ? `<div class="kv-row"><span class="kv-k">Orientation</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.orientation.orientationTag))} (${escapeHtml(toTitleCaseWords(agent.orientation.outnessLevel))})</span></div>` : ''}
-                <div class="kv-row"><span class="kv-k">Spirituality</span><span class="kv-v">${agent.spirituality.tradition !== 'none' ? `${escapeHtml(toTitleCaseWords(agent.spirituality.tradition))} - ` : ''}${escapeHtml(toTitleCaseWords(agent.spirituality.affiliationTag))} (${escapeHtml(toTitleCaseWords(agent.spirituality.observanceLevel))})</span></div>
-                ${agent.neurodivergence.indicatorTags.length && !agent.neurodivergence.indicatorTags.includes('neurotypical') ? `<div class="kv-row"><span class="kv-k">Neurodivergence</span><span class="kv-v">${escapeHtml(agent.neurodivergence.indicatorTags.map(toTitleCaseWords).join(', '))}</span></div>` : ''}
-              </div>
-            </section>
-
+            <!-- Personality & Work Style -->
             <section class="agent-card agent-card-span6">
               <h3>Personality</h3>
               <div class="agent-kv">
@@ -701,8 +682,129 @@ function renderAgent(
               </div>
             </section>
 
+            <!-- Motivations (merged from Motivations tab) -->
             <section class="agent-card agent-card-span6">
-              <h3>Culture axes</h3>
+              <h3>Dreams &amp; goals</h3>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Primary</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.motivations.primaryGoal))}</span></div>
+                <div class="kv-row"><span class="kv-k">Secondary</span><span class="kv-v">${escapeHtml(secondaryGoals)}</span></div>
+                <div class="kv-row"><span class="kv-k">Core need</span><span class="kv-v">${escapeHtml(agent.motivations.coreNeed)}</span></div>
+                <div class="kv-row"><span class="kv-k">Aspirations</span><span class="kv-v">${aspirationsPills}</span></div>
+                <div class="kv-row"><span class="kv-k">Dreams</span><span class="kv-v">${dreamImageryPills}</span></div>
+                <div class="kv-row"><span class="kv-k">Nightmares</span><span class="kv-v">${nightmaresPills}</span></div>
+              </div>
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Economic mobility</h3>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Origin</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.originTierBand))} → ${escapeHtml(toTitleCaseWords(agent.identity.tierBand))} ${agent.identity.socioeconomicMobility === 'upward' ? '↑' : agent.identity.socioeconomicMobility === 'downward' ? '↓' : '→'}</span></div>
+                <div class="kv-row"><span class="kv-k">Pattern</span><span class="kv-v">${escapeHtml(economicMobility.mobilityPattern || '—')}</span></div>
+                <div class="kv-row"><span class="kv-k">Driver</span><span class="kv-v">${escapeHtml(economicMobility.moneyDriver || '—')}</span></div>
+                <div class="kv-row"><span class="kv-k">Personality</span><span class="kv-v">${escapeHtml(economicMobility.moneyPersonality || '—')}</span></div>
+                ${agent.eliteCompensators.length ? `<div class="kv-row"><span class="kv-k">Compensators</span><span class="kv-v">${escapeHtml(agent.eliteCompensators.map(toTitleCaseWords).join(', '))}</span></div>` : ''}
+              </div>
+            </section>
+
+            <!-- Identity & Beliefs -->
+            <section class="agent-card agent-card-span6">
+              <h3>Identity &amp; beliefs</h3>
+              <div class="agent-kv">
+                ${!['cisgender-man', 'cisgender-woman'].includes(agent.gender.identityTag) ? `<div class="kv-row"><span class="kv-k">Gender</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.gender.identityTag))} (${escapeHtml(agent.gender.pronounSet)})</span></div>` : ''}
+                <div class="kv-row"><span class="kv-k">Pronouns</span><span class="kv-v">${escapeHtml(agent.gender.pronounSet)}</span></div>
+                ${agent.orientation.orientationTag !== 'straight' ? `<div class="kv-row"><span class="kv-k">Orientation</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.orientation.orientationTag))} (${escapeHtml(toTitleCaseWords(agent.orientation.outnessLevel))})</span></div>` : ''}
+                <div class="kv-row"><span class="kv-k">Spirituality</span><span class="kv-v">${agent.spirituality.tradition !== 'none' ? `${escapeHtml(toTitleCaseWords(agent.spirituality.tradition))} - ` : ''}${escapeHtml(toTitleCaseWords(agent.spirituality.affiliationTag))} (${escapeHtml(toTitleCaseWords(agent.spirituality.observanceLevel))})</span></div>
+                ${agent.neurodivergence.indicatorTags.length && !agent.neurodivergence.indicatorTags.includes('neurotypical') ? `<div class="kv-row"><span class="kv-k">Neurodivergence</span><span class="kv-v">${escapeHtml(agent.neurodivergence.indicatorTags.map(toTitleCaseWords).join(', '))}</span></div>` : ''}
+              </div>
+            </section>
+
+            <!-- Ethics (merged from Health tab) -->
+            <details class="agent-card agent-section" data-agents-details="profile:character:ethics" ${isDetailsOpen('profile:character:ethics', true) ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Ethics &amp; red lines</span>
+                <span class="agent-section-hint">${escapeHtml(toTitleCaseWords(agent.psych.ethics.loyaltyScope))} loyalty</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-card-grid">
+                  ${renderGauge('Rule adherence', agent.psych.ethics.ruleAdherence)}
+                  ${renderGauge('Harm aversion', agent.psych.ethics.harmAversion)}
+                  ${renderGauge('Mission utilitarianism', agent.psych.ethics.missionUtilitarianism)}
+                </div>
+                <div class="agent-kv" style="margin-top:10px">
+                  <div class="kv-row"><span class="kv-k">Loyalty scope</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.psych.ethics.loyaltyScope))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Red lines</span><span class="kv-v">${escapeHtml(agent.identity.redLines.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                </div>
+                ${agent.psych.contradictions.length ? `
+                  <div style="margin-top:0.75rem">
+                    <div class="agent-mini-title">Internal contradictions</div>
+                    ${agent.psych.contradictions.slice(0, 2).map(c => `
+                      <div class="agent-contradiction-row">
+                        <span class="pill pill-muted">${escapeHtml(toTitleCaseWords(c.trait1))}</span>
+                        <span class="agent-contradiction-vs">vs</span>
+                        <span class="pill pill-muted">${escapeHtml(toTitleCaseWords(c.trait2))}</span>
+                        <span class="agent-contradiction-label">→ ${escapeHtml(c.tension)}</span>
+                      </div>
+                    `).join('')}
+                  </div>
+                ` : ''}
+              </div>
+            </details>
+
+            <!-- Cognitive (merged from Cognitive tab) -->
+            <details class="agent-card agent-section" data-agents-details="profile:character:cognitive" ${cognitiveDetailsOpen ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Knowledge &amp; beliefs</span>
+                <span class="agent-section-hint">Strengths, gaps, biases</span>
+              </summary>
+              <div class="agent-section-body">
+                ${renderCognitiveSection(cognitiveCards, true)}
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- CONNECTIONS TAB: Social web - relationships, network, institution -->
+        <div class="agent-tab-panel ${tab === 'connections' ? 'active' : ''}" data-agent-tab-panel="connections">
+          <div class="agent-grid agent-grid-tight">
+            <section class="agent-card agent-card-span6">
+              <h3>Institution</h3>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Org</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.orgType))}</span></div>
+                <div class="kv-row"><span class="kv-k">Grade</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.gradeBand))} · ${agent.institution.yearsInService}y</span></div>
+                <div class="kv-row"><span class="kv-k">Clearance</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.clearanceBand))}</span></div>
+                <div class="kv-row"><span class="kv-k">Function</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.functionalSpecialization))}</span></div>
+              </div>
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Network</h3>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Role</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.network.role))}</span></div>
+                <div class="kv-row"><span class="kv-k">Leverage</span><span class="kv-v">${escapeHtml(agent.network.leverageType)}</span></div>
+                ${agent.eliteCompensators.length ? `<div class="kv-row"><span class="kv-k">Compensators</span><span class="kv-v">${escapeHtml(agent.eliteCompensators.map(toTitleCaseWords).join(', '))}</span></div>` : ''}
+              </div>
+            </section>
+
+            ${agent.relationships.length ? `
+            <section class="agent-card agent-card-span6">
+              <h3>Key relationships</h3>
+              <div class="agent-kv">
+                ${agent.relationships.slice(0, 6).map(r => `
+                  <div class="kv-row"><span class="kv-k">${escapeHtml(toTitleCaseWords(r.type))}</span><span class="kv-v">${escapeHtml(r.description)}</span></div>
+                `).join('')}
+              </div>
+            </section>
+            ` : ''}
+
+            <section class="agent-card agent-card-span6">
+              <h3>Conversation topics</h3>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Talks about</span><span class="kv-v">${conversationPills}</span></div>
+              </div>
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Culture &amp; community</h3>
               <div class="agent-kv">
                 <div class="kv-row"><span class="kv-k">Heritage</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.culture.ethnolinguistic))} <span style="color:#666">(${Math.round(agent.culture.weights.ethnolinguistic / 10)}%)</span></span></div>
                 <div class="kv-row"><span class="kv-k">Regional</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.culture.regional))} <span style="color:#666">(${Math.round(agent.culture.weights.regional / 10)}%)</span></span></div>
@@ -719,85 +821,15 @@ function renderAgent(
                 ${agent.minorityStatus.visibleMinority || agent.minorityStatus.linguisticMinority || agent.minorityStatus.religiousMinority ? `<div class="kv-row"><span class="kv-k">Minority</span><span class="kv-v">${[agent.minorityStatus.visibleMinority ? 'visible' : '', agent.minorityStatus.linguisticMinority ? 'linguistic' : '', agent.minorityStatus.religiousMinority ? 'religious' : ''].filter(Boolean).join(', ')}</span></div>` : ''}
               </div>
             </section>
-
-            <section class="agent-card agent-card-span6">
-              <h3>Institution</h3>
-              <div class="agent-kv">
-                <div class="kv-row"><span class="kv-k">Org</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.orgType))}</span></div>
-                <div class="kv-row"><span class="kv-k">Grade</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.gradeBand))} · ${agent.institution.yearsInService}y</span></div>
-                <div class="kv-row"><span class="kv-k">Clearance</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.clearanceBand))}</span></div>
-                <div class="kv-row"><span class="kv-k">Function</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.functionalSpecialization))}</span></div>
-              </div>
-            </section>
           </div>
         </div>
 
-        <div class="agent-tab-panel ${tab === 'social' ? 'active' : ''}" data-agent-tab-panel="social">
+        <!-- CAPABILITIES TAB: Skills and aptitudes -->
+        <div class="agent-tab-panel ${tab === 'capabilities' ? 'active' : ''}" data-agent-tab-panel="capabilities">
           <div class="agent-grid agent-grid-tight">
-            <section class="agent-card agent-card-span6">
-              <h3>Network</h3>
-              <div class="agent-kv">
-                <div class="kv-row"><span class="kv-k">Role</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.network.role))}</span></div>
-                <div class="kv-row"><span class="kv-k">Leverage</span><span class="kv-v">${escapeHtml(agent.network.leverageType)}</span></div>
-                ${agent.eliteCompensators.length ? `<div class="kv-row"><span class="kv-k">Compensators</span><span class="kv-v">${escapeHtml(agent.eliteCompensators.map(toTitleCaseWords).join(', '))}</span></div>` : ''}
-              </div>
-            </section>
-
-            ${agent.relationships.length ? `
-            <section class="agent-card agent-card-span6">
-              <h3>Key relationships</h3>
-              <div class="agent-kv">
-                ${agent.relationships.slice(0, 4).map(r => `
-                  <div class="kv-row"><span class="kv-k">${escapeHtml(toTitleCaseWords(r.type))}</span><span class="kv-v">${escapeHtml(r.description)}</span></div>
-                `).join('')}
-              </div>
-            </section>
-            ` : ''}
-
-            <section class="agent-card agent-card-span6">
-              <h3>Conversation topics</h3>
-              <div class="agent-kv">
-                <div class="kv-row"><span class="kv-k">Talks about</span><span class="kv-v">${conversationPills}</span></div>
-              </div>
-            </section>
-          </div>
-        </div>
-
-        <div class="agent-tab-panel ${tab === 'motivations' ? 'active' : ''}" data-agent-tab-panel="motivations">
-          <div class="agent-grid agent-grid-tight">
-            <section class="agent-card agent-card-span6">
-              <h3>Dreams &amp; goals</h3>
-              <div class="agent-kv">
-                <div class="kv-row"><span class="kv-k">Primary</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.motivations.primaryGoal))}</span></div>
-                <div class="kv-row"><span class="kv-k">Secondary</span><span class="kv-v">${escapeHtml(secondaryGoals)}</span></div>
-                <div class="kv-row"><span class="kv-k">Core need</span><span class="kv-v">${escapeHtml(agent.motivations.coreNeed)}</span></div>
-                <div class="kv-row"><span class="kv-k">Aspirations</span><span class="kv-v">${aspirationsPills}</span></div>
-                <div class="kv-row"><span class="kv-k">Dreams</span><span class="kv-v">${dreamImageryPills}</span></div>
-                <div class="kv-row"><span class="kv-k">Nightmares</span><span class="kv-v">${nightmaresPills}</span></div>
-              </div>
-            </section>
-
-            <section class="agent-card agent-card-span6">
-              <h3>Economic mobility</h3>
-              <div class="agent-kv">
-                <div class="kv-row"><span class="kv-k">Origin story</span><span class="kv-v">${escapeHtml(economicMobility.originStory || '—')}</span></div>
-                <div class="kv-row"><span class="kv-k">Pattern</span><span class="kv-v">${escapeHtml(economicMobility.mobilityPattern || '—')}</span></div>
-                <div class="kv-row"><span class="kv-k">Driver</span><span class="kv-v">${escapeHtml(economicMobility.moneyDriver || '—')}</span></div>
-                <div class="kv-row"><span class="kv-k">Personality</span><span class="kv-v">${escapeHtml(economicMobility.moneyPersonality || '—')}</span></div>
-                <div class="kv-row"><span class="kv-k">Class navigation</span><span class="kv-v">${escapeHtml(economicMobility.classNavigation || '—')}</span></div>
-                <div class="kv-row"><span class="kv-k">Retirement</span><span class="kv-v">${escapeHtml(economicMobility.retirementMode || '—')}</span></div>
-              </div>
-            </section>
-          </div>
-        </div>
-
-        ${renderCognitiveTabPanel(tab === 'cognitive', renderCognitiveSection(cognitiveCards, cognitiveDetailsOpen))}
-
-        <div class="agent-tab-panel ${tab === 'performance' ? 'active' : ''}" data-agent-tab-panel="performance">
-          <div class="agent-grid agent-grid-tight">
-            <details class="agent-card agent-section" data-agents-details="profile:performance:capabilities" ${isDetailsOpen('profile:performance:capabilities', true) ? 'open' : ''}>
+            <details class="agent-card agent-section" data-agents-details="profile:capabilities:aptitudes" ${isDetailsOpen('profile:capabilities:aptitudes', true) ? 'open' : ''}>
               <summary class="agent-section-summary">
-                <span class="agent-section-title">Capabilities</span>
+                <span class="agent-section-title">Aptitudes</span>
                 <span class="agent-section-hint">${escapeHtml(topAptitudes.map(([label]) => label).join(', '))}</span>
               </summary>
               <div class="agent-section-body">
@@ -819,7 +851,7 @@ function renderAgent(
               </div>
             </details>
 
-            <details class="agent-card agent-section" data-agents-details="profile:performance:skills" ${isDetailsOpen('profile:performance:skills', true) ? 'open' : ''}>
+            <details class="agent-card agent-section" data-agents-details="profile:capabilities:skills" ${isDetailsOpen('profile:capabilities:skills', true) ? 'open' : ''}>
               <summary class="agent-section-summary">
                 <span class="agent-section-title">Skills</span>
                 <span class="agent-section-hint">${escapeHtml(topSkills.map(s => humanizeSkillKey(s.key)).join(', '))}</span>
@@ -831,92 +863,30 @@ function renderAgent(
                 <div class="agent-skill-list">${skillRows}</div>
               </div>
             </details>
-          </div>
-        </div>
 
-        <div class="agent-tab-panel ${tab === 'lifestyle' ? 'active' : ''}" data-agent-tab-panel="lifestyle">
-          <div class="agent-grid agent-grid-tight">
-            <details class="agent-card agent-section" data-agents-details="profile:lifestyle:preferences" ${isDetailsOpen('profile:lifestyle:preferences', true) ? 'open' : ''}>
+            <details class="agent-card agent-section" data-agents-details="profile:capabilities:visibility" ${isDetailsOpen('profile:capabilities:visibility', false) ? 'open' : ''}>
               <summary class="agent-section-summary">
-                <span class="agent-section-title">Preferences</span>
-                <span class="agent-section-hint">${escapeHtml(agent.preferences.fashion.styleTags.slice(0, 2).map(toTitleCaseWords).join(', ') || '—')}</span>
-              </summary>
-              <div class="agent-section-body">
-                <div class="agent-kv">
-                  <div class="kv-row"><span class="kv-k">Comfort foods</span><span class="kv-v">${escapeHtml(agent.preferences.food.comfortFoods.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Dislikes</span><span class="kv-v">${escapeHtml(agent.preferences.food.dislikes.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Restrictions</span><span class="kv-v">${escapeHtml(agent.preferences.food.restrictions.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Ritual drink</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.ritualDrink))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Genres</span><span class="kv-v">${escapeHtml(agent.preferences.media.genreTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Style</span><span class="kv-v">${escapeHtml(agent.preferences.fashion.styleTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Temperature</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.environment.temperature))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Weather mood</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.environment.weatherMood))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Room prefs</span><span class="kv-v">${escapeHtml(agent.preferences.livingSpace.roomPreferences.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Comfort items</span><span class="kv-v">${escapeHtml(agent.preferences.livingSpace.comfortItems.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Group style</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.social.groupStyle))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Communication</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.social.communicationMethod))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Boundaries</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.social.boundary))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Emotional sharing</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.social.emotionalSharing))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Preferred ops</span><span class="kv-v">${escapeHtml(agent.preferences.work.preferredOperations.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Avoided ops</span><span class="kv-v">${escapeHtml(agent.preferences.work.avoidedOperations.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Weapon</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.equipment.weaponPreference))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Gear prefs</span><span class="kv-v">${escapeHtml(agent.preferences.equipment.gearPreferences.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Lucky item</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.quirks.luckyItem))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Rituals</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.rituals.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Pet peeves</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.petPeeves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Must-haves</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.mustHaves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Daily rhythm</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.time.dailyRhythm))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Planning style</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.time.planningStyle))}</span></div>
-                </div>
-              </div>
-            </details>
-
-            <details class="agent-card agent-section" data-agents-details="profile:lifestyle:media" ${isDetailsOpen('profile:lifestyle:media', false) ? 'open' : ''}>
-              <summary class="agent-section-summary">
-                <span class="agent-section-title">Media</span>
-                <span class="agent-section-hint">${escapeHtml(agent.preferences.media.genreTopK.slice(0, 2).map(toTitleCaseWords).join(', ') || '—')}</span>
+                <span class="agent-section-title">Visibility profile</span>
+                <span class="agent-section-hint">Surface area</span>
               </summary>
               <div class="agent-section-body">
                 <div class="agent-card-grid">
-                  ${renderGauge('Attention resilience', agent.preferences.media.attentionResilience)}
-                  ${renderGauge('Doomscrolling risk', agent.preferences.media.doomscrollingRisk)}
-                  ${renderGauge('Epistemic hygiene', agent.preferences.media.epistemicHygiene)}
+                  ${renderGauge('Public visibility', agent.visibility.publicVisibility)}
+                  ${renderGauge('Paper trail', agent.visibility.paperTrail)}
+                  ${renderGauge('Digital hygiene', agent.visibility.digitalHygiene)}
                 </div>
-                <ul class="agent-kv-list">${platformDiet}</ul>
-              </div>
-            </details>
-
-            <details class="agent-card agent-section" data-agents-details="profile:lifestyle:routines" ${isDetailsOpen('profile:lifestyle:routines', false) ? 'open' : ''}>
-              <summary class="agent-section-summary">
-                <span class="agent-section-title">Routines</span>
-                <span class="agent-section-hint">${escapeHtml(`${toTitleCaseWords(agent.routines.chronotype)} · ${agent.routines.sleepWindow}`)}</span>
-              </summary>
-              <div class="agent-section-body">
-                <div class="agent-kv">
-                  <div class="kv-row"><span class="kv-k">Chronotype</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.routines.chronotype))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Sleep</span><span class="kv-v">${escapeHtml(agent.routines.sleepWindow)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Recovery rituals</span><span class="kv-v">${escapeHtml(agent.routines.recoveryRituals.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                <div class="agent-kv" style="margin-top:10px">
+                  <div class="kv-row"><span class="kv-k">Cover aptitudes</span><span class="kv-v">${escapeHtml(agent.covers.coverAptitudeTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                 </div>
               </div>
             </details>
+          </div>
+        </div>
 
-            <details class="agent-card agent-section" data-agents-details="profile:lifestyle:everydayLife" ${isDetailsOpen('profile:lifestyle:everydayLife', false) ? 'open' : ''}>
-              <summary class="agent-section-summary">
-                <span class="agent-section-title">Everyday life</span>
-                <span class="agent-section-hint">${escapeHtml(everydaySummary.commuteMode)}</span>
-              </summary>
-              <div class="agent-section-body">
-                <div class="agent-kv">
-                  <div class="kv-row"><span class="kv-k">Third places</span><span class="kv-v">${escapeHtml(everydaySummary.thirdPlaces)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Commute</span><span class="kv-v">${escapeHtml(everydaySummary.commuteMode)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Weekly anchor</span><span class="kv-v">${escapeHtml(everydaySummary.weeklyAnchor)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Petty habits</span><span class="kv-v">${escapeHtml(everydaySummary.pettyHabits)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Caregiving</span><span class="kv-v">${escapeHtml(everydaySummary.caregivingObligation)}</span></div>
-                </div>
-              </div>
-            </details>
-
-            <details class="agent-card agent-section" data-agents-details="profile:lifestyle:appearance" ${isDetailsOpen('profile:lifestyle:appearance', false) ? 'open' : ''}>
+        <!-- DAILY LIFE TAB: Appearance, routines, preferences, health -->
+        <div class="agent-tab-panel ${tab === 'daily-life' ? 'active' : ''}" data-agent-tab-panel="daily-life">
+          <div class="agent-grid agent-grid-tight">
+            <details class="agent-card agent-section" data-agents-details="profile:daily-life:appearance" ${isDetailsOpen('profile:daily-life:appearance', true) ? 'open' : ''}>
               <summary class="agent-section-summary">
                 <span class="agent-section-title">Appearance</span>
                 <span class="agent-section-hint">${escapeHtml(`${toTitleCaseWords(agent.appearance.heightBand)} · ${toTitleCaseWords(agent.appearance.buildTag)}`)}</span>
@@ -934,7 +904,58 @@ function renderAgent(
               </div>
             </details>
 
-            <details class="agent-card agent-section" data-agents-details="profile:lifestyle:memoryTrauma" ${isDetailsOpen('profile:lifestyle:memoryTrauma', false) ? 'open' : ''}>
+            <details class="agent-card agent-section" data-agents-details="profile:daily-life:routines" ${isDetailsOpen('profile:daily-life:routines', true) ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Routines</span>
+                <span class="agent-section-hint">${escapeHtml(`${toTitleCaseWords(agent.routines.chronotype)} · ${agent.routines.sleepWindow}`)}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Chronotype</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.routines.chronotype))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Sleep</span><span class="kv-v">${escapeHtml(agent.routines.sleepWindow)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Recovery rituals</span><span class="kv-v">${escapeHtml(agent.routines.recoveryRituals.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Third places</span><span class="kv-v">${escapeHtml(everydaySummary.thirdPlaces)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Commute</span><span class="kv-v">${escapeHtml(everydaySummary.commuteMode)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Weekly anchor</span><span class="kv-v">${escapeHtml(everydaySummary.weeklyAnchor)}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section" data-agents-details="profile:daily-life:preferences" ${isDetailsOpen('profile:daily-life:preferences', false) ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Preferences</span>
+                <span class="agent-section-hint">${escapeHtml(agent.preferences.fashion.styleTags.slice(0, 2).map(toTitleCaseWords).join(', ') || '—')}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Comfort foods</span><span class="kv-v">${escapeHtml(agent.preferences.food.comfortFoods.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Ritual drink</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.ritualDrink))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Style</span><span class="kv-v">${escapeHtml(agent.preferences.fashion.styleTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Weather mood</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.environment.weatherMood))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Genres</span><span class="kv-v">${escapeHtml(agent.preferences.media.genreTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Lucky item</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.quirks.luckyItem))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Pet peeves</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.petPeeves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section" data-agents-details="profile:daily-life:health" ${isDetailsOpen('profile:daily-life:health', false) ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Health</span>
+                <span class="agent-section-hint">${escapeHtml(healthSummary.fitness)}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Chronic</span><span class="kv-v">${escapeHtml(agent.health.chronicConditionTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Allergies</span><span class="kv-v">${escapeHtml(agent.health.allergyTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Injuries</span><span class="kv-v">${escapeHtml(healthSummary.injuries)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Fitness</span><span class="kv-v">${escapeHtml(healthSummary.fitness)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Treatments</span><span class="kv-v">${escapeHtml(healthSummary.treatments)}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section" data-agents-details="profile:daily-life:memoryTrauma" ${isDetailsOpen('profile:daily-life:memoryTrauma', false) ? 'open' : ''}>
               <summary class="agent-section-summary">
                 <span class="agent-section-title">Memory &amp; trauma</span>
                 <span class="agent-section-hint">${escapeHtml(memorySummary.traumaTags)}</span>
@@ -948,91 +969,8 @@ function renderAgent(
                 </div>
               </div>
             </details>
-          </div>
-        </div>
 
-        <div class="agent-tab-panel ${tab === 'health' ? 'active' : ''}" data-agent-tab-panel="health">
-          <div class="agent-grid agent-grid-tight">
-            <details class="agent-card agent-section" data-agents-details="profile:constraints:traits" ${isDetailsOpen('profile:constraints:traits', true) ? 'open' : ''}>
-              <summary class="agent-section-summary">
-                <span class="agent-section-title">Traits</span>
-                <span class="agent-section-hint">Disposition</span>
-              </summary>
-              <div class="agent-section-body">
-                <div class="agent-card-grid">
-                  ${renderGauge('Risk tolerance', agent.psych.traits.riskTolerance)}
-                  ${renderGauge('Conscientiousness', agent.psych.traits.conscientiousness)}
-                  ${renderGauge('Novelty seeking', agent.psych.traits.noveltySeeking)}
-                  ${renderGauge('Agreeableness', agent.psych.traits.agreeableness)}
-                  ${renderGauge('Authoritarianism', agent.psych.traits.authoritarianism)}
-                </div>
-              </div>
-            </details>
-
-            <details class="agent-card agent-section" data-agents-details="profile:constraints:ethics" ${isDetailsOpen('profile:constraints:ethics', true) ? 'open' : ''}>
-              <summary class="agent-section-summary">
-                <span class="agent-section-title">Ethics</span>
-                <span class="agent-section-hint">${escapeHtml(toTitleCaseWords(agent.psych.ethics.loyaltyScope))} loyalty</span>
-              </summary>
-              <div class="agent-section-body">
-                <div class="agent-card-grid">
-                  ${renderGauge('Rule adherence', agent.psych.ethics.ruleAdherence)}
-                  ${renderGauge('Harm aversion', agent.psych.ethics.harmAversion)}
-                  ${renderGauge('Mission utilitarianism', agent.psych.ethics.missionUtilitarianism)}
-                </div>
-                <div class="agent-kv" style="margin-top:10px">
-                  <div class="kv-row"><span class="kv-k">Loyalty scope</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.psych.ethics.loyaltyScope))}</span></div>
-                </div>
-                ${agent.psych.contradictions.length ? `
-                  <div style="margin-top:0.75rem">
-                    <div class="agent-mini-title">Internal contradictions</div>
-                    ${agent.psych.contradictions.slice(0, 2).map(c => `
-                      <div class="agent-contradiction-row">
-                        <span class="pill pill-muted">${escapeHtml(toTitleCaseWords(c.trait1))}</span>
-                        <span class="agent-contradiction-vs">vs</span>
-                        <span class="pill pill-muted">${escapeHtml(toTitleCaseWords(c.trait2))}</span>
-                        <span class="agent-contradiction-label">→ ${escapeHtml(c.tension)}</span>
-                      </div>
-                    `).join('')}
-                  </div>
-                ` : ''}
-              </div>
-            </details>
-
-            <details class="agent-card agent-section" data-agents-details="profile:constraints:visibility" ${isDetailsOpen('profile:constraints:visibility', false) ? 'open' : ''}>
-              <summary class="agent-section-summary">
-                <span class="agent-section-title">Visibility</span>
-                <span class="agent-section-hint">Surface area</span>
-              </summary>
-              <div class="agent-section-body">
-                <div class="agent-card-grid">
-                  ${renderGauge('Public visibility', agent.visibility.publicVisibility)}
-                  ${renderGauge('Paper trail', agent.visibility.paperTrail)}
-                  ${renderGauge('Digital hygiene', agent.visibility.digitalHygiene)}
-                </div>
-              </div>
-            </details>
-
-            <details class="agent-card agent-section" data-agents-details="profile:constraints:constraints" ${isDetailsOpen('profile:constraints:constraints', true) ? 'open' : ''}>
-              <summary class="agent-section-summary">
-                <span class="agent-section-title">Constraints</span>
-                <span class="agent-section-hint">${escapeHtml(agent.identity.redLines.slice(0, 2).map(toTitleCaseWords).join(', ') || '—')}</span>
-              </summary>
-              <div class="agent-section-body">
-                <div class="agent-kv">
-                  <div class="kv-row"><span class="kv-k">Red lines</span><span class="kv-v">${escapeHtml(agent.identity.redLines.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Chronic</span><span class="kv-v">${escapeHtml(agent.health.chronicConditionTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Allergies</span><span class="kv-v">${escapeHtml(agent.health.allergyTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Injuries</span><span class="kv-v">${escapeHtml(healthSummary.injuries)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Diseases</span><span class="kv-v">${escapeHtml(healthSummary.diseases)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Fitness</span><span class="kv-v">${escapeHtml(healthSummary.fitness)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Treatments</span><span class="kv-v">${escapeHtml(healthSummary.treatments)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Cover aptitudes</span><span class="kv-v">${escapeHtml(agent.covers.coverAptitudeTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                </div>
-              </div>
-            </details>
-
-            <details class="agent-card agent-section" data-agents-details="profile:constraints:vices" ${isDetailsOpen('profile:constraints:vices', false) ? 'open' : ''}>
+            <details class="agent-card agent-section" data-agents-details="profile:daily-life:vices" ${isDetailsOpen('profile:daily-life:vices', false) ? 'open' : ''}>
               <summary class="agent-section-summary">
                 <span class="agent-section-title">Vices</span>
                 <span class="agent-section-hint">${escapeHtml(agent.vices[0]?.vice ? toTitleCaseWords(agent.vices[0].vice) : 'None')}</span>
@@ -1049,10 +987,15 @@ function renderAgent(
                   : `<div class="agent-muted">None</div>`}
               </div>
             </details>
+          </div>
+        </div>
 
-            <details class="agent-card agent-section" data-agents-details="profile:constraints:deepSimDetails" ${isDetailsOpen('profile:constraints:deepSimDetails', false) ? 'open' : ''}>
+        <!-- DATA TAB: Technical/debug info -->
+        <div class="agent-tab-panel ${tab === 'data' ? 'active' : ''}" data-agent-tab-panel="data">
+          <div class="agent-grid agent-grid-tight">
+            <details class="agent-card agent-section" data-agents-details="profile:data:deepSim" ${isDetailsOpen('profile:data:deepSim', false) ? 'open' : ''}>
               <summary class="agent-section-summary">
-                <span class="agent-section-title">Deep sim details</span>
+                <span class="agent-section-title">Deep sim preview</span>
                 <span class="agent-section-hint">${escapeHtml(`${toTitleCaseWords(preview.breakRiskBand)} break risk`)}</span>
               </summary>
               <div class="agent-section-body">
@@ -1075,11 +1018,7 @@ function renderAgent(
                 </div>
               </div>
             </details>
-          </div>
-        </div>
 
-        <div class="agent-tab-panel ${tab === 'debug' ? 'active' : ''}" data-agent-tab-panel="debug">
-          <div class="agent-grid agent-grid-tight">
             ${traceSection}
           </div>
         </div>
@@ -1108,13 +1047,24 @@ export function initializeAgentsView(container: HTMLElement) {
   let pendingHashSeed: string | null = readSeedFromHash();
   let pendingHashParams: URLSearchParams | null = pendingHashSeed ? readAgentsParamsFromHash() : null;
 
-  const PROFILE_TAB_KEY = 'agentsProfileTab:v1';
+  const PROFILE_TAB_KEY = 'agentsProfileTab:v2';
   const readProfileTab = (): AgentProfileTab | null => {
     try {
       const raw = window.localStorage.getItem(PROFILE_TAB_KEY);
-      if (!raw) return null;
+      if (!raw) {
+        // Try migrating from v1
+        const oldRaw = window.localStorage.getItem('agentsProfileTab:v1');
+        if (oldRaw) {
+          const migrated = migrateOldTabName(oldRaw);
+          window.localStorage.setItem(PROFILE_TAB_KEY, migrated);
+          window.localStorage.removeItem('agentsProfileTab:v1');
+          return migrated;
+        }
+        return null;
+      }
       if (isAgentProfileTab(raw)) return raw;
-      return null;
+      // Handle old tab names in URL params or localStorage
+      return migrateOldTabName(raw);
     } catch {
       return null;
     }
@@ -1126,7 +1076,7 @@ export function initializeAgentsView(container: HTMLElement) {
       // ignore
     }
   };
-  let profileTab: AgentProfileTab = readProfileTab() ?? 'overview';
+  let profileTab: AgentProfileTab = readProfileTab() ?? 'portrait';
 
   const DETAILS_OPEN_KEY = 'agentsDetailsOpen:v1';
   type DetailsOpenMap = Record<string, boolean>;
@@ -1488,10 +1438,11 @@ export function initializeAgentsView(container: HTMLElement) {
 
     for (const btn of Array.from(container.querySelectorAll<HTMLButtonElement>('[data-agent-tab]'))) {
       btn.addEventListener('click', () => {
-        const next = (btn.dataset.agentTab ?? '').trim() as AgentProfileTab;
-        if (!next) return;
+        const rawNext = (btn.dataset.agentTab ?? '').trim();
+        if (!rawNext) return;
+        // Handle both new and old tab names
+        const next = isAgentProfileTab(rawNext) ? rawNext : migrateOldTabName(rawNext);
         if (next === profileTab) return;
-        if (!isAgentProfileTab(next)) return;
         profileTab = next;
         writeProfileTab(profileTab);
         render();
