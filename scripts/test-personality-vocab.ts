@@ -392,8 +392,26 @@ function run(): void {
   if (!isAgentProfileTab('cognitive')) {
     throw new Error('Expected cognitive to be a valid agent profile tab.');
   }
+  if (!isAgentProfileTab('narrative')) {
+    throw new Error('Expected narrative to be a valid agent profile tab.');
+  }
+  if (!isAgentProfileTab('identity')) {
+    throw new Error('Expected identity to be a valid agent profile tab.');
+  }
+  if (!isAgentProfileTab('social')) {
+    throw new Error('Expected social to be a valid agent profile tab.');
+  }
+  if (!isAgentProfileTab('motivations')) {
+    throw new Error('Expected motivations to be a valid agent profile tab.');
+  }
+  if (!isAgentProfileTab('health')) {
+    throw new Error('Expected health to be a valid agent profile tab.');
+  }
   if (isAgentProfileTab('not-a-tab')) {
     throw new Error('Expected unknown tab to be invalid.');
+  }
+  if (isAgentProfileTab('constraints')) {
+    throw new Error('Expected constraints tab to be removed.');
   }
 
   const knowledgeItems = (agentKnowledge as any).items as

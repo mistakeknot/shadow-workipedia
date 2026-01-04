@@ -556,14 +556,6 @@ function renderAgent(
     ? agent.motivations.secondaryGoals.map(toTitleCaseWords).join(', ')
     : '—';
 
-  const topThoughts = [...preview.thoughts]
-    .slice()
-    .sort((a, b) => (b.intensity01k - a.intensity01k) || a.tag.localeCompare(b.tag))
-    .slice(0, 3);
-  const thoughtsPills = topThoughts.length
-    ? `<span class="agent-pill-wrap">${topThoughts.map(t => `<span class="pill pill-muted">${escapeHtml(toTitleCaseWords(t.tag))}</span>`).join('')}</span>`
-    : `<span class="agent-inline-muted">—</span>`;
-
   const traceSection = agent.generationTrace
     ? `
       <details class="agent-trace" data-agents-details="profile:debug:trace" ${isDetailsOpen('profile:debug:trace', false) ? 'open' : ''}>
@@ -592,22 +584,21 @@ function renderAgent(
 
         <div class="agent-tabs">
           <button type="button" class="agent-tab-btn ${tab === 'overview' ? 'active' : ''}" data-agent-tab="overview">Overview</button>
+          <button type="button" class="agent-tab-btn ${tab === 'narrative' ? 'active' : ''}" data-agent-tab="narrative">Narrative</button>
+          <button type="button" class="agent-tab-btn ${tab === 'identity' ? 'active' : ''}" data-agent-tab="identity">Identity</button>
+          <button type="button" class="agent-tab-btn ${tab === 'social' ? 'active' : ''}" data-agent-tab="social">Social</button>
+          <button type="button" class="agent-tab-btn ${tab === 'motivations' ? 'active' : ''}" data-agent-tab="motivations">Motivations</button>
           ${renderCognitiveTabButton(tab === 'cognitive')}
           <button type="button" class="agent-tab-btn ${tab === 'performance' ? 'active' : ''}" data-agent-tab="performance">Performance</button>
           <button type="button" class="agent-tab-btn ${tab === 'lifestyle' ? 'active' : ''}" data-agent-tab="lifestyle">Lifestyle</button>
-          <button type="button" class="agent-tab-btn ${tab === 'constraints' ? 'active' : ''}" data-agent-tab="constraints">Constraints</button>
+          <button type="button" class="agent-tab-btn ${tab === 'health' ? 'active' : ''}" data-agent-tab="health">Health</button>
           <button type="button" class="agent-tab-btn ${tab === 'debug' ? 'active' : ''}" data-agent-tab="debug">Debug</button>
         </div>
       </div>
 
-      <div class="agent-tab-panels">
-        <div class="agent-tab-panel ${tab === 'overview' ? 'active' : ''}" data-agent-tab-panel="overview">
-          <div class="agent-grid agent-grid-tight">
-            <section class="agent-card agent-card-span12">
-              <h3>Overview</h3>
-              ${narrative}
-            </section>
-
+        <div class="agent-tab-panels">
+          <div class="agent-tab-panel ${tab === 'overview' ? 'active' : ''}" data-agent-tab-panel="overview">
+            <div class="agent-grid agent-grid-tight">
             <section class="agent-card agent-card-span6">
               <h3>At a glance</h3>
               <div class="agent-kv">
@@ -617,40 +608,6 @@ function renderAgent(
                 <div class="kv-row"><span class="kv-k">Mobility</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.mobilityTag))}</span></div>
                 <div class="kv-row"><span class="kv-k">Passport</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.passportAccessBand))}</span></div>
                 <div class="kv-row"><span class="kv-k">Travel</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.mobility.travelFrequencyBand))}</span></div>
-              </div>
-              <h4 style="margin-top:0.75rem;font-size:0.85rem;color:#888">Character arc</h4>
-              <div class="agent-kv">
-                <div class="kv-row"><span class="kv-k">Origin</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.originTierBand))} → ${escapeHtml(toTitleCaseWords(agent.identity.tierBand))} ${agent.identity.socioeconomicMobility === 'upward' ? '↑' : agent.identity.socioeconomicMobility === 'downward' ? '↓' : '→'}</span></div>
-                <div class="kv-row"><span class="kv-k">Network</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.network.role))} · ${escapeHtml(agent.network.leverageType)}</span></div>
-                ${agent.eliteCompensators.length ? `<div class="kv-row"><span class="kv-k">Compensators</span><span class="kv-v">${escapeHtml(agent.eliteCompensators.map(toTitleCaseWords).join(', '))}</span></div>` : ''}
-              </div>
-              <h4 style="margin-top:0.75rem;font-size:0.85rem;color:#888">Identity & beliefs</h4>
-              <div class="agent-kv">
-                ${!['cisgender-man', 'cisgender-woman'].includes(agent.gender.identityTag) ? `<div class="kv-row"><span class="kv-k">Gender</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.gender.identityTag))} (${escapeHtml(agent.gender.pronounSet)})</span></div>` : ''}
-                <div class="kv-row"><span class="kv-k">Pronouns</span><span class="kv-v">${escapeHtml(agent.gender.pronounSet)}</span></div>
-                ${agent.orientation.orientationTag !== 'straight' ? `<div class="kv-row"><span class="kv-k">Orientation</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.orientation.orientationTag))} (${escapeHtml(toTitleCaseWords(agent.orientation.outnessLevel))})</span></div>` : ''}
-                <div class="kv-row"><span class="kv-k">Spirituality</span><span class="kv-v">${agent.spirituality.tradition !== 'none' ? `${escapeHtml(toTitleCaseWords(agent.spirituality.tradition))} - ` : ''}${escapeHtml(toTitleCaseWords(agent.spirituality.affiliationTag))} (${escapeHtml(toTitleCaseWords(agent.spirituality.observanceLevel))})</span></div>
-                ${agent.neurodivergence.indicatorTags.length && !agent.neurodivergence.indicatorTags.includes('neurotypical') ? `<div class="kv-row"><span class="kv-k">Neurodivergence</span><span class="kv-v">${escapeHtml(agent.neurodivergence.indicatorTags.map(toTitleCaseWords).join(', '))}</span></div>` : ''}
-              </div>
-              <h4 style="margin-top:0.75rem;font-size:0.85rem;color:#888">Culture axes</h4>
-              <div class="agent-kv">
-                <div class="kv-row"><span class="kv-k">Heritage</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.culture.ethnolinguistic))} <span style="color:#666">(${Math.round(agent.culture.weights.ethnolinguistic / 10)}%)</span></span></div>
-                <div class="kv-row"><span class="kv-k">Regional</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.culture.regional))} <span style="color:#666">(${Math.round(agent.culture.weights.regional / 10)}%)</span></span></div>
-                <div class="kv-row"><span class="kv-k">Institutional</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.culture.institutional))} <span style="color:#666">(${Math.round(agent.culture.weights.institutional / 10)}%)</span></span></div>
-              </div>
-              <h4 style="margin-top:0.75rem;font-size:0.85rem;color:#888">Geography & family</h4>
-              <div class="agent-kv">
-                <div class="kv-row"><span class="kv-k">Urbanicity</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.geography.urbanicity))}</span></div>
-                <div class="kv-row"><span class="kv-k">Diaspora</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.geography.diasporaStatus))}</span></div>
-                <div class="kv-row"><span class="kv-k">Marital</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.family.maritalStatus))}${agent.family.dependentCount > 0 ? ` · ${agent.family.dependentCount} dependent${agent.family.dependentCount > 1 ? 's' : ''}` : ''}</span></div>
-                ${agent.minorityStatus.visibleMinority || agent.minorityStatus.linguisticMinority || agent.minorityStatus.religiousMinority ? `<div class="kv-row"><span class="kv-k">Minority</span><span class="kv-v">${[agent.minorityStatus.visibleMinority ? 'visible' : '', agent.minorityStatus.linguisticMinority ? 'linguistic' : '', agent.minorityStatus.religiousMinority ? 'religious' : ''].filter(Boolean).join(', ')}</span></div>` : ''}
-              </div>
-              <h4 style="margin-top:0.75rem;font-size:0.85rem;color:#888">Institution</h4>
-              <div class="agent-kv">
-                <div class="kv-row"><span class="kv-k">Org</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.orgType))}</span></div>
-                <div class="kv-row"><span class="kv-k">Grade</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.gradeBand))} · ${agent.institution.yearsInService}y</span></div>
-                <div class="kv-row"><span class="kv-k">Clearance</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.clearanceBand))}</span></div>
-                <div class="kv-row"><span class="kv-k">Function</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.functionalSpecialization))}</span></div>
               </div>
             </section>
 
@@ -662,25 +619,138 @@ function renderAgent(
                 <div class="agent-mini-title" style="margin-top:0.75rem">Top aptitudes</div>
                 <div class="agent-mini-list">${topAptitudeList || `<div class="agent-inline-muted">—</div>`}</div>
               </div>
-              <h4 style="margin-top:0.75rem;font-size:0.85rem;color:#888">Personality</h4>
+            </section>
+          </div>
+        </div>
+
+        <div class="agent-tab-panel ${tab === 'narrative' ? 'active' : ''}" data-agent-tab-panel="narrative">
+          <div class="agent-grid agent-grid-tight">
+            <section class="agent-card agent-card-span12">
+              <h3>Narrative</h3>
+              ${narrative}
+            </section>
+
+            ${agent.timeline.length ? `
+            <section class="agent-card agent-card-span6">
+              <h3>Life timeline</h3>
+              <div class="agent-timeline">
+                ${agent.timeline.slice(0, 6).map(e => `
+                  <div class="agent-timeline-event">
+                    <span class="agent-timeline-year">${agent.identity.birthYear + e.yearOffset}</span>
+                    <span class="agent-timeline-type pill pill-muted">${escapeHtml(toTitleCaseWords(e.type))}</span>
+                    <span class="agent-timeline-desc">${escapeHtml(e.description)}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </section>
+            ` : ''}
+          </div>
+        </div>
+
+        <div class="agent-tab-panel ${tab === 'identity' ? 'active' : ''}" data-agent-tab-panel="identity">
+          <div class="agent-grid agent-grid-tight">
+            <section class="agent-card agent-card-span6">
+              <h3>Character arc</h3>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Origin</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.identity.originTierBand))} → ${escapeHtml(toTitleCaseWords(agent.identity.tierBand))} ${agent.identity.socioeconomicMobility === 'upward' ? '↑' : agent.identity.socioeconomicMobility === 'downward' ? '↓' : '→'}</span></div>
+                ${agent.eliteCompensators.length ? `<div class="kv-row"><span class="kv-k">Compensators</span><span class="kv-v">${escapeHtml(agent.eliteCompensators.map(toTitleCaseWords).join(', '))}</span></div>` : ''}
+              </div>
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Identity &amp; beliefs</h3>
+              <div class="agent-kv">
+                ${!['cisgender-man', 'cisgender-woman'].includes(agent.gender.identityTag) ? `<div class="kv-row"><span class="kv-k">Gender</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.gender.identityTag))} (${escapeHtml(agent.gender.pronounSet)})</span></div>` : ''}
+                <div class="kv-row"><span class="kv-k">Pronouns</span><span class="kv-v">${escapeHtml(agent.gender.pronounSet)}</span></div>
+                ${agent.orientation.orientationTag !== 'straight' ? `<div class="kv-row"><span class="kv-k">Orientation</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.orientation.orientationTag))} (${escapeHtml(toTitleCaseWords(agent.orientation.outnessLevel))})</span></div>` : ''}
+                <div class="kv-row"><span class="kv-k">Spirituality</span><span class="kv-v">${agent.spirituality.tradition !== 'none' ? `${escapeHtml(toTitleCaseWords(agent.spirituality.tradition))} - ` : ''}${escapeHtml(toTitleCaseWords(agent.spirituality.affiliationTag))} (${escapeHtml(toTitleCaseWords(agent.spirituality.observanceLevel))})</span></div>
+                ${agent.neurodivergence.indicatorTags.length && !agent.neurodivergence.indicatorTags.includes('neurotypical') ? `<div class="kv-row"><span class="kv-k">Neurodivergence</span><span class="kv-v">${escapeHtml(agent.neurodivergence.indicatorTags.map(toTitleCaseWords).join(', '))}</span></div>` : ''}
+              </div>
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Personality</h3>
               <div class="agent-kv">
                 <div class="kv-row"><span class="kv-k">Conflict</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.personality.conflictStyle))}</span></div>
                 <div class="kv-row"><span class="kv-k">Epistemic</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.personality.epistemicStyle))}</span></div>
                 <div class="kv-row"><span class="kv-k">Social</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.personality.socialEnergy))}</span></div>
                 <div class="kv-row"><span class="kv-k">Risk</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.personality.riskPosture))}</span></div>
               </div>
-              <h4 style="margin-top:0.75rem;font-size:0.85rem;color:#888">Work style</h4>
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Work style</h3>
               <div class="agent-kv">
                 <div class="kv-row"><span class="kv-k">Writing</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.workStyle.writingStyle))}</span></div>
                 <div class="kv-row"><span class="kv-k">Briefing</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.workStyle.briefingStyle))}</span></div>
                 <div class="kv-row"><span class="kv-k">Confidence</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.workStyle.confidenceCalibration))}</span></div>
               </div>
-              <h4 style="margin-top:0.75rem;font-size:0.85rem;color:#888">Conversation topics</h4>
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Culture axes</h3>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Heritage</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.culture.ethnolinguistic))} <span style="color:#666">(${Math.round(agent.culture.weights.ethnolinguistic / 10)}%)</span></span></div>
+                <div class="kv-row"><span class="kv-k">Regional</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.culture.regional))} <span style="color:#666">(${Math.round(agent.culture.weights.regional / 10)}%)</span></span></div>
+                <div class="kv-row"><span class="kv-k">Institutional</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.culture.institutional))} <span style="color:#666">(${Math.round(agent.culture.weights.institutional / 10)}%)</span></span></div>
+              </div>
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Geography &amp; family</h3>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Urbanicity</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.geography.urbanicity))}</span></div>
+                <div class="kv-row"><span class="kv-k">Diaspora</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.geography.diasporaStatus))}</span></div>
+                <div class="kv-row"><span class="kv-k">Marital</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.family.maritalStatus))}${agent.family.dependentCount > 0 ? ` · ${agent.family.dependentCount} dependent${agent.family.dependentCount > 1 ? 's' : ''}` : ''}</span></div>
+                ${agent.minorityStatus.visibleMinority || agent.minorityStatus.linguisticMinority || agent.minorityStatus.religiousMinority ? `<div class="kv-row"><span class="kv-k">Minority</span><span class="kv-v">${[agent.minorityStatus.visibleMinority ? 'visible' : '', agent.minorityStatus.linguisticMinority ? 'linguistic' : '', agent.minorityStatus.religiousMinority ? 'religious' : ''].filter(Boolean).join(', ')}</span></div>` : ''}
+              </div>
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Institution</h3>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Org</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.orgType))}</span></div>
+                <div class="kv-row"><span class="kv-k">Grade</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.gradeBand))} · ${agent.institution.yearsInService}y</span></div>
+                <div class="kv-row"><span class="kv-k">Clearance</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.clearanceBand))}</span></div>
+                <div class="kv-row"><span class="kv-k">Function</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.institution.functionalSpecialization))}</span></div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="agent-tab-panel ${tab === 'social' ? 'active' : ''}" data-agent-tab-panel="social">
+          <div class="agent-grid agent-grid-tight">
+            <section class="agent-card agent-card-span6">
+              <h3>Network</h3>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Role</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.network.role))}</span></div>
+                <div class="kv-row"><span class="kv-k">Leverage</span><span class="kv-v">${escapeHtml(agent.network.leverageType)}</span></div>
+                ${agent.eliteCompensators.length ? `<div class="kv-row"><span class="kv-k">Compensators</span><span class="kv-v">${escapeHtml(agent.eliteCompensators.map(toTitleCaseWords).join(', '))}</span></div>` : ''}
+              </div>
+            </section>
+
+            ${agent.relationships.length ? `
+            <section class="agent-card agent-card-span6">
+              <h3>Key relationships</h3>
+              <div class="agent-kv">
+                ${agent.relationships.slice(0, 4).map(r => `
+                  <div class="kv-row"><span class="kv-k">${escapeHtml(toTitleCaseWords(r.type))}</span><span class="kv-v">${escapeHtml(r.description)}</span></div>
+                `).join('')}
+              </div>
+            </section>
+            ` : ''}
+
+            <section class="agent-card agent-card-span6">
+              <h3>Conversation topics</h3>
               <div class="agent-kv">
                 <div class="kv-row"><span class="kv-k">Talks about</span><span class="kv-v">${conversationPills}</span></div>
               </div>
             </section>
+          </div>
+        </div>
 
+        <div class="agent-tab-panel ${tab === 'motivations' ? 'active' : ''}" data-agent-tab-panel="motivations">
+          <div class="agent-grid agent-grid-tight">
             <section class="agent-card agent-card-span6">
               <h3>Dreams &amp; goals</h3>
               <div class="agent-kv">
@@ -703,58 +773,6 @@ function renderAgent(
                 <div class="kv-row"><span class="kv-k">Class navigation</span><span class="kv-v">${escapeHtml(economicMobility.classNavigation || '—')}</span></div>
                 <div class="kv-row"><span class="kv-k">Retirement</span><span class="kv-v">${escapeHtml(economicMobility.retirementMode || '—')}</span></div>
               </div>
-            </section>
-
-            ${agent.relationships.length ? `
-            <section class="agent-card agent-card-span6">
-              <h3>Key relationships</h3>
-              <div class="agent-kv">
-                ${agent.relationships.slice(0, 4).map(r => `
-                  <div class="kv-row"><span class="kv-k">${escapeHtml(toTitleCaseWords(r.type))}</span><span class="kv-v">${escapeHtml(r.description)}</span></div>
-                `).join('')}
-              </div>
-            </section>
-            ` : ''}
-
-            ${agent.timeline.length ? `
-            <section class="agent-card agent-card-span6">
-              <h3>Life timeline</h3>
-              <div class="agent-timeline">
-                ${agent.timeline.slice(0, 6).map(e => `
-                  <div class="agent-timeline-event">
-                    <span class="agent-timeline-year">${agent.identity.birthYear + e.yearOffset}</span>
-                    <span class="agent-timeline-type pill pill-muted">${escapeHtml(toTitleCaseWords(e.type))}</span>
-                    <span class="agent-timeline-desc">${escapeHtml(e.description)}</span>
-                  </div>
-                `).join('')}
-              </div>
-            </section>
-            ` : ''}
-
-            <section class="agent-card agent-card-span12">
-              <h3>Deep sim preview</h3>
-              <div class="agent-card-grid">
-                ${renderMoodGauge('Mood', preview.mood01k)}
-                ${renderGauge('Stress', preview.stress01k)}
-                ${renderGauge('Fatigue', preview.fatigue01k)}
-                ${renderGauge('Break risk', preview.breakRisk01k)}
-              </div>
-              <div class="agent-kv" style="margin-top:10px">
-                <div class="kv-row"><span class="kv-k">Likely breaks</span><span class="kv-v">${escapeHtml(preview.breakTypesTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                <div class="kv-row"><span class="kv-k">Top thoughts</span><span class="kv-v">${thoughtsPills}</span></div>
-              </div>
-              <details class="agent-inline-details" data-agents-details="profile:overview:needs" ${isDetailsOpen('profile:overview:needs', false) ? 'open' : ''}>
-                <summary>Show needs</summary>
-                <div class="agent-card-grid" style="margin-top:0.75rem">
-                  ${renderGauge('Sleep', preview.needs01k.sleep)}
-                  ${renderGauge('Safety', preview.needs01k.safety)}
-                  ${renderGauge('Belonging', preview.needs01k.belonging)}
-                  ${renderGauge('Autonomy', preview.needs01k.autonomy)}
-                  ${renderGauge('Competence', preview.needs01k.competence)}
-                  ${renderGauge('Purpose', preview.needs01k.purpose)}
-                  ${renderGauge('Comfort', preview.needs01k.comfort)}
-                </div>
-              </details>
             </section>
           </div>
         </div>
@@ -919,7 +937,7 @@ function renderAgent(
           </div>
         </div>
 
-        <div class="agent-tab-panel ${tab === 'constraints' ? 'active' : ''}" data-agent-tab-panel="constraints">
+        <div class="agent-tab-panel ${tab === 'health' ? 'active' : ''}" data-agent-tab-panel="health">
           <div class="agent-grid agent-grid-tight">
             <details class="agent-card agent-section" data-agents-details="profile:constraints:traits" ${isDetailsOpen('profile:constraints:traits', true) ? 'open' : ''}>
               <summary class="agent-section-summary">
