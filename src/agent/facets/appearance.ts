@@ -720,6 +720,7 @@ function selectVoiceTag(
   roleSeedTags: readonly string[],
   public01: number,
   opsec01: number,
+  express01: number,
 ): string {
   const weights = voiceTags.map((v) => {
     const key = v.toLowerCase();
@@ -739,6 +740,11 @@ function selectVoiceTag(
     // Public visibility -> more expressive voices
     if (public01 > 0.6 && PUBLIC_VOICES.some((pv) => key.includes(pv))) {
       w += 0.6 * public01;
+    }
+
+    // Aesthetic expressiveness -> more distinctive/expressive voices
+    if (express01 > 0.6 && PUBLIC_VOICES.some((pv) => key.includes(pv))) {
+      w += 0.5 * express01;
     }
 
     // High OPSEC -> quieter, less distinctive voices
@@ -820,7 +826,7 @@ export function computeAppearance(ctx: AppearanceContext): AppearanceResult {
   const eyes = { color: selectEyeColor(rng, vocab.appearance.eyeColors, homeCulture) };
 
   // Voice tag with career and visibility correlations
-  const voiceTag = selectVoiceTag(rng, vocab.appearance.voiceTags, careerTrackTag, roleSeedTags, public01, opsec01);
+  const voiceTag = selectVoiceTag(rng, vocab.appearance.voiceTags, careerTrackTag, roleSeedTags, public01, opsec01, express01);
 
   // Distinguishing marks (limited for OPSEC)
   const distinguishingMarks = selectDistinguishingMarks(

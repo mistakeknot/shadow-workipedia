@@ -168,6 +168,7 @@ function computeSkillValue(p: SkillValueParams): Fixed {
       value = clampFixed01k(
         0.20 * aptitudes.cognitiveSpeed + 0.20 * aptitudes.attentionControl +
         0.16 * aptitudes.workingMemory + 0.16 * latents.opsecDiscipline +
+        0.08 * latents.techFluency +
         0.06 * travelScore + // Diverse environments build surveillance adaptability
         0.06 * stateViolenceEnv01k + 0.16 * noise + careerBonus
       );
@@ -178,6 +179,7 @@ function computeSkillValue(p: SkillValueParams): Fixed {
       value = clampFixed01k(
         0.24 * latents.opsecDiscipline + 0.20 * aptitudes.deceptionAptitude +
         0.10 * latents.riskAppetite + 0.16 * aptitudes.workingMemory +
+        0.08 * latents.techFluency +
         0.08 * travelScore + // Travel experience builds operational skills
         0.06 * conflictEnv01k + 0.16 * noise + careerBonus +
         (roleSeedTags.includes('operative') ? 90 : 0)
@@ -206,6 +208,7 @@ function computeSkillValue(p: SkillValueParams): Fixed {
       value = clampFixed01k(
         0.30 * latents.publicness + 0.20 * aptitudes.charisma +
         0.18 * aptitudes.attentionControl + 0.12 * (1000 - latents.opsecDiscipline) +
+        0.06 * latents.techFluency +
         0.20 * noise + careerBonus + (roleSeedTags.includes('media') ? 90 : 0)
       );
       break;

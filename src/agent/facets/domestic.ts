@@ -464,10 +464,18 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
   const exposurePool = vocab.legalAdmin?.legalExposures ?? [
     'clean', 'old-conviction', 'pending-case', 'tax-dispute', 'custody-battle', 'sealed-record',
   ];
+  const opsec01 = latents.opsecDiscipline / 1000;
+  const impulse01 = latents.impulseControl / 1000;
+  const principled01 = latents.principledness / 1000;
   const exposureWeights = exposurePool.map(e => {
     let w = e === 'clean' ? 10 : 1;
     if (e === 'sealed-record' && roleSeedTags.includes('operative')) w = 2;
     if (e === 'tax-dispute' && tierBand === 'elite') w = 2;
+    if (e === 'clean') w += 2.0 * opsec01 + 1.6 * principled01 + 0.6 * impulse01;
+    if (e === 'sealed-record') w += 1.4 * opsec01;
+    if (e === 'pending-case' || e === 'under-investigation' || e === 'tax-dispute' || e === 'debt-collection') {
+      w += 1.6 * (1 - opsec01) + 1.2 * (1 - impulse01) + 0.8 * (1 - principled01);
+    }
     return { item: e as LegalExposure, weight: w };
   });
   const legalExposure = weightedPick(legalRng, exposureWeights) as LegalExposure;

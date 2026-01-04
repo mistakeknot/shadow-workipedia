@@ -53,6 +53,8 @@ export type PreferencesContext = {
     frugality: Fixed;
     socialBattery: Fixed;
     riskAppetite: Fixed;
+    adaptability: Fixed;
+    physicalConditioning: Fixed;
   };
   traits: PsychTraits;
   aptitudes: Aptitudes;
@@ -212,6 +214,7 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
     homeCountryIso3, citizenshipCountryIso3, currentCountryIso3, abroad,
     macroCulture, microProfiles, countryPriorsBucket, cohortBucketStartYear,
     chronicConditionTags, allergyTags, homeLangEnv01k, citizenshipLangEnv01k, currentLangEnv01k, viceTendency,
+    latents,
   } = ctx;
 
   const { foodPrimaryWeight } = primaryWeights;
@@ -326,6 +329,7 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
 
   // Comfort foods selection
   const comfortPool = uniqueStrings([...cultureComfort, ...vocab.preferences.food.comfortFoods]);
+  const frugal01 = latents.frugality / 1000;
   const comfortWeight = (item: string): number => {
     const s = item.toLowerCase();
     let w = 1;
@@ -339,6 +343,12 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
       if (s.includes('seafood')) w += 2.0 * axis01('seafood', 0.4);
       if (s.includes('meat') || s.includes('grilled')) w += 2.0 * axis01('meat', 0.4);
       if (s.includes('vegetarian') || s.includes('salad')) w += 1.8 * axis01('plantForward', 0.4);
+    }
+    if (s.includes('fine') || s.includes('gourmet') || s.includes('luxury') || s.includes('premium') || s.includes('steak') || s.includes('restaurant')) {
+      w += 1.2 * (1 - frugal01) - 0.6 * frugal01;
+    }
+    if (s.includes('street') || s.includes('home') || s.includes('simple') || s.includes('leftover') || s.includes('staple')) {
+      w += 0.8 * frugal01;
     }
     if (hasRestriction('vegetarian') && likelyMeat(item)) w *= 0.15;
     if (hasRestriction('vegan') && (likelyMeat(item) || likelyDairy(item))) w *= 0.12;
@@ -612,6 +622,7 @@ function computeRoutines(ctx: PreferencesContext, _rng: Rng, doomscrollingRisk: 
 
   // Enhanced chronotype selection
   const stressReactivity01 = latents.stressReactivity / 1000;
+  const adapt01 = latents.adaptability / 1000;
   const chronotypeWeights = vocab.routines.chronotypes.map((t) => {
     const key = t.toLowerCase();
     let w = 1;
@@ -621,10 +632,11 @@ function computeRoutines(ctx: PreferencesContext, _rng: Rng, doomscrollingRisk: 
     }
     if (key === 'night') w += 1.2 * (traits.noveltySeeking / 1000) + 0.7 * (latents.riskAppetite / 1000);
     if (key === 'standard') w += 0.7;
-    if (key === 'variable') { w += 1.0 * stressReactivity01 + 0.4 * (1 - traits.conscientiousness / 1000); }
+    if (key === 'variable') { w += 1.0 * stressReactivity01 + 0.4 * (1 - traits.conscientiousness / 1000) + 0.8 * adapt01; }
     if (key === 'biphasic') { w += 0.8 * climateIndicators.hot01 + 0.3 * (age / 120); }
-    if (key === 'flex-shift') { w += 1.0 * (careerTrackTag === 'logistics' ? 1 : 0) + 0.6 * (roleSeedTags.includes('operative') ? 1 : 0); }
+    if (key === 'flex-shift') { w += 1.0 * (careerTrackTag === 'logistics' ? 1 : 0) + 0.6 * (roleSeedTags.includes('operative') ? 1 : 0) + 0.8 * adapt01; }
     if (key === 'rotating') { w += 1.2 * (careerTrackTag === 'military' ? 1 : 0) + 0.8 * (careerTrackTag === 'public-health' ? 1 : 0) + 0.5 * (roleSeedTags.includes('security') ? 1 : 0); }
+    if (key === 'standard') { w += 0.5 * (1 - adapt01); }
     if (careerTrackTag === 'journalism' && key === 'night') w += 0.6;
     if (careerTrackTag === 'civil-service' && key === 'early') w += 0.4;
     const hasInsomnia = chronicConditionTags.some(c => c.toLowerCase().includes('insomnia') || c.toLowerCase().includes('sleep'));
@@ -652,7 +664,9 @@ function computeRoutines(ctx: PreferencesContext, _rng: Rng, doomscrollingRisk: 
   const ritualWeights = vocab.routines.recoveryRituals.map((r) => {
     const key = r.toLowerCase();
     let w = 1;
-    if (key.includes('gym') || key.includes('run') || key.includes('cardio')) w += 1.2 * (aptitudes.endurance / 1000) + 0.3 * (traits.conscientiousness / 1000);
+    if (key.includes('gym') || key.includes('run') || key.includes('cardio')) {
+      w += 1.2 * (aptitudes.endurance / 1000) + 0.3 * (traits.conscientiousness / 1000) + 0.6 * (latents.physicalConditioning / 1000);
+    }
     if (key.includes('meditation') || key.includes('breath')) w += 0.8 * (traits.conscientiousness / 1000) + 0.8 * ((1000 - aptitudes.attentionControl) / 1000);
     if (key.includes('sleep') || key.includes('nap')) w += 0.6 * ((1000 - aptitudes.endurance) / 1000);
     if (key.includes('reading') || key.includes('journal')) w += 0.7 * (aptitudes.workingMemory / 1000);

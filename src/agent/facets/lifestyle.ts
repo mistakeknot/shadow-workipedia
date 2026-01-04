@@ -199,6 +199,7 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
   const treatmentPool = uniqueStrings(vocab.health?.treatmentTags ?? []);
   const endurance01 = aptitudes.endurance / 1000;
   const conditioning01 = latents.physicalConditioning / 1000;
+  const stress01 = latents.stressReactivity / 1000;
 
   // Tier-based health modifier: elite has better healthcare, mass has more exposure
   const tierHealthModifier = ctx.tierBand === 'elite' ? -0.15 : ctx.tierBand === 'mass' ? 0.12 : 0;
@@ -206,6 +207,7 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
     age / 210 +
     0.10 * (1 - endurance01) +
     0.10 * viceTendency +
+    0.08 * stress01 +
     tierHealthModifier
   ));
   const chronicConditionTags = chronicPool.length && healthRng.next01() < chronicChance
@@ -225,7 +227,8 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
     0.35 * aptitudes.endurance +
     0.10 * healthRng.int(0, 1000) -
     agePenalty -
-    vicePenalty,
+    vicePenalty -
+    Math.round(120 * stress01),
   );
   const fitnessBand = (() => {
     const bands = fitnessBands.length ? fitnessBands : ['peak-condition', 'excellent', 'good', 'poor', 'critical'];
@@ -271,7 +274,8 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
     0.20 * (1 - endurance01) +
     0.12 * (age / 80) +
     0.12 * (travelScore / 1000) +
-    0.08 * stateViolence01
+    0.08 * stateViolence01 +
+    0.05 * stress01
   );
   const diseaseWeights = diseasePool.map(tag => {
     const key = tag.toLowerCase();

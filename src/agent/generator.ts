@@ -1083,6 +1083,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       frugality: latents.frugality,
       socialBattery: latents.socialBattery,
       riskAppetite: latents.riskAppetite,
+      adaptability: latents.adaptability,
+      physicalConditioning: latents.physicalConditioning,
     },
     traits: capabilitiesResult.traits,
     aptitudes: capabilitiesResult.aptitudes,
@@ -1140,6 +1142,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     opsec01,
     inst01,
     principledness01: latents.principledness / 1000,
+    adaptability01: latents.adaptability / 1000,
     aptitudes: {
       deceptionAptitude: capabilitiesResult.aptitudes.deceptionAptitude,
       cognitiveSpeed: capabilitiesResult.aptitudes.cognitiveSpeed,
@@ -1338,6 +1341,14 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (o === 'think-tank' && roleSeedTags.includes('analyst')) w = 15;
     if (o === 'private-security' && roleSeedTags.includes('security')) w = 15;
 
+    // Publicness ↔ org type (public figures gravitate to public-facing institutions)
+    if (o === 'media-outlet') w += 4.0 * public01;
+    if (o === 'party-apparatus') w += 3.0 * public01;
+    if (o === 'ngo') w += 2.4 * public01;
+    if (o === 'international-org') w += 2.0 * public01;
+    if (o === 'regulator' || o === 'think-tank') w += 1.4 * public01;
+    if (o === 'intel-agency' || o === 'private-security' || o === 'interior-ministry') w += 2.0 * (1 - public01) + 1.2 * opsec01;
+
     // Country indicator priors: trade openness, air connectivity, militarization, conflict.
     if (indTradeOpen01 > 0) {
       if (o === 'foreign-ministry' || o === 'international-org') w += 4.0 * indTradeOpen01;
@@ -1471,9 +1482,15 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 
   // Use the pre-computed years in service (calculated before grade selection for correlation)
   const yearsInService = estimatedYearsInService;
-  const coverStatus: 'official' | 'non-official' | 'none' = roleSeedTags.includes('operative')
-    ? (instRng.next01() < 0.4 ? 'non-official' : 'official')
-    : 'none';
+  const coverStatus: 'official' | 'non-official' | 'none' = (() => {
+    if (!roleSeedTags.includes('operative')) return 'none';
+    let nonOfficialChance = 0.4;
+    if (opsec01 > 0.7) nonOfficialChance += 0.25;
+    if (opsec01 < 0.35) nonOfficialChance -= 0.15;
+    if (public01 > 0.6) nonOfficialChance -= 0.15;
+    nonOfficialChance = Math.max(0.1, Math.min(0.85, nonOfficialChance));
+    return instRng.next01() < nonOfficialChance ? 'non-official' : 'official';
+  })();
 
   traceSet(trace, 'institution', { orgType, gradeBand, clearanceBand, functionalSpecialization, yearsInService, coverStatus }, { method: 'weighted' });
 
@@ -1530,6 +1547,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     if (e === 'consensus-seeking' && roleSeedTags.includes('organizer')) w = 4;
     if (e === 'skeptical' && latents.opsecDiscipline > 600) w = 3;
     if (e === 'systems-thinking' && capabilitiesResult.aptitudes.workingMemory > 600) w = 3;
+    if ((e === 'data-driven' || e === 'systems-thinking') && latents.curiosityBandwidth > 600) w += 2;
+    if (e === 'authority-driven' && latents.curiosityBandwidth < 400) w += 1.5;
     return { item: e as EpistemicStyle, weight: w };
   });
   const epistemicStyle = weightedPick(persRng, epistemicWeights) as EpistemicStyle;
@@ -2100,6 +2119,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 
   const originTierBand = geoStage1.originTierBand;
   const socioeconomicMobility = geoStage1.socioeconomicMobility;
+  const planning01 = latents.planningHorizon / 1000;
 
   const originStory = originStoriesPool.length
     ? weightedPick(econMobilityRng, originStoriesPool.map(s => {
@@ -2115,11 +2135,18 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   const mobilityPattern = mobilityPatternsPool.length
     ? weightedPick(econMobilityRng, mobilityPatternsPool.map(s => {
       let w = 1;
+      const lower = s.toLowerCase();
       if (s === 'The Steady Climber' && socioeconomicMobility === 'upward') w += 3;
       if (s === 'The Windfall Recipient' && socioeconomicMobility === 'upward') w += 2;
       if (s === 'The Steady Climber' && socioeconomicMobility === 'stable') w += 3;
       if (s === 'The Gradual Decline' && socioeconomicMobility === 'downward') w += 3;
       if (s === 'The Catastrophic Fall' && socioeconomicMobility === 'downward') w += 2;
+      if ((lower.includes('steady') || lower.includes('climber') || lower.includes('gradual')) && planning01 > 0.5) {
+        w += 1.5 * planning01;
+      }
+      if ((lower.includes('windfall') || lower.includes('catastrophic') || lower.includes('chaotic')) && planning01 < 0.5) {
+        w += 1.2 * (1 - planning01);
+      }
       return { item: s, weight: w };
     }))
     : '';
@@ -2146,8 +2173,15 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   const retirementMode = retirementModesPool.length
     ? weightedPick(econMobilityRng, retirementModesPool.map(s => {
       let w = 1;
+      const lower = s.toLowerCase();
       if (s === 'Financial Freedom Goals' && (age > 45 || tierBand === 'elite')) w += 2;
       if (s === 'The Golden Cage' && (tierBand === 'elite' || spendingStyle === 'status-driven')) w += 2;
+      if ((lower.includes('freedom') || lower.includes('retire') || lower.includes('early') || lower.includes('nest') || lower.includes('savings')) && planning01 > 0.5) {
+        w += 2.0 * planning01;
+      }
+      if ((lower.includes('never') || lower.includes('working') || lower.includes('burn') || lower.includes('stuck')) && planning01 < 0.5) {
+        w += 1.5 * (1 - planning01);
+      }
       return { item: s, weight: w };
     }))
     : '';

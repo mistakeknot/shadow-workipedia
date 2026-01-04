@@ -67,6 +67,7 @@ export type SocialContext = {
   opsec01: number;
   inst01: number;
   principledness01: number;
+  adaptability01: number;
   aptitudes: {
     deceptionAptitude: Fixed;
     cognitiveSpeed: Fixed;
@@ -171,6 +172,7 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     opsec01,
     inst01,
     principledness01,
+    adaptability01,
     aptitudes,
   } = ctx;
 
@@ -265,25 +267,29 @@ export function computeSocial(ctx: SocialContext): SocialResult {
 
     // Base: natives are common when home=current
     if (d === 'native' && sameCountry) {
-      w = 50 + 30 * (1 - cosmo01); // Low cosmo → more likely native
+      w = 50 + 30 * (1 - cosmo01) + 6 * (1 - adaptability01); // Low cosmo/adapt → more likely native
     }
     // High cosmopolitanism → expat, dual-citizen, diaspora-child
     if (d === 'expat') {
       w += 15; // Already enforced !sameCountry above
       w += 25 * cosmo01; // Strong cosmo correlation
+      w += 8 * adaptability01;
       if (tierBand === 'elite') w += 10;
     }
     if (d === 'dual-citizen') {
       w += 20 * cosmo01; // High cosmo → more likely dual citizen
+      w += 6 * adaptability01;
       if (tierBand === 'elite') w += 5;
     }
     if (d === 'diaspora-child') {
       w += 15 * cosmo01; // Diaspora children often more cosmopolitan
+      w += 4 * adaptability01;
     }
     // Internal migration: moderate cosmo, less rooted (only if same country)
     if (d === 'internal-migrant' && sameCountry) {
       if (urbanicity === 'capital' || urbanicity === 'megacity') w += 8;
       w += 5 * cosmo01;
+      w += 3 * adaptability01;
     }
     // Security-driven: refugee status (only if different country)
     if (d === 'refugee' && securityPressure01k > 600) w += 5 + securityPressure01k / 200;

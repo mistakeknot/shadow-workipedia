@@ -177,6 +177,15 @@ export function computeLatents(
   })();
   // Stress accumulates with age and career length
   const ageStressBias = Math.max(0, (age - 30) * 3); // +3 per year after 30, capped by clamp
+  // Tech fluency tends to decline with age (soft bias)
+  const ageTechBias = (() => {
+    if (age < 25) return 120;
+    if (age < 35) return 60;
+    if (age < 45) return 0;
+    if (age < 55) return -80;
+    if (age < 65) return -160;
+    return -240;
+  })();
 
   const raw: Record<keyof Latents, Fixed> = {
     cosmopolitanism: clampFixed01k(rng.int(0, 1000)),
@@ -205,7 +214,7 @@ export function computeLatents(
     riskAppetite: 0,
     stressReactivity: tierStressBias + ageStressBias, // Age correlate: stress accumulates
     impulseControl: 0,
-    techFluency: tierTechBias,
+    techFluency: tierTechBias + ageTechBias,
     socialBattery: 0,
     aestheticExpressiveness: tierExpressBias,
     frugality: tierFrugalBias,
