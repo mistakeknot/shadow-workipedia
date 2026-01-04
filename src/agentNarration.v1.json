@@ -373,7 +373,7 @@
     "synP1S1": [
       { "text": "#name# (#age#) is #aRole# #role# from #originLabel# (#homeIso3#), now #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "common" },
       { "text": "From #originLabel# (#homeIso3#), #name# (#age#) now works out of #currentLabel# (#currentIso3#) as #aRole# #role#.", "rarity": "uncommon" },
-      { "text": "#name# (#age#) operates as #aRole# #role\u2014born in #originLabel# (#homeIso3#), now #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "rare" }
+      { "text": "#name# (#age#) operates as #aRole# #role#\u2014born in #originLabel# (#homeIso3#), now #locationPhrase# #currentLabel# (#currentIso3#).", "rarity": "rare" }
     ],
     "synP1S2": [
       { "text": "#Subj# #be# #height# and #build#, with #hair# and #eyes#.", "rarity": "common" },

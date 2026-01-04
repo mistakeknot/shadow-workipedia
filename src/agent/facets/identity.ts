@@ -298,13 +298,13 @@ export function computeIdentity(ctx: IdentityContext): IdentityResult {
       }
       if (tierBand === 'mass') {
         if (['secondary', 'trade-certification', 'self-taught'].includes(t)) w += 3.5; // Mass: practical paths
-        if (['undergraduate'].includes(t)) w += 0.2;
-        if (t === 'graduate') w *= 0.08; // Rare for mass tier
-        if (t === 'doctorate') w *= 0.03; // Extremely rare for mass tier
+        if (['undergraduate'].includes(t)) w += 0.1;
+        if (t === 'graduate') w *= 0.04; // Rare for mass tier
+        if (t === 'doctorate') w *= 0.02; // Extremely rare for mass tier
         // HARD CONSTRAINT: Mass tier in low-access contexts cannot hit doctorate
-        if (t === 'doctorate' && gdpPerCap01 < 0.85) return { item: t, weight: 0 };
-        // HARD CONSTRAINT: Mass tier in low-access contexts cannot reach graduate track
-        if (t === 'graduate' && gdpPerCap01 < 0.45 && inst01 < 0.6) return { item: t, weight: 0 };
+        if (t === 'doctorate' && (gdpPerCap01 < 0.9 || inst01 < 0.75)) return { item: t, weight: 0 };
+        // HARD CONSTRAINT: Mass tier graduate requires strong institutional access
+        if (t === 'graduate' && (gdpPerCap01 < 0.7 || inst01 < 0.65)) return { item: t, weight: 0 };
       }
 	      if (careerTrackTag === 'military' && t === 'military-academy') w += 3.0;
 	      if (careerTrackTag === 'civil-service' && t === 'civil-service-track') w += 2.4;

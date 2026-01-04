@@ -1445,6 +1445,14 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       if (['communications', 'public-diplomacy', 'political-officer', 'economic-officer', 'regional-desk', 'protocol', 'legal-affairs'].includes(s)) w += 6;
       if (['intel-analysis', 'humint-ops', 'counterintel', 'security-ops', 'technical-collection', 'targeting', 'wmd-policy'].includes(s)) w *= 0.2;
     }
+    if (orgType === 'academia') {
+      if (['regional-desk', 'energy-policy', 'climate-policy', 'migration-policy', 'health-security', 'legal-affairs', 'general-admin', 'communications'].includes(s)) w += 5;
+      if (['intel-analysis', 'humint-ops', 'counterintel', 'security-ops', 'technical-collection', 'targeting', 'influence-ops'].includes(s)) w *= 0.2;
+    }
+    if (orgType === 'ngo') {
+      if (['development', 'public-diplomacy', 'migration-policy', 'climate-policy', 'health-security', 'legal-affairs', 'regional-desk', 'communications'].includes(s)) w += 5;
+      if (['intel-analysis', 'humint-ops', 'counterintel', 'security-ops', 'technical-collection', 'targeting', 'influence-ops', 'wmd-policy'].includes(s)) w *= 0.25;
+    }
 
     // Country indicator priors: conflict/militarization skew toward security specializations; trade openness toward foreign/economic.
     if (indConflict01 > 0) {
