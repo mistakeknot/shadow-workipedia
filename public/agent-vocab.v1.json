@@ -1422,6 +1422,66 @@
         "mold"
       ]
     },
+    "artistic": {
+      "mediums": [
+        "photography",
+        "sketching",
+        "painting",
+        "digital-art",
+        "poetry",
+        "fiction-writing",
+        "journaling",
+        "letters-unsent",
+        "music",
+        "dance",
+        "theater",
+        "woodworking",
+        "metalworking",
+        "textile-arts",
+        "culinary"
+      ],
+      "inspirationSources": [
+        "memory-mining",
+        "environmental-observation",
+        "emotional-release",
+        "cultural-heritage",
+        "mission-aftermath",
+        "people-watching",
+        "light-and-shadow"
+      ],
+      "expressionDrivers": [
+        "grief-processing",
+        "rage-release",
+        "quiet-joy",
+        "guilt-release",
+        "hope-keeping",
+        "identity-holding",
+        "control-seeking"
+      ],
+      "practiceRhythms": [
+        "pre-dawn-sessions",
+        "late-night-binges",
+        "lunch-break-sketches",
+        "weekend-immersions",
+        "mission-downtime",
+        "recovery-periods"
+      ],
+      "sharingStyles": [
+        "private-only",
+        "trusted-circle",
+        "anonymous-posts",
+        "public-showcase",
+        "never-finished"
+      ],
+      "workspacePreferences": [
+        "portable-kit",
+        "corner-setup",
+        "dedicated-studio",
+        "improvised-materials",
+        "hidden-supplies",
+        "outdoor-setup"
+      ]
+    },
     "social": {
       "groupStyleTags": [
         "one-on-one",

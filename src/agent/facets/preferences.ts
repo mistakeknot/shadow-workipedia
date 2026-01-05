@@ -156,6 +156,15 @@ export type AestheticsPreferences = {
   scentAversion: string;
 };
 
+export type ArtisticPreferences = {
+  mediums: string[];
+  inspirationSource: string;
+  expressionDriver: string;
+  practiceRhythm: string;
+  sharingStyle: string;
+  workspacePreference: string;
+};
+
 export type SocialPreferences = {
   groupStyle: string;
   communicationMethod: string;
@@ -194,6 +203,7 @@ export type PreferencesResult = {
   environment: EnvironmentPreferences;
   livingSpace: LivingSpacePreferences;
   aesthetics: AestheticsPreferences;
+  artistic: ArtisticPreferences;
   social: SocialPreferences;
   work: WorkPreferences;
   equipment: EquipmentPreferences;
@@ -1026,6 +1036,102 @@ function computeAestheticsPreferences(ctx: PreferencesContext, rng: Rng): Aesthe
   return result;
 }
 
+function computeArtisticPreferences(ctx: PreferencesContext, rng: Rng): ArtisticPreferences {
+  const { vocab, trace, latents, roleSeedTags, tierBand } = ctx;
+  const artistic = vocab.preferences.artistic;
+  if (!artistic?.mediums?.length) throw new Error('Agent vocab missing: preferences.artistic.mediums');
+  if (!artistic?.inspirationSources?.length) throw new Error('Agent vocab missing: preferences.artistic.inspirationSources');
+  if (!artistic?.expressionDrivers?.length) throw new Error('Agent vocab missing: preferences.artistic.expressionDrivers');
+  if (!artistic?.practiceRhythms?.length) throw new Error('Agent vocab missing: preferences.artistic.practiceRhythms');
+  if (!artistic?.sharingStyles?.length) throw new Error('Agent vocab missing: preferences.artistic.sharingStyles');
+  if (!artistic?.workspacePreferences?.length) throw new Error('Agent vocab missing: preferences.artistic.workspacePreferences');
+
+  const aesthetic01 = latents.aestheticExpressiveness / 1000;
+  const opsec01 = latents.opsecDiscipline / 1000;
+  const social01 = latents.socialBattery / 1000;
+  const public01 = latents.publicness / 1000;
+  const stress01 = latents.stressReactivity / 1000;
+
+  const pickWeighted = (pool: string[], weightFn: (item: string) => number): string => (
+    weightedPick(rng, pool.map(item => ({ item, weight: weightFn(item) }))) as string
+  );
+
+  const mediumWeights = artistic.mediums.map((item) => {
+    const lower = item.toLowerCase();
+    let w = 1 + 0.8 * aesthetic01;
+    if (lower.includes('journaling') || lower.includes('letters')) w += 0.8 * opsec01;
+    if (lower.includes('photography') || lower.includes('sketch') || lower.includes('painting')) w += 0.6 * aesthetic01;
+    if (lower.includes('music') || lower.includes('dance') || lower.includes('theater')) w += 0.6 * social01;
+    if (lower.includes('culinary')) w += 0.4 * social01;
+    if (lower.includes('wood') || lower.includes('metal') || lower.includes('textile')) w += 0.4 * (tierBand === 'mass' ? 1 : 0.5);
+    return { item, weight: w };
+  });
+  const mediums = weightedPickKUnique(rng, mediumWeights, Math.min(2, mediumWeights.length));
+
+  const inspirationSource = pickWeighted(artistic.inspirationSources, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('memory') || lower.includes('mission')) w += 0.6 * stress01;
+    if (lower.includes('environment') || lower.includes('light')) w += 0.6 * aesthetic01;
+    if (lower.includes('people')) w += 0.6 * social01;
+    return w;
+  });
+
+  const expressionDriver = pickWeighted(artistic.expressionDrivers, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('grief') || lower.includes('guilt')) w += 0.7 * stress01;
+    if (lower.includes('quiet-joy') || lower.includes('hope')) w += 0.4 * (1 - stress01);
+    if (lower.includes('identity')) w += 0.4 * aesthetic01;
+    return w;
+  });
+
+  const practiceRhythm = pickWeighted(artistic.practiceRhythms, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('late-night')) w += 0.5 * stress01;
+    if (lower.includes('pre-dawn')) w += 0.4 * (1 - stress01);
+    if (lower.includes('mission')) w += roleSeedTags.includes('operative') ? 0.6 : 0.2;
+    return w;
+  });
+
+  const sharingStyle = pickWeighted(artistic.sharingStyles, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('private') || lower.includes('never')) w += 0.8 * opsec01;
+    if (lower.includes('trusted')) w += 0.5 * social01;
+    if (lower.includes('public')) w += 0.6 * public01;
+    if (lower.includes('anonymous')) w += 0.4 * opsec01 + 0.3 * public01;
+    return w;
+  });
+
+  const workspacePreference = pickWeighted(artistic.workspacePreferences, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('portable') || lower.includes('improvised')) w += roleSeedTags.includes('operative') ? 0.7 : 0.2;
+    if (lower.includes('hidden')) w += 0.6 * opsec01;
+    if (lower.includes('dedicated')) w += 0.5 * (tierBand === 'elite' ? 1 : 0.4);
+    if (lower.includes('outdoor')) w += 0.4 * (1 - opsec01);
+    return w;
+  });
+
+  const result: ArtisticPreferences = {
+    mediums,
+    inspirationSource,
+    expressionDriver,
+    practiceRhythm,
+    sharingStyle,
+    workspacePreference,
+  };
+
+  traceSet(trace, 'preferences.artistic', result, {
+    method: 'weightedPick+pickK',
+    dependsOn: { facet: 'preferences', aestheticExpressiveness: latents.aestheticExpressiveness },
+  });
+
+  return result;
+}
+
 function computeSocialPreferences(ctx: PreferencesContext, rng: Rng): SocialPreferences {
   const { vocab, trace } = ctx;
   const social = vocab.preferences.social;
@@ -1157,6 +1263,7 @@ export function computePreferences(ctx: PreferencesContext): PreferencesResult {
   const environment = computeEnvironmentPreferences(ctx, prefsRng);
   const livingSpace = computeLivingSpacePreferences(ctx, prefsRng);
   const aesthetics = computeAestheticsPreferences(ctx, prefsRng);
+  const artistic = computeArtisticPreferences(ctx, prefsRng);
   const social = computeSocialPreferences(ctx, prefsRng);
   const work = computeWorkPreferences(ctx, prefsRng);
   const equipment = computeEquipmentPreferences(ctx, prefsRng);
@@ -1172,6 +1279,7 @@ export function computePreferences(ctx: PreferencesContext): PreferencesResult {
     environment,
     livingSpace,
     aesthetics,
+    artistic,
     social,
     work,
     equipment,

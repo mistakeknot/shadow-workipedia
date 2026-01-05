@@ -49,6 +49,7 @@ function run(): void {
   const env = (prefs as { environment?: Record<string, unknown> }).environment;
   const living = (prefs as { livingSpace?: Record<string, unknown> }).livingSpace;
   const aesthetics = (prefs as { aesthetics?: Record<string, unknown> }).aesthetics;
+  const artistic = (prefs as { artistic?: Record<string, unknown> }).artistic;
   const social = (prefs as { social?: Record<string, unknown> }).social;
   const work = (prefs as { work?: Record<string, unknown> }).work;
   const equipment = (prefs as { equipment?: Record<string, unknown> }).equipment;
@@ -72,6 +73,12 @@ function run(): void {
   assertNonEmptyArray(aesthetics?.touchPreferences, 'preferences.aesthetics.touchPreferences');
   assertNonEmptyArray(aesthetics?.scentAttractions, 'preferences.aesthetics.scentAttractions');
   assertNonEmptyArray(aesthetics?.scentAversions, 'preferences.aesthetics.scentAversions');
+  assertNonEmptyArray(artistic?.mediums, 'preferences.artistic.mediums');
+  assertNonEmptyArray(artistic?.inspirationSources, 'preferences.artistic.inspirationSources');
+  assertNonEmptyArray(artistic?.expressionDrivers, 'preferences.artistic.expressionDrivers');
+  assertNonEmptyArray(artistic?.practiceRhythms, 'preferences.artistic.practiceRhythms');
+  assertNonEmptyArray(artistic?.sharingStyles, 'preferences.artistic.sharingStyles');
+  assertNonEmptyArray(artistic?.workspacePreferences, 'preferences.artistic.workspacePreferences');
   assertNonEmptyArray(social?.groupStyleTags, 'preferences.social.groupStyleTags');
   assertNonEmptyArray(social?.communicationMethodTags, 'preferences.social.communicationMethodTags');
   assertNonEmptyArray(social?.boundaryTags, 'preferences.social.boundaryTags');
@@ -115,6 +122,12 @@ function run(): void {
     assertNonEmptyString(agent.preferences.aesthetics.touchPreference, `${seed} aesthetics.touchPreference`);
     assertNonEmptyString(agent.preferences.aesthetics.scentAttraction, `${seed} aesthetics.scentAttraction`);
     assertNonEmptyString(agent.preferences.aesthetics.scentAversion, `${seed} aesthetics.scentAversion`);
+    assertNonEmptyArray(agent.preferences.artistic.mediums, `${seed} artistic.mediums`);
+    assertNonEmptyString(agent.preferences.artistic.inspirationSource, `${seed} artistic.inspirationSource`);
+    assertNonEmptyString(agent.preferences.artistic.expressionDriver, `${seed} artistic.expressionDriver`);
+    assertNonEmptyString(agent.preferences.artistic.practiceRhythm, `${seed} artistic.practiceRhythm`);
+    assertNonEmptyString(agent.preferences.artistic.sharingStyle, `${seed} artistic.sharingStyle`);
+    assertNonEmptyString(agent.preferences.artistic.workspacePreference, `${seed} artistic.workspacePreference`);
     assertNonEmptyString(agent.preferences.social.groupStyle, `${seed} social.groupStyle`);
     assertNonEmptyString(agent.preferences.social.communicationMethod, `${seed} social.communicationMethod`);
     assertNonEmptyString(agent.preferences.social.boundary, `${seed} social.boundary`);

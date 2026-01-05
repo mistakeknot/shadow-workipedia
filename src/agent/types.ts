@@ -316,6 +316,14 @@ export type AgentVocabV1 = {
       scentAttractions?: string[];
       scentAversions?: string[];
     };
+    artistic?: {
+      mediums?: string[];
+      inspirationSources?: string[];
+      expressionDrivers?: string[];
+      practiceRhythms?: string[];
+      sharingStyles?: string[];
+      workspacePreferences?: string[];
+    };
     social?: {
       groupStyleTags?: string[];
       communicationMethodTags?: string[];
@@ -1048,6 +1056,14 @@ export type GeneratedAgent = {
       touchPreference: string;
       scentAttraction: string;
       scentAversion: string;
+    };
+    artistic: {
+      mediums: string[];
+      inspirationSource: string;
+      expressionDriver: string;
+      practiceRhythm: string;
+      sharingStyle: string;
+      workspacePreference: string;
     };
     social: {
       groupStyle: string;

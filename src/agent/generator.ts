@@ -2423,6 +2423,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       environment: preferencesResult.environment,
       livingSpace: preferencesResult.livingSpace,
       aesthetics: preferencesResult.aesthetics,
+      artistic: preferencesResult.artistic,
       social: preferencesResult.social,
       work: preferencesResult.work,
       equipment: preferencesResult.equipment,

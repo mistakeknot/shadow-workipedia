@@ -1135,6 +1135,12 @@ function renderAgent(
                     toTitleCaseWords(agent.preferences.aesthetics.touchPreference),
                   ].join(' · '))}</span></div>
                   <div class="kv-row"><span class="kv-k">Scents</span><span class="kv-v">${escapeHtml(`${toTitleCaseWords(agent.preferences.aesthetics.scentAttraction)} · ${toTitleCaseWords(agent.preferences.aesthetics.scentAversion)}`)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Artistic</span><span class="kv-v">${escapeHtml(agent.preferences.artistic.mediums.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Expression</span><span class="kv-v">${escapeHtml([
+                    toTitleCaseWords(agent.preferences.artistic.inspirationSource),
+                    toTitleCaseWords(agent.preferences.artistic.expressionDriver),
+                    toTitleCaseWords(agent.preferences.artistic.sharingStyle),
+                  ].join(' · '))}</span></div>
                   <div class="kv-row"><span class="kv-k">Genres</span><span class="kv-v">${escapeHtml(agent.preferences.media.genreTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                   <div class="kv-row"><span class="kv-k">Lucky item</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.quirks.luckyItem))}</span></div>
                   <div class="kv-row"><span class="kv-k">Pet peeves</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.petPeeves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
