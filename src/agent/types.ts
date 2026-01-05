@@ -675,6 +675,13 @@ export type NeedsRelationshipsResult = {
   };
 };
 
+export type RelationshipPatternsResult = {
+  conflictStyle: ConflictStyle;
+  repairStyle: RepairStyle;
+  trustFormation: TrustFormation;
+  attachmentStyle: AttachmentStyle;
+};
+
 export type EliteCompensator = 'patronage' | 'dynasty' | 'institutional-protection' | 'media-shield' | 'political-cover' | 'wealth-buffer';
 
 // === TYPES (Oracle recommendations) ===
@@ -1414,6 +1421,9 @@ export type GeneratedAgent = {
 
   // Needs and relationship archetypes
   needsRelationships: NeedsRelationshipsResult;
+
+  // Relationship patterns - conflict, repair, trust, attachment
+  relationshipPatterns: RelationshipPatternsResult;
 };
 
 export type GenerateAgentInput = {

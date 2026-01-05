@@ -469,6 +469,7 @@ function renderAgent(
     : 'None';
   const culturalDynamics = agent.culturalDynamics;
   const needsRelationships = agent.needsRelationships;
+  const relationshipPatterns = agent.relationshipPatterns;
   const renderDynamicsPills = (items: string[] | undefined): string => (
     items && items.length
       ? `<span class="agent-pill-wrap agent-pill-wrap-left">${items.slice(0, 4).map(item => `<span class="pill pill-muted">${escapeHtml(item)}</span>`).join('')}</span>`
@@ -944,6 +945,16 @@ function renderAgent(
             <section class="agent-card agent-card-span6">
               <h3>Relationship archetype</h3>
               ${renderArchetypePills(needsRelationships?.relationships?.primary, needsRelationships?.relationships?.secondary)}
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Relationship patterns</h3>
+              <div class="agent-kv">
+                <div class="kv-row"><span class="kv-k">Conflict</span><span class="kv-v">${escapeHtml(toTitleCaseWords(relationshipPatterns.conflictStyle))}</span></div>
+                <div class="kv-row"><span class="kv-k">Repair</span><span class="kv-v">${escapeHtml(toTitleCaseWords(relationshipPatterns.repairStyle))}</span></div>
+                <div class="kv-row"><span class="kv-k">Trust</span><span class="kv-v">${escapeHtml(toTitleCaseWords(relationshipPatterns.trustFormation))}</span></div>
+                <div class="kv-row"><span class="kv-k">Attachment</span><span class="kv-v">${escapeHtml(toTitleCaseWords(relationshipPatterns.attachmentStyle))}</span></div>
+              </div>
             </section>
 
             <section class="agent-card agent-card-span6">

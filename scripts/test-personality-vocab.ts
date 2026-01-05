@@ -392,6 +392,26 @@ function run(): void {
   if (!agentNeedsRelationships?.relationships?.primary) {
     throw new Error('Expected needsRelationships.relationships.primary to be generated.');
   }
+  const relationshipPatterns = (agent as any).relationshipPatterns as
+    | {
+      conflictStyle: string;
+      repairStyle: string;
+      trustFormation: string;
+      attachmentStyle: string;
+    }
+    | undefined;
+  if (!relationshipPatterns?.conflictStyle) {
+    throw new Error('Expected relationshipPatterns.conflictStyle to be generated.');
+  }
+  if (!relationshipPatterns?.repairStyle) {
+    throw new Error('Expected relationshipPatterns.repairStyle to be generated.');
+  }
+  if (!relationshipPatterns?.trustFormation) {
+    throw new Error('Expected relationshipPatterns.trustFormation to be generated.');
+  }
+  if (!relationshipPatterns?.attachmentStyle) {
+    throw new Error('Expected relationshipPatterns.attachmentStyle to be generated.');
+  }
 
   const agentKnowledge = (agent as any).knowledgeIgnorance as
     | {
