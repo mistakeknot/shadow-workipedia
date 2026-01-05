@@ -99,6 +99,14 @@ export type PreferencesContext = {
 export type FoodPreferences = {
   comfortFoods: string[];
   cuisineFavorites: string[];
+  tastePreference: string;
+  texturePreference: string;
+  temperaturePreference: string;
+  spiceTolerance: string;
+  portionPreference: string;
+  specificLoves: string[];
+  absoluteHates: string[];
+  conditionalPreferences: string[];
   dislikes: string[];
   restrictions: string[];
   ritualDrink: string;
@@ -248,7 +256,7 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
     homeCountryIso3, citizenshipCountryIso3, currentCountryIso3, abroad,
     macroCulture, microProfiles, countryPriorsBucket, cohortBucketStartYear,
     chronicConditionTags, allergyTags, homeLangEnv01k, citizenshipLangEnv01k, currentLangEnv01k, viceTendency,
-    latents,
+    roleSeedTags, latents,
   } = ctx;
 
   const { foodPrimaryWeight } = primaryWeights;
@@ -256,6 +264,14 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
   // Validate required vocab
   if (!vocab.preferences.food.comfortFoods.length) throw new Error('Agent vocab missing: preferences.food.comfortFoods');
   if (!vocab.preferences.food.cuisineFavorites.length) throw new Error('Agent vocab missing: preferences.food.cuisineFavorites');
+  if (!vocab.preferences.food.tastePreferences.length) throw new Error('Agent vocab missing: preferences.food.tastePreferences');
+  if (!vocab.preferences.food.texturePreferences.length) throw new Error('Agent vocab missing: preferences.food.texturePreferences');
+  if (!vocab.preferences.food.temperaturePreferences.length) throw new Error('Agent vocab missing: preferences.food.temperaturePreferences');
+  if (!vocab.preferences.food.spiceTolerance.length) throw new Error('Agent vocab missing: preferences.food.spiceTolerance');
+  if (!vocab.preferences.food.portionPreferences.length) throw new Error('Agent vocab missing: preferences.food.portionPreferences');
+  if (!vocab.preferences.food.specificLoves.length) throw new Error('Agent vocab missing: preferences.food.specificLoves');
+  if (!vocab.preferences.food.absoluteHates.length) throw new Error('Agent vocab missing: preferences.food.absoluteHates');
+  if (!vocab.preferences.food.conditionalPreferences.length) throw new Error('Agent vocab missing: preferences.food.conditionalPreferences');
   if (!vocab.preferences.food.dislikes.length) throw new Error('Agent vocab missing: preferences.food.dislikes');
   if (!vocab.preferences.food.restrictions.length) throw new Error('Agent vocab missing: preferences.food.restrictions');
   if (!vocab.preferences.food.ritualDrinks.length) throw new Error('Agent vocab missing: preferences.food.ritualDrinks');
@@ -369,6 +385,8 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
   const public01 = latents.publicness / 1000;
   const opsec01 = latents.opsecDiscipline / 1000;
   const social01 = latents.socialBattery / 1000;
+  const risk01 = latents.riskAppetite / 1000;
+  const physical01 = latents.physicalConditioning / 1000;
 
   // Comfort foods selection
   const comfortPool = uniqueStrings([...cultureComfort, ...vocab.preferences.food.comfortFoods]);
@@ -430,6 +448,87 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
   const cuisineFavorites = cuisineCount
     ? weightedPickKUnique(rng, cuisinePool.map(item => ({ item, weight: cuisineWeight(item) })), cuisineCount)
     : [];
+
+  const tastePreference = weightedPick(rng, vocab.preferences.food.tastePreferences.map((item) => {
+    const s = item.toLowerCase();
+    let w = 1;
+    if (foodEnv01k) {
+      if (s.includes('sweet')) w += 1.2 * axis01('sweets', 0.5);
+      if (s.includes('salty')) w += 0.8 * axis01('friedOily', 0.5);
+      if (s.includes('sour')) w += 0.7 * (1 - axis01('sweets', 0.5));
+      if (s.includes('bitter')) w += 0.6 * (1 - axis01('sweets', 0.5));
+      if (s.includes('umami')) w += 1.1 * axis01('meat', 0.5) + 0.6 * axis01('seafood', 0.4);
+    }
+    return { item, weight: Math.max(0.05, w) };
+  })) as string;
+
+  const texturePreference = weightedPick(rng, vocab.preferences.food.texturePreferences.map((item) => {
+    const s = item.toLowerCase();
+    let w = 1;
+    if (s.includes('crunch') || s.includes('crisp')) w += 0.4 * (1 - frugal01);
+    if (s.includes('smooth') || s.includes('creamy')) w += 0.5 * (1 - stress01);
+    if (s.includes('chewy')) w += 0.4 * stress01;
+    return { item, weight: Math.max(0.05, w) };
+  })) as string;
+
+  const temperaturePreference = weightedPick(rng, vocab.preferences.food.temperaturePreferences.map((item) => {
+    const s = item.toLowerCase();
+    let w = 1;
+    if (s.includes('hot')) w += 0.6 * ctx.climateIndicators.cold01 + 0.2 * (1 - ctx.climateIndicators.hot01);
+    if (s.includes('cold')) w += 0.6 * ctx.climateIndicators.hot01;
+    if (s.includes('contrast')) w += 0.3 * cosmo01 + 0.2 * public01;
+    return { item, weight: Math.max(0.05, w) };
+  })) as string;
+
+  const spiceTolerance = weightedPick(rng, vocab.preferences.food.spiceTolerance.map((item) => {
+    const s = item.toLowerCase();
+    let w = 1;
+    if (foodEnv01k) {
+      if (s.includes('averse')) w += 1.0 * (1 - axis01('spice', 0.5));
+      if (s.includes('mild')) w += 0.7 * (1 - axis01('spice', 0.5));
+      if (s.includes('medium')) w += 0.5;
+      if (s.includes('hot')) w += 1.0 * axis01('spice', 0.5);
+      if (s.includes('fiend')) w += 1.4 * axis01('spice', 0.5) + 0.4 * risk01;
+    }
+    if (hasRestriction('spice-sensitive') && !s.includes('averse')) w *= 0.2;
+    return { item, weight: Math.max(0.05, w) };
+  })) as string;
+
+  const portionPreference = weightedPick(rng, vocab.preferences.food.portionPreferences.map((item) => {
+    const s = item.toLowerCase();
+    let w = 1;
+    if (s.includes('small') || s.includes('grazing')) w += 0.6 * (1 - frugal01) + 0.3 * (1 - physical01);
+    if (s.includes('hearty') || s.includes('big')) w += 0.7 * physical01 + 0.5 * frugal01;
+    if (s.includes('strict')) w += 0.5 * opsec01 + 0.3 * (1 - stress01);
+    return { item, weight: Math.max(0.05, w) };
+  })) as string;
+
+  const loveCount = rng.int(2, 4);
+  const specificLoves = weightedPickKUnique(
+    rng,
+    vocab.preferences.food.specificLoves.map(item => ({ item, weight: 1 + 0.4 * stress01 })),
+    Math.min(loveCount, vocab.preferences.food.specificLoves.length),
+  );
+
+  const absoluteHates = weightedPickKUnique(
+    rng,
+    vocab.preferences.food.absoluteHates.map(item => ({ item, weight: 1 + 0.3 * stress01 })),
+    Math.min(2, vocab.preferences.food.absoluteHates.length),
+  );
+
+  const conditionalPreferences = weightedPickKUnique(
+    rng,
+    vocab.preferences.food.conditionalPreferences.map((item) => {
+      const s = item.toLowerCase();
+      let w = 1;
+      if (s.includes('stress')) w += 0.7 * stress01;
+      if (s.includes('mission')) w += roleSeedTags.includes('operative') ? 0.8 : 0.3;
+      if (s.includes('public')) w += 0.5 * public01;
+      if (s.includes('private')) w += 0.4 * opsec01;
+      return { item, weight: Math.max(0.05, w) };
+    }),
+    Math.min(2, vocab.preferences.food.conditionalPreferences.length),
+  );
 
   // Ritual drinks selection
   const drinkPool = uniqueStrings([...cultureDrinks, ...vocab.preferences.food.ritualDrinks]);
@@ -539,11 +638,43 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
     if (replacement) comfortFoods[i] = replacement;
   }
 
-  traceSet(trace, 'preferences.food', { comfortFoods, cuisineFavorites, caffeineHabit, alcoholPreference, dislikes, restrictions, ritualDrink }, {
+  traceSet(trace, 'preferences.food', {
+    comfortFoods,
+    cuisineFavorites,
+    tastePreference,
+    texturePreference,
+    temperaturePreference,
+    spiceTolerance,
+    portionPreference,
+    specificLoves,
+    absoluteHates,
+    conditionalPreferences,
+    caffeineHabit,
+    alcoholPreference,
+    dislikes,
+    restrictions,
+    ritualDrink,
+  }, {
     method: 'env+consistency', dependsOn: { facet: 'preferences', foodPrimaryWeight, cultureComfortPoolSize: cultureComfort.length, cultureDrinksPoolSize: cultureDrinks.length, forcedRestrictions, forcedDislikes, fixups },
   });
 
-  return { comfortFoods, cuisineFavorites, caffeineHabit, alcoholPreference, dislikes, restrictions, ritualDrink };
+  return {
+    comfortFoods,
+    cuisineFavorites,
+    tastePreference,
+    texturePreference,
+    temperaturePreference,
+    spiceTolerance,
+    portionPreference,
+    specificLoves,
+    absoluteHates,
+    conditionalPreferences,
+    caffeineHabit,
+    alcoholPreference,
+    dislikes,
+    restrictions,
+    ritualDrink,
+  };
 }
 
 // ============================================================================

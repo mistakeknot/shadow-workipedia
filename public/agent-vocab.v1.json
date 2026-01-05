@@ -882,6 +882,73 @@
         "italian-osteria",
         "north-african"
       ],
+      "tastePreferences": [
+        "sweet-leaning",
+        "salty-leaning",
+        "sour-leaning",
+        "bitter-averse",
+        "umami-seeker",
+        "balanced-palate"
+      ],
+      "texturePreferences": [
+        "crunchy-leaning",
+        "smooth-leaning",
+        "chewy-leaning",
+        "creamy-leaning",
+        "soft-preferred",
+        "crisp-and-light"
+      ],
+      "temperaturePreferences": [
+        "hot-only",
+        "cold-leaning",
+        "room-temp-ok",
+        "contrast-lover"
+      ],
+      "spiceTolerance": [
+        "spice-averse",
+        "mild-only",
+        "medium-heat",
+        "hot-lover",
+        "spice-fiend"
+      ],
+      "portionPreferences": [
+        "small-frequent",
+        "hearty-plates",
+        "grazing",
+        "single-big-meal",
+        "strict-portions"
+      ],
+      "specificLoves": [
+        "grandmothers-soup",
+        "fresh-bread-smell",
+        "perfect-coffee",
+        "hot-soup-on-cold-nights",
+        "street-taco-nights",
+        "proper-tea-ceremony",
+        "dark-chocolate-85",
+        "lime-on-everything",
+        "miso-comfort",
+        "citrus-zest"
+      ],
+      "absoluteHates": [
+        "processed-cheese",
+        "microwaved-tortillas",
+        "instant-coffee",
+        "overcooked-vegetables",
+        "fake-caviar",
+        "sweet-breakfasts",
+        "underseasoned-food",
+        "food-waste"
+      ],
+      "conditionalPreferences": [
+        "stress-eats-sweet",
+        "stress-fasts",
+        "mission-fasting",
+        "post-mission-binge",
+        "public-eats-light",
+        "private-indulgence",
+        "seasonal-shifts"
+      ],
       "dislikes": [
         "bitter greens",
         "sweet drinks",

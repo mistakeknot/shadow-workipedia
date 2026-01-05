@@ -11,7 +11,7 @@ Agent catalogs
 | --- | --- | --- | --- |
 | agent-preferences-catalog.md | Integrated (core lists) | Vocab: `preferences.*`; generator: `src/agent/facets/preferences.ts`; UI: `src/agentsView.ts` | Broad coverage; deeper narrative preference arcs still missing. |
 | agent-preferences-aesthetics-catalog.md | Integrated (core lists) | Vocab: `preferences.aesthetics.*`; generator: `src/agent/facets/preferences.ts`; UI: `src/agentsView.ts` | Still no cross-domain narrative context. |
-| agent-food-culture-catalog.md | Partial | Vocab: `preferences.food.*`; generator: `src/agent/facets/preferences.ts` | Added frugality weighting for comfort foods; still no cuisine-level/prep-style modeling. |
+| agent-food-culture-catalog.md | Integrated (core lists) | Vocab: `preferences.food.*`; generator: `src/agent/facets/preferences.ts`; UI: `src/agentsView.ts` | Expanded taste/texture/temp/spice/portion and specific loves/hates; no deep cultural narrative arcs yet. |
 | agent-living-spaces-catalog.md | Partial | Vocab: `preferences.livingSpace.*`, `home.*`; generator: `src/agent/facets/preferences.ts`, `src/agent/facets/domestic.ts` | Missing deeper spatial aesthetic / narrative behaviors. |
 | agent-daily-life-catalog.md | Integrated (core lists) | Vocab: `everydayLife.*`; generator: `src/agent/facets/domestic.ts`; UI: `src/agentsView.ts` | Only list-level coverage, not full narrative detail. |
 | agent-memory-trauma-catalog.md | Integrated | Vocab: `memoryTrauma.*`; generator: `src/agent/facets/lifestyle.ts`; UI: `src/agentsView.ts` | Narrative detail from catalog not encoded. |

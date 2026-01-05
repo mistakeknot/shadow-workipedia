@@ -274,6 +274,14 @@ export type AgentVocabV1 = {
     food: {
       comfortFoods: string[];
       cuisineFavorites: string[];
+      tastePreferences: string[];
+      texturePreferences: string[];
+      temperaturePreferences: string[];
+      spiceTolerance: string[];
+      portionPreferences: string[];
+      specificLoves: string[];
+      absoluteHates: string[];
+      conditionalPreferences: string[];
       dislikes: string[];
       restrictions: string[];
       ritualDrinks: string[];
@@ -1210,6 +1218,14 @@ export type GeneratedAgent = {
       ritualDrink: string;
       caffeineHabit: string;
       alcoholPreference: string;
+      tastePreference: string;
+      texturePreference: string;
+      temperaturePreference: string;
+      spiceTolerance: string;
+      portionPreference: string;
+      specificLoves: string[];
+      absoluteHates: string[];
+      conditionalPreferences: string[];
     };
     media: {
       platformDiet: Record<string, Fixed>;

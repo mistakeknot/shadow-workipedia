@@ -247,6 +247,46 @@ function run(): void {
     'single-malt-scotch',
     'preferences.food.alcoholPreferences',
   );
+  assertIncludes(
+    foodPrefs?.tastePreferences,
+    'umami-seeker',
+    'preferences.food.tastePreferences',
+  );
+  assertIncludes(
+    foodPrefs?.texturePreferences,
+    'crunchy-leaning',
+    'preferences.food.texturePreferences',
+  );
+  assertIncludes(
+    foodPrefs?.temperaturePreferences,
+    'hot-only',
+    'preferences.food.temperaturePreferences',
+  );
+  assertIncludes(
+    foodPrefs?.spiceTolerance,
+    'spice-fiend',
+    'preferences.food.spiceTolerance',
+  );
+  assertIncludes(
+    foodPrefs?.portionPreferences,
+    'small-frequent',
+    'preferences.food.portionPreferences',
+  );
+  assertIncludes(
+    foodPrefs?.specificLoves,
+    'fresh-bread-smell',
+    'preferences.food.specificLoves',
+  );
+  assertIncludes(
+    foodPrefs?.absoluteHates,
+    'microwaved-tortillas',
+    'preferences.food.absoluteHates',
+  );
+  assertIncludes(
+    foodPrefs?.conditionalPreferences,
+    'stress-eats-sweet',
+    'preferences.food.conditionalPreferences',
+  );
 
   console.log('Checking detail generation vocab...');
   const detailGeneration = (vocab as any).detailGeneration as
@@ -665,6 +705,14 @@ function run(): void {
       cuisineFavorites?: string[];
       caffeineHabit?: string;
       alcoholPreference?: string;
+      tastePreference?: string;
+      texturePreference?: string;
+      temperaturePreference?: string;
+      spiceTolerance?: string;
+      portionPreference?: string;
+      specificLoves?: string[];
+      absoluteHates?: string[];
+      conditionalPreferences?: string[];
     }
     | undefined;
   if (!agentFoodPrefs?.cuisineFavorites?.length) {
@@ -675,6 +723,30 @@ function run(): void {
   }
   if (!agentFoodPrefs?.alcoholPreference) {
     throw new Error('Expected preferences.food.alcoholPreference to be generated.');
+  }
+  if (!agentFoodPrefs?.tastePreference) {
+    throw new Error('Expected preferences.food.tastePreference to be generated.');
+  }
+  if (!agentFoodPrefs?.texturePreference) {
+    throw new Error('Expected preferences.food.texturePreference to be generated.');
+  }
+  if (!agentFoodPrefs?.temperaturePreference) {
+    throw new Error('Expected preferences.food.temperaturePreference to be generated.');
+  }
+  if (!agentFoodPrefs?.spiceTolerance) {
+    throw new Error('Expected preferences.food.spiceTolerance to be generated.');
+  }
+  if (!agentFoodPrefs?.portionPreference) {
+    throw new Error('Expected preferences.food.portionPreference to be generated.');
+  }
+  if (!agentFoodPrefs?.specificLoves?.length) {
+    throw new Error('Expected preferences.food.specificLoves to be generated.');
+  }
+  if (!agentFoodPrefs?.absoluteHates?.length) {
+    throw new Error('Expected preferences.food.absoluteHates to be generated.');
+  }
+  if (!agentFoodPrefs?.conditionalPreferences?.length) {
+    throw new Error('Expected preferences.food.conditionalPreferences to be generated.');
   }
   const agentDetails = (agent as any).details as
     | Array<{ category?: string; item?: string }>

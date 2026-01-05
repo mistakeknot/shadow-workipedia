@@ -1231,9 +1231,17 @@ function renderAgent(
                 <div class="agent-kv">
                   <div class="kv-row"><span class="kv-k">Comfort foods</span><span class="kv-v">${escapeHtml(agent.preferences.food.comfortFoods.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                   <div class="kv-row"><span class="kv-k">Cuisines</span><span class="kv-v">${escapeHtml(agent.preferences.food.cuisineFavorites.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Taste</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.tastePreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Texture</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.texturePreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Temperature</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.temperaturePreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Spice</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.spiceTolerance))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Portions</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.portionPreference))}</span></div>
                   <div class="kv-row"><span class="kv-k">Ritual drink</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.ritualDrink))}</span></div>
                   <div class="kv-row"><span class="kv-k">Caffeine</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.caffeineHabit))}</span></div>
                   <div class="kv-row"><span class="kv-k">Alcohol</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.alcoholPreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Loves</span><span class="kv-v">${escapeHtml(agent.preferences.food.specificLoves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Absolute hates</span><span class="kv-v">${escapeHtml(agent.preferences.food.absoluteHates.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Conditional</span><span class="kv-v">${escapeHtml(agent.preferences.food.conditionalPreferences.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                   <div class="kv-row"><span class="kv-k">Style</span><span class="kv-v">${escapeHtml(agent.preferences.fashion.styleTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                   <div class="kv-row"><span class="kv-k">Weather mood</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.environment.weatherMood))}</span></div>
                   <div class="kv-row"><span class="kv-k">Visual</span><span class="kv-v">${escapeHtml([
