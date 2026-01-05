@@ -982,11 +982,15 @@ function renderAgent(
               <h3>Creativity</h3>
               <div class="agent-kv">
                 <div class="kv-row"><span class="kv-k">Mediums</span><span class="kv-v">${escapeHtml(artisticPrefs.mediums.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                <div class="kv-row"><span class="kv-k">Specializations</span><span class="kv-v">${escapeHtml(artisticPrefs.specializations.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                <div class="kv-row"><span class="kv-k">Themes</span><span class="kv-v">${escapeHtml(artisticPrefs.themes.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                 <div class="kv-row"><span class="kv-k">Inspiration</span><span class="kv-v">${escapeHtml(toTitleCaseWords(artisticPrefs.inspirationSource))}</span></div>
                 <div class="kv-row"><span class="kv-k">Driver</span><span class="kv-v">${escapeHtml(toTitleCaseWords(artisticPrefs.expressionDriver))}</span></div>
                 <div class="kv-row"><span class="kv-k">Practice</span><span class="kv-v">${escapeHtml(toTitleCaseWords(artisticPrefs.practiceRhythm))}</span></div>
                 <div class="kv-row"><span class="kv-k">Sharing</span><span class="kv-v">${escapeHtml(toTitleCaseWords(artisticPrefs.sharingStyle))}</span></div>
                 <div class="kv-row"><span class="kv-k">Workspace</span><span class="kv-v">${escapeHtml(toTitleCaseWords(artisticPrefs.workspacePreference))}</span></div>
+                <div class="kv-row"><span class="kv-k">Learning</span><span class="kv-v">${escapeHtml(toTitleCaseWords(artisticPrefs.learningMode))}</span></div>
+                <div class="kv-row"><span class="kv-k">Challenge</span><span class="kv-v">${escapeHtml(toTitleCaseWords(artisticPrefs.challenge))}</span></div>
               </div>
             </section>
 

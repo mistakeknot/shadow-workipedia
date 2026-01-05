@@ -202,6 +202,34 @@ function run(): void {
     'physicalDetails.postureMovement',
   );
 
+  console.log('Checking artistic expression vocab...');
+  const artisticPrefs = vocab.preferences?.artistic;
+  assertIncludes(
+    artisticPrefs?.mediums,
+    'photography',
+    'preferences.artistic.mediums',
+  );
+  assertIncludes(
+    artisticPrefs?.specializations,
+    'documentary-photography',
+    'preferences.artistic.specializations',
+  );
+  assertIncludes(
+    artisticPrefs?.themes,
+    'diaspora-belonging',
+    'preferences.artistic.themes',
+  );
+  assertIncludes(
+    artisticPrefs?.learningModes,
+    'youtube-university',
+    'preferences.artistic.learningModes',
+  );
+  assertIncludes(
+    artisticPrefs?.challenges,
+    'security-concerns',
+    'preferences.artistic.challenges',
+  );
+
   console.log('Checking detail generation vocab...');
   const detailGeneration = (vocab as any).detailGeneration as
     | {
@@ -593,6 +621,26 @@ function run(): void {
   }
   if (!physicalDetails.every((entry) => entry.item && entry.category)) {
     throw new Error('Expected physicalDetails entries to include category and item.');
+  }
+  const agentArtistic = agent.preferences.artistic as
+    | {
+      specializations?: string[];
+      themes?: string[];
+      learningMode?: string;
+      challenge?: string;
+    }
+    | undefined;
+  if (!agentArtistic?.specializations?.length) {
+    throw new Error('Expected preferences.artistic.specializations to be generated.');
+  }
+  if (!agentArtistic?.themes?.length) {
+    throw new Error('Expected preferences.artistic.themes to be generated.');
+  }
+  if (!agentArtistic?.learningMode) {
+    throw new Error('Expected preferences.artistic.learningMode to be generated.');
+  }
+  if (!agentArtistic?.challenge) {
+    throw new Error('Expected preferences.artistic.challenge to be generated.');
   }
   const agentDetails = (agent as any).details as
     | Array<{ category?: string; item?: string }>

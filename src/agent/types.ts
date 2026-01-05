@@ -318,11 +318,15 @@ export type AgentVocabV1 = {
     };
     artistic?: {
       mediums?: string[];
+      specializations?: string[];
+      themes?: string[];
       inspirationSources?: string[];
       expressionDrivers?: string[];
       practiceRhythms?: string[];
       sharingStyles?: string[];
       workspacePreferences?: string[];
+      learningModes?: string[];
+      challenges?: string[];
     };
     social?: {
       groupStyleTags?: string[];
@@ -1244,11 +1248,15 @@ export type GeneratedAgent = {
     };
     artistic: {
       mediums: string[];
+      specializations: string[];
+      themes: string[];
       inspirationSource: string;
       expressionDriver: string;
       practiceRhythm: string;
       sharingStyle: string;
       workspacePreference: string;
+      learningMode: string;
+      challenge: string;
     };
     social: {
       groupStyle: string;

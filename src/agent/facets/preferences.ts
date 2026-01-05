@@ -158,11 +158,15 @@ export type AestheticsPreferences = {
 
 export type ArtisticPreferences = {
   mediums: string[];
+  specializations: string[];
+  themes: string[];
   inspirationSource: string;
   expressionDriver: string;
   practiceRhythm: string;
   sharingStyle: string;
   workspacePreference: string;
+  learningMode: string;
+  challenge: string;
 };
 
 export type SocialPreferences = {
@@ -1040,17 +1044,25 @@ function computeArtisticPreferences(ctx: PreferencesContext, rng: Rng): Artistic
   const { vocab, trace, latents, roleSeedTags, tierBand } = ctx;
   const artistic = vocab.preferences.artistic;
   if (!artistic?.mediums?.length) throw new Error('Agent vocab missing: preferences.artistic.mediums');
+  if (!artistic?.specializations?.length) throw new Error('Agent vocab missing: preferences.artistic.specializations');
+  if (!artistic?.themes?.length) throw new Error('Agent vocab missing: preferences.artistic.themes');
   if (!artistic?.inspirationSources?.length) throw new Error('Agent vocab missing: preferences.artistic.inspirationSources');
   if (!artistic?.expressionDrivers?.length) throw new Error('Agent vocab missing: preferences.artistic.expressionDrivers');
   if (!artistic?.practiceRhythms?.length) throw new Error('Agent vocab missing: preferences.artistic.practiceRhythms');
   if (!artistic?.sharingStyles?.length) throw new Error('Agent vocab missing: preferences.artistic.sharingStyles');
   if (!artistic?.workspacePreferences?.length) throw new Error('Agent vocab missing: preferences.artistic.workspacePreferences');
+  if (!artistic?.learningModes?.length) throw new Error('Agent vocab missing: preferences.artistic.learningModes');
+  if (!artistic?.challenges?.length) throw new Error('Agent vocab missing: preferences.artistic.challenges');
 
   const aesthetic01 = latents.aestheticExpressiveness / 1000;
   const opsec01 = latents.opsecDiscipline / 1000;
   const social01 = latents.socialBattery / 1000;
   const public01 = latents.publicness / 1000;
   const stress01 = latents.stressReactivity / 1000;
+  const frugal01 = latents.frugality / 1000;
+  const physical01 = latents.physicalConditioning / 1000;
+  const cosmo01 = ctx.cosmo01;
+  const abroad = ctx.abroad;
 
   const pickWeighted = (pool: string[], weightFn: (item: string) => number): string => (
     weightedPick(rng, pool.map(item => ({ item, weight: weightFn(item) }))) as string
@@ -1067,6 +1079,29 @@ function computeArtisticPreferences(ctx: PreferencesContext, rng: Rng): Artistic
     return { item, weight: w };
   });
   const mediums = weightedPickKUnique(rng, mediumWeights, Math.min(2, mediumWeights.length));
+
+  const specializationWeights = artistic.specializations.map((item) => {
+    const lower = item.toLowerCase();
+    let w = 1 + 0.6 * aesthetic01;
+    if (lower.includes('war') || lower.includes('combat') || lower.includes('battle')) w += 0.6 * stress01 + (roleSeedTags.includes('operative') ? 0.4 : 0);
+    if (lower.includes('portrait') || lower.includes('people') || lower.includes('love')) w += 0.5 * social01;
+    if (lower.includes('code') || lower.includes('encrypted')) w += 0.5 * opsec01;
+    if (lower.includes('abstract') || lower.includes('surreal') || lower.includes('generative')) w += 0.5 * aesthetic01;
+    if (lower.includes('knife') || lower.includes('metal') || lower.includes('wood')) w += 0.3 * physical01;
+    return { item, weight: w };
+  });
+  const specializations = weightedPickKUnique(rng, specializationWeights, Math.min(2, specializationWeights.length));
+
+  const themeWeights = artistic.themes.map((item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('war') || lower.includes('violence') || lower.includes('aftermath')) w += 0.6 * stress01 + (roleSeedTags.includes('operative') ? 0.4 : 0);
+    if (lower.includes('identity') || lower.includes('heritage') || lower.includes('diaspora')) w += 0.6 * cosmo01 + (abroad ? 0.4 : 0);
+    if (lower.includes('love') || lower.includes('connection') || lower.includes('family')) w += 0.5 * social01;
+    if (lower.includes('loss') || lower.includes('grief')) w += 0.6 * stress01;
+    return { item, weight: w };
+  });
+  const themes = weightedPickKUnique(rng, themeWeights, Math.min(2, themeWeights.length));
 
   const inspirationSource = pickWeighted(artistic.inspirationSources, (item) => {
     const lower = item.toLowerCase();
@@ -1115,13 +1150,38 @@ function computeArtisticPreferences(ctx: PreferencesContext, rng: Rng): Artistic
     return w;
   });
 
+  const learningMode = pickWeighted(artistic.learningModes, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('self') || lower.includes('youtube') || lower.includes('library')) w += 0.6 * opsec01 + 0.4 * frugal01;
+    if (lower.includes('formal') || lower.includes('degree') || lower.includes('workshop')) w += 0.5 * public01;
+    if (lower.includes('mentor') || lower.includes('critique') || lower.includes('peer')) w += 0.6 * social01;
+    if (lower.includes('online')) w += 0.4 * opsec01;
+    return w;
+  });
+
+  const challenge = pickWeighted(artistic.challenges, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('security') || lower.includes('exposure') || lower.includes('visibility')) w += 0.7 * opsec01 + 0.4 * public01;
+    if (lower.includes('time') || lower.includes('exhaustion') || lower.includes('fatigue')) w += 0.6 * stress01;
+    if (lower.includes('resource') || lower.includes('cost')) w += 0.6 * frugal01;
+    if (lower.includes('vulnerability') || lower.includes('rejection') || lower.includes('perfection')) w += 0.5 * stress01;
+    if (lower.includes('physical')) w += 0.5 * (1 - physical01);
+    return w;
+  });
+
   const result: ArtisticPreferences = {
     mediums,
+    specializations,
+    themes,
     inspirationSource,
     expressionDriver,
     practiceRhythm,
     sharingStyle,
     workspacePreference,
+    learningMode,
+    challenge,
   };
 
   traceSet(trace, 'preferences.artistic', result, {
