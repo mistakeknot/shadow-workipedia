@@ -153,6 +153,30 @@ function run(): void {
     throw new Error('Expected behavior archetypes to include situationReads and equipmentReads.');
   }
 
+  console.log('Checking decision template vocab...');
+  const decisionTemplates = (vocab as any).decisionTemplates as
+    | {
+      mission?: string[];
+      resource?: string[];
+      social?: string[];
+      crisis?: string[];
+      information?: string[];
+      moral?: string[];
+      resourceManagement?: string[];
+      longTerm?: string[];
+    }
+    | undefined;
+  assertIncludes(
+    decisionTemplates?.mission,
+    'Volunteers for high-risk missions',
+    'decisionTemplates.mission',
+  );
+  assertIncludes(
+    decisionTemplates?.moral,
+    'Refuses civilian harm',
+    'decisionTemplates.moral',
+  );
+
   console.log('Checking detail generation vocab...');
   const detailGeneration = (vocab as any).detailGeneration as
     | {
@@ -526,6 +550,15 @@ function run(): void {
   }
   if (!behaviorLens.reads.every((entry) => entry.item && entry.category)) {
     throw new Error('Expected behaviorLens.reads entries to include category and item.');
+  }
+  const decisionStyle = (agent as any).decisionStyle as
+    | { tendencies?: Array<{ category?: string; item?: string }> }
+    | undefined;
+  if (!decisionStyle?.tendencies || decisionStyle.tendencies.length < 3 || decisionStyle.tendencies.length > 5) {
+    throw new Error('Expected decisionStyle.tendencies to include 3-5 items.');
+  }
+  if (!decisionStyle.tendencies.every((entry) => entry.item && entry.category)) {
+    throw new Error('Expected decisionStyle.tendencies entries to include category and item.');
   }
   const agentDetails = (agent as any).details as
     | Array<{ category?: string; item?: string }>

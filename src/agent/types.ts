@@ -642,6 +642,16 @@ export type AgentVocabV1 = {
       teamDynamics: string[];
     }>;
   };
+  decisionTemplates?: {
+    mission?: string[];
+    resource?: string[];
+    social?: string[];
+    crisis?: string[];
+    information?: string[];
+    moral?: string[];
+    resourceManagement?: string[];
+    longTerm?: string[];
+  };
   detailGeneration?: {
     physicalFeatures?: string[];
     bodyLanguage?: string[];
@@ -825,6 +835,25 @@ export type BehaviorRead = {
 export type BehaviorLensResult = {
   archetype: string;
   reads: BehaviorRead[];
+};
+
+export type DecisionTemplateCategory =
+  | 'mission'
+  | 'resource'
+  | 'social'
+  | 'crisis'
+  | 'information'
+  | 'moral'
+  | 'resourceManagement'
+  | 'longTerm';
+
+export type DecisionTendency = {
+  category: DecisionTemplateCategory;
+  item: string;
+};
+
+export type DecisionStyleResult = {
+  tendencies: DecisionTendency[];
 };
 
 export type EliteCompensator = 'patronage' | 'dynasty' | 'institutional-protection' | 'media-shield' | 'political-cover' | 'wealth-buffer';
@@ -1484,6 +1513,9 @@ export type GeneratedAgent = {
 
   // Behavior lens - archetype reads of situations/equipment/pressure
   behaviorLens: BehaviorLensResult;
+
+  // Decision style - tendency templates
+  decisionStyle: DecisionStyleResult;
 
   // Detail markers - memorable quirks for narrative texture
   details: DetailItem[];

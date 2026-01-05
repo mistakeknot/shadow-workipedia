@@ -525,6 +525,21 @@ function renderAgent(
     `
     : `<div class="agent-inline-muted">—</div>`;
 
+  const decisionStyle = agent.decisionStyle;
+  const decisionReads = decisionStyle?.tendencies ?? [];
+  const decisionList = decisionReads.length
+    ? `
+      <div class="agent-detail-list">
+        ${decisionReads.map(read => `
+          <div class="agent-detail-row">
+            <span class="agent-detail-dot">•</span>
+            <span class="agent-detail-text">${escapeHtml(read.item)}</span>
+          </div>
+        `).join('')}
+      </div>
+    `
+    : `<div class="agent-inline-muted">—</div>`;
+
   const aptitudePairs = ([
     ['Strength', apt.strength],
     ['Endurance', apt.endurance],
@@ -787,6 +802,11 @@ function renderAgent(
                   <div class="kv-row"><span class="kv-k">Archetype</span><span class="kv-v">${escapeHtml(behaviorLens?.archetype ?? '—')}</span></div>
                 </div>
                 ${behaviorList}
+              </section>
+
+              <section class="agent-card agent-card-span12">
+                <h3>Decision style</h3>
+                ${decisionList}
               </section>
 
               <!-- Life timeline: visual journey (merged from Narrative tab) -->

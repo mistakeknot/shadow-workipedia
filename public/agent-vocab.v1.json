@@ -10549,6 +10549,64 @@
       }
     ]
   },
+  "decisionTemplates": {
+    "mission": [
+      "Volunteers for high-risk missions",
+      "Refuses civilian harm",
+      "Accepts routine assignments without complaint",
+      "Seeks alternatives when orders feel wrong",
+      "Grudgingly takes boring surveillance work"
+    ],
+    "resource": [
+      "Reports found resources immediately",
+      "Takes a cut when stressed",
+      "Shares windfalls with the team",
+      "Rejects bribes on principle",
+      "Pretends to accept bribes to gather intel"
+    ],
+    "social": [
+      "Pursues attraction directly",
+      "Avoids open conflict when possible",
+      "Tests trust before committing",
+      "Mediates disputes diplomatically",
+      "Handles disputes with quiet distance"
+    ],
+    "crisis": [
+      "Seeks cover first under fire",
+      "Shields allies when exposed",
+      "Flanks aggressively to end firefights",
+      "Freezes when chaos spikes",
+      "Calls for help before acting"
+    ],
+    "information": [
+      "Reports secrets up-chain",
+      "Investigates rumors before sharing",
+      "Exploits information for leverage",
+      "Buried intel to protect a friend",
+      "Spreads warnings quickly"
+    ],
+    "moral": [
+      "Spare defeated enemies",
+      "Follows orders despite ethical conflict",
+      "Finds a third way to minimize harm",
+      "Refuses civilian harm",
+      "Executes quickly to avoid witnesses"
+    ],
+    "resourceManagement": [
+      "Rations supplies strictly",
+      "Hoard supplies when stressed",
+      "Improvises when equipment fails",
+      "Shares shortages equally",
+      "Sticks to protocol under scarcity"
+    ],
+    "longTerm": [
+      "Pursues leadership roles",
+      "Plans a quiet exit",
+      "Specializes in craft mastery",
+      "Stays loyal as an advisor",
+      "Plots a safer career path"
+    ]
+  },
   "detailGeneration": {
     "physicalFeatures": [
       "Broken nose from teenage boxing, curves left",

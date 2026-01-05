@@ -761,6 +761,7 @@ import { computeCapabilities } from './facets/capabilities';
 import { computePsychology } from './facets/psychology';
 import { computeDetails } from './facets/details';
 import { computeBehaviorLens } from './facets/behavior';
+import { computeDecisionStyle } from './facets/decisionStyle';
 import { computePreferences } from './facets/preferences';
 import { computeSocial } from './facets/social';
 import { computeLifestyle } from './facets/lifestyle';
@@ -1042,6 +1043,16 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   });
 
   const behaviorLens = computeBehaviorLens(
+    seed,
+    vocab,
+    latents,
+    capabilitiesResult.traits,
+    capabilitiesResult.aptitudes,
+    psychologyResult.ethics,
+    trace,
+  );
+
+  const decisionStyle = computeDecisionStyle(
     seed,
     vocab,
     latents,
@@ -2554,6 +2565,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     physicalPresence,
     deceptionSkill,
     behaviorLens,
+    decisionStyle,
     details,
 
     // === ORACLE-RECOMMENDED FACETS ===
