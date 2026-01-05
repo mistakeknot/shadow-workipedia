@@ -230,6 +230,24 @@ function run(): void {
     'preferences.artistic.challenges',
   );
 
+  console.log('Checking food preference vocab...');
+  const foodPrefs = vocab.preferences?.food;
+  assertIncludes(
+    foodPrefs?.cuisineFavorites,
+    'szechuan',
+    'preferences.food.cuisineFavorites',
+  );
+  assertIncludes(
+    foodPrefs?.caffeineHabits,
+    'espresso-perfectionist',
+    'preferences.food.caffeineHabits',
+  );
+  assertIncludes(
+    foodPrefs?.alcoholPreferences,
+    'single-malt-scotch',
+    'preferences.food.alcoholPreferences',
+  );
+
   console.log('Checking detail generation vocab...');
   const detailGeneration = (vocab as any).detailGeneration as
     | {
@@ -641,6 +659,22 @@ function run(): void {
   }
   if (!agentArtistic?.challenge) {
     throw new Error('Expected preferences.artistic.challenge to be generated.');
+  }
+  const agentFoodPrefs = agent.preferences.food as
+    | {
+      cuisineFavorites?: string[];
+      caffeineHabit?: string;
+      alcoholPreference?: string;
+    }
+    | undefined;
+  if (!agentFoodPrefs?.cuisineFavorites?.length) {
+    throw new Error('Expected preferences.food.cuisineFavorites to be generated.');
+  }
+  if (!agentFoodPrefs?.caffeineHabit) {
+    throw new Error('Expected preferences.food.caffeineHabit to be generated.');
+  }
+  if (!agentFoodPrefs?.alcoholPreference) {
+    throw new Error('Expected preferences.food.alcoholPreference to be generated.');
   }
   const agentDetails = (agent as any).details as
     | Array<{ category?: string; item?: string }>

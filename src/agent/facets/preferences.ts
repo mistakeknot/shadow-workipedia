@@ -98,9 +98,12 @@ export type PreferencesContext = {
 
 export type FoodPreferences = {
   comfortFoods: string[];
+  cuisineFavorites: string[];
   dislikes: string[];
   restrictions: string[];
   ritualDrink: string;
+  caffeineHabit: string;
+  alcoholPreference: string;
 };
 
 export type MediaPreferences = {
@@ -252,9 +255,12 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
 
   // Validate required vocab
   if (!vocab.preferences.food.comfortFoods.length) throw new Error('Agent vocab missing: preferences.food.comfortFoods');
+  if (!vocab.preferences.food.cuisineFavorites.length) throw new Error('Agent vocab missing: preferences.food.cuisineFavorites');
   if (!vocab.preferences.food.dislikes.length) throw new Error('Agent vocab missing: preferences.food.dislikes');
   if (!vocab.preferences.food.restrictions.length) throw new Error('Agent vocab missing: preferences.food.restrictions');
   if (!vocab.preferences.food.ritualDrinks.length) throw new Error('Agent vocab missing: preferences.food.ritualDrinks');
+  if (!vocab.preferences.food.caffeineHabits.length) throw new Error('Agent vocab missing: preferences.food.caffeineHabits');
+  if (!vocab.preferences.food.alcoholPreferences.length) throw new Error('Agent vocab missing: preferences.food.alcoholPreferences');
 
   // Build blended food environment
   const homeFoodEnv01k = getFoodEnv01k(countryPriorsBucket, homeCountryIso3, cohortBucketStartYear);
@@ -358,9 +364,14 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
   const likelyMeat = (s: string) => /\b(meat|meats|grilled)\b/i.test(s);
   const likelySeafood = (s: string) => /\b(seafood|raw fish)\b/i.test(s);
 
+  const frugal01 = latents.frugality / 1000;
+  const stress01 = latents.stressReactivity / 1000;
+  const public01 = latents.publicness / 1000;
+  const opsec01 = latents.opsecDiscipline / 1000;
+  const social01 = latents.socialBattery / 1000;
+
   // Comfort foods selection
   const comfortPool = uniqueStrings([...cultureComfort, ...vocab.preferences.food.comfortFoods]);
-  const frugal01 = latents.frugality / 1000;
   const comfortWeight = (item: string): number => {
     const s = item.toLowerCase();
     let w = 1;
@@ -395,6 +406,31 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
   };
   const comfortFoods = weightedPickKUnique(rng, comfortPool.map(item => ({ item, weight: comfortWeight(item) })), 2);
 
+  // Favorite cuisines selection
+  const cuisinePool = uniqueStrings(vocab.preferences.food.cuisineFavorites);
+  const cuisineWeight = (item: string): number => {
+    const s = item.toLowerCase();
+    let w = 1 + 0.2 * cosmo01;
+    if (foodEnv01k) {
+      if (s.includes('street') || s.includes('taco')) w += 1.4 * axis01('streetFood', 0.5);
+      if (s.includes('fine') || s.includes('osteria')) w += 1.1 * axis01('fineDining', 0.5);
+      if (s.includes('spicy') || s.includes('szechuan') || s.includes('thai') || s.includes('curry')) w += 1.4 * axis01('spice', 0.5);
+      if (s.includes('japanese') || s.includes('sushi') || s.includes('pho')) w += 1.1 * axis01('seafood', 0.4);
+      if (s.includes('mediterranean') || s.includes('levantine') || s.includes('ethiopian')) w += 0.9 * axis01('plantForward', 0.4);
+      if (s.includes('korean') || s.includes('bbq') || s.includes('north-african')) w += 0.9 * axis01('meat', 0.4);
+      if (s.includes('italian')) w += 0.6 * axis01('dairy', 0.4);
+    }
+    if (s.includes('street') || s.includes('taco')) w += 0.6 * frugal01;
+    if (s.includes('fine') || s.includes('osteria')) w += 0.6 * (1 - frugal01);
+    return Math.max(0.05, w);
+  };
+  const cuisineCount = cuisinePool.length
+    ? (rng.next01() < 0.35 + 0.35 * cosmo01 ? 2 : 1)
+    : 0;
+  const cuisineFavorites = cuisineCount
+    ? weightedPickKUnique(rng, cuisinePool.map(item => ({ item, weight: cuisineWeight(item) })), cuisineCount)
+    : [];
+
   // Ritual drinks selection
   const drinkPool = uniqueStrings([...cultureDrinks, ...vocab.preferences.food.ritualDrinks]);
   const drinkWeight = (drink: string): number => {
@@ -419,6 +455,37 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
     return Math.max(0.05, w);
   };
   const ritualDrink = weightedPickKUnique(rng, drinkPool.map(item => ({ item, weight: drinkWeight(item) })), 1)[0] ?? '';
+
+  // Caffeine habit selection
+  const caffeine01 = axis01('caffeine', 0.5);
+  const caffeineHabit = weightedPick(rng, vocab.preferences.food.caffeineHabits.map((item) => {
+    const s = item.toLowerCase();
+    let w = 1;
+    const caffeinated = s.includes('coffee') || s.includes('espresso') || s.includes('cold-brew') || s.includes('energy');
+    const teaish = s.includes('tea');
+    if (s.includes('no-caffeine') || s.includes('decaf')) w += 1.2 * (1 - caffeine01);
+    if (caffeinated) w += 0.7 * caffeine01 + 0.4 * stress01;
+    if (teaish) w += 0.5 * (1 - stress01) + 0.3 * caffeine01;
+    if (s.includes('energy')) w += 0.6 * stress01 + 0.5 * viceTendency;
+    if (s.includes('brand')) w += 0.4 * public01 + 0.2 * opsec01;
+    if (hasRestriction('no caffeine') && !(s.includes('no-caffeine') || s.includes('decaf'))) w *= 0.15;
+    if (caffeinated && (chronicConditionTags.includes('insomnia') || chronicConditionTags.includes('migraine'))) w *= 0.35;
+    return { item, weight: Math.max(0.05, w) };
+  })) as string;
+
+  // Alcohol preference selection
+  const alcoholPreference = weightedPick(rng, vocab.preferences.food.alcoholPreferences.map((item) => {
+    const s = item.toLowerCase();
+    let w = 1;
+    const abstain = s.includes('no-alcohol') || s.includes('abstain');
+    if (abstain) w += 1.3 * (1 - viceTendency) + (hasRestriction('no alcohol') ? 2.0 : 0);
+    if (s.includes('social')) w += 0.6 * social01 + 0.4 * (1 - viceTendency);
+    if (s.includes('scotch') || s.includes('wine')) w += 0.5 * (1 - frugal01) + 0.3 * public01;
+    if (s.includes('beer')) w += 0.5 * frugal01;
+    if (s.includes('vodka') || s.includes('whiskey')) w += 0.7 * viceTendency + 0.4 * stress01;
+    if (hasRestriction('no alcohol') && !abstain) w *= 0.12;
+    return { item, weight: Math.max(0.05, w) };
+  })) as string;
 
   // Dislikes selection
   const dislikePool = uniqueStrings(vocab.preferences.food.dislikes);
@@ -472,11 +539,11 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
     if (replacement) comfortFoods[i] = replacement;
   }
 
-  traceSet(trace, 'preferences.food', { comfortFoods, dislikes, restrictions, ritualDrink }, {
+  traceSet(trace, 'preferences.food', { comfortFoods, cuisineFavorites, caffeineHabit, alcoholPreference, dislikes, restrictions, ritualDrink }, {
     method: 'env+consistency', dependsOn: { facet: 'preferences', foodPrimaryWeight, cultureComfortPoolSize: cultureComfort.length, cultureDrinksPoolSize: cultureDrinks.length, forcedRestrictions, forcedDislikes, fixups },
   });
 
-  return { comfortFoods, dislikes, restrictions, ritualDrink };
+  return { comfortFoods, cuisineFavorites, caffeineHabit, alcoholPreference, dislikes, restrictions, ritualDrink };
 }
 
 // ============================================================================

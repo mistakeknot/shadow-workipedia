@@ -868,6 +868,20 @@
         "roasted roots",
         "citrus salads"
       ],
+      "cuisineFavorites": [
+        "szechuan",
+        "mediterranean",
+        "japanese",
+        "indian-curry",
+        "mexican-street-food",
+        "korean-bbq",
+        "vietnamese-pho",
+        "thai-spicy",
+        "levantine",
+        "ethiopian",
+        "italian-osteria",
+        "north-african"
+      ],
       "dislikes": [
         "bitter greens",
         "sweet drinks",
@@ -957,6 +971,26 @@
         "horchata",
         "sugarcane juice",
         "mango lassi"
+      ],
+      "caffeineHabits": [
+        "black-coffee-only",
+        "espresso-perfectionist",
+        "tea-only",
+        "energy-drink-ops",
+        "brand-loyalty",
+        "cold-brew-ritual",
+        "no-caffeine",
+        "decaf-only"
+      ],
+      "alcoholPreferences": [
+        "single-malt-scotch",
+        "beer-only",
+        "social-only",
+        "abstains-recovery",
+        "no-alcohol",
+        "vodka-forgetting",
+        "whiskey-remembering",
+        "wine-occasions"
       ]
     },
     "media": {

@@ -273,9 +273,12 @@ export type AgentVocabV1 = {
   preferences: {
     food: {
       comfortFoods: string[];
+      cuisineFavorites: string[];
       dislikes: string[];
       restrictions: string[];
       ritualDrinks: string[];
+      caffeineHabits: string[];
+      alcoholPreferences: string[];
     };
     media: {
       genres: string[];
@@ -1201,9 +1204,12 @@ export type GeneratedAgent = {
   preferences: {
     food: {
       comfortFoods: string[];
+      cuisineFavorites: string[];
       dislikes: string[];
       restrictions: string[];
       ritualDrink: string;
+      caffeineHabit: string;
+      alcoholPreference: string;
     };
     media: {
       platformDiet: Record<string, Fixed>;

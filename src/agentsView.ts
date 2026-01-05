@@ -1230,7 +1230,10 @@ function renderAgent(
               <div class="agent-section-body">
                 <div class="agent-kv">
                   <div class="kv-row"><span class="kv-k">Comfort foods</span><span class="kv-v">${escapeHtml(agent.preferences.food.comfortFoods.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Cuisines</span><span class="kv-v">${escapeHtml(agent.preferences.food.cuisineFavorites.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                   <div class="kv-row"><span class="kv-k">Ritual drink</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.ritualDrink))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Caffeine</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.caffeineHabit))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Alcohol</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.alcoholPreference))}</span></div>
                   <div class="kv-row"><span class="kv-k">Style</span><span class="kv-v">${escapeHtml(agent.preferences.fashion.styleTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                   <div class="kv-row"><span class="kv-k">Weather mood</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.environment.weatherMood))}</span></div>
                   <div class="kv-row"><span class="kv-k">Visual</span><span class="kv-v">${escapeHtml([
@@ -1257,6 +1260,7 @@ function renderAgent(
                     toTitleCaseWords(agent.preferences.artistic.sharingStyle),
                   ].join(' · '))}</span></div>
                   <div class="kv-row"><span class="kv-k">Genres</span><span class="kv-v">${escapeHtml(agent.preferences.media.genreTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Hobbies</span><span class="kv-v">${escapeHtml([...agent.preferences.hobbies.primary, ...agent.preferences.hobbies.secondary].slice(0, 4).map(toTitleCaseWords).join(', ') || '—')}</span></div>
                   <div class="kv-row"><span class="kv-k">Lucky item</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.quirks.luckyItem))}</span></div>
                   <div class="kv-row"><span class="kv-k">Pet peeves</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.petPeeves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                 </div>
