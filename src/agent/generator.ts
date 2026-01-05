@@ -2422,6 +2422,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       hobbies: preferencesResult.hobbies,
       environment: preferencesResult.environment,
       livingSpace: preferencesResult.livingSpace,
+      aesthetics: preferencesResult.aesthetics,
       social: preferencesResult.social,
       work: preferencesResult.work,
       equipment: preferencesResult.equipment,

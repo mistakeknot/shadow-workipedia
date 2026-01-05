@@ -1308,6 +1308,120 @@
         "hidden-photos"
       ]
     },
+    "aesthetics": {
+      "colorPalettes": [
+        "deep-blues",
+        "forest-greens",
+        "earth-tones",
+        "muted-neutrals",
+        "high-contrast",
+        "monochrome",
+        "warm-amber",
+        "cool-grays",
+        "pastel-soft",
+        "neon-accents"
+      ],
+      "patternPreferences": [
+        "solids",
+        "stripes",
+        "geometric",
+        "minimal-pattern",
+        "traditional-motifs",
+        "chaotic-mix",
+        "color-block"
+      ],
+      "lightingPreferences": [
+        "bright-spaces",
+        "dim-corners",
+        "soft-ambient",
+        "task-lighting",
+        "natural-light",
+        "candle-glow"
+      ],
+      "visualComplexityPreferences": [
+        "minimalist",
+        "balanced",
+        "maximalist",
+        "orderly",
+        "chaotic"
+      ],
+      "decorPreferences": [
+        "plants",
+        "artwork",
+        "books",
+        "maps",
+        "photos",
+        "weapons-on-display",
+        "clean-lines",
+        "textiles"
+      ],
+      "architectureStyles": [
+        "brutalist",
+        "art-deco",
+        "traditional",
+        "industrial",
+        "modernist",
+        "vernacular",
+        "glass-steel",
+        "stone-heavy"
+      ],
+      "soundscapes": [
+        "rain-ambience",
+        "ocean-waves",
+        "city-hum",
+        "coffee-shop-buzz",
+        "silence",
+        "engine-hum",
+        "birds-and-wind"
+      ],
+      "noiseTolerancePreferences": [
+        "needs-quiet",
+        "low-noise-ok",
+        "background-buzz",
+        "thrives-in-noise"
+      ],
+      "texturePreferences": [
+        "soft-fabrics",
+        "smooth-metal",
+        "rough-wood",
+        "leather-grain",
+        "natural-fiber",
+        "rubberized"
+      ],
+      "materialPreferences": [
+        "steel-gear",
+        "wood-grip",
+        "polymer-lightweight",
+        "ceramic-glass",
+        "carbon-fiber",
+        "brass-details"
+      ],
+      "touchPreferences": [
+        "hugger",
+        "handshake-firm",
+        "no-touch",
+        "professional-only",
+        "casual-touch-ok"
+      ],
+      "scentAttractions": [
+        "coffee",
+        "fresh-rain",
+        "pine",
+        "citrus",
+        "spices",
+        "clean-linen",
+        "woodsmoke"
+      ],
+      "scentAversions": [
+        "bleach",
+        "diesel",
+        "fish",
+        "stale-smoke",
+        "sweet-perfume",
+        "body-odor",
+        "mold"
+      ]
+    },
     "social": {
       "groupStyleTags": [
         "one-on-one",

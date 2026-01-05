@@ -1118,6 +1118,23 @@ function renderAgent(
                   <div class="kv-row"><span class="kv-k">Ritual drink</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.ritualDrink))}</span></div>
                   <div class="kv-row"><span class="kv-k">Style</span><span class="kv-v">${escapeHtml(agent.preferences.fashion.styleTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                   <div class="kv-row"><span class="kv-k">Weather mood</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.environment.weatherMood))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Visual</span><span class="kv-v">${escapeHtml([
+                    toTitleCaseWords(agent.preferences.aesthetics.colorPalette),
+                    toTitleCaseWords(agent.preferences.aesthetics.patternPreference),
+                    toTitleCaseWords(agent.preferences.aesthetics.visualComplexityPreference),
+                  ].join(' · '))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Lighting</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.aesthetics.lightingPreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Decor</span><span class="kv-v">${escapeHtml([
+                    agent.preferences.aesthetics.decorPreferences.map(toTitleCaseWords).join(', '),
+                    toTitleCaseWords(agent.preferences.aesthetics.architectureStyle),
+                  ].filter(Boolean).join(' · ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Sound</span><span class="kv-v">${escapeHtml(`${toTitleCaseWords(agent.preferences.aesthetics.soundscape)} · ${toTitleCaseWords(agent.preferences.aesthetics.noiseTolerancePreference)}`)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Tactile</span><span class="kv-v">${escapeHtml([
+                    toTitleCaseWords(agent.preferences.aesthetics.texturePreference),
+                    toTitleCaseWords(agent.preferences.aesthetics.materialPreference),
+                    toTitleCaseWords(agent.preferences.aesthetics.touchPreference),
+                  ].join(' · '))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Scents</span><span class="kv-v">${escapeHtml(`${toTitleCaseWords(agent.preferences.aesthetics.scentAttraction)} · ${toTitleCaseWords(agent.preferences.aesthetics.scentAversion)}`)}</span></div>
                   <div class="kv-row"><span class="kv-k">Genres</span><span class="kv-v">${escapeHtml(agent.preferences.media.genreTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
                   <div class="kv-row"><span class="kv-k">Lucky item</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.quirks.luckyItem))}</span></div>
                   <div class="kv-row"><span class="kv-k">Pet peeves</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.petPeeves.map(toTitleCaseWords).join(', ') || '—')}</span></div>

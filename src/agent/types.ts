@@ -301,6 +301,21 @@ export type AgentVocabV1 = {
       roomPreferenceTags?: string[];
       comfortItemTags?: string[];
     };
+    aesthetics?: {
+      colorPalettes?: string[];
+      patternPreferences?: string[];
+      lightingPreferences?: string[];
+      visualComplexityPreferences?: string[];
+      decorPreferences?: string[];
+      architectureStyles?: string[];
+      soundscapes?: string[];
+      noiseTolerancePreferences?: string[];
+      texturePreferences?: string[];
+      materialPreferences?: string[];
+      touchPreferences?: string[];
+      scentAttractions?: string[];
+      scentAversions?: string[];
+    };
     social?: {
       groupStyleTags?: string[];
       communicationMethodTags?: string[];
@@ -1018,6 +1033,21 @@ export type GeneratedAgent = {
     livingSpace: {
       roomPreferences: string[];
       comfortItems: string[];
+    };
+    aesthetics: {
+      colorPalette: string;
+      patternPreference: string;
+      lightingPreference: string;
+      visualComplexityPreference: string;
+      decorPreferences: string[];
+      architectureStyle: string;
+      soundscape: string;
+      noiseTolerancePreference: string;
+      texturePreference: string;
+      materialPreference: string;
+      touchPreference: string;
+      scentAttraction: string;
+      scentAversion: string;
     };
     social: {
       groupStyle: string;

@@ -140,6 +140,22 @@ export type LivingSpacePreferences = {
   comfortItems: string[];
 };
 
+export type AestheticsPreferences = {
+  colorPalette: string;
+  patternPreference: string;
+  lightingPreference: string;
+  visualComplexityPreference: string;
+  decorPreferences: string[];
+  architectureStyle: string;
+  soundscape: string;
+  noiseTolerancePreference: string;
+  texturePreference: string;
+  materialPreference: string;
+  touchPreference: string;
+  scentAttraction: string;
+  scentAversion: string;
+};
+
 export type SocialPreferences = {
   groupStyle: string;
   communicationMethod: string;
@@ -177,6 +193,7 @@ export type PreferencesResult = {
   routines: RoutinesResult;
   environment: EnvironmentPreferences;
   livingSpace: LivingSpacePreferences;
+  aesthetics: AestheticsPreferences;
   social: SocialPreferences;
   work: WorkPreferences;
   equipment: EquipmentPreferences;
@@ -857,6 +874,158 @@ function computeLivingSpacePreferences(ctx: PreferencesContext, rng: Rng): Livin
   return { roomPreferences, comfortItems };
 }
 
+function computeAestheticsPreferences(ctx: PreferencesContext, rng: Rng): AestheticsPreferences {
+  const { vocab, trace, latents, roleSeedTags, tierBand } = ctx;
+  const aesthetics = vocab.preferences.aesthetics;
+  if (!aesthetics?.colorPalettes?.length) throw new Error('Agent vocab missing: preferences.aesthetics.colorPalettes');
+  if (!aesthetics?.patternPreferences?.length) throw new Error('Agent vocab missing: preferences.aesthetics.patternPreferences');
+  if (!aesthetics?.lightingPreferences?.length) throw new Error('Agent vocab missing: preferences.aesthetics.lightingPreferences');
+  if (!aesthetics?.visualComplexityPreferences?.length) throw new Error('Agent vocab missing: preferences.aesthetics.visualComplexityPreferences');
+  if (!aesthetics?.decorPreferences?.length) throw new Error('Agent vocab missing: preferences.aesthetics.decorPreferences');
+  if (!aesthetics?.architectureStyles?.length) throw new Error('Agent vocab missing: preferences.aesthetics.architectureStyles');
+  if (!aesthetics?.soundscapes?.length) throw new Error('Agent vocab missing: preferences.aesthetics.soundscapes');
+  if (!aesthetics?.noiseTolerancePreferences?.length) throw new Error('Agent vocab missing: preferences.aesthetics.noiseTolerancePreferences');
+  if (!aesthetics?.texturePreferences?.length) throw new Error('Agent vocab missing: preferences.aesthetics.texturePreferences');
+  if (!aesthetics?.materialPreferences?.length) throw new Error('Agent vocab missing: preferences.aesthetics.materialPreferences');
+  if (!aesthetics?.touchPreferences?.length) throw new Error('Agent vocab missing: preferences.aesthetics.touchPreferences');
+  if (!aesthetics?.scentAttractions?.length) throw new Error('Agent vocab missing: preferences.aesthetics.scentAttractions');
+  if (!aesthetics?.scentAversions?.length) throw new Error('Agent vocab missing: preferences.aesthetics.scentAversions');
+
+  const aesthetic01 = latents.aestheticExpressiveness / 1000;
+  const opsec01 = latents.opsecDiscipline / 1000;
+  const frugal01 = latents.frugality / 1000;
+  const social01 = latents.socialBattery / 1000;
+  const public01 = latents.publicness / 1000;
+
+  const pickWeighted = (pool: string[], weightFn: (item: string) => number): string => (
+    weightedPick(rng, pool.map(item => ({ item, weight: weightFn(item) }))) as string
+  );
+  const pickKWeighted = (pool: string[], count: number, weightFn: (item: string) => number): string[] => {
+    const bounded = Math.max(1, Math.min(count, pool.length));
+    return weightedPickKUnique(rng, pool.map(item => ({ item, weight: weightFn(item) })), bounded);
+  };
+
+  const colorPalette = pickWeighted(aesthetics.colorPalettes, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('monochrome') || lower.includes('muted') || lower.includes('cool')) w += 0.8 * opsec01 + 0.6 * frugal01;
+    if (lower.includes('neon') || lower.includes('high-contrast')) w += 1.0 * aesthetic01 + 0.5 * public01;
+    if (lower.includes('warm') || lower.includes('amber')) w += 0.4 * social01;
+    return w;
+  });
+
+  const patternPreference = pickWeighted(aesthetics.patternPreferences, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('solids') || lower.includes('minimal')) w += 0.7 * opsec01 + 0.6 * frugal01;
+    if (lower.includes('chaotic') || lower.includes('color-block')) w += 0.9 * aesthetic01;
+    if (lower.includes('traditional')) w += tierBand === 'elite' ? 0.3 : 0.6;
+    return w;
+  });
+
+  const lightingPreference = pickWeighted(aesthetics.lightingPreferences, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('dim') || lower.includes('candle')) w += 0.9 * opsec01;
+    if (lower.includes('bright') || lower.includes('natural')) w += 0.6 * social01 + 0.4 * (1 - opsec01);
+    if (lower.includes('task')) w += 0.5 * frugal01;
+    return w;
+  });
+
+  const visualComplexityPreference = pickWeighted(aesthetics.visualComplexityPreferences, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('minimal') || lower.includes('orderly')) w += 0.8 * (1 - aesthetic01) + 0.6 * frugal01;
+    if (lower.includes('maximal') || lower.includes('chaotic')) w += 0.9 * aesthetic01;
+    return w;
+  });
+
+  const decorPreferences = pickKWeighted(aesthetics.decorPreferences, 2, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('art') || lower.includes('plants') || lower.includes('textiles')) w += 0.8 * aesthetic01;
+    if (lower.includes('maps') || lower.includes('weapons')) w += roleSeedTags.includes('operative') ? 0.7 : 0.2;
+    if (lower.includes('clean')) w += 0.6 * frugal01 + 0.4 * opsec01;
+    return w;
+  });
+
+  const architectureStyle = pickWeighted(aesthetics.architectureStyles, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('brutalist') || lower.includes('industrial')) w += 0.6 * opsec01;
+    if (lower.includes('traditional') || lower.includes('vernacular')) w += 0.6 * frugal01;
+    if (lower.includes('art-deco') || lower.includes('modern')) w += 0.6 * aesthetic01 + 0.4 * public01;
+    return w;
+  });
+
+  const soundscape = pickWeighted(aesthetics.soundscapes, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('silence')) w += 0.8 * opsec01 + 0.6 * (1 - social01);
+    if (lower.includes('city') || lower.includes('coffee')) w += 0.8 * social01;
+    if (lower.includes('rain')) w += 0.4;
+    return w;
+  });
+
+  const noiseTolerancePreference = pickWeighted(aesthetics.noiseTolerancePreferences, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('quiet')) w += 0.7 * opsec01 + 0.6 * (1 - social01);
+    if (lower.includes('buzz') || lower.includes('noise')) w += 0.7 * social01;
+    return w;
+  });
+
+  const texturePreference = pickWeighted(aesthetics.texturePreferences, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('soft')) w += 0.6 * aesthetic01;
+    if (lower.includes('rough')) w += 0.3 * frugal01;
+    return w;
+  });
+
+  const materialPreference = pickWeighted(aesthetics.materialPreferences, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('polymer') || lower.includes('carbon')) w += 0.5 * frugal01;
+    if (lower.includes('steel') || lower.includes('brass')) w += 0.5 * public01;
+    return w;
+  });
+
+  const touchPreference = pickWeighted(aesthetics.touchPreferences, (item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('hugger') || lower.includes('casual')) w += 0.8 * social01;
+    if (lower.includes('no-touch') || lower.includes('professional')) w += 0.7 * (1 - social01) + 0.4 * opsec01;
+    return w;
+  });
+
+  const scentAttraction = rng.pick(aesthetics.scentAttractions);
+  const scentAversion = rng.pick(aesthetics.scentAversions);
+
+  const result: AestheticsPreferences = {
+    colorPalette,
+    patternPreference,
+    lightingPreference,
+    visualComplexityPreference,
+    decorPreferences,
+    architectureStyle,
+    soundscape,
+    noiseTolerancePreference,
+    texturePreference,
+    materialPreference,
+    touchPreference,
+    scentAttraction,
+    scentAversion,
+  };
+
+  traceSet(trace, 'preferences.aesthetics', result, {
+    method: 'weightedPick+pickK',
+    dependsOn: { facet: 'preferences', aestheticExpressiveness: latents.aestheticExpressiveness },
+  });
+
+  return result;
+}
+
 function computeSocialPreferences(ctx: PreferencesContext, rng: Rng): SocialPreferences {
   const { vocab, trace } = ctx;
   const social = vocab.preferences.social;
@@ -987,6 +1156,7 @@ export function computePreferences(ctx: PreferencesContext): PreferencesResult {
   const routines = computeRoutines(ctx, prefsRng, media.doomscrollingRisk);
   const environment = computeEnvironmentPreferences(ctx, prefsRng);
   const livingSpace = computeLivingSpacePreferences(ctx, prefsRng);
+  const aesthetics = computeAestheticsPreferences(ctx, prefsRng);
   const social = computeSocialPreferences(ctx, prefsRng);
   const work = computeWorkPreferences(ctx, prefsRng);
   const equipment = computeEquipmentPreferences(ctx, prefsRng);
@@ -1001,6 +1171,7 @@ export function computePreferences(ctx: PreferencesContext): PreferencesResult {
     routines,
     environment,
     livingSpace,
+    aesthetics,
     social,
     work,
     equipment,
