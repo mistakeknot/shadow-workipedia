@@ -107,6 +107,49 @@ pnpm test:narration -- --count 100
 pnpm typecheck
 ```
 
+### Agent Audit
+
+Run a comprehensive audit of generated agents to detect errors and validate correlations:
+
+```bash
+npx tsx scripts/audit-agents.ts --count 100 --seedPrefix audit --out /tmp/audit-report.json
+```
+
+**What it checks:**
+
+1. **Narration Errors** (20 patterns): Grammar issues, undefined/null text, `[object Object]` leaks, article-vowel errors, dangling punctuation
+2. **Type Errors**: Fixed values (0-1000) in range, valid enums, required fields present
+3. **Constraint Violations**: Same-country diaspora can't be expat/refugee, elite tier can't have couch-surfing housing
+4. **Implausibilities**: High opsec + high publicness, elite tier + extreme poverty, zero fluency in home language
+5. **Correlation Analysis**:
+   - Verifies documented correlates have |r| > 0.1
+   - Flags undocumented correlations with |r| > 0.3 as potentially spurious
+
+**Output format:**
+```json
+{
+  "summary": { "totalAgents": 100, "agentsWithErrors": 0, "errorsByType": {...} },
+  "narrationErrors": [...],
+  "typeErrors": [...],
+  "constraintViolations": [...],
+  "implausibilities": [...],
+  "correlationAnalysis": {
+    "documented": [{ "id": "#1", "name": "Age ↔ Physical Conditioning", "observedR": -0.34, "status": "verified" }],
+    "spurious": [{ "variables": ["x", "y"], "observedR": 0.5, "concern": "..." }]
+  }
+}
+```
+
+**Documented correlates verified:**
+| ID | Correlate | Expected |
+|----|-----------|----------|
+| #1 | Age ↔ Physical Conditioning | negative |
+| #3 | Tier ↔ Education | positive |
+| #5 | Cosmopolitanism ↔ Abroad | positive |
+| #9 | Travel ↔ Tradecraft | positive |
+| #13 | Conscientiousness ↔ Housing | positive |
+| #15 | Risk Appetite ↔ Housing Instability | positive |
+
 ## Type Safety
 
 - `HeightBand`: Uses underscores (`very_tall`), not hyphens
@@ -116,4 +159,4 @@ pnpm typecheck
 
 ---
 
-**Last Updated**: 2025-12-29
+**Last Updated**: 2026-01-05

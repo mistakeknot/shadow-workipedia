@@ -86,7 +86,7 @@ export function computeDecisionStyle(
   const harm01 = ethics.harmAversion / 1000;
   const util01 = ethics.missionUtilitarianism / 1000;
 
-  const categories: CategoryWeight[] = [
+  const categorySeed: CategoryWeight[] = [
     { category: 'mission', items: pools.mission, weight: 0.7 + 0.6 * risk01 + 0.2 * util01 + 0.2 * (1 - harm01) },
     { category: 'resource', items: pools.resource, weight: 0.6 + 0.6 * (1 - frugal01) + 0.2 * public01 },
     { category: 'social', items: pools.social, weight: 0.6 + 0.5 * agree01 + 0.3 * social01 + 0.1 * empathy01 },
@@ -95,7 +95,8 @@ export function computeDecisionStyle(
     { category: 'moral', items: pools.moral, weight: 0.7 + 0.7 * harm01 + 0.4 * empathy01 + 0.2 * (1 - util01) },
     { category: 'resourceManagement', items: pools.resourceManagement, weight: 0.6 + 0.6 * cons01 + 0.2 * (1 - risk01) },
     { category: 'longTerm', items: pools.longTerm, weight: 0.6 + 0.6 * plan01 + 0.3 * cons01 + 0.2 * auth01 },
-  ].filter((entry) => entry.items.length);
+  ];
+  const categories = categorySeed.filter((entry) => entry.items.length);
 
   const targetCount = clampInt(rng.int(DEFAULT_READ_COUNT_RANGE[0], DEFAULT_READ_COUNT_RANGE[1]), 3, 5);
   const tendencies: DecisionTendency[] = [];

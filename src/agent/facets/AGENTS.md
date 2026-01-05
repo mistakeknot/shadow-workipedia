@@ -90,6 +90,12 @@ Correlates are cross-facet relationships that ensure realistic agent generation.
 - Social Battery ↔ Third Places (domestic.ts): Determines venue count
 - #8 Build/Height ↔ Gait (generator.ts): Physical presence correlates with build/height
 
+**Cross-Latent Correlations:**
+- Opsec ↔ Publicness (latents.ts): Negative correlation - high opsec suppresses publicness and vice versa
+- Opsec ↔ Tradecraft (skills.ts): Positive correlation - opsec discipline is core to tradecraft skill
+- Risk Appetite ↔ Tradecraft (skills.ts): Positive correlation - risk takers develop operational skills
+- Tier ↔ Housing (domestic.ts): Positive correlation - higher tier means more stable housing
+
 ### Country Priors & Indicators
 
 The priors file includes `countries[*].buckets[*].indicators` (GDP, trade openness, air travel, UCDP conflict series, military spend, urbanization). These are wired in as **small, clamped nudges** (never hard constraints) to improve realism:
@@ -150,4 +156,4 @@ pnpm typecheck
 
 ---
 
-**Last Updated**: 2025-12-29
+**Last Updated**: 2026-01-05

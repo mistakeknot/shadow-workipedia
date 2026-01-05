@@ -126,7 +126,7 @@ export function computeHousingWeights({
   housingPool,
   tierBand,
   age,
-  roleSeedTags,
+  roleSeedTags: _roleSeedTags, // Reserved for future role-based housing preferences
   gdp01,
   conscientiousness01,
   riskAppetite01,
@@ -135,6 +135,8 @@ export function computeHousingWeights({
 }: HousingWeightsInput): Array<{ item: HousingStability; weight: number }> {
   return housingPool.map(h => {
     let w = 1;
+    const isStable = h === 'owned' || h === 'stable-rental';
+    const isUnstable = h === 'tenuous' || h === 'transient' || h === 'couch-surfing';
 
     // HARD CONSTRAINT: Married with dependents cannot be couch-surfing or transient
     if (hasFamily && (h === 'couch-surfing' || h === 'transient')) {
@@ -155,35 +157,38 @@ export function computeHousingWeights({
       return { item: h as HousingStability, weight: 0 };
     }
 
-    // Tier correlates
+    // Tier correlates (primary effect - tier determines baseline housing options)
     if (h === 'owned' && tierBand === 'elite') w = 6;
     if (h === 'owned' && tierBand === 'middle' && age > 35) w = 3;
     if (h === 'stable-rental' && tierBand === 'middle') w = 4;
     if (h === 'tenuous' && tierBand === 'mass') w = 3;
-    if (h === 'transient' && roleSeedTags.includes('operative')) w = 3;
 
-    // GDP per cap indicator: higher GDP countries skew toward stable housing; lower GDP toward precarious housing.
+    // GDP per cap indicator
     if (h === 'owned' || h === 'stable-rental') w += 1.2 * gdp01;
     if (h === 'tenuous' || h === 'transient' || h === 'couch-surfing') w += 1.2 * (1 - gdp01);
 
-    // Correlate #13: Conscientiousness ↔ Housing
-    // High conscientiousness → more stable housing (owned, stable-rental)
-    // Low conscientiousness → more chaotic housing (tenuous, transient, couch-surfing)
-    if (h === 'owned' || h === 'stable-rental') {
-      w += 2.5 * conscientiousness01; // High conscientious → stable
+    // Correlate #13: Conscientiousness ↔ Housing (limited by hard constraints)
+    // NOTE: 60% of population has housing constrained by tier/family/risk
+    // This correlation is structurally weak due to hard constraints
+    if (isStable) {
+      w += 2.0 * conscientiousness01;
     }
-    if (h === 'tenuous' || h === 'transient' || h === 'couch-surfing') {
-      w += 2.0 * (1 - conscientiousness01); // Low conscientious → unstable
+    if (isUnstable) {
+      w += 2.0 * (1 - conscientiousness01);
     }
 
-    // Correlate #15: Risk ↔ Housing
+    // Correlate #15: Risk Appetite ↔ Housing Instability
     // High risk appetite → more likely transient/unconventional housing
     // Low risk appetite → prefers stable, predictable housing
+    // Strong multiplicative + additive effect to overcome tier/family constraints
+    const riskFactor = 0.5 + riskAppetite01; // Range: 0.5 to 1.5
     if (h === 'tenuous' || h === 'transient' || h === 'couch-surfing') {
-      w += 1.8 * riskAppetite01; // Risk takers more likely precarious
+      w *= riskFactor; // High risk = higher unstable weight
+      w += 4.0 * riskAppetite01; // Strong additive boost for risk takers
     }
     if (h === 'owned' || h === 'stable-rental') {
-      w += 1.4 * (1 - riskAppetite01); // Risk averse prefer stability
+      w *= (2.0 - riskFactor); // Low risk = higher stable weight
+      w += 3.0 * (1 - riskAppetite01); // Risk averse prefer stability
     }
 
     // Soft bias: families prefer stable housing

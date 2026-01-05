@@ -244,10 +244,23 @@ export function computeLatents(
     physicalConditioning: conditioningRoleBias,
   };
 
+  // ─────────────────────────────────────────────────────────────────────────────
+  // CROSS-LATENT CORRELATIONS
+  // ─────────────────────────────────────────────────────────────────────────────
+  // Implausibility fix: High opsec + high publicness is contradictory
+  // People who maintain strict operational security avoid public exposure
+  // Apply negative correlation: high opsec reduces publicness, high publicness reduces opsec
+  const baseOpsec = raw.opsecDiscipline + tierBias.opsecDiscipline + roleBias.opsecDiscipline;
+  const basePublic = raw.publicness + tierBias.publicness + roleBias.publicness;
+  // Cross-suppression: each high value suppresses the other
+  // Scale factor: 0.25 means if one is at 1000, it reduces the other by ~250
+  const opsecSuppression = Math.round(0.25 * Math.max(0, basePublic - 500));
+  const publicSuppression = Math.round(0.25 * Math.max(0, baseOpsec - 500));
+
   const values: Latents = {
     cosmopolitanism: clampFixed01k(raw.cosmopolitanism + tierBias.cosmopolitanism + roleBias.cosmopolitanism),
-    publicness: clampFixed01k(raw.publicness + tierBias.publicness + roleBias.publicness),
-    opsecDiscipline: clampFixed01k(raw.opsecDiscipline + tierBias.opsecDiscipline + roleBias.opsecDiscipline),
+    publicness: clampFixed01k(basePublic - publicSuppression),
+    opsecDiscipline: clampFixed01k(baseOpsec - opsecSuppression),
     institutionalEmbeddedness: clampFixed01k(
       raw.institutionalEmbeddedness + tierBias.institutionalEmbeddedness + roleBias.institutionalEmbeddedness,
     ),

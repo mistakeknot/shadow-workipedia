@@ -176,12 +176,15 @@ function computeSkillValue(p: SkillValueParams): Fixed {
 
     case 'tradecraft':
       // Correlate #9: Travel ↔ Skills - operatives who travel more develop better tradecraft
+      // Cosmopolitanism directly contributes: diverse cultural exposure builds operational adaptability
+      // Strong weights needed to overcome noise and show measurable correlation
       value = clampFixed01k(
-        0.24 * latents.opsecDiscipline + 0.20 * aptitudes.deceptionAptitude +
-        0.10 * latents.riskAppetite + 0.16 * aptitudes.workingMemory +
-        0.08 * latents.techFluency +
-        0.08 * travelScore + // Travel experience builds operational skills
-        0.06 * conflictEnv01k + 0.16 * noise + careerBonus +
+        0.16 * latents.opsecDiscipline + 0.12 * aptitudes.deceptionAptitude +
+        0.06 * latents.riskAppetite + 0.10 * aptitudes.workingMemory +
+        0.04 * latents.techFluency +
+        0.22 * travelScore + // Travel experience builds operational skills (increased)
+        0.20 * latents.cosmopolitanism + // Cosmopolitan agents develop tradecraft (increased)
+        0.04 * conflictEnv01k + 0.10 * noise + careerBonus +
         (roleSeedTags.includes('operative') ? 90 : 0)
       );
       break;
