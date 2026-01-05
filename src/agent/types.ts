@@ -338,6 +338,7 @@ export type AgentVocabV1 = {
     withdrawalTells?: string[];
     rituals?: string[];
     riskFlags?: string[];
+    recoveryArcs?: string[];
   };
   deepSimPreview?: {
     needTags?: string[];
@@ -643,6 +644,7 @@ export type DependencyProfile = {
   ritual: string;
   withdrawal: string;
   riskFlag: string;
+  recovery: string;
 };
 
 export type EliteCompensator = 'patronage' | 'dynasty' | 'institutional-protection' | 'media-shield' | 'political-cover' | 'wealth-buffer';

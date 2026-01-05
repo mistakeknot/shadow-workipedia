@@ -426,6 +426,7 @@ function renderAgent(
   tab: AgentProfileTab,
   isDetailsOpen: DetailsOpenReader,
   asOfYear: number,
+  agentVocab?: AgentVocabV1 | null,
 ): string {
   const apt = agent.capabilities.aptitudes;
   const skills = agent.capabilities.skills;
@@ -626,8 +627,8 @@ function renderAgent(
       </div>
     `
     : `<div class="agent-inline-muted">—</div>`;
-  const facetCategoryMap = agentVocab?.personality?.facetCategories ?? {};
-  const categoryEntries = Object.keys(facetCategoryMap).length
+  const facetCategoryMap = (agentVocab?.personality?.facetCategories ?? {}) as Record<string, string[]>;
+  const categoryEntries: Array<[string, string[]]> = Object.keys(facetCategoryMap).length
     ? Object.entries(facetCategoryMap)
     : [['Facets', facetScores.map(f => f.name)]];
   const facetByName = new Map(facetScores.map(f => [f.name.toLowerCase(), f]));
@@ -1012,17 +1013,7 @@ function renderAgent(
 
         <!-- EPISTEMOLOGY TAB: Knowledge, beliefs, biases, sources -->
         <div class="agent-tab-panel ${tab === 'epistemology' ? 'active' : ''}" data-agent-tab-panel="epistemology">
-          <div class="agent-grid agent-grid-tight">
-            <details class="agent-card agent-section agent-card-span12" data-agents-details="profile:epistemology:cognitive" ${cognitiveDetailsOpen ? 'open' : ''}>
-              <summary class="agent-section-summary">
-                <span class="agent-section-title">Knowledge &amp; beliefs</span>
-                <span class="agent-section-hint">Strengths, gaps, biases, sources</span>
-              </summary>
-              <div class="agent-section-body">
-                ${renderCognitiveSection(cognitiveCards, true)}
-              </div>
-            </details>
-          </div>
+          ${renderCognitiveSection(cognitiveCards, cognitiveDetailsOpen)}
         </div>
 
         <!-- DAILY LIFE TAB: Appearance, routines, preferences, health -->
@@ -1143,6 +1134,7 @@ function renderAgent(
                       <span class="pill pill-muted">${escapeHtml(toTitleCaseWords(p.stage))}</span>
                       <span class="pill pill-muted">${escapeHtml(toTitleCaseWords(p.pattern))}</span>
                       <span class="agent-dependency-meta">${escapeHtml(`${toTitleCaseWords(p.ritual)} · ${toTitleCaseWords(p.withdrawal)}`)}</span>
+                      <span class="pill pill-muted">${escapeHtml(toTitleCaseWords(p.recovery))}</span>
                       <span class="pill pill-meta">${escapeHtml(toTitleCaseWords(p.riskFlag))}</span>
                     </div>
                   `).join('')
@@ -1584,7 +1576,7 @@ export function initializeAgentsView(container: HTMLElement) {
           </aside>
 
           <main class="agents-main">
-            ${activeAgent ? renderAgent(activeAgent, shadowByIso3, profileTab, isDetailsOpen, asOfYear) : `<div class="agent-muted">Generate an agent to begin.</div>`}
+            ${activeAgent ? renderAgent(activeAgent, shadowByIso3, profileTab, isDetailsOpen, asOfYear, agentVocab) : `<div class="agent-muted">Generate an agent to begin.</div>`}
           </main>
         </div>
       </div>

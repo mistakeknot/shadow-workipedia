@@ -231,6 +231,7 @@ function run(): void {
   assertIncludes(vocab.vices?.withdrawalTells, 'headaches', 'vices.withdrawalTells');
   assertIncludes(vocab.vices?.rituals, 'morning-coffee', 'vices.rituals');
   assertIncludes(vocab.vices?.riskFlags, 'op-risk', 'vices.riskFlags');
+  assertIncludes(vocab.vices?.recoveryArcs, 'relapse-risk', 'vices.recoveryArcs');
 
   console.log('Checking stress-tell forcing...');
   const latents: Latents = {
@@ -672,7 +673,7 @@ function run(): void {
   }
 
   const dependencyProfiles = (agent as any).dependencyProfiles as
-    | Array<{ substance?: string; stage?: string; pattern?: string; ritual?: string; withdrawal?: string; riskFlag?: string }>
+    | Array<{ substance?: string; stage?: string; pattern?: string; ritual?: string; withdrawal?: string; riskFlag?: string; recovery?: string }>
     | undefined;
   if (!dependencyProfiles || !Array.isArray(dependencyProfiles)) {
     throw new Error('Expected dependencyProfiles to be generated.');
@@ -684,8 +685,8 @@ function run(): void {
     if (!profile.substance || !profile.stage || !profile.pattern) {
       throw new Error('Expected dependencyProfiles entries to include substance, stage, and pattern.');
     }
-    if (!profile.ritual || !profile.withdrawal || !profile.riskFlag) {
-      throw new Error('Expected dependencyProfiles entries to include ritual, withdrawal, and riskFlag.');
+    if (!profile.ritual || !profile.withdrawal || !profile.riskFlag || !profile.recovery) {
+      throw new Error('Expected dependencyProfiles entries to include ritual, withdrawal, riskFlag, and recovery.');
     }
   }
 

@@ -132,6 +132,7 @@ export type LifestyleResult = {
     ritual: string;
     withdrawal: string;
     riskFlag: string;
+    recovery: string;
   }>;
   logistics: {
     identityKit: Array<{ item: string; security: Band5; compromised: boolean }>;
@@ -591,6 +592,7 @@ function computeDependencyProfiles(
   const withdrawals = uniqueStrings(vocab.vices.withdrawalTells ?? ['headaches', 'irritability', 'fatigue']);
   const rituals = uniqueStrings(vocab.vices.rituals ?? ['morning-coffee', 'post-mission-drink']);
   const riskFlags = uniqueStrings(vocab.vices.riskFlags ?? ['op-risk', 'health-risk', 'relationship-risk']);
+  const recoveryArcs = uniqueStrings(vocab.vices.recoveryArcs ?? ['managed', 'relapse-risk', 'attempting-quit']);
 
   const stress01 = latents.stressReactivity / 1000;
   const opsec01 = latents.opsecDiscipline / 1000;
@@ -645,6 +647,17 @@ function computeDependencyProfiles(
     const ritual = rituals.length ? rng.pick(rituals) : 'routine';
     const withdrawal = withdrawals.length ? rng.pick(withdrawals) : 'irritability';
     const riskFlag = weightedPick(rng, riskWeights);
+    const recoveryWeights = recoveryArcs.map((arc) => {
+      const lower = arc.toLowerCase();
+      let w = 1;
+      if (lower.includes('relapse')) w += 1.5 * stress01 + (stage.includes('late') || stage.includes('crisis') ? 1 : 0);
+      if (lower.includes('managed')) w += 0.6 + (latents.impulseControl / 1000);
+      if (lower.includes('abstinent')) w += (1 - stress01) * 0.8;
+      if (lower.includes('attempt')) w += 0.6 + (latents.principledness / 1000);
+      if (lower.includes('denial')) w += 0.4 + (latents.opsecDiscipline < 400 ? 0.4 : 0);
+      return { item: arc, weight: w };
+    });
+    const recovery = weightedPick(rng, recoveryWeights);
     return {
       substance: vice.vice,
       stage,
@@ -652,6 +665,7 @@ function computeDependencyProfiles(
       ritual,
       withdrawal,
       riskFlag,
+      recovery,
     };
   });
 
