@@ -61,7 +61,8 @@ export function computePhysicalDetails(
     { category: 'scars', items: scars, weight: 0.6 + 0.7 * age01 + (securityRole ? 0.4 : 0) },
     { category: 'sensory', items: sensory, weight: 0.5 + 0.8 * age01 },
     { category: 'fitness', items: fitness, weight: 0.7 + 0.8 * conditioning01 + 0.2 * risk01 },
-  ].filter((entry) => entry.items.length);
+  ];
+  const filteredPools = pools.filter((entry) => entry.items.length);
 
   const targetCount = clampInt(rng.int(DEFAULT_DETAIL_COUNT_RANGE[0], DEFAULT_DETAIL_COUNT_RANGE[1]), 3, 5);
   const picks: PhysicalDetailItem[] = [];
@@ -84,8 +85,8 @@ export function computePhysicalDetails(
     pickFromCategory('posture', posture.length ? posture : build);
   }
 
-  const remaining = new Map<string, DetailPool>();
-  for (const pool of pools) {
+  const remaining = new Map<PhysicalDetailCategory, DetailPool>();
+  for (const pool of filteredPools) {
     remaining.set(pool.category, pool);
   }
 
