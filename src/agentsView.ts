@@ -468,11 +468,17 @@ function renderAgent(
     ? `${toTitleCaseWords(dependencyProfiles[0].stage)} · ${toTitleCaseWords(dependencyProfiles[0].substance)}`
     : 'None';
   const culturalDynamics = agent.culturalDynamics;
+  const needsRelationships = agent.needsRelationships;
   const renderDynamicsPills = (items: string[] | undefined): string => (
     items && items.length
       ? `<span class="agent-pill-wrap agent-pill-wrap-left">${items.slice(0, 4).map(item => `<span class="pill pill-muted">${escapeHtml(item)}</span>`).join('')}</span>`
       : `<span class="agent-inline-muted">—</span>`
   );
+  const renderArchetypePills = (primary?: string, secondary?: string): string => {
+    if (!primary) return '<span class="agent-inline-muted">—</span>';
+    const items = [primary, secondary].filter(Boolean) as string[];
+    return `<span class="agent-pill-wrap agent-pill-wrap-left">${items.map(item => `<span class="pill pill-muted">${escapeHtml(toTitleCaseWords(item))}</span>`).join('')}</span>`;
+  };
 
   const roleTags = agent.identity.roleSeedTags.map(t => `<span class="pill">${escapeHtml(toTitleCaseWords(t))}</span>`).join('');
   const langTags = agent.identity.languages.map(t => `<span class="pill pill-muted">${escapeHtml(displayLanguageCode(t))}</span>`).join('');
@@ -929,6 +935,16 @@ function renderAgent(
               </div>
             </section>
             ` : ''}
+
+            <section class="agent-card agent-card-span6">
+              <h3>Needs archetype</h3>
+              ${renderArchetypePills(needsRelationships?.needs?.primary, needsRelationships?.needs?.secondary)}
+            </section>
+
+            <section class="agent-card agent-card-span6">
+              <h3>Relationship archetype</h3>
+              ${renderArchetypePills(needsRelationships?.relationships?.primary, needsRelationships?.relationships?.secondary)}
+            </section>
 
             <section class="agent-card agent-card-span6">
               <h3>Conversation topics</h3>

@@ -9822,6 +9822,35 @@
       "Humor fails to translate"
     ]
   },
+  "needsRelationships": {
+    "needsArchetypes": [
+      "survival-first",
+      "security-anchored",
+      "routine-driven",
+      "belonging-seeking",
+      "autonomy-driven",
+      "status-driven",
+      "recognition-hungry",
+      "purpose-bound",
+      "mastery-seeking",
+      "creative-escape",
+      "moral-compass",
+      "comfort-seeking"
+    ],
+    "relationshipArchetypes": [
+      "guarded-loyalist",
+      "found-family-builder",
+      "mentor-seeker",
+      "mentor-guardian",
+      "transactional-ally",
+      "team-first",
+      "bond-by-fire",
+      "slow-trust",
+      "intimacy-avoidant",
+      "romantic-idealizer",
+      "independence-protective"
+    ]
+  },
   "knowledgeIgnorance": {
     "knowledgeStrengths": [
       "Tradecraft: Surveillance, counter-surveillance, dead drops",

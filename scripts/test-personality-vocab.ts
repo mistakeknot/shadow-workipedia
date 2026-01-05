@@ -103,6 +103,24 @@ function run(): void {
     'culturalDynamics.clashPoints',
   );
 
+  console.log('Checking needs/relationships vocab...');
+  const needsRelationships = (vocab as any).needsRelationships as
+    | {
+      needsArchetypes?: string[];
+      relationshipArchetypes?: string[];
+    }
+    | undefined;
+  assertIncludes(
+    needsRelationships?.needsArchetypes,
+    'security-anchored',
+    'needsRelationships.needsArchetypes',
+  );
+  assertIncludes(
+    needsRelationships?.relationshipArchetypes,
+    'guarded-loyalist',
+    'needsRelationships.relationshipArchetypes',
+  );
+
   console.log('Checking conversation topics vocab...');
   assertIncludes(vocab.civicLife?.conversationTopics, 'Remember when the extraction went sideways in Prague?', 'civicLife.conversationTopics');
   assertIncludes(vocab.civicLife?.conversationTopics, 'Try reversing the polarity on the jammer', 'civicLife.conversationTopics');
@@ -361,6 +379,18 @@ function run(): void {
   }
   if (agent.personality.traitTriad.length < 2) {
     throw new Error('Expected personality.traitTriad to include at least two traits.');
+  }
+  const agentNeedsRelationships = (agent as any).needsRelationships as
+    | {
+      needs: { primary: string; secondary?: string };
+      relationships: { primary: string; secondary?: string };
+    }
+    | undefined;
+  if (!agentNeedsRelationships?.needs?.primary) {
+    throw new Error('Expected needsRelationships.needs.primary to be generated.');
+  }
+  if (!agentNeedsRelationships?.relationships?.primary) {
+    throw new Error('Expected needsRelationships.relationships.primary to be generated.');
   }
 
   const agentKnowledge = (agent as any).knowledgeIgnorance as

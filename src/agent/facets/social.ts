@@ -30,6 +30,7 @@ import type {
   CivicEngagement,
   IdeologyTag,
   CulturalDynamicsResult,
+  NeedsRelationshipsResult,
 } from '../types';
 
 import {
@@ -123,6 +124,20 @@ export type CulturalDynamicsInput = {
   trace?: AgentGenerationTraceV1;
 };
 
+export type NeedsRelationshipsInput = {
+  seed: string;
+  vocab: AgentVocabV1;
+  latents: Latents;
+  tierBand: TierBand;
+  age: number;
+  roleSeedTags: string[];
+  family: {
+    maritalStatus: MaritalStatus;
+    dependentCount: number;
+  };
+  trace?: AgentGenerationTraceV1;
+};
+
 /** Communities result */
 export type CommunitiesResult = {
   memberships: CommunityMembership[];
@@ -164,6 +179,9 @@ export type SocialResult = {
 
   // Cultural/social dynamics
   culturalDynamics: CulturalDynamicsResult;
+
+  // Needs and relationship archetypes
+  needsRelationships: NeedsRelationshipsResult;
 };
 
 // ============================================================================
@@ -267,6 +285,124 @@ function computeCulturalDynamics({
     clashPoints,
   };
   traceSet(trace, 'culturalDynamics', result, { method: 'weightedPickKUnique' });
+  return result;
+}
+
+// ============================================================================
+// Needs & Relationships Archetypes
+// ============================================================================
+
+function computeNeedsRelationships({
+  seed,
+  vocab,
+  latents,
+  tierBand,
+  age,
+  roleSeedTags,
+  family,
+  trace,
+}: NeedsRelationshipsInput): NeedsRelationshipsResult {
+  traceFacet(trace, seed, 'needsRelationships');
+  const rng = makeRng(facetSeed(seed, 'needsRelationships'));
+
+  const needsPool = vocab.needsRelationships?.needsArchetypes ?? [
+    'survival-first',
+    'security-anchored',
+    'routine-driven',
+    'belonging-seeking',
+    'autonomy-driven',
+    'status-driven',
+    'recognition-hungry',
+    'purpose-bound',
+    'mastery-seeking',
+    'creative-escape',
+    'moral-compass',
+    'comfort-seeking',
+  ];
+  const relationshipPool = vocab.needsRelationships?.relationshipArchetypes ?? [
+    'guarded-loyalist',
+    'found-family-builder',
+    'mentor-seeker',
+    'mentor-guardian',
+    'transactional-ally',
+    'team-first',
+    'bond-by-fire',
+    'slow-trust',
+    'intimacy-avoidant',
+    'romantic-idealizer',
+    'independence-protective',
+  ];
+
+  const public01 = latents.publicness / 1000;
+  const opsec01 = latents.opsecDiscipline / 1000;
+  const social01 = latents.socialBattery / 1000;
+  const adapt01 = latents.adaptability / 1000;
+  const risk01 = latents.riskAppetite / 1000;
+  const principled01 = latents.principledness / 1000;
+  const frugal01 = latents.frugality / 1000;
+  const curiosity01 = latents.curiosityBandwidth / 1000;
+  const aesthetic01 = latents.aestheticExpressiveness / 1000;
+  const planning01 = latents.planningHorizon / 1000;
+  const conditioning01 = latents.physicalConditioning / 1000;
+  const inst01 = latents.institutionalEmbeddedness / 1000;
+
+  const needsWeights = needsPool.map((item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('survival')) w += 1.3 * (tierBand === 'mass' ? 1 : 0.4) + 1.1 * (1 - conditioning01);
+    if (lower.includes('security')) w += 1.2 * opsec01 + 0.8 * (1 - risk01);
+    if (lower.includes('routine')) w += 1.2 * (1 - adapt01) + 0.4 * (1 - risk01);
+    if (lower.includes('belonging')) w += 1.2 * social01 + (family.dependentCount > 0 ? 0.6 : 0);
+    if (lower.includes('autonomy')) w += 1.1 * (1 - inst01) + 0.4 * risk01;
+    if (lower.includes('status')) w += 1.0 * public01 + (tierBand === 'elite' ? 1.2 : 0.4);
+    if (lower.includes('recognition')) w += 0.9 * public01 + 0.4 * social01;
+    if (lower.includes('purpose')) w += 1.2 * principled01 + 0.4 * planning01;
+    if (lower.includes('mastery')) w += 0.8 * curiosity01 + 0.6 * planning01;
+    if (lower.includes('creative')) w += 1.0 * aesthetic01 + 0.4 * adapt01;
+    if (lower.includes('moral')) w += 1.0 * principled01;
+    if (lower.includes('comfort')) w += 0.7 * frugal01 + 0.5 * (1 - risk01);
+    return { item, weight: w };
+  });
+
+  const relationshipWeights = relationshipPool.map((item) => {
+    const lower = item.toLowerCase();
+    let w = 1;
+    if (lower.includes('guarded')) w += 1.1 * opsec01 + 0.6 * (1 - social01);
+    if (lower.includes('found-family')) w += 1.1 * social01 + (family.dependentCount === 0 ? 0.3 : 0);
+    if (lower.includes('mentor-seeker')) w += (age < 30 ? 1.2 : 0.2);
+    if (lower.includes('mentor-guardian')) w += (age > 40 ? 1.2 : 0.2);
+    if (lower.includes('transactional')) w += 0.7 * inst01 + 0.4 * risk01 + (roleSeedTags.includes('operative') ? 0.6 : 0);
+    if (lower.includes('team-first')) w += 0.8 * inst01 + 0.6 * social01;
+    if (lower.includes('bond-by-fire')) w += 0.8 * risk01 + (roleSeedTags.includes('operative') ? 0.6 : 0);
+    if (lower.includes('slow-trust')) w += 0.7 * opsec01 + 0.4 * (1 - social01);
+    if (lower.includes('intimacy-avoidant')) w += 0.6 * opsec01 + (family.maritalStatus === 'single' ? 0.4 : 0);
+    if (lower.includes('romantic')) w += (family.maritalStatus !== 'single' ? 0.8 : 0.3) + 0.4 * social01;
+    if (lower.includes('independence')) w += 0.7 * (1 - inst01) + 0.3 * (1 - social01);
+    return { item, weight: w };
+  });
+
+  const pickPrimarySecondary = (
+    weights: Array<{ item: string; weight: number }>,
+    secondaryChance: number,
+  ): { primary: string; secondary?: string } => {
+    if (!weights.length) return { primary: 'unspecified' };
+    const primary = weightedPick(rng, weights) as string;
+    let secondary: string | undefined;
+    if (weights.length > 1 && rng.next01() < secondaryChance) {
+      const secondaryWeights = weights
+        .filter((entry) => entry.item !== primary)
+        .map((entry) => ({ item: entry.item, weight: entry.weight * 0.9 }));
+      secondary = weightedPick(rng, secondaryWeights) as string;
+    }
+    return { primary, secondary };
+  };
+
+  const result: NeedsRelationshipsResult = {
+    needs: pickPrimarySecondary(needsWeights, 0.55),
+    relationships: pickPrimarySecondary(relationshipWeights, 0.5),
+  };
+
+  traceSet(trace, 'needsRelationships', result, { method: 'weightedPick' });
   return result;
 }
 
@@ -831,6 +967,16 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     roleSeedTags,
     trace,
   });
+  const needsRelationships = computeNeedsRelationships({
+    seed,
+    vocab,
+    latents,
+    tierBand,
+    age,
+    roleSeedTags,
+    family: { maritalStatus, dependentCount },
+    trace,
+  });
 
   return {
     geography: { originRegion, urbanicity, diasporaStatus },
@@ -842,5 +988,6 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     attachments,
     civicLife,
     culturalDynamics,
+    needsRelationships,
   };
 }

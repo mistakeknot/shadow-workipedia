@@ -579,6 +579,10 @@ export type AgentVocabV1 = {
     bondingMechanisms?: string[];
     clashPoints?: string[];
   };
+  needsRelationships?: {
+    needsArchetypes?: string[];
+    relationshipArchetypes?: string[];
+  };
 };
 
 export type SocioeconomicMobility = 'upward' | 'stable' | 'downward';
@@ -658,6 +662,17 @@ export type CulturalDynamicsResult = {
   powerDynamics: string[];
   bondingMechanisms: string[];
   clashPoints: string[];
+};
+
+export type NeedsRelationshipsResult = {
+  needs: {
+    primary: string;
+    secondary?: string;
+  };
+  relationships: {
+    primary: string;
+    secondary?: string;
+  };
 };
 
 export type EliteCompensator = 'patronage' | 'dynasty' | 'institutional-protection' | 'media-shield' | 'political-cover' | 'wealth-buffer';
@@ -1396,6 +1411,9 @@ export type GeneratedAgent = {
 
   // Cultural and social dynamics snapshot
   culturalDynamics: CulturalDynamicsResult;
+
+  // Needs and relationship archetypes
+  needsRelationships: NeedsRelationshipsResult;
 };
 
 export type GenerateAgentInput = {

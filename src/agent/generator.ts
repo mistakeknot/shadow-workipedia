@@ -2539,6 +2539,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     attachments: socialResult.attachments,
     civicLife: socialResult.civicLife,
     culturalDynamics: socialResult.culturalDynamics,
+    needsRelationships: socialResult.needsRelationships,
 
     // From domestic.ts
     everydayLife: domesticResult.everydayLife,
