@@ -131,6 +131,7 @@ export type NeedsRelationshipsInput = {
   tierBand: TierBand;
   age: number;
   roleSeedTags: string[];
+  diasporaStatus: DiasporaStatus;
   family: {
     maritalStatus: MaritalStatus;
     dependentCount: number;
@@ -299,6 +300,7 @@ function computeNeedsRelationships({
   tierBand,
   age,
   roleSeedTags,
+  diasporaStatus,
   family,
   trace,
 }: NeedsRelationshipsInput): NeedsRelationshipsResult {
@@ -306,17 +308,19 @@ function computeNeedsRelationships({
   const rng = makeRng(facetSeed(seed, 'needsRelationships'));
 
   const needsPool = vocab.needsRelationships?.needsArchetypes ?? [
-    'survival-first',
-    'security-anchored',
-    'routine-driven',
-    'belonging-seeking',
-    'autonomy-driven',
-    'status-driven',
-    'recognition-hungry',
-    'purpose-bound',
-    'mastery-seeking',
-    'creative-escape',
-    'moral-compass',
+    'physiology-anchored',
+    'safety-vigilant',
+    'opsec-guarded',
+    'stability-seeking',
+    'belonging-driven',
+    'intimacy-seeking',
+    'respect-attuned',
+    'status-advancing',
+    'autonomy-protective',
+    'purpose-aligned',
+    'mastery-driven',
+    'creative-release',
+    'moral-integrity',
     'comfort-seeking',
   ];
   const relationshipPool = vocab.needsRelationships?.relationshipArchetypes ?? [
@@ -324,12 +328,15 @@ function computeNeedsRelationships({
     'found-family-builder',
     'mentor-seeker',
     'mentor-guardian',
+    'team-bonded',
+    'mission-partner',
     'transactional-ally',
-    'team-first',
     'bond-by-fire',
     'slow-trust',
     'intimacy-avoidant',
-    'romantic-idealizer',
+    'romantic-steadfast',
+    'family-duty-bound',
+    'cultural-anchor',
     'independence-protective',
   ];
 
@@ -349,18 +356,20 @@ function computeNeedsRelationships({
   const needsWeights = needsPool.map((item) => {
     const lower = item.toLowerCase();
     let w = 1;
-    if (lower.includes('survival')) w += 1.3 * (tierBand === 'mass' ? 1 : 0.4) + 1.1 * (1 - conditioning01);
-    if (lower.includes('security')) w += 1.2 * opsec01 + 0.8 * (1 - risk01);
-    if (lower.includes('routine')) w += 1.2 * (1 - adapt01) + 0.4 * (1 - risk01);
+    if (lower.includes('physiology')) w += 1.2 * (tierBand === 'mass' ? 1 : 0.5) + 1.0 * (1 - conditioning01) + 0.4 * (age > 45 ? 1 : 0);
+    if (lower.includes('safety')) w += 1.1 * opsec01 + 0.7 * (1 - risk01);
+    if (lower.includes('opsec')) w += 1.2 * opsec01 + (roleSeedTags.includes('operative') ? 0.6 : 0);
+    if (lower.includes('stability')) w += 1.1 * (1 - adapt01) + 0.5 * (1 - risk01) + 0.4 * planning01;
     if (lower.includes('belonging')) w += 1.2 * social01 + (family.dependentCount > 0 ? 0.6 : 0);
-    if (lower.includes('autonomy')) w += 1.1 * (1 - inst01) + 0.4 * risk01;
-    if (lower.includes('status')) w += 1.0 * public01 + (tierBand === 'elite' ? 1.2 : 0.4);
-    if (lower.includes('recognition')) w += 0.9 * public01 + 0.4 * social01;
-    if (lower.includes('purpose')) w += 1.2 * principled01 + 0.4 * planning01;
-    if (lower.includes('mastery')) w += 0.8 * curiosity01 + 0.6 * planning01;
+    if (lower.includes('intimacy')) w += 0.9 * social01 + (family.maritalStatus !== 'single' ? 0.5 : 0.1);
+    if (lower.includes('respect')) w += 0.7 * inst01 + 0.5 * principled01;
+    if (lower.includes('status')) w += 0.9 * public01 + (tierBand === 'elite' ? 1.1 : 0.4);
+    if (lower.includes('autonomy')) w += 1.0 * (1 - inst01) + 0.4 * risk01;
+    if (lower.includes('purpose')) w += 1.1 * principled01 + 0.5 * planning01;
+    if (lower.includes('mastery')) w += 0.9 * curiosity01 + 0.5 * planning01;
     if (lower.includes('creative')) w += 1.0 * aesthetic01 + 0.4 * adapt01;
-    if (lower.includes('moral')) w += 1.0 * principled01;
-    if (lower.includes('comfort')) w += 0.7 * frugal01 + 0.5 * (1 - risk01);
+    if (lower.includes('moral')) w += 1.2 * principled01;
+    if (lower.includes('comfort')) w += 0.6 * frugal01 + 0.5 * (1 - risk01);
     return { item, weight: w };
   });
 
@@ -371,12 +380,17 @@ function computeNeedsRelationships({
     if (lower.includes('found-family')) w += 1.1 * social01 + (family.dependentCount === 0 ? 0.3 : 0);
     if (lower.includes('mentor-seeker')) w += (age < 30 ? 1.2 : 0.2);
     if (lower.includes('mentor-guardian')) w += (age > 40 ? 1.2 : 0.2);
+    if (lower.includes('team-bonded')) w += 0.8 * inst01 + 0.6 * social01;
+    if (lower.includes('mission-partner')) w += 0.7 * risk01 + (roleSeedTags.includes('operative') || roleSeedTags.includes('security') ? 0.7 : 0.2);
     if (lower.includes('transactional')) w += 0.7 * inst01 + 0.4 * risk01 + (roleSeedTags.includes('operative') ? 0.6 : 0);
-    if (lower.includes('team-first')) w += 0.8 * inst01 + 0.6 * social01;
     if (lower.includes('bond-by-fire')) w += 0.8 * risk01 + (roleSeedTags.includes('operative') ? 0.6 : 0);
     if (lower.includes('slow-trust')) w += 0.7 * opsec01 + 0.4 * (1 - social01);
     if (lower.includes('intimacy-avoidant')) w += 0.6 * opsec01 + (family.maritalStatus === 'single' ? 0.4 : 0);
     if (lower.includes('romantic')) w += (family.maritalStatus !== 'single' ? 0.8 : 0.3) + 0.4 * social01;
+    if (lower.includes('family-duty')) w += (family.dependentCount > 0 ? 1.2 : 0.2) + (family.maritalStatus !== 'single' ? 0.4 : 0);
+    if (lower.includes('cultural')) {
+      w += (['expat', 'refugee', 'diaspora-child', 'dual-citizen'].includes(diasporaStatus) ? 0.9 : 0.2) + 0.4 * social01;
+    }
     if (lower.includes('independence')) w += 0.7 * (1 - inst01) + 0.3 * (1 - social01);
     return { item, weight: w };
   });
@@ -974,6 +988,7 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     tierBand,
     age,
     roleSeedTags,
+    diasporaStatus,
     family: { maritalStatus, dependentCount },
     trace,
   });

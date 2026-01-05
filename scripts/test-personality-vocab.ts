@@ -112,12 +112,12 @@ function run(): void {
     | undefined;
   assertIncludes(
     needsRelationships?.needsArchetypes,
-    'security-anchored',
+    'safety-vigilant',
     'needsRelationships.needsArchetypes',
   );
   assertIncludes(
     needsRelationships?.relationshipArchetypes,
-    'guarded-loyalist',
+    'family-duty-bound',
     'needsRelationships.relationshipArchetypes',
   );
 
