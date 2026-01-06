@@ -654,7 +654,37 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     return isPartnered ? 0.50 : 0.08; // Adult children, some still at home
   })();
   const maxDependents = age < 30 ? 1 : age < 40 ? 2 : age < 50 ? 3 : 2;
-  const dependentCount = familyRng.next01() < dependentChance ? familyRng.int(1, maxDependents) : 0;
+  let dependentCount = familyRng.next01() < dependentChance ? familyRng.int(1, maxDependents) : 0;
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // DETERMINISTIC POST-HOC ADJUSTMENT for #4 Age ↔ Has Family
+  // hasFamily = (married OR partnered) AND dependentCount > 0
+  // We need to ensure: older → more likely hasFamily, younger → less likely
+  // ─────────────────────────────────────────────────────────────────────────
+  const isPartnered = maritalStatus === 'married' || maritalStatus === 'partnered';
+
+  // Older partnered people should have family (dependents)
+  if (age >= 30 && isPartnered && dependentCount === 0) {
+    // Age 30-40: 60% should have dependents if partnered
+    // Age 40+: 80% should have dependents if partnered
+    const forceFamilyChance = age >= 40 ? 0.80 : 0.60;
+    if (familyRng.next01() < forceFamilyChance) {
+      dependentCount = familyRng.int(1, maxDependents);
+    }
+  }
+
+  // Younger people (under 28) should rarely have family
+  if (age < 28 && dependentCount > 0) {
+    // 70% chance to remove dependents for young people
+    if (familyRng.next01() < 0.70) {
+      dependentCount = 0;
+    }
+  }
+
+  // Young singles should almost never have dependents
+  if (age < 25 && maritalStatus === 'single' && dependentCount > 0) {
+    dependentCount = 0;
+  }
 
   // Living parents: probability decreases with age
   const parentSurvivalChance = age < 35 ? 0.95 : age < 45 ? 0.85 : age < 55 ? 0.70 : age < 65 ? 0.45 : 0.20;
@@ -773,6 +803,21 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     networkRole = weightedPick(networkRng, softened) as NetworkRole;
   }
 
+  // ─────────────────────────────────────────────────────────────────────────
+  // DETERMINISTIC POST-HOC ADJUSTMENT for #N3 Conscientiousness ↔ Network Role
+  // High conscientiousness → hub/gatekeeper, Low conscientiousness → isolate/peripheral
+  // ─────────────────────────────────────────────────────────────────────────
+  const highStatusRoles: NetworkRole[] = ['hub', 'gatekeeper'];
+  const lowStatusRoles: NetworkRole[] = ['isolate', 'peripheral'];
+
+  if (conscientiousness01 > 0.65 && lowStatusRoles.includes(networkRole)) {
+    // High conscientiousness with low-status role: upgrade to connector or hub
+    networkRole = networkRng.next01() < 0.6 ? 'connector' : 'hub';
+  } else if (conscientiousness01 < 0.35 && highStatusRoles.includes(networkRole)) {
+    // Low conscientiousness with high-status role: downgrade to peripheral or isolate
+    networkRole = networkRng.next01() < 0.6 ? 'peripheral' : 'isolate';
+  }
+
   const factionAlignment = (() => {
     // Operatives and security types are less likely to have public faction alignment
     if (roleSeedTags.includes('operative') || roleSeedTags.includes('security')) {
@@ -867,6 +912,27 @@ export function computeSocial(ctx: SocialContext): SocialResult {
   });
   const communityStatus = weightedPick(commRng, statusWeights) as CommunityStatus;
 
+  // ─────────────────────────────────────────────────────────────────────────
+  // DETERMINISTIC POST-HOC ADJUSTMENT for #N1 Community Status ↔ Network Role
+  // High community status (pillar, respected) → high network role (hub, gatekeeper)
+  // Low community status (outsider, newcomer) → low network role (isolate, peripheral)
+  // ─────────────────────────────────────────────────────────────────────────
+  const highCommunityStatus = communityStatus === 'pillar' || communityStatus === 'respected';
+  const lowCommunityStatus = communityStatus === 'outsider' || communityStatus === 'newcomer' || communityStatus === 'banned';
+  const highNetworkRoles: NetworkRole[] = ['hub', 'gatekeeper', 'broker'];
+  const lowNetworkRoles: NetworkRole[] = ['isolate', 'peripheral'];
+
+  if (highCommunityStatus && lowNetworkRoles.includes(networkRole)) {
+    // Pillar/respected with low network role: upgrade to connector or hub
+    networkRole = commRng.next01() < 0.5 ? 'connector' : 'hub';
+    // Update the network object with the new role
+    network.role = networkRole;
+  } else if (lowCommunityStatus && highNetworkRoles.includes(networkRole)) {
+    // Outsider/newcomer with high network role: downgrade
+    networkRole = commRng.next01() < 0.5 ? 'peripheral' : 'connector';
+    network.role = networkRole;
+  }
+
   const communities: CommunitiesResult = { memberships, onlineCommunities, communityStatus };
   traceSet(trace, 'communities', communities, { method: 'weighted' });
 
@@ -914,7 +980,26 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     return weightedPick(repRng, weights) as ReputationTag;
   };
 
-  const professional = pickReputation({ reliable: 2, 'by-the-book': 1 });
+  let professional = pickReputation({ reliable: 2, 'by-the-book': 1 });
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // DETERMINISTIC POST-HOC ADJUSTMENT for #14 Visibility ↔ Reputation
+  // High visibility → higher reputation (brilliant, fixer, rising-star)
+  // Low visibility → lower reputation (unknown, has-been, burnt-out)
+  // The numeric mapping: unknown=0, has-been=1, by-the-book=2, reliable=3, fixer=4, brilliant=4
+  // ─────────────────────────────────────────────────────────────────────────
+  const highRepTags: ReputationTag[] = ['brilliant', 'fixer', 'rising-star'];
+  const lowRepTags: ReputationTag[] = ['unknown', 'has-been', 'burnt-out', 'corrupt', 'loudmouth'];
+  const midRepTags: ReputationTag[] = ['reliable', 'principled', 'discreet', 'by-the-book'];
+
+  if (publicness01 > 0.65 && lowRepTags.includes(professional)) {
+    // High visibility with low reputation: upgrade to mid or high
+    professional = repRng.next01() < 0.5 ? repRng.pick(midRepTags) : repRng.pick(highRepTags);
+  } else if (publicness01 < 0.35 && highRepTags.includes(professional)) {
+    // Low visibility with high reputation: downgrade to mid or low
+    professional = repRng.next01() < 0.6 ? repRng.pick(midRepTags) : 'unknown';
+  }
+
   const neighborhood = pickReputation({ unknown: 2 });
   const online = pickReputation({ loudmouth: latents.publicness > 600 ? 2 : 0 });
   const scandalSensitivity = band5From01k(

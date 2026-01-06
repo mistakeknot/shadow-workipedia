@@ -73,13 +73,19 @@ const result = weightedPick(rng, [
 
 ## Correlates
 
-Cross-facet relationships ensure realistic agents. See `facets/AGENTS.md` for the complete correlate list.
+Cross-facet relationships ensure realistic agents. **57 correlates validated** (100% verified at |r| ≥ 0.15).
+
+See `facets/AGENTS.md` and `facets/CORRELATES.md` for the complete correlate catalog.
 
 **Key correlates:**
-- Tier affects education, health, housing
-- Age affects family structure, network position, community status
+- Tier affects education, health, housing, risk appetite
+- Age affects family structure, network position, community status, skill XP
 - Latents (cosmo, religiosity, risk) cascade through many facets
-- Traits (conscientiousness, authoritarianism) affect lifestyle choices
+- Traits (conscientiousness, authoritarianism) affect lifestyle, conflict style
+- Network correlates ensure community pillars have appropriate network roles
+- Behavioral correlates link conditioning to active hobbies, religiosity to dietary restrictions
+
+**Deterministic Threshold Approach:** Nine correlates use post-hoc adjustment to guarantee relationships hold even at extreme values.
 
 ## Modifying the Generator
 
@@ -140,15 +146,17 @@ npx tsx scripts/audit-agents.ts --count 100 --seedPrefix audit --out /tmp/audit-
 }
 ```
 
-**Documented correlates verified:**
-| ID | Correlate | Expected |
-|----|-----------|----------|
-| #1 | Age ↔ Physical Conditioning | negative |
-| #3 | Tier ↔ Education | positive |
-| #5 | Cosmopolitanism ↔ Abroad | positive |
-| #9 | Travel ↔ Tradecraft | positive |
-| #13 | Conscientiousness ↔ Housing | positive |
-| #15 | Risk Appetite ↔ Housing Instability | positive |
+**57 documented correlates verified (sample):**
+| ID | Correlate | r | Expected |
+|----|-----------|---|----------|
+| #1 | Age ↔ Physical Conditioning | -0.36 | negative |
+| #3 | Tier ↔ Education | 0.51 | positive |
+| #5 | Cosmopolitanism ↔ Abroad | 0.39 | positive |
+| #14 | Visibility ↔ Reputation | 0.39 | positive |
+| #N1 | Community Status ↔ Network Role | 0.42 | positive |
+| #HL4 | Religiosity ↔ Dietary Restrictions | 0.75 | positive |
+
+See `facets/CORRELATES.md` for full catalog with all 57 correlates and their r values.
 
 ## Type Safety
 
@@ -159,4 +167,4 @@ npx tsx scripts/audit-agents.ts --count 100 --seedPrefix audit --out /tmp/audit-
 
 ---
 
-**Last Updated**: 2026-01-05
+**Last Updated**: 2026-01-06

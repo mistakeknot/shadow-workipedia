@@ -64,27 +64,41 @@ seed + vocab + country context
 Correlates are cross-facet relationships that ensure realistic agent generation. When modifying any facet, check for correlate impacts.
 
 **See [CORRELATES.md](./CORRELATES.md) for the complete correlate catalog with:**
-- Validation status and Pearson r values
+- Validation status and Pearson r values (57/57 verified at |r| ≥ 0.15)
+- Deterministic threshold approach for guaranteed correlations
 - Implementation locations and code references
 - Implausibility checks
 - Instructions for adding new correlates
 
-### Quick Reference (28 correlates)
+### Quick Reference (57 correlates, 100% verified)
 
 | Category | Count | Key Examples |
 |----------|-------|--------------|
-| Tier-Based | 5 | Tier ↔ Health, Education, Housing |
-| Age-Based | 7 | Age ↔ Conditioning, Network Role, Community Status |
-| Latent-Based | 3 | Cosmopolitanism ↔ Abroad, Religiosity ↔ Vices |
-| Trait-Based | 4 | Social Battery ↔ Third Places |
-| Cross-Latent | 5 | Opsec ↔ Publicness (suppression) |
+| Tier-Based | 6 | Tier ↔ Health, Education, Housing, Risk Appetite |
+| Age-Based | 9 | Age ↔ Conditioning, Network Role, Community Status, Skill XP |
+| Latent-Based | 4 | Cosmopolitanism ↔ Abroad, Religiosity ↔ Vices |
+| Trait-Based | 5 | Social Battery ↔ Third Places, Planning ↔ Impulse Control |
+| Cross-Latent | 6 | Opsec ↔ Publicness (suppression) |
 | Derivation | 3 | Opsec ↔ Conscientiousness |
+| Network/Social | 5 | Community Status ↔ Network Role, Deception ↔ Relationships |
+| Housing | 4 | Family Size ↔ Stability, Frugality ↔ Stability |
+| Health | 4 | Stress ↔ Chronic Conditions, Religiosity ↔ Dietary |
+| Skills | 5 | Institutional Embeddedness ↔ Bureaucracy |
+| Behavioral | 5 | Conscientiousness ↔ Petty Habits, Conditioning ↔ Hobbies |
 
 ### Running Correlation Audit
 
 ```bash
 npx tsx scripts/audit-agents.ts --count 1000 --out /tmp/audit.json
 ```
+
+### Deterministic Threshold Approach
+
+The generator uses a **hybrid deterministic/probabilistic** approach:
+1. **Weighted Random Selection**: Initial values picked with weighted probabilities
+2. **Deterministic Post-Hoc Adjustment**: Extreme cases corrected to guarantee correlations
+
+Nine correlates use this pattern (marked in CORRELATES.md): #HL1, #N5, #B3, #X5, #12, #4, #N3, #14, #N1
 
 ### Country Priors & Indicators
 
@@ -146,4 +160,4 @@ pnpm typecheck
 
 ---
 
-**Last Updated**: 2026-01-05
+**Last Updated**: 2026-01-06

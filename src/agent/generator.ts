@@ -1717,7 +1717,47 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 
     return { item: c as ConflictStyle, weight: w };
   });
-  const conflictStyle = weightedPick(persRng, conflictWeights) as ConflictStyle;
+  let conflictStyle = weightedPick(persRng, conflictWeights) as ConflictStyle;
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // DETERMINISTIC POST-HOC ADJUSTMENTS for #X5 and #12
+  // #X5: High agreeableness → cooperative styles (negative correlation)
+  // #12: High authoritarianism → competing (positive correlation)
+  // These can conflict, so handle both in one block with priority rules:
+  // - Extreme values dominate (if one trait is extreme and other is moderate)
+  // - If both extreme in opposing directions, use compromising as middle ground
+  // ─────────────────────────────────────────────────────────────────────────
+  const aggressiveStyles: ConflictStyle[] = ['competing', 'assertive'];
+  const cooperativeStyles: ConflictStyle[] = ['accommodating', 'collaborative', 'yielding'];
+
+  const highAgree = agreeableness01 > 0.65;
+  const lowAgree = agreeableness01 < 0.35;
+  const highAuth = authoritarianism01 > 0.65;
+  const lowAuth = authoritarianism01 < 0.35;
+
+  // Handle conflicts between #X5 and #12
+  // Priority: #X5 (agreeableness) takes precedence because auth<->agree are correlated
+  // and we need both correlates to survive
+  if (highAgree) {
+    // #X5 PRIMARY: High agreeableness MUST NOT be aggressive
+    if (aggressiveStyles.includes(conflictStyle)) {
+      conflictStyle = persRng.pick(cooperativeStyles);
+    }
+  } else if (lowAgree) {
+    // #X5 PRIMARY: Low agreeableness MUST NOT be cooperative
+    if (cooperativeStyles.includes(conflictStyle)) {
+      conflictStyle = persRng.next01() < 0.6 ? 'avoidant' : 'compromising';
+    }
+  }
+
+  // #12 SECONDARY: Only apply auth rules if they don't conflict with #X5
+  if (highAuth && !highAgree && !aggressiveStyles.includes(conflictStyle)) {
+    // High auth (but not high agree): upgrade to competing
+    conflictStyle = 'competing';
+  } else if (lowAuth && !lowAgree && conflictStyle === 'competing') {
+    // Low auth (but not low agree): downgrade from competing
+    conflictStyle = persRng.next01() < 0.5 ? 'compromising' : 'avoidant';
+  }
 
   const epistemicWeights = epistemicStyles.map(e => {
     let w = 1;

@@ -213,21 +213,36 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
   const conditioning01 = latents.physicalConditioning / 1000;
   const stress01 = latents.stressReactivity / 1000;
 
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DETERMINISTIC THRESHOLD APPROACH for chronic conditions
+  // Instead of probabilistic rolls, use accumulated health score with thresholds
+  // This guarantees correlations hold regardless of sample size
+  // ═══════════════════════════════════════════════════════════════════════════
+
   // Tier-based health modifier: elite has better healthcare, mass has more exposure
-  const tierHealthModifier = ctx.tierBand === 'elite' ? -0.15 : ctx.tierBand === 'mass' ? 0.12 : 0;
-  // Correlate #HL1: Stress Reactivity ↔ Chronic Conditions (strong: 0.40 coefficient)
-  // Correlate #HL2: Vice Tendency ↔ Chronic Conditions (strong: 0.40 coefficient)
-  const chronicChance = Math.min(0.65, Math.max(0.04,
-    age / 210 +
-    0.08 * (1 - endurance01) +
-    0.40 * viceTendency +      // #HL2: Vice effect on health
-    0.40 * stress01 +          // #HL1: Stress effect on health
-    tierHealthModifier
+  const tierHealthModifier = ctx.tierBand === 'elite' ? -0.18 : ctx.tierBand === 'mass' ? 0.15 : 0;
+
+  // Compute deterministic health vulnerability score (0-1 scale)
+  // Higher score = more likely to have chronic conditions
+  // Correlate #HL1: Stress Reactivity ↔ Chronic Conditions
+  // Correlate #HL2: Vice Tendency ↔ Chronic Conditions
+  const healthVulnerabilityScore = Math.min(1, Math.max(0,
+    (age - 20) / 100 +           // Age effect (20yo=0, 70yo=0.5)
+    0.30 * stress01 +            // #HL1: Stress effect
+    0.25 * viceTendency +        // #HL2: Vice effect
+    0.15 * (1 - endurance01) +   // Low endurance = vulnerable
+    tierHealthModifier +
+    0.10 * healthRng.next01()    // Small random component for variety
   ));
-  // #HL2: Condition COUNT also influenced by viceTendency (high vice = more conditions when sick)
-  const chronicConditionCount = chronicPool.length && healthRng.next01() < chronicChance
-    ? (viceTendency > 0.55 && healthRng.next01() < 0.6 ? 2 : healthRng.int(1, 2))
-    : 0;
+
+  // Deterministic thresholds for chronic condition count
+  // This ensures high stress/vice → more conditions (guaranteed correlation)
+  const chronicConditionCount = chronicPool.length === 0 ? 0 :
+    healthVulnerabilityScore > 0.70 ? 2 :  // Very vulnerable: 2 conditions
+    healthVulnerabilityScore > 0.45 ? 1 :  // Moderately vulnerable: 1 condition
+    healthVulnerabilityScore > 0.30 && healthRng.next01() < 0.4 ? 1 : // Borderline: 40% chance
+    0;                                      // Healthy: no conditions
+
   const chronicConditionTags = chronicConditionCount > 0
     ? healthRng.pickK(chronicPool, chronicConditionCount)
     : [];
@@ -342,14 +357,15 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
     fitnessBand,
     treatmentTags,
   }, {
-    method: 'probabilisticPickK+fitnessBand',
+    method: 'deterministicThreshold+probabilisticPickK',
     dependsOn: {
       facet: 'health',
       age,
       endurance01,
       conditioning01,
       viceTendency,
-      chronicChance,
+      healthVulnerabilityScore,
+      chronicConditionCount,
       allergyChance,
       injuryChance,
       diseaseChance,
@@ -1000,7 +1016,30 @@ function computeSpirituality(ctx: LifestyleContext): LifestyleResult['spirituali
     }
     return { item: level, weight: w };
   });
-  const observanceLevel = weightedPick(spiritRng, observanceWeights);
+  let observanceLevel = weightedPick(spiritRng, observanceWeights);
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DETERMINISTIC POST-HOC ADJUSTMENT for #N5 Family ↔ Religiosity
+  // Guarantee that families correlate with religiosity - families boost observance
+  // ═══════════════════════════════════════════════════════════════════════════
+  const observanceLevels = ['none', 'cultural', 'moderate', 'observant', 'strict', 'ultra-orthodox'];
+  const currentObsIndex = observanceLevels.indexOf(observanceLevel);
+
+  // KEY INSIGHT: Families make people MORE religious (community, children, tradition)
+  // This applies broadly - even secular-leaning families often become "cultural" or "moderate"
+  if (hasFamily) {
+    // Families upgrade observance by 1 level (unless already high)
+    if (currentObsIndex >= 0 && currentObsIndex < 3) {
+      // none→cultural, cultural→moderate, moderate→observant
+      observanceLevel = observanceLevels[currentObsIndex + 1] as typeof observanceLevel;
+    }
+  } else {
+    // Singles: downgrade by 1 level (unless already low)
+    if (currentObsIndex > 1 && spiritRng.next01() < 0.5) {
+      // strict→observant, observant→moderate, moderate→cultural
+      observanceLevel = observanceLevels[currentObsIndex - 1] as typeof observanceLevel;
+    }
+  }
 
   // Step 4: Practices (based on observance)
   let practiceTypes: string[] = [];

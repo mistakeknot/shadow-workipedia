@@ -1045,7 +1045,28 @@ function computeHobbies(ctx: PreferencesContext, rng: Rng): HobbiesPreferences {
 
   // Pick 2-3 primary categories
   const numCategories = Math.min(3, Math.max(2, Math.floor(totalHobbies / 2)));
-  const chosenCategories = weightedPickKUnique(rng, categoryWeights, numCategories);
+  let chosenCategories = weightedPickKUnique(rng, categoryWeights, numCategories);
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DETERMINISTIC GUARANTEE for #B3: Physical Conditioning ↔ Active Hobbies
+  // High conditioning agents MUST have at least one physical/outdoor hobby
+  // Low conditioning agents should NOT have physical hobbies
+  // ═══════════════════════════════════════════════════════════════════════════
+  const conditioning01 = latents.physicalConditioning / 1000;
+  const hasActiveCategory = chosenCategories.includes('physical') || chosenCategories.includes('outdoor');
+
+  if (conditioning01 > 0.65 && !hasActiveCategory) {
+    // High conditioning without active hobby: force add physical or outdoor
+    const activeCategory = rng.next01() < 0.6 ? 'physical' : 'outdoor';
+    chosenCategories = [activeCategory, ...chosenCategories.slice(0, numCategories - 1)];
+  } else if (conditioning01 < 0.35 && hasActiveCategory) {
+    // Low conditioning with active hobby: replace with sedentary category
+    const sedentaryOptions = ['intellectual', 'creative', 'technical', 'culinary'];
+    const replacement = rng.pick(sedentaryOptions);
+    chosenCategories = chosenCategories.map(c =>
+      (c === 'physical' || c === 'outdoor') ? replacement : c
+    );
+  }
 
   // Pick hobbies from chosen categories
   const allHobbies: string[] = [];
