@@ -3,7 +3,7 @@ import type { GraphData, IssueCategory, CommunityInfo, PrimitiveName } from './t
 import { GraphSimulation } from './graph';
 import type { SimNode } from './graph';
 import { ZoomPanHandler, HoverHandler, ClickHandler, DragHandler } from './interactions';
-import { ArticleRouter, renderWikiArticleContent, type RouteType, type ViewType } from './article';
+import { ArticleRouter, renderWikiArticleContent, type RouteType } from './article';
 import { initializeAgentsView } from './agentsView';
 import { createCanvasContext } from './main/canvas';
 import { initializeMainDom } from './main/dom';
@@ -12,6 +12,7 @@ import { initializeCommandPalette } from './main/palette';
 import { createRenderLoop } from './main/render';
 import { createTableRenderer } from './main/table';
 import { createWikiRenderer } from './main/wiki';
+import { createViewController } from './main/views';
 import { initializeMainState } from './main/state';
 import { polygonHull, polygonCentroid } from 'd3-polygon';
 
@@ -435,85 +436,32 @@ async function main() {
   // Store router reference for navigation
   let router: ArticleRouter;
 
-  // Helper to switch views without updating URL (called by router)
-  function showView(view: ViewType) {
-    currentView = view;
+  const viewController = createViewController({
+    graphView,
+    tableView,
+    wikiView,
+    agentsView,
+    articleView,
+    header,
+    tabNav,
+    filterBar,
+    viewModeToggles: document.getElementById('view-mode-toggles'),
+    categoryFilters: document.getElementById('category-filters'),
+    clusterToggle: document.getElementById('cluster-toggle'),
+    tabGraph: document.getElementById('tab-graph'),
+    tabTable: document.getElementById('tab-table'),
+    tabWiki: document.getElementById('tab-wiki'),
+    tabAgents: document.getElementById('tab-agents'),
+    renderWikiList: () => renderWikiList(),
+    onViewChange: (view) => {
+      currentView = view;
+      if (view === 'table') {
+        renderTable();
+      }
+    },
+  });
 
-    // Hide tooltip when switching views
-    const tooltipEl = document.getElementById('tooltip');
-    if (tooltipEl) tooltipEl.classList.add('hidden');
-
-	    // Update tab active states
-	    const tabGraph = document.getElementById('tab-graph');
-	    const tabTable = document.getElementById('tab-table');
-	    const tabWiki = document.getElementById('tab-wiki');
-	    const tabAgents = document.getElementById('tab-agents');
-
-	    tabGraph?.classList.remove('active');
-	    tabTable?.classList.remove('active');
-	    tabWiki?.classList.remove('active');
-	    tabAgents?.classList.remove('active');
-
-	    articleView?.classList.add('hidden');
-	    if (header) header.classList.remove('hidden');
-	    if (tabNav) tabNav.classList.remove('hidden');
-	    if (filterBar) filterBar.classList.remove('hidden');
-
-    // View toggles and category filters are only relevant for graph view
-    const viewModeToggles = document.getElementById('view-mode-toggles');
-    const categoryFilters = document.getElementById('category-filters');
-    const clusterToggle = document.getElementById('cluster-toggle');
-
-	    if (view === 'graph') {
-	      tabGraph?.classList.add('active');
-	      graphView?.classList.remove('hidden');
-	      tableView?.classList.add('hidden');
-	      wikiView?.classList.add('hidden');
-	      agentsView?.classList.add('hidden');
-	      if (filterBar) filterBar.classList.remove('hidden');
-	      // If a prior view hid the filter bar, force a canvas resize recompute.
-	      window.dispatchEvent(new Event('resize'));
-	      // Show view toggles and category filters for graph
-	      if (viewModeToggles) viewModeToggles.style.display = '';
-	      if (categoryFilters) categoryFilters.style.display = '';
-	      if (clusterToggle) clusterToggle.style.display = '';
-	    } else if (view === 'table') {
-	      tabTable?.classList.add('active');
-	      graphView?.classList.add('hidden');
-	      tableView?.classList.remove('hidden');
-	      wikiView?.classList.add('hidden');
-	      agentsView?.classList.add('hidden');
-	      if (filterBar) filterBar.classList.remove('hidden');
-	      // Show view toggles and category filters for table
-	      if (viewModeToggles) viewModeToggles.style.display = '';
-	      if (categoryFilters) categoryFilters.style.display = '';
-	      if (clusterToggle) clusterToggle.style.display = '';
-	      renderTable();
-	    } else if (view === 'agents') {
-	      tabAgents?.classList.add('active');
-	      graphView?.classList.add('hidden');
-	      tableView?.classList.add('hidden');
-	      wikiView?.classList.add('hidden');
-	      agentsView?.classList.remove('hidden');
-	      if (filterBar) filterBar.classList.add('hidden');
-	      // Hide all filters for agents
-	      if (viewModeToggles) viewModeToggles.style.display = 'none';
-	      if (categoryFilters) categoryFilters.style.display = 'none';
-	      if (clusterToggle) clusterToggle.style.display = 'none';
-	    } else if (view === 'wiki' || view === 'communities') {
-	      tabWiki?.classList.add('active');
-	      graphView?.classList.add('hidden');
-	      tableView?.classList.add('hidden');
-	      wikiView?.classList.remove('hidden');
-	      agentsView?.classList.add('hidden');
-	      if (filterBar) filterBar.classList.remove('hidden');
-	      // Hide all filters for wiki (including communities, which renders inside wiki)
-	      if (viewModeToggles) viewModeToggles.style.display = 'none';
-	      if (categoryFilters) categoryFilters.style.display = 'none';
-	      if (clusterToggle) clusterToggle.style.display = 'none';
-	      if (renderWikiList) renderWikiList();
-	    }
-	  }
+  const showView = viewController.showView;
 
   // Initialize article router (side effects only - registers hash change listener)
   router = new ArticleRouter((route: RouteType) => {
@@ -527,53 +475,53 @@ async function main() {
       return;
     }
 
-	    if (route.kind === 'view') {
-	      // View route - show the appropriate view
-	      // Clear selected wiki article when navigating to wiki list (not an article)
-	      if (route.view === 'wiki') {
-	        selectedWikiArticle = null;
-	        selectedCommunity = null;
-	        wikiSection = 'articles';
-	      }
-	      if (route.view === 'communities') {
-	        selectedCommunity = null;
-	        selectedWikiArticle = null;
-	        wikiSection = 'communities';
-	      }
-	      showView(route.view);
-		    } else if (route.kind === 'article') {
-	      // Handle wiki-level redirects/merges for any article type.
-	      const current = data.articles?.[route.slug];
-	      const mergedInto = typeof current?.frontmatter?.mergedInto === 'string' ? current.frontmatter.mergedInto.trim() : '';
-	      if (mergedInto && data.articles?.[mergedInto]) {
-	        window.location.hash = `#/wiki/${mergedInto}`;
-	        return;
-	      }
+    if (route.kind === 'view') {
+      // View route - show the appropriate view
+      // Clear selected wiki article when navigating to wiki list (not an article)
+      if (route.view === 'wiki') {
+        selectedWikiArticle = null;
+        selectedCommunity = null;
+        wikiSection = 'articles';
+      }
+      if (route.view === 'communities') {
+        selectedCommunity = null;
+        selectedWikiArticle = null;
+        wikiSection = 'communities';
+      }
+      showView(route.view);
+    } else if (route.kind === 'article') {
+      // Handle wiki-level redirects/merges for any article type.
+      const current = data.articles?.[route.slug];
+      const mergedInto = typeof current?.frontmatter?.mergedInto === 'string' ? current.frontmatter.mergedInto.trim() : '';
+      if (mergedInto && data.articles?.[mergedInto]) {
+        window.location.hash = '#/wiki/' + mergedInto;
+        return;
+      }
 
-	      // Both issue and system articles show in wiki view with sidebar
-	      if (route.type === 'issue') {
-	        const resolved = resolveIssueId(route.slug);
-	        if ((!data.articles || !data.articles[route.slug]) && resolved !== route.slug && data.articles?.[resolved]) {
-	          window.location.hash = `#/wiki/${resolved}`;
+      // Both issue and system articles show in wiki view with sidebar
+      if (route.type === 'issue') {
+        const resolved = resolveIssueId(route.slug);
+        if ((!data.articles || !data.articles[route.slug]) && resolved !== route.slug && data.articles?.[resolved]) {
+          window.location.hash = '#/wiki/' + resolved;
           return;
         }
       }
 
-	      selectedWikiArticle = route.slug;
-	      selectedCommunity = null;
-	      wikiSection = 'articles';
-	      showView('wiki');
-	      // Re-render to update selection and article content
-	      if (renderWikiList) renderWikiList();
-	    } else if (route.kind === 'community') {
-	      selectedCommunity = route.slug;
-	      selectedWikiArticle = null;
-	      wikiSection = 'communities';
-	      showView('communities');
-	      // Re-render to update selection and article content
-	      if (renderWikiList) renderWikiList();
-	    }
-	  });
+      selectedWikiArticle = route.slug;
+      selectedCommunity = null;
+      wikiSection = 'articles';
+      showView('wiki');
+      // Re-render to update selection and article content
+      if (renderWikiList) renderWikiList();
+    } else if (route.kind === 'community') {
+      selectedCommunity = route.slug;
+      selectedWikiArticle = null;
+      wikiSection = 'communities';
+      showView('communities');
+      // Re-render to update selection and article content
+      if (renderWikiList) renderWikiList();
+    }
+  });
 
   // Get canvas
   const { canvas, ctx } = createCanvasContext();
