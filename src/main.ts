@@ -2,7 +2,7 @@ import './style.css';
 import type { GraphData } from './types';
 import { GraphSimulation } from './graph';
 import type { SimNode } from './graph';
-import { ZoomPanHandler, HoverHandler, ClickHandler, DragHandler } from './interactions';
+import { ZoomPanHandler } from './interactions';
 import { ArticleRouter, renderWikiArticleContent } from './article';
 import { initializeAgentsView } from './agentsView';
 import { createCanvasContext } from './main/canvas';
@@ -18,6 +18,7 @@ import { createGraphViewHelpers } from './main/graphView';
 import { initializeMainState } from './main/state';
 import { createDetailPanelHelpers } from './main/detailPanel';
 import { applyDataLoadWarning, createIssueIdResolver, loadGraphData } from './main/dataLoad';
+import { createInteractionHandlers } from './main/interactionsSetup';
 import {
   drawArrow,
   drawDiamond,
@@ -175,53 +176,28 @@ async function main() {
     render();
   }
 
-  // Initialize drag handler (must be before hover to handle mousedown first)
-  const dragHandler = new DragHandler(
+  let zoomHandler: ZoomPanHandler | null = null;
+  const { dragHandler, hoverHandler, clickHandler } = createInteractionHandlers({
     canvas,
-    graph.getNodes(),
-    render,
-    {
-      onReheatSimulation: () => graph.restart()
-    }
-  );
-
-  // Initialize hover handler
-  const hoverHandler = new HoverHandler(
-    canvas,
-    graph.getNodes(),
-    (node) => {
+    graph,
+    data,
+    tooltip,
+    panelContent,
+    detailPanel,
+    render: () => render(),
+    setSelectedNode,
+    setHoveredNode: (node) => {
       hoveredNode = node;
-
-      if (node) {
-        // Show tooltip
-        tooltip.innerHTML = `
-          <div class="node-name">${node.label}</div>
-          <div class="node-meta">
-            ${node.type === 'issue'
-              ? `${node.categories?.join(', ') || 'No category'} • ${node.urgency}`
-              : `System • ${node.connectionCount} connections`
-            }
-          </div>
-        `;
-        tooltip.classList.remove('hidden');
-
-        // Position tooltip near cursor
-        canvas.style.cursor = 'pointer';
-      } else {
-        tooltip.classList.add('hidden');
-        canvas.style.cursor = 'grab';
-      }
-
-      render(); // Re-render to highlight hovered node
-    }
-  );
-
-  // Update tooltip position on mouse move
-  canvas.addEventListener('mousemove', (event) => {
-    if (!tooltip.classList.contains('hidden')) {
-      tooltip.style.left = `${event.clientX + 16}px`;
-      tooltip.style.top = `${event.clientY + 16}px`;
-    }
+    },
+    getCurrentTransform: () => currentTransform,
+    setCurrentTransform: (value) => {
+      currentTransform = value;
+    },
+    renderDetailPanel,
+    attachDetailPanelHandlers,
+    syncZoomTransform: (transform) => {
+      zoomHandler?.setTransform(transform);
+    },
   });
 
   function recomputeConnectedToSelected() {
@@ -242,66 +218,6 @@ async function main() {
     selectedNode = node;
     recomputeConnectedToSelected();
   }
-  // Initialize click handler
-  const clickHandler = new ClickHandler(
-    canvas,
-    graph.getNodes(),
-    (node) => {
-      setSelectedNode(node);
-
-      if (node && node.x !== undefined && node.y !== undefined) {
-        // Show detail panel
-        panelContent.innerHTML = renderDetailPanel(node, data);
-        panelContent.scrollTop = 0; // Reset scroll position for new node
-        detailPanel.classList.remove('hidden');
-        // Hide tooltip when detail panel opens (prevents overlap on mobile)
-        tooltip.classList.add('hidden');
-
-        // Pan to center the clicked node
-        const centerX = canvas.width / 2;
-        const centerY = canvas.height / 2;
-        const newX = centerX - node.x * currentTransform.k;
-        const newY = centerY - node.y * currentTransform.k;
-
-        // Smooth transition
-        const startX = currentTransform.x;
-        const startY = currentTransform.y;
-        const duration = 500;
-        const startTime = Date.now();
-
-        const animate = () => {
-          const elapsed = Date.now() - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-
-          currentTransform.x = startX + (newX - startX) * eased;
-          currentTransform.y = startY + (newY - startY) * eased;
-
-          hoverHandler.updateTransform(currentTransform);
-          clickHandler.updateTransform(currentTransform);
-          dragHandler.updateTransform(currentTransform);
-          render();
-
-          if (progress < 1) {
-            requestAnimationFrame(animate);
-          } else {
-            // Sync d3-zoom's internal transform to prevent jump on next pan
-            zoomHandler.setTransform(currentTransform);
-          }
-        };
-
-        animate();
-
-        // Add click handlers to connection items and system badges
-        attachDetailPanelHandlers();
-      } else {
-        detailPanel.classList.add('hidden');
-      }
-
-      render();
-    }
-  );
-
   clickHandler.updateTransform(currentTransform);
 
   attachMainHandlers({
@@ -350,7 +266,7 @@ async function main() {
   });
 
   // Initialize zoom/pan
-  const zoomHandler = new ZoomPanHandler(canvas, (transform) => {
+  zoomHandler = new ZoomPanHandler(canvas, (transform) => {
     currentTransform = transform;
     hoverHandler.updateTransform(transform);
     clickHandler.updateTransform(transform);
