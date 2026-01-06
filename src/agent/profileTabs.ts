@@ -1,49 +1,41 @@
 export type AgentProfileTab =
-  | 'portrait'
+  | 'overview'
   | 'character'
-  | 'psychology'
+  | 'life'
+  | 'skills'
   | 'connections'
-  | 'capabilities'
-  | 'epistemology'
-  | 'preferences'
-  | 'daily-life'
+  | 'mind'
   | 'data';
 
 export const AGENT_PROFILE_TABS: AgentProfileTab[] = [
-  'portrait',
+  'overview',
   'character',
-  'psychology',
+  'life',
+  'skills',
   'connections',
-  'capabilities',
-  'epistemology',
-  'preferences',
-  'daily-life',
+  'mind',
   'data',
 ];
 
 /** Human-readable labels for each tab */
 export const AGENT_TAB_LABELS: Record<AgentProfileTab, string> = {
-  portrait: 'Portrait',
+  overview: 'Overview',
   character: 'Character',
-  psychology: 'Psychology',
+  life: 'Life',
+  skills: 'Skills',
   connections: 'Connections',
-  capabilities: 'Capabilities',
-  epistemology: 'Epistemology',
-  preferences: 'Preferences',
-  'daily-life': 'Daily Life',
+  mind: 'Mind',
   data: 'Data',
 };
 
 /** Tab descriptions for tooltips */
 export const AGENT_TAB_DESCRIPTIONS: Record<AgentProfileTab, string> = {
-  portrait: 'First impression: who is this person?',
+  overview: 'First impression: who is this person?',
   character: 'Inner life: personality, beliefs, motivations',
-  psychology: 'Thoughts, emotions, coping, facets',
+  life: 'Habits, tastes, spaces, routines',
+  skills: 'Skills and aptitudes',
   connections: 'Social web: relationships, network, institution',
-  capabilities: 'Skills and aptitudes',
-  epistemology: 'Knowledge, beliefs, biases, sources',
-  preferences: 'Tastes, comforts, rituals, and aversions',
-  'daily-life': 'Appearance, routines, health',
+  mind: 'Thoughts, emotions, knowledge, beliefs',
   data: 'Technical data and export options',
 };
 
@@ -54,16 +46,27 @@ export function isAgentProfileTab(value: string): value is AgentProfileTab {
 /** Map old tab names to new ones for URL backward compatibility */
 export function migrateOldTabName(oldTab: string): AgentProfileTab {
   const migrations: Record<string, AgentProfileTab> = {
-    overview: 'portrait',
-    narrative: 'portrait',
+    overview: 'overview',
+    portrait: 'overview',
+    narrative: 'overview',
     identity: 'character',
     motivations: 'character',
-    cognitive: 'epistemology',
+    character: 'character',
+    psychology: 'mind',
+    epistemology: 'mind',
+    cognitive: 'mind',
+    connections: 'connections',
     social: 'connections',
-    performance: 'capabilities',
-    lifestyle: 'daily-life',
-    health: 'daily-life',
+    capabilities: 'skills',
+    performance: 'skills',
+    preferences: 'life',
+    'daily-life': 'life',
+    lifestyle: 'life',
+    health: 'life',
+    mind: 'mind',
+    life: 'life',
+    skills: 'skills',
     debug: 'data',
   };
-  return migrations[oldTab] ?? 'portrait';
+  return migrations[oldTab] ?? 'overview';
 }

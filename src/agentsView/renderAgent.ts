@@ -79,7 +79,7 @@ export function renderAgent(
 
   // Use agent's actual pronouns for narration consistency (mixed sets pick deterministically from seed)
   const agentPronounMode = pronounSetToMode(agent.gender.pronounSet, agent.seed);
-  const narrativeMode = tab === 'portrait' ? 'synopsis' : 'full';
+  const narrativeMode = tab === 'overview' ? 'synopsis' : 'full';
   const narrativeResult = generateNarrative(
     agent,
     { originLabel, citizenshipLabel, currentLabel },
@@ -432,21 +432,19 @@ export function renderAgent(
         </div>
 
         <div class="agent-tabs">
-          <button type="button" class="agent-tab-btn ${tab === 'portrait' ? 'active' : ''}" data-agent-tab="portrait" title="First impression: who is this person?">${AGENT_TAB_LABELS.portrait}</button>
+          <button type="button" class="agent-tab-btn ${tab === 'overview' ? 'active' : ''}" data-agent-tab="overview" title="First impression: who is this person?">${AGENT_TAB_LABELS.overview}</button>
           <button type="button" class="agent-tab-btn ${tab === 'character' ? 'active' : ''}" data-agent-tab="character" title="Inner life: personality, beliefs, motivations">${AGENT_TAB_LABELS.character}</button>
-          <button type="button" class="agent-tab-btn ${tab === 'psychology' ? 'active' : ''}" data-agent-tab="psychology" title="Thoughts, emotions, coping, facets">${AGENT_TAB_LABELS.psychology}</button>
+          <button type="button" class="agent-tab-btn ${tab === 'life' ? 'active' : ''}" data-agent-tab="life" title="Habits, tastes, spaces, routines">${AGENT_TAB_LABELS.life}</button>
+          <button type="button" class="agent-tab-btn ${tab === 'skills' ? 'active' : ''}" data-agent-tab="skills" title="Skills and aptitudes">${AGENT_TAB_LABELS.skills}</button>
           <button type="button" class="agent-tab-btn ${tab === 'connections' ? 'active' : ''}" data-agent-tab="connections" title="Social web: relationships, network, institution">${AGENT_TAB_LABELS.connections}</button>
-          <button type="button" class="agent-tab-btn ${tab === 'capabilities' ? 'active' : ''}" data-agent-tab="capabilities" title="Skills and aptitudes">${AGENT_TAB_LABELS.capabilities}</button>
-          <button type="button" class="agent-tab-btn ${tab === 'epistemology' ? 'active' : ''}" data-agent-tab="epistemology" title="Knowledge, beliefs, biases, sources">${AGENT_TAB_LABELS.epistemology}</button>
-          <button type="button" class="agent-tab-btn ${tab === 'preferences' ? 'active' : ''}" data-agent-tab="preferences" title="Tastes, comforts, rituals, and aversions">${AGENT_TAB_LABELS.preferences}</button>
-          <button type="button" class="agent-tab-btn ${tab === 'daily-life' ? 'active' : ''}" data-agent-tab="daily-life" title="Appearance, routines, health">${AGENT_TAB_LABELS['daily-life']}</button>
+          <button type="button" class="agent-tab-btn ${tab === 'mind' ? 'active' : ''}" data-agent-tab="mind" title="Thoughts, emotions, knowledge, beliefs">${AGENT_TAB_LABELS.mind}</button>
           <button type="button" class="agent-tab-btn agent-tab-btn-muted ${tab === 'data' ? 'active' : ''}" data-agent-tab="data" title="Technical data and export options">${AGENT_TAB_LABELS.data}</button>
         </div>
       </div>
 
         <div class="agent-tab-panels">
-          <!-- PORTRAIT TAB: First impression - who is this person? -->
-          <div class="agent-tab-panel ${tab === 'portrait' ? 'active' : ''}" data-agent-tab-panel="portrait">
+          <!-- OVERVIEW TAB: First impression - who is this person? -->
+          <div class="agent-tab-panel ${tab === 'overview' ? 'active' : ''}" data-agent-tab-panel="overview">
             <div class="agent-grid agent-grid-tight">
               <!-- Synopsis: the narrative hook -->
               <section class="agent-card agent-card-span12">
@@ -624,9 +622,10 @@ export function renderAgent(
         </div>
       </div>
 
-        <!-- PSYCHOLOGY TAB: Thoughts, emotions, coping, facets -->
-        <div class="agent-tab-panel ${tab === 'psychology' ? 'active' : ''}" data-agent-tab-panel="psychology">
+        <!-- MIND TAB: Thoughts, emotions, knowledge, beliefs -->
+        <div class="agent-tab-panel ${tab === 'mind' ? 'active' : ''}" data-agent-tab-panel="mind">
           <div class="agent-grid agent-grid-tight">
+            <div class="agent-tab-section-title agent-card-span12">Psychology</div>
             <section class="agent-card agent-card-span6">
               <h3>Psychology type</h3>
               <div class="agent-kv">
@@ -689,6 +688,9 @@ export function renderAgent(
                 </div>
               </div>
             </details>
+
+            <div class="agent-tab-section-title agent-card-span12">Knowledge &amp; beliefs</div>
+            ${renderCognitiveSection(cognitiveCards, cognitiveDetailsOpen)}
           </div>
         </div>
 
@@ -793,8 +795,8 @@ export function renderAgent(
           </div>
         </div>
 
-        <!-- CAPABILITIES TAB: Skills and aptitudes -->
-        <div class="agent-tab-panel ${tab === 'capabilities' ? 'active' : ''}" data-agent-tab-panel="capabilities">
+        <!-- SKILLS TAB: Skills and aptitudes -->
+        <div class="agent-tab-panel ${tab === 'skills' ? 'active' : ''}" data-agent-tab-panel="skills">
           <div class="agent-grid agent-grid-tight">
             <details class="agent-card agent-section" data-agents-details="profile:capabilities:aptitudes" ${isDetailsOpen('profile:capabilities:aptitudes', true) ? 'open' : ''}>
               <summary class="agent-section-summary">
@@ -870,14 +872,10 @@ export function renderAgent(
           </div>
         </div>
 
-        <!-- EPISTEMOLOGY TAB: Knowledge, beliefs, biases, sources -->
-        <div class="agent-tab-panel ${tab === 'epistemology' ? 'active' : ''}" data-agent-tab-panel="epistemology">
-          ${renderCognitiveSection(cognitiveCards, cognitiveDetailsOpen)}
-        </div>
-
-        <!-- PREFERENCES TAB: Tastes, comforts, rituals, aversions -->
-        <div class="agent-tab-panel ${tab === 'preferences' ? 'active' : ''}" data-agent-tab-panel="preferences">
+        <!-- LIFE TAB: Habits, tastes, spaces, routines -->
+        <div class="agent-tab-panel ${tab === 'life' ? 'active' : ''}" data-agent-tab-panel="life">
           <div class="agent-grid agent-grid-tight">
+            <div class="agent-tab-section-title agent-card-span12">Preferences</div>
             <details class="agent-card agent-section" data-agents-details="profile:preferences:food" ${isDetailsOpen('profile:preferences:food', true) ? 'open' : ''}>
               <summary class="agent-section-summary">
                 <span class="agent-section-title">Food &amp; drink</span>
@@ -1035,12 +1033,7 @@ export function renderAgent(
                 ${renderBeatList(preferenceNarrativeBeats)}
               </div>
             </details>
-          </div>
-        </div>
-
-        <!-- DAILY LIFE TAB: Appearance, routines, health -->
-        <div class="agent-tab-panel ${tab === 'daily-life' ? 'active' : ''}" data-agent-tab-panel="daily-life">
-          <div class="agent-grid agent-grid-tight">
+            <div class="agent-tab-section-title agent-card-span12">Daily life</div>
             <details class="agent-card agent-section" data-agents-details="profile:daily-life:appearance" ${isDetailsOpen('profile:daily-life:appearance', true) ? 'open' : ''}>
               <summary class="agent-section-summary">
                 <span class="agent-section-title">Appearance</span>

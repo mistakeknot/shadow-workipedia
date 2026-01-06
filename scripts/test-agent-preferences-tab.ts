@@ -27,16 +27,16 @@ const agent = generateAgent({
   asOfYear: 2025,
 });
 
-const html = renderAgent(agent, new Map(), 'portrait', () => true, 2025, vocab);
+const html = renderAgent(agent, new Map(), 'overview', () => true, 2025, vocab);
 
-if (!html.includes('data-agent-tab="preferences"')) {
-  throw new Error('Expected Preferences tab button to render.');
+if (!html.includes('data-agent-tab="life"')) {
+  throw new Error('Expected Life tab button to render.');
 }
-if (!html.includes('data-agent-tab-panel="preferences"')) {
-  throw new Error('Expected Preferences tab panel to render.');
+if (!html.includes('data-agent-tab-panel="life"')) {
+  throw new Error('Expected Life tab panel to render.');
 }
-if (!html.includes('Preferences')) {
-  throw new Error('Expected Preferences label to appear.');
+if (!html.includes('Food &amp; drink')) {
+  throw new Error('Expected food preferences to appear in Life tab.');
 }
 
-console.log('agent preferences tab test passed.');
+console.log('agent life tab test passed.');

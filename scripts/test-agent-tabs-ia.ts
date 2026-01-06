@@ -19,20 +19,46 @@ const priors = loadJson<AgentPriorsV1>('public/agent-priors.v1.json');
 const countries = loadJson<GenerateAgentInput['countries']>('public/shadow-country-map.json');
 
 const agent = generateAgent({
-  seed: 'agentsview-test-001',
+  seed: 'agentsview-test-tabs-ia',
   vocab,
   priors,
   countries,
-  birthYear: 1985,
+  birthYear: 1982,
   asOfYear: 2025,
 });
 
 const html = renderAgent(agent, new Map(), 'overview', () => true, 2025, vocab);
 
-if (!html.includes(agent.identity.name)) {
-  throw new Error('Expected renderAgent output to include agent name.');
+const expectedTabs = [
+  'data-agent-tab="overview"',
+  'data-agent-tab="character"',
+  'data-agent-tab="life"',
+  'data-agent-tab="skills"',
+  'data-agent-tab="connections"',
+  'data-agent-tab="mind"',
+  'data-agent-tab="data"',
+];
+
+for (const tab of expectedTabs) {
+  if (!html.includes(tab)) {
+    throw new Error(`Expected tab ${tab} in render output.`);
+  }
 }
-if (!html.includes('Overview')) {
-  throw new Error('Expected renderAgent output to include Overview tab.');
+
+const expectedPanels = [
+  'data-agent-tab-panel="overview"',
+  'data-agent-tab-panel="character"',
+  'data-agent-tab-panel="life"',
+  'data-agent-tab-panel="skills"',
+  'data-agent-tab-panel="connections"',
+  'data-agent-tab-panel="mind"',
+  'data-agent-tab-panel="data"',
+];
+
+for (const panel of expectedPanels) {
+  if (!html.includes(panel)) {
+    throw new Error(`Expected panel ${panel} in render output.`);
+  }
 }
-console.log('agentsView render test passed.');
+
+console.log('agent tab IA test passed.');

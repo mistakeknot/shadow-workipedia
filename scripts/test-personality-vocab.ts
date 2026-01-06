@@ -1152,23 +1152,23 @@ function run(): void {
   if (!cognitiveTabPanel.includes('active')) {
     throw new Error('Expected cognitive tab panel to render as active.');
   }
-  if (!isAgentProfileTab('portrait')) {
-    throw new Error('Expected portrait to be a valid agent profile tab.');
+  if (!isAgentProfileTab('overview')) {
+    throw new Error('Expected overview to be a valid agent profile tab.');
   }
   if (!isAgentProfileTab('character')) {
     throw new Error('Expected character to be a valid agent profile tab.');
   }
-  if (!isAgentProfileTab('psychology')) {
-    throw new Error('Expected psychology to be a valid agent profile tab.');
+  if (!isAgentProfileTab('life')) {
+    throw new Error('Expected life to be a valid agent profile tab.');
+  }
+  if (!isAgentProfileTab('skills')) {
+    throw new Error('Expected skills to be a valid agent profile tab.');
   }
   if (!isAgentProfileTab('connections')) {
     throw new Error('Expected connections to be a valid agent profile tab.');
   }
-  if (!isAgentProfileTab('capabilities')) {
-    throw new Error('Expected capabilities to be a valid agent profile tab.');
-  }
-  if (!isAgentProfileTab('daily-life')) {
-    throw new Error('Expected daily-life to be a valid agent profile tab.');
+  if (!isAgentProfileTab('mind')) {
+    throw new Error('Expected mind to be a valid agent profile tab.');
   }
   if (!isAgentProfileTab('data')) {
     throw new Error('Expected data to be a valid agent profile tab.');

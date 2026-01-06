@@ -2454,6 +2454,16 @@ select.agents-input {
   margin-bottom: 0.4rem;
 }
 
+.agent-tab-section-title {
+  grid-column: span 12;
+  margin: 0.4rem 0 0.2rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
 .agent-detail-list {
   display: grid;
   gap: 0.45rem;

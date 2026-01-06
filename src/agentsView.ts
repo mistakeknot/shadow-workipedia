@@ -166,7 +166,7 @@ export function initializeAgentsView(container: HTMLElement) {
       // ignore
     }
   };
-  let profileTab: AgentProfileTab = readProfileTab() ?? 'portrait';
+  let profileTab: AgentProfileTab = readProfileTab() ?? 'overview';
 
   const DETAILS_OPEN_KEY = 'agentsDetailsOpen:v1';
   type DetailsOpenMap = Record<string, boolean>;
