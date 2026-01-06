@@ -16,6 +16,7 @@ import { createWikiRenderer } from './main/wiki';
 import { createViewController } from './main/views';
 import { createGraphViewHelpers } from './main/graphView';
 import { initializeMainState } from './main/state';
+import { createDetailPanelHelpers } from './main/detailPanel';
 import {
   drawArrow,
   drawDiamond,
@@ -28,234 +29,8 @@ import {
   renderCommunityLabels,
 } from './main/graphUtils';
 
-
-function renderDetailPanel(node: SimNode, data: GraphData): string {
-  // If node has a wiki article, show the article content
-  if (node.hasArticle && data.articles && data.articles[node.id]) {
-    const article = data.articles[node.id];
-    const fileBackedTypes: Array<typeof article.type> = ['issue', 'system', 'principle', 'primitive', 'mechanic'];
-    const isFileBacked = fileBackedTypes.includes(article.type);
-    return `
-      <div class="panel-article-view">
-        <div class="panel-article-header">
-          <div class="article-meta">
-            <span class="article-type-badge">${article.type}</span>
-            <span class="article-word-count">${article.wordCount.toLocaleString()} words</span>
-          </div>
-        </div>
-        <button
-          class="read-article-btn"
-          data-wiki-article-id="${article.id}"
-          data-wiki-article-type="${article.type}"
-        >
-          Open in Wiki
-        </button>
-        <article class="article-content">
-          ${article.html}
-        </article>
-        ${renderPanelRelatedContent(node, data)}
-        <div class="article-footer">
-          ${isFileBacked ? `
-            <a
-              href="https://github.com/mistakeknot/shadow-workipedia/edit/main/wiki/${article.type}s/${article.id}.md"
-              target="_blank"
-              class="edit-link"
-            >
-              📝 Edit this article on GitHub
-            </a>
-          ` : ''}
-        </div>
-      </div>
-    `;
-  }
-
-  // Fallback: show basic issue/system card if no article
-  if (node.type === 'issue') {
-    return `
-      <h2>${node.label}</h2>
-      <div class="node-badges">
-        ${node.categories?.map(cat => `<span class="badge category-badge" style="background: ${getCategoryColor(cat)}">${cat}</span>`).join('') || ''}
-        <span class="badge urgency-${node.urgency?.toLowerCase()}">${node.urgency}</span>
-      </div>
-      <p class="description">${node.description || 'No description available.'}</p>
-
-      <button
-        class="read-article-btn"
-        data-wiki-article-id="${node.id}"
-        data-wiki-article-type="issue"
-      >
-        Open in Wiki
-      </button>
-
-      ${node.affectedSystems && node.affectedSystems.length > 0 ? `
-        <h3>Affected Systems</h3>
-        <div class="affected-systems">
-          ${node.affectedSystems.map(system => {
-            // Convert system name to ID (kebab-case)
-            const systemId = system.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-            return `<span class="badge system-badge clickable-badge" data-system-id="${systemId}" data-system-name="${system}">${system}</span>`;
-          }).join('')}
-        </div>
-      ` : ''}
-
-      ${node.triggerConditions ? `
-        <h3>Trigger Conditions</h3>
-        <p class="metadata-text">${node.triggerConditions}</p>
-      ` : ''}
-
-      ${node.peakYears ? `
-        <h3>Peak Years</h3>
-        <p class="metadata-text">${node.peakYears}</p>
-      ` : ''}
-
-      ${node.crisisExamples && node.crisisExamples.length > 0 ? `
-        <h3>Crisis Examples</h3>
-        <ul class="crisis-list">
-          ${node.crisisExamples.map(example => `
-            <li>${example}</li>
-          `).join('')}
-        </ul>
-      ` : ''}
-
-      <h3>Connected Nodes (${getConnections(node, data).length})</h3>
-      <div class="connections">
-        ${getConnections(node, data, 20).map(conn => `
-          <div class="connection-item" data-node-id="${conn.id}">
-            <span class="connection-type">${conn.type}</span>
-            <span class="connection-name">${conn.label}</span>
-          </div>
-        `).join('')}
-        ${getConnections(node, data).length > 20 ? `<span class="more-count">+${getConnections(node, data).length - 20} more</span>` : ''}
-      </div>
-    `;
-  } else {
-    const allConnections = getConnections(node, data);
-    return `
-      <h2>${node.label}</h2>
-      <div class="node-badges">
-        <span class="badge" style="background: ${node.color}">System</span>
-      </div>
-      <p class="description">${node.description || 'Simulation system'}</p>
-
-      <h3>Stats</h3>
-      <div class="stat-item">
-        <span>Connections:</span>
-        <strong>${allConnections.length}</strong>
-      </div>
-
-      <h3>Connected Nodes</h3>
-      <div class="connections">
-        ${allConnections.slice(0, 30).map(conn => `
-          <div class="connection-item" data-node-id="${conn.id}">
-            <span class="connection-type">${conn.type}</span>
-            <span class="connection-name">${conn.label}</span>
-          </div>
-        `).join('')}
-        ${allConnections.length > 30 ? `<span class="more-count">+${allConnections.length - 30} more</span>` : ''}
-      </div>
-    `;
-  }
-}
-
-function renderPanelRelatedContent(node: SimNode, data: GraphData): string {
-  const connections = getConnections(node, data); // No limit - get all
-  const connectedIssues = connections.filter(c => {
-    const n = data.nodes.find(node => node.id === c.id);
-    return n?.type === 'issue';
-  });
-  const connectedSystems = connections.filter(c => {
-    const n = data.nodes.find(node => node.id === c.id);
-    return n?.type === 'system';
-  });
-
-  const caseStudies = node.type === 'issue' && data.articles
-    ? Object.values(data.articles)
-        .filter(a => {
-          const parent = a.frontmatter?.caseStudyOf;
-          return a.type === 'issue' && typeof parent === 'string' && parent.trim() === node.id;
-        })
-        .sort((a, b) => a.title.localeCompare(b.title))
-    : [];
-
-  return `
-    <div class="related-content">
-      <h2>Related Content</h2>
-
-      ${connectedIssues.length > 0 ? `
-        <div class="related-section">
-          <h3>Connected Issues (${connectedIssues.length})</h3>
-          <div class="connections">
-            ${connectedIssues.map(conn => `
-              <div class="connection-item" data-node-id="${conn.id}">
-                <span class="connection-name">${conn.label}</span>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      ` : ''}
-
-      ${caseStudies.length > 0 ? `
-        <div class="related-section">
-          <h3>Case Studies (${caseStudies.length})</h3>
-          <div class="connections">
-            ${caseStudies.map(a => `
-              <a class="connection-item" href="#/wiki/${a.id}">
-                <span class="connection-name">${a.title}</span>
-              </a>
-            `).join('')}
-          </div>
-        </div>
-      ` : ''}
-
-      ${connectedSystems.length > 0 ? `
-        <div class="related-section">
-          <h3>Related Systems (${connectedSystems.length})</h3>
-          <div class="connections">
-            ${connectedSystems.map(conn => `
-              <div class="connection-item" data-node-id="${conn.id}">
-                <span class="connection-name">${conn.label}</span>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      ` : ''}
-    </div>
-  `;
-}
-
-function getConnections(node: SimNode, data: GraphData, limit?: number): Array<{id: string, label: string, type: string}> {
-  const connections: Array<{id: string, label: string, type: string}> = [];
-  const seen = new Set<string>(); // Deduplicate connections
-
-  for (const edge of data.edges) {
-    if (edge.source === node.id) {
-      const target = data.nodes.find(n => n.id === edge.target);
-      if (target && !seen.has(target.id)) {
-        seen.add(target.id);
-        connections.push({
-          id: target.id,
-          label: target.label,
-          type: edge.type.replace('-', ' → '),
-        });
-      }
-    } else if (edge.target === node.id) {
-      const source = data.nodes.find(n => n.id === edge.source);
-      if (source && !seen.has(source.id)) {
-        seen.add(source.id);
-        connections.push({
-          id: source.id,
-          label: source.label,
-          type: edge.type.replace('-', ' ← '),
-        });
-      }
-    }
-  }
-
-  // Sort alphabetically by label
-  connections.sort((a, b) => a.label.localeCompare(b.label));
-
-  return limit ? connections.slice(0, limit) : connections;
-}
+let renderDetailPanel: (node: SimNode, data: GraphData) => string = () => '';
+let attachDetailPanelHandlers: () => void = () => {};
 
 async function main() {
   console.log('🚀 Shadow Workipedia initializing...');
@@ -517,136 +292,6 @@ async function main() {
     selectedNode = node;
     recomputeConnectedToSelected();
   }
-  // Shared function to attach detail panel interaction handlers
-  function attachDetailPanelHandlers() {
-    // Handle connection item clicks
-    const connectionItems = panelContent.querySelectorAll('.connection-item');
-    connectionItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const nodeId = item.getAttribute('data-node-id');
-        const targetNode = graph.getNodes().find(n => n.id === nodeId);
-        if (targetNode && targetNode.x !== undefined && targetNode.y !== undefined) {
-          setSelectedNode(targetNode);
-          panelContent.innerHTML = renderDetailPanel(targetNode, data);
-          panelContent.scrollTop = 0; // Reset scroll position for new node
-          attachDetailPanelHandlers(); // Re-attach handlers for new connections
-          tooltip.classList.add('hidden');
-
-          // Pan to center the selected node
-          const centerX = canvas.width / 2;
-          const centerY = canvas.height / 2;
-          const newX = centerX - targetNode.x * currentTransform.k;
-          const newY = centerY - targetNode.y * currentTransform.k;
-
-          const startX = currentTransform.x;
-          const startY = currentTransform.y;
-          const duration = 500;
-          const startTime = Date.now();
-
-          const animate = () => {
-            const elapsed = Date.now() - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-
-            currentTransform.x = startX + (newX - startX) * eased;
-            currentTransform.y = startY + (newY - startY) * eased;
-
-            hoverHandler.updateTransform(currentTransform);
-            clickHandler.updateTransform(currentTransform);
-            dragHandler.updateTransform(currentTransform);
-            render();
-
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            } else {
-              zoomHandler.setTransform(currentTransform);
-            }
-          };
-
-          animate();
-        }
-      });
-    });
-
-    // Handle read/open-in-wiki button clicks (navigate to wiki view)
-    const readArticleBtns = panelContent.querySelectorAll('.read-article-btn[data-wiki-article-id]');
-    readArticleBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const articleId = btn.getAttribute('data-wiki-article-id');
-        if (!articleId) return;
-
-        const explicitType = btn.getAttribute('data-wiki-article-type') as ('issue' | 'system' | 'principle' | null);
-        const inferredType = data.articles?.[articleId]?.type as ('issue' | 'system' | 'principle' | undefined);
-        const type = explicitType || inferredType || 'issue';
-
-        detailPanel.classList.add('hidden');
-        setSelectedNode(null);
-        // Navigate to the wiki article (updates URL)
-        router.navigateToArticle(type, articleId);
-      });
-    });
-
-    // Handle system badge clicks
-    const systemBadges = panelContent.querySelectorAll('.clickable-badge[data-system-id]');
-    systemBadges.forEach(badge => {
-      badge.addEventListener('click', () => {
-        const systemId = badge.getAttribute('data-system-id');
-        const systemName = badge.getAttribute('data-system-name');
-        const targetNode = graph.getNodes().find(n => n.id === systemId && n.type === 'system');
-
-        if (targetNode && targetNode.x !== undefined && targetNode.y !== undefined) {
-          // Enable systems toggle if clicking on a system
-          if (!showSystems) {
-            showSystems = true;
-            const showSystemsBtn = document.getElementById('show-systems-btn') as HTMLButtonElement;
-            if (showSystemsBtn) showSystemsBtn.classList.add('active');
-          }
-
-          setSelectedNode(targetNode);
-          panelContent.innerHTML = renderDetailPanel(targetNode, data);
-          panelContent.scrollTop = 0; // Reset scroll position for new node
-          attachDetailPanelHandlers();
-          tooltip.classList.add('hidden');
-
-          // Pan to center the system node
-          const centerX = canvas.width / 2;
-          const centerY = canvas.height / 2;
-          const newX = centerX - targetNode.x * currentTransform.k;
-          const newY = centerY - targetNode.y * currentTransform.k;
-
-          const startX = currentTransform.x;
-          const startY = currentTransform.y;
-          const duration = 500;
-          const startTime = Date.now();
-
-          const animate = () => {
-            const elapsed = Date.now() - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-
-            currentTransform.x = startX + (newX - startX) * eased;
-            currentTransform.y = startY + (newY - startY) * eased;
-
-            hoverHandler.updateTransform(currentTransform);
-            clickHandler.updateTransform(currentTransform);
-            dragHandler.updateTransform(currentTransform);
-            render();
-
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            } else {
-              zoomHandler.setTransform(currentTransform);
-            }
-          };
-
-          animate();
-        } else {
-          console.warn(`System node not found: ${systemName} (${systemId})`);
-        }
-      });
-    });
-  }
-
   // Initialize click handler
   const clickHandler = new ClickHandler(
     canvas,
@@ -765,6 +410,37 @@ async function main() {
 
   // Connect drag handler to zoom handler (so drag can disable pan)
   dragHandler.setZoomHandler(zoomHandler);
+
+  const showSystemsBtn = document.getElementById('show-systems-btn') as HTMLButtonElement | null;
+  const detailPanelHelpers = createDetailPanelHelpers({
+    data,
+    graph,
+    panelContent,
+    detailPanel,
+    tooltip,
+    canvas,
+    router,
+    getCurrentTransform: () => currentTransform,
+    setCurrentTransform: (value) => {
+      currentTransform = value;
+    },
+    hoverHandler,
+    clickHandler,
+    dragHandler,
+    zoomHandler,
+    render: () => render(),
+    setSelectedNode,
+    getShowSystems: () => showSystems,
+    setShowSystems: (value) => {
+      showSystems = value;
+    },
+    activateShowSystems: () => {
+      if (showSystemsBtn) showSystemsBtn.classList.add('active');
+    },
+  });
+
+  renderDetailPanel = detailPanelHelpers.renderDetailPanel;
+  attachDetailPanelHandlers = detailPanelHelpers.attachDetailPanelHandlers;
 
   // Fit entire graph to view with padding
   const graphViewHelpers = createGraphViewHelpers({
