@@ -206,11 +206,13 @@ function computeSkillValue(p: SkillValueParams): Fixed {
 
     case 'negotiation':
       // Correlate #9: Travel ↔ Skills - international exposure improves negotiation
+      // Correlate #SK4: Adaptability ↔ Negotiation - flexible minds negotiate better
       value = clampFixed01k(
-        0.28 * aptitudes.charisma + 0.18 * aptitudes.empathy +
-        0.16 * aptitudes.workingMemory + 0.10 * latents.publicness +
+        0.24 * aptitudes.charisma + 0.16 * aptitudes.empathy +
+        0.14 * aptitudes.workingMemory + 0.08 * latents.publicness +
+        0.12 * latents.adaptability + // #SK4: Adaptability helps find creative solutions
         0.10 * travelScore + // Travel exposure builds cross-cultural negotiation skills
-        0.18 * noise + careerBonus + tierBonus
+        0.16 * noise + careerBonus + tierBonus
       );
       break;
 

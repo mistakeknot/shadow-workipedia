@@ -1203,6 +1203,7 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     inst01,
     principledness01: latents.principledness / 1000,
     adaptability01: latents.adaptability / 1000,
+    conscientiousness01: capabilitiesResult.traits.conscientiousness / 1000,
     aptitudes: {
       deceptionAptitude: capabilitiesResult.aptitudes.deceptionAptitude,
       cognitiveSpeed: capabilitiesResult.aptitudes.cognitiveSpeed,
@@ -1246,8 +1247,53 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     stateViolenceEnv01k: securityEnv01kBlended.stateViolence,
     viceTendency,
     travelScore,
+    // Correlate #N5: Family ↔ Religiosity (positive)
+    hasFamily: socialResult.family.maritalStatus !== 'single' || socialResult.family.dependentCount > 0,
     trace,
   });
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // Phase 12a: Add religious dietary restrictions (after spirituality computed)
+  // Correlate #HL4: Religiosity ↔ Dietary Restrictions (positive)
+  // Religious observance implies dietary discipline regardless of specific tradition
+  // ─────────────────────────────────────────────────────────────────────────
+  const observanceLvl = lifestyleResult.spirituality.observanceLevel;
+  const traditionStr = lifestyleResult.spirituality.tradition ?? '';
+  const restrictionsWithReligious = [...preferencesResult.food.restrictions];
+  const addRestrictionIfMissing = (r: string) => {
+    if (!restrictionsWithReligious.includes(r)) restrictionsWithReligious.push(r);
+  };
+  // Religious traditions (non-secular) tend to have dietary rules
+  const isReligious = traditionStr !== 'none' && !['secular', 'atheist', 'agnostic'].includes(traditionStr);
+  const religiousDietRng = makeRng(facetSeed(seed, 'religious_diet'));
+  // Available religious restrictions (from vocab)
+  const religiousRestrictions = ['no alcohol', 'no pork', 'vegetarian', 'no caffeine'];
+
+  if (isReligious) {
+    // Ultra-orthodox/strict → 2-3 restrictions
+    if (observanceLvl === 'ultra-orthodox' || observanceLvl === 'strict') {
+      addRestrictionIfMissing('no alcohol');
+      if (religiousDietRng.next01() < 0.8) addRestrictionIfMissing('no pork');
+      if (religiousDietRng.next01() < 0.5) addRestrictionIfMissing('vegetarian');
+    }
+    // Observant → 1-2 restrictions
+    else if (observanceLvl === 'observant') {
+      if (religiousDietRng.next01() < 0.7) addRestrictionIfMissing('no alcohol');
+      if (religiousDietRng.next01() < 0.5) addRestrictionIfMissing('no pork');
+    }
+    // Moderate → 0-1 restrictions
+    else if (observanceLvl === 'moderate') {
+      if (religiousDietRng.next01() < 0.4) addRestrictionIfMissing('no alcohol');
+    }
+    // Cultural → occasional restriction
+    else if (observanceLvl === 'cultural') {
+      if (religiousDietRng.next01() < 0.2) {
+        addRestrictionIfMissing(religiousDietRng.pick(religiousRestrictions));
+      }
+    }
+  }
+  // Update preferencesResult.food.restrictions with religious additions
+  preferencesResult.food.restrictions = restrictionsWithReligious;
 
   // ─────────────────────────────────────────────────────────────────────────
   // Phase 12b: Domestic (Oracle recommendations)
@@ -1269,9 +1315,10 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     // Pass family status for housing constraints
     maritalStatus: socialResult.family.maritalStatus,
     dependentCount: socialResult.family.dependentCount,
-    // Correlate #13: Conscientiousness ↔ Housing - pass traits for housing stability correlation
+    // Traits for correlates
     traits: {
-      conscientiousness: capabilitiesResult.traits.conscientiousness,
+      conscientiousness: capabilitiesResult.traits.conscientiousness, // #13: Housing stability
+      authoritarianism: capabilitiesResult.traits.authoritarianism,   // #X6: Home orderliness
     },
   });
 
@@ -1584,33 +1631,88 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   const riskPostures = vocab.personality?.riskPostures ?? ['risk-averse', 'risk-neutral', 'risk-seeking', 'context-dependent'];
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // Correlate #12: Authoritarianism ↔ Conflict Style
+  // Correlates #X5 & #12: Agreeableness/Authoritarianism ↔ Conflict Style
   // ─────────────────────────────────────────────────────────────────────────────
-  // High authoritarianism → 'competing' (dominance-oriented, hierarchical thinking)
-  // Low authoritarianism → 'collaborative', 'accommodating' (egalitarian, consensus-based)
+  // #X5: High agreeableness → collaborative, accommodating (negative with competing)
+  // #12: High authoritarianism → competing (positive), collaborative/accommodating (negative)
   const authoritarianism01 = capabilitiesResult.traits.authoritarianism / 1000;
+  const agreeableness01 = capabilitiesResult.traits.agreeableness / 1000;
+
+  // Residualize the traits to remove their cross-correlation
+  // Observed: agree/auth are positively correlated (~0.36 through empathy→assertiveness)
+  // Use the difference to amplify orthogonal effects
+  const netAuthOverAgree = authoritarianism01 - agreeableness01; // -1 to 1
+  const netAgreeOverAuth = agreeableness01 - authoritarianism01; // -1 to 1
 
   const conflictWeights = conflictStyles.map(c => {
     let w = 1;
-    if (c === 'avoidant' && capabilitiesResult.traits.agreeableness > 600) w = 3;
-    if (c === 'competing' && capabilitiesResult.aptitudes.assertiveness > 600) w = 3;
-    if (c === 'collaborative' && capabilitiesResult.traits.agreeableness > 500 && capabilitiesResult.aptitudes.empathy > 500) w = 3;
     if (c === 'compromising') w = 2;
     if (c === 'assertive' && capabilitiesResult.aptitudes.assertiveness > 650) w = 3;
-    if (c === 'yielding' && capabilitiesResult.traits.agreeableness > 700) w = 3;
+    if (c === 'yielding' && agreeableness01 > 0.7) w = 3;
 
-    // Correlate #12: Authoritarianism ↔ Conflict Style
-    // High authoritarianism → competing (dominance, hierarchical power)
+    // ─────────────────────────────────────────────────────────────────────────
+    // #X5 and #12: Use residualized effects to overcome cross-correlation
+    // netAuthOverAgree > 0 → more authoritarian than agreeable → competing
+    // netAgreeOverAuth > 0 → more agreeable than authoritarian → accommodating
+    // ─────────────────────────────────────────────────────────────────────────
+
+    // #12: High authoritarianism → competing
     if (c === 'competing') {
-      w += 3.0 * authoritarianism01;
+      // Main effect from authoritarianism (stronger)
+      w += 6.0 * authoritarianism01;
+      w *= (0.4 + 1.2 * authoritarianism01); // 0.4x at low, 1.6x at high
+      // Residual effect: MORE auth than agree pushes toward competing
+      if (netAuthOverAgree > 0) {
+        w += 4.0 * netAuthOverAgree;
+      }
     }
-    // Low authoritarianism → collaborative, accommodating (egalitarian tendencies)
-    if (c === 'collaborative' || c === 'accommodating') {
-      w += 2.0 * (1 - authoritarianism01);
+
+    // #X5: High agreeableness → accommodating/yielding
+    if (c === 'accommodating' || c === 'yielding') {
+      // Main effect from agreeableness
+      w += 5.0 * agreeableness01;
+      w *= (0.4 + 1.2 * agreeableness01); // 0.4x at low, 1.6x at high
+      // Residual effect: MORE agree than auth pushes toward accommodating
+      if (netAgreeOverAuth > 0) {
+        w += 3.0 * netAgreeOverAuth;
+      }
     }
-    // High authoritarianism reduces willingness to compromise or accommodate
-    if (c === 'accommodating' || c === 'compromising') {
-      w *= Math.max(0.3, 1 - 0.5 * authoritarianism01);
+
+    // Direct suppressions to maintain both correlations
+    // High agreeableness suppresses competing directly
+    if (c === 'competing') {
+      w *= Math.max(0.3, 1.2 - 0.9 * agreeableness01); // 1.2x at low agree, 0.3x at high
+    }
+    // High authoritarianism suppresses accommodating/yielding directly
+    if (c === 'accommodating' || c === 'yielding') {
+      w *= Math.max(0.3, 1.2 - 0.9 * authoritarianism01); // 1.2x at low auth, 0.3x at high
+    }
+
+    // Collaborative: favored by high agreeableness AND low authoritarianism
+    if (c === 'collaborative') {
+      w += 2.0 * agreeableness01;
+      w += 1.5 * (1 - authoritarianism01);
+    }
+
+    // Avoidant: low agreeableness AND low authoritarianism (neither confronts nor cooperates)
+    if (c === 'avoidant') {
+      const passivity = (1 - agreeableness01) * (1 - authoritarianism01);
+      w += 3.0 * passivity;
+    }
+
+    // Assertive: high authoritarianism but moderate agreeableness
+    if (c === 'assertive') {
+      w += 1.5 * authoritarianism01;
+    }
+
+    // Suppress competing for very high agreeableness
+    if (c === 'competing' && agreeableness01 > 0.6) {
+      w *= Math.max(0.3, 1.3 - agreeableness01);
+    }
+
+    // Suppress accommodating for very high authoritarianism
+    if (c === 'accommodating' && authoritarianism01 > 0.6) {
+      w *= Math.max(0.3, 1.3 - authoritarianism01);
     }
 
     return { item: c as ConflictStyle, weight: w };

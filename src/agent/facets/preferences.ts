@@ -321,11 +321,30 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
     forcedRestrictions.push({ restriction, reason });
   };
 
-  // Spirituality observance preview for dietary decisions
-  const spiritPreviewRng = makeRng(facetSeed(ctx.seed, 'spirituality'));
-  const isDevoutLean = ctx.traits.authoritarianism > 600 || (ctx.traits.conscientiousness > 650 && ctx.age > 45);
-  const spiritualityObservancePreview = isDevoutLean && spiritPreviewRng.next01() < 0.5 ? 'observant' : 'low';
-  const observanceMultiplier = spiritualityObservancePreview === 'observant' ? 2.0 : 0.4;
+  // Correlate #HL4: Religiosity ↔ Dietary Restrictions (positive)
+  // Religiosity is computed in spirituality (lifestyle facet) which runs AFTER preferences.
+  // Use a better proxy that correlates with actual religiosity:
+  // - Authoritarianism correlates with religious observance
+  // - Age predicts religiosity (older = more religious)
+  // - Institutional embeddedness correlates with traditional values
+  // - Low risk appetite correlates with conservative religious observance
+  const authoritarianism01 = ctx.traits.authoritarianism / 1000;
+  const conscientiousness01 = ctx.traits.conscientiousness / 1000;
+  const instEmbed01 = ctx.latents.institutionalEmbeddedness / 1000;
+  const riskAverse01 = 1 - ctx.latents.riskAppetite / 1000;
+  const ageNorm01 = Math.min(1, ctx.age / 80); // Normalize age 0-80
+  // Improved proxy with stronger correlation to actual religiosity
+  const religiosityProxy01 = Math.min(1, Math.max(0,
+    0.30 * authoritarianism01 +
+    0.20 * instEmbed01 +
+    0.20 * riskAverse01 +
+    0.15 * ageNorm01 +
+    0.10 * conscientiousness01 +
+    0.05 // base
+  ));
+  // Higher proxy = stronger observance of religious dietary rules
+  // Scale from 0.2 (low proxy) to 3.0 (high proxy) - wider range for stronger effect
+  const observanceMultiplier = 0.2 + 2.8 * religiosityProxy01;
 
   // Language mass for religious dietary rules
   const arabicMass01 = (() => {
@@ -356,7 +375,8 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
     if (r === 'kosher') w += (0.3 + 2.0 * hebrewMass01) * observanceMultiplier;
     if (r === 'no pork') w += (0.3 + 1.5 * arabicMass01 + 0.8 * hebrewMass01) * observanceMultiplier;
     if (r === 'no beef') w += (0.2 + 0.3 * hebrewMass01) * observanceMultiplier;
-    if (r === 'no alcohol') w += 0.7 + 0.6 * (1 - viceTendency);
+    // Religious abstinence from alcohol (Islam, some Christian, Mormon, etc.)
+    if (r === 'no alcohol') w += 0.7 + 0.6 * (1 - viceTendency) + 1.5 * religiosityProxy01;
     if (r === 'no caffeine') w += 0.7 + 1.2 * (1 - axis01('caffeine', 0.45)) + (chronicConditionTags.includes('insomnia') ? 0.8 : 0);
     if (r === 'lactose-sensitive') w += 0.4 + 0.6 * (1 - axis01('dairy', 0.45));
     if (r === 'gluten-sensitive') w += 0.4 + 0.4 * (1 - axis01('streetFood', 0.45));
@@ -983,11 +1003,11 @@ function computeHobbies(ctx: PreferencesContext, rng: Rng): HobbiesPreferences {
     let w = 10;
 
     // Physical hobbies influenced by riskAppetite, conditioning, and age
-    // Correlate #B3: Physical Conditioning ↔ Active Hobbies (positive)
+    // Correlate #B3: Physical Conditioning ↔ Active Hobbies (positive) - STRENGTHENED
     if (cat === 'physical') {
+      const conditioning01 = latents.physicalConditioning / 1000;
+      w *= (0.4 + 1.6 * conditioning01); // Low conditioning = 0.4x, high = 2x
       if (latents.riskAppetite > 600) w += 5;
-      if (latents.physicalConditioning > 600) w += 8; // Fit people choose physical hobbies
-      if (latents.physicalConditioning > 400) w += 3;
       if (age < 40) w += 3;
     }
     // Creative hobbies influenced by aesthetic expressiveness
@@ -1009,11 +1029,11 @@ function computeHobbies(ctx: PreferencesContext, rng: Rng): HobbiesPreferences {
       if (traits.agreeableness > 600) w += 3;
     }
     // Outdoor hobbies influenced by risk appetite and conditioning
-    // Correlate #B3: Physical Conditioning ↔ Active Hobbies (positive)
+    // Correlate #B3: Physical Conditioning ↔ Active Hobbies (positive) - STRENGTHENED
     if (cat === 'outdoor') {
+      const conditioning01 = latents.physicalConditioning / 1000;
+      w *= (0.5 + 1.2 * conditioning01); // Low conditioning = 0.5x, high = 1.7x
       if (latents.riskAppetite > 500) w += 5;
-      if (latents.physicalConditioning > 600) w += 6; // Fit people enjoy outdoor activities
-      if (latents.physicalConditioning > 400) w += 2;
     }
     // Culinary hobbies - universal appeal with slight creativity boost
     if (cat === 'culinary') {

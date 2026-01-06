@@ -72,6 +72,8 @@ export type SocialContext = {
   inst01: number;
   principledness01: number;
   adaptability01: number;
+  /** Correlate #N3: Conscientiousness ↔ Network Role */
+  conscientiousness01: number;
   aptitudes: {
     deceptionAptitude: Fixed;
     cognitiveSpeed: Fixed;
@@ -442,6 +444,7 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     inst01,
     principledness01,
     adaptability01,
+    conscientiousness01,
     aptitudes,
   } = ctx;
 
@@ -637,15 +640,18 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     maritalStatus = familyRng.next01() < 0.25 ? 'partnered' : 'single';
   }
 
+  // Correlate #4: Age ↔ Has Family (positive)
   // Dependents strongly correlated with age: peak childbearing 28-45, teenagers/adult children 45+
+  // Strengthened age effect to ensure clear correlation
   const dependentChance = (() => {
-    if (age < 22) return maritalStatus === 'partnered' ? 0.03 : 0.01;
-    if (age < 25) return maritalStatus === 'married' ? 0.10 : 0.04;
-    if (age < 28) return maritalStatus === 'married' ? 0.25 : 0.08;
-    if (age < 35) return maritalStatus === 'married' ? 0.65 : maritalStatus === 'partnered' ? 0.35 : 0.12;
-    if (age < 45) return maritalStatus === 'married' ? 0.80 : maritalStatus === 'divorced' ? 0.60 : 0.20;
-    if (age < 55) return maritalStatus === 'married' ? 0.70 : maritalStatus === 'divorced' ? 0.50 : 0.15;
-    return maritalStatus === 'married' ? 0.40 : 0.10; // Adult children, fewer dependents
+    const isPartnered = maritalStatus === 'married' || maritalStatus === 'partnered';
+    if (age < 22) return isPartnered ? 0.02 : 0.005; // Very rare for young singles
+    if (age < 25) return isPartnered ? 0.08 : 0.02;
+    if (age < 28) return isPartnered ? 0.25 : 0.05;
+    if (age < 35) return isPartnered ? 0.70 : 0.08; // Peak family formation
+    if (age < 45) return isPartnered ? 0.85 : 0.15; // Peak family years
+    if (age < 55) return isPartnered ? 0.75 : 0.12;
+    return isPartnered ? 0.50 : 0.08; // Adult children, some still at home
   })();
   const maxDependents = age < 30 ? 1 : age < 40 ? 2 : age < 50 ? 3 : 2;
   const dependentCount = familyRng.next01() < dependentChance ? familyRng.int(1, maxDependents) : 0;
@@ -659,13 +665,20 @@ export function computeSocial(ctx: SocialContext): SocialResult {
 
   // ─────────────────────────────────────────────────────────────────────────────
   // RELATIONSHIPS (Oracle recommendation)
+  // Correlate #N4: Deception ↔ Relationship Count (negative)
   // ─────────────────────────────────────────────────────────────────────────────
   traceFacet(trace, seed, 'relationships');
   const relRng = makeRng(facetSeed(seed, 'relationships'));
   const relationshipTypes = vocab.family?.relationshipTypes ?? ['patron', 'mentor', 'rival', 'protege', 'handler', 'asset', 'ex-partner', 'family-tie', 'old-classmate', 'debt-holder'];
 
-  // Generate 2-4 key relationships
-  const relationshipCount = relRng.int(2, 4);
+  // Correlate #N4: High deception → fewer genuine relationships (manipulators have shallow connections)
+  // Low deception / high empathy → more genuine relationships
+  const deception01 = aptitudes.deceptionAptitude / 1000;
+  const empathy01 = aptitudes.empathy / 1000;
+  // Base range 1-5, modified by deception (negative) and empathy (positive)
+  const relMin = Math.max(1, Math.round(2 - 1.5 * deception01 + 0.5 * empathy01));
+  const relMax = Math.max(relMin + 1, Math.round(5 - 2.0 * deception01 + 1.0 * empathy01));
+  const relationshipCount = relRng.int(relMin, relMax);
   const relationships: RelationshipEntry[] = [];
   const usedTypes = new Set<string>();
 
@@ -732,20 +745,24 @@ export function computeSocial(ctx: SocialContext): SocialResult {
 
   // ─────────────────────────────────────────────────────────────────────────────
   // Correlate #11: Empathy+Deception ↔ Network Role
+  // Correlate #N3: Conscientiousness ↔ Network Role
   // ─────────────────────────────────────────────────────────────────────────────
   // High empathy → connectors, hubs (understanding others builds social ties)
   // High deception → brokers (manipulating information flow requires skill)
+  // High conscientiousness → hubs, gatekeepers (reliable, maintain relationships)
   // Low empathy + low deception → isolates, peripherals
-  const empathy01 = aptitudes.empathy / 1000;
-  const deception01 = aptitudes.deceptionAptitude / 1000;
+  // (empathy01 and deception01 already defined above for relationship count)
 
   const networkRoleWeights: Array<{ item: NetworkRole; weight: number }> = [
-    { item: 'isolate', weight: (1 + 2.0 * (1 - latents.socialBattery / 1000) + (opsec01 > 0.7 ? 1.5 : 0) + 1.2 * (1 - empathy01)) * ageNetworkBias.isolate },
+    // #N3: Low conscientiousness → more likely isolate (unreliable, don't maintain connections)
+    { item: 'isolate', weight: (1 + 2.0 * (1 - latents.socialBattery / 1000) + (opsec01 > 0.7 ? 1.5 : 0) + 1.2 * (1 - empathy01) + 1.5 * (1 - conscientiousness01)) * ageNetworkBias.isolate },
     { item: 'peripheral', weight: (1.5 + 0.8 * (1 - latents.publicness / 1000) + 0.8 * (1 - empathy01)) * ageNetworkBias.peripheral },
     { item: 'connector', weight: (1 + 2.5 * cosmo01 + 1.8 * empathy01 + (roleSeedTags.includes('diplomat') ? 2.0 : 0)) * ageNetworkBias.connector },
-    { item: 'hub', weight: (0.5 + 2.0 * (latents.socialBattery / 1000) + 1.5 * empathy01 + (roleSeedTags.includes('media') ? 1.5 : 0)) * ageNetworkBias.hub },
+    // #N3: High conscientiousness → more likely hub (reliable networkers maintain many relationships)
+    { item: 'hub', weight: (0.5 + 2.0 * (latents.socialBattery / 1000) + 1.5 * empathy01 + 2.0 * conscientiousness01 + (roleSeedTags.includes('media') ? 1.5 : 0)) * ageNetworkBias.hub },
     { item: 'broker', weight: (0.5 + 2.5 * deception01 + 0.8 * empathy01 + (roleSeedTags.includes('operative') ? 1.5 : 0)) * ageNetworkBias.broker },
-    { item: 'gatekeeper', weight: (0.5 + 2.0 * inst01 + 0.5 * deception01 + (roleSeedTags.includes('security') ? 2.0 : 0)) * ageNetworkBias.gatekeeper },
+    // #N3: High conscientiousness → more likely gatekeeper (dutiful, reliable, follow procedures)
+    { item: 'gatekeeper', weight: (0.5 + 2.0 * inst01 + 0.5 * deception01 + 1.8 * conscientiousness01 + (roleSeedTags.includes('security') ? 2.0 : 0)) * ageNetworkBias.gatekeeper },
   ];
   let networkRole = weightedPick(networkRng, networkRoleWeights) as NetworkRole;
   if (age < 25 && (networkRole === 'hub' || networkRole === 'broker' || networkRole === 'gatekeeper')) {
@@ -947,17 +964,28 @@ export function computeSocial(ctx: SocialContext): SocialResult {
   ];
 
   // Correlate #B2: Third Places ↔ Civic Engagement (positive)
-  // Social battery is a proxy for third places (strong correlation #L1 verified)
-  // People with more social outlets (third places) are more civically engaged
+  // Social battery determines third place count, so we use it as a direct proxy.
+  // More third places = more exposure to community = higher civic engagement.
+  const socialBattery01 = latents.socialBattery / 1000;
+  // Pre-compute expected third place count (mirrors domestic.ts logic)
+  const expectedThirdPlaces = socialBattery01 < 0.3 ? 1 : socialBattery01 < 0.6 ? 2 : 3;
   const engagementWeights = engagementPool.map(e => {
     let w = 1;
     if (e === 'organizer' && roleSeedTags.includes('organizer')) w = 4;
     if (e === 'active-participant' && latents.principledness > 600) w = 2;
-    // #B2: High social battery (proxy for third places) boosts active engagement
-    if (e === 'active-participant' && latents.socialBattery > 650) w += 2;
-    if (e === 'organizer' && latents.socialBattery > 700) w += 1.5;
+    // #B2: Third places strongly boost active engagement (multiplicative effect)
+    if (e === 'active-participant') {
+      w *= (0.5 + 0.5 * expectedThirdPlaces); // 1x at 1 place, 2x at 3+ places
+      if (socialBattery01 > 0.7) w += 2.5;
+    }
+    if (e === 'organizer') {
+      w *= (0.4 + 0.4 * expectedThirdPlaces);
+      if (socialBattery01 > 0.75) w += 2.0;
+    }
     if (e === 'disengaged' && latents.publicness < 350) w = 3;
-    if (e === 'disengaged' && latents.socialBattery < 350) w += 1.5; // Low social = disengaged
+    // #B2: Low social battery (few third places) → disengaged (strengthened)
+    if (e === 'disengaged' && socialBattery01 < 0.35) w += 3.0;
+    if (e === 'disengaged') w *= (1.8 - socialBattery01); // More isolation = more disengaged
     if (e === 'quiet-voter') w = 4;
     if (e === 'disillusioned' && age > 45) w = 2;
     return { item: e as CivicEngagement, weight: w };

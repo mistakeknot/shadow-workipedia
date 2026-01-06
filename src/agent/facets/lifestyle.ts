@@ -107,6 +107,9 @@ export type LifestyleContext = {
   // Travel score for logistics (pre-computed)
   travelScore: Fixed;
 
+  // Correlate #N5: Family ↔ Religiosity (positive)
+  hasFamily: boolean;
+
   // Trace
   trace?: AgentGenerationTraceV1;
 };
@@ -212,15 +215,21 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
 
   // Tier-based health modifier: elite has better healthcare, mass has more exposure
   const tierHealthModifier = ctx.tierBand === 'elite' ? -0.15 : ctx.tierBand === 'mass' ? 0.12 : 0;
+  // Correlate #HL1: Stress Reactivity ↔ Chronic Conditions (strong: 0.40 coefficient)
+  // Correlate #HL2: Vice Tendency ↔ Chronic Conditions (strong: 0.40 coefficient)
   const chronicChance = Math.min(0.65, Math.max(0.04,
     age / 210 +
-    0.10 * (1 - endurance01) +
-    0.10 * viceTendency +
-    0.08 * stress01 +
+    0.08 * (1 - endurance01) +
+    0.40 * viceTendency +      // #HL2: Vice effect on health
+    0.40 * stress01 +          // #HL1: Stress effect on health
     tierHealthModifier
   ));
-  const chronicConditionTags = chronicPool.length && healthRng.next01() < chronicChance
-    ? healthRng.pickK(chronicPool, healthRng.int(1, 2))
+  // #HL2: Condition COUNT also influenced by viceTendency (high vice = more conditions when sick)
+  const chronicConditionCount = chronicPool.length && healthRng.next01() < chronicChance
+    ? (viceTendency > 0.55 && healthRng.next01() < 0.6 ? 2 : healthRng.int(1, 2))
+    : 0;
+  const chronicConditionTags = chronicConditionCount > 0
+    ? healthRng.pickK(chronicPool, chronicConditionCount)
     : [];
   const allergyChance = 0.22 + 0.10 * (traits.agreeableness / 1000);
   const allergyTags = allergyPool.length && healthRng.next01() < allergyChance
@@ -875,7 +884,7 @@ const SECULAR_AFFILIATIONS = new Set(['secular', 'atheist', 'agnostic', 'humanis
 const SECULAR_TRADITIONS = new Set(['humanist-secular', 'philosophical-materialist', 'atheist', 'agnostic', 'none']);
 
 function computeSpirituality(ctx: LifestyleContext): LifestyleResult['spirituality'] {
-  const { seed, vocab, age, traits, homeCulture, trace } = ctx;
+  const { seed, vocab, age, traits, homeCulture, hasFamily, trace } = ctx;
 
   traceFacet(trace, seed, 'spirituality');
   const spiritRng = makeRng(facetSeed(seed, 'spirituality'));
@@ -909,6 +918,8 @@ function computeSpirituality(ctx: LifestyleContext): LifestyleResult['spirituali
       w += 0.4 * (traits.authoritarianism / 1000);
       w += 0.3 * (age > 50 ? 1 : 0);
       w += 0.2 * (traits.conscientiousness / 1000);
+      // Correlate #N5: Family ↔ Religiosity - families more likely religious
+      if (hasFamily) w += 0.6;
     }
     if (tag === 'culturally-religious') w += 0.5;
     if (tag === 'spiritual-not-religious') w += 0.3 * (traits.noveltySeeking / 1000);
@@ -969,6 +980,24 @@ function computeSpirituality(ctx: LifestyleContext): LifestyleResult['spirituali
     if (affiliationTag === 'progressive-religious' && level === 'moderate') w += 1.5;
     if (affiliationTag === 'lapsed' && level === 'none') w += 1.5;
     if (SECULAR_AFFILIATIONS.has(affiliationTag) && level === 'none') w += 3;
+    // Correlate #N5: Family ↔ Religiosity - families have higher observance
+    // Very strong: families return to religion for children, community support
+    if (hasFamily && !SECULAR_AFFILIATIONS.has(affiliationTag)) {
+      if (level === 'ultra-orthodox' || level === 'strict') w += 4.0;
+      if (level === 'observant') w += 3.5;
+      if (level === 'moderate') w += 2.5;
+      if (level === 'cultural') w += 1.5;
+    }
+    // Singles more likely to be non-observant or cultural-only
+    if (!hasFamily && !SECULAR_AFFILIATIONS.has(affiliationTag)) {
+      if (level === 'none') w += 1.5;
+      if (level === 'cultural') w += 1.0;
+      if (level === 'strict' || level === 'ultra-orthodox') w *= 0.4;
+    }
+    // Converse: families less likely to be fully non-observant
+    if (hasFamily && level === 'none' && !SECULAR_AFFILIATIONS.has(affiliationTag)) {
+      w *= 0.2;
+    }
     return { item: level, weight: w };
   });
   const observanceLevel = weightedPick(spiritRng, observanceWeights);

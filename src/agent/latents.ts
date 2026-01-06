@@ -66,8 +66,9 @@ export function computeLatents(
   const rawTierFrugalBias = tierBand === 'elite' ? -120 : tierBand === 'mass' ? 120 : 0;
   const rawTierPlanBias = tierBand === 'elite' ? 60 : tierBand === 'mass' ? -20 : 0;
   const rawTierStressBias = tierBand === 'elite' ? -60 : tierBand === 'mass' ? 60 : 0;
-  // Risk appetite: elites are more risk-averse (protecting status), mass tier slightly higher (less to lose)
-  const rawTierRiskBias = tierBand === 'elite' ? -140 : tierBand === 'mass' ? 40 : 0;
+  // Correlate #X1: Tier ↔ Risk Appetite (negative) - strengthened
+  // Elites are more risk-averse (protecting status), mass tier higher (less to lose)
+  const rawTierRiskBias = tierBand === 'elite' ? -200 : tierBand === 'mass' ? 80 : 0;
 
   // Apply mediator: some individuals conform to tier stereotypes, others don't
   const tierCosmoBias = Math.round(rawTierCosmoBias * tierBiasScale);
@@ -265,10 +266,10 @@ export function computeLatents(
   const embeddedness = raw.institutionalEmbeddedness + tierBias.institutionalEmbeddedness + roleBias.institutionalEmbeddedness;
   const embeddednessRiskPenalty = Math.round(-0.25 * Math.max(0, embeddedness - 350));
 
-  // Correlate #X3: Curiosity ↔ Risk Appetite (positive)
+  // Correlate #X3: Curiosity ↔ Risk Appetite (positive) - strengthened
   // Curious people are more willing to take risks to explore and learn
   const curiosity = raw.curiosityBandwidth + tierBias.curiosityBandwidth + roleBias.curiosityBandwidth;
-  const curiosityRiskBonus = Math.round(0.22 * (curiosity - 500));
+  const curiosityRiskBonus = Math.round(0.30 * (curiosity - 500));
 
   // Correlate #X4: Planning Horizon ↔ Impulse Control (positive)
   // Long-term planners have better impulse control (deferred gratification)

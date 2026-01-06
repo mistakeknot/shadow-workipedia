@@ -32,6 +32,8 @@ import {
   makeRng,
   facetSeed,
   weightedPick,
+  weightedPickKUnique,
+  clampFixed01k,
   traceSet,
   traceFacet,
 } from '../utils';
@@ -61,9 +63,10 @@ export type DomesticContext = {
   // Country indicator priors (0..1 normalized)
   gdpPerCap01?: number;
 
-  // Traits for correlates (Correlate #13: Conscientiousness ↔ Housing)
+  // Traits for correlates
   traits?: {
-    conscientiousness: number; // 0-1000
+    conscientiousness: number; // 0-1000 (Correlate #13: Conscientiousness ↔ Housing)
+    authoritarianism: number;  // 0-1000 (Correlate #X6: Authoritarianism ↔ Home Orderliness)
   };
 
   // Family status for housing constraints
@@ -78,6 +81,8 @@ export type EverydayLifeResult = {
   weeklyAnchor: WeeklyAnchor;
   pettyHabits: PettyHabit[];
   caregivingObligation: CaregivingObligation;
+  /** Correlate #X6: Authoritarianism ↔ Home Orderliness (0-1000) */
+  homeOrderliness: number;
 };
 
 /** Home and domestic situation */
@@ -121,6 +126,10 @@ export type HousingWeightsInput = {
   frugality01: number;
   hasFamily: boolean;
   isSeniorProfessional: boolean;
+  /** Correlate #H3: Cosmopolitanism ↔ Housing Stability (negative) - nomads avoid stable housing */
+  cosmopolitanism01: number;
+  /** Correlate #H1: Household size affects housing stability needs */
+  householdSize: number;
 };
 
 export function computeHousingWeights({
@@ -134,6 +143,8 @@ export function computeHousingWeights({
   frugality01,
   hasFamily,
   isSeniorProfessional,
+  cosmopolitanism01,
+  householdSize,
 }: HousingWeightsInput): Array<{ item: HousingStability; weight: number }> {
   return housingPool.map(h => {
     let w = 1;
@@ -158,6 +169,20 @@ export function computeHousingWeights({
     if (riskAppetite01 <= 0.2 && (h === 'tenuous' || h === 'transient' || h === 'couch-surfing')) {
       return { item: h as HousingStability, weight: 0 };
     }
+
+    // Pre-compute cosmopolitanism/frugality multipliers
+    // #H3: Cosmopolitanism ↔ Housing Stability (negative - high cosmo → unstable)
+    // #H4: Frugality ↔ Housing Stability (positive - high frug → stable)
+    //
+    // VERY STRONG multipliers to overcome 54% hard-constrained population
+    // For STABLE housing: high cosmo → penalty, high frug → boost
+    // For UNSTABLE housing: high cosmo → boost, high frug → penalty
+    const stableMultiplier = (0.2 + 2.0 * (1 - cosmopolitanism01)) * (0.3 + 2.0 * frugality01);
+    //  - High cosmo, low frug: (0.2) * (0.3) = 0.06
+    //  - Low cosmo, high frug: (2.2) * (2.3) = 5.06
+    const unstableMultiplier = (0.2 + 3.5 * cosmopolitanism01) * (0.2 + 2.5 * (1 - frugality01));
+    //  - High cosmo, low frug: (3.7) * (2.7) = 9.99
+    //  - Low cosmo, high frug: (0.2) * (0.2) = 0.04
 
     // Tier correlates (primary effect - tier determines baseline housing options)
     if (h === 'owned' && tierBand === 'elite') w = 6;
@@ -198,14 +223,49 @@ export function computeHousingWeights({
       w += 3;
     }
 
-    // Correlate #H4: Frugality ↔ Housing Stability (positive)
-    // Frugal agents save more, can afford stable housing, avoid risky situations
+    // Correlate #H1: Household Size ↔ Housing Stability (positive)
+    // Larger households need stable housing to function
+    if (householdSize > 1) {
+      if (isStable) {
+        w += 2.5 * Math.min(4, householdSize - 1); // Each additional person adds stability need
+        w *= (1 + 0.15 * Math.min(3, householdSize - 1)); // Multiplicative boost for larger households
+      }
+      if (householdSize > 2 && isUnstable) {
+        w *= Math.max(0.2, 1 - 0.25 * (householdSize - 2)); // Households 3+ heavily penalize unstable
+      }
+    }
+
+    // Correlate #A2/A3: Age ↔ Housing Stability
+    // Young adults more likely unstable (just starting out), older adults more stable (settled)
+    if (age < 28) {
+      if (isUnstable) w += 3.0; // Young people in transient housing
+      if (isStable) w *= 0.6; // Young people less likely to own
+    } else if (age < 35) {
+      // Transitional period - slight unstable bias
+      if (isUnstable) w += 1.5;
+    } else if (age >= 45) {
+      if (isStable) w += 4.0; // Older adults settled
+      if (isUnstable) w *= 0.4; // Older adults rarely couch-surf
+    }
+
+    // Apply cosmo/frugality multipliers at END to scale final weight
+    // This ensures the effect survives tier/age/risk domination
     if (isStable) {
-      w += 4.0 * frugality01; // Frugal people can save for down payments, pay rent reliably
-      w *= (1 + 0.3 * frugality01); // Multiplicative boost
+      w *= stableMultiplier;
+      // Within stable, differentiate owned vs rental
+      // High cosmo prefers rental (mobility), high frug prefers owned (equity)
+      // Stronger multipliers to create more variance
+      if (h === 'owned') {
+        w *= (0.4 + 1.2 * frugality01); // Frugal → owned (0.4→1.6)
+        w *= (1.4 - 0.8 * cosmopolitanism01); // Cosmo → avoid owned (0.6→1.4)
+      }
+      if (h === 'stable-rental') {
+        w *= (1.4 - 0.8 * frugality01); // Non-frugal → rental (0.6→1.4)
+        w *= (0.4 + 1.2 * cosmopolitanism01); // Cosmo → rental (0.4→1.6)
+      }
     }
     if (isUnstable) {
-      w += 3.0 * (1 - frugality01); // Non-frugal may end up in unstable situations
+      w *= unstableMultiplier;
     }
 
     return { item: h as HousingStability, weight: w };
@@ -286,7 +346,25 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
     'always-early', 'always-late', 'forgets-keys', 'checks-locks', 'overpacks',
     'skips-breakfast', 'double-checks-everything', 'loses-phone',
   ];
-  const pettyHabits = lifeRng.pickK(pettyHabitPool, lifeRng.int(1, 2)) as PettyHabit[];
+  // Correlate #B1: Conscientiousness ↔ Petty Habits
+  // High conscientiousness → organized habits (early, checks-locks, double-checks)
+  // Low conscientiousness → disorganized habits (late, forgets-keys, loses-phone)
+  const cons01 = (ctx.traits?.conscientiousness ?? 500) / 1000;
+  const organizedHabits = new Set(['always-early', 'checks-locks', 'double-checks-everything', 'overpacks']);
+  const disorganizedHabits = new Set(['always-late', 'forgets-keys', 'loses-phone', 'skips-breakfast']);
+  const pettyHabitWeights = pettyHabitPool.map(h => {
+    let w = 1;
+    if (organizedHabits.has(h)) {
+      w += 4.0 * cons01; // High conscientiousness → organized
+      w *= (0.4 + 1.2 * cons01); // Multiplicative effect
+    }
+    if (disorganizedHabits.has(h)) {
+      w += 4.0 * (1 - cons01); // Low conscientiousness → disorganized
+      w *= (1.6 - 1.2 * cons01);
+    }
+    return { item: h as PettyHabit, weight: w };
+  });
+  const pettyHabits = weightedPickKUnique(lifeRng, pettyHabitWeights, lifeRng.int(1, 2)) as PettyHabit[];
 
   const caregivingPool = vocab.everydayLife?.caregivingObligations ?? [
     'elder-care', 'child-pickup', 'sibling-support', 'disabled-family', 'none',
@@ -299,8 +377,17 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
   });
   const caregivingObligation = weightedPick(lifeRng, caregivingWeights) as CaregivingObligation;
 
+  // Correlate #X6: Authoritarianism ↔ Home Orderliness (positive)
+  // Authoritarian personalities prefer order, structure, and cleanliness at home
+  // Formula: 40% authoritarianism + 35% conscientiousness + 25% random variation
+  const homeOrderliness = clampFixed01k(Math.round(
+    0.40 * (ctx.traits?.authoritarianism ?? 500) +
+    0.35 * (ctx.traits?.conscientiousness ?? 500) +
+    0.25 * lifeRng.int(0, 1000)
+  ));
+
   const everydayLife: EverydayLifeResult = {
-    thirdPlaces, commuteMode, weeklyAnchor, pettyHabits, caregivingObligation,
+    thirdPlaces, commuteMode, weeklyAnchor, pettyHabits, caregivingObligation, homeOrderliness,
   };
   traceSet(trace, 'everydayLife', everydayLife, { method: 'weighted' });
 
@@ -317,12 +404,17 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
   const conscientiousness01 = (ctx.traits?.conscientiousness ?? 500) / 1000;
   const riskAppetite01 = latents.riskAppetite / 1000;
   const frugality01 = latents.frugality / 1000;
+  const cosmopolitanism01 = latents.cosmopolitanism / 1000;
   const gdp01 = Number.isFinite(ctx.gdpPerCap01 ?? NaN) ? Math.max(0, Math.min(1, ctx.gdpPerCap01 as number)) : 0.5;
 
   // Family constraints for housing
   const isMarried = ctx.maritalStatus === 'married' || ctx.maritalStatus === 'partnered';
   const hasDependents = (ctx.dependentCount ?? 0) > 0;
   const hasFamily = isMarried && hasDependents;
+
+  // Estimate household size for housing weights (#H1 correlate)
+  // This is an estimate before household composition is determined
+  const estimatedHouseholdSize = 1 + (isMarried ? 1 : 0) + (ctx.dependentCount ?? 0);
 
   const housingPool = (vocab.home?.housingStabilities?.length
     ? vocab.home.housingStabilities
@@ -343,6 +435,8 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
     frugality01,
     hasFamily,
     isSeniorProfessional,
+    cosmopolitanism01,
+    householdSize: estimatedHouseholdSize,
   });
   const housingStability = weightedPick(homeRng, housingWeights) as HousingStability;
 
@@ -461,6 +555,10 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
   // Check if agent has valid citizenship
   const hasCitizenship = citizenshipCountryIso3 && citizenshipCountryIso3.length === 3;
 
+  // Housing influences residency (#H2: Residency Status ↔ Housing Stability)
+  const isStableHousing = housingStability === 'owned' || housingStability === 'stable-rental';
+  const isUnstableHousing = housingStability === 'tenuous' || housingStability === 'transient' || housingStability === 'couch-surfing';
+
   const residencyWeights = residencyPool.map(r => {
     let w = 1;
 
@@ -479,6 +577,21 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
     if (r === 'diplomatic' && roleSeedTags.includes('diplomat')) w = 10;
     if (r === 'work-visa' && homeCountryIso3 !== currentCountryIso3 && tierBand !== 'mass') w = 5;
     if (r === 'permanent-resident' && homeCountryIso3 !== currentCountryIso3) w = 3;
+
+    // Correlate #H2: Housing Stability ↔ Residency Status (positive)
+    // Stable housing correlates with stable residency (citizen, permanent-resident)
+    // Unstable housing correlates with precarious residency (irregular, refugee)
+    const stableResidencies = ['citizen', 'permanent-resident', 'diplomatic'];
+    const unstableResidencies = ['irregular', 'asylum-pending', 'refugee', 'stateless'];
+    if (stableResidencies.includes(r)) {
+      if (isStableHousing) w *= 1.8;
+      if (isUnstableHousing) w *= 0.5;
+    }
+    if (unstableResidencies.includes(r)) {
+      if (isUnstableHousing) w *= 2.5;
+      if (isStableHousing) w *= 0.4;
+    }
+
     return { item: r as ResidencyStatus, weight: w };
   });
   const residencyStatus = weightedPick(legalRng, residencyWeights) as ResidencyStatus;

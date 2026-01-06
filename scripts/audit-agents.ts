@@ -305,7 +305,7 @@ const DOCUMENTED_CORRELATES = [
 
   // Category D: Health/Lifestyle
   { id: '#HL1', name: 'Stress Reactivity ↔ Chronic Conditions', vars: ['stressReactivity', 'chronicCount'], expected: 'positive' as const },
-  { id: '#HL2', name: 'Vice Severity ↔ Chronic Conditions', vars: ['viceSeverityAvg', 'chronicCount'], expected: 'positive' as const },
+  { id: '#HL2', name: 'Vice Tendency ↔ Chronic Conditions', vars: ['viceTendency', 'chronicCount'], expected: 'positive' as const },
   { id: '#HL3', name: 'Endurance ↔ Stress Reactivity', vars: ['endurance', 'stressReactivity'], expected: 'negative' as const },
   { id: '#HL4', name: 'Religiosity ↔ Dietary Restrictions', vars: ['religiosity', 'dietaryRestrictionCount'], expected: 'positive' as const },
 
@@ -573,7 +573,7 @@ type AgentMetrics = {
   // Health/Lifestyle (Category D)
   stressReactivity: number; // from latents
   chronicCount: number;
-  viceSeverityAvg: number; // computed from vices
+  viceTendency: number; // derived, used in chronic condition weights
   dietaryRestrictionCount: number;
   endurance: number; // from aptitudes
 
@@ -751,6 +751,8 @@ function extractMetrics(agent: GeneratedAgent, asOfYear: number): AgentMetrics {
 
   // Latents are in generationTrace when includeTrace is true
   const latents = agent.generationTrace?.latents?.values;
+  // Derived values (like viceTendency) are in generationTrace.derived
+  const derived = (agent.generationTrace as any)?.derived;
 
   // Calculate age from birthYear
   const birthYear = agent.identity?.birthYear ?? 1990;
@@ -829,20 +831,22 @@ function extractMetrics(agent: GeneratedAgent, asOfYear: number): AgentMetrics {
 
     // Social/Network (Category B)
     dependentCount,
-    // No explicit relationships array; use memberships count as proxy
-    relationshipCount: (agent.communities?.memberships?.length ?? 0),
+    // Correlate #N4: actual relationships array from social.ts
+    relationshipCount: agent.relationships?.length ?? 0,
 
     // Housing/Domestic (Category C)
-    // householdComposition gives hint at size; map to numeric
-    householdSize: computeHouseholdSize(agent.home?.householdComposition ?? 'alone'),
-    // geography.diasporaStatus maps to residency stability
-    residencyNumeric: computeResidencyFromDiaspora(agent.geography?.diasporaStatus),
+    // Compute household size from family status (matches housing weight inputs)
+    // NOT from householdComposition which is picked AFTER housing stability
+    householdSize: computeEstimatedHouseholdSize(agent.family?.maritalStatus, agent.family?.dependentCount ?? 0),
+    // legalAdmin.residencyStatus maps to residency stability
+    residencyNumeric: computeResidencyStability(agent.legalAdmin?.residencyStatus),
     frugality: latents?.frugality ?? 500,
 
     // Health/Lifestyle (Category D)
     stressReactivity: latents?.stressReactivity ?? 500,
     chronicCount,
-    viceSeverityAvg: computeViceSeverity(agent.vices ?? []),
+    // viceTendency is derived value (0-1), scale to 0-1000 for consistency
+    viceTendency: (derived?.viceTendency ?? 0.5) * 1000,
     // food.restrictions is the dietary restrictions array
     dietaryRestrictionCount: agent.preferences?.food?.restrictions?.length ?? 0,
     endurance: aptitudes?.endurance ?? 500,
@@ -859,15 +863,12 @@ function extractMetrics(agent: GeneratedAgent, asOfYear: number): AgentMetrics {
     curiosityBandwidth: latents?.curiosityBandwidth ?? 500,
     planningHorizon: latents?.planningHorizon ?? 500,
     agreeableness: agent.capabilities?.traits?.agreeableness ?? 500,
-    // livingSpace.organizationStyle maps to orderliness
-    homeOrderliness: orderlinessMap[agent.preferences?.livingSpace?.organizationStyle ?? 'casual'] ?? 3,
+    // Correlate #X6: homeOrderliness from everydayLife (0-1000 scale)
+    homeOrderliness: (agent.everydayLife?.homeOrderliness ?? 500) / 1000 * 5,
 
     // Behavioral Coherence (Category G)
-    // quirks.mustHaves + rituals indicate conscientiousness-related habits
-    pettyHabitScore: computePettyHabitScore([
-      ...(agent.preferences?.quirks?.mustHaves ?? []),
-      ...(agent.preferences?.quirks?.rituals ?? []),
-    ]),
+    // Correlate #B1: pettyHabits from everydayLife
+    pettyHabitScore: computePettyHabitScore(agent.everydayLife?.pettyHabits ?? []),
     // civicLife.engagement maps to civic engagement
     civicEngagementNumeric: civicEngagementMap[agent.civicLife?.engagement ?? 'passive'] ?? 1,
     // hobbies.primary contains the hobbies
@@ -886,33 +887,28 @@ function computeAvgSkillXp(skills: Record<string, { value: number; xp?: number }
   return xpValues.reduce((sum, v) => sum + v, 0) / xpValues.length;
 }
 
-function computeViceSeverity(vices: Array<{ severity?: string }>): number {
-  if (vices.length === 0) return 0;
-  const severityMap: Record<string, number> = {
-    mild: 1,
-    moderate: 2,
-    severe: 3,
-    crippling: 4,
-  };
-  const total = vices.reduce((sum, v) => sum + (severityMap[v.severity ?? 'mild'] ?? 1), 0);
-  return total / vices.length;
-}
-
 function computePettyHabitScore(habits: string[]): number {
-  // Conscientiousness-related habits get higher scores
-  const conscientiousHabits = [
-    'always-early', 'checks-locks', 'makes-lists', 'prepares-ahead',
-    'double-checks', 'keeps-receipts', 'irons-clothes', 'polishes-shoes',
-  ];
+  // Correlate #B1: Conscientiousness ↔ Petty Habits
+  // Organized habits = high score, disorganized = low score
+  const organizedHabits = new Set([
+    'always-early', 'checks-locks', 'double-checks-everything', 'overpacks',
+    'makes-lists', 'prepares-ahead', 'keeps-receipts', 'irons-clothes', 'polishes-shoes',
+  ]);
+  const disorganizedHabits = new Set([
+    'always-late', 'forgets-keys', 'loses-phone', 'skips-breakfast',
+  ]);
   let score = 0;
   for (const habit of habits) {
-    if (conscientiousHabits.includes(habit)) {
-      score += 2;
+    if (organizedHabits.has(habit)) {
+      score += 3; // Organized habits = high conscientiousness
+    } else if (disorganizedHabits.has(habit)) {
+      score -= 2; // Disorganized habits = low conscientiousness
     } else {
-      score += 1; // Other habits are neutral
+      score += 1; // Neutral habits
     }
   }
-  return score;
+  // Shift to positive scale (min -4 for 2 disorganized → 0, max 6 for 2 organized → 10)
+  return score + 4;
 }
 
 function countActiveHobbies(hobbies: string[]): number {
@@ -925,6 +921,8 @@ function countActiveHobbies(hobbies: string[]): number {
   return hobbies.filter(h => activeHobbies.some(ah => h.toLowerCase().includes(ah))).length;
 }
 
+// DEPRECATED: computeHouseholdSize from composition is not used for #H1
+// because householdComposition is picked AFTER housing stability
 function computeHouseholdSize(composition: string): number {
   const sizeMap: Record<string, number> = {
     alone: 1,
@@ -940,17 +938,27 @@ function computeHouseholdSize(composition: string): number {
   return sizeMap[composition] ?? 1;
 }
 
-function computeResidencyFromDiaspora(diasporaStatus: string | undefined): number {
-  // Map diaspora status to residency stability proxy
+// Compute estimated household size from family status
+// This matches the input to housing weights: 1 + married + dependentCount
+function computeEstimatedHouseholdSize(maritalStatus: string | undefined, dependentCount: number): number {
+  const isMarried = maritalStatus === 'married' || maritalStatus === 'partnered';
+  return 1 + (isMarried ? 1 : 0) + dependentCount;
+}
+
+function computeResidencyStability(residencyStatus: string | undefined): number {
+  // Map actual ResidencyStatus values to stability (higher = more stable)
   const statusMap: Record<string, number> = {
-    native: 5,           // Full citizen
-    expat: 3,            // Legal but temporary
-    immigrant: 4,        // Permanent resident
-    refugee: 1,          // Precarious
-    'second-generation': 5, // Citizen
-    diaspora: 4,         // Established immigrant
+    citizen: 5,           // Full citizen - most stable
+    'permanent-resident': 4, // Legal permanent - very stable
+    diplomatic: 4,        // Diplomatic status - stable but temporary
+    'work-visa': 3,       // Legal but temporary
+    'student-visa': 2,    // Temporary, education-dependent
+    'asylum-pending': 2,  // Precarious but legal
+    irregular: 1,         // Undocumented - least stable
+    refugee: 1,           // Precarious
+    stateless: 1,         // Most precarious
   };
-  return statusMap[diasporaStatus ?? 'native'] ?? 3;
+  return statusMap[residencyStatus ?? 'citizen'] ?? 3;
 }
 
 function analyzeDocumentedCorrelates(metrics: AgentMetrics[]): CorrelateResult[] {
