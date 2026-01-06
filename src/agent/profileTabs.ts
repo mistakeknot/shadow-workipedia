@@ -5,6 +5,7 @@ export type AgentProfileTab =
   | 'connections'
   | 'capabilities'
   | 'epistemology'
+  | 'preferences'
   | 'daily-life'
   | 'data';
 
@@ -15,6 +16,7 @@ export const AGENT_PROFILE_TABS: AgentProfileTab[] = [
   'connections',
   'capabilities',
   'epistemology',
+  'preferences',
   'daily-life',
   'data',
 ];
@@ -27,6 +29,7 @@ export const AGENT_TAB_LABELS: Record<AgentProfileTab, string> = {
   connections: 'Connections',
   capabilities: 'Capabilities',
   epistemology: 'Epistemology',
+  preferences: 'Preferences',
   'daily-life': 'Daily Life',
   data: 'Data',
 };
@@ -39,7 +42,8 @@ export const AGENT_TAB_DESCRIPTIONS: Record<AgentProfileTab, string> = {
   connections: 'Social web: relationships, network, institution',
   capabilities: 'Skills and aptitudes',
   epistemology: 'Knowledge, beliefs, biases, sources',
-  'daily-life': 'Appearance, routines, preferences, health',
+  preferences: 'Tastes, comforts, rituals, and aversions',
+  'daily-life': 'Appearance, routines, health',
   data: 'Technical data and export options',
 };
 

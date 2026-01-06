@@ -109,6 +109,11 @@ export function renderAgent(
   const relationshipPatterns = agent.relationshipPatterns;
   const psychologyType = agent.psychologyType;
   const artisticPrefs = agent.preferences.artistic;
+  const platformDietSummary = Object.entries(agent.preferences.media.platformDiet)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 4)
+    .map(([platform, value]) => `${toTitleCaseWords(platform)} ${formatFixed01k(value)}`)
+    .join(', ') || '—';
   const renderDynamicsPills = (items: string[] | undefined): string => (
     items && items.length
       ? `<span class="agent-pill-wrap agent-pill-wrap-left">${items.slice(0, 4).map(item => `<span class="pill pill-muted">${escapeHtml(item)}</span>`).join('')}</span>`
@@ -433,7 +438,8 @@ export function renderAgent(
           <button type="button" class="agent-tab-btn ${tab === 'connections' ? 'active' : ''}" data-agent-tab="connections" title="Social web: relationships, network, institution">${AGENT_TAB_LABELS.connections}</button>
           <button type="button" class="agent-tab-btn ${tab === 'capabilities' ? 'active' : ''}" data-agent-tab="capabilities" title="Skills and aptitudes">${AGENT_TAB_LABELS.capabilities}</button>
           <button type="button" class="agent-tab-btn ${tab === 'epistemology' ? 'active' : ''}" data-agent-tab="epistemology" title="Knowledge, beliefs, biases, sources">${AGENT_TAB_LABELS.epistemology}</button>
-          <button type="button" class="agent-tab-btn ${tab === 'daily-life' ? 'active' : ''}" data-agent-tab="daily-life" title="Appearance, routines, preferences, health">${AGENT_TAB_LABELS['daily-life']}</button>
+          <button type="button" class="agent-tab-btn ${tab === 'preferences' ? 'active' : ''}" data-agent-tab="preferences" title="Tastes, comforts, rituals, and aversions">${AGENT_TAB_LABELS.preferences}</button>
+          <button type="button" class="agent-tab-btn ${tab === 'daily-life' ? 'active' : ''}" data-agent-tab="daily-life" title="Appearance, routines, health">${AGENT_TAB_LABELS['daily-life']}</button>
           <button type="button" class="agent-tab-btn agent-tab-btn-muted ${tab === 'data' ? 'active' : ''}" data-agent-tab="data" title="Technical data and export options">${AGENT_TAB_LABELS.data}</button>
         </div>
       </div>
@@ -869,7 +875,170 @@ export function renderAgent(
           ${renderCognitiveSection(cognitiveCards, cognitiveDetailsOpen)}
         </div>
 
-        <!-- DAILY LIFE TAB: Appearance, routines, preferences, health -->
+        <!-- PREFERENCES TAB: Tastes, comforts, rituals, aversions -->
+        <div class="agent-tab-panel ${tab === 'preferences' ? 'active' : ''}" data-agent-tab-panel="preferences">
+          <div class="agent-grid agent-grid-tight">
+            <details class="agent-card agent-section" data-agents-details="profile:preferences:food" ${isDetailsOpen('profile:preferences:food', true) ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Food &amp; drink</span>
+                <span class="agent-section-hint">${escapeHtml(agent.preferences.food.cuisineFavorites.slice(0, 2).map(toTitleCaseWords).join(', ') || '—')}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Comfort foods</span><span class="kv-v">${escapeHtml(agent.preferences.food.comfortFoods.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Cuisines</span><span class="kv-v">${escapeHtml(agent.preferences.food.cuisineFavorites.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Taste</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.tastePreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Texture</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.texturePreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Temperature</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.temperaturePreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Spice</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.spiceTolerance))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Portions</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.portionPreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Ritual drink</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.ritualDrink))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Caffeine</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.caffeineHabit))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Alcohol</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.alcoholPreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Loves</span><span class="kv-v">${escapeHtml(agent.preferences.food.specificLoves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Absolute hates</span><span class="kv-v">${escapeHtml(agent.preferences.food.absoluteHates.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Dislikes</span><span class="kv-v">${escapeHtml(agent.preferences.food.dislikes.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Restrictions</span><span class="kv-v">${escapeHtml(agent.preferences.food.restrictions.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Conditional</span><span class="kv-v">${escapeHtml(agent.preferences.food.conditionalPreferences.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section" data-agents-details="profile:preferences:environment" ${isDetailsOpen('profile:preferences:environment', false) ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Environment &amp; space</span>
+                <span class="agent-section-hint">${escapeHtml(`${toTitleCaseWords(agent.preferences.environment.temperature)} · ${toTitleCaseWords(agent.preferences.environment.weatherMood)}`)}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Temperature</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.environment.temperature))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Weather mood</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.environment.weatherMood))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Rooms</span><span class="kv-v">${escapeHtml(agent.preferences.livingSpace.roomPreferences.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Comfort items</span><span class="kv-v">${escapeHtml(agent.preferences.livingSpace.comfortItems.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Space</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.livingSpace.spaceType))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Decor</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.livingSpace.decorStyle))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Organization</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.livingSpace.organizationStyle))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Security habit</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.livingSpace.securityHabit))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Visitors</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.livingSpace.visitorPolicy))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Light</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.livingSpace.lightPreference))}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section" data-agents-details="profile:preferences:aesthetics" ${isDetailsOpen('profile:preferences:aesthetics', false) ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Aesthetics &amp; style</span>
+                <span class="agent-section-hint">${escapeHtml(agent.preferences.fashion.styleTags.slice(0, 2).map(toTitleCaseWords).join(', ') || '—')}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Style tags</span><span class="kv-v">${escapeHtml(agent.preferences.fashion.styleTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Formality</span><span class="kv-v">${escapeHtml(toTitleCaseWords(formatBand5(agent.preferences.fashion.formality)))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Conformity</span><span class="kv-v">${escapeHtml(toTitleCaseWords(formatBand5(agent.preferences.fashion.conformity)))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Status signaling</span><span class="kv-v">${escapeHtml(toTitleCaseWords(formatBand5(agent.preferences.fashion.statusSignaling)))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Palette</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.aesthetics.colorPalette))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Patterns</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.aesthetics.patternPreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Lighting</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.aesthetics.lightingPreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Visual complexity</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.aesthetics.visualComplexityPreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Decor</span><span class="kv-v">${escapeHtml([
+                    agent.preferences.aesthetics.decorPreferences.map(toTitleCaseWords).join(', '),
+                    toTitleCaseWords(agent.preferences.aesthetics.architectureStyle),
+                  ].filter(Boolean).join(' · ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Soundscape</span><span class="kv-v">${escapeHtml(`${toTitleCaseWords(agent.preferences.aesthetics.soundscape)} · ${toTitleCaseWords(agent.preferences.aesthetics.noiseTolerancePreference)}`)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Tactile</span><span class="kv-v">${escapeHtml([
+                    toTitleCaseWords(agent.preferences.aesthetics.texturePreference),
+                    toTitleCaseWords(agent.preferences.aesthetics.materialPreference),
+                    toTitleCaseWords(agent.preferences.aesthetics.touchPreference),
+                  ].join(' · '))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Scents</span><span class="kv-v">${escapeHtml(`${toTitleCaseWords(agent.preferences.aesthetics.scentAttraction)} · ${toTitleCaseWords(agent.preferences.aesthetics.scentAversion)}`)}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section" data-agents-details="profile:preferences:culture" ${isDetailsOpen('profile:preferences:culture', false) ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Culture &amp; hobbies</span>
+                <span class="agent-section-hint">${escapeHtml(agent.preferences.hobbies.primary.slice(0, 2).map(toTitleCaseWords).join(', ') || '—')}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Media genres</span><span class="kv-v">${escapeHtml(agent.preferences.media.genreTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Platform diet</span><span class="kv-v">${escapeHtml(platformDietSummary)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Hobbies</span><span class="kv-v">${escapeHtml([...agent.preferences.hobbies.primary, ...agent.preferences.hobbies.secondary].slice(0, 6).map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Artistic mediums</span><span class="kv-v">${escapeHtml(artisticPrefs.mediums.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Artistic themes</span><span class="kv-v">${escapeHtml(artisticPrefs.themes.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Expression</span><span class="kv-v">${escapeHtml([
+                    toTitleCaseWords(artisticPrefs.inspirationSource),
+                    toTitleCaseWords(artisticPrefs.expressionDriver),
+                    toTitleCaseWords(artisticPrefs.sharingStyle),
+                  ].join(' · '))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Practice</span><span class="kv-v">${escapeHtml(`${toTitleCaseWords(artisticPrefs.practiceRhythm)} · ${toTitleCaseWords(artisticPrefs.workspacePreference)}`)}</span></div>
+                  <div class="kv-row"><span class="kv-k">Learning mode</span><span class="kv-v">${escapeHtml(toTitleCaseWords(artisticPrefs.learningMode))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Challenge</span><span class="kv-v">${escapeHtml(toTitleCaseWords(artisticPrefs.challenge))}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section" data-agents-details="profile:preferences:social" ${isDetailsOpen('profile:preferences:social', false) ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Social &amp; communication</span>
+                <span class="agent-section-hint">${escapeHtml(`${toTitleCaseWords(agent.preferences.social.groupStyle)} · ${toTitleCaseWords(agent.preferences.social.communicationMethod)}`)}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Group style</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.social.groupStyle))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Communication</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.social.communicationMethod))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Boundaries</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.social.boundary))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Emotional sharing</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.social.emotionalSharing))}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section" data-agents-details="profile:preferences:work" ${isDetailsOpen('profile:preferences:work', false) ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Work &amp; equipment</span>
+                <span class="agent-section-hint">${escapeHtml(agent.preferences.work.preferredOperations.slice(0, 2).map(toTitleCaseWords).join(', ') || '—')}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Preferred ops</span><span class="kv-v">${escapeHtml(agent.preferences.work.preferredOperations.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Avoided ops</span><span class="kv-v">${escapeHtml(agent.preferences.work.avoidedOperations.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Weapon</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.equipment.weaponPreference))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Gear</span><span class="kv-v">${escapeHtml(agent.preferences.equipment.gearPreferences.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section" data-agents-details="profile:preferences:quirks" ${isDetailsOpen('profile:preferences:quirks', false) ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Quirks &amp; time</span>
+                <span class="agent-section-hint">${escapeHtml(toTitleCaseWords(agent.preferences.quirks.luckyItem))}</span>
+              </summary>
+              <div class="agent-section-body">
+                <div class="agent-kv">
+                  <div class="kv-row"><span class="kv-k">Lucky item</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.quirks.luckyItem))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Rituals</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.rituals.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Pet peeves</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.petPeeves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Must-haves</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.mustHaves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
+                  <div class="kv-row"><span class="kv-k">Daily rhythm</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.time.dailyRhythm))}</span></div>
+                  <div class="kv-row"><span class="kv-k">Planning</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.time.planningStyle))}</span></div>
+                </div>
+              </div>
+            </details>
+
+            <details class="agent-card agent-section" data-agents-details="profile:preferences:beats" ${isDetailsOpen('profile:preferences:beats', true) ? 'open' : ''}>
+              <summary class="agent-section-summary">
+                <span class="agent-section-title">Preference beats</span>
+                <span class="agent-section-hint">${escapeHtml(preferenceNarrativeBeats[0] ?? '—')}</span>
+              </summary>
+              <div class="agent-section-body">
+                ${renderBeatList(preferenceNarrativeBeats)}
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- DAILY LIFE TAB: Appearance, routines, health -->
         <div class="agent-tab-panel ${tab === 'daily-life' ? 'active' : ''}" data-agent-tab-panel="daily-life">
           <div class="agent-grid agent-grid-tight">
             <details class="agent-card agent-section" data-agents-details="profile:daily-life:appearance" ${isDetailsOpen('profile:daily-life:appearance', true) ? 'open' : ''}>
@@ -904,77 +1073,6 @@ export function renderAgent(
                   <div class="kv-row"><span class="kv-k">Commute</span><span class="kv-v">${escapeHtml(everydaySummary.commuteMode)}</span></div>
                   <div class="kv-row"><span class="kv-k">Weekly anchor</span><span class="kv-v">${escapeHtml(everydaySummary.weeklyAnchor)}</span></div>
                 </div>
-              </div>
-            </details>
-
-            <details class="agent-card agent-section" data-agents-details="profile:daily-life:preferences" ${isDetailsOpen('profile:daily-life:preferences', false) ? 'open' : ''}>
-              <summary class="agent-section-summary">
-                <span class="agent-section-title">Preferences</span>
-                <span class="agent-section-hint">${escapeHtml(agent.preferences.fashion.styleTags.slice(0, 2).map(toTitleCaseWords).join(', ') || '—')}</span>
-              </summary>
-              <div class="agent-section-body">
-                <div class="agent-kv">
-                  <div class="kv-row"><span class="kv-k">Comfort foods</span><span class="kv-v">${escapeHtml(agent.preferences.food.comfortFoods.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Cuisines</span><span class="kv-v">${escapeHtml(agent.preferences.food.cuisineFavorites.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Taste</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.tastePreference))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Texture</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.texturePreference))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Temperature</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.temperaturePreference))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Spice</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.spiceTolerance))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Portions</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.portionPreference))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Ritual drink</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.ritualDrink))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Caffeine</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.caffeineHabit))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Alcohol</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.food.alcoholPreference))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Loves</span><span class="kv-v">${escapeHtml(agent.preferences.food.specificLoves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Absolute hates</span><span class="kv-v">${escapeHtml(agent.preferences.food.absoluteHates.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Conditional</span><span class="kv-v">${escapeHtml(agent.preferences.food.conditionalPreferences.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Style</span><span class="kv-v">${escapeHtml(agent.preferences.fashion.styleTags.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Weather mood</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.environment.weatherMood))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Visual</span><span class="kv-v">${escapeHtml([
-                    toTitleCaseWords(agent.preferences.aesthetics.colorPalette),
-                    toTitleCaseWords(agent.preferences.aesthetics.patternPreference),
-                    toTitleCaseWords(agent.preferences.aesthetics.visualComplexityPreference),
-                  ].join(' · '))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Lighting</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.aesthetics.lightingPreference))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Decor</span><span class="kv-v">${escapeHtml([
-                    agent.preferences.aesthetics.decorPreferences.map(toTitleCaseWords).join(', '),
-                    toTitleCaseWords(agent.preferences.aesthetics.architectureStyle),
-                  ].filter(Boolean).join(' · ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Sound</span><span class="kv-v">${escapeHtml(`${toTitleCaseWords(agent.preferences.aesthetics.soundscape)} · ${toTitleCaseWords(agent.preferences.aesthetics.noiseTolerancePreference)}`)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Tactile</span><span class="kv-v">${escapeHtml([
-                    toTitleCaseWords(agent.preferences.aesthetics.texturePreference),
-                    toTitleCaseWords(agent.preferences.aesthetics.materialPreference),
-                    toTitleCaseWords(agent.preferences.aesthetics.touchPreference),
-                  ].join(' · '))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Scents</span><span class="kv-v">${escapeHtml(`${toTitleCaseWords(agent.preferences.aesthetics.scentAttraction)} · ${toTitleCaseWords(agent.preferences.aesthetics.scentAversion)}`)}</span></div>
-                  <div class="kv-row"><span class="kv-k">Rooms</span><span class="kv-v">${escapeHtml(agent.preferences.livingSpace.roomPreferences.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Comfort items</span><span class="kv-v">${escapeHtml(agent.preferences.livingSpace.comfortItems.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Space</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.livingSpace.spaceType))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Decor</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.livingSpace.decorStyle))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Organization</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.livingSpace.organizationStyle))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Security habit</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.livingSpace.securityHabit))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Visitors</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.livingSpace.visitorPolicy))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Light</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.livingSpace.lightPreference))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Artistic</span><span class="kv-v">${escapeHtml(agent.preferences.artistic.mediums.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Expression</span><span class="kv-v">${escapeHtml([
-                    toTitleCaseWords(agent.preferences.artistic.inspirationSource),
-                    toTitleCaseWords(agent.preferences.artistic.expressionDriver),
-                    toTitleCaseWords(agent.preferences.artistic.sharingStyle),
-                  ].join(' · '))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Genres</span><span class="kv-v">${escapeHtml(agent.preferences.media.genreTopK.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Hobbies</span><span class="kv-v">${escapeHtml([...agent.preferences.hobbies.primary, ...agent.preferences.hobbies.secondary].slice(0, 4).map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                  <div class="kv-row"><span class="kv-k">Lucky item</span><span class="kv-v">${escapeHtml(toTitleCaseWords(agent.preferences.quirks.luckyItem))}</span></div>
-                  <div class="kv-row"><span class="kv-k">Pet peeves</span><span class="kv-v">${escapeHtml(agent.preferences.quirks.petPeeves.map(toTitleCaseWords).join(', ') || '—')}</span></div>
-                </div>
-              </div>
-            </details>
-
-            <details class="agent-card agent-section" data-agents-details="profile:daily-life:preferenceBeats" ${isDetailsOpen('profile:daily-life:preferenceBeats', true) ? 'open' : ''}>
-              <summary class="agent-section-summary">
-                <span class="agent-section-title">Preference beats</span>
-                <span class="agent-section-hint">${escapeHtml(preferenceNarrativeBeats[0] ?? '—')}</span>
-              </summary>
-              <div class="agent-section-body">
-                ${renderBeatList(preferenceNarrativeBeats)}
               </div>
             </details>
 
