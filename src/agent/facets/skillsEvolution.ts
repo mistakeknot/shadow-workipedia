@@ -182,7 +182,7 @@ export function computeSkillsEvolution(
     if (s.includes('age')) w += age > 45 ? 1.2 : 0.2;
     if (s.includes('injury')) w += 0.6 * (1 - latents.physicalConditioning / 1000);
     if (s.includes('burnout')) w += 0.8 * stress01;
-    if (s.includes('role')) w += 0.4 * (1 - isOperative ? 1 : 0.2);
+    if (s.includes('role')) w += 0.4 * (isOperative ? 0.2 : 1);
     return { item, weight: Math.max(0.15, w) };
   })) as string;
 
