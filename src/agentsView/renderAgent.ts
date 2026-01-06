@@ -79,24 +79,20 @@ export function renderAgent(
 
   // Use agent's actual pronouns for narration consistency (mixed sets pick deterministically from seed)
   const agentPronounMode = pronounSetToMode(agent.gender.pronounSet, agent.seed);
-  const narrativeMode = tab === 'overview' ? 'synopsis' : 'full';
-  const narrativeResult = generateNarrative(
+  const narrative = generateNarrative(
     agent,
     { originLabel, citizenshipLabel, currentLabel },
     asOfYear,
     agentPronounMode,
-    narrativeMode,
-  );
-  const narrative = narrativeResult.html;
-  const narrativeSynopsis = narrativeMode === 'synopsis'
-    ? narrative
-    : generateNarrative(
-      agent,
-      { originLabel, citizenshipLabel, currentLabel },
-      asOfYear,
-      agentPronounMode,
-      'synopsis',
-    ).html;
+    'full',
+  ).html;
+  const narrativeSynopsis = generateNarrative(
+    agent,
+    { originLabel, citizenshipLabel, currentLabel },
+    asOfYear,
+    agentPronounMode,
+    'synopsis',
+  ).html;
   const healthSummary = buildHealthSummary(agent.health, toTitleCaseWords);
   const everydaySummary = buildEverydayLifeSummary(agent.everydayLife, toTitleCaseWords);
   const memorySummary = buildMemoryTraumaSummary(agent.memoryTrauma, toTitleCaseWords);

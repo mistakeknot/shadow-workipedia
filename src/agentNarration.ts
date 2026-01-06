@@ -859,6 +859,7 @@ export type NarrativeResult = {
   para1: string;
   para2: string;
   para3: string;
+  para4?: string;
   html: string;
 };
 
@@ -2305,7 +2306,10 @@ export function generateNarrative(
       : '#bioP2Routine# #bioP2Taste# #bioP2Institution# #bioP2WorkStyle# #bioP2Languages# #bioP2Geography# #bioP2Family# #bioP2Health# #bioP2Neurodivergence# #bioP2EverydayLife# #bioP2Home# #bioP2LifeSkills# #bioP2Communities#';
     const para3Spec = mode === 'synopsis'
       ? '#synP3#'
-      : '#bioP2Motivation# #bioP2Attachment# #bioP2Orientation# #bioP3Relationships# #bioP2Pressure# #bioP2Strain# #bioP2Vice# #bioP2Ethics# #bioP2Spirituality# #bioP2Contradiction# #bioP2Economics# #bioP2Secrets# #bioP2Humor# #bioP2Presence# #bioP2Deception# #bioP2Mobility# #bioP2Personality# #bioP2Culture# #bioP2Network# #bioP2Adversity# #bioP2RedLines# #bioP2Affect# #bioP2SelfConcept# #bioP2Reputation# #bioP2CivicLife#';
+      : '#bioP2Motivation# #bioP2Attachment# #bioP2Orientation# #bioP3Relationships# #bioP2Pressure# #bioP2Strain# #bioP2Vice# #bioP2Ethics# #bioP2Spirituality# #bioP2Contradiction# #bioP2Economics# #bioP2Secrets# #bioP2Humor#';
+    const para4Spec = mode === 'synopsis'
+      ? ''
+      : '#bioP2Personality# #bioP2Presence# #bioP2Deception# #bioP2Mobility# #bioP2Culture# #bioP2Network# #bioP2Adversity# #bioP2RedLines# #bioP2Affect# #bioP2SelfConcept# #bioP2Reputation# #bioP2CivicLife#';
 
     // Para 1: Identity & hook (synopsis) / Identity & appearance (full)
     const para1 = normalizeNarrationText(grammar.flatten(para1Spec));
@@ -2316,15 +2320,18 @@ export function generateNarrative(
     // Para 3: Drive & pressure (synopsis) / Psychology & inner life (full)
     const para3 = normalizeNarrationText(grammar.flatten(para3Spec));
 
+    const para4 = para4Spec ? normalizeNarrationText(grammar.flatten(para4Spec)) : '';
+
+    const paragraphs = [para1, para2, para3];
+    if (para4) paragraphs.push(para4);
+
     const html = `
       <div class="agent-narrative">
-        <p>${escapeHtml(para1)}</p>
-        <p>${escapeHtml(para2)}</p>
-        <p>${escapeHtml(para3)}</p>
+        ${paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join('\n        ')}
       </div>
     `;
 
-    return { para1, para2, para3, html };
+    return { para1, para2, para3, para4: para4 || undefined, html };
   });
 }
 
