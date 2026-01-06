@@ -27,8 +27,8 @@ Agent catalogs
 | agent-cultural-social-dynamics-catalog.md | Integrated (archetype lists) | Vocab: `culturalDynamics.*`; generator: `src/agent/facets/social.ts`; UI: `src/agentsView.ts` | Deeper causality not modeled. |
 | agent-needs-relationships-catalog.md | Integrated (archetypes) | Vocab: `needsRelationships.*`; generator: `src/agent/facets/social.ts`; UI: `src/agentsView.ts` | Catalog-specific narrative arcs still missing. |
 | agent-economic-mobility-catalog.md | Integrated (mobility archetypes) | Vocab: `economicMobility.*`; generator: `src/agent/generator.ts`; UI: `src/agentsView.ts` | Deeper mechanics not modeled yet. |
-| agent-dreams-goals-catalog.md | Integrated (dream lists) | Vocab: `dreamsGoals.dreams`; generator: `src/agent/generator.ts`; UI: `src/agentsView.ts` | Category weighting not modeled yet. |
-| agent-dreams-nightmares-catalog.md | Integrated (dream/nightmare lists) | Vocab: `dreamsNightmares.*`; generator: `src/agent/generator.ts`; UI: `src/agentsView.ts` | Category weighting not modeled yet. |
+| agent-dreams-goals-catalog.md | Integrated (weighted + anchored) | Vocab: `dreamsGoals.dreams`; generator: `src/agent/generator.ts`; UI: `src/agentsView.ts` | Weighted by goals/fears/role cues; anchors to primary goal when possible. |
+| agent-dreams-nightmares-catalog.md | Integrated (weighted + anchored) | Vocab: `dreamsNightmares.*`; generator: `src/agent/generator.ts`; UI: `src/agentsView.ts` | Weighted by goals/fears/role cues; anchors nightmares to dominant fear when possible. |
 | agent-event-template-catalog.md | Integrated (timeline templates) | Vocab: `timelineTemplates.*`; generator: `src/agent/facets/narrative.ts`; UI: `src/agentsView.ts` | Uses template snippets only; richer event taxonomies not modeled. |
 | agent-detail-generation-catalog.md | Integrated (detail markers) | Vocab: `detailGeneration.*`; generator: `src/agent/facets/details.ts`; UI: `src/agentsView.ts` | Snapshot-only (3–5 details). |
 | agent-decision-templates-catalog.md | Integrated (decision style) | Vocab: `decisionTemplates.*`; generator: `src/agent/facets/decisionStyle.ts`; UI: `src/agentsView.ts` | Snapshot-only (3–5 tendencies). |

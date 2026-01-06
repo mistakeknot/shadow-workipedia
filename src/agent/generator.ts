@@ -770,6 +770,7 @@ import { computeNarrative } from './facets/narrative';
 import { computeSimulation } from './facets/simulation';
 import { computeDomestic } from './facets/domestic';
 import { computeSkillsEvolution } from './facets/skillsEvolution';
+import { pickDreamImagery, pickMotivationDreams, pickNightmareImagery } from './facets/dreams';
 import {
   normalizeSecurityEnv01k,
   type SecurityEnvAxis,
@@ -1019,9 +1020,11 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
     latents,
     roleSeedTags,
     tierBand,
+    age,
     buildTag: appearanceResult.buildTag,
     heightBand: appearanceResult.heightBand,
     voiceTag: appearanceResult.voiceTag,
+    educationTrackTag: identityResult.educationTrackTag,
     careerTrackTag: identityResult.careerTrackTag,
     securityEnv01k: securityEnv01kBlended,
     travelScore,
@@ -2071,7 +2074,22 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
 
   // Dreams and goals (narrative ambitions)
   const dreamsPool = vocab.dreamsGoals?.dreams ?? [];
-  const dreams = dreamsPool.length ? newFacetsRng.pickK(dreamsPool, newFacetsRng.int(1, 3)) : [];
+  const dreamWeightContext = {
+    primaryGoal,
+    secondaryGoals,
+    fears,
+    roleSeedTags,
+    age,
+    publicness01: latents.publicness / 1000,
+    principled01: latents.principledness / 1000,
+    stress01: latents.stressReactivity / 1000,
+    opsec01: latents.opsecDiscipline / 1000,
+    conscientious01: capabilitiesResult.traits.conscientiousness / 1000,
+    risk01: latents.riskAppetite / 1000,
+  };
+  const dreams = dreamsPool.length
+    ? pickMotivationDreams(newFacetsRng, dreamsPool, dreamWeightContext, newFacetsRng.int(1, 3))
+    : [];
 
   // Core need narrative
   const coreNeedTemplates = [
@@ -2090,14 +2108,14 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
   const dreamImageryPool = vocab.dreamsNightmares?.dreams ?? [];
   const nightmareImageryPool = vocab.dreamsNightmares?.nightmares ?? [];
   const dreamsNightmares = {
-    dreams: uniqueStrings(
-      dreamImageryPool.length ? dreamsNightmaresRng.pickK(dreamImageryPool, dreamsNightmaresRng.int(1, 3)) : [],
-    ),
-    nightmares: uniqueStrings(
-      nightmareImageryPool.length ? dreamsNightmaresRng.pickK(nightmareImageryPool, dreamsNightmaresRng.int(1, 3)) : [],
-    ),
+    dreams: dreamImageryPool.length
+      ? pickDreamImagery(dreamsNightmaresRng, dreamImageryPool, dreamWeightContext, dreamsNightmaresRng.int(1, 3))
+      : [],
+    nightmares: nightmareImageryPool.length
+      ? pickNightmareImagery(dreamsNightmaresRng, nightmareImageryPool, dreamWeightContext, dreamsNightmaresRng.int(1, 3))
+      : [],
   };
-  traceSet(trace, 'dreamsNightmares', dreamsNightmares, { method: 'pickK', dependsOn: { vocab: 'dreamsNightmares' } });
+  traceSet(trace, 'dreamsNightmares', dreamsNightmares, { method: 'weightedAnchors', dependsOn: { vocab: 'dreamsNightmares' } });
 
   // --- Attachment Style ---
   const attachmentStyles: AttachmentStyle[] = ['secure', 'anxious-preoccupied', 'dismissive-avoidant', 'fearful-avoidant'];

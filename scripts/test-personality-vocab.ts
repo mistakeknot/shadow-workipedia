@@ -18,9 +18,10 @@ import { renderKnowledgeEntry, renderKnowledgeEntryList } from '../src/agent/kno
 import { formatCopingMeta, formatEmotionMeta, formatThoughtMeta, renderPsychologyEntry, renderPsychologyEntryList } from '../src/agent/psychologyEntry';
 import { renderPsychologySection } from '../src/agent/psychologySection';
 import { computeHousingWeights } from '../src/agent/facets/domestic';
+import { pickDreamImagery, pickMotivationDreams, pickNightmareImagery } from '../src/agent/facets/dreams';
 import { buildPressureWeights } from '../src/agent/pressureResponse';
 import { formatFunctionalSpec, formatThirdPlace, sanitizeComfortItems } from '../src/agentNarration';
-import { generateAgent } from '../src/agent';
+import { generateAgent, makeRng } from '../src/agent';
 import type { AgentPriorsV1, AgentVocabV1, GenerateAgentInput, Latents } from '../src/agent/types';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -1218,6 +1219,89 @@ function run(): void {
   const dreams = (agent as any).motivations?.dreams as string[] | undefined;
   if (!dreams || dreams.length < 1 || dreams.length > 3) {
     throw new Error('Expected motivations.dreams to include 1-3 items.');
+  }
+
+  console.log('Checking dream weighting...');
+  const dreamPool = [
+    'Master every form of combat',
+    'Find my scattered family',
+    'Create something that outlasts me',
+    'Tear down the corrupt system',
+  ];
+  const motivationDreams = pickMotivationDreams(
+    makeRng('dreams-weighting'),
+    dreamPool,
+    {
+      primaryGoal: 'mastery',
+      secondaryGoals: ['legacy'],
+      fears: ['betrayal'],
+      roleSeedTags: ['operative'],
+      age: 34,
+      publicness01: 0.2,
+      principled01: 0.4,
+      stress01: 0.3,
+      opsec01: 0.5,
+      conscientious01: 0.6,
+      risk01: 0.4,
+    },
+    2,
+  );
+  if (!motivationDreams.some(d => d.toLowerCase().includes('master'))) {
+    throw new Error('Expected motivation dreams to anchor to primary goal.');
+  }
+
+  const imageryPool = [
+    'Peaceful beaches with no missions',
+    'Skills working flawlessly beyond reality',
+    'Family dinners lasting forever',
+  ];
+  const imageryDreams = pickDreamImagery(
+    makeRng('dreams-imagery'),
+    imageryPool,
+    {
+      primaryGoal: 'relational',
+      secondaryGoals: ['security'],
+      fears: ['loss-of-control'],
+      roleSeedTags: ['analyst'],
+      age: 29,
+      publicness01: 0.3,
+      principled01: 0.5,
+      stress01: 0.4,
+      opsec01: 0.2,
+      conscientious01: 0.7,
+      risk01: 0.3,
+    },
+    2,
+  );
+  if (!imageryDreams.some(d => d.toLowerCase().includes('family'))) {
+    throw new Error('Expected dream imagery to anchor to relational cues.');
+  }
+
+  const nightmarePool = [
+    'Face appearing on every screen',
+    'Weapon jamming repeatedly while under attack',
+    'Friends reporting your location',
+  ];
+  const nightmares = pickNightmareImagery(
+    makeRng('dreams-nightmares'),
+    nightmarePool,
+    {
+      primaryGoal: 'security',
+      secondaryGoals: ['mastery'],
+      fears: ['exposure'],
+      roleSeedTags: ['operative'],
+      age: 41,
+      publicness01: 0.7,
+      principled01: 0.4,
+      stress01: 0.6,
+      opsec01: 0.8,
+      conscientious01: 0.5,
+      risk01: 0.6,
+    },
+    1,
+  );
+  if (!nightmares.some(d => d.toLowerCase().includes('screen'))) {
+    throw new Error('Expected nightmares to anchor to exposure fears.');
   }
 
   const thoughtsBlock = (agent as any).thoughtsEmotions as
