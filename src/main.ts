@@ -6,6 +6,7 @@ import { ZoomPanHandler, HoverHandler, ClickHandler, DragHandler } from './inter
 import { ArticleRouter, renderWikiArticleContent, type RouteType, type ViewType } from './article';
 import { initializeAgentsView } from './agentsView';
 import { createCanvasContext } from './main/canvas';
+import { initializeMainDom } from './main/dom';
 import { initializeMainState } from './main/state';
 import { polygonHull, polygonCentroid } from 'd3-polygon';
 
@@ -370,11 +371,29 @@ async function main() {
     return current;
   }
 
+  const {
+    loading,
+    warningBanner,
+    graphView,
+    tableView,
+    wikiView,
+    agentsView,
+    agentsContainer,
+    wikiSidebarContent,
+    wikiArticleContent,
+    articleView,
+    header,
+    tabNav,
+    filterBar,
+    tooltip,
+    detailPanel,
+    panelContent,
+    closeBtn,
+  } = initializeMainDom();
+
   // Hide loading indicator
-  const loading = document.getElementById('loading');
   if (loading) loading.classList.add('hidden');
 
-  const warningBanner = document.getElementById('data-warning-banner');
   if (warningBanner) {
     if (dataLoadError) {
       warningBanner.classList.remove('hidden');
@@ -391,24 +410,6 @@ async function main() {
       warningBanner.textContent = '';
     }
   }
-
-  // Get view elements
-  const graphView = document.getElementById('graph-view');
-  const tableView = document.getElementById('table-view');
-  const wikiView = document.getElementById('wiki-view');
-  const agentsView = document.getElementById('agents-view');
-  const agentsContainer = document.getElementById('agents-container');
-	  const wikiSidebarContent = document.getElementById('wiki-sidebar-content');
-	  const wikiArticleContent = document.getElementById('wiki-article-content');
-	  const articleView = document.getElementById('article-view');
-	  const articleContainer = document.getElementById('article-container');
-	  const header = document.getElementById('header');
-	  const tabNav = document.getElementById('tab-nav');
-	  const filterBar = document.getElementById('filter-bar');
-
-	  if (!graphView || !tableView || !wikiView || !agentsView || !agentsContainer || !wikiSidebarContent || !wikiArticleContent || !articleView || !articleContainer) {
-	    throw new Error('Required view elements not found');
-	  }
 
 	  // Track selected wiki article
 	  let selectedWikiArticle: string | null = null;
@@ -609,9 +610,6 @@ async function main() {
     render();
   }
 
-  // Tooltip element
-  const tooltip = document.getElementById('tooltip') as HTMLDivElement;
-
   // Initialize drag handler (must be before hover to handle mousedown first)
   const dragHandler = new DragHandler(
     canvas,
@@ -679,10 +677,6 @@ async function main() {
     selectedNode = node;
     recomputeConnectedToSelected();
   }
-  const detailPanel = document.getElementById('detail-panel') as HTMLDivElement;
-  const panelContent = document.getElementById('panel-content') as HTMLDivElement;
-  const closeBtn = document.getElementById('close-panel') as HTMLButtonElement;
-
   // Shared function to attach detail panel interaction handlers
   function attachDetailPanelHandlers() {
     // Handle connection item clicks
