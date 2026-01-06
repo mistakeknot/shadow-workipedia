@@ -10,6 +10,7 @@ import { initializeMainDom } from './main/dom';
 import { attachMainHandlers } from './main/handlers';
 import { initializeCommandPalette } from './main/palette';
 import { createRenderLoop } from './main/render';
+import { createTableRenderer } from './main/table';
 import { initializeMainState } from './main/state';
 import { polygonHull, polygonCentroid } from 'd3-polygon';
 
@@ -1227,6 +1228,33 @@ async function main() {
 	  const tabAgents = document.getElementById('tab-agents') as HTMLButtonElement;
 	  const tableContainer = document.getElementById('table-container') as HTMLDivElement;
 
+  renderTable = createTableRenderer({
+    graph,
+    data,
+    getShowIssues: () => showIssues,
+    getShowSystems: () => showSystems,
+    activeCategories,
+    getSelectedPrimitive: () => selectedPrimitive,
+    getSearchTerm: () => searchTerm,
+    searchResults,
+    getTableSortColumn: () => tableSortColumn,
+    setTableSortColumn: (value) => {
+      tableSortColumn = value;
+    },
+    getTableSortDirection: () => tableSortDirection,
+    setTableSortDirection: (value) => {
+      tableSortDirection = value;
+    },
+    getCategoryColor,
+    tableContainer,
+    setSelectedNode,
+    panelContent,
+    detailPanel,
+    tooltip,
+    renderDetailPanel,
+    attachDetailPanelHandlers,
+  });
+
   // Tab clicks navigate via router (which updates URL and calls showView)
   tabGraph.addEventListener('click', () => router.navigateToView('graph'));
   tabTable.addEventListener('click', () => router.navigateToView('table'));
@@ -1270,148 +1298,6 @@ async function main() {
     render,
     resetBtn: resetBtn as HTMLButtonElement | null,
   });
-
-  // Table rendering (assign to forward-declared function)
-  renderTable = function() {
-    // Get filtered nodes
-    const nodes = graph.getNodes().filter(node => {
-      // Apply view toggle filter
-      if (node.type === 'issue' && !showIssues) return false;
-      if (node.type === 'system' && !showSystems) return false;
-
-      // Apply category filter - show if ANY category is active (additive filtering)
-      const anyCategoryActive = !node.categories?.length || node.categories.some(cat => activeCategories.has(cat));
-      if (!anyCategoryActive) return false;
-
-      // Apply primitive filter
-      if (selectedPrimitive) {
-        if (!node.primitives?.includes(selectedPrimitive)) return false;
-      }
-
-      // Apply search filter
-      if (searchTerm !== '') {
-        return searchResults.has(node.id);
-      }
-
-      return true;
-    });
-
-    // Sort nodes
-    let sortedNodes = [...nodes];
-    if (tableSortColumn) {
-      sortedNodes.sort((a, b) => {
-        let aVal: string | number | undefined;
-        let bVal: string | number | undefined;
-
-        switch (tableSortColumn) {
-          case 'name':
-            aVal = a.label;
-            bVal = b.label;
-            break;
-          case 'categories':
-            aVal = a.categories?.join(', ') || '';
-            bVal = b.categories?.join(', ') || '';
-            break;
-          case 'urgency':
-            const urgencyOrder = { Critical: 4, High: 3, Medium: 2, Low: 1, Latent: 0 };
-            // Systems don't have urgency - sort them to the end
-            aVal = a.type === 'system' ? -1 : urgencyOrder[a.urgency || 'Latent'];
-            bVal = b.type === 'system' ? -1 : urgencyOrder[b.urgency || 'Latent'];
-            break;
-          case 'connections':
-            aVal = data.edges.filter(e => e.source === a.id || e.target === a.id).length;
-            bVal = data.edges.filter(e => e.source === b.id || e.target === b.id).length;
-            break;
-        }
-
-        if (aVal === undefined || bVal === undefined) return 0;
-
-        if (typeof aVal === 'string' && typeof bVal === 'string') {
-          return tableSortDirection === 'asc'
-            ? aVal.localeCompare(bVal)
-            : bVal.localeCompare(aVal);
-        } else {
-          return tableSortDirection === 'asc'
-            ? (aVal as number) - (bVal as number)
-            : (bVal as number) - (aVal as number);
-        }
-      });
-    }
-
-    // Build table HTML
-    const html = `
-      <table>
-        <thead>
-          <tr>
-            <th data-column="name">Issue ${tableSortColumn === 'name' ? (tableSortDirection === 'asc' ? '▲' : '▼') : ''}</th>
-            <th data-column="categories">Categories ${tableSortColumn === 'categories' ? (tableSortDirection === 'asc' ? '▲' : '▼') : ''}</th>
-            <th data-column="urgency">Urgency ${tableSortColumn === 'urgency' ? (tableSortDirection === 'asc' ? '▲' : '▼') : ''}</th>
-            <th data-column="connections">Connections ${tableSortColumn === 'connections' ? (tableSortDirection === 'asc' ? '▲' : '▼') : ''}</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${sortedNodes.map(node => {
-            const connectionCount = data.edges.filter(e => e.source === node.id || e.target === node.id).length;
-            return `
-              <tr data-node-id="${node.id}">
-                <td>${node.label}</td>
-                <td>
-                  <div class="table-categories">
-                    ${node.categories?.map(cat => {
-                      const color = getCategoryColor(cat);
-                      return `<span class="table-category-badge" style="background: ${color}; color: #0f172a;">${cat}</span>`;
-                    }).join('') || ''}
-                  </div>
-                </td>
-                <td>
-                  ${node.type === 'system'
-                    ? '<span class="badge system-badge">N/A</span>'
-                    : `<span class="badge urgency-${node.urgency || 'latent'}">${node.urgency || 'latent'}</span>`
-                  }
-                </td>
-                <td>${connectionCount}</td>
-              </tr>
-            `;
-          }).join('')}
-        </tbody>
-      </table>
-    `;
-
-    tableContainer.innerHTML = html;
-
-    // Add column header click handlers for sorting
-    tableContainer.querySelectorAll('th[data-column]').forEach(th => {
-      th.addEventListener('click', () => {
-        const column = th.getAttribute('data-column');
-        if (column === tableSortColumn) {
-          tableSortDirection = tableSortDirection === 'asc' ? 'desc' : 'asc';
-        } else {
-          tableSortColumn = column;
-          tableSortDirection = 'asc';
-        }
-        renderTable();
-      });
-    });
-
-    // Add row click handlers to open detail panel
-    tableContainer.querySelectorAll('tbody tr').forEach(tr => {
-      tr.addEventListener('click', () => {
-        const nodeId = tr.getAttribute('data-node-id');
-        const node = graph.getNodes().find(n => n.id === nodeId);
-        if (node) {
-          setSelectedNode(node);
-          panelContent.innerHTML = renderDetailPanel(node, data);
-          panelContent.scrollTop = 0; // Reset scroll position for new node
-          detailPanel.classList.remove('hidden');
-          // Hide tooltip when detail panel opens (prevents overlap on mobile)
-          tooltip.classList.add('hidden');
-
-          // Attach connection handlers for navigation within table view
-          attachDetailPanelHandlers();
-        }
-      });
-    });
-  }
 
   // Wiki sidebar and article rendering
   const wikiSidebar = document.getElementById('wiki-sidebar');
