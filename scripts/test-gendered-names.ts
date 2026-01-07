@@ -28,8 +28,23 @@ const assertNonEmpty = (label: string, names: string[] | undefined): void => {
   }
 };
 
+const assertDisjoint = (label: string, male: string[] | undefined, female: string[] | undefined): void => {
+  if (!male || !female) return;
+  const femaleSet = new Set(female);
+  const overlap = male.filter(name => femaleSet.has(name));
+  if (overlap.length) {
+    const sample = overlap.slice(0, 5).join(', ');
+    throw new Error(`Expected disjoint ${label}. Overlap: ${sample}`);
+  }
+};
+
 assertNonEmpty('identity.maleFirstNames', (vocab.identity as { maleFirstNames?: string[] }).maleFirstNames);
 assertNonEmpty('identity.femaleFirstNames', (vocab.identity as { femaleFirstNames?: string[] }).femaleFirstNames);
+assertDisjoint(
+  'identity gendered pools',
+  (vocab.identity as { maleFirstNames?: string[] }).maleFirstNames,
+  (vocab.identity as { femaleFirstNames?: string[] }).femaleFirstNames,
+);
 
 const maleUnion = new Set<string>();
 const femaleUnion = new Set<string>();
@@ -42,6 +57,7 @@ for (const [profileId, profile] of Object.entries(vocab.cultureProfiles ?? {})) 
   const female = profile.identity?.femaleFirstNames;
   assertNonEmpty(`cultureProfiles.${profileId}.identity.maleFirstNames`, male);
   assertNonEmpty(`cultureProfiles.${profileId}.identity.femaleFirstNames`, female);
+  assertDisjoint(`cultureProfiles.${profileId}.identity`, male, female);
   addNames(maleUnion, male);
   addNames(femaleUnion, female);
 }
@@ -52,6 +68,7 @@ for (const [profileId, profile] of Object.entries(vocab.microCultureProfiles ?? 
   const female = profile.identity?.femaleFirstNames;
   assertNonEmpty(`microCultureProfiles.${profileId}.identity.maleFirstNames`, male);
   assertNonEmpty(`microCultureProfiles.${profileId}.identity.femaleFirstNames`, female);
+  assertDisjoint(`microCultureProfiles.${profileId}.identity`, male, female);
   addNames(maleUnion, male);
   addNames(femaleUnion, female);
 }
