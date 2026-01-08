@@ -78,6 +78,9 @@ export type DomesticContext = {
 
   // Diaspora status for DC-D16 correlate (from geography facet)
   diasporaStatus?: string;
+
+  // Education track for NEW13 correlate (Education ↔ Bureaucracy Navigation)
+  educationTrackTag?: string;
 };
 
 /** Everyday life anchors */
@@ -1187,8 +1190,24 @@ export function computeDomestic(ctx: DomesticContext): DomesticResult {
   const domesticBias = tierBand === 'elite' ? -150 : tierBand === 'mass' ? 100 : 0;
   const domesticCompetence = pickCompetence(domesticBias);
 
-  // Bureaucracy navigation - influenced by institutional embeddedness
-  const bureauBias = Math.round((latents.institutionalEmbeddedness - 500) / 5);
+  // Bureaucracy navigation - influenced by institutional embeddedness and education
+  // NEW13: Education ↔ Bureaucracy Navigation (positive correlation)
+  // Higher education improves ability to navigate institutional systems
+  const educationBureauBias = (() => {
+    switch (ctx.educationTrackTag) {
+      case 'doctorate': return 150;
+      case 'graduate': return 100;
+      case 'civil-service-track': return 130; // Explicit bureaucracy training
+      case 'undergraduate': return 50;
+      case 'military-academy': return 40;
+      case 'trade-certification': return 10;
+      case 'secondary': return -30;
+      case 'self-taught': return -50;
+      default: return 0;
+    }
+  })();
+  const bureauBias = Math.round((latents.institutionalEmbeddedness - 500) / 5) +
+                     Math.round(educationBureauBias / 3);
   const bureaucracyNavigation = pickCompetence(bureauBias);
 
   // Street smarts - influenced by tier (mass has more, elites less)

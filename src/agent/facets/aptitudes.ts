@@ -393,5 +393,37 @@ export function computeAptitudes(ctx: AptitudesContext): AptitudesResult {
     biases.push({ key: 'flexibility', delta, reason: `PG14:build-${buildTag}-age-${age}-flexibility-cap` });
   }
 
+  // ============================================================================
+  // NEW29: Tier ↔ Aptitude Ceiling/Floor
+  // ============================================================================
+  // Elite tier: higher cognitive floors (access to education, stimulation, nutrition)
+  // Mass tier: soft ceiling on social aptitudes (limited networking access)
+
+  if (tierBand === 'elite') {
+    // Elite cognitive floor - access to education and mental stimulation
+    const eliteCognitiveFloor = 350;
+    if (aptitudes.cognitiveSpeed < eliteCognitiveFloor) {
+      const delta = eliteCognitiveFloor - aptitudes.cognitiveSpeed;
+      aptitudes = { ...aptitudes, cognitiveSpeed: eliteCognitiveFloor as Fixed };
+      biases.push({ key: 'cognitiveSpeed', delta, reason: 'NEW29:elite-cognitive-floor' });
+    }
+    if (aptitudes.workingMemory < eliteCognitiveFloor) {
+      const delta = eliteCognitiveFloor - aptitudes.workingMemory;
+      aptitudes = { ...aptitudes, workingMemory: eliteCognitiveFloor as Fixed };
+      biases.push({ key: 'workingMemory', delta, reason: 'NEW29:elite-memory-floor' });
+    }
+  }
+
+  if (tierBand === 'mass') {
+    // Mass tier has soft ceiling on social aptitudes (limited networking access)
+    // Only applies probabilistically to prevent determinism
+    const massSocialCeiling = 750;
+    if (aptitudes.charisma > massSocialCeiling && capRng.next01() < 0.35) {
+      const delta = massSocialCeiling - aptitudes.charisma;
+      aptitudes = { ...aptitudes, charisma: massSocialCeiling as Fixed };
+      biases.push({ key: 'charisma', delta, reason: 'NEW29:mass-social-ceiling' });
+    }
+  }
+
   return { aptitudes, biases };
 }

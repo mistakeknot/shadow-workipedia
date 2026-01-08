@@ -533,6 +533,7 @@ const DOCUMENTED_CORRELATES = [
   { id: '#DC-D6', name: 'Household → Eldercare', vars: ['isMultigenerational', 'hasEldercareObligation'], expected: 'positive' as const },
   { id: '#DC-D8', name: 'Legal Exposure → Clearance', vars: ['legalExposureNumeric', 'hasSecurityClearance'], expected: 'negative' as const },
   { id: '#DC-D9', name: 'Urbanicity → Skill Domain', vars: ['urbanicityNumeric', 'ruralSkillScore'], expected: 'negative' as const },
+  { id: '#NEW13', name: 'Education → Bureaucracy', vars: ['educationNumeric', 'bureaucracyNumeric'], expected: 'positive' as const },
 
   // Health/Lifestyle (HL series)
   { id: '#HL8', name: 'Injuries → Fitness', vars: ['injuryCount', 'fitnessBandNumeric'], expected: 'negative' as const },
@@ -587,7 +588,7 @@ const DOCUMENTED_CORRELATES = [
   { id: '#DC-SK10', name: 'Tech → Digital Hygiene', vars: ['techFluency', 'digitalHygiene'], expected: 'positive' as const },
   { id: '#DC-SOCIAL-COMM', name: 'Social Battery → Communication', vars: ['socialBattery', 'asyncCommPreference'], expected: 'negative' as const },
   { id: '#DC-SPACE-TYPE', name: 'Opsec → Space Type', vars: ['opsecDiscipline', 'privateSpacePreference'], expected: 'positive' as const },
-  { id: '#DC-STRESS-LIGHT', name: 'Stress → Light Preference', vars: ['stressReactivity', 'warmLightPreference'], expected: 'negative' as const }, // High stress → cool/calming light
+  { id: '#DC-STRESS-LIGHT', name: 'Stress → Light Preference', vars: ['stressReactivity', 'warmLightPreference'], expected: 'positive' as const }, // High stress → warm/calming/dim light (reduces sensory overload)
 
   // Legacy/Other
   { id: '#4-DEP', name: 'Age → Dependents', vars: ['age', 'hasDependents'], expected: 'positive' as const },
@@ -1232,7 +1233,7 @@ function extractMetrics(agent: GeneratedAgent, asOfYear: number): AgentMetrics {
     // Favors leverage requires social energy to maintain reciprocal relationships (per generation code)
     hasSocialLeverage: agent.network?.leverageType === 'favors' ? 1 : 0,
     isWidowed: maritalStatus === 'widowed' ? 1 : 0,
-    hasOnlineCommunity: (agent.communities?.onlineCommunities?.length ?? 0) > 0 ? 1 : 0,
+    hasOnlineCommunity: agent.communities?.onlineCommunities?.length ?? 0, // Count, not binary
 
     // Geography metrics
     urbanicityNumeric: computeUrbanicityNumeric(agent.geography?.urbanicity),
@@ -1283,6 +1284,8 @@ function extractMetrics(agent: GeneratedAgent, asOfYear: number): AgentMetrics {
     hasSecurityClearance: agent.legalAdmin?.credentials?.includes('security-clearance') ? 1 : 0,
     // DC-D9: lifeSkills.primarySkillDomain indicates rural vs urban skill bias
     ruralSkillScore: agent.lifeSkills?.primarySkillDomain === 'rural' ? 1 : 0,
+    // NEW13: bureaucracyNavigation is in lifeSkills
+    bureaucracyNumeric: computeCompetenceBandNumeric(agent.lifeSkills?.bureaucracyNavigation),
 
     // HL metrics
     injuryCount: agent.health?.injuryHistoryTags?.length ?? 0,
@@ -1413,6 +1416,7 @@ type AgentMetricsExtended = AgentMetrics & {
   hasEldercareObligation: number;
   hasSecurityClearance: number;
   ruralSkillScore: number;
+  bureaucracyNumeric: number;
   injuryCount: number;
   fitnessBandNumeric: number;
   hasMobilityCondition: number;
@@ -1956,6 +1960,15 @@ function computeFitnessBandNumeric(fitnessBand: string | undefined): number {
   return map[fitnessBand ?? 'average'] ?? 3;
 }
 
+function computeCompetenceBandNumeric(competence: string | undefined): number {
+  const map: Record<string, number> = {
+    'incompetent': 1, 'struggles': 2, 'adequate': 3, 'competent': 4, 'expert': 5,
+    // Alternative names
+    'novice': 1, 'basic': 2, 'proficient': 4,
+  };
+  return map[competence ?? 'adequate'] ?? 3;
+}
+
 function hasMobilityAffectingCondition(conditions: Array<{ type?: string; name?: string }> | string[]): number {
   const mobilityConditions = new Set([
     'paralysis', 'amputation', 'arthritis', 'ms', 'muscular-dystrophy',
@@ -1975,14 +1988,14 @@ function hasActiveDependencyFromProfiles(
 ): number {
   if (!dependencyProfiles?.length) return 0;
   // Check for active/relapsing dependencies (not managed/recovered)
+  // Only match actual stage indicators, not just presence of substance
   const activeIndicators = new Set([
     'active', 'struggling', 'relapsing', 'relapse-risk', 'dependent',
-    'early-stage', 'middle-stage', 'late-stage',
+    'early-stage', 'middle-stage', 'late-stage', 'crisis',
   ]);
   return dependencyProfiles.some(d =>
     activeIndicators.has(d.recovery ?? '') ||
-    activeIndicators.has(d.stage ?? '') ||
-    (d.substance && !['caffeine', 'risk-taking'].includes(d.substance)) // More serious substances
+    activeIndicators.has(d.stage ?? '')
   ) ? 1 : 0;
 }
 

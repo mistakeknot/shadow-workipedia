@@ -433,18 +433,28 @@ function computeFoodPreferences(ctx: PreferencesContext, rng: Rng): FoodPreferen
       if (s.includes('vegetarian') || s.includes('salad')) w += 1.8 * axis01('plantForward', 0.4);
     }
     // DC-NOVELTY-COMFORT: High noveltySeeking → adventurous/exotic comfort foods
-    // When noveltySeeking > 700, weight exotic/unusual options more heavily
-    if (s.includes('exotic') || s.includes('unusual') || s.includes('adventur') || s.includes('fusion') ||
-        s.includes('rare') || s.includes('unique') || s.includes('fermented') || s.includes('offal') ||
-        s.includes('insect') || s.includes('strange') || s.includes('experimental')) {
-      w += 1.8 * novelty01; // High novelty seeking → adventurous foods
-      if (traits.noveltySeeking > 700) w += 1.2; // Extra boost for very high novelty seeking
+    // Match vocabulary items: sushi, dumplings, pho, fermented, street food, spicy, ethnic cuisines
+    const adventurousFoods = s.includes('sushi') || s.includes('dumpling') || s.includes('pho') ||
+        s.includes('curry') || s.includes('thai') || s.includes('korean') || s.includes('vietnamese') ||
+        s.includes('ethiopian') || s.includes('fermented') || s.includes('street food') ||
+        s.includes('street noodle') || s.includes('spicy') || s.includes('fusion') ||
+        s.includes('tapas') || s.includes('ceviche') || s.includes('dim sum') || s.includes('ramen') ||
+        s.includes('exotic') || s.includes('unusual') || s.includes('adventur') ||
+        s.includes('rare') || s.includes('unique') || s.includes('offal') ||
+        s.includes('insect') || s.includes('strange') || s.includes('experimental');
+    if (adventurousFoods) {
+      w += 2.5 * novelty01; // High novelty seeking → adventurous foods (strengthened)
+      if (traits.noveltySeeking > 700) w += 1.8; // Extra boost for very high novelty seeking
     }
     // Traditional/familiar comfort foods - preferred by low novelty seekers
-    if (s.includes('classic') || s.includes('tradition') || s.includes('familiar') ||
-        s.includes('childhood') || s.includes('grandma') || s.includes('mom') ||
-        s.includes('home') || s.includes('comfort') || s.includes('nostalgic')) {
-      w += 1.2 * (1 - novelty01); // Low novelty seeking → familiar foods
+    // Match vocabulary: home cooking, comfort noodles, hearty soups, baked breads, stews
+    const traditionalFoods = s.includes('home') || s.includes('comfort') || s.includes('hearty') ||
+        s.includes('baked') || s.includes('stew') || s.includes('soup') && !s.includes('pho') ||
+        s.includes('casserole') || s.includes('roast') || s.includes('porridge') ||
+        s.includes('classic') || s.includes('tradition') || s.includes('familiar') ||
+        s.includes('childhood') || s.includes('grandma') || s.includes('mom') || s.includes('nostalgic');
+    if (traditionalFoods) {
+      w += 2.2 * (1 - novelty01); // Low novelty seeking → familiar foods (strengthened)
     }
     // DC-ELITE-DINING: Elite → Dining Preference
     // If tier == "elite", dining preference weighted toward fine dining/private chef
@@ -1155,9 +1165,13 @@ function computeHobbies(ctx: PreferencesContext, rng: Rng): HobbiesPreferences {
     // Physical and outdoor are neutral
     const isMainstream = cat === 'intellectual' || cat === 'social' || cat === 'culinary';
     const isFringe = cat === 'creative' || cat === 'technical';
-    // Strengthened multipliers (was +5/+4, now multiplicative factor 1.5-2.5x)
-    if (isMainstream) w *= (1.0 + 1.5 * inst01); // High embedded: 2.5x mainstream
-    if (isFringe) w *= (1.0 + 1.2 * (1 - inst01)); // Low embedded: 2.2x fringe
+    // Stronger multiplicative factors for clear separation
+    if (isMainstream) {
+      w *= (0.6 + 2.4 * inst01); // Low embedded: 0.6x, High embedded: 3.0x
+    }
+    if (isFringe) {
+      w *= (0.5 + 2.0 * (1 - inst01)); // High embedded: 0.5x, Low embedded: 2.5x
+    }
 
     // Physical hobbies influenced by riskAppetite, conditioning, and age
     // Correlate #B3: Physical Conditioning ↔ Active Hobbies (positive) - STRENGTHENED

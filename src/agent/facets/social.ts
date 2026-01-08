@@ -986,18 +986,26 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     networkRole = networkRng.next01() < 0.6 ? 'peripheral' : 'isolate';
   }
 
-  // Correlate #NEW33: High Opsec → Cannot be Hub/Gatekeeper (DETERMINISTIC)
+  // Correlate #NEW33: High Opsec → Cannot be Hub/Gatekeeper (CONTINUOUS + DETERMINISTIC)
   // Discretion-seekers avoid visible network positions that expose them
-  // Lowered threshold (was 0.75, now 0.60) to affect more agents
-  if (opsec01 > 0.60 && (networkRole === 'hub' || networkRole === 'gatekeeper')) {
-    networkRole = networkRng.next01() < 0.6 ? 'broker' : 'peripheral'; // Hidden influence roles
+  // Continuous effect: opsec reduces probability of visible roles
+  if (opsec01 > 0.50 && (networkRole === 'hub' || networkRole === 'gatekeeper')) {
+    // Higher opsec = higher probability of reassignment (50% at 0.5 opsec, 95% at 1.0)
+    const reassignProb = 0.5 + 0.45 * (opsec01 - 0.5) / 0.5;
+    if (networkRng.next01() < reassignProb) {
+      networkRole = networkRng.next01() < 0.6 ? 'broker' : 'peripheral'; // Hidden influence roles
+    }
   }
 
-  // Correlate #NEW11: Principledness → Not Broker (DETERMINISTIC POST-HOC)
+  // Correlate #NEW11: Principledness → Not Broker (CONTINUOUS + DETERMINISTIC)
   // Principled people refuse to be information brokers who exploit others
-  // High principledness (>0.6) reassigned from broker to connector (similar social role, ethical)
-  if (principledness01 > 0.60 && networkRole === 'broker') {
-    networkRole = networkRng.next01() < 0.7 ? 'connector' : 'peripheral';
+  // Continuous effect: higher principledness = higher probability of reassignment
+  if (principledness01 > 0.45 && networkRole === 'broker') {
+    // Higher principledness = higher probability of reassignment (40% at 0.45, 95% at 1.0)
+    const reassignProb = 0.4 + 0.55 * (principledness01 - 0.45) / 0.55;
+    if (networkRng.next01() < reassignProb) {
+      networkRole = networkRng.next01() < 0.7 ? 'connector' : 'peripheral';
+    }
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -1038,14 +1046,17 @@ export function computeSocial(ctx: SocialContext): SocialResult {
       return networkRng.next01() < 0.3 ? null : null; // 70% no faction
     }
 
-    // Correlate #NEW43: High risk + low institutional → avoid formal factions
+    // Correlate #NEW43: High risk + low institutional → avoid formal factions (continuous)
     // Risk-takers with low institutional ties prefer informal networks over formal faction membership
-    if (risk01 > 0.75 && inst01 < 0.3) {
+    // Combine: high riskInstitutionalScore = (riskAppetite * (1 - institutional)) → less faction
+    const riskInstScore = risk01 * (1 - inst01);
+    // If score > 0.4, increasingly likely to skip faction alignment
+    if (riskInstScore > 0.3 && networkRng.next01() < riskInstScore * 1.5) {
       return null; // These agents avoid formal factional commitments
     }
 
     // Others might have faction alignment based on institutional embeddedness
-    if (networkRng.next01() < 0.4 + 0.3 * inst01) {
+    if (networkRng.next01() < 0.35 + 0.35 * inst01) {
       const factions = ['reform', 'establishment', 'progressive', 'conservative', 'pragmatist', 'idealist'];
       return networkRng.pick(factions);
     }
@@ -1151,12 +1162,14 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     memberships.push({ type, role, intensityBand });
   }
 
-  // Correlate #NEW45: Rural compensates with online presence
+  // Correlate #NEW45: Urbanicity → Online Community (negative: urban → fewer online communities)
   // Rural agents have fewer physical third places, so they compensate with more online communities
+  // Urban agents have abundant physical third places, reducing need for online connection
   const urbanPopulationLevel = ctx.urbanPopulation01 ?? 0.5;
-  const isRuralArea = urbanPopulationLevel < 0.3; // Low urban population = rural area
-  let onlineMin = isRuralArea ? 1 : 0;
-  let onlineMax = isRuralArea ? 3 : 2;
+  // Continuous gradient: more urban = fewer online communities
+  const urbanRuralOnlineBias = 1 - urbanPopulationLevel; // 0=urban, 1=rural
+  let onlineMin = urbanPopulationLevel < 0.4 ? 1 : 0; // Rural/small town guarantees 1
+  let onlineMax = 1 + Math.floor(2.5 * urbanRuralOnlineBias); // Rural: 3, Urban: 1
 
   // ═══════════════════════════════════════════════════════════════════════════
   // NEW51: Low Social Battery → Online Community Preference
@@ -1207,9 +1220,10 @@ export function computeSocial(ctx: SocialContext): SocialResult {
   // PR3: Visible Minority ↔ Community Status (negative correlation)
   // Visible minorities face systemic barriers to achieving high community status
   // Computed locally using same logic as narrative.ts (homeCountry !== currentCountry)
-  const isVisibleMinority = homeCountryIso3 !== currentCountryIso3 && commRng.next01() < 0.6;
-  // Probabilistic penalty: reduces weight for high-status outcomes, not a hard block
-  const minorityStatusPenalty = isVisibleMinority ? 0.65 : 1.0;
+  const isVisibleMinority = homeCountryIso3 !== currentCountryIso3 && commRng.next01() < 0.7;
+  // Stronger penalty for high-status outcomes and boost for lower status
+  const minorityStatusPenalty = isVisibleMinority ? 0.35 : 1.0;  // Much stronger penalty
+  const minorityStatusBoost = isVisibleMinority ? 1.8 : 1.0;     // Boost lower statuses
 
   // Correlate #NEW9: Deception ↔ Community Status (negative)
   // High deception aptitude → lower community standing (manipulators get discovered over time)
@@ -1237,9 +1251,12 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     }
     if (s === 'controversial' || s === 'outsider') {
       w *= (1 + 2.5 * deceptionForStatus); // Deception boosts low status
+      // PR3: Visible minorities more likely to be outsiders/controversial (discrimination effect)
+      w *= minorityStatusBoost;
     }
     if (s === 'regular' || s === 'newcomer') {
-      // Neutral - these middle statuses are less affected
+      // PR3: Visible minorities pushed toward newcomer/regular status
+      w *= isVisibleMinority ? 1.3 : 1.0;
     }
 
     return { item: s as CommunityStatus, weight: w };

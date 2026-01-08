@@ -1332,6 +1332,8 @@ export function generateAgent(input: GenerateAgentInput): GeneratedAgent {
       conscientiousness: capabilitiesResult.traits.conscientiousness, // #13: Housing stability
       authoritarianism: capabilitiesResult.traits.authoritarianism,   // #X6: Home orderliness
     },
+    // NEW13: Education ↔ Bureaucracy Navigation
+    educationTrackTag: identityResult.educationTrackTag,
   });
 
   const preferenceNarrativeBeats = buildPreferenceNarrativeBeats(

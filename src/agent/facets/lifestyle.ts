@@ -320,21 +320,29 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
     : [];
 
   // ═══════════════════════════════════════════════════════════════════════════
-  // PLAUSIBILITY GATE HL8: Multiple injuries cap fitness band
-  // Having 2+ injuries prevents peak athletic condition
+  // Correlate HL8: Injuries → Fitness (negative correlation)
+  // Any injury limits athletic capacity; multiple injuries further reduce fitness
   // ═══════════════════════════════════════════════════════════════════════════
   let gatedFitnessBand = fitnessBand;
-  if (injuryHistoryTags.length >= 2 && (fitnessBand === 'peak-condition' || fitnessBand === 'excellent' || fitnessBand === 'athletic')) {
-    // Cap at 'good' for injured agents
-    gatedFitnessBand = 'good';
-    if (trace) {
-      trace.derived = trace.derived ?? {};
-      trace.derived.hl8InjuryFitnessGate = {
-        injuryCount: injuryHistoryTags.length,
-        originalFitness: fitnessBand,
-        adjustedFitness: 'good',
-        reason: 'HL8: Multiple injuries (>=2) cap fitness band at good',
-      };
+  const injuryCount = injuryHistoryTags.length;
+  if (injuryCount > 0) {
+    // Probabilistic fitness cap based on injury count
+    // 1 injury: 60% chance to cap at 'good' (no peak/excellent)
+    // 2+ injuries: 90% chance to cap at 'good'
+    const capProb = injuryCount === 1 ? 0.60 : 0.90;
+    const highFitnessBands = ['peak-condition', 'excellent', 'athletic'];
+    if (highFitnessBands.includes(fitnessBand) && healthRng.next01() < capProb) {
+      gatedFitnessBand = 'good';
+      if (trace) {
+        trace.derived = trace.derived ?? {};
+        trace.derived.hl8InjuryFitnessGate = {
+          injuryCount,
+          originalFitness: fitnessBand,
+          adjustedFitness: 'good',
+          capProb,
+          reason: `HL8: ${injuryCount} injury(ies) capped fitness to good`,
+        };
+      }
     }
   }
 
@@ -445,7 +453,7 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
   const dependencyProfiles = computeDependencyProfiles(ctx, vices);
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // Correlate #HL15: Active addiction/dependency caps fitness band
+  // Correlate #HL15: Active addiction/dependency → reduced fitness (negative correlation)
   // Active addiction/struggling stages prevent peak physical fitness
   // Substances like alcohol, stimulants, opioids impair physical conditioning
   // ─────────────────────────────────────────────────────────────────────────────
@@ -456,12 +464,17 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
     p.stage === 'late-stage' || p.stage === 'crisis'
   );
   if (hasActiveDependency) {
-    const highFitnessBands = ['peak-condition', 'excellent', 'athletic'];
-    if (highFitnessBands.includes(finalFitnessBand)) {
-      // Cap at 'moderate' or 'good' for agents with active dependency
-      finalFitnessBand = 'moderate';
-      if (!fitnessBands.includes('moderate')) {
-        finalFitnessBand = fitnessBands.includes('good') ? 'good' : finalFitnessBand;
+    // Step down fitness by one or two levels based on severity
+    const fitnessTiers = ['critical', 'poor', 'moderate', 'good', 'excellent', 'peak-condition', 'athletic'];
+    const currentTier = fitnessTiers.indexOf(finalFitnessBand);
+    if (currentTier > 0) {
+      // Reduce by 1-2 tiers (with probability)
+      const reduction = healthRng.next01() < 0.6 ? 2 : 1;
+      const newTier = Math.max(0, currentTier - reduction);
+      finalFitnessBand = fitnessTiers[newTier] ?? finalFitnessBand;
+      // Ensure the target band exists in vocab
+      if (!fitnessBands.includes(finalFitnessBand)) {
+        finalFitnessBand = fitnessBands.find(b => fitnessTiers.indexOf(b) <= newTier) ?? finalFitnessBand;
       }
       if (trace) {
         trace.derived = trace.derived ?? {};
@@ -469,7 +482,8 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
           dependencies: dependencyProfiles.map(p => ({ substance: p.substance, stage: p.stage })),
           originalFitness: gatedFitnessBand,
           adjustedFitness: finalFitnessBand,
-          reason: 'HL15: Active addiction/dependency caps fitness band at moderate',
+          reduction,
+          reason: 'HL15: Active addiction/dependency reduced fitness band',
         };
       }
     }
@@ -844,15 +858,17 @@ function computeVices(
   }
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // Correlate #HL11: Age affects vice type weights
-  // Younger agents: recreational drugs, gambling, gaming, social media
-  // Older agents: alcohol, tobacco, workaholism, caffeine
+  // Correlate #HL11: Age affects vice type weights (continuous gradient)
+  // Younger agents (<35): recreational drugs, gambling, gaming, social media
+  // Older agents (>45): alcohol, tobacco, workaholism, caffeine
   // ─────────────────────────────────────────────────────────────────────────────
   const { age } = ctx;
-  const isYoung = age < 35;
-  const isOlder = age > 50;
-  const youngViceBoost = isYoung ? 1.5 : (isOlder ? 0.5 : 1.0);
-  const olderViceBoost = isOlder ? 1.5 : (isYoung ? 0.5 : 1.0);
+  // Continuous age factor: 0=young (20), 1=old (65)
+  const ageFactor = Math.max(0, Math.min(1, (age - 20) / 45)); // 0-1 scale
+  // Young vices get 2.0x boost at 20yo, 0.4x at 65yo
+  const youngViceBoost = 2.0 - 1.6 * ageFactor;
+  // Older vices get 0.4x at 20yo, 2.5x at 65yo
+  const olderViceBoost = 0.4 + 2.1 * ageFactor;
 
   const viceWeights = vocab.vices.vicePool.map((v) => {
     const key = v.toLowerCase();
