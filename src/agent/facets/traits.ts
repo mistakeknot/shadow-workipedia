@@ -71,12 +71,14 @@ export function computeTraits(
       ageBonus
       // PG-T1 continuous effect added in post-processing below
     ),
+    // PG-T2: Opsec added as continuous negative factor (high opsec = less novelty seeking)
     noveltySeeking: clampFixed01k(
       Math.min(
         ageNoveltyCap, // DC-T5: Age continuously caps novelty seeking
-        0.55 * aptitudes.cognitiveSpeed +
-        0.25 * latents.cosmopolitanism +
-        0.20 * traitRng.int(0, 1000)
+        0.50 * aptitudes.cognitiveSpeed +
+        0.20 * latents.cosmopolitanism +
+        -0.15 * latents.opsecDiscipline +  // PG-T2: High opsec reduces novelty
+        0.15 * traitRng.int(0, 1000)
       )
     ),
     agreeableness: clampFixed01k(
@@ -94,7 +96,8 @@ export function computeTraits(
 
   // PG-T1: Authoritarianism → conscientiousness continuous contribution
   // Those who value order tend to be more conscientious (gradual, not just threshold)
-  const authContribution = 0.08 * traits.authoritarianism;
+  // Increased from 0.08 to 0.20 to strengthen correlation
+  const authContribution = 0.20 * traits.authoritarianism;
   traits.conscientiousness = clampFixed01k(traits.conscientiousness + authContribution);
 
   // ─────────────────────────────────────────────────────────────────────────────

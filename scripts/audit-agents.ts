@@ -542,7 +542,7 @@ const DOCUMENTED_CORRELATES = [
   // { id: '#HL10', name: 'Neurodivergence → Triggers', vars: ['hasNeurodivergence', 'triggerCount'], expected: 'positive' as const },
   // DISABLED: conflictExposure field doesn't exist in generation
   // { id: '#HL14', name: 'Conflict → Mobility', vars: ['conflictExposure', 'mobilityNumeric'], expected: 'negative' as const },
-  { id: '#HL15', name: 'Dependency → Fitness', vars: ['hasActiveDependency', 'fitnessBandNumeric'], expected: 'negative' as const },
+  { id: '#HL15', name: 'Dependency → Fitness', vars: ['hasAnyDependency', 'fitnessBandNumeric'], expected: 'negative' as const },
 
   // Narrative (NAR series)
   { id: '#NAR-2', name: 'Tier → Negative Cap', vars: ['tierNumeric', 'negativeEventCount'], expected: 'negative' as const },
@@ -1297,6 +1297,8 @@ function extractMetrics(agent: GeneratedAgent, asOfYear: number): AgentMetrics {
     conflictExposure: agent.geography?.conflictExposure ?? 0,
     // dependencyProfiles is at top level (not lifestyle.viceTags)
     hasActiveDependency: hasActiveDependencyFromProfiles((agent as any).dependencyProfiles ?? []),
+    // HL15: Any dependency (active OR recovered) affects fitness
+    hasAnyDependency: ((agent as any).dependencyProfiles?.length ?? 0) > 0 ? 1 : 0,
 
     // NAR metrics
     careerTrackNumeric: computeCareerTrackNumeric(agent.identity?.careerTrackTag),
@@ -1424,6 +1426,7 @@ type AgentMetricsExtended = AgentMetrics & {
   triggerCount: number;
   conflictExposure: number;
   hasActiveDependency: number;
+  hasAnyDependency: number;
   careerTrackNumeric: number;
   careerEventCount: number;
   minorityInsecurityScore: number;
@@ -1951,11 +1954,13 @@ function computeRuralSkillScore(skills: Record<string, { value: number }> | unde
 
 function computeFitnessBandNumeric(fitnessBand: string | undefined): number {
   const map: Record<string, number> = {
+    'critical': 0,
     'sedentary': 1, 'poor': 1,
     'below-average': 2, 'light': 2,
     'average': 3, 'moderate': 3,
     'good': 4, 'active': 4,
     'excellent': 5, 'athletic': 5, 'elite': 5,
+    'peak-condition': 6,
   };
   return map[fitnessBand ?? 'average'] ?? 3;
 }

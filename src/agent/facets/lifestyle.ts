@@ -321,26 +321,31 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
 
   // ═══════════════════════════════════════════════════════════════════════════
   // Correlate HL8: Injuries → Fitness (negative correlation)
-  // Any injury limits athletic capacity; multiple injuries further reduce fitness
+  // DETERMINISTIC: Each injury drops fitness by 1 tier (affects ALL fitness levels)
   // ═══════════════════════════════════════════════════════════════════════════
   let gatedFitnessBand = fitnessBand;
   const injuryCount = injuryHistoryTags.length;
   if (injuryCount > 0) {
-    // Probabilistic fitness cap based on injury count
-    // 1 injury: 60% chance to cap at 'good' (no peak/excellent)
-    // 2+ injuries: 90% chance to cap at 'good'
-    const capProb = injuryCount === 1 ? 0.60 : 0.90;
-    const highFitnessBands = ['peak-condition', 'excellent', 'athletic'];
-    if (highFitnessBands.includes(fitnessBand) && healthRng.next01() < capProb) {
-      gatedFitnessBand = 'good';
-      if (trace) {
+    // Deterministic tier reduction: each injury = 1 tier drop
+    const fitnessTiers = ['critical', 'poor', 'moderate', 'good', 'excellent', 'peak-condition', 'athletic'];
+    const currentIdx = fitnessTiers.indexOf(fitnessBand);
+    if (currentIdx >= 0) {
+      const newIdx = Math.max(0, currentIdx - injuryCount);
+      const newBand = fitnessTiers[newIdx];
+      // Map back to vocab-compatible band if needed
+      if (newBand && fitnessBands.includes(newBand)) {
+        gatedFitnessBand = newBand;
+      } else if (newBand) {
+        // Fallback mapping for vocab mismatch
+        gatedFitnessBand = newIdx <= 1 ? 'poor' : newIdx <= 3 ? 'good' : fitnessBand;
+      }
+      if (trace && gatedFitnessBand !== fitnessBand) {
         trace.derived = trace.derived ?? {};
         trace.derived.hl8InjuryFitnessGate = {
           injuryCount,
           originalFitness: fitnessBand,
-          adjustedFitness: 'good',
-          capProb,
-          reason: `HL8: ${injuryCount} injury(ies) capped fitness to good`,
+          adjustedFitness: gatedFitnessBand,
+          reason: `HL8: ${injuryCount} injury(ies) reduced fitness (deterministic)`,
         };
       }
     }
@@ -453,9 +458,9 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
   const dependencyProfiles = computeDependencyProfiles(ctx, vices);
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // Correlate #HL15: Active addiction/dependency → reduced fitness (negative correlation)
-  // Active addiction/struggling stages prevent peak physical fitness
-  // Substances like alcohol, stimulants, opioids impair physical conditioning
+  // Correlate #HL15: Dependency → reduced fitness (negative correlation)
+  // Active: 2 tier drop, Recovered: 1 tier drop (scarring effect)
+  // Even recovered dependencies leave lasting physical impact
   // ─────────────────────────────────────────────────────────────────────────────
   let finalFitnessBand = gatedFitnessBand;
   const hasActiveDependency = dependencyProfiles.some(p =>
@@ -463,13 +468,14 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
     p.stage === 'early-stage' || p.stage === 'middle-stage' ||
     p.stage === 'late-stage' || p.stage === 'crisis'
   );
-  if (hasActiveDependency) {
-    // Step down fitness by one or two levels based on severity
+  const hasAnyDependency = dependencyProfiles.length > 0;
+
+  if (hasActiveDependency || hasAnyDependency) {
     const fitnessTiers = ['critical', 'poor', 'moderate', 'good', 'excellent', 'peak-condition', 'athletic'];
     const currentTier = fitnessTiers.indexOf(finalFitnessBand);
     if (currentTier > 0) {
-      // Reduce by 1-2 tiers (with probability)
-      const reduction = healthRng.next01() < 0.6 ? 2 : 1;
+      // Active: 2 tier drop; Recovered/any: 1 tier drop (scarring effect)
+      const reduction = hasActiveDependency ? 2 : 1;
       const newTier = Math.max(0, currentTier - reduction);
       finalFitnessBand = fitnessTiers[newTier] ?? finalFitnessBand;
       // Ensure the target band exists in vocab
@@ -483,7 +489,10 @@ export function computeLifestyle(ctx: LifestyleContext): LifestyleResult {
           originalFitness: gatedFitnessBand,
           adjustedFitness: finalFitnessBand,
           reduction,
-          reason: 'HL15: Active addiction/dependency reduced fitness band',
+          isActive: hasActiveDependency,
+          reason: hasActiveDependency
+            ? 'HL15: Active addiction/dependency reduced fitness band'
+            : 'HL15: Recovered dependency has lasting fitness impact (scarring)',
         };
       }
     }

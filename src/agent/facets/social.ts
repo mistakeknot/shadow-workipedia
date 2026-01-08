@@ -658,11 +658,22 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     if (m === 'its-complicated' && roleSeedTags.includes('operative')) w += 5;
     if (m === 'single' && roleSeedTags.includes('operative')) w *= 1.3; // Operatives more likely single
 
-    // Correlate #NEW34: Elite tier delays marriage (tier+age interaction)
-    // Elite young agents (<30) focus on career advancement, delaying marriage
-    if (tierBand === 'elite' && age < 30) {
-      if (m === 'married') w *= 0.3; // Strong reduction in marriage probability
-      if (m === 'single') w *= 1.4; // Boost single probability
+    // Correlate #NEW34: Elite tier + age → marriage (tier+age interaction)
+    // Elite young agents (<30) delay marriage, but elite older agents marry MORE
+    if (tierBand === 'elite') {
+      if (age < 30) {
+        if (m === 'married') w *= 0.2; // Strong reduction in marriage probability
+        if (m === 'single') w *= 1.6; // Boost single probability
+      } else if (age >= 30 && age < 50) {
+        // Elite marries MORE once established (career secure, resources available)
+        if (m === 'married') w *= 2.5;  // Stronger boost
+        if (m === 'partnered') w *= 1.8;
+        if (m === 'single') w *= 0.4;  // Penalize single status
+      } else {
+        // 50+: Strong married rate
+        if (m === 'married') w *= 2.0;
+        if (m === 'single') w *= 0.5;
+      }
     }
 
     // Correlate #NEW44: Young widowhood is rare
@@ -1138,10 +1149,30 @@ export function computeSocial(ctx: SocialContext): SocialResult {
   // (very high or very low principledness signals strong/polarizing views)
   const hasControversialViews = latents.principledness > 850 || latents.principledness < 150;
 
+  // NEW43: Compute risk×institutional score for faction weighting
+  const riskInstScoreForFaction = risk01 * (1 - inst01);  // High = anti-establishment
+  const formalFactionTypes = ['professional-society', 'trade-union', 'political-party', 'veterans-group', 'union-chapter'];
+
   for (let i = 0; i < membershipCount; i++) {
     const availableTypes = communityTypes.filter(t => !usedCommunityTypes.has(t));
     if (availableTypes.length === 0) break;
-    const type = commRng.pick(availableTypes) as CommunityType;
+
+    // NEW43: Weight community types by risk×institutional interaction
+    // High risk + low institutional → avoid formal faction membership
+    const typeWeights = availableTypes.map(t => {
+      let w = 1;
+      if (formalFactionTypes.includes(t)) {
+        // Low riskInstScore (low risk or high inst) → more likely formal faction
+        // Stronger effect: from 0.15 to 1.0 (was 0.3 to 1.0)
+        w *= 0.15 + 0.85 * (1 - riskInstScoreForFaction);
+      } else {
+        // Non-faction types: slight boost for high risk+low inst agents
+        w *= 1 + 0.3 * riskInstScoreForFaction;
+      }
+      return { item: t as CommunityType, weight: w };
+    });
+
+    const type = weightedPick(commRng, typeWeights) as CommunityType;
     usedCommunityTypes.add(type);
     const roleWeights = communityRoles.map(r => {
       let w = 1;
@@ -1162,26 +1193,33 @@ export function computeSocial(ctx: SocialContext): SocialResult {
     memberships.push({ type, role, intensityBand });
   }
 
-  // Correlate #NEW45: Urbanicity → Online Community (negative: urban → fewer online communities)
-  // Rural agents have fewer physical third places, so they compensate with more online communities
-  // Urban agents have abundant physical third places, reducing need for online connection
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Correlate #NEW45: Urbanicity → Online Community (negative: urban → fewer online)
+  // REFACTORED: Urbanicity is BASE factor, others are ADDITIVE bonuses
+  // This isolates the urban signal from confounding factors
+  // ═══════════════════════════════════════════════════════════════════════════
   const urbanPopulationLevel = ctx.urbanPopulation01 ?? 0.5;
-  // Continuous gradient: more urban = fewer online communities
-  const urbanRuralOnlineBias = 1 - urbanPopulationLevel; // 0=urban, 1=rural
-  let onlineMin = urbanPopulationLevel < 0.4 ? 1 : 0; // Rural/small town guarantees 1
-  let onlineMax = 1 + Math.floor(2.5 * urbanRuralOnlineBias); // Rural: 3, Urban: 1
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  // NEW51: Low Social Battery → Online Community Preference
-  // Introverts (low socialBattery < 350) prefer digital connection
-  // Increase online community weight
-  // ═══════════════════════════════════════════════════════════════════════════
-  if (latents.socialBattery < 350) {
-    onlineMin = Math.max(onlineMin, 1); // Ensure at least 1 online community
-    onlineMax = Math.max(onlineMax, 2); // Allow up to 2 minimum
-  }
+  // Step 1: Urbanicity determines BASE count (strong isolated effect)
+  // Stronger thresholds: Rural guarantees 3, urban guarantees 0
+  // Rural (urb < 0.30): 3 base
+  // Small town (0.30-0.45): 2 base
+  // Suburban (0.45-0.60): 1 base
+  // Urban (> 0.60): 0 base
+  const urbanOnlineBase = urbanPopulationLevel < 0.30 ? 3 :
+                          urbanPopulationLevel < 0.45 ? 2 :
+                          urbanPopulationLevel < 0.60 ? 1 : 0;
 
-  let onlineCommunities = commRng.pickK(onlineCommunityPool, commRng.int(onlineMin, onlineMax));
+  // Step 2: Modifiers ADD to base (capped so urban effect isn't drowned out)
+  let onlineBonus = 0;
+
+  // NEW51: Low Social Battery → Online Community Preference (weaker effect)
+  // Introverts (low socialBattery < 300) prefer digital connection
+  if (latents.socialBattery < 300) onlineBonus += 1;
+
+  // Step 3: Final count (base + bonus, clamped at 3 max)
+  const onlineCount = Math.min(3, Math.max(0, urbanOnlineBase + onlineBonus));
+  let onlineCommunities = commRng.pickK(onlineCommunityPool, onlineCount);
 
   // ═══════════════════════════════════════════════════════════════════════════
   // NEW52: Diaspora + Minority → Dual Community
@@ -1221,42 +1259,41 @@ export function computeSocial(ctx: SocialContext): SocialResult {
   // Visible minorities face systemic barriers to achieving high community status
   // Computed locally using same logic as narrative.ts (homeCountry !== currentCountry)
   const isVisibleMinority = homeCountryIso3 !== currentCountryIso3 && commRng.next01() < 0.7;
-  // Stronger penalty for high-status outcomes and boost for lower status
-  const minorityStatusPenalty = isVisibleMinority ? 0.35 : 1.0;  // Much stronger penalty
-  const minorityStatusBoost = isVisibleMinority ? 1.8 : 1.0;     // Boost lower statuses
 
   // Correlate #NEW9: Deception ↔ Community Status (negative)
   // High deception aptitude → lower community standing (manipulators get discovered over time)
   const deceptionForStatus = aptitudes.deceptionAptitude / 1000;
 
+  // REFACTORED: Apply minority effect FIRST (before age) to isolate signal
+  // Order: Minority → Base tier → Age → Deception
   const statusWeights = communityStatuses.map(s => {
     let w = 1;
-    // Base tier modifiers (kept from original)
-    if (s === 'pillar' && tierBand === 'elite') w = 3;
-    if (s === 'respected' && tierBand !== 'mass') w = 3;
-    if (s === 'regular') w = 5;
-    if (s === 'outsider' && latents.socialBattery < 350) w = 2;
 
-    // Age correlate modifiers
+    // Step 1: PR3 MINORITY PENALTY FIRST (applied before other factors)
+    // Much stronger penalties to ensure correlation survives downstream noise
+    if (isVisibleMinority) {
+      if (s === 'pillar') w *= 0.12;  // 88% reduction (was 0.35)
+      if (s === 'respected') w *= 0.20;  // 80% reduction
+      if (s === 'outsider' || s === 'newcomer') w *= 2.5;  // Strong boost to lower statuses
+      if (s === 'regular') w *= 1.5;  // Moderate boost
+    }
+
+    // Step 2: Base tier modifiers
+    if (s === 'pillar' && tierBand === 'elite') w *= 3;
+    if (s === 'respected' && tierBand !== 'mass') w *= 3;
+    if (s === 'regular') w *= 5;
+    if (s === 'outsider' && latents.socialBattery < 350) w *= 2;
+
+    // Step 3: Age correlate modifiers (applied after minority)
     const bias = ageStatusBias[s as keyof typeof ageStatusBias] ?? 1;
     w *= bias;
 
-    // #NEW9: High deception → lower community standing
-    // Manipulative people struggle to maintain long-term community trust
-    // Apply across full range (not just above threshold) for stronger correlation
+    // Step 4: #NEW9 Deception penalty (last)
     if (s === 'pillar' || s === 'respected') {
-      w *= Math.max(0.15, 1 - 2.0 * deceptionForStatus); // Deception penalizes high status
-      // PR3: Visible minorities face barriers to high community status (probabilistic penalty)
-      w *= minorityStatusPenalty;
+      w *= Math.max(0.15, 1 - 2.0 * deceptionForStatus);
     }
     if (s === 'controversial' || s === 'outsider') {
-      w *= (1 + 2.5 * deceptionForStatus); // Deception boosts low status
-      // PR3: Visible minorities more likely to be outsiders/controversial (discrimination effect)
-      w *= minorityStatusBoost;
-    }
-    if (s === 'regular' || s === 'newcomer') {
-      // PR3: Visible minorities pushed toward newcomer/regular status
-      w *= isVisibleMinority ? 1.3 : 1.0;
+      w *= (1 + 2.5 * deceptionForStatus);
     }
 
     return { item: s as CommunityStatus, weight: w };
