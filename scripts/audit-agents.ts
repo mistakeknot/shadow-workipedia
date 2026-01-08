@@ -542,7 +542,8 @@ const DOCUMENTED_CORRELATES = [
   { id: '#NAR-2', name: 'Tier → Negative Cap', vars: ['tierNumeric', 'negativeEventCount'], expected: 'negative' as const },
   { id: '#NAR-4', name: 'Career → Event Types', vars: ['careerTrackNumeric', 'careerEventCount'], expected: 'positive' as const },
   { id: '#NAR-5', name: 'Minority + Insecurity → Persecution', vars: ['minorityInsecurityScore', 'hasPersecutionEvent'], expected: 'positive' as const },
-  { id: '#NAR-6', name: 'Visible Minority → Positive Events', vars: ['isVisibleMinority', 'allPositiveEvents'], expected: 'negative' as const },
+  // Redefined: measure positive event ratio instead of binary "all positive"
+  { id: '#NAR-6', name: 'Visible Minority → Positive Events', vars: ['isVisibleMinority', 'positiveEventRatio'], expected: 'negative' as const },
   { id: '#NAR-7', name: 'Age → Career Events', vars: ['age', 'hasCareerPromotion'], expected: 'positive' as const },
   { id: '#NAR-8', name: 'Local Majority → Linguistic', vars: ['isLocalMajority', 'isLinguisticMinority'], expected: 'negative' as const },
   { id: '#NAR-10', name: 'Elite + Refugee', vars: ['tierNumeric', 'isRefugee'], expected: 'negative' as const },
@@ -1283,6 +1284,8 @@ function extractMetrics(agent: GeneratedAgent, asOfYear: number): AgentMetrics {
     minorityInsecurityScore: computeMinorityInsecurityScore(agent.minorityStatus, agent.geography?.securityLevel ?? 500),
     hasPersecutionEvent: hasEventType(agent.timeline ?? [], ['persecution', 'discrimination', 'hate-crime']),
     allPositiveEvents: allEventsPositive(agent.timeline ?? []),
+    // NAR-6: ratio of positive events (0-1 scale)
+    positiveEventRatio: computePositiveEventRatio(agent.timeline ?? []),
     hasCareerPromotion: hasEventType(agent.timeline ?? [], ['promotion', 'career-advancement', 'senior-role']),
     isLocalMajority: agent.minorityStatus?.localMajority ? 1 : 0,
     isLinguisticMinority: agent.minorityStatus?.linguisticMinority ? 1 : 0,
@@ -1404,6 +1407,7 @@ type AgentMetricsExtended = AgentMetrics & {
   minorityInsecurityScore: number;
   hasPersecutionEvent: number;
   allPositiveEvents: number;
+  positiveEventRatio: number;
   hasCareerPromotion: number;
   isLocalMajority: number;
   isLinguisticMinority: number;
@@ -2014,6 +2018,12 @@ function hasEventType(events: Array<{ type?: string; description?: string }>, ty
 function allEventsPositive(events: Array<{ impact?: string; valence?: string; positive?: boolean }> | undefined): number {
   if (!events?.length) return 1; // No events = vacuously true
   return events.every(e => e.impact === 'positive' || e.valence === 'positive' || e.positive) ? 1 : 0;
+}
+
+function computePositiveEventRatio(events: Array<{ impact?: string; valence?: string; positive?: boolean }> | undefined): number {
+  if (!events?.length) return 0.5; // No events = neutral
+  const positive = events.filter(e => e.impact === 'positive' || e.valence === 'positive' || e.positive).length;
+  return positive / events.length;
 }
 
 function countRomanticEvents(events: Array<{ type?: string; category?: string; description?: string }> | undefined): number {
