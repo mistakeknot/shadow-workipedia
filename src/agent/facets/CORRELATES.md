@@ -10,7 +10,16 @@ All correlates are validated using Pearson correlation coefficient (r) against 1
 - **Missing**: |r| < 0.05
 - **Inverted**: Correlation in wrong direction
 
-**Last audit: 2026-01-06 | 75 tracked correlates | 71 verified (95%) | 4 weak | 0 missing | 4 implausibility flags**
+**Last audit: 2026-01-08 | 181 tracked correlates | 128 verified (71%) | 31 weak | 22 missing | 16 constraints passed**
+
+### Disabled Correlates (6)
+These correlates are commented out because required fields don't exist in generation:
+- `#PG-OPERATIVE-VIS`: Generation doesn't suppress aesthetics for operatives
+- `#HL10`: triggerTags field doesn't exist
+- `#HL14`: conflictExposure field doesn't exist
+- `#NAR-5`: Persecution events not generated (0/500 agents)
+- `#NAR-10`: refugee/asylum-seeker residency status doesn't exist
+- `#NAR-11`: mentalHealthMarkers field doesn't exist
 
 ## Implementation Statistics
 
