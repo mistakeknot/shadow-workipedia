@@ -1271,15 +1271,18 @@ function extractMetrics(agent: GeneratedAgent, asOfYear: number): AgentMetrics {
     hasCareerPromotion: hasEventType(agent.timeline ?? [], ['promotion', 'career-advancement', 'senior-role']),
     isLocalMajority: agent.minorityStatus?.localMajority ? 1 : 0,
     isLinguisticMinority: agent.minorityStatus?.linguisticMinority ? 1 : 0,
-    isRefugee: (agent.legal?.legalStatus === 'refugee' || agent.legal?.legalStatus === 'asylum-seeker') ? 1 : 0,
+    // legalAdmin.residencyStatus is the actual field (not legal.legalStatus)
+    isRefugee: (agent.legalAdmin?.residencyStatus === 'refugee' || agent.legalAdmin?.residencyStatus === 'asylum-seeker') ? 1 : 0,
     hasMentalHealthMarker: agent.health?.mentalHealthMarkers?.length > 0 ? 1 : 0,
     romanticEventCount: countRomanticEvents(agent.timeline ?? []),
 
     // NEW metrics
     isNetworkIsolate: agent.network?.role === 'isolate' ? 1 : 0,
-    hasDeceasedParents: agent.family?.parents?.every((p: { deceased?: boolean }) => p.deceased) ? 1 : 0,
+    // hasLivingParents is a boolean - if false, parents are deceased
+    hasDeceasedParents: agent.family?.hasLivingParents === false ? 1 : 0,
     opsecPublicnessScore: ((latents.opsecDiscipline ?? 500) / 1000) * ((latents.publicness ?? 500) / 1000),
-    isDiscreetReputation: (agent.network?.reputation === 'discreet' || agent.network?.reputation === 'low-profile') ? 1 : 0,
+    // reputation is at top level, not inside network; professional is the main reputation tag
+    isDiscreetReputation: ((agent as any).reputation?.professional === 'discreet' || (agent as any).reputation?.professional === 'unknown') ? 1 : 0,
     hasCareLeverage: (agent.network?.leverageType === 'care' || agent.network?.leverageType === 'dependency') ? 1 : 0,
     riskInstitutionalScore: ((latents.riskAppetite ?? 500) / 1000) * (1 - (latents.institutionalEmbeddedness ?? 500) / 1000),
     hasFormalFaction: agent.communities?.memberships?.some((m: { type?: string }) =>
