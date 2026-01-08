@@ -1195,10 +1195,10 @@ function extractMetrics(agent: GeneratedAgent, asOfYear: number): AgentMetrics {
     treatmentQualityNumeric: computeTreatmentQualityNumeric(agent.health?.treatmentAccess),
 
     // Narrative metrics
-    timelineEventCount: agent.timeline?.events?.length ?? 0,
+    timelineEventCount: agent.timeline?.length ?? 0,
     // adversityTagCount: from background.adversityTags (childhood/life adversity)
     adversityTagCount: agent.background?.adversityTags?.length ?? 0,
-    negativeEventCount: countNegativeEvents(agent.timeline?.events ?? []),
+    negativeEventCount: countNegativeEvents(agent.timeline ?? []),
     isVisibleMinority: agent.minorityStatus?.visibleMinority ? 1 : 0,
 
     // ═══════════════════════════════════════════════════════════════════════════
@@ -1264,16 +1264,16 @@ function extractMetrics(agent: GeneratedAgent, asOfYear: number): AgentMetrics {
 
     // NAR metrics
     careerTrackNumeric: computeCareerTrackNumeric(agent.identity?.careerTrackTag),
-    careerEventCount: countCareerEvents(agent.timeline?.events ?? []),
+    careerEventCount: countCareerEvents(agent.timeline ?? []),
     minorityInsecurityScore: computeMinorityInsecurityScore(agent.minorityStatus, agent.geography?.securityLevel ?? 500),
-    hasPersecutionEvent: hasEventType(agent.timeline?.events ?? [], ['persecution', 'discrimination', 'hate-crime']),
-    allPositiveEvents: allEventsPositive(agent.timeline?.events ?? []),
-    hasCareerPromotion: hasEventType(agent.timeline?.events ?? [], ['promotion', 'career-advancement', 'senior-role']),
+    hasPersecutionEvent: hasEventType(agent.timeline ?? [], ['persecution', 'discrimination', 'hate-crime']),
+    allPositiveEvents: allEventsPositive(agent.timeline ?? []),
+    hasCareerPromotion: hasEventType(agent.timeline ?? [], ['promotion', 'career-advancement', 'senior-role']),
     isLocalMajority: agent.minorityStatus?.localMajority ? 1 : 0,
     isLinguisticMinority: agent.minorityStatus?.linguisticMinority ? 1 : 0,
     isRefugee: (agent.legal?.legalStatus === 'refugee' || agent.legal?.legalStatus === 'asylum-seeker') ? 1 : 0,
     hasMentalHealthMarker: agent.health?.mentalHealthMarkers?.length > 0 ? 1 : 0,
-    romanticEventCount: countRomanticEvents(agent.timeline?.events ?? []),
+    romanticEventCount: countRomanticEvents(agent.timeline ?? []),
 
     // NEW metrics
     isNetworkIsolate: agent.network?.role === 'isolate' ? 1 : 0,
@@ -1655,15 +1655,18 @@ function computeTreatmentQualityNumeric(treatmentAccess: string | undefined): nu
   return map[treatmentAccess ?? 'standard'] ?? 3;
 }
 
-function countNegativeEvents(events: Array<{ type?: string; valence?: string }> | undefined): number {
+function countNegativeEvents(events: Array<{ type?: string; impact?: string; valence?: string }> | undefined): number {
   if (!events) return 0;
   return events.filter(e =>
+    e.impact === 'negative' ||
     e.valence === 'negative' ||
     e.type?.includes('loss') ||
     e.type?.includes('trauma') ||
     e.type?.includes('injury') ||
     e.type?.includes('persecution') ||
-    e.type?.includes('failure')
+    e.type?.includes('failure') ||
+    e.type?.includes('scandal') ||
+    e.type?.includes('crisis')
   ).length;
 }
 
@@ -1921,8 +1924,15 @@ function computeCareerTrackNumeric(careerTrackTag: string | undefined): number {
 
 function countCareerEvents(events: Array<{ type?: string; category?: string }> | undefined): number {
   if (!events?.length) return 0;
-  const careerTypes = new Set(['promotion', 'career', 'job', 'employment', 'fired', 'hired', 'retirement']);
-  return events.filter(e => careerTypes.has(e.type ?? '') || careerTypes.has(e.category ?? '')).length;
+  // Match actual event types from timeline generation
+  const careerTypes = new Set([
+    'promotion', 'career', 'job', 'employment', 'fired', 'hired', 'retirement',
+    'first-job', 'career-change', 'mentorship', 'education-milestone'
+  ]);
+  return events.filter(e => {
+    const type = (e.type ?? '').toLowerCase();
+    return careerTypes.has(type) || type.includes('job') || type.includes('career') || type.includes('education');
+  }).length;
 }
 
 function computeMinorityInsecurityScore(
@@ -1935,21 +1945,32 @@ function computeMinorityInsecurityScore(
   return (1 - securityLevel / 1000); // Higher score = more insecurity
 }
 
-function hasEventType(events: Array<{ type?: string }>, types: string[]): number {
+function hasEventType(events: Array<{ type?: string; description?: string }>, types: string[]): number {
   if (!events?.length) return 0;
-  const typeSet = new Set(types.map(t => t.toLowerCase()));
-  return events.some(e => typeSet.has((e.type ?? '').toLowerCase())) ? 1 : 0;
+  const typePatterns = types.map(t => t.toLowerCase());
+  return events.some(e => {
+    const eventType = (e.type ?? '').toLowerCase();
+    const desc = (e.description ?? '').toLowerCase();
+    // Check if event type matches any pattern OR description contains the keyword
+    return typePatterns.some(pattern => eventType.includes(pattern) || desc.includes(pattern));
+  }) ? 1 : 0;
 }
 
-function allEventsPositive(events: Array<{ valence?: string; positive?: boolean }> | undefined): number {
+function allEventsPositive(events: Array<{ impact?: string; valence?: string; positive?: boolean }> | undefined): number {
   if (!events?.length) return 1; // No events = vacuously true
-  return events.every(e => e.valence === 'positive' || e.positive) ? 1 : 0;
+  return events.every(e => e.impact === 'positive' || e.valence === 'positive' || e.positive) ? 1 : 0;
 }
 
-function countRomanticEvents(events: Array<{ type?: string; category?: string }> | undefined): number {
+function countRomanticEvents(events: Array<{ type?: string; category?: string; description?: string }> | undefined): number {
   if (!events?.length) return 0;
+  // Match actual event types or keywords in descriptions
   const romanticTypes = new Set(['romance', 'marriage', 'divorce', 'dating', 'relationship', 'engagement', 'wedding']);
-  return events.filter(e => romanticTypes.has((e.type ?? '').toLowerCase()) || romanticTypes.has((e.category ?? '').toLowerCase())).length;
+  const romanticKeywords = ['married', 'wedding', 'divorce', 'relationship', 'partner', 'spouse', 'engagement'];
+  return events.filter(e => {
+    const type = (e.type ?? '').toLowerCase();
+    const desc = (e.description ?? '').toLowerCase();
+    return romanticTypes.has(type) || romanticKeywords.some(kw => desc.includes(kw));
+  }).length;
 }
 
 function computeArtisticSharingPublicness(sharingStyle: string | undefined): number {
