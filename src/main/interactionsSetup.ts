@@ -16,8 +16,8 @@ type InteractionDeps = {
   setHoveredNode: (node: SimNode | null) => void;
   getCurrentTransform: () => Transform;
   setCurrentTransform: (transform: Transform) => void;
-  renderDetailPanel: (node: SimNode, data: GraphData) => string;
-  attachDetailPanelHandlers: () => void;
+  getRenderDetailPanel: () => (node: SimNode, data: GraphData) => string;
+  getAttachDetailPanelHandlers: () => () => void;
   syncZoomTransform: (transform: Transform) => void;
 };
 
@@ -33,8 +33,8 @@ export function createInteractionHandlers({
   setHoveredNode,
   getCurrentTransform,
   setCurrentTransform,
-  renderDetailPanel,
-  attachDetailPanelHandlers,
+  getRenderDetailPanel,
+  getAttachDetailPanelHandlers,
   syncZoomTransform,
 }: InteractionDeps) {
   const dragHandler = new DragHandler(canvas, graph.getNodes(), render, {
@@ -75,7 +75,7 @@ export function createInteractionHandlers({
     setSelectedNode(node);
 
     if (node && node.x !== undefined && node.y !== undefined) {
-      panelContent.innerHTML = renderDetailPanel(node, data);
+      panelContent.innerHTML = getRenderDetailPanel()(node, data);
       panelContent.scrollTop = 0;
       detailPanel.classList.remove('hidden');
       tooltip.classList.add('hidden');
@@ -120,7 +120,7 @@ export function createInteractionHandlers({
       };
 
       animate();
-      attachDetailPanelHandlers();
+      getAttachDetailPanelHandlers()();
     } else {
       detailPanel.classList.add('hidden');
     }

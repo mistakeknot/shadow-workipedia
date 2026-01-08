@@ -188,8 +188,8 @@ async function main() {
     setCurrentTransform: (value) => {
       currentTransform = value;
     },
-    renderDetailPanel,
-    attachDetailPanelHandlers,
+    getRenderDetailPanel: () => renderDetailPanel,
+    getAttachDetailPanelHandlers: () => attachDetailPanelHandlers,
     syncZoomTransform: (transform) => {
       zoomHandler?.setTransform(transform);
     },
