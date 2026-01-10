@@ -364,20 +364,20 @@ export function initializeAgentsView(container: HTMLElement) {
       ...availableCountries.map(c => `<option value="${escapeHtml(c.iso3)}" ${c.iso3 === selectedHomeIso3 ? 'selected' : ''}>${escapeHtml(c.shadow)} (${escapeHtml(c.iso3)})</option>`),
     ].join('');
 
+    // Only show status when loading or error - hide when all loaded successfully
     const hintLines: string[] = [];
-    if (agentVocab) hintLines.push('Vocabulary loaded.');
-    else if (agentVocabError) hintLines.push('Vocabulary missing — run `pnpm extract-data` in `shadow-workipedia`.');
-    else hintLines.push('Loading vocabulary…');
+    if (agentVocabError) hintLines.push('Vocabulary missing — run `pnpm extract-data` in `shadow-workipedia`.');
+    else if (!agentVocab) hintLines.push('Loading vocabulary…');
 
-    if (agentPriors) hintLines.push('Priors loaded.');
-    else if (agentPriorsError) hintLines.push('Priors missing — run `pnpm extract-data` in `shadow-workipedia`.');
-    else hintLines.push('Loading priors…');
+    if (agentPriorsError) hintLines.push('Priors missing — run `pnpm extract-data` in `shadow-workipedia`.');
+    else if (!agentPriors) hintLines.push('Loading priors…');
 
-    if (shadowCountries) hintLines.push('Country map loaded.');
-    else if (shadowCountriesError) hintLines.push('Country map missing — run `pnpm extract-data` in `shadow-workipedia`.');
-    else hintLines.push('Loading country map…');
+    if (shadowCountriesError) hintLines.push('Country map missing — run `pnpm extract-data` in `shadow-workipedia`.');
+    else if (!shadowCountries) hintLines.push('Loading country map…');
 
-    const vocabHint = `<div class="agents-sidebar-subtitle agent-muted agents-hide-mobile">${escapeHtml(hintLines.join(' '))}</div>`;
+    const vocabHint = hintLines.length > 0
+      ? `<div class="agents-sidebar-subtitle agent-muted agents-hide-mobile">${escapeHtml(hintLines.join(' '))}</div>`
+      : '';
     const seedSummary = seedDraft.length > 14 ? `${seedDraft.slice(0, 14)}…` : seedDraft;
     const homeSummary = selectedHomeIso3
       ? shadowByIso3.get(selectedHomeIso3)?.shadow
