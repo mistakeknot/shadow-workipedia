@@ -17,6 +17,21 @@ type AgentsPerfStore = { entries: AgentsPerfEntry[]; last?: AgentsPerfEntry };
 
 let agentsPerfEnabled = false;
 
+const exposePerfApi = () => {
+  if (!agentsPerfEnabled) return;
+  const w = window as Window & {
+    __agentsPerfSpan?: typeof measureSpan;
+    __agentsPerfAsyncSpan?: typeof measureAsyncSpan;
+  };
+  w.__agentsPerfSpan = (name, fn, meta) => measureSpan(name, fn, meta);
+  w.__agentsPerfAsyncSpan = (name, fn, meta) => measureAsyncSpan(name, fn, meta);
+};
+
+const setAgentsPerfEnabled = (params?: URLSearchParams | null) => {
+  agentsPerfEnabled = isPerfEnabled(params);
+  exposePerfApi();
+};
+
 const isPerfEnabled = (params?: URLSearchParams | null) => {
   const raw = params?.get('perf') ?? '';
   if (raw === '1' || raw === 'true' || raw === 'yes') return true;
@@ -178,7 +193,7 @@ function setTemporaryButtonLabel(btn: HTMLButtonElement, nextLabel: string, ms =
 type DetailsOpenReader = (key: string, defaultOpen: boolean) => boolean;
 
 export function initializeAgentsView(container: HTMLElement) {
-  agentsPerfEnabled = isPerfEnabled(readAgentsParamsFromHash());
+  setAgentsPerfEnabled(readAgentsParamsFromHash());
   let roster = loadRoster();
   let selectedRosterId: string | null = roster[0]?.id ?? null;
   let activeAgent: GeneratedAgent | null = null;
@@ -197,7 +212,7 @@ export function initializeAgentsView(container: HTMLElement) {
   let seedDraft = roster.find(x => x.id === selectedRosterId)?.seed ?? '';
   let pendingHashSeed: string | null = readSeedFromHash();
   let pendingHashParams: URLSearchParams | null = pendingHashSeed ? readAgentsParamsFromHash() : null;
-  if (pendingHashParams) agentsPerfEnabled = isPerfEnabled(pendingHashParams);
+  if (pendingHashParams) setAgentsPerfEnabled(pendingHashParams);
 
   const PROFILE_TAB_KEY = 'agentsProfileTab:v2';
   const readProfileTab = (): AgentProfileTab | null => {
@@ -847,7 +862,7 @@ export function initializeAgentsView(container: HTMLElement) {
     if (!window.location.hash.startsWith('#/agents')) return;
     const seed = readSeedFromHash();
     if (seed) {
-      agentsPerfEnabled = isPerfEnabled(readAgentsParamsFromHash());
+      setAgentsPerfEnabled(readAgentsParamsFromHash());
       selectedRosterId = null;
       seedDraft = seed;
       const params = readAgentsParamsFromHash();
