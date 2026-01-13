@@ -26,20 +26,54 @@ Several TypeScript files significantly exceed the 400-line limit. This plan brea
 
 ## Phase 0: Add lint:max-lines Script
 
-Before starting, add the line-limit enforcement:
+Before starting, add the line-limit enforcement. **Use the Node script as primary** (cross-platform, faster):
 
+Create `scripts/lint-max-lines.ts`:
+```typescript
+import { readdirSync, statSync, readFileSync } from 'fs';
+import { join } from 'path';
+
+const MAX_LINES = 400;
+const SRC_DIR = 'src';
+
+function checkDir(dir: string): string[] {
+  const violations: string[] = [];
+  for (const entry of readdirSync(dir)) {
+    const path = join(dir, entry);
+    const stat = statSync(path);
+    if (stat.isDirectory()) {
+      violations.push(...checkDir(path));
+    } else if (path.endsWith('.ts')) {
+      const lines = readFileSync(path, 'utf8').split('\n').length;
+      if (lines > MAX_LINES) {
+        violations.push(`${path}: ${lines} lines (exceeds ${MAX_LINES})`);
+      }
+    }
+  }
+  return violations;
+}
+
+const violations = checkDir(SRC_DIR);
+if (violations.length > 0) {
+  console.error('Files exceeding line limit:');
+  violations.forEach(v => console.error(`  ${v}`));
+  process.exit(1);
+} else {
+  console.log(`✅ All .ts files in ${SRC_DIR}/ are ≤${MAX_LINES} lines`);
+}
+```
+
+Add to `package.json`:
 ```json
-// package.json scripts
 {
-  "lint:max-lines": "find src -name '*.ts' -exec sh -c 'lines=$(wc -l < \"$1\"); if [ $lines -gt 400 ]; then echo \"$1: $lines lines (exceeds 400)\"; exit 1; fi' _ {} \\;",
+  "lint:max-lines": "tsx scripts/lint-max-lines.ts",
   "lint": "pnpm lint:max-lines && pnpm typecheck"
 }
 ```
 
-Or use a Node script for better cross-platform support:
+Shell fallback (macOS/Linux only):
 ```bash
-# scripts/lint-max-lines.ts
-# Check all .ts files in src/, fail if any exceed 400 lines
+find src -name '*.ts' -exec sh -c 'lines=$(wc -l < "$1"); if [ $lines -gt 400 ]; then echo "$1: $lines lines"; exit 1; fi' _ {} \;
 ```
 
 ---
@@ -277,9 +311,16 @@ src/agent/facets/social/
 
 **The merged JSON remains the runtime artifact.** Module files are for authoring/editing only.
 
-- `public/agent-vocab.v1.json` - The actual file loaded by the app at runtime
+- `public/agent-vocab.v1.json` - The actual file loaded by the app at runtime via `fetch()`
 - `public/agent-vocab/*.json` - Source modules for easier editing (NOT loaded directly)
 - Merge happens at build time, producing the single runtime file
+
+**Important:** The merged file (`public/agent-vocab.v1.json`) **must be committed to git** so that:
+1. Fresh clones work without running build steps
+2. `pnpm dev` works immediately (the `predev` hook ensures it's up-to-date for ongoing development)
+3. The Vite dev server can serve it from `public/`
+
+The workflow is: edit modules → run `pnpm vocab:merge` (or let hooks run it) → commit both modules AND merged file.
 
 ### Target Structure
 ```
@@ -350,18 +391,40 @@ public/
 
 ## Verification Protocol
 
+### Nondeterministic Fields
+
+The agent generator is fully deterministic given a seed, **except** for:
+- `createdAtIso` - Timestamp of generation (uses `new Date()`)
+- `generationTrace` - Contains timing/debug info (optional, usually omitted)
+
+All other fields (including `id`, `secrets`, random selections) use the seeded RNG and are reproducible.
+
+### Baseline Location
+
+Store baseline at `scripts/fixtures/agent-baseline.json`:
+- Keeps test fixtures with test scripts
+- Committed to git (enables CI verification)
+- Create directory: `mkdir -p scripts/fixtures`
+
 ### Deterministic Test Harness
 
 Create `scripts/verify-agents.ts`:
 
 ```typescript
 import { generateAgent } from '../src/agent';
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { dirname } from 'path';
 
-const SEEDS = [
-  'baseline-001', 'baseline-002', 'baseline-003', /* ... 100 fixed seeds */
-];
-const BASELINE_PATH = 'test-fixtures/agent-baseline.json';
+// 100 fixed seeds for reproducible testing
+const SEEDS = Array.from({ length: 100 }, (_, i) => `baseline-${String(i + 1).padStart(3, '0')}`);
+const BASELINE_PATH = 'scripts/fixtures/agent-baseline.json';
+
+// Fields to ignore in comparison (nondeterministic)
+const IGNORED_FIELDS = new Set(['createdAtIso', 'generationTrace']);
+
+function stripNondeterministic(obj: unknown): unknown {
+  return JSON.parse(JSON.stringify(obj, (k, v) => IGNORED_FIELDS.has(k) ? undefined : v));
+}
 
 async function generateBaseline() {
   const vocab = JSON.parse(readFileSync('public/agent-vocab.v1.json', 'utf8'));
@@ -369,16 +432,17 @@ async function generateBaseline() {
   const countries = JSON.parse(readFileSync('public/shadow-country-map.json', 'utf8'));
 
   const agents = SEEDS.map(seed =>
-    generateAgent({ seed, vocab, priors, countries, asOfYear: 2025 })
+    stripNondeterministic(generateAgent({ seed, vocab, priors, countries, asOfYear: 2025 }))
   );
 
+  mkdirSync(dirname(BASELINE_PATH), { recursive: true });
   writeFileSync(BASELINE_PATH, JSON.stringify(agents, null, 2));
-  console.log(`Baseline saved: ${agents.length} agents`);
+  console.log(`Baseline saved: ${agents.length} agents to ${BASELINE_PATH}`);
 }
 
 async function verifyAgainstBaseline() {
   if (!existsSync(BASELINE_PATH)) {
-    throw new Error('No baseline exists. Run with --generate-baseline first.');
+    throw new Error(`No baseline exists at ${BASELINE_PATH}. Run with --generate-baseline first.`);
   }
 
   const baseline = JSON.parse(readFileSync(BASELINE_PATH, 'utf8'));
@@ -388,18 +452,12 @@ async function verifyAgainstBaseline() {
 
   let diffs = 0;
   for (let i = 0; i < SEEDS.length; i++) {
-    const agent = generateAgent({ seed: SEEDS[i], vocab, priors, countries, asOfYear: 2025 });
+    const agent = stripNondeterministic(
+      generateAgent({ seed: SEEDS[i], vocab, priors, countries, asOfYear: 2025 })
+    );
     const baselineAgent = baseline[i];
 
-    // Deep compare (ignoring generationTrace timestamps)
-    const agentClean = JSON.parse(JSON.stringify(agent, (k, v) =>
-      k === 'generationTrace' || k === 'createdAtIso' ? undefined : v
-    ));
-    const baselineClean = JSON.parse(JSON.stringify(baselineAgent, (k, v) =>
-      k === 'generationTrace' || k === 'createdAtIso' ? undefined : v
-    ));
-
-    if (JSON.stringify(agentClean) !== JSON.stringify(baselineClean)) {
+    if (JSON.stringify(agent) !== JSON.stringify(baselineAgent)) {
       console.error(`DIFF at seed ${SEEDS[i]}`);
       diffs++;
     }
@@ -436,7 +494,7 @@ Add npm scripts:
 - [ ] `pnpm build` succeeds
 - [ ] `pnpm lint:max-lines` passes (all .ts files ≤400 lines)
 - [ ] `pnpm test:baseline:verify` passes (agents identical to baseline)
-- [ ] `pnpm test:narration` passes (if exists)
+- [ ] `pnpm test:narration` passes (existing script - tests narrative generation)
 - [ ] Manual spot-check: Generate agent in UI, verify display
 
 ---
