@@ -154,7 +154,7 @@ async function copyJsonToClipboard(value: unknown): Promise<boolean> {
 
 function readSeedFromHash(): string | null {
   const hash = window.location.hash;
-  const m = hash.match(/^#\/agents\/([^?]+)(?:\?(.*))?$/);
+  const m = hash.match(/^#\/agents\/([^?]+)(?:\?.*)?$/);
   if (!m) return null;
   try {
     return decodeURIComponent(m[1] ?? '').trim() || null;
@@ -165,9 +165,16 @@ function readSeedFromHash(): string | null {
 
 function readAgentsParamsFromHash(): URLSearchParams {
   const hash = window.location.hash;
-  const m = hash.match(/^#\/agents\/[^?]+(?:\?(.*))?$/);
-  if (!m) return new URLSearchParams();
-  return new URLSearchParams(m[1] ?? '');
+  if (hash.startsWith('#/agents/')) {
+    const m = hash.match(/^#\/agents\/[^?]+(?:\?(.*))?$/);
+    return new URLSearchParams(m?.[1] ?? '');
+  }
+  if (hash.startsWith('#/agents?')) {
+    const m = hash.match(/^#\/agents\?(.*)$/);
+    return new URLSearchParams(m?.[1] ?? '');
+  }
+  if (hash === '#/agents') return new URLSearchParams();
+  return new URLSearchParams();
 }
 
 function setShareHash(seed: string, opts?: { asOfYear?: number; homeCountryIso3?: string | null }) {

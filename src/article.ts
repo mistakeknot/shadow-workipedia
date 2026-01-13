@@ -517,7 +517,7 @@ export class ArticleRouter {
       return;
     }
 
-    if (hash === '#/agents' || hash.startsWith('#/agents/')) {
+    if (hash === '#/agents' || hash.startsWith('#/agents/') || hash.startsWith('#/agents?')) {
       this.currentRoute = { kind: 'view', view: 'agents' };
       this.onRouteChange(this.currentRoute);
       return;
